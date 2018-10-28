@@ -62,5 +62,5 @@ typings/
 
 #directory for public
 public
-
 package-lock.json
+front-end/package-lock.json
