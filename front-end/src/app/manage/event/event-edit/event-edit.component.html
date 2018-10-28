@@ -1,0 +1,164 @@
+<div class="edit" *ngIf="detail">
+	<div class="action-buttons">
+        <a href="javascript:void(0)" (click)="goBack()" ><i class="fas fa-angle-double-left" title="Back"></i></a>
+	</div>
+	
+	<div class="card" style="text-align: left;">
+	  <div class="card-body">
+	    <h4 class="card-title">{{action}} Event</h4>    
+	    <form (ngSubmit)="onSubmit()" #editForm="ngForm">
+	    
+	     <div *ngIf="action == 'Edit'">
+
+	      <fieldset class="form-group">
+	        <label for="eventEditTitle">Title</label>
+
+	        <input type="text" class="form-control" id="eventEditTitle" 
+	                required
+	                
+	                
+		        	 
+	                [(ngModel)]="detail['title']" name="eventEditTitle"
+	                #eventEditTitle="ngModel">
+
+	        <div [hidden]="eventEditTitle.valid || eventEditTitle.pristine || eventEditTitle.errors.minlength"
+     			class="alert alert-danger">
+
+	          <div *ngIf="eventEditTitle.errors && eventEditTitle.errors.required">
+    	        Title is required.
+  	          </div>
+ 
+
+	        </div>
+        
+	      </fieldset>
+    
+
+	      <fieldset class="form-group">
+	        <label for="eventEditAuthor">Author</label>
+
+	        <input type="text" class="form-control" id="eventEditAuthor" 
+	                required
+	                
+	                
+		        	 
+	                [(ngModel)]="detail['author']" name="eventEditAuthor"
+	                #eventEditAuthor="ngModel">
+
+	        <div [hidden]="eventEditAuthor.valid || eventEditAuthor.pristine || eventEditAuthor.errors.minlength"
+     			class="alert alert-danger">
+
+	          <div *ngIf="eventEditAuthor.errors && eventEditAuthor.errors.required">
+    	        Author is required.
+  	          </div>
+ 
+
+	        </div>
+        
+	      </fieldset>
+    
+
+	      <fieldset class="form-group">
+	        <label for="eventEditContent">Content</label>
+    	    <div mra-richtext-select="eventEditContent"></div>
+		  	<div class="action-buttons" style="margin-top: 10px;">
+				<button type="button" class="btn btn-outline-success" (click)="onEdtiorPreview('eventEditContent')">Preview</button>
+		    </div>
+		    
+	        <div [hidden]="eventEditContent.valid"
+     			class="alert alert-danger">
+
+	          <div *ngIf="eventEditContent.errors && eventEditContent.errors.required">
+    	        Content is required.
+  	          </div>
+ 
+
+        
+	        </div>
+		    
+	      </fieldset>
+    
+
+         </div>	
+	     <div *ngIf="action == 'Create'">
+
+	      <fieldset class="form-group">
+	        <label for="eventEditTitle">Title</label>
+
+	        <input type="text" class="form-control" id="eventEditTitle" 
+	                required
+	                
+	                
+		        	 
+	                [(ngModel)]="detail['title']" name="eventEditTitle"
+	                #eventEditTitle="ngModel">
+
+	        <div [hidden]="eventEditTitle.valid || eventEditTitle.pristine || eventEditTitle.errors.minlength"
+     			class="alert alert-danger">
+
+	          <div *ngIf="eventEditTitle.errors && eventEditTitle.errors.required">
+    	        Title is required.
+  	          </div>
+ 
+
+	        </div>
+        
+	      </fieldset>
+    
+
+	      <fieldset class="form-group">
+	        <label for="eventEditAuthor">Author</label>
+
+	        <input type="text" class="form-control" id="eventEditAuthor" 
+	                required
+	                
+	                
+		        	 
+	                [(ngModel)]="detail['author']" name="eventEditAuthor"
+	                #eventEditAuthor="ngModel">
+
+	        <div [hidden]="eventEditAuthor.valid || eventEditAuthor.pristine || eventEditAuthor.errors.minlength"
+     			class="alert alert-danger">
+
+	          <div *ngIf="eventEditAuthor.errors && eventEditAuthor.errors.required">
+    	        Author is required.
+  	          </div>
+ 
+
+	        </div>
+        
+	      </fieldset>
+    
+
+	      <fieldset class="form-group">
+	        <label for="eventEditContent">Content</label>
+    	    <div mra-richtext-select="eventEditContent"></div>
+		  	<div class="action-buttons" style="margin-top: 10px;">
+				<button type="button" class="btn btn-outline-success" (click)="onEdtiorPreview('eventEditContent')">Preview</button>
+		    </div>
+		    
+	        <div [hidden]="eventEditContent.valid"
+     			class="alert alert-danger">
+
+	          <div *ngIf="eventEditContent.errors && eventEditContent.errors.required">
+    	        Content is required.
+  	          </div>
+ 
+
+        
+	        </div>
+		    
+	      </fieldset>
+    
+
+         </div>	
+         
+		<div class="action-buttons-center">
+	     	<button type="submit" class="btn btn-success" 
+     			[disabled]="!editForm.form.valid">Submit</button>
+		</div>
+	    </form>
+	  </div>
+	</div>
+</div>
+

@@ -1,0 +1,37 @@
+<div class="detail" *ngIf="detail">
+	<div class="action-buttons">
+        <a href="javascript:void(0)" (click)="goBack()"><i class="fas fa-angle-double-left" title="Back"></i></a>
+		<a [routerLink]="['../../edit', detail['_id'] ]" [skipLocationChange]="true" class="btn btn-outline-primary">Edit</a>
+		<a [routerLink]="['../../new']" [queryParams]="{cid: detail['_id']}" [skipLocationChange]="true" class="btn btn-outline-primary">New</a>
+		<a routerLink="." class="btn btn-outline-primary" (click)="onDelete(detail['_id'], null)">Delete</a>
+	</div>
+	
+	<div class="card text-left">
+	  <div class="card-body">
+	    <h4 class="card-title">{{ItemName}} Detail</h4>    
+		<div class="card-text">
+
+			<label><b>title:</b></label>
+			<span>  {{detail['title']}}
+
+			</span><br>
+			<label><b>author:</b></label>
+			<span>  {{detail['author']}}
+
+			</span><br>
+			<label><b>publishDate:</b></label>
+			<span>  {{detail['publishDate']?detail['publishDate']['value']:""}}
+
+			</span><br>
+			<label><b>content:</b></label>
+			<span> 
+	            	 <div mra-richtext-show="eventDetailContent"></div>
+	            	{{detail['content']?detail['content']['value']:""}}
+
+			</span><br>
+		</div>
+	  </div>
+	</div>
+
+    <router-outlet></router-outlet>
+</div>
