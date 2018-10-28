@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "devstart": "DEBUG=express:*; nodemon ./bin/www",
+    "windevstart": "set DEBUG=express:* & nodemon ./bin/www"
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
@@ -12,6 +14,7 @@
     "mongoose": "^5.2.15",
     "http-errors": "~1.6.2",
     "morgan": "~1.9.0",
-    "pug": "2.0.0-beta11"
+    "pug": "2.0.0-beta11",
+    "mean-rest-express": "^0.1.0"
   }
 }
