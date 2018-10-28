@@ -2,7 +2,7 @@ var moment = require('moment');
 
 var mongoose = require('mongoose');
 
-var Schema = mongoose.Schema;
+var schema = mongoose.Schema;
 
 var StudentCourseInstanceAssociationSchema = new Schema(
   {
