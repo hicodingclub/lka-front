@@ -21,10 +21,10 @@ studentSchema
 
 var studentBrief = "first_name last_name";
 var studentDetail = "first_name last_name date_of_birth email grade";
-var studentCreat = "first_name last_name grade";
-var studentEdit = "first_name last_name grade";
-var studentTextSearch = "first_name last_name grade";
-var studentIndex = "name";
+var studentCreat = "first_name last_name date_of_birth email grade";
+var studentEdit = "first_name last_name date_of_birth email grade";
+var studentTextSearch = "first_name last_name date_of_birth email grade";
+var studentIndex = "email";
 
 var views = [studentBrief, studentDetail, studentCreat, studentEdit, studentTextSearch, studentIndex]
 
