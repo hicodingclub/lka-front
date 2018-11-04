@@ -19,6 +19,21 @@ import { EventDetailComponent } from './event/event-detail/event-detail.componen
 import { EventEditComponent } from './event/event-edit/event-edit.component';
 import { EventService } from './event/event.service';
 
+import { StudentListComponent } from './student/student-list/student-list.component';
+import { StudentDetailComponent } from './student/student-detail/student-detail.component';
+import { StudentEditComponent } from './student/student-edit/student-edit.component';
+import { StudentService } from './student/student.service';
+
+import { TeacherListComponent } from './teacher/teacher-list/teacher-list.component';
+import { TeacherDetailComponent } from './teacher/teacher-detail/teacher-detail.component';
+import { TeacherEditComponent } from './teacher/teacher-edit/teacher-edit.component';
+import { TeacherService } from './teacher/teacher.service';
+
+import { CourseListComponent } from './course/course-list/course-list.component';
+import { CourseDetailComponent } from './course/course-detail/course-detail.component';
+import { CourseEditComponent } from './course/course-edit/course-edit.component';
+import { CourseService } from './course/course.service';
+
 
 
 
@@ -41,6 +56,15 @@ import { EventService } from './event/event.service';
     EventListComponent, 
     EventDetailComponent, 
     EventEditComponent,
+    StudentListComponent, 
+    StudentDetailComponent, 
+    StudentEditComponent,
+    TeacherListComponent, 
+    TeacherDetailComponent, 
+    TeacherEditComponent,
+    CourseListComponent, 
+    CourseDetailComponent, 
+    CourseEditComponent,
 
 
 
@@ -51,6 +75,15 @@ import { EventService } from './event/event.service';
     EventListComponent,
     EventDetailComponent,
     EventEditComponent,
+    StudentListComponent,
+    StudentDetailComponent,
+    StudentEditComponent,
+    TeacherListComponent,
+    TeacherDetailComponent,
+    TeacherEditComponent,
+    CourseListComponent,
+    CourseDetailComponent,
+    CourseEditComponent,
 
 
   ],
@@ -59,6 +92,9 @@ import { EventService } from './event/event.service';
     {provide: NgbDateParserFormatter, useClass: MraNgbDateFormatterService},
 
     EventService,
+    StudentService,
+    TeacherService,
+    CourseService,
   ],
 
 })

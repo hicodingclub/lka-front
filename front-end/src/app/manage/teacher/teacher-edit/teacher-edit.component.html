@@ -1,0 +1,260 @@
+<div class="edit" *ngIf="detail">
+	<div class="action-buttons">
+        <a href="javascript:void(0)" (click)="goBack()" ><i class="fas fa-angle-double-left" title="Back"></i></a>
+	</div>
+	
+	<div class="card" style="text-align: left;">
+	  <div class="card-body">
+	    <h4 class="card-title">{{action}} Teacher</h4>    
+	    <form (ngSubmit)="onSubmit()" #editForm="ngForm">
+	    
+	     <div *ngIf="action == 'Edit'">
+
+	      <fieldset class="form-group">
+	        <label for="teacherEditFirstName">FirstName</label>
+
+	        <input type="text" class="form-control" id="teacherEditFirstName" 
+	                required
+	                
+	                
+		        	 
+	                [(ngModel)]="detail['firstName']" name="teacherEditFirstName"
+	                #teacherEditFirstName="ngModel">
+
+	        <div [hidden]="teacherEditFirstName.valid || teacherEditFirstName.pristine || teacherEditFirstName.errors.minlength"
+     			class="alert alert-danger">
+
+	          <div *ngIf="teacherEditFirstName.errors && teacherEditFirstName.errors.required">
+    	        FirstName is required.
+  	          </div>
+ 
+
+	        </div>
+        
+	      </fieldset>
+    
+
+	      <fieldset class="form-group">
+	        <label for="teacherEditLastName">LastName</label>
+
+	        <input type="text" class="form-control" id="teacherEditLastName" 
+	                required
+	                
+	                
+		        	 
+	                [(ngModel)]="detail['lastName']" name="teacherEditLastName"
+	                #teacherEditLastName="ngModel">
+
+	        <div [hidden]="teacherEditLastName.valid || teacherEditLastName.pristine || teacherEditLastName.errors.minlength"
+     			class="alert alert-danger">
+
+	          <div *ngIf="teacherEditLastName.errors && teacherEditLastName.errors.required">
+    	        LastName is required.
+  	          </div>
+ 
+
+	        </div>
+        
+	      </fieldset>
+    
+
+	      <fieldset class="form-group">
+	        <label for="teacherEditIntroduction">Introduction</label>
+
+	        <input type="text" class="form-control" id="teacherEditIntroduction" 
+	                required
+	                
+	                
+		        	 
+	                [(ngModel)]="detail['introduction']" name="teacherEditIntroduction"
+	                #teacherEditIntroduction="ngModel">
+
+	        <div [hidden]="teacherEditIntroduction.valid || teacherEditIntroduction.pristine || teacherEditIntroduction.errors.minlength"
+     			class="alert alert-danger">
+
+	          <div *ngIf="teacherEditIntroduction.errors && teacherEditIntroduction.errors.required">
+    	        Introduction is required.
+  	          </div>
+ 
+
+	        </div>
+        
+	      </fieldset>
+    
+
+	      <fieldset class="form-group">
+	        <label for="teacherEditEmail">Email</label>
+
+	        <input type="text" class="form-control" id="teacherEditEmail" 
+	                required
+	                
+	                
+		        	 
+	                [(ngModel)]="detail['email']" name="teacherEditEmail"
+	                #teacherEditEmail="ngModel">
+
+	        <div [hidden]="teacherEditEmail.valid || teacherEditEmail.pristine || teacherEditEmail.errors.minlength"
+     			class="alert alert-danger">
+
+	          <div *ngIf="teacherEditEmail.errors && teacherEditEmail.errors.required">
+    	        Email is required.
+  	          </div>
+ 
+
+	        </div>
+        
+	      </fieldset>
+    
+
+	      <fieldset class="form-group">
+	        <label for="teacherEditPhoneNumber">PhoneNumber</label>
+
+	        <input type="text" class="form-control" id="teacherEditPhoneNumber" 
+	                
+	                
+	                
+		        	 
+	                [(ngModel)]="detail['phoneNumber']" name="teacherEditPhoneNumber"
+	                #teacherEditPhoneNumber="ngModel">
+
+	        <div [hidden]="teacherEditPhoneNumber.valid || teacherEditPhoneNumber.pristine || teacherEditPhoneNumber.errors.minlength"
+     			class="alert alert-danger">
+
+ 
+
+	        </div>
+        
+	      </fieldset>
+    
+
+         </div>	
+	     <div *ngIf="action == 'Create'">
+
+	      <fieldset class="form-group">
+	        <label for="teacherEditFirstName">FirstName</label>
+
+	        <input type="text" class="form-control" id="teacherEditFirstName" 
+	                required
+	                
+	                
+		        	 
+	                [(ngModel)]="detail['firstName']" name="teacherEditFirstName"
+	                #teacherEditFirstName="ngModel">
+
+	        <div [hidden]="teacherEditFirstName.valid || teacherEditFirstName.pristine || teacherEditFirstName.errors.minlength"
+     			class="alert alert-danger">
+
+	          <div *ngIf="teacherEditFirstName.errors && teacherEditFirstName.errors.required">
+    	        FirstName is required.
+  	          </div>
+ 
+
+	        </div>
+        
+	      </fieldset>
+    
+
+	      <fieldset class="form-group">
+	        <label for="teacherEditLastName">LastName</label>
+
+	        <input type="text" class="form-control" id="teacherEditLastName" 
+	                required
+	                
+	                
+		        	 
+	                [(ngModel)]="detail['lastName']" name="teacherEditLastName"
+	                #teacherEditLastName="ngModel">
+
+	        <div [hidden]="teacherEditLastName.valid || teacherEditLastName.pristine || teacherEditLastName.errors.minlength"
+     			class="alert alert-danger">
+
+	          <div *ngIf="teacherEditLastName.errors && teacherEditLastName.errors.required">
+    	        LastName is required.
+  	          </div>
+ 
+
+	        </div>
+        
+	      </fieldset>
+    
+
+	      <fieldset class="form-group">
+	        <label for="teacherEditIntroduction">Introduction</label>
+
+	        <input type="text" class="form-control" id="teacherEditIntroduction" 
+	                required
+	                
+	                
+		        	 
+	                [(ngModel)]="detail['introduction']" name="teacherEditIntroduction"
+	                #teacherEditIntroduction="ngModel">
+
+	        <div [hidden]="teacherEditIntroduction.valid || teacherEditIntroduction.pristine || teacherEditIntroduction.errors.minlength"
+     			class="alert alert-danger">
+
+	          <div *ngIf="teacherEditIntroduction.errors && teacherEditIntroduction.errors.required">
+    	        Introduction is required.
+  	          </div>
+ 
+
+	        </div>
+        
+	      </fieldset>
+    
+
+	      <fieldset class="form-group">
+	        <label for="teacherEditEmail">Email</label>
+
+	        <input type="text" class="form-control" id="teacherEditEmail" 
+	                required
+	                
+	                
+		        	 
+	                [(ngModel)]="detail['email']" name="teacherEditEmail"
+	                #teacherEditEmail="ngModel">
+
+	        <div [hidden]="teacherEditEmail.valid || teacherEditEmail.pristine || teacherEditEmail.errors.minlength"
+     			class="alert alert-danger">
+
+	          <div *ngIf="teacherEditEmail.errors && teacherEditEmail.errors.required">
+    	        Email is required.
+  	          </div>
+ 
+
+	        </div>
+        
+	      </fieldset>
+    
+
+	      <fieldset class="form-group">
+	        <label for="teacherEditPhoneNumber">PhoneNumber</label>
+
+	        <input type="text" class="form-control" id="teacherEditPhoneNumber" 
+	                
+	                
+	                
+		        	 
+	                [(ngModel)]="detail['phoneNumber']" name="teacherEditPhoneNumber"
+	                #teacherEditPhoneNumber="ngModel">
+
+	        <div [hidden]="teacherEditPhoneNumber.valid || teacherEditPhoneNumber.pristine || teacherEditPhoneNumber.errors.minlength"
+     			class="alert alert-danger">
+
+ 
+
+	        </div>
+        
+	      </fieldset>
+    
+
+         </div>	
+         
+		<div class="action-buttons-center">
+	     	<button type="submit" class="btn btn-success" 
+     			[disabled]="!editForm.form.valid">Submit</button>
+		</div>
+	    </form>
+	  </div>
+	</div>
+</div>
+

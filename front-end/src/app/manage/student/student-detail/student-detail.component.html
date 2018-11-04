@@ -1,0 +1,39 @@
+<div class="detail" *ngIf="detail">
+	<div class="action-buttons">
+        <a href="javascript:void(0)" (click)="goBack()"><i class="fas fa-angle-double-left" title="Back"></i></a>
+		<a [routerLink]="['../../edit', detail['_id'] ]" [skipLocationChange]="true" class="btn btn-outline-primary">Edit</a>
+		<a [routerLink]="['../../new']" [queryParams]="{cid: detail['_id']}" [skipLocationChange]="true" class="btn btn-outline-primary">New</a>
+		<a routerLink="." class="btn btn-outline-primary" (click)="onDelete(detail['_id'], null)">Delete</a>
+	</div>
+	
+	<div class="card text-left">
+	  <div class="card-body">
+	    <h4 class="card-title">{{ItemName}} Detail</h4>    
+		<div class="card-text">
+
+			<label><b>first_name:</b></label>
+			<span>  {{detail['first_name']}}
+
+			</span><br>
+			<label><b>last_name:</b></label>
+			<span>  {{detail['last_name']}}
+
+			</span><br>
+			<label><b>date_of_birth:</b></label>
+			<span>  {{detail['date_of_birth']?detail['date_of_birth']['value']:""}}
+
+			</span><br>
+			<label><b>email:</b></label>
+			<span>  {{detail['email']}}
+
+			</span><br>
+			<label><b>grade:</b></label>
+			<span>  {{detail['grade']}}
+
+			</span><br>
+		</div>
+	  </div>
+	</div>
+
+    <router-outlet></router-outlet>
+</div>

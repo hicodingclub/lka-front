@@ -1,0 +1,46 @@
+import { Component, OnInit, Input } from '@angular/core';
+import { Location } from '@angular/common';
+import { Router, ActivatedRoute }    from '@angular/router';
+import { MraCommonService } from 'mean-rest-angular';
+
+import { CourseComponent, ViewType } from '../course.component';
+import { CourseService } from '../course.service';
+
+
+
+
+@Component({
+  selector: 'app-course-detail',
+  templateUrl: './course-detail.component.html',
+  styleUrls: ['./course-detail.component.css']
+})
+export class CourseDetailComponent extends CourseComponent implements OnInit {
+  @Input() 
+  protected id:string;
+
+
+  constructor(
+      
+      protected courseService: CourseService,
+      protected commonService: MraCommonService,
+      protected router: Router,
+      protected route: ActivatedRoute,
+      protected location: Location) {
+          super(
+                courseService, commonService, router, route, location, ViewType.DETAIL);
+
+
+          this.stringFields.push('title');
+          this.stringFields.push('description');
+
+
+          this.dateFields = ['time','length',];
+
+  }
+
+  ngOnInit() {
+      if (!this.id) this.id = this.route.snapshot.paramMap.get('id');
+      if (this.id) this.populateDetail(this.id);
+      else console.error("Routing error for detail view... no id...");
+  }
+}

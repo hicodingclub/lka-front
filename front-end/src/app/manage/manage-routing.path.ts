@@ -5,6 +5,21 @@ import { EventDetailComponent } from './event/event-detail/event-detail.componen
 import { EventEditComponent } from './event/event-edit/event-edit.component';
     
 
+import { StudentListComponent } from './student/student-list/student-list.component';
+import { StudentDetailComponent } from './student/student-detail/student-detail.component';
+import { StudentEditComponent } from './student/student-edit/student-edit.component';
+    
+
+import { TeacherListComponent } from './teacher/teacher-list/teacher-list.component';
+import { TeacherDetailComponent } from './teacher/teacher-detail/teacher-detail.component';
+import { TeacherEditComponent } from './teacher/teacher-edit/teacher-edit.component';
+    
+
+import { CourseListComponent } from './course/course-list/course-list.component';
+import { CourseDetailComponent } from './course/course-detail/course-detail.component';
+import { CourseEditComponent } from './course/course-edit/course-edit.component';
+    
+
 
 
 
@@ -14,5 +29,29 @@ export const eventRoutingPath = [
     {path: 'detail/:id', component: EventDetailComponent},
     {path: 'edit/:id', component: EventEditComponent},
     {path: 'new', component: EventEditComponent},
+    {path: '**', redirectTo: 'list', pathMatch: 'full'}
+];
+
+export const studentRoutingPath = [
+    {path: 'list', component: StudentListComponent},
+    {path: 'detail/:id', component: StudentDetailComponent},
+    {path: 'edit/:id', component: StudentEditComponent},
+    {path: 'new', component: StudentEditComponent},
+    {path: '**', redirectTo: 'list', pathMatch: 'full'}
+];
+
+export const teacherRoutingPath = [
+    {path: 'list', component: TeacherListComponent},
+    {path: 'detail/:id', component: TeacherDetailComponent},
+    {path: 'edit/:id', component: TeacherEditComponent},
+    {path: 'new', component: TeacherEditComponent},
+    {path: '**', redirectTo: 'list', pathMatch: 'full'}
+];
+
+export const courseRoutingPath = [
+    {path: 'list', component: CourseListComponent},
+    {path: 'detail/:id', component: CourseDetailComponent},
+    {path: 'edit/:id', component: CourseEditComponent},
+    {path: 'new', component: CourseEditComponent},
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];

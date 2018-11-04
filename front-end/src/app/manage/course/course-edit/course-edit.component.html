@@ -1,0 +1,240 @@
+<div class="edit" *ngIf="detail">
+	<div class="action-buttons">
+        <a href="javascript:void(0)" (click)="goBack()" ><i class="fas fa-angle-double-left" title="Back"></i></a>
+	</div>
+	
+	<div class="card" style="text-align: left;">
+	  <div class="card-body">
+	    <h4 class="card-title">{{action}} Course</h4>    
+	    <form (ngSubmit)="onSubmit()" #editForm="ngForm">
+	    
+	     <div *ngIf="action == 'Edit'">
+
+	      <fieldset class="form-group">
+	        <label for="courseEditTitle">Title</label>
+
+	        <input type="text" class="form-control" id="courseEditTitle" 
+	                required
+	                
+	                
+		        	 
+	                [(ngModel)]="detail['title']" name="courseEditTitle"
+	                #courseEditTitle="ngModel">
+
+	        <div [hidden]="courseEditTitle.valid || courseEditTitle.pristine || courseEditTitle.errors.minlength"
+     			class="alert alert-danger">
+
+	          <div *ngIf="courseEditTitle.errors && courseEditTitle.errors.required">
+    	        Title is required.
+  	          </div>
+ 
+
+	        </div>
+        
+	      </fieldset>
+    
+
+	      <fieldset class="form-group">
+	        <label for="courseEditTime">Time </label> <span> (MM-DD-YYYY)</span>
+	        <div class="input-group">
+		      <input class="form-control" id="courseEditTime" placeholder="MM-DD-YYYY"
+	                 required
+		        	  
+		             [(ngModel)]="detail['time']['date']" name="courseEditTime"
+		             ngbDatepicker #courseEditTimeDate="ngbDatepicker" #courseEditTime="ngModel">
+		      <div class="input-group-append">
+		        <button class="btn btn-outline-secondary" (click)="courseEditTimeDate.toggle()" type="button">
+		          <i class="fas fa-calendar-alt"></i>
+		        </button>
+		      </div>
+		    </div><!-- input group -->         
+	        <div [hidden]="courseEditTime.valid || courseEditTime.pristine || (courseEditTime.errors && courseEditTime.errors.ngbDate)"
+	             class="alert alert-danger">
+
+	          <div *ngIf="courseEditTime.errors && courseEditTime.errors.required && !(detail['time']?.date)">
+    	        Time is required.
+  	          </div>
+ 
+	        </div>
+	        <div [hidden]="courseEditTime.valid || courseEditTime.untouched || !(courseEditTime.errors && courseEditTime.errors.ngbDate)"
+     			class="alert alert-danger">
+	          <div *ngIf="courseEditTime.errors && courseEditTime.errors.ngbDate">
+    	        Time must be in MM-DD-YYYY format.
+  	          </div>
+	        </div>
+	      </fieldset>
+    
+
+	      <fieldset class="form-group">
+	        <label for="courseEditDescription">Description</label>
+
+	        <input type="text" class="form-control" id="courseEditDescription" 
+	                required
+	                
+	                
+		        	 
+	                [(ngModel)]="detail['description']" name="courseEditDescription"
+	                #courseEditDescription="ngModel">
+
+	        <div [hidden]="courseEditDescription.valid || courseEditDescription.pristine || courseEditDescription.errors.minlength"
+     			class="alert alert-danger">
+
+	          <div *ngIf="courseEditDescription.errors && courseEditDescription.errors.required">
+    	        Description is required.
+  	          </div>
+ 
+
+	        </div>
+        
+	      </fieldset>
+    
+
+	      <fieldset class="form-group">
+	        <label for="courseEditLength">Length </label> <span> (MM-DD-YYYY)</span>
+	        <div class="input-group">
+		      <input class="form-control" id="courseEditLength" placeholder="MM-DD-YYYY"
+	                 
+		        	  
+		             [(ngModel)]="detail['length']['date']" name="courseEditLength"
+		             ngbDatepicker #courseEditLengthDate="ngbDatepicker" #courseEditLength="ngModel">
+		      <div class="input-group-append">
+		        <button class="btn btn-outline-secondary" (click)="courseEditLengthDate.toggle()" type="button">
+		          <i class="fas fa-calendar-alt"></i>
+		        </button>
+		      </div>
+		    </div><!-- input group -->         
+	        <div [hidden]="courseEditLength.valid || courseEditLength.pristine || (courseEditLength.errors && courseEditLength.errors.ngbDate)"
+	             class="alert alert-danger">
+
+ 
+	        </div>
+	        <div [hidden]="courseEditLength.valid || courseEditLength.untouched || !(courseEditLength.errors && courseEditLength.errors.ngbDate)"
+     			class="alert alert-danger">
+	          <div *ngIf="courseEditLength.errors && courseEditLength.errors.ngbDate">
+    	        Length must be in MM-DD-YYYY format.
+  	          </div>
+	        </div>
+	      </fieldset>
+    
+
+         </div>	
+	     <div *ngIf="action == 'Create'">
+
+	      <fieldset class="form-group">
+	        <label for="courseEditTitle">Title</label>
+
+	        <input type="text" class="form-control" id="courseEditTitle" 
+	                required
+	                
+	                
+		        	 
+	                [(ngModel)]="detail['title']" name="courseEditTitle"
+	                #courseEditTitle="ngModel">
+
+	        <div [hidden]="courseEditTitle.valid || courseEditTitle.pristine || courseEditTitle.errors.minlength"
+     			class="alert alert-danger">
+
+	          <div *ngIf="courseEditTitle.errors && courseEditTitle.errors.required">
+    	        Title is required.
+  	          </div>
+ 
+
+	        </div>
+        
+	      </fieldset>
+    
+
+	      <fieldset class="form-group">
+	        <label for="courseEditTime">Time </label> <span> (MM-DD-YYYY)</span>
+	        <div class="input-group">
+		      <input class="form-control" id="courseEditTime" placeholder="MM-DD-YYYY"
+	                 required
+		        	  
+		             [(ngModel)]="detail['time']['date']" name="courseEditTime"
+		             ngbDatepicker #courseEditTimeDate="ngbDatepicker" #courseEditTime="ngModel">
+		      <div class="input-group-append">
+		        <button class="btn btn-outline-secondary" (click)="courseEditTimeDate.toggle()" type="button">
+		          <i class="fas fa-calendar-alt"></i>
+		        </button>
+		      </div>
+		    </div><!-- input group -->         
+	        <div [hidden]="courseEditTime.valid || courseEditTime.pristine || (courseEditTime.errors && courseEditTime.errors.ngbDate)"
+	             class="alert alert-danger">
+
+	          <div *ngIf="courseEditTime.errors && courseEditTime.errors.required && !(detail['time']?.date)">
+    	        Time is required.
+  	          </div>
+ 
+	        </div>
+	        <div [hidden]="courseEditTime.valid || courseEditTime.untouched || !(courseEditTime.errors && courseEditTime.errors.ngbDate)"
+     			class="alert alert-danger">
+	          <div *ngIf="courseEditTime.errors && courseEditTime.errors.ngbDate">
+    	        Time must be in MM-DD-YYYY format.
+  	          </div>
+	        </div>
+	      </fieldset>
+    
+
+	      <fieldset class="form-group">
+	        <label for="courseEditDescription">Description</label>
+
+	        <input type="text" class="form-control" id="courseEditDescription" 
+	                required
+	                
+	                
+		        	 
+	                [(ngModel)]="detail['description']" name="courseEditDescription"
+	                #courseEditDescription="ngModel">
+
+	        <div [hidden]="courseEditDescription.valid || courseEditDescription.pristine || courseEditDescription.errors.minlength"
+     			class="alert alert-danger">
+
+	          <div *ngIf="courseEditDescription.errors && courseEditDescription.errors.required">
+    	        Description is required.
+  	          </div>
+ 
+
+	        </div>
+        
+	      </fieldset>
+    
+
+	      <fieldset class="form-group">
+	        <label for="courseEditLength">Length </label> <span> (MM-DD-YYYY)</span>
+	        <div class="input-group">
+		      <input class="form-control" id="courseEditLength" placeholder="MM-DD-YYYY"
+	                 
+		        	  
+		             [(ngModel)]="detail['length']['date']" name="courseEditLength"
+		             ngbDatepicker #courseEditLengthDate="ngbDatepicker" #courseEditLength="ngModel">
+		      <div class="input-group-append">
+		        <button class="btn btn-outline-secondary" (click)="courseEditLengthDate.toggle()" type="button">
+		          <i class="fas fa-calendar-alt"></i>
+		        </button>
+		      </div>
+		    </div><!-- input group -->         
+	        <div [hidden]="courseEditLength.valid || courseEditLength.pristine || (courseEditLength.errors && courseEditLength.errors.ngbDate)"
+	             class="alert alert-danger">
+
+ 
+	        </div>
+	        <div [hidden]="courseEditLength.valid || courseEditLength.untouched || !(courseEditLength.errors && courseEditLength.errors.ngbDate)"
+     			class="alert alert-danger">
+	          <div *ngIf="courseEditLength.errors && courseEditLength.errors.ngbDate">
+    	        Length must be in MM-DD-YYYY format.
+  	          </div>
+	        </div>
+	      </fieldset>
+    
+
+         </div>	
+         
+		<div class="action-buttons-center">
+	     	<button type="submit" class="btn btn-success" 
+     			[disabled]="!editForm.form.valid">Submit</button>
+		</div>
+	    </form>
+	  </div>
+	</div>
+</div>
+

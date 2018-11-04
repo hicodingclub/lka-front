@@ -1,0 +1,166 @@
+<div class="edit" *ngIf="detail">
+	<div class="action-buttons">
+        <a href="javascript:void(0)" (click)="goBack()" ><i class="fas fa-angle-double-left" title="Back"></i></a>
+	</div>
+	
+	<div class="card" style="text-align: left;">
+	  <div class="card-body">
+	    <h4 class="card-title">{{action}} Student</h4>    
+	    <form (ngSubmit)="onSubmit()" #editForm="ngForm">
+	    
+	     <div *ngIf="action == 'Edit'">
+
+	      <fieldset class="form-group">
+	        <label for="studentEditFirst_name">First_name</label>
+
+	        <input type="text" class="form-control" id="studentEditFirst_name" 
+	                required
+	                
+	                
+		        	 
+	                [(ngModel)]="detail['first_name']" name="studentEditFirst_name"
+	                #studentEditFirst_name="ngModel">
+
+	        <div [hidden]="studentEditFirst_name.valid || studentEditFirst_name.pristine || studentEditFirst_name.errors.minlength"
+     			class="alert alert-danger">
+
+	          <div *ngIf="studentEditFirst_name.errors && studentEditFirst_name.errors.required">
+    	        First_name is required.
+  	          </div>
+ 
+
+	        </div>
+        
+	      </fieldset>
+    
+
+	      <fieldset class="form-group">
+	        <label for="studentEditLast_name">Last_name</label>
+
+	        <input type="text" class="form-control" id="studentEditLast_name" 
+	                required
+	                
+	                
+		        	 
+	                [(ngModel)]="detail['last_name']" name="studentEditLast_name"
+	                #studentEditLast_name="ngModel">
+
+	        <div [hidden]="studentEditLast_name.valid || studentEditLast_name.pristine || studentEditLast_name.errors.minlength"
+     			class="alert alert-danger">
+
+	          <div *ngIf="studentEditLast_name.errors && studentEditLast_name.errors.required">
+    	        Last_name is required.
+  	          </div>
+ 
+
+	        </div>
+        
+	      </fieldset>
+    
+
+	      <fieldset class="form-group">
+	        <label for="studentEditGrade">Grade</label>
+	        <input type="number" class="form-control" id="studentEditGrade" 
+	                
+	                
+	                required
+		        	 
+	                [(ngModel)]="detail['grade']" name="studentEditGrade"
+	                #studentEditGrade="ngModel">
+	        <div [hidden]="studentEditGrade.valid || studentEditGrade.pristine || studentEditGrade.errors.minnumber"
+     			class="alert alert-danger">
+
+	          <div *ngIf="studentEditGrade.errors && studentEditGrade.errors.required">
+    	        Grade is required.
+  	          </div>
+ 
+
+	        </div>
+
+	      </fieldset>
+    
+
+         </div>	
+	     <div *ngIf="action == 'Create'">
+
+	      <fieldset class="form-group">
+	        <label for="studentEditFirst_name">First_name</label>
+
+	        <input type="text" class="form-control" id="studentEditFirst_name" 
+	                required
+	                
+	                
+		        	 
+	                [(ngModel)]="detail['first_name']" name="studentEditFirst_name"
+	                #studentEditFirst_name="ngModel">
+
+	        <div [hidden]="studentEditFirst_name.valid || studentEditFirst_name.pristine || studentEditFirst_name.errors.minlength"
+     			class="alert alert-danger">
+
+	          <div *ngIf="studentEditFirst_name.errors && studentEditFirst_name.errors.required">
+    	        First_name is required.
+  	          </div>
+ 
+
+	        </div>
+        
+	      </fieldset>
+    
+
+	      <fieldset class="form-group">
+	        <label for="studentEditLast_name">Last_name</label>
+
+	        <input type="text" class="form-control" id="studentEditLast_name" 
+	                required
+	                
+	                
+		        	 
+	                [(ngModel)]="detail['last_name']" name="studentEditLast_name"
+	                #studentEditLast_name="ngModel">
+
+	        <div [hidden]="studentEditLast_name.valid || studentEditLast_name.pristine || studentEditLast_name.errors.minlength"
+     			class="alert alert-danger">
+
+	          <div *ngIf="studentEditLast_name.errors && studentEditLast_name.errors.required">
+    	        Last_name is required.
+  	          </div>
+ 
+
+	        </div>
+        
+	      </fieldset>
+    
+
+	      <fieldset class="form-group">
+	        <label for="studentEditGrade">Grade</label>
+	        <input type="number" class="form-control" id="studentEditGrade" 
+	                
+	                
+	                required
+		        	 
+	                [(ngModel)]="detail['grade']" name="studentEditGrade"
+	                #studentEditGrade="ngModel">
+	        <div [hidden]="studentEditGrade.valid || studentEditGrade.pristine || studentEditGrade.errors.minnumber"
+     			class="alert alert-danger">
+
+	          <div *ngIf="studentEditGrade.errors && studentEditGrade.errors.required">
+    	        Grade is required.
+  	          </div>
+ 
+
+	        </div>
+
+	      </fieldset>
+    
+
+         </div>	
+         
+		<div class="action-buttons-center">
+	     	<button type="submit" class="btn btn-success" 
+     			[disabled]="!editForm.form.valid">Submit</button>
+		</div>
+	    </form>
+	  </div>
+	</div>
+</div>
+
