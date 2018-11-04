@@ -38,7 +38,6 @@ app.use('/users', usersRouter);
 app.use('/api/manage', lkaRouter);
 
 app.get(/.*/, function(req, res, next) {
-  console.log(req);
   if (req.accepts('html')) {
 	  return res.sendFile(path.join(__dirname, './public/index.html'));
   } else {
