@@ -26,6 +26,6 @@ export class StudentComponent extends BaseComponent {
       protected view: ViewType ) {
         super(studentService, commonService, router, route, location, view, itemName);
         this.dateFormat = "MM-DD-YYYY";
-        this.indexFields = [];
+        this.indexFields = ['email',];
     }
 }

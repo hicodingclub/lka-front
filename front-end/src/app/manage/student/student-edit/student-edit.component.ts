@@ -36,8 +36,10 @@ export class StudentEditComponent extends StudentComponent implements OnInit {
 
           this.stringFields.push('first_name');
           this.stringFields.push('last_name');
+          this.stringFields.push('email');
 
 
+          this.dateFields = ['date_of_birth',];
 
           
           let detail = {};

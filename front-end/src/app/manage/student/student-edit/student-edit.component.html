@@ -59,6 +59,58 @@
     
 
 	      <fieldset class="form-group">
+	        <label for="studentEditDate_of_birth">Date_of_birth </label> <span> (MM-DD-YYYY)</span>
+	        <div class="input-group">
+		      <input class="form-control" id="studentEditDate_of_birth" placeholder="MM-DD-YYYY"
+	                 
+		        	  
+		             [(ngModel)]="detail['date_of_birth']['date']" name="studentEditDate_of_birth"
+		             ngbDatepicker #studentEditDate_of_birthDate="ngbDatepicker" #studentEditDate_of_birth="ngModel">
+		      <div class="input-group-append">
+		        <button class="btn btn-outline-secondary" (click)="studentEditDate_of_birthDate.toggle()" type="button">
+		          <i class="fas fa-calendar-alt"></i>
+		        </button>
+		      </div>
+		    </div><!-- input group -->         
+	        <div [hidden]="studentEditDate_of_birth.valid || studentEditDate_of_birth.pristine || (studentEditDate_of_birth.errors && studentEditDate_of_birth.errors.ngbDate)"
+	             class="alert alert-danger">
+
+ 
+	        </div>
+	        <div [hidden]="studentEditDate_of_birth.valid || studentEditDate_of_birth.untouched || !(studentEditDate_of_birth.errors && studentEditDate_of_birth.errors.ngbDate)"
+     			class="alert alert-danger">
+	          <div *ngIf="studentEditDate_of_birth.errors && studentEditDate_of_birth.errors.ngbDate">
+    	        Date_of_birth must be in MM-DD-YYYY format.
+  	          </div>
+	        </div>
+	      </fieldset>
+    
+
+	      <fieldset class="form-group">
+	        <label for="studentEditEmail">Email</label>
+
+	        <input type="text" class="form-control" id="studentEditEmail" 
+	                required
+	                
+	                
+		        	 
+	                [(ngModel)]="detail['email']" name="studentEditEmail"
+	                #studentEditEmail="ngModel">
+
+	        <div [hidden]="studentEditEmail.valid || studentEditEmail.pristine || studentEditEmail.errors.minlength"
+     			class="alert alert-danger">
+
+	          <div *ngIf="studentEditEmail.errors && studentEditEmail.errors.required">
+    	        Email is required.
+  	          </div>
+ 
+
+	        </div>
+        
+	      </fieldset>
+    
+
+	      <fieldset class="form-group">
 	        <label for="studentEditGrade">Grade</label>
 	        <input type="number" class="form-control" id="studentEditGrade" 
 	                
@@ -123,6 +175,58 @@
 
 	          <div *ngIf="studentEditLast_name.errors && studentEditLast_name.errors.required">
     	        Last_name is required.
+  	          </div>
+ 
+
+	        </div>
+        
+	      </fieldset>
+    
+
+	      <fieldset class="form-group">
+	        <label for="studentEditDate_of_birth">Date_of_birth </label> <span> (MM-DD-YYYY)</span>
+	        <div class="input-group">
+		      <input class="form-control" id="studentEditDate_of_birth" placeholder="MM-DD-YYYY"
+	                 
+		        	  
+		             [(ngModel)]="detail['date_of_birth']['date']" name="studentEditDate_of_birth"
+		             ngbDatepicker #studentEditDate_of_birthDate="ngbDatepicker" #studentEditDate_of_birth="ngModel">
+		      <div class="input-group-append">
+		        <button class="btn btn-outline-secondary" (click)="studentEditDate_of_birthDate.toggle()" type="button">
+		          <i class="fas fa-calendar-alt"></i>
+		        </button>
+		      </div>
+		    </div><!-- input group -->         
+	        <div [hidden]="studentEditDate_of_birth.valid || studentEditDate_of_birth.pristine || (studentEditDate_of_birth.errors && studentEditDate_of_birth.errors.ngbDate)"
+	             class="alert alert-danger">
+
+ 
+	        </div>
+	        <div [hidden]="studentEditDate_of_birth.valid || studentEditDate_of_birth.untouched || !(studentEditDate_of_birth.errors && studentEditDate_of_birth.errors.ngbDate)"
+     			class="alert alert-danger">
+	          <div *ngIf="studentEditDate_of_birth.errors && studentEditDate_of_birth.errors.ngbDate">
+    	        Date_of_birth must be in MM-DD-YYYY format.
+  	          </div>
+	        </div>
+	      </fieldset>
+    
+
+	      <fieldset class="form-group">
+	        <label for="studentEditEmail">Email</label>
+
+	        <input type="text" class="form-control" id="studentEditEmail" 
+	                required
+	                
+	                
+		        	 
+	                [(ngModel)]="detail['email']" name="studentEditEmail"
+	                #studentEditEmail="ngModel">
+
+	        <div [hidden]="studentEditEmail.valid || studentEditEmail.pristine || studentEditEmail.errors.minlength"
+     			class="alert alert-danger">
+
+	          <div *ngIf="studentEditEmail.errors && studentEditEmail.errors.required">
+    	        Email is required.
   	          </div>
  
 
