@@ -16,7 +16,6 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 var meanRestExpress = require('mean-rest-express');
 var lkaDbDefinition = require('./models/index');
 var lkaRouter = meanRestExpress.RestRouter(lkaDbDefinition);
-var lkaRestController = meanRestExpress.RestController;
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -31,14 +30,20 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/api', lkaRouter);
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(function(req, res, next) {
-	res.sendFile(path.join(__dirname, './public/index.html'));
+app.use('/users', usersRouter);
+app.use('/api/manage', lkaRouter);
+
+app.get(/.*/, function(req, res, next) {
+  console.log(req);
+  if (req.accepts('html')) {
+	  return res.sendFile(path.join(__dirname, './public/index.html'));
+  } else {
+    return next();
+  }
 });
 
 // catch 404 and forward to error handler

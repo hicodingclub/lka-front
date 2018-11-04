@@ -8,13 +8,14 @@
     "windevstart": "set DEBUG=express:* & nodemon ./bin/www"
   },
   "dependencies": {
+    "bcrypt": "^3.0.2",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "express": "~4.16.0",
-    "mongoose": "^5.2.15",
     "http-errors": "~1.6.2",
+    "mean-rest-express": "^0.3.0",
+    "mongoose": "^5.2.15",
     "morgan": "~1.9.0",
-    "pug": "2.0.0-beta11",
-    "mean-rest-express": "^0.2.0"
+    "pug": "2.0.0-beta11"
   }
 }
