@@ -5,7 +5,7 @@ import { RouteReuseStrategy } from '@angular/router'
 import { MraRouteReuseStrategy } from 'mean-rest-angular';
 
 import { ManageComponent } from './manage.component';
-
+import { ManageRoutes } from '../manage.conf';
 //Import components for each schema
 
 import { EventListComponent } from './event/event-list/event-list.component';
@@ -25,20 +25,9 @@ const eventRoutingPath = [
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];
 
-const routes: Routes = [
-  { path: 'manage', 
-    component: ManageComponent,
-    children: [ 
-                {path: '',  redirectTo: 'event', pathMatch: 'full'},
-
-                {path: "event",  children: eventRoutingPath, 
-                    data: {"mraLevel": 1, "item": "event"}},
-    ]
-  }
-];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(ManageRoutes)],
   exports: [RouterModule],
   providers: [//only use these providers in component scope
     { provide: RouteReuseStrategy, useClass: MraRouteReuseStrategy }, 
