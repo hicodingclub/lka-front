@@ -1,8 +1,20 @@
 .header {
-  padding: 30px;
-  text-align: center;
+  padding: 10px;
   background: #1abc9c;
   color: white;
-  font-size: 30px;
   margin-bottom: 30px;
+}
+
+.logo {
+  height: 150px;
+}
+
+.big-header{
+  margin-top: -25px;
+  margin-bottom: -20px;
+  font-size: 100px;
+}
+
+.small-header{
+  font-size: 30px;
 }
