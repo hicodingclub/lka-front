@@ -4,16 +4,15 @@ let eventDef = require('./event');
 let studentDef = require('./student');
 let teacherDef = require('./teacher');
 let courseDef = require('./course');
+let courseInstanceDef = require('./courseInstance');
 
 var schemas = {
-  "event": eventDef,
-  "student": studentDef,
-  "teacher": teacherDef,
-  "course": courseDef,
-
+  "Event": eventDef,
+  "Student": studentDef,
+  "Teacher": teacherDef,
+  "Course": courseDef,
+  "CourseInstance": courseInstanceDef
 };
-
-
 
 var config = {
   dateFormat: "MM-DD-YYYY",

@@ -10,7 +10,7 @@ import { MraModule } from 'mean-rest-angular';
 
 import { ManageRoutingModule } from './manage-routing.module';
 import { ManageComponent } from './manage.component';
-
+import { ManageRefSelectDirective } from './manage.component';
 
 import { Manage_SERVER_ROOT_URI } from './manage.tokens';
 import { manage_server_root_uri } from '../manage.conf';
@@ -37,8 +37,21 @@ import { CourseDetailComponent } from './course/course-detail/course-detail.comp
 import { CourseEditComponent } from './course/course-edit/course-edit.component';
 import { CourseService } from './course/course.service';
 
+import { CourseinstanceListComponent } from './courseinstance/courseinstance-list/courseinstance-list.component';
+import { CourseinstanceDetailComponent } from './courseinstance/courseinstance-detail/courseinstance-detail.component';
+import { CourseinstanceEditComponent } from './courseinstance/courseinstance-edit/courseinstance-edit.component';
+import { CourseinstanceService } from './courseinstance/courseinstance.service';
 
+     
+import { TeacherSelectComponent } from './teacher/teacher-list/teacher-select.component';
+import { TeacherDetailPopComponent } from './teacher/teacher-detail/teacher-detail-pop.component';
+import { TeacherDetailSelComponent } from './teacher/teacher-detail/teacher-detail-sel.component';     
+import { CourseSelectComponent } from './course/course-list/course-select.component';
+import { CourseDetailPopComponent } from './course/course-detail/course-detail-pop.component';
+import { CourseDetailSelComponent } from './course/course-detail/course-detail-sel.component';
 
+import { CourseinstanceListSubComponent } from './courseinstance/courseinstance-list/courseinstance-list-sub.component';
+import { CourseinstanceDetailSubComponent } from './courseinstance/courseinstance-detail/courseinstance-detail-sub.component';
 
   
 @NgModule({
@@ -54,7 +67,7 @@ import { CourseService } from './course/course.service';
   ],
   declarations: [
     ManageComponent,
-    
+    ManageRefSelectDirective,
 
     EventListComponent, 
     EventDetailComponent, 
@@ -68,8 +81,19 @@ import { CourseService } from './course/course.service';
     CourseListComponent, 
     CourseDetailComponent, 
     CourseEditComponent,
+    CourseinstanceListComponent, 
+    CourseinstanceDetailComponent, 
+    CourseinstanceEditComponent,
+     
+    TeacherSelectComponent,
+    TeacherDetailPopComponent,
+    TeacherDetailSelComponent,     
+    CourseSelectComponent,
+    CourseDetailPopComponent,
+    CourseDetailSelComponent,
 
-
+    CourseinstanceListSubComponent,
+    CourseinstanceDetailSubComponent,
 
   ],
   exports: [
@@ -87,8 +111,19 @@ import { CourseService } from './course/course.service';
     CourseListComponent,
     CourseDetailComponent,
     CourseEditComponent,
+    CourseinstanceListComponent,
+    CourseinstanceDetailComponent,
+    CourseinstanceEditComponent,
+     
+    TeacherSelectComponent,
+    TeacherDetailPopComponent,
+    TeacherDetailSelComponent,     
+    CourseSelectComponent,
+    CourseDetailPopComponent,
+    CourseDetailSelComponent,
 
-
+    CourseinstanceListSubComponent,
+    CourseinstanceDetailSubComponent,
   ],
   providers: [
     { provide: Manage_SERVER_ROOT_URI, useValue: manage_server_root_uri },
@@ -99,7 +134,17 @@ import { CourseService } from './course/course.service';
     StudentService,
     TeacherService,
     CourseService,
+    CourseinstanceService,
   ],
 
+  entryComponents: [ 
+     
+    TeacherSelectComponent, 
+    TeacherDetailPopComponent,
+    TeacherDetailSelComponent,     
+    CourseSelectComponent, 
+    CourseDetailPopComponent,
+    CourseDetailSelComponent, 
+  ]
 })
 export class ManageModule { }
