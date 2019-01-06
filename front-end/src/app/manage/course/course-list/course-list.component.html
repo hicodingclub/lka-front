@@ -37,11 +37,11 @@
 
  
 	        <div class="input-group">
-		      <input class="form-control" id="courseEditTime" placeholder="MM-DD-YYYY"
+		      <input class="form-control" id="courseEditTime" placeholder="{{dateFormat}}"
 		             [(ngModel)]="detail['time']['from']" name="courseEditTime"
 		             ngbDatepicker #courseEditTime="ngModel">
 		      <span>&nbsp; ~ &nbsp;</span>
-		      <input class="form-control" id="courseEditTime" placeholder="MM-DD-YYYY"
+		      <input class="form-control" id="courseEditTime" placeholder="{{dateFormat}}"
 		             [(ngModel)]="detail['time']['to']" name="courseEditTime"
 		             ngbDatepicker #courseEditTime="ngModel">
 
@@ -76,7 +76,8 @@
 	      </div>
 	    </div>
       </div>
-       
+      
+ 
 
 						  <div class="action-buttons" style="margin-top: 10px;">
 								<button type="button" class="btn btn-outline-success" (click)="onSearchClear()">Reset</button>

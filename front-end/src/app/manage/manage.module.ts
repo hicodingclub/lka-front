@@ -12,6 +12,9 @@ import { ManageRoutingModule } from './manage-routing.module';
 import { ManageComponent } from './manage.component';
 
 
+import { Manage_SERVER_ROOT_URI } from './manage.tokens';
+import { manage_server_root_uri } from '../manage.conf';
+
 //Import components for each schema
 
 import { EventListComponent } from './event/event-list/event-list.component';
@@ -88,6 +91,7 @@ import { CourseService } from './course/course.service';
 
   ],
   providers: [
+    { provide: Manage_SERVER_ROOT_URI, useValue: manage_server_root_uri },
     
     {provide: NgbDateParserFormatter, useClass: MraNgbDateFormatterService},
 

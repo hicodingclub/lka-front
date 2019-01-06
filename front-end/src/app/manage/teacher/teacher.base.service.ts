@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { BaseService } from 'mean-rest-angular';
 
-const serviceUrl = '/api/manage/teacher/';
+const servicePath = '/teacher/';
 
 export class TeacherBaseService extends BaseService {
-    constructor(http: HttpClient) {
+    constructor(http: HttpClient, serverRootUrl: string) {
+        const serviceUrl = serverRootUrl + servicePath;
         super(http, serviceUrl);
     }    
 }

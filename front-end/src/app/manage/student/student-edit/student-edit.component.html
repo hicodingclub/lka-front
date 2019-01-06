@@ -59,9 +59,9 @@
     
 
 	      <fieldset class="form-group">
-	        <label for="studentEditDate_of_birth">Date_of_birth </label> <span> (MM-DD-YYYY)</span>
+	        <label for="studentEditDate_of_birth">Date_of_birth </label> <span> ({{dateFormat}})</span>
 	        <div class="input-group">
-		      <input class="form-control" id="studentEditDate_of_birth" placeholder="MM-DD-YYYY"
+		      <input class="form-control" id="studentEditDate_of_birth" placeholder="{{dateFormat}}"
 	                 
 		        	  
 		             [(ngModel)]="detail['date_of_birth']['date']" name="studentEditDate_of_birth"
@@ -80,7 +80,7 @@
 	        <div [hidden]="studentEditDate_of_birth.valid || studentEditDate_of_birth.untouched || !(studentEditDate_of_birth.errors && studentEditDate_of_birth.errors.ngbDate)"
      			class="alert alert-danger">
 	          <div *ngIf="studentEditDate_of_birth.errors && studentEditDate_of_birth.errors.ngbDate">
-    	        Date_of_birth must be in MM-DD-YYYY format.
+    	        Date_of_birth must be in {{dateFormat}} format.
   	          </div>
 	        </div>
 	      </fieldset>
@@ -184,9 +184,9 @@
     
 
 	      <fieldset class="form-group">
-	        <label for="studentEditDate_of_birth">Date_of_birth </label> <span> (MM-DD-YYYY)</span>
+	        <label for="studentEditDate_of_birth">Date_of_birth </label> <span> ({{dateFormat}})</span>
 	        <div class="input-group">
-		      <input class="form-control" id="studentEditDate_of_birth" placeholder="MM-DD-YYYY"
+		      <input class="form-control" id="studentEditDate_of_birth" placeholder="{{dateFormat}}"
 	                 
 		        	  
 		             [(ngModel)]="detail['date_of_birth']['date']" name="studentEditDate_of_birth"
@@ -205,7 +205,7 @@
 	        <div [hidden]="studentEditDate_of_birth.valid || studentEditDate_of_birth.untouched || !(studentEditDate_of_birth.errors && studentEditDate_of_birth.errors.ngbDate)"
      			class="alert alert-danger">
 	          <div *ngIf="studentEditDate_of_birth.errors && studentEditDate_of_birth.errors.ngbDate">
-    	        Date_of_birth must be in MM-DD-YYYY format.
+    	        Date_of_birth must be in {{dateFormat}} format.
   	          </div>
 	        </div>
 	      </fieldset>

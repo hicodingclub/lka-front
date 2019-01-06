@@ -26,6 +26,7 @@ export class EventComponent extends BaseComponent {
       protected view: ViewType ) {
         super(eventService, commonService, router, route, location, view, itemName);
         this.dateFormat = "MM-DD-YYYY";
+        this.timeFormat = "hh:mm:ss";
         this.indexFields = ['title',];
     }
 }

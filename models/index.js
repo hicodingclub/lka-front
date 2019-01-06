@@ -16,7 +16,8 @@ var schemas = {
 
 
 var config = {
-	dateFormat: "MM-DD-YYYY",
+  dateFormat: "MM-DD-YYYY",
+  timeFormat: "hh:mm:ss"
 }
 
 module.exports = {schemas: schemas, config: config};

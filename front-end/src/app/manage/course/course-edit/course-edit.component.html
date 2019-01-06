@@ -35,9 +35,9 @@
     
 
 	      <fieldset class="form-group">
-	        <label for="courseEditTime">Time </label> <span> (MM-DD-YYYY)</span>
+	        <label for="courseEditTime">Time </label> <span> ({{dateFormat}})</span>
 	        <div class="input-group">
-		      <input class="form-control" id="courseEditTime" placeholder="MM-DD-YYYY"
+		      <input class="form-control" id="courseEditTime" placeholder="{{dateFormat}}"
 	                 required
 		        	  
 		             [(ngModel)]="detail['time']['date']" name="courseEditTime"
@@ -59,7 +59,7 @@
 	        <div [hidden]="courseEditTime.valid || courseEditTime.untouched || !(courseEditTime.errors && courseEditTime.errors.ngbDate)"
      			class="alert alert-danger">
 	          <div *ngIf="courseEditTime.errors && courseEditTime.errors.ngbDate">
-    	        Time must be in MM-DD-YYYY format.
+    	        Time must be in {{dateFormat}} format.
   	          </div>
 	        </div>
 	      </fieldset>
@@ -90,9 +90,9 @@
     
 
 	      <fieldset class="form-group">
-	        <label for="courseEditLength">Length </label> <span> (MM-DD-YYYY)</span>
+	        <label for="courseEditLength">Length </label> <span> ({{dateFormat}})</span>
 	        <div class="input-group">
-		      <input class="form-control" id="courseEditLength" placeholder="MM-DD-YYYY"
+		      <input class="form-control" id="courseEditLength" placeholder="{{dateFormat}}"
 	                 
 		        	  
 		             [(ngModel)]="detail['length']['date']" name="courseEditLength"
@@ -111,7 +111,7 @@
 	        <div [hidden]="courseEditLength.valid || courseEditLength.untouched || !(courseEditLength.errors && courseEditLength.errors.ngbDate)"
      			class="alert alert-danger">
 	          <div *ngIf="courseEditLength.errors && courseEditLength.errors.ngbDate">
-    	        Length must be in MM-DD-YYYY format.
+    	        Length must be in {{dateFormat}} format.
   	          </div>
 	        </div>
 	      </fieldset>
@@ -145,9 +145,9 @@
     
 
 	      <fieldset class="form-group">
-	        <label for="courseEditTime">Time </label> <span> (MM-DD-YYYY)</span>
+	        <label for="courseEditTime">Time </label> <span> ({{dateFormat}})</span>
 	        <div class="input-group">
-		      <input class="form-control" id="courseEditTime" placeholder="MM-DD-YYYY"
+		      <input class="form-control" id="courseEditTime" placeholder="{{dateFormat}}"
 	                 required
 		        	  
 		             [(ngModel)]="detail['time']['date']" name="courseEditTime"
@@ -169,7 +169,7 @@
 	        <div [hidden]="courseEditTime.valid || courseEditTime.untouched || !(courseEditTime.errors && courseEditTime.errors.ngbDate)"
      			class="alert alert-danger">
 	          <div *ngIf="courseEditTime.errors && courseEditTime.errors.ngbDate">
-    	        Time must be in MM-DD-YYYY format.
+    	        Time must be in {{dateFormat}} format.
   	          </div>
 	        </div>
 	      </fieldset>
@@ -200,9 +200,9 @@
     
 
 	      <fieldset class="form-group">
-	        <label for="courseEditLength">Length </label> <span> (MM-DD-YYYY)</span>
+	        <label for="courseEditLength">Length </label> <span> ({{dateFormat}})</span>
 	        <div class="input-group">
-		      <input class="form-control" id="courseEditLength" placeholder="MM-DD-YYYY"
+		      <input class="form-control" id="courseEditLength" placeholder="{{dateFormat}}"
 	                 
 		        	  
 		             [(ngModel)]="detail['length']['date']" name="courseEditLength"
@@ -221,7 +221,7 @@
 	        <div [hidden]="courseEditLength.valid || courseEditLength.untouched || !(courseEditLength.errors && courseEditLength.errors.ngbDate)"
      			class="alert alert-danger">
 	          <div *ngIf="courseEditLength.errors && courseEditLength.errors.ngbDate">
-    	        Length must be in MM-DD-YYYY format.
+    	        Length must be in {{dateFormat}} format.
   	          </div>
 	        </div>
 	      </fieldset>
