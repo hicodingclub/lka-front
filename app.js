@@ -16,6 +16,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 var meanRestExpress = require('mean-rest-express');
 var lkaDbDefinition = require('./models/index');
 var lkaRouter = meanRestExpress.RestRouter(lkaDbDefinition);
+var meanRestAuthRouter = meanRestExpress.authRouter;
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -31,11 +32,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use('/', indexRouter);
+//app.use('/', indexRouter);
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/users', usersRouter);
 app.use('/api/manage', lkaRouter);
+app.use('/api/auth', meanRestAuthRouter);
 
 app.get(/.*/, function(req, res, next) {
   if (req.accepts('html')) {
