@@ -1,4 +1,4 @@
-﻿<h2>Register</h2>
+<h2>Register</h2>
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
         <label for="username">Username</label>
@@ -13,6 +13,15 @@
         <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
             <div *ngIf="f.password.errors.required">Password is required</div>
             <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="password_conf">Confirm Password</label>
+        <input type="password" formControlName="password_conf" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password_conf.errors }" />
+        <div *ngIf="submitted && f.password_conf.errors" class="invalid-feedback">
+            <div *ngIf="f.password_conf.errors.required">Password is required</div>
+            <div *ngIf="f.password_conf.errors.minlength">Password must be at least 6 characters</div>
+            <div *ngIf="f.password_conf.errors.mismatch">Password must be same</div>
         </div>
     </div>
     <div class="form-group">
