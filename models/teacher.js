@@ -17,8 +17,9 @@ var teacherDetail = "firstName lastName introduction email phoneNumber";
 var teacherCreat = "firstName lastName introduction email phoneNumber";
 var teacherEdit = "firstName lastName introduction email phoneNumber";
 var teacherTextSearch = "firstName lastName email phoneNumber" 
-var teacherIndex = "email";
+var teacherIndex = "lastName";
 
 var views = [teacherBrief, teacherDetail, teacherCreat, teacherEdit, teacherTextSearch, teacherIndex]
 
 module.exports = {schema: teacherSchema, views: views};
+

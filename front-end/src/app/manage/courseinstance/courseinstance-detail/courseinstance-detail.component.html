@@ -15,31 +15,31 @@
 			<span>  {{detail['title']}}
 
 			</span><br>
-			<label><b>time:</b></label>
-			<span>  {{detail['time']?detail['time']['value']:""}}
-
-			</span><br>
 			<label><b>description:</b></label>
 			<span>  {{detail['description']}}
 
 			</span><br>
-			<label><b>length:</b></label>
-			<span>  {{detail['length']?detail['length']['value']:""}}
+			<label><b>price:</b></label>
+			<span>  {{detail['price']}}
+
+			</span><br>
+			<label><b>time:</b></label>
+			<span>  {{detail['time']?detail['time']['value']:""}}
+
+			</span><br>
+			<label><b>teacher:</b></label>
+			<span>  <a routerLink="."  (click)="onDisplayRefClicked('teacher', detail['teacher'], $event)">
+	            	    {{detail['teacher']?detail['teacher']['value']:""}} </a>
+
+			</span><br>
+			<label><b>course:</b></label>
+			<span>  <a routerLink="."  (click)="onDisplayRefClicked('course', detail['course'], $event)">
+	            	    {{detail['course']?detail['course']['value']:""}} </a>
 
 			</span><br>
 		</div>
 	  </div>
 	</div>
 
-	<br/>
-	<hr/>	
-	
-	<ul class="nav nav-tabs">
-	  
-	  <li class="nav-item">
-	    <a [routerLink]="['./courseinstance/list']"
-	        class="nav-link" routerLinkActive="active">courseinstance</a>
-	  </li>
-    </ul>
     <router-outlet></router-outlet>
 </div>

@@ -1,0 +1,337 @@
+<div class="edit" *ngIf="detail">
+	<div class="action-buttons">
+        <a href="javascript:void(0)" (click)="goBack()" ><i class="fas fa-angle-double-left" title="Back"></i></a>
+	</div>
+	
+	<div class="card" style="text-align: left;">
+	  <div class="card-body">
+	    <h4 class="card-title">{{action}} Courseinstance</h4>    
+	    <form (ngSubmit)="onSubmit()" #editForm="ngForm">
+	    
+	     <div *ngIf="action == 'Edit'">
+
+	      <fieldset class="form-group">
+	        <label for="courseinstanceEditTitle">Title</label>
+
+	        <input type="text" class="form-control" id="courseinstanceEditTitle" 
+	                required
+	                
+	                
+		        	 
+	                [(ngModel)]="detail['title']" name="courseinstanceEditTitle"
+	                #courseinstanceEditTitle="ngModel">
+
+	        <div [hidden]="courseinstanceEditTitle.valid || courseinstanceEditTitle.pristine || courseinstanceEditTitle.errors.minlength"
+     			class="alert alert-danger">
+
+	          <div *ngIf="courseinstanceEditTitle.errors && courseinstanceEditTitle.errors.required">
+    	        Title is required.
+  	          </div>
+ 
+
+	        </div>
+        
+	      </fieldset>
+    
+
+	      <fieldset class="form-group">
+	        <label for="courseinstanceEditDescription">Description</label>
+
+	        <input type="text" class="form-control" id="courseinstanceEditDescription" 
+	                required
+	                
+	                
+		        	 
+	                [(ngModel)]="detail['description']" name="courseinstanceEditDescription"
+	                #courseinstanceEditDescription="ngModel">
+
+	        <div [hidden]="courseinstanceEditDescription.valid || courseinstanceEditDescription.pristine || courseinstanceEditDescription.errors.minlength"
+     			class="alert alert-danger">
+
+	          <div *ngIf="courseinstanceEditDescription.errors && courseinstanceEditDescription.errors.required">
+    	        Description is required.
+  	          </div>
+ 
+
+	        </div>
+        
+	      </fieldset>
+    
+
+	      <fieldset class="form-group">
+	        <label for="courseinstanceEditPrice">Price</label>
+	        <input type="number" class="form-control" id="courseinstanceEditPrice" 
+	                
+	                
+	                required
+		        	 
+	                [(ngModel)]="detail['price']" name="courseinstanceEditPrice"
+	                #courseinstanceEditPrice="ngModel">
+	        <div [hidden]="courseinstanceEditPrice.valid || courseinstanceEditPrice.pristine || courseinstanceEditPrice.errors.minnumber"
+     			class="alert alert-danger">
+
+	          <div *ngIf="courseinstanceEditPrice.errors && courseinstanceEditPrice.errors.required">
+    	        Price is required.
+  	          </div>
+ 
+
+	        </div>
+
+	      </fieldset>
+    
+
+	      <fieldset class="form-group">
+	        <label for="courseinstanceEditTime">Time </label> <span> ({{dateFormat}})</span>
+	        <div class="input-group">
+		      <input class="form-control" id="courseinstanceEditTime" placeholder="{{dateFormat}}"
+	                 required
+		        	  
+		             [(ngModel)]="detail['time']['date']" name="courseinstanceEditTime"
+		             ngbDatepicker #courseinstanceEditTimeDate="ngbDatepicker" #courseinstanceEditTime="ngModel">
+		      <div class="input-group-append">
+		        <button class="btn btn-outline-secondary" (click)="courseinstanceEditTimeDate.toggle()" type="button">
+		          <i class="fas fa-calendar-alt"></i>
+		        </button>
+		      </div>
+		    </div><!-- input group -->         
+	        <div [hidden]="courseinstanceEditTime.valid || courseinstanceEditTime.pristine || (courseinstanceEditTime.errors && courseinstanceEditTime.errors.ngbDate)"
+	             class="alert alert-danger">
+
+	          <div *ngIf="courseinstanceEditTime.errors && courseinstanceEditTime.errors.required && !(detail['time']?.date)">
+    	        Time is required.
+  	          </div>
+ 
+	        </div>
+	        <div [hidden]="courseinstanceEditTime.valid || courseinstanceEditTime.untouched || !(courseinstanceEditTime.errors && courseinstanceEditTime.errors.ngbDate)"
+     			class="alert alert-danger">
+	          <div *ngIf="courseinstanceEditTime.errors && courseinstanceEditTime.errors.ngbDate">
+    	        Time must be in {{dateFormat}} format.
+  	          </div>
+	        </div>
+	      </fieldset>
+    
+
+	      <fieldset class="form-group">
+	        <label for="courseinstanceEditTeacher">Teacher </label>
+		    <!-- <a class="icon-search" [routerLink]="['.']" (click)="onRefSelect('teacher')"><i class="fas fa-list" title="Search"></i></a>  -->
+		    <div class="input-group">
+		    	<!--  [attr.disabled]="true" -->
+		        <input class="form-control rounded" id="courseinstanceEditTeacher" 
+		             [ngClass]="{'pointer ref-badge': detail['teacher']['_id']}"
+		             (focus)="onRefSelect('teacher')"
+	                 required
+		        	  
+		             [ngModel]="detail['teacher']['value']" name="courseinstanceEditTeacher"
+		             #courseinstanceEditTeacher="ngModel"> 
+		    <div *ngIf="detail['teacher']['value']" 
+		          class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('teacher')">
+		          <i class="fas fa-times-circle" title="Clear"></i></div>
+			</div>
+	        <div [hidden]="courseinstanceEditTeacher.valid || courseinstanceEditTeacher.pristine"
+	             class="alert alert-danger">
+
+	          <div *ngIf="courseinstanceEditTeacher.errors && courseinstanceEditTeacher.errors.required && !(detail['teacher']?.date)">
+    	        Teacher is required.
+  	          </div>
+ 
+	        </div>
+	      </fieldset>
+    
+
+	      <fieldset class="form-group">
+	        <label for="courseinstanceEditCourse">Course </label>
+		    <!-- <a class="icon-search" [routerLink]="['.']" (click)="onRefSelect('course')"><i class="fas fa-list" title="Search"></i></a>  -->
+		    <div class="input-group">
+		    	<!--  [attr.disabled]="true" -->
+		        <input class="form-control rounded" id="courseinstanceEditCourse" 
+		             [ngClass]="{'pointer ref-badge': detail['course']['_id']}"
+		             (focus)="onRefSelect('course')"
+	                 required
+		        	  
+		             [ngModel]="detail['course']['value']" name="courseinstanceEditCourse"
+		             #courseinstanceEditCourse="ngModel"> 
+		    <div *ngIf="detail['course']['value']" 
+		          class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('course')">
+		          <i class="fas fa-times-circle" title="Clear"></i></div>
+			</div>
+	        <div [hidden]="courseinstanceEditCourse.valid || courseinstanceEditCourse.pristine"
+	             class="alert alert-danger">
+
+	          <div *ngIf="courseinstanceEditCourse.errors && courseinstanceEditCourse.errors.required && !(detail['course']?.date)">
+    	        Course is required.
+  	          </div>
+ 
+	        </div>
+	      </fieldset>
+    
+
+         </div>	
+	     <div *ngIf="action == 'Create'">
+
+	      <fieldset class="form-group">
+	        <label for="courseinstanceEditTitle">Title</label>
+
+	        <input type="text" class="form-control" id="courseinstanceEditTitle" 
+	                required
+	                
+	                
+		        	 
+	                [(ngModel)]="detail['title']" name="courseinstanceEditTitle"
+	                #courseinstanceEditTitle="ngModel">
+
+	        <div [hidden]="courseinstanceEditTitle.valid || courseinstanceEditTitle.pristine || courseinstanceEditTitle.errors.minlength"
+     			class="alert alert-danger">
+
+	          <div *ngIf="courseinstanceEditTitle.errors && courseinstanceEditTitle.errors.required">
+    	        Title is required.
+  	          </div>
+ 
+
+	        </div>
+        
+	      </fieldset>
+    
+
+	      <fieldset class="form-group">
+	        <label for="courseinstanceEditDescription">Description</label>
+
+	        <input type="text" class="form-control" id="courseinstanceEditDescription" 
+	                required
+	                
+	                
+		        	 
+	                [(ngModel)]="detail['description']" name="courseinstanceEditDescription"
+	                #courseinstanceEditDescription="ngModel">
+
+	        <div [hidden]="courseinstanceEditDescription.valid || courseinstanceEditDescription.pristine || courseinstanceEditDescription.errors.minlength"
+     			class="alert alert-danger">
+
+	          <div *ngIf="courseinstanceEditDescription.errors && courseinstanceEditDescription.errors.required">
+    	        Description is required.
+  	          </div>
+ 
+
+	        </div>
+        
+	      </fieldset>
+    
+
+	      <fieldset class="form-group">
+	        <label for="courseinstanceEditPrice">Price</label>
+	        <input type="number" class="form-control" id="courseinstanceEditPrice" 
+	                
+	                
+	                required
+		        	 
+	                [(ngModel)]="detail['price']" name="courseinstanceEditPrice"
+	                #courseinstanceEditPrice="ngModel">
+	        <div [hidden]="courseinstanceEditPrice.valid || courseinstanceEditPrice.pristine || courseinstanceEditPrice.errors.minnumber"
+     			class="alert alert-danger">
+
+	          <div *ngIf="courseinstanceEditPrice.errors && courseinstanceEditPrice.errors.required">
+    	        Price is required.
+  	          </div>
+ 
+
+	        </div>
+
+	      </fieldset>
+    
+
+	      <fieldset class="form-group">
+	        <label for="courseinstanceEditTime">Time </label> <span> ({{dateFormat}})</span>
+	        <div class="input-group">
+		      <input class="form-control" id="courseinstanceEditTime" placeholder="{{dateFormat}}"
+	                 required
+		        	  
+		             [(ngModel)]="detail['time']['date']" name="courseinstanceEditTime"
+		             ngbDatepicker #courseinstanceEditTimeDate="ngbDatepicker" #courseinstanceEditTime="ngModel">
+		      <div class="input-group-append">
+		        <button class="btn btn-outline-secondary" (click)="courseinstanceEditTimeDate.toggle()" type="button">
+		          <i class="fas fa-calendar-alt"></i>
+		        </button>
+		      </div>
+		    </div><!-- input group -->         
+	        <div [hidden]="courseinstanceEditTime.valid || courseinstanceEditTime.pristine || (courseinstanceEditTime.errors && courseinstanceEditTime.errors.ngbDate)"
+	             class="alert alert-danger">
+
+	          <div *ngIf="courseinstanceEditTime.errors && courseinstanceEditTime.errors.required && !(detail['time']?.date)">
+    	        Time is required.
+  	          </div>
+ 
+	        </div>
+	        <div [hidden]="courseinstanceEditTime.valid || courseinstanceEditTime.untouched || !(courseinstanceEditTime.errors && courseinstanceEditTime.errors.ngbDate)"
+     			class="alert alert-danger">
+	          <div *ngIf="courseinstanceEditTime.errors && courseinstanceEditTime.errors.ngbDate">
+    	        Time must be in {{dateFormat}} format.
+  	          </div>
+	        </div>
+	      </fieldset>
+    
+
+	      <fieldset class="form-group">
+	        <label for="courseinstanceEditTeacher">Teacher </label>
+		    <!-- <a class="icon-search" [routerLink]="['.']" (click)="onRefSelect('teacher')"><i class="fas fa-list" title="Search"></i></a>  -->
+		    <div class="input-group">
+		    	<!--  [attr.disabled]="true" -->
+		        <input class="form-control rounded" id="courseinstanceEditTeacher" 
+		             [ngClass]="{'pointer ref-badge': detail['teacher']['_id']}"
+		             (focus)="onRefSelect('teacher')"
+	                 required
+		        	  
+		             [ngModel]="detail['teacher']['value']" name="courseinstanceEditTeacher"
+		             #courseinstanceEditTeacher="ngModel"> 
+		    <div *ngIf="detail['teacher']['value']" 
+		          class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('teacher')">
+		          <i class="fas fa-times-circle" title="Clear"></i></div>
+			</div>
+	        <div [hidden]="courseinstanceEditTeacher.valid || courseinstanceEditTeacher.pristine"
+	             class="alert alert-danger">
+
+	          <div *ngIf="courseinstanceEditTeacher.errors && courseinstanceEditTeacher.errors.required && !(detail['teacher']?.date)">
+    	        Teacher is required.
+  	          </div>
+ 
+	        </div>
+	      </fieldset>
+    
+
+	      <fieldset class="form-group">
+	        <label for="courseinstanceEditCourse">Course </label>
+		    <!-- <a class="icon-search" [routerLink]="['.']" (click)="onRefSelect('course')"><i class="fas fa-list" title="Search"></i></a>  -->
+		    <div class="input-group">
+		    	<!--  [attr.disabled]="true" -->
+		        <input class="form-control rounded" id="courseinstanceEditCourse" 
+		             [ngClass]="{'pointer ref-badge': detail['course']['_id']}"
+		             (focus)="onRefSelect('course')"
+	                 required
+		        	  
+		             [ngModel]="detail['course']['value']" name="courseinstanceEditCourse"
+		             #courseinstanceEditCourse="ngModel"> 
+		    <div *ngIf="detail['course']['value']" 
+		          class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('course')">
+		          <i class="fas fa-times-circle" title="Clear"></i></div>
+			</div>
+	        <div [hidden]="courseinstanceEditCourse.valid || courseinstanceEditCourse.pristine"
+	             class="alert alert-danger">
+
+	          <div *ngIf="courseinstanceEditCourse.errors && courseinstanceEditCourse.errors.required && !(detail['course']?.date)">
+    	        Course is required.
+  	          </div>
+ 
+	        </div>
+	      </fieldset>
+    
+
+         </div>	
+         
+		<div class="action-buttons-center">
+	     	<button type="submit" class="btn btn-success" 
+     			[disabled]="!editForm.form.valid">Submit</button>
+		</div>
+	    </form>
+	  </div>
+	</div>
+</div>
+
+<ng-template manage-ref-select></ng-template>

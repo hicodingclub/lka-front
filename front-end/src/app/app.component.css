@@ -1,9 +1,6 @@
-#footer {
-		
-}
 .header {
   padding: 10px;
-  background: #1abc9c;
+  background: #00BFFF;
   color: white;
   margin-bottom: 30px;
 }
@@ -20,4 +17,12 @@
 
 .small-header{
   font-size: 30px;
+}
+
+.footer {
+  font-size: 30px;
+  background-color: #00BFFF;
+  color: white;
+  text-align: center;
+  padding: 50px;
 }

@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 import { ManageComponent } from './manage/manage.component';
 
 //Import routing paths
-import {eventRoutingPath, studentRoutingPath, teacherRoutingPath, courseRoutingPath,  } from './manage/manage-routing.path';
+import {eventRoutingPath, studentRoutingPath, teacherRoutingPath, courseRoutingPath, courseinstanceRoutingPath,  } from './manage/manage-routing.path';
 
 export const ManageRoutes: Routes = [
   { path: 'manage', 
@@ -27,8 +27,10 @@ export const ManageRoutes: Routes = [
         children: courseRoutingPath, 
         data: {"mraLevel": 1, "item": "course"}
       },
+      { path: "courseinstance",
+        children: courseinstanceRoutingPath, 
+        data: {"mraLevel": 1, "item": "courseinstance"}
+      },
     ]
   }
 ];
-
-export const manage_server_root_uri:string = "/api/manage";
