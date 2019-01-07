@@ -30,7 +30,7 @@ export class AuthenticationService {
         let refreshToken: string = localStorage.getItem('refreshToken');
         let userName: string = localStorage.getItem('userName');
      
-        return this.http.post<any>(this.authServerRootUri + '/refresh-token', {refreshToken: refreshToken, userName: userName})
+        return this.http.post<any>(this.authServerRootUri + '/refresh', {refreshToken: refreshToken, userName: userName})
             .pipe(
                 map(this.loggedIn),
                 catchError(error => {
@@ -45,7 +45,7 @@ export class AuthenticationService {
     }
      
     public verifyTokenRequest(url: string): boolean {
-        if (url.endsWith('/refresh-token') || url.endsWith('/login')) return true;
+        if (url.endsWith(this.authServerRootUri + '/refresh') || url.endsWith(this.authServerRootUri + '/login')) return true;
         return false;
     }
      
