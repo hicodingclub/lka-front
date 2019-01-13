@@ -5,11 +5,13 @@ import { first } from 'rxjs/operators';
 
 import { AuthenticationService } from '../auth.service';
 
-@Component({templateUrl: 'login.component.html'})
+@Component({templateUrl: 'login.component.html', styleUrls: ['login.component.css']})
 export class LoginComponent implements OnInit {
     loginForm: FormGroup;
     loading = false;
     submitted = false;
+    servererror = false;
+    serverText = "";
     returnUrl: string;
 
     constructor(
@@ -49,10 +51,13 @@ export class LoginComponent implements OnInit {
             .pipe(first())
             .subscribe(
                 data => {
+                	this.servererror = false;
                     this.router.navigate([returnUrl]);
                 },
                 error => {
                     //this.alertService.error(error);
+                    this.servererror = true;
+                    this.serverText = error.error.error;
                     this.loading = false;
                 });
     }

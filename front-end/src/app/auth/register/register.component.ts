@@ -17,11 +17,13 @@ const validatePasswords = function(form) {
     }
 }
 
-@Component({templateUrl: 'register.component.html'})
+@Component({templateUrl: 'register.component.html', styleUrls: ['register.component.css']})
 export class RegisterComponent implements OnInit {
     registerForm: FormGroup;
     loading = false;
     submitted = false;
+    servererror = false;
+    serverText = "";
 
     constructor(
         private formBuilder: FormBuilder,
@@ -55,9 +57,13 @@ export class RegisterComponent implements OnInit {
                 data => {
                     //this.alertService.success('Registration successful', true);
                     this.router.navigate(['auth/login']);
+                    this.servererror = false;
                 },
                 error => {
                     //this.alertService.error(error);
+                    //alert("Error login");
+                    this.servererror = true;
+                    this.serverText = error.error.error;
                     this.loading = false;
                 });
     }
