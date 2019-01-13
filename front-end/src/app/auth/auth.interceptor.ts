@@ -39,7 +39,7 @@ export class TokenInterceptor implements HttpInterceptor {
   }
   
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-	return next.handle(this.addAuthHeader(request))
+    return next.handle(this.addAuthHeader(request))
       .pipe(
         /*
         tap((event: HttpEvent<any>) => {
@@ -53,11 +53,11 @@ export class TokenInterceptor implements HttpInterceptor {
                 this.router.navigate([this.loginPageUri]);
               }
             }
-	      })
+        })
         */
         catchError((error) => {
           if (error instanceof HttpErrorResponse && error.status === 401) {
-            if (this.refreshTokenInProgress) {
+            if (this.refreshTokenInProgress && !this.authService.verifyTokenRequest(request.url)) {
                 // If refreshTokenInProgress is true, we will wait until refreshTokenSubject has a non-null value
                 // – which means the new token is ready and we can retry the request again
                 return this.refreshTokenSubject.pipe(
@@ -94,6 +94,6 @@ export class TokenInterceptor implements HttpInterceptor {
           }
           return throwError(error);
         })
-	);
+    );
   }
 }
