@@ -34,3 +34,5 @@ export const ManageRoutes: Routes = [
     ]
   }
 ];
+
+export const manage_server_root_uri:string = "/api/manage";

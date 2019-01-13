@@ -29,6 +29,6 @@ export class TeacherComponent extends BaseComponent {
       protected view: ViewType ) {
         super(teacherService, commonService, router, route, location, view, itemName);
         
-        this.indexFields = ['email',];
+        this.indexFields = ['lastName',];
     }
 }
