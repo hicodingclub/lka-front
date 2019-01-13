@@ -14,6 +14,8 @@ import { TeacherListComponent } from './teacher/teacher-list/teacher-list.compon
 import { TeacherDetailComponent } from './teacher/teacher-detail/teacher-detail.component';
 import { TeacherEditComponent } from './teacher/teacher-edit/teacher-edit.component';
     
+import { TeacherListSubComponent } from './teacher/teacher-list/teacher-list-sub.component';
+
 
 import { CourseListComponent } from './course/course-list/course-list.component';
 import { CourseDetailComponent } from './course/course-detail/course-detail.component';
@@ -27,12 +29,33 @@ import { CourseinstanceEditComponent } from './courseinstance/courseinstance-edi
 import { CourseinstanceListSubComponent } from './courseinstance/courseinstance-list/courseinstance-list-sub.component';
 
 
+import { StudentcourseinstanceListComponent } from './studentcourseinstance/studentcourseinstance-list/studentcourseinstance-list.component';
+import { StudentcourseinstanceDetailComponent } from './studentcourseinstance/studentcourseinstance-detail/studentcourseinstance-detail.component';
+import { StudentcourseinstanceEditComponent } from './studentcourseinstance/studentcourseinstance-edit/studentcourseinstance-edit.component';
+    
+import { StudentcourseinstanceListSubComponent } from './studentcourseinstance/studentcourseinstance-list/studentcourseinstance-list-sub.component';
 
+
+
+
+const teacherSubPath = [
+    {path: 'list', component: TeacherListSubComponent}
+];
 
 const courseinstanceSubPath = [
     {path: 'list', component: CourseinstanceListSubComponent}
 ];
 
+const studentcourseinstanceSubPath = [
+    {path: 'list', component: StudentcourseinstanceListSubComponent}
+];
+
+
+const studentDetailPath = [
+
+    {path: 'studentcourseinstance', children: studentcourseinstanceSubPath, 
+        data: {"mraLevel": 2, "item": "studentcourseinstance"}},
+];
 
 const teacherDetailPath = [
 
@@ -42,8 +65,16 @@ const teacherDetailPath = [
 
 const courseDetailPath = [
 
+    {path: 'teacher', children: teacherSubPath, 
+        data: {"mraLevel": 2, "item": "teacher"}},
     {path: 'courseinstance', children: courseinstanceSubPath, 
         data: {"mraLevel": 2, "item": "courseinstance"}},
+];
+
+const courseinstanceDetailPath = [
+
+    {path: 'studentcourseinstance', children: studentcourseinstanceSubPath, 
+        data: {"mraLevel": 2, "item": "studentcourseinstance"}},
 ];
 
 
@@ -57,7 +88,7 @@ export const eventRoutingPath = [
 
 export const studentRoutingPath = [
     {path: 'list', component: StudentListComponent},
-    {path: 'detail/:id', component: StudentDetailComponent},
+    {path: 'detail/:id', component: StudentDetailComponent, children: studentDetailPath},
     {path: 'edit/:id', component: StudentEditComponent},
     {path: 'new', component: StudentEditComponent},
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
@@ -81,8 +112,16 @@ export const courseRoutingPath = [
 
 export const courseinstanceRoutingPath = [
     {path: 'list', component: CourseinstanceListComponent},
-    {path: 'detail/:id', component: CourseinstanceDetailComponent},
+    {path: 'detail/:id', component: CourseinstanceDetailComponent, children: courseinstanceDetailPath},
     {path: 'edit/:id', component: CourseinstanceEditComponent},
     {path: 'new', component: CourseinstanceEditComponent},
+    {path: '**', redirectTo: 'list', pathMatch: 'full'}
+];
+
+export const studentcourseinstanceRoutingPath = [
+    {path: 'list', component: StudentcourseinstanceListComponent},
+    {path: 'detail/:id', component: StudentcourseinstanceDetailComponent},
+    {path: 'edit/:id', component: StudentcourseinstanceEditComponent},
+    {path: 'new', component: StudentcourseinstanceEditComponent},
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];

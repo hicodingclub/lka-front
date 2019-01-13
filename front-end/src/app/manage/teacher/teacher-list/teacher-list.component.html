@@ -30,6 +30,34 @@
 			    <div class="shadow" *ngIf="moreSearchOpened">
 					<div class="card">
 						<div class="card-body">
+	    <div class="single-line-edit">
+	      <div class="row">
+	        <div class="col-3"><label for="teacherEditCourses">Courses</label></div>
+	        <div class="col-8">
+
+
+		    <div class="input-group">
+		        <input class="form-control rounded" id="teacherEditCourses" 
+		             [ngClass]="{'pointer ref-badge': detail['courses']['_id']}"
+		             (focus)="detail['courses']['_id']?onRefShow('courses', 'select', detail['courses']['_id']):onRefSelect('courses')"
+	                 required
+		        	  
+		             [ngModel]="detail['courses']['value']" name="teacherEditCourses"
+		             #teacherEditCourses="ngModel"> 
+			</div>
+
+    
+	      </div>
+	      
+	      <div class="col-1">
+		    <div class="icon-clear" (click)="clearValueFromDetail('courses')"
+		        *ngIf="checkValueDefinedFromDetail(['courses'])"
+		        ><i class="fas fa-times-circle" title="Clear"></i></div>
+	      </div>
+	    </div>
+      </div>
+      
+ 
 
 						  <div class="action-buttons" style="margin-top: 10px;">
 								<button type="button" class="btn btn-outline-success" (click)="onSearchClear()">Reset</button>
@@ -105,7 +133,8 @@
 		        <th scope="col">#</th>
 
 		        <th scope="col">FirstName</th>
-		        <th scope="col">LastName</th>		        
+		        <th scope="col">LastName</th>
+		        <th scope="col">Courses</th>		        
 		        <th scope="col" style="width:8rem;"></th>
 		        <th scope="col" style="width:2rem;">
 		        	<input type="checkbox" [(ngModel)]="checkAll" (change)="onCheckAllChange()">
@@ -120,6 +149,10 @@
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">  {{detail['lastName']}}
+
+	            </td>
+	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">  <a routerLink="."  (click)="onDisplayRefClicked('courses', detail['courses'], $event)">
+	            	    {{detail['courses']?detail['courses']['value']:""}} </a>
 
 	            </td>
 	            <td>
@@ -178,3 +211,4 @@
 </div>
 
 
+<ng-template manage-ref-select></ng-template>

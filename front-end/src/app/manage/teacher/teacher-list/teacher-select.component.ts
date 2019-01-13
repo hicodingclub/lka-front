@@ -24,7 +24,7 @@ export class TeacherSelectComponent extends TeacherListComponent
         protected route: ActivatedRoute,
         protected location: Location
         ) {
-            super(teacherService, commonService, router, route, location);
+            super(null,teacherService, commonService, router, route, location);
             this.majorUi = false;
     }
 

@@ -5,16 +5,14 @@ var Schema = mongoose.Schema;
 var courseSchema = new Schema(
   {
     title: {type: String, required: true, max: 100},
-	description: {type: String, required: true, max: 100},
-	time: {type: Date, required: true},
-	length: {type: Date},
+    description: {type: String, required: true, max: 100},
   }
 );
-var courseBrief = "title time publishDate";
-var courseDetail = "title time publishDate description length";
-var courseCreat = "title time description length";
-var courseEdit = "title time description length";
-var courseTextSearch = "title time description length" 
+var courseBrief = "title description";
+var courseDetail = "title description";
+var courseCreat = "title description";
+var courseEdit = "title description";
+var courseTextSearch = "title description";
 var courseIndex = "title";
 
 var views = [courseBrief, courseDetail, courseCreat, courseEdit, courseTextSearch, courseIndex]

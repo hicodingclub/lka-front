@@ -23,8 +23,16 @@
 			<span>  {{detail['price']}}
 
 			</span><br>
-			<label><b>time:</b></label>
-			<span>  {{detail['time']?detail['time']['value']:""}}
+			<label><b>startTime:</b></label>
+			<span>  {{detail['startTime']?detail['startTime']['value']:""}}
+
+			</span><br>
+			<label><b>endTime:</b></label>
+			<span>  {{detail['endTime']?detail['endTime']['value']:""}}
+
+			</span><br>
+			<label><b>dayOfWeek:</b></label>
+			<span>  {{detail['dayOfWeek']}}
 
 			</span><br>
 			<label><b>teacher:</b></label>
@@ -41,5 +49,15 @@
 	  </div>
 	</div>
 
+	<br/>
+	<hr/>	
+	
+	<ul class="nav nav-tabs">
+	  
+	  <li class="nav-item">
+	    <a [routerLink]="['./studentcourseinstance/list']"
+	        class="nav-link" routerLinkActive="active">studentcourseinstance</a>
+	  </li>
+    </ul>
     <router-outlet></router-outlet>
 </div>

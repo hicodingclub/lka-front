@@ -30,14 +30,16 @@ export class CourseinstanceDetailComponent extends CourseinstanceComponent imple
           super(componentFactoryResolver,
                 courseinstanceService, commonService, router, route, location, ViewType.DETAIL);
 
+          this.enums['dayOfWeek'] = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday',]; 
 
           this.stringFields.push('title');
           this.stringFields.push('description');
+          this.stringFields.push('dayOfWeek');
 
           this.referenceFields = ['teacher','course',];
           this.referenceFieldsMap = {'teacher': 'teacher','course': 'course',};
 
-          this.dateFields = ['time',];
+          this.dateFields = ['startTime','endTime',];
 
   }
 

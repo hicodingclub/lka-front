@@ -15,16 +15,8 @@
 			<span>  {{detail['title']}}
 
 			</span><br>
-			<label><b>time:</b></label>
-			<span>  {{detail['time']?detail['time']['value']:""}}
-
-			</span><br>
 			<label><b>description:</b></label>
 			<span>  {{detail['description']}}
-
-			</span><br>
-			<label><b>length:</b></label>
-			<span>  {{detail['length']?detail['length']['value']:""}}
 
 			</span><br>
 		</div>
@@ -36,6 +28,10 @@
 	
 	<ul class="nav nav-tabs">
 	  
+	  <li class="nav-item">
+	    <a [routerLink]="['./teacher/list']"
+	        class="nav-link" routerLinkActive="active">teacher</a>
+	  </li>
 	  <li class="nav-item">
 	    <a [routerLink]="['./courseinstance/list']"
 	        class="nav-link" routerLinkActive="active">courseinstance</a>

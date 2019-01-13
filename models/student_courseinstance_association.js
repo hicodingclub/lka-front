@@ -1,22 +1,23 @@
-var moment = require('moment');
-
 var mongoose = require('mongoose');
 
-var schema = mongoose.Schema;
+var Schema = mongoose.Schema;
 
-var StudentCourseInstanceAssociationSchema = new Schema(
+var studentCourseInstanceAssociationSchema = new Schema(
   {
     student: { type: Schema.Types.ObjectId, ref: 'Student', required: true }, //reference to the associated student
-    courseInstance: { type: Schema.Types.ObjectId, ref: 'Course_Instance', required: true }, //reference to the associated course instance
+    courseInstance: { type: Schema.Types.ObjectId, ref: 'CourseInstance', required: true }, //reference to the associated course instance
   }
 );
 
-// Virtual for StudentCourseInstanceAssociation's URL
-StudentCourseInstanceAssociationSchema
-.virtual('url')
-.get(function () {
-  return '/catalog/StudentCourseInstanceAssociation/' + this._id;
-});
+var courseInstanceBrief = "student courseInstance";
+var courseInstanceDetail = "student courseInstance";
+var courseInstanceCreat = "student courseInstance";
+var courseInstanceEdit = "student courseInstance";
+var courseInstanceTextSearch = "student courseInstance";
+var courseInstanceIndex = "student";
+
+var views = [courseInstanceBrief, courseInstanceDetail, courseInstanceCreat, courseInstanceEdit, courseInstanceTextSearch, courseInstanceIndex]
+
 
 //Export model
-module.exports = mongoose.model('StudentCourseInstanceAssociation', StudentCourseInstanceAssociationSchema);
+module.exports = {schema: studentCourseInstanceAssociationSchema, views: views};

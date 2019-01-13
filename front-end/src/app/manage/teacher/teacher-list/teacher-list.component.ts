@@ -7,6 +7,7 @@ import { TeacherComponent, ViewType } from '../teacher.component';
 import { TeacherService } from '../teacher.service';
 
 
+import { ComponentFactoryResolver } from '@angular/core';
 
 @Component({
   selector: 'app-teacher-list',
@@ -17,19 +18,21 @@ export class TeacherListComponent extends TeacherComponent implements OnInit {
 
 
   constructor(
-      
+      protected componentFactoryResolver: ComponentFactoryResolver,
       protected teacherService: TeacherService,
       protected commonService: MraCommonService,
       protected router: Router,
       protected route: ActivatedRoute,
       protected location: Location) {
-          super(
+          super(componentFactoryResolver,
                 teacherService, commonService, router, route, location, ViewType.LIST);
 
 
           this.stringFields.push('firstName');
           this.stringFields.push('lastName');
 
+          this.referenceFields = ['courses',];
+          this.referenceFieldsMap = {'courses': 'course',};
 
           //this is to initialize the detail that will be used for search condition selection
           let detail = {};

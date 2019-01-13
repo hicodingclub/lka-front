@@ -8,6 +8,7 @@ import { TeacherService } from '../teacher.service';
 
 
 
+import { ComponentFactoryResolver } from '@angular/core';
 
 
 @Component({
@@ -24,13 +25,13 @@ export class TeacherEditComponent extends TeacherComponent implements OnInit {
 
         
     constructor(
-      
+      protected componentFactoryResolver: ComponentFactoryResolver,
       protected teacherService: TeacherService,
       protected commonService: MraCommonService,
       protected router: Router,
       protected route: ActivatedRoute,
       protected location: Location) {
-          super( 
+          super( componentFactoryResolver,
                  teacherService, commonService, router, route, location, ViewType.EDIT);
 
 
@@ -40,6 +41,8 @@ export class TeacherEditComponent extends TeacherComponent implements OnInit {
           this.stringFields.push('email');
           this.stringFields.push('phoneNumber');
 
+          this.referenceFields = ['courses',];
+          this.referenceFieldsMap = {'courses': 'course',};
 
 
           

@@ -50,9 +50,6 @@
 		        <th scope="col">
 		        	Title
 		        </th>
-		        <th scope="col">
-		        	Time
-		        </th>
 		        <th *ngIf="referenceFieldsMap['teacher'] != parentItem"  scope="col">
 		        	Teacher
 		        </th>		        
@@ -68,10 +65,6 @@
 
 	            <td >
 	            	  {{detail['title']}}
-
-	            </td>
-	            <td >
-	            	  {{detail['time']?detail['time']['value']:""}}
 
 	            </td>
 	            <td *ngIf="referenceFieldsMap['teacher'] != parentItem"  >
@@ -90,7 +83,7 @@
 	            </td>
 	        </tr>
 
-	        <tr *ngIf="checkedItem[i]" > <td colspan="3"> <app-courseinstance-detail-sub [inputData]="detail['_id']"></app-courseinstance-detail-sub></td></tr>
+	        <tr *ngIf="checkedItem[i]" > <td colspan="2"> <app-courseinstance-detail-sub [inputData]="detail['_id']"></app-courseinstance-detail-sub></td></tr>
 	      </ng-template>
 	    </tbody>
 	</table>

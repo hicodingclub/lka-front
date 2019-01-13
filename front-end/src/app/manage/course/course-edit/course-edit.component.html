@@ -35,37 +35,6 @@
     
 
 	      <fieldset class="form-group">
-	        <label for="courseEditTime">Time </label> <span> ({{dateFormat}})</span>
-	        <div class="input-group">
-		      <input class="form-control" id="courseEditTime" placeholder="{{dateFormat}}"
-	                 required
-		        	  
-		             [(ngModel)]="detail['time']['date']" name="courseEditTime"
-		             ngbDatepicker #courseEditTimeDate="ngbDatepicker" #courseEditTime="ngModel">
-		      <div class="input-group-append">
-		        <button class="btn btn-outline-secondary" (click)="courseEditTimeDate.toggle()" type="button">
-		          <i class="fas fa-calendar-alt"></i>
-		        </button>
-		      </div>
-		    </div><!-- input group -->         
-	        <div [hidden]="courseEditTime.valid || courseEditTime.pristine || (courseEditTime.errors && courseEditTime.errors.ngbDate)"
-	             class="alert alert-danger">
-
-	          <div *ngIf="courseEditTime.errors && courseEditTime.errors.required && !(detail['time']?.date)">
-    	        Time is required.
-  	          </div>
- 
-	        </div>
-	        <div [hidden]="courseEditTime.valid || courseEditTime.untouched || !(courseEditTime.errors && courseEditTime.errors.ngbDate)"
-     			class="alert alert-danger">
-	          <div *ngIf="courseEditTime.errors && courseEditTime.errors.ngbDate">
-    	        Time must be in {{dateFormat}} format.
-  	          </div>
-	        </div>
-	      </fieldset>
-    
-
-	      <fieldset class="form-group">
 	        <label for="courseEditDescription">Description</label>
 
 	        <input type="text" class="form-control" id="courseEditDescription" 
@@ -86,34 +55,6 @@
 
 	        </div>
         
-	      </fieldset>
-    
-
-	      <fieldset class="form-group">
-	        <label for="courseEditLength">Length </label> <span> ({{dateFormat}})</span>
-	        <div class="input-group">
-		      <input class="form-control" id="courseEditLength" placeholder="{{dateFormat}}"
-	                 
-		        	  
-		             [(ngModel)]="detail['length']['date']" name="courseEditLength"
-		             ngbDatepicker #courseEditLengthDate="ngbDatepicker" #courseEditLength="ngModel">
-		      <div class="input-group-append">
-		        <button class="btn btn-outline-secondary" (click)="courseEditLengthDate.toggle()" type="button">
-		          <i class="fas fa-calendar-alt"></i>
-		        </button>
-		      </div>
-		    </div><!-- input group -->         
-	        <div [hidden]="courseEditLength.valid || courseEditLength.pristine || (courseEditLength.errors && courseEditLength.errors.ngbDate)"
-	             class="alert alert-danger">
-
- 
-	        </div>
-	        <div [hidden]="courseEditLength.valid || courseEditLength.untouched || !(courseEditLength.errors && courseEditLength.errors.ngbDate)"
-     			class="alert alert-danger">
-	          <div *ngIf="courseEditLength.errors && courseEditLength.errors.ngbDate">
-    	        Length must be in {{dateFormat}} format.
-  	          </div>
-	        </div>
 	      </fieldset>
     
 
@@ -145,37 +86,6 @@
     
 
 	      <fieldset class="form-group">
-	        <label for="courseEditTime">Time </label> <span> ({{dateFormat}})</span>
-	        <div class="input-group">
-		      <input class="form-control" id="courseEditTime" placeholder="{{dateFormat}}"
-	                 required
-		        	  
-		             [(ngModel)]="detail['time']['date']" name="courseEditTime"
-		             ngbDatepicker #courseEditTimeDate="ngbDatepicker" #courseEditTime="ngModel">
-		      <div class="input-group-append">
-		        <button class="btn btn-outline-secondary" (click)="courseEditTimeDate.toggle()" type="button">
-		          <i class="fas fa-calendar-alt"></i>
-		        </button>
-		      </div>
-		    </div><!-- input group -->         
-	        <div [hidden]="courseEditTime.valid || courseEditTime.pristine || (courseEditTime.errors && courseEditTime.errors.ngbDate)"
-	             class="alert alert-danger">
-
-	          <div *ngIf="courseEditTime.errors && courseEditTime.errors.required && !(detail['time']?.date)">
-    	        Time is required.
-  	          </div>
- 
-	        </div>
-	        <div [hidden]="courseEditTime.valid || courseEditTime.untouched || !(courseEditTime.errors && courseEditTime.errors.ngbDate)"
-     			class="alert alert-danger">
-	          <div *ngIf="courseEditTime.errors && courseEditTime.errors.ngbDate">
-    	        Time must be in {{dateFormat}} format.
-  	          </div>
-	        </div>
-	      </fieldset>
-    
-
-	      <fieldset class="form-group">
 	        <label for="courseEditDescription">Description</label>
 
 	        <input type="text" class="form-control" id="courseEditDescription" 
@@ -196,34 +106,6 @@
 
 	        </div>
         
-	      </fieldset>
-    
-
-	      <fieldset class="form-group">
-	        <label for="courseEditLength">Length </label> <span> ({{dateFormat}})</span>
-	        <div class="input-group">
-		      <input class="form-control" id="courseEditLength" placeholder="{{dateFormat}}"
-	                 
-		        	  
-		             [(ngModel)]="detail['length']['date']" name="courseEditLength"
-		             ngbDatepicker #courseEditLengthDate="ngbDatepicker" #courseEditLength="ngModel">
-		      <div class="input-group-append">
-		        <button class="btn btn-outline-secondary" (click)="courseEditLengthDate.toggle()" type="button">
-		          <i class="fas fa-calendar-alt"></i>
-		        </button>
-		      </div>
-		    </div><!-- input group -->         
-	        <div [hidden]="courseEditLength.valid || courseEditLength.pristine || (courseEditLength.errors && courseEditLength.errors.ngbDate)"
-	             class="alert alert-danger">
-
- 
-	        </div>
-	        <div [hidden]="courseEditLength.valid || courseEditLength.untouched || !(courseEditLength.errors && courseEditLength.errors.ngbDate)"
-     			class="alert alert-danger">
-	          <div *ngIf="courseEditLength.errors && courseEditLength.errors.ngbDate">
-    	        Length must be in {{dateFormat}} format.
-  	          </div>
-	        </div>
 	      </fieldset>
     
 

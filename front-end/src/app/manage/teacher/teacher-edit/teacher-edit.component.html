@@ -59,6 +59,33 @@
     
 
 	      <fieldset class="form-group">
+	        <label for="teacherEditCourses">Courses </label>
+		    <!-- <a class="icon-search" [routerLink]="['.']" (click)="onRefSelect('courses')"><i class="fas fa-list" title="Search"></i></a>  -->
+		    <div class="input-group">
+		    	<!--  [attr.disabled]="true" -->
+		        <input class="form-control rounded" id="teacherEditCourses" 
+		             [ngClass]="{'pointer ref-badge': detail['courses']['_id']}"
+		             (focus)="onRefSelect('courses')"
+	                 required
+		        	  
+		             [ngModel]="detail['courses']['value']" name="teacherEditCourses"
+		             #teacherEditCourses="ngModel"> 
+		    <div *ngIf="detail['courses']['value']" 
+		          class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('courses')">
+		          <i class="fas fa-times-circle" title="Clear"></i></div>
+			</div>
+	        <div [hidden]="teacherEditCourses.valid || teacherEditCourses.pristine"
+	             class="alert alert-danger">
+
+	          <div *ngIf="teacherEditCourses.errors && teacherEditCourses.errors.required && !(detail['courses']?.date)">
+    	        Courses is required.
+  	          </div>
+ 
+	        </div>
+	      </fieldset>
+    
+
+	      <fieldset class="form-group">
 	        <label for="teacherEditIntroduction">Introduction</label>
 
 	        <input type="text" class="form-control" id="teacherEditIntroduction" 
@@ -179,6 +206,33 @@
     
 
 	      <fieldset class="form-group">
+	        <label for="teacherEditCourses">Courses </label>
+		    <!-- <a class="icon-search" [routerLink]="['.']" (click)="onRefSelect('courses')"><i class="fas fa-list" title="Search"></i></a>  -->
+		    <div class="input-group">
+		    	<!--  [attr.disabled]="true" -->
+		        <input class="form-control rounded" id="teacherEditCourses" 
+		             [ngClass]="{'pointer ref-badge': detail['courses']['_id']}"
+		             (focus)="onRefSelect('courses')"
+	                 required
+		        	  
+		             [ngModel]="detail['courses']['value']" name="teacherEditCourses"
+		             #teacherEditCourses="ngModel"> 
+		    <div *ngIf="detail['courses']['value']" 
+		          class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('courses')">
+		          <i class="fas fa-times-circle" title="Clear"></i></div>
+			</div>
+	        <div [hidden]="teacherEditCourses.valid || teacherEditCourses.pristine"
+	             class="alert alert-danger">
+
+	          <div *ngIf="teacherEditCourses.errors && teacherEditCourses.errors.required && !(detail['courses']?.date)">
+    	        Courses is required.
+  	          </div>
+ 
+	        </div>
+	      </fieldset>
+    
+
+	      <fieldset class="form-group">
 	        <label for="teacherEditIntroduction">Introduction</label>
 
 	        <input type="text" class="form-control" id="teacherEditIntroduction" 
@@ -258,3 +312,4 @@
 	</div>
 </div>
 
+<ng-template manage-ref-select></ng-template>

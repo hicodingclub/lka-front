@@ -34,7 +34,6 @@ export class CourseinstanceListComponent extends CourseinstanceComponent impleme
           this.referenceFields = ['teacher',];
           this.referenceFieldsMap = {'teacher': 'teacher',};
 
-          this.dateFields = ['time',];
           //this is to initialize the detail that will be used for search condition selection
           let detail = {};
           this.detail = this.formatDetail(detail);

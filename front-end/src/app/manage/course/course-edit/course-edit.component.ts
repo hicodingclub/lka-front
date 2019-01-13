@@ -38,7 +38,6 @@ export class CourseEditComponent extends CourseComponent implements OnInit {
           this.stringFields.push('description');
 
 
-          this.dateFields = ['time','length',];
 
           
           let detail = {};

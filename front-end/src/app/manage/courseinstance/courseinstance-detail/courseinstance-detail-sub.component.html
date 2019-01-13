@@ -12,6 +12,18 @@
 			<span>  {{detail['price']}}
 
 			</span><br>
+			<label><b>startTime:</b></label>
+			<span>  {{detail['startTime']?detail['startTime']['value']:""}}
+
+			</span><br>
+			<label><b>endTime:</b></label>
+			<span>  {{detail['endTime']?detail['endTime']['value']:""}}
+
+			</span><br>
+			<label><b>dayOfWeek:</b></label>
+			<span>  {{detail['dayOfWeek']}}
+
+			</span><br>
 			<label><b>course:</b></label>
 			<span>  <a routerLink="."  (click)="onDisplayRefClicked('course', detail['course'], $event)">
 	            	    {{detail['course']?detail['course']['value']:""}} </a>
