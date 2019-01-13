@@ -21,7 +21,7 @@
         <div *ngIf="submitted && f.password_conf.errors" class="invalid-feedback">
             <div *ngIf="f.password_conf.errors.required">Password is required</div>
             <div *ngIf="f.password_conf.errors.minlength">Password must be at least 6 characters</div>
-            <div *ngIf="f.password_conf.errors.mismatch">Password must be same</div>
+            <div *ngIf="f.password_conf.errors.passwordNotSame">Password doesn't match.</div>
         </div>
     </div>
     <div class="form-group">
