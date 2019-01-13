@@ -9,12 +9,15 @@ var itemName = "student";
 export { ViewType };
 
 
+import { ViewChild } from '@angular/core';
 
+import { ElementRef } from '@angular/core';
 
 
 export class StudentComponent extends BaseComponent {
 
-
+ 
+    @ViewChild('ManageModal') protected focusEl:ElementRef;
 
     constructor(
       

@@ -86,6 +86,7 @@
 
 		        <th scope="col">FirstName</th>
 		        <th scope="col">LastName</th>
+		        <th scope="col">Courses</th>
 		        <th></th>	        
 	        </tr>
 	    </thead>
@@ -98,6 +99,10 @@
 
 	            </td>
 	            <td (click)="selectViewDetail(i)"  class="pointer">  {{detail['lastName']}}
+
+	            </td>
+	            <td (click)="selectViewDetail(i)"  class="pointer">  
+	            	    {{detail['courses']?detail['courses']['value']:""}} 
 
 	            </td>
 	            <td><a routerLink="." class="btn" 

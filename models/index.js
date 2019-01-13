@@ -5,13 +5,15 @@ let studentDef = require('./student');
 let teacherDef = require('./teacher');
 let courseDef = require('./course');
 let courseInstanceDef = require('./courseInstance');
+let studentCourseInstanceAssociationSchemaDef = require('./student_courseinstance_association')
 
 var schemas = {
   "Event": eventDef,
   "Student": studentDef,
   "Teacher": teacherDef,
   "Course": courseDef,
-  "CourseInstance": courseInstanceDef
+  "CourseInstance": courseInstanceDef,
+  "StudentCourseInstance": studentCourseInstanceAssociationSchemaDef
 };
 
 var config = {

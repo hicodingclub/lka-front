@@ -19,6 +19,11 @@
 			<span>  {{detail['lastName']}}
 
 			</span><br>
+			<label><b>courses:</b></label>
+			<span>  <a routerLink="."  (click)="onDisplayRefClicked('courses', detail['courses'], $event)">
+	            	    {{detail['courses']?detail['courses']['value']:""}} </a>
+
+			</span><br>
 			<label><b>introduction:</b></label>
 			<span>  {{detail['introduction']}}
 

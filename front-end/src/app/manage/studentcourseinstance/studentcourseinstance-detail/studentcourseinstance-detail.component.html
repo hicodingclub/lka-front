@@ -1,0 +1,29 @@
+<div class="detail" *ngIf="detail">
+	<div class="action-buttons">
+        <a href="javascript:void(0)" (click)="goBack()"><i class="fas fa-angle-double-left" title="Back"></i></a>
+		<a [routerLink]="['../../edit', detail['_id'] ]" [skipLocationChange]="true" class="btn btn-outline-primary">Edit</a>
+		<a [routerLink]="['../../new']" [queryParams]="{cid: detail['_id']}" [skipLocationChange]="true" class="btn btn-outline-primary">New</a>
+		<a routerLink="." class="btn btn-outline-primary" (click)="onDelete(detail['_id'], null)">Delete</a>
+	</div>
+	
+	<div class="card text-left">
+	  <div class="card-body">
+	    <h4 class="card-title">{{ItemName}} Detail</h4>    
+		<div class="card-text">
+
+			<label><b>student:</b></label>
+			<span>  <a routerLink="."  (click)="onDisplayRefClicked('student', detail['student'], $event)">
+	            	    {{detail['student']?detail['student']['value']:""}} </a>
+
+			</span><br>
+			<label><b>courseInstance:</b></label>
+			<span>  <a routerLink="."  (click)="onDisplayRefClicked('courseInstance', detail['courseInstance'], $event)">
+	            	    {{detail['courseInstance']?detail['courseInstance']['value']:""}} </a>
+
+			</span><br>
+		</div>
+	  </div>
+	</div>
+
+    <router-outlet></router-outlet>
+</div>

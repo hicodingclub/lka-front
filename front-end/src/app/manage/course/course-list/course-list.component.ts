@@ -15,7 +15,6 @@ import { CourseService } from '../course.service';
 })
 export class CourseListComponent extends CourseComponent implements OnInit {
 
-  private  minDate = {year: (new Date()).getFullYear()-100, month: 1, day: 1}; 
 
   constructor(
       
@@ -29,9 +28,9 @@ export class CourseListComponent extends CourseComponent implements OnInit {
 
 
           this.stringFields.push('title');
+          this.stringFields.push('description');
 
 
-          this.dateFields = ['time',];
           //this is to initialize the detail that will be used for search condition selection
           let detail = {};
           this.detail = this.formatDetail(detail);

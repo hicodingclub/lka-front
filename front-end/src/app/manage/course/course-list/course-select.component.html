@@ -20,7 +20,7 @@
 	              <input type="search" class="form-control border border-secondary" id="courseTextSearch" 
 						#courseTextSearch [(ngModel)]="searchText"
 						(keyup.enter)="$event.target.blur();searchList();false"
-					    placeholder="Search for title"> 
+					    placeholder="Search for title, description"> 
 				  <div *ngIf="searchText" class="input-group-append icon-clear-inside">
 					<span >
 					    <i class="fas fa-times-circle" (click)="onSearchTextClear()" title="Clear"></i>
@@ -85,7 +85,7 @@
 		        <th scope="col">#</th>
 
 		        <th scope="col">Title</th>
-		        <th scope="col">Time</th>
+		        <th scope="col">Description</th>
 		        <th></th>	        
 	        </tr>
 	    </thead>
@@ -97,7 +97,7 @@
 	            <td (click)="selectViewDetail(i)"  class="pointer">  {{detail['title']}}
 
 	            </td>
-	            <td (click)="selectViewDetail(i)"  class="pointer">  {{detail['time']?detail['time']['value']:""}}
+	            <td (click)="selectViewDetail(i)"  class="pointer">  {{detail['description']}}
 
 	            </td>
 	            <td><a routerLink="." class="btn" 

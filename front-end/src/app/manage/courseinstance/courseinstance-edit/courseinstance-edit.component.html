@@ -81,33 +81,167 @@
     
 
 	      <fieldset class="form-group">
-	        <label for="courseinstanceEditTime">Time </label> <span> ({{dateFormat}})</span>
+	        <label for="courseinstanceEditStartTime">StartTime </label> <span> ({{dateFormat}})</span>
 	        <div class="input-group">
-		      <input class="form-control" id="courseinstanceEditTime" placeholder="{{dateFormat}}"
+		      <input class="form-control" id="courseinstanceEditStartTime" placeholder="{{dateFormat}}"
 	                 required
 		        	  
-		             [(ngModel)]="detail['time']['date']" name="courseinstanceEditTime"
-		             ngbDatepicker #courseinstanceEditTimeDate="ngbDatepicker" #courseinstanceEditTime="ngModel">
+		             [(ngModel)]="detail['startTime']['date']" name="courseinstanceEditStartTime"
+		             ngbDatepicker #courseinstanceEditStartTimeDate="ngbDatepicker" #courseinstanceEditStartTime="ngModel">
 		      <div class="input-group-append">
-		        <button class="btn btn-outline-secondary" (click)="courseinstanceEditTimeDate.toggle()" type="button">
+		        <button class="btn btn-outline-secondary" (click)="courseinstanceEditStartTimeDate.toggle()" type="button">
 		          <i class="fas fa-calendar-alt"></i>
 		        </button>
 		      </div>
 		    </div><!-- input group -->         
-	        <div [hidden]="courseinstanceEditTime.valid || courseinstanceEditTime.pristine || (courseinstanceEditTime.errors && courseinstanceEditTime.errors.ngbDate)"
+	        <div [hidden]="courseinstanceEditStartTime.valid || courseinstanceEditStartTime.pristine || (courseinstanceEditStartTime.errors && courseinstanceEditStartTime.errors.ngbDate)"
 	             class="alert alert-danger">
 
-	          <div *ngIf="courseinstanceEditTime.errors && courseinstanceEditTime.errors.required && !(detail['time']?.date)">
-    	        Time is required.
+	          <div *ngIf="courseinstanceEditStartTime.errors && courseinstanceEditStartTime.errors.required && !(detail['startTime']?.date)">
+    	        StartTime is required.
   	          </div>
  
 	        </div>
-	        <div [hidden]="courseinstanceEditTime.valid || courseinstanceEditTime.untouched || !(courseinstanceEditTime.errors && courseinstanceEditTime.errors.ngbDate)"
+	        <div [hidden]="courseinstanceEditStartTime.valid || courseinstanceEditStartTime.untouched || !(courseinstanceEditStartTime.errors && courseinstanceEditStartTime.errors.ngbDate)"
      			class="alert alert-danger">
-	          <div *ngIf="courseinstanceEditTime.errors && courseinstanceEditTime.errors.ngbDate">
-    	        Time must be in {{dateFormat}} format.
+	          <div *ngIf="courseinstanceEditStartTime.errors && courseinstanceEditStartTime.errors.ngbDate">
+    	        StartTime must be in {{dateFormat}} format.
   	          </div>
 	        </div>
+	      </fieldset>
+    
+
+	      <fieldset class="form-group">
+	        <label for="courseinstanceEditEndTime">EndTime </label> <span> ({{dateFormat}})</span>
+	        <div class="input-group">
+		      <input class="form-control" id="courseinstanceEditEndTime" placeholder="{{dateFormat}}"
+	                 required
+		        	  
+		             [(ngModel)]="detail['endTime']['date']" name="courseinstanceEditEndTime"
+		             ngbDatepicker #courseinstanceEditEndTimeDate="ngbDatepicker" #courseinstanceEditEndTime="ngModel">
+		      <div class="input-group-append">
+		        <button class="btn btn-outline-secondary" (click)="courseinstanceEditEndTimeDate.toggle()" type="button">
+		          <i class="fas fa-calendar-alt"></i>
+		        </button>
+		      </div>
+		    </div><!-- input group -->         
+	        <div [hidden]="courseinstanceEditEndTime.valid || courseinstanceEditEndTime.pristine || (courseinstanceEditEndTime.errors && courseinstanceEditEndTime.errors.ngbDate)"
+	             class="alert alert-danger">
+
+	          <div *ngIf="courseinstanceEditEndTime.errors && courseinstanceEditEndTime.errors.required && !(detail['endTime']?.date)">
+    	        EndTime is required.
+  	          </div>
+ 
+	        </div>
+	        <div [hidden]="courseinstanceEditEndTime.valid || courseinstanceEditEndTime.untouched || !(courseinstanceEditEndTime.errors && courseinstanceEditEndTime.errors.ngbDate)"
+     			class="alert alert-danger">
+	          <div *ngIf="courseinstanceEditEndTime.errors && courseinstanceEditEndTime.errors.ngbDate">
+    	        EndTime must be in {{dateFormat}} format.
+  	          </div>
+	        </div>
+	      </fieldset>
+    
+
+	      <fieldset class="form-group">
+	        <label for="courseinstanceEditDayOfWeek">DayOfWeek</label>
+
+	        <div class="form-check"
+
+		          [ngClass]="{'ng-valid': enums['dayOfWeek'].includes(detail['dayOfWeek']),
+		                      'ng-invalid': !enums['dayOfWeek'].includes(detail['dayOfWeek'])}"
+		        
+		        >
+
+	          <div class="form-check-inline">
+		        <input type="radio" name="courseinstanceEditDayOfWeek" 
+		        	class="form-check-input"
+		        	required
+		        	id="courseinstanceEditDayOfWeekMonday" [value]="'Monday'"
+		        	 
+		        	[(ngModel)]="detail['dayOfWeek']"
+		        	#courseinstanceEditDayOfWeek="ngModel">
+		      	<label class="form-check-label">Monday</label>
+		      </div>
+
+	          <div class="form-check-inline">
+		        <input type="radio" name="courseinstanceEditDayOfWeek" 
+		        	class="form-check-input"
+		        	required
+		        	id="courseinstanceEditDayOfWeekTuesday" [value]="'Tuesday'"
+		        	 
+		        	[(ngModel)]="detail['dayOfWeek']"
+		        	#courseinstanceEditDayOfWeek="ngModel">
+		      	<label class="form-check-label">Tuesday</label>
+		      </div>
+
+	          <div class="form-check-inline">
+		        <input type="radio" name="courseinstanceEditDayOfWeek" 
+		        	class="form-check-input"
+		        	required
+		        	id="courseinstanceEditDayOfWeekWednesday" [value]="'Wednesday'"
+		        	 
+		        	[(ngModel)]="detail['dayOfWeek']"
+		        	#courseinstanceEditDayOfWeek="ngModel">
+		      	<label class="form-check-label">Wednesday</label>
+		      </div>
+
+	          <div class="form-check-inline">
+		        <input type="radio" name="courseinstanceEditDayOfWeek" 
+		        	class="form-check-input"
+		        	required
+		        	id="courseinstanceEditDayOfWeekThursday" [value]="'Thursday'"
+		        	 
+		        	[(ngModel)]="detail['dayOfWeek']"
+		        	#courseinstanceEditDayOfWeek="ngModel">
+		      	<label class="form-check-label">Thursday</label>
+		      </div>
+
+	          <div class="form-check-inline">
+		        <input type="radio" name="courseinstanceEditDayOfWeek" 
+		        	class="form-check-input"
+		        	required
+		        	id="courseinstanceEditDayOfWeekFriday" [value]="'Friday'"
+		        	 
+		        	[(ngModel)]="detail['dayOfWeek']"
+		        	#courseinstanceEditDayOfWeek="ngModel">
+		      	<label class="form-check-label">Friday</label>
+		      </div>
+
+	          <div class="form-check-inline">
+		        <input type="radio" name="courseinstanceEditDayOfWeek" 
+		        	class="form-check-input"
+		        	required
+		        	id="courseinstanceEditDayOfWeekSaturday" [value]="'Saturday'"
+		        	 
+		        	[(ngModel)]="detail['dayOfWeek']"
+		        	#courseinstanceEditDayOfWeek="ngModel">
+		      	<label class="form-check-label">Saturday</label>
+		      </div>
+
+	          <div class="form-check-inline">
+		        <input type="radio" name="courseinstanceEditDayOfWeek" 
+		        	class="form-check-input"
+		        	required
+		        	id="courseinstanceEditDayOfWeekSunday" [value]="'Sunday'"
+		        	 
+		        	[(ngModel)]="detail['dayOfWeek']"
+		        	#courseinstanceEditDayOfWeek="ngModel">
+		      	<label class="form-check-label">Sunday</label>
+		      </div>
+
+		      
+		    </div>
+
+	        <div [hidden]="courseinstanceEditDayOfWeek.valid || courseinstanceEditDayOfWeek.pristine || courseinstanceEditDayOfWeek.errors.minlength"
+     			class="alert alert-danger">
+
+	          <div *ngIf="courseinstanceEditDayOfWeek.errors && courseinstanceEditDayOfWeek.errors.required">
+    	        DayOfWeek is required.
+  	          </div>
+ 
+
+	        </div>
+        
 	      </fieldset>
     
 
@@ -239,33 +373,167 @@
     
 
 	      <fieldset class="form-group">
-	        <label for="courseinstanceEditTime">Time </label> <span> ({{dateFormat}})</span>
+	        <label for="courseinstanceEditStartTime">StartTime </label> <span> ({{dateFormat}})</span>
 	        <div class="input-group">
-		      <input class="form-control" id="courseinstanceEditTime" placeholder="{{dateFormat}}"
+		      <input class="form-control" id="courseinstanceEditStartTime" placeholder="{{dateFormat}}"
 	                 required
 		        	  
-		             [(ngModel)]="detail['time']['date']" name="courseinstanceEditTime"
-		             ngbDatepicker #courseinstanceEditTimeDate="ngbDatepicker" #courseinstanceEditTime="ngModel">
+		             [(ngModel)]="detail['startTime']['date']" name="courseinstanceEditStartTime"
+		             ngbDatepicker #courseinstanceEditStartTimeDate="ngbDatepicker" #courseinstanceEditStartTime="ngModel">
 		      <div class="input-group-append">
-		        <button class="btn btn-outline-secondary" (click)="courseinstanceEditTimeDate.toggle()" type="button">
+		        <button class="btn btn-outline-secondary" (click)="courseinstanceEditStartTimeDate.toggle()" type="button">
 		          <i class="fas fa-calendar-alt"></i>
 		        </button>
 		      </div>
 		    </div><!-- input group -->         
-	        <div [hidden]="courseinstanceEditTime.valid || courseinstanceEditTime.pristine || (courseinstanceEditTime.errors && courseinstanceEditTime.errors.ngbDate)"
+	        <div [hidden]="courseinstanceEditStartTime.valid || courseinstanceEditStartTime.pristine || (courseinstanceEditStartTime.errors && courseinstanceEditStartTime.errors.ngbDate)"
 	             class="alert alert-danger">
 
-	          <div *ngIf="courseinstanceEditTime.errors && courseinstanceEditTime.errors.required && !(detail['time']?.date)">
-    	        Time is required.
+	          <div *ngIf="courseinstanceEditStartTime.errors && courseinstanceEditStartTime.errors.required && !(detail['startTime']?.date)">
+    	        StartTime is required.
   	          </div>
  
 	        </div>
-	        <div [hidden]="courseinstanceEditTime.valid || courseinstanceEditTime.untouched || !(courseinstanceEditTime.errors && courseinstanceEditTime.errors.ngbDate)"
+	        <div [hidden]="courseinstanceEditStartTime.valid || courseinstanceEditStartTime.untouched || !(courseinstanceEditStartTime.errors && courseinstanceEditStartTime.errors.ngbDate)"
      			class="alert alert-danger">
-	          <div *ngIf="courseinstanceEditTime.errors && courseinstanceEditTime.errors.ngbDate">
-    	        Time must be in {{dateFormat}} format.
+	          <div *ngIf="courseinstanceEditStartTime.errors && courseinstanceEditStartTime.errors.ngbDate">
+    	        StartTime must be in {{dateFormat}} format.
   	          </div>
 	        </div>
+	      </fieldset>
+    
+
+	      <fieldset class="form-group">
+	        <label for="courseinstanceEditEndTime">EndTime </label> <span> ({{dateFormat}})</span>
+	        <div class="input-group">
+		      <input class="form-control" id="courseinstanceEditEndTime" placeholder="{{dateFormat}}"
+	                 required
+		        	  
+		             [(ngModel)]="detail['endTime']['date']" name="courseinstanceEditEndTime"
+		             ngbDatepicker #courseinstanceEditEndTimeDate="ngbDatepicker" #courseinstanceEditEndTime="ngModel">
+		      <div class="input-group-append">
+		        <button class="btn btn-outline-secondary" (click)="courseinstanceEditEndTimeDate.toggle()" type="button">
+		          <i class="fas fa-calendar-alt"></i>
+		        </button>
+		      </div>
+		    </div><!-- input group -->         
+	        <div [hidden]="courseinstanceEditEndTime.valid || courseinstanceEditEndTime.pristine || (courseinstanceEditEndTime.errors && courseinstanceEditEndTime.errors.ngbDate)"
+	             class="alert alert-danger">
+
+	          <div *ngIf="courseinstanceEditEndTime.errors && courseinstanceEditEndTime.errors.required && !(detail['endTime']?.date)">
+    	        EndTime is required.
+  	          </div>
+ 
+	        </div>
+	        <div [hidden]="courseinstanceEditEndTime.valid || courseinstanceEditEndTime.untouched || !(courseinstanceEditEndTime.errors && courseinstanceEditEndTime.errors.ngbDate)"
+     			class="alert alert-danger">
+	          <div *ngIf="courseinstanceEditEndTime.errors && courseinstanceEditEndTime.errors.ngbDate">
+    	        EndTime must be in {{dateFormat}} format.
+  	          </div>
+	        </div>
+	      </fieldset>
+    
+
+	      <fieldset class="form-group">
+	        <label for="courseinstanceEditDayOfWeek">DayOfWeek</label>
+
+	        <div class="form-check"
+
+		          [ngClass]="{'ng-valid': enums['dayOfWeek'].includes(detail['dayOfWeek']),
+		                      'ng-invalid': !enums['dayOfWeek'].includes(detail['dayOfWeek'])}"
+		        
+		        >
+
+	          <div class="form-check-inline">
+		        <input type="radio" name="courseinstanceEditDayOfWeek" 
+		        	class="form-check-input"
+		        	required
+		        	id="courseinstanceEditDayOfWeekMonday" [value]="'Monday'"
+		        	 
+		        	[(ngModel)]="detail['dayOfWeek']"
+		        	#courseinstanceEditDayOfWeek="ngModel">
+		      	<label class="form-check-label">Monday</label>
+		      </div>
+
+	          <div class="form-check-inline">
+		        <input type="radio" name="courseinstanceEditDayOfWeek" 
+		        	class="form-check-input"
+		        	required
+		        	id="courseinstanceEditDayOfWeekTuesday" [value]="'Tuesday'"
+		        	 
+		        	[(ngModel)]="detail['dayOfWeek']"
+		        	#courseinstanceEditDayOfWeek="ngModel">
+		      	<label class="form-check-label">Tuesday</label>
+		      </div>
+
+	          <div class="form-check-inline">
+		        <input type="radio" name="courseinstanceEditDayOfWeek" 
+		        	class="form-check-input"
+		        	required
+		        	id="courseinstanceEditDayOfWeekWednesday" [value]="'Wednesday'"
+		        	 
+		        	[(ngModel)]="detail['dayOfWeek']"
+		        	#courseinstanceEditDayOfWeek="ngModel">
+		      	<label class="form-check-label">Wednesday</label>
+		      </div>
+
+	          <div class="form-check-inline">
+		        <input type="radio" name="courseinstanceEditDayOfWeek" 
+		        	class="form-check-input"
+		        	required
+		        	id="courseinstanceEditDayOfWeekThursday" [value]="'Thursday'"
+		        	 
+		        	[(ngModel)]="detail['dayOfWeek']"
+		        	#courseinstanceEditDayOfWeek="ngModel">
+		      	<label class="form-check-label">Thursday</label>
+		      </div>
+
+	          <div class="form-check-inline">
+		        <input type="radio" name="courseinstanceEditDayOfWeek" 
+		        	class="form-check-input"
+		        	required
+		        	id="courseinstanceEditDayOfWeekFriday" [value]="'Friday'"
+		        	 
+		        	[(ngModel)]="detail['dayOfWeek']"
+		        	#courseinstanceEditDayOfWeek="ngModel">
+		      	<label class="form-check-label">Friday</label>
+		      </div>
+
+	          <div class="form-check-inline">
+		        <input type="radio" name="courseinstanceEditDayOfWeek" 
+		        	class="form-check-input"
+		        	required
+		        	id="courseinstanceEditDayOfWeekSaturday" [value]="'Saturday'"
+		        	 
+		        	[(ngModel)]="detail['dayOfWeek']"
+		        	#courseinstanceEditDayOfWeek="ngModel">
+		      	<label class="form-check-label">Saturday</label>
+		      </div>
+
+	          <div class="form-check-inline">
+		        <input type="radio" name="courseinstanceEditDayOfWeek" 
+		        	class="form-check-input"
+		        	required
+		        	id="courseinstanceEditDayOfWeekSunday" [value]="'Sunday'"
+		        	 
+		        	[(ngModel)]="detail['dayOfWeek']"
+		        	#courseinstanceEditDayOfWeek="ngModel">
+		      	<label class="form-check-label">Sunday</label>
+		      </div>
+
+		      
+		    </div>
+
+	        <div [hidden]="courseinstanceEditDayOfWeek.valid || courseinstanceEditDayOfWeek.pristine || courseinstanceEditDayOfWeek.errors.minlength"
+     			class="alert alert-danger">
+
+	          <div *ngIf="courseinstanceEditDayOfWeek.errors && courseinstanceEditDayOfWeek.errors.required">
+    	        DayOfWeek is required.
+  	          </div>
+ 
+
+	        </div>
+        
 	      </fieldset>
     
 

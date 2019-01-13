@@ -28,8 +28,7 @@ export class CourseComponent extends BaseComponent {
       protected location: Location,
       protected view: ViewType ) {
         super(courseService, commonService, router, route, location, view, itemName);
-        this.dateFormat = "MM-DD-YYYY";
-        this.timeFormat = "hh:mm:ss";
+        
         this.indexFields = ['title',];
     }
 }

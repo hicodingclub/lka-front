@@ -32,54 +32,6 @@
 						<div class="card-body">
 	    <div class="single-line-edit">
 	      <div class="row">
-	        <div class="col-3"><label for="courseinstanceEditTime">Time</label></div>
-	        <div class="col-8">
-
- 
-	        <div class="input-group">
-		      <input class="form-control" id="courseinstanceEditTime" placeholder="{{dateFormat}}"
-		             [(ngModel)]="detail['time']['from']" name="courseinstanceEditTime"
-		             ngbDatepicker #courseinstanceEditTime="ngModel">
-		      <span>&nbsp; ~ &nbsp;</span>
-		      <input class="form-control" id="courseinstanceEditTime" placeholder="{{dateFormat}}"
-		             [(ngModel)]="detail['time']['to']" name="courseinstanceEditTime"
-		             ngbDatepicker #courseinstanceEditTime="ngModel">
-
-		      <div class="input-group-append">
-		        <button class="btn btn-outline-secondary" (click)="onDateSelectionToggle('time')" type="button">
-		          <i class="fas fa-calendar-alt"></i>
-		        </button>
-		      </div>
-		    </div><!-- input group --> 
-		    <div class="date-selection-pop" *ngIf="detail['time']['pop']">
-			    <ngb-datepicker #dp [minDate]="minDate" (select)="onDateSelection('time', $event)" [displayMonths]="2" [dayTemplate]="courseinstanceEditTimeT">
-				</ngb-datepicker>
-				<ng-template #courseinstanceEditTimeT let-courseinstanceEditTimeDate="date" let-courseinstanceEditTimeFocused="focused">
-				  <span class="custom-day"
-				        [class.focused]="courseinstanceEditTimeFocused"
-				        [class.range]="isRange('time', courseinstanceEditTimeDate)"
-				        [class.faded]="isHovered('time', courseinstanceEditTimeDate) || isInside('time', courseinstanceEditTimeDate)"
-				        (mouseenter)="hoveredDate = courseinstanceEditTimeDate"
-				        (mouseleave)="hoveredDate = null">
-				    {{ courseinstanceEditTimeDate.day }}
-				  </span>
-				</ng-template>
-		    </div>      
-
-    
-	      </div>
-	      
-	      <div class="col-1">
-		    <div class="icon-clear" (click)="clearValueFromDetail('time')"
-		        *ngIf="checkValueDefinedFromDetail(['time'])"
-		        ><i class="fas fa-times-circle" title="Clear"></i></div>
-	      </div>
-	    </div>
-      </div>
-      
- 
-	    <div class="single-line-edit">
-	      <div class="row">
 	        <div class="col-3"><label for="courseinstanceEditTeacher">Teacher</label></div>
 	        <div class="col-8">
 
@@ -181,7 +133,6 @@
 		        <th scope="col">#</th>
 
 		        <th scope="col">Title</th>
-		        <th scope="col">Time</th>
 		        <th scope="col">Teacher</th>		        
 		        <th scope="col" style="width:8rem;"></th>
 		        <th scope="col" style="width:2rem;">
@@ -194,9 +145,6 @@
 	            <td scope="row" (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">{{(page-1)*per_page+i+1}}</td>
 
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">  {{detail['title']}}
-
-	            </td>
-	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">  {{detail['time']?detail['time']['value']:""}}
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">  <a routerLink="."  (click)="onDisplayRefClicked('teacher', detail['teacher'], $event)">

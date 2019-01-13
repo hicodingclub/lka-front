@@ -11,6 +11,7 @@ export { ViewType };
 
 import { ViewChild } from '@angular/core';
 
+import { ElementRef } from '@angular/core';
 
 import { ComponentFactoryResolver } from '@angular/core';
 import { ManageRefSelectDirective } from '../manage.component';
@@ -40,7 +41,8 @@ export class CourseinstanceComponent extends BaseComponent {
     }
     @ViewChild(ManageRefSelectDirective) refSelectDirective: ManageRefSelectDirective;
 
-
+ 
+    @ViewChild('ManageModal') protected focusEl:ElementRef;
 
     constructor(
       protected componentFactoryResolver: ComponentFactoryResolver,
