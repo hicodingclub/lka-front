@@ -1,8 +1,11 @@
-﻿<div class='auth-icon-container'>
+﻿<div class='auth-icon-container' (clickElsewhere)="closePopup()">
 
-	<div class='auth-icon' (click)="toggle($event)">
-		<i class="fas fa-user"></i>
+	<div class="auth-icon" [ngClass]="{'auth-icon-active': isAuthorized()}" (click)="toggle($event)">
+		<span class="icon-text"><i class="fas fa-user"></i></span>
 	</div>
+
+    <div>{{userNameShort}}</div>
+
 	<div *ngIf="popup" class="auth-icon-pop" [ngStyle]="popupStyle">
 	  <div class="dropdown-menu pop-menu-container">
 	  	<label class="login-name">{{userName}}</label>
@@ -13,11 +16,11 @@
 		    
 		    <div class="dropdown-divider"></div>
 		    
-		    <a class="dropdown-item" (click)="logout()">Logout</a>
+		    <a class="dropdown-item btn" (click)="logout()">Logout</a>
 		</ng-container>
 	    <ng-template #notAuthorized>		    
 		    <a class="dropdown-item btn" (click)="login()">Login</a>
 		</ng-template>
 	  </div>
-
+    </div>
 </div>

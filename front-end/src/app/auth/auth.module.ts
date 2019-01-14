@@ -15,6 +15,7 @@ import { LoginComponent } from './login';
 import { RegisterComponent } from './register';
 import { AuthGuard }  from './auth.guard';
 import { AuthIconComponent }  from './auth-icon/auth-icon.component';
+import { ClickElsewhereDirective } from './auth-icon/click-elsewhere.directive';
 
 @NgModule({
     imports: [        
@@ -29,7 +30,9 @@ import { AuthIconComponent }  from './auth-icon/auth-icon.component';
         AuthenticationComponent,
         LoginComponent,
         RegisterComponent,
-        AuthIconComponent
+        AuthIconComponent,
+
+        ClickElsewhereDirective
     ],
     exports: [
         AuthIconComponent

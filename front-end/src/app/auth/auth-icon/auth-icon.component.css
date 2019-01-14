@@ -4,16 +4,29 @@
 
 .auth-icon {
 	background-color: rgb(170, 170, 170);
-    height: 1.8rem;
-    width: 1.8rem;
+    height: 3rem;
+    width: 3rem;
     border-radius: 50%;
     display: inline-block;
     text-align: center;
     cursor: pointer;
 }
 
+.auth-icon-active {
+	background-color: rgb(90, 160, 70);
+}
+
+.icon-text {
+    font-size: 1.8rem;
+    margin-top: 0.5rem;
+}
+
 .auth-icon:hover {
 	background-color: rgb(200, 200, 200);
+}
+
+.auth-icon-active:hover {
+	background-color: rgb(120, 170, 110);
 }
 
 .auth-icon-pop {
