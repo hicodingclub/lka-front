@@ -5,7 +5,10 @@ import { first } from 'rxjs/operators';
 
 import { AuthenticationService } from '../auth.service';
 
-@Component({templateUrl: 'login.component.html', styleUrls: ['login.component.css']})
+@Component(
+    {templateUrl: 'login.component.html',
+     styleUrls: ['login.component.css']
+    })
 export class LoginComponent implements OnInit {
     loginForm: FormGroup;
     loading = false;
@@ -44,7 +47,8 @@ export class LoginComponent implements OnInit {
         if (this.loginForm.invalid) {
             return;
         }
-        const returnUrl = this.authenticationService.getInterruptedUrl();
+        let returnUrl = this.authenticationService.getInterruptedUrl();
+        if (this.router.url == returnUrl) returnUrl = "/"; //home page
 
         this.loading = true;
         this.authenticationService.login(this.f.username.value, this.f.password.value)

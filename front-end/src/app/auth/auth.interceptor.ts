@@ -77,7 +77,7 @@ export class TokenInterceptor implements HttpInterceptor {
                             return next.handle(this.addAuthHeader(request));
                         }),
                         catchError((err) => {
-                            //looks like this part will net hit
+                            //looks like this part will not hit
                             this.refreshTokenInProgress = false;
                             this.authService.setInterruptedUrl(this.router.url);
                             this.router.navigate([this.loginPageUri]);

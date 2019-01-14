@@ -1,5 +1,5 @@
 ﻿import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
@@ -17,7 +17,10 @@ const validatePasswords = function(form) {
     }
 }
 
-@Component({templateUrl: 'register.component.html', styleUrls: ['register.component.css']})
+@Component(
+    {templateUrl: 'register.component.html',
+     styleUrls: ['register.component.css']
+    })
 export class RegisterComponent implements OnInit {
     registerForm: FormGroup;
     loading = false;
@@ -28,6 +31,7 @@ export class RegisterComponent implements OnInit {
     constructor(
         private formBuilder: FormBuilder,
         private router: Router,
+        private route: ActivatedRoute,
         private userService: AuthenticationService) { }
 
 
@@ -56,7 +60,7 @@ export class RegisterComponent implements OnInit {
             .subscribe(
                 data => {
                     //this.alertService.success('Registration successful', true);
-                    this.router.navigate(['auth/login']);
+                    this.router.navigate(['../login'], {relativeTo: this.route, });
                     this.servererror = false;
                 },
                 error => {
