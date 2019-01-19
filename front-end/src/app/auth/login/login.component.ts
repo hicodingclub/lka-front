@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
     loading = false;
     submitted = false;
     servererror = false;
-    serverText = "";
+    serverText = '';
     returnUrl: string;
 
     constructor(
@@ -48,22 +48,27 @@ export class LoginComponent implements OnInit {
             return;
         }
         let returnUrl = this.authenticationService.getInterruptedUrl();
-        if (this.router.url == returnUrl) returnUrl = "/"; //home page
+        if (this.router.url === returnUrl) { returnUrl = '/'; } // home page
 
         this.loading = true;
         this.authenticationService.login(this.f.username.value, this.f.password.value)
             .pipe(first())
             .subscribe(
                 data => {
-                	this.servererror = false;
+                    this.servererror = false;
                     this.router.navigate([returnUrl]);
                     this.loading = false;
                 },
                 error => {
-                    //this.alertService.error(error);
+                    // this.alertService.error(error);
                     this.servererror = true;
                     this.serverText = error.error.error;
                     this.loading = false;
                 });
+    }
+
+    cancel() {
+      const routedFromUrl = this.authenticationService.getRoutedFromUrl();
+      this.router.navigate([routedFromUrl]);
     }
 }

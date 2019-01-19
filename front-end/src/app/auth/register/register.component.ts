@@ -6,16 +6,16 @@ import { first } from 'rxjs/operators';
 import { AuthenticationService } from '../auth.service';
 
 const validatePasswords = function(form) {
-    let passwordConf = form.controls.password_conf.value;
-    let password = form.controls.password.value;
+    const passwordConf = form.controls.password_conf.value;
+    const password = form.controls.password.value;
 
-    if (passwordConf == password) {
+    if (passwordConf === password) {
         return null;
     } else {
         form.controls.password_conf.setErrors({'passwordNotSame': true});
         return null;
     }
-}
+};
 
 @Component(
     {templateUrl: 'register.component.html',
@@ -26,13 +26,13 @@ export class RegisterComponent implements OnInit {
     loading = false;
     submitted = false;
     servererror = false;
-    serverText = "";
+    serverText = '';
 
     constructor(
         private formBuilder: FormBuilder,
         private router: Router,
         private route: ActivatedRoute,
-        private userService: AuthenticationService) { }
+        private authenticationService: AuthenticationService) { }
 
 
     ngOnInit() {
@@ -53,22 +53,26 @@ export class RegisterComponent implements OnInit {
         if (this.registerForm.invalid) {
             return;
         }
-        
+
         this.loading = true;
-        this.userService.register(this.registerForm.value)
+        this.authenticationService.register(this.registerForm.value)
             .pipe(first())
             .subscribe(
                 data => {
-                    //this.alertService.success('Registration successful', true);
+                    // this.alertService.success('Registration successful', true);
                     this.router.navigate(['../login'], {relativeTo: this.route, });
                     this.servererror = false;
                 },
                 error => {
-                    //this.alertService.error(error);
-                    //alert("Error login");
+                    // this.alertService.error(error);
+                    // alert("Error login");
                     this.servererror = true;
                     this.serverText = error.error.error;
                     this.loading = false;
                 });
+    }
+    cancel() {
+      const routedFromUrl = this.authenticationService.getRoutedFromUrl();
+      this.router.navigate([routedFromUrl]);
     }
 }

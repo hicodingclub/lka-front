@@ -6,7 +6,7 @@ import { AUTHTICATION_LOGIN_PAGE_URI } from './tokens';
 @Injectable()
 export class AuthGuard implements CanActivate, CanActivateChild {
   constructor(
-    private router: Router, 
+    private router: Router,
     private authService: AuthenticationService,
     @Inject(AUTHTICATION_LOGIN_PAGE_URI) private loginPageUri: string) { }
 

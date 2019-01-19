@@ -10,30 +10,30 @@ import { AUTHTICATION_LOGIN_PAGE_URI } from '../tokens';
     styleUrls: ['auth-icon.component.css']
 })
 export class AuthIconComponent implements OnInit {
-  private popup: boolean = false;
+  private popup = false;
   private popupStyle: any = {};
-  private userName: string = "Please login";
-  private userNameShort: string = "Please login";
+  private userName = 'Please login';
+  private userNameShort = 'Please login';
 
   constructor(
-    private router: Router, 
+    private router: Router,
     private authService: AuthenticationService,
     @Inject(AUTHTICATION_LOGIN_PAGE_URI) private loginPageUri: string) { }
 
   ngOnInit() {
     this.isAuthorized();
   }
-  
+
   public toggle(event) {
     if (!this.popup) {
-      let right = (window.innerWidth - event.x) - 2;
-      let top = event.y + 15;
+      const right = (window.innerWidth - event.x) - 2;
+      const top = event.y + 15;
 
       this.popupStyle = {
         'right': right.toString() + 'px',
         'top': top.toString() + 'px',
-      }
-    } 
+      };
+    }
     this.popup = !this.popup;
   }
 
@@ -42,18 +42,26 @@ export class AuthIconComponent implements OnInit {
   }
 
   public isAuthorized() {
-    let name = this.authService.getUserName();
+    const name = this.authService.getUserName();
+    const isAuth = this.authService.isAuthorized();
     if (name) {
         this.userName = name;
-        if (name.length > 12) this.userNameShort = name.substring(0, 10) + '...';
-        else this.userNameShort = name.substring(0, 13);
+        if (isAuth) {
+          if (name.length > 12) {
+            this.userNameShort = name.substring(0, 10) + '...';
+          } else {
+            this.userNameShort = name.substring(0, 13);
+          }
+        } else {
+          this.userNameShort = 'Please login';
+        }
     }
-    return this.authService.isAuthorized();
+    return isAuth;
   }
 
   public login() {
     // not logged in so redirect to login page with the return url
-    let state: RouterStateSnapshot = this.router.routerState.snapshot;
+    const state: RouterStateSnapshot = this.router.routerState.snapshot;
     this.authService.setInterruptedUrl(state.url);
     this.popup = false;
     this.router.navigate([this.loginPageUri]);
@@ -63,5 +71,7 @@ export class AuthIconComponent implements OnInit {
     // not logged in so redirect to login page with the return url
     this.authService.logout();
     this.popup = false;
+    this.router.navigated = false; // refresh current page;
+    this.router.navigate(['/']); // home page
   }
 }

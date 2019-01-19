@@ -22,7 +22,7 @@ export class TokenInterceptor implements HttpInterceptor {
   private refreshTokenSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null);
 
   constructor(
-    private router: Router, 
+    private router: Router,
     private authService: AuthenticationService,
     @Inject(AUTHTICATION_LOGIN_PAGE_URI) private loginPageUri: string
     ) {}
@@ -37,7 +37,7 @@ export class TokenInterceptor implements HttpInterceptor {
     }
     return request;
   }
-  
+
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(this.addAuthHeader(request))
       .pipe(
@@ -77,7 +77,7 @@ export class TokenInterceptor implements HttpInterceptor {
                             return next.handle(this.addAuthHeader(request));
                         }),
                         catchError((err) => {
-                            //looks like this part will not hit
+                            // looks like this part will not hit
                             this.refreshTokenInProgress = false;
                             this.authService.setInterruptedUrl(this.router.url);
                             this.router.navigate([this.loginPageUri]);
@@ -87,10 +87,10 @@ export class TokenInterceptor implements HttpInterceptor {
             }
           }
           if (this.authService.verifyTokenRequest(request.url)) {
-            //refreshToken failed. Go to login page.
+            // refreshToken failed. Go to login page.
             this.refreshTokenInProgress = false;
             this.authService.setInterruptedUrl(this.router.url);
-            this.router.navigate([this.loginPageUri]);              
+            this.router.navigate([this.loginPageUri]);
           }
           return throwError(error);
         })
