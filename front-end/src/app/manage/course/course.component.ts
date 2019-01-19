@@ -1,10 +1,10 @@
 import { Location } from '@angular/common';
-import { Router, ActivatedRoute }    from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { BaseComponent, ViewType } from 'mean-rest-angular';
 import { MraCommonService } from 'mean-rest-angular';
 import { CourseService } from './course.service';
 
-var itemName = "course";
+const itemName = 'course';
 
 export { ViewType };
 
@@ -16,19 +16,19 @@ import { ElementRef } from '@angular/core';
 
 export class CourseComponent extends BaseComponent {
 
- 
-    @ViewChild('ManageModal') protected focusEl:ElementRef;
+
+    @ViewChild('ManageModal') protected focusEl: ElementRef;
 
     constructor(
-      
+
       protected courseService: CourseService,
-      protected commonService: MraCommonService,      
+      protected commonService: MraCommonService,
       protected router: Router,
       protected route: ActivatedRoute,
       protected location: Location,
       protected view: ViewType ) {
         super(courseService, commonService, router, route, location, view, itemName);
         
-        this.indexFields = ['title',];
+        this.indexFields = ['title', ];
     }
 }

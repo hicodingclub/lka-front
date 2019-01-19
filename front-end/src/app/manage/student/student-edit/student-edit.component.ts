@@ -39,7 +39,7 @@ export class StudentEditComponent extends StudentComponent implements OnInit {
           this.stringFields.push('email');
 
 
-          this.dateFields = ['date_of_birth',];
+          this.dateFields = ['date_of_birth', ];
 
           
           let detail = {};

@@ -8,7 +8,7 @@ import { ViewContainerRef,  Directive} from '@angular/core';
 export class ManageRefSelectDirective {
   constructor(public viewContainerRef: ViewContainerRef) { }
 }
- 
+
 @Component({
   selector: 'app-manage',
   templateUrl: './manage.component.html',

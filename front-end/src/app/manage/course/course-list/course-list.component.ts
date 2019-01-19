@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Location } from '@angular/common';
-import { Router, ActivatedRoute }    from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { MraCommonService } from 'mean-rest-angular';
 
 import { CourseComponent, ViewType } from '../course.component';
@@ -17,7 +17,7 @@ export class CourseListComponent extends CourseComponent implements OnInit {
 
 
   constructor(
-      
+
       protected courseService: CourseService,
       protected commonService: MraCommonService,
       protected router: Router,
@@ -31,8 +31,8 @@ export class CourseListComponent extends CourseComponent implements OnInit {
           this.stringFields.push('description');
 
 
-          //this is to initialize the detail that will be used for search condition selection
-          let detail = {};
+          // this is to initialize the detail that will be used for search condition selection
+          const detail = {};
           this.detail = this.formatDetail(detail);
   }
 

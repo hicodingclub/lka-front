@@ -4,7 +4,7 @@ import { StudentcourseinstanceBaseService } from './studentcourseinstance.base.s
 import { Manage_SERVER_ROOT_URI } from '../manage.tokens';
 
 @Injectable()
-export class StudentcourseinstanceService extends StudentcourseinstanceBaseService implements OnDestroy {    
+export class StudentcourseinstanceService extends StudentcourseinstanceBaseService implements OnDestroy {
     constructor(
         http: HttpClient,
         @Inject(Manage_SERVER_ROOT_URI) private manageServerRootUri: string) {

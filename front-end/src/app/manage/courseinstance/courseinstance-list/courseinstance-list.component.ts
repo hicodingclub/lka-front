@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Location } from '@angular/common';
-import { Router, ActivatedRoute }    from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { MraCommonService } from 'mean-rest-angular';
 
 import { CourseinstanceComponent, ViewType } from '../courseinstance.component';
@@ -16,10 +16,10 @@ import { ComponentFactoryResolver } from '@angular/core';
 })
 export class CourseinstanceListComponent extends CourseinstanceComponent implements OnInit {
 
-  private  minDate = {year: (new Date()).getFullYear()-100, month: 1, day: 1}; 
+  private  minDate = {year: (new Date()).getFullYear() - 100, month: 1, day: 1};
 
   constructor(
-      protected componentFactoryResolver: ComponentFactoryResolver,
+protected componentFactoryResolver: ComponentFactoryResolver,
       protected courseinstanceService: CourseinstanceService,
       protected commonService: MraCommonService,
       protected router: Router,
@@ -31,11 +31,11 @@ export class CourseinstanceListComponent extends CourseinstanceComponent impleme
 
           this.stringFields.push('title');
 
-          this.referenceFields = ['teacher',];
+          this.referenceFields = ['teacher', ];
           this.referenceFieldsMap = {'teacher': 'teacher',};
 
-          //this is to initialize the detail that will be used for search condition selection
-          let detail = {};
+          // this is to initialize the detail that will be used for search condition selection
+          const detail = {};
           this.detail = this.formatDetail(detail);
   }
 

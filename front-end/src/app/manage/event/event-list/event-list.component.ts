@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Location } from '@angular/common';
-import { Router, ActivatedRoute }    from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { MraCommonService } from 'mean-rest-angular';
 
 import { EventComponent, ViewType } from '../event.component';
@@ -15,10 +15,10 @@ import { EventService } from '../event.service';
 })
 export class EventListComponent extends EventComponent implements OnInit {
 
-  private  minDate = {year: (new Date()).getFullYear()-100, month: 1, day: 1}; 
+  private  minDate = {year: (new Date()).getFullYear() - 100, month: 1, day: 1};
 
   constructor(
-      
+
       protected eventService: EventService,
       protected commonService: MraCommonService,
       protected router: Router,
@@ -32,9 +32,9 @@ export class EventListComponent extends EventComponent implements OnInit {
           this.stringFields.push('author');
 
 
-          this.dateFields = ['publishDate',];
-          //this is to initialize the detail that will be used for search condition selection
-          let detail = {};
+          this.dateFields = ['publishDate', ];
+          // this is to initialize the detail that will be used for search condition selection
+          const detail = {};
           this.detail = this.formatDetail(detail);
   }
 

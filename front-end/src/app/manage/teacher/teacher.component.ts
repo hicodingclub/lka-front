@@ -1,10 +1,10 @@
 import { Location } from '@angular/common';
-import { Router, ActivatedRoute }    from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { BaseComponent, ViewType } from 'mean-rest-angular';
 import { MraCommonService } from 'mean-rest-angular';
 import { TeacherService } from './teacher.service';
 
-var itemName = "teacher";
+const itemName = 'teacher';
 
 export { ViewType };
 
@@ -22,30 +22,30 @@ import { CourseSelectComponent } from '../course/course-list/course-select.compo
 
 
 export class TeacherComponent extends BaseComponent {
-   
+
     protected selectComponents = {
 
-      "courses": {
-          "select-type":CourseSelectComponent, 
-          "select-detail-type": CourseDetailSelComponent,
-          "pop-detail-type": CourseDetailPopComponent,
-          "componentRef": null},
+      'courses': {
+          'select-type':CourseSelectComponent, 
+          'select-detail-type': CourseDetailSelComponent,
+          'pop-detail-type': CourseDetailPopComponent,
+          'componentRef': null},
     }
     @ViewChild(ManageRefSelectDirective) refSelectDirective: ManageRefSelectDirective;
 
- 
-    @ViewChild('ManageModal') protected focusEl:ElementRef;
+
+    @ViewChild('ManageModal') protected focusEl: ElementRef;
 
     constructor(
-      protected componentFactoryResolver: ComponentFactoryResolver,
+protected componentFactoryResolver: ComponentFactoryResolver,
       protected teacherService: TeacherService,
-      protected commonService: MraCommonService,      
+      protected commonService: MraCommonService,
       protected router: Router,
       protected route: ActivatedRoute,
       protected location: Location,
       protected view: ViewType ) {
         super(teacherService, commonService, router, route, location, view, itemName);
         
-        this.indexFields = ['lastName',];
+        this.indexFields = ['lastName', ];
     }
 }

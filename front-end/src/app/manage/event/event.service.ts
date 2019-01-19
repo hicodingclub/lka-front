@@ -4,7 +4,7 @@ import { EventBaseService } from './event.base.service';
 import { Manage_SERVER_ROOT_URI } from '../manage.tokens';
 
 @Injectable()
-export class EventService extends EventBaseService implements OnDestroy {    
+export class EventService extends EventBaseService implements OnDestroy {
     constructor(
         http: HttpClient,
         @Inject(Manage_SERVER_ROOT_URI) private manageServerRootUri: string) {

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Location } from '@angular/common';
-import { Router, ActivatedRoute }    from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { MraCommonService } from 'mean-rest-angular';
 
 import { StudentComponent, ViewType } from '../student.component';
@@ -15,10 +15,10 @@ import { StudentService } from '../student.service';
 })
 export class StudentListComponent extends StudentComponent implements OnInit {
 
-  private  minDate = {year: (new Date()).getFullYear()-100, month: 1, day: 1}; 
+  private  minDate = {year: (new Date()).getFullYear() - 100, month: 1, day: 1};
 
   constructor(
-      
+
       protected studentService: StudentService,
       protected commonService: MraCommonService,
       protected router: Router,
@@ -32,8 +32,8 @@ export class StudentListComponent extends StudentComponent implements OnInit {
           this.stringFields.push('last_name');
 
 
-          //this is to initialize the detail that will be used for search condition selection
-          let detail = {};
+          // this is to initialize the detail that will be used for search condition selection
+          const detail = {};
           this.detail = this.formatDetail(detail);
   }
 

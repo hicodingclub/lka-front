@@ -1,10 +1,10 @@
 import { Location } from '@angular/common';
-import { Router, ActivatedRoute }    from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { BaseComponent, ViewType } from 'mean-rest-angular';
 import { MraCommonService } from 'mean-rest-angular';
 import { StudentService } from './student.service';
 
-var itemName = "student";
+const itemName = 'student';
 
 export { ViewType };
 
@@ -16,20 +16,20 @@ import { ElementRef } from '@angular/core';
 
 export class StudentComponent extends BaseComponent {
 
- 
-    @ViewChild('ManageModal') protected focusEl:ElementRef;
+
+    @ViewChild('ManageModal') protected focusEl: ElementRef;
 
     constructor(
-      
+
       protected studentService: StudentService,
-      protected commonService: MraCommonService,      
+      protected commonService: MraCommonService,
       protected router: Router,
       protected route: ActivatedRoute,
       protected location: Location,
       protected view: ViewType ) {
         super(studentService, commonService, router, route, location, view, itemName);
-        this.dateFormat = "MM-DD-YYYY";
-        this.timeFormat = "hh:mm:ss";
-        this.indexFields = ['email',];
+        this.dateFormat = 'MM-DD-YYYY';
+        this.timeFormat = 'hh:mm:ss';
+        this.indexFields = ['email', ];
     }
 }

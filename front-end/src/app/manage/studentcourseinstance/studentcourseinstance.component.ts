@@ -1,10 +1,10 @@
 import { Location } from '@angular/common';
-import { Router, ActivatedRoute }    from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { BaseComponent, ViewType } from 'mean-rest-angular';
 import { MraCommonService } from 'mean-rest-angular';
 import { StudentcourseinstanceService } from './studentcourseinstance.service';
 
-var itemName = "studentcourseinstance";
+const itemName = 'studentcourseinstance';
 
 export { ViewType };
 
@@ -24,34 +24,34 @@ import { CourseinstanceSelectComponent } from '../courseinstance/courseinstance-
 
 
 export class StudentcourseinstanceComponent extends BaseComponent {
-   
+
     protected selectComponents = {
 
-      "student": {
-          "select-type":StudentSelectComponent, 
-          "select-detail-type": StudentDetailSelComponent,
-          "pop-detail-type": StudentDetailPopComponent,
-          "componentRef": null},
-      "courseInstance": {
-          "select-type":CourseinstanceSelectComponent, 
-          "select-detail-type": CourseinstanceDetailSelComponent,
-          "pop-detail-type": CourseinstanceDetailPopComponent,
-          "componentRef": null},
+      'student': {
+          'select-type':StudentSelectComponent, 
+          'select-detail-type': StudentDetailSelComponent,
+          'pop-detail-type': StudentDetailPopComponent,
+          'componentRef': null},
+      'courseInstance': {
+          'select-type':CourseinstanceSelectComponent, 
+          'select-detail-type': CourseinstanceDetailSelComponent,
+          'pop-detail-type': CourseinstanceDetailPopComponent,
+          'componentRef': null},
     }
     @ViewChild(ManageRefSelectDirective) refSelectDirective: ManageRefSelectDirective;
 
 
 
     constructor(
-      protected componentFactoryResolver: ComponentFactoryResolver,
+protected componentFactoryResolver: ComponentFactoryResolver,
       protected studentcourseinstanceService: StudentcourseinstanceService,
-      protected commonService: MraCommonService,      
+      protected commonService: MraCommonService,
       protected router: Router,
       protected route: ActivatedRoute,
       protected location: Location,
       protected view: ViewType ) {
         super(studentcourseinstanceService, commonService, router, route, location, view, itemName);
         
-        this.indexFields = ['student',];
+        this.indexFields = ['student', ];
     }
 }

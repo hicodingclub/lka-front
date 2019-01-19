@@ -32,7 +32,7 @@ export class StudentcourseinstanceDetailComponent extends StudentcourseinstanceC
 
 
 
-          this.referenceFields = ['student','courseInstance',];
+          this.referenceFields = ['student', 'courseInstance', ];
           this.referenceFieldsMap = {'student': 'student','courseInstance': 'courseinstance',};
 
 

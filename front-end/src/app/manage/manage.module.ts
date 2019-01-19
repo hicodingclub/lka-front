@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
-import { NgbModule, NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap'; 
+import { NgbModule, NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
 import { MraNgbDateFormatterService } from './manage.directive';
 
 import { MraModule } from 'mean-rest-angular';
@@ -15,7 +15,7 @@ import { ManageRefSelectDirective } from './manage.component';
 import { Manage_SERVER_ROOT_URI } from './manage.tokens';
 import { manage_server_root_uri } from '../manage.conf';
 
-//Import components for each schema
+// Import components for each schema
 
 import { EventListComponent } from './event/event-list/event-list.component';
 import { EventDetailComponent } from './event/event-detail/event-detail.component';
@@ -47,16 +47,16 @@ import { StudentcourseinstanceDetailComponent } from './studentcourseinstance/st
 import { StudentcourseinstanceEditComponent } from './studentcourseinstance/studentcourseinstance-edit/studentcourseinstance-edit.component';
 import { StudentcourseinstanceService } from './studentcourseinstance/studentcourseinstance.service';
 
-     
+
 import { CourseSelectComponent } from './course/course-list/course-select.component';
 import { CourseDetailPopComponent } from './course/course-detail/course-detail-pop.component';
-import { CourseDetailSelComponent } from './course/course-detail/course-detail-sel.component';     
+import { CourseDetailSelComponent } from './course/course-detail/course-detail-sel.component';
 import { TeacherSelectComponent } from './teacher/teacher-list/teacher-select.component';
 import { TeacherDetailPopComponent } from './teacher/teacher-detail/teacher-detail-pop.component';
-import { TeacherDetailSelComponent } from './teacher/teacher-detail/teacher-detail-sel.component';     
+import { TeacherDetailSelComponent } from './teacher/teacher-detail/teacher-detail-sel.component';
 import { StudentSelectComponent } from './student/student-list/student-select.component';
 import { StudentDetailPopComponent } from './student/student-detail/student-detail-pop.component';
-import { StudentDetailSelComponent } from './student/student-detail/student-detail-sel.component';     
+import { StudentDetailSelComponent } from './student/student-detail/student-detail-sel.component';
 import { CourseinstanceSelectComponent } from './courseinstance/courseinstance-list/courseinstance-select.component';
 import { CourseinstanceDetailPopComponent } from './courseinstance/courseinstance-detail/courseinstance-detail-pop.component';
 import { CourseinstanceDetailSelComponent } from './courseinstance/courseinstance-detail/courseinstance-detail-sel.component';
@@ -68,50 +68,50 @@ import { CourseinstanceDetailSubComponent } from './courseinstance/courseinstanc
 import { StudentcourseinstanceListSubComponent } from './studentcourseinstance/studentcourseinstance-list/studentcourseinstance-list-sub.component';
 import { StudentcourseinstanceDetailSubComponent } from './studentcourseinstance/studentcourseinstance-detail/studentcourseinstance-detail-sub.component';
 
-  
+
 @NgModule({
   imports: [
     CommonModule,
     HttpClientModule,
     FormsModule,
-    
+
     NgbModule,
     MraModule,
-    
+
     ManageRoutingModule
   ],
   declarations: [
     ManageComponent,
     ManageRefSelectDirective,
 
-    EventListComponent, 
-    EventDetailComponent, 
+    EventListComponent,
+    EventDetailComponent,
     EventEditComponent,
-    StudentListComponent, 
-    StudentDetailComponent, 
+    StudentListComponent,
+    StudentDetailComponent,
     StudentEditComponent,
-    TeacherListComponent, 
-    TeacherDetailComponent, 
+    TeacherListComponent,
+    TeacherDetailComponent,
     TeacherEditComponent,
-    CourseListComponent, 
-    CourseDetailComponent, 
+    CourseListComponent,
+    CourseDetailComponent,
     CourseEditComponent,
-    CourseinstanceListComponent, 
-    CourseinstanceDetailComponent, 
+    CourseinstanceListComponent,
+    CourseinstanceDetailComponent,
     CourseinstanceEditComponent,
-    StudentcourseinstanceListComponent, 
-    StudentcourseinstanceDetailComponent, 
+    StudentcourseinstanceListComponent,
+    StudentcourseinstanceDetailComponent,
     StudentcourseinstanceEditComponent,
-     
+
     CourseSelectComponent,
     CourseDetailPopComponent,
-    CourseDetailSelComponent,     
+    CourseDetailSelComponent,
     TeacherSelectComponent,
     TeacherDetailPopComponent,
-    TeacherDetailSelComponent,     
+    TeacherDetailSelComponent,
     StudentSelectComponent,
     StudentDetailPopComponent,
-    StudentDetailSelComponent,     
+    StudentDetailSelComponent,
     CourseinstanceSelectComponent,
     CourseinstanceDetailPopComponent,
     CourseinstanceDetailSelComponent,
@@ -145,16 +145,16 @@ import { StudentcourseinstanceDetailSubComponent } from './studentcourseinstance
     StudentcourseinstanceListComponent,
     StudentcourseinstanceDetailComponent,
     StudentcourseinstanceEditComponent,
-     
+
     CourseSelectComponent,
     CourseDetailPopComponent,
-    CourseDetailSelComponent,     
+    CourseDetailSelComponent,
     TeacherSelectComponent,
     TeacherDetailPopComponent,
-    TeacherDetailSelComponent,     
+    TeacherDetailSelComponent,
     StudentSelectComponent,
     StudentDetailPopComponent,
-    StudentDetailSelComponent,     
+    StudentDetailSelComponent,
     CourseinstanceSelectComponent,
     CourseinstanceDetailPopComponent,
     CourseinstanceDetailSelComponent,
@@ -168,7 +168,7 @@ import { StudentcourseinstanceDetailSubComponent } from './studentcourseinstance
   ],
   providers: [
     { provide: Manage_SERVER_ROOT_URI, useValue: manage_server_root_uri },
-    
+
     {provide: NgbDateParserFormatter, useClass: MraNgbDateFormatterService},
 
     EventService,
@@ -179,20 +179,20 @@ import { StudentcourseinstanceDetailSubComponent } from './studentcourseinstance
     StudentcourseinstanceService,
   ],
 
-  entryComponents: [ 
-     
-    CourseSelectComponent, 
+  entryComponents: [
+
+    CourseSelectComponent,
     CourseDetailPopComponent,
-    CourseDetailSelComponent,     
-    TeacherSelectComponent, 
+    CourseDetailSelComponent,
+    TeacherSelectComponent,
     TeacherDetailPopComponent,
-    TeacherDetailSelComponent,     
-    StudentSelectComponent, 
+    TeacherDetailSelComponent,
+    StudentSelectComponent,
     StudentDetailPopComponent,
-    StudentDetailSelComponent,     
-    CourseinstanceSelectComponent, 
+    StudentDetailSelComponent,
+    CourseinstanceSelectComponent,
     CourseinstanceDetailPopComponent,
-    CourseinstanceDetailSelComponent, 
+    CourseinstanceDetailSelComponent,
   ]
 })
 export class ManageModule { }

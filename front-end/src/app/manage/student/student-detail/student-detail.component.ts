@@ -35,7 +35,7 @@ export class StudentDetailComponent extends StudentComponent implements OnInit {
           this.stringFields.push('email');
 
 
-          this.dateFields = ['date_of_birth',];
+          this.dateFields = ['date_of_birth', ];
 
   }
 

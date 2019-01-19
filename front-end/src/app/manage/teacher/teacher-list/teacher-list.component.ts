@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Location } from '@angular/common';
-import { Router, ActivatedRoute }    from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { MraCommonService } from 'mean-rest-angular';
 
 import { TeacherComponent, ViewType } from '../teacher.component';
@@ -18,7 +18,7 @@ export class TeacherListComponent extends TeacherComponent implements OnInit {
 
 
   constructor(
-      protected componentFactoryResolver: ComponentFactoryResolver,
+protected componentFactoryResolver: ComponentFactoryResolver,
       protected teacherService: TeacherService,
       protected commonService: MraCommonService,
       protected router: Router,
@@ -31,11 +31,11 @@ export class TeacherListComponent extends TeacherComponent implements OnInit {
           this.stringFields.push('firstName');
           this.stringFields.push('lastName');
 
-          this.referenceFields = ['courses',];
+          this.referenceFields = ['courses', ];
           this.referenceFieldsMap = {'courses': 'course',};
 
-          //this is to initialize the detail that will be used for search condition selection
-          let detail = {};
+          // this is to initialize the detail that will be used for search condition selection
+          const detail = {};
           this.detail = this.formatDetail(detail);
   }
 

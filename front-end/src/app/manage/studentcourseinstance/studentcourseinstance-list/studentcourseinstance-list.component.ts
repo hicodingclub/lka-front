@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Location } from '@angular/common';
-import { Router, ActivatedRoute }    from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { MraCommonService } from 'mean-rest-angular';
 
 import { StudentcourseinstanceComponent, ViewType } from '../studentcourseinstance.component';
@@ -18,7 +18,7 @@ export class StudentcourseinstanceListComponent extends StudentcourseinstanceCom
 
 
   constructor(
-      protected componentFactoryResolver: ComponentFactoryResolver,
+protected componentFactoryResolver: ComponentFactoryResolver,
       protected studentcourseinstanceService: StudentcourseinstanceService,
       protected commonService: MraCommonService,
       protected router: Router,
@@ -29,11 +29,11 @@ export class StudentcourseinstanceListComponent extends StudentcourseinstanceCom
 
 
 
-          this.referenceFields = ['student','courseInstance',];
+          this.referenceFields = ['student', 'courseInstance', ];
           this.referenceFieldsMap = {'student': 'student','courseInstance': 'courseinstance',};
 
-          //this is to initialize the detail that will be used for search condition selection
-          let detail = {};
+          // this is to initialize the detail that will be used for search condition selection
+          const detail = {};
           this.detail = this.formatDetail(detail);
   }
 

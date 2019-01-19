@@ -7,5 +7,5 @@ export class CourseBaseService extends BaseService {
     constructor(http: HttpClient, serverRootUrl: string) {
         const serviceUrl = serverRootUrl + servicePath;
         super(http, serviceUrl);
-    }    
+    }
 }
