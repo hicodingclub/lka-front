@@ -118,7 +118,7 @@ export class AuthenticationService {
     if (!authRecord) {
       authRecord = {userName: ''};
     }
-    return localStorage.getItem('userName');
+    return authRecord['userName'];
   }
 
   login(userName: string, password: string) {
