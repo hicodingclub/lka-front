@@ -21,5 +21,8 @@ var config = {
   timeFormat: "hh:mm:ss"
 }
 
-module.exports = {schemas: schemas, config: config};
+const authz = {
+  "module-authz": {"LoginUser": 'CRUD', "Anyone": ""},
+}
 
+module.exports = {schemas: schemas, config: config, authz: authz};

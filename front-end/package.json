@@ -24,7 +24,7 @@
     "rxjs": "^6.0.0",
     "zone.js": "^0.8.26",
     "@ng-bootstrap/ng-bootstrap": "^3.0.0",
-    "mean-rest-angular": "^0.3.0"
+    "mean-rest-angular": "^0.4.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.6.8",

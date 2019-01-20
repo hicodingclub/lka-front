@@ -14,8 +14,10 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 var meanRestExpress = require('mean-rest-express');
+var authConfig = require('mdds-express-auth-app');
+
 var lkaDbDefinition = require('./models/index');
-var lkaRouter = meanRestExpress.RestRouter(lkaDbDefinition);
+var lkaRouter = meanRestExpress.RestRouter(lkaDbDefinition, authConfig);
 var meanRestAuthRouter = meanRestExpress.authRouter;
 
 var indexRouter = require('./routes/index');
