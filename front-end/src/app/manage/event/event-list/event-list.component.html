@@ -97,7 +97,7 @@
 		    </div>
 			<div class="col-3">
 		        <div class="action-buttons">
-					<a [routerLink]="['../new' ]" [skipLocationChange]="true" class="btn btn-outline-primary">Create</a>
+					<a [routerLink]="['../new' ]" [skipLocationChange]="false" class="btn btn-outline-primary">Create</a>
 					<a routerLink="." class="btn btn-outline-primary" (click)="onDeleteSelected()"
 						[ngClass]="{'disabled': !isItemSelected()}">Delete</a>
 				</div>
@@ -175,7 +175,7 @@
 
 	            </td>
 	            <td>
-	            	<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="true"><i class="fas fa-edit" title="Edit"></i></a>
+	            	<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
 	            	<a routerLink="." (click)="onDelete(detail['_id'], i)"><i class="fas fa-trash-alt" title="Delete"></i></a>
 	            </td>
 	            <td>      

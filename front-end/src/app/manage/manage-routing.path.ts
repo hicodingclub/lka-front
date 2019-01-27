@@ -37,6 +37,8 @@ import { StudentcourseinstanceListSubComponent } from './studentcourseinstance/s
 
 
 
+import { AuthGuard } from '../auth/'
+
 
 const teacherSubPath = [
     {path: 'list', component: TeacherListSubComponent}
@@ -79,49 +81,49 @@ const courseinstanceDetailPath = [
 
 
 export const eventRoutingPath = [
-    {path: 'list', component: EventListComponent},
-    {path: 'detail/:id', component: EventDetailComponent},
-    {path: 'edit/:id', component: EventEditComponent},
-    {path: 'new', component: EventEditComponent},
+    {path: 'list', component: EventListComponent, canActivate: [AuthGuard]},
+    {path: 'detail/:id', component: EventDetailComponent, canActivate: [AuthGuard]},
+    {path: 'edit/:id', component: EventEditComponent, canActivate: [AuthGuard]},
+    {path: 'new', component: EventEditComponent, canActivate: [AuthGuard]},
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];
 
 export const studentRoutingPath = [
-    {path: 'list', component: StudentListComponent},
-    {path: 'detail/:id', component: StudentDetailComponent, children: studentDetailPath},
-    {path: 'edit/:id', component: StudentEditComponent},
-    {path: 'new', component: StudentEditComponent},
+    {path: 'list', component: StudentListComponent, canActivate: [AuthGuard]},
+    {path: 'detail/:id', component: StudentDetailComponent, children: studentDetailPath, canActivate: [AuthGuard]},
+    {path: 'edit/:id', component: StudentEditComponent, canActivate: [AuthGuard]},
+    {path: 'new', component: StudentEditComponent, canActivate: [AuthGuard]},
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];
 
 export const teacherRoutingPath = [
-    {path: 'list', component: TeacherListComponent},
-    {path: 'detail/:id', component: TeacherDetailComponent, children: teacherDetailPath},
-    {path: 'edit/:id', component: TeacherEditComponent},
-    {path: 'new', component: TeacherEditComponent},
+    {path: 'list', component: TeacherListComponent, canActivate: [AuthGuard]},
+    {path: 'detail/:id', component: TeacherDetailComponent, children: teacherDetailPath, canActivate: [AuthGuard]},
+    {path: 'edit/:id', component: TeacherEditComponent, canActivate: [AuthGuard]},
+    {path: 'new', component: TeacherEditComponent, canActivate: [AuthGuard]},
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];
 
 export const courseRoutingPath = [
-    {path: 'list', component: CourseListComponent},
-    {path: 'detail/:id', component: CourseDetailComponent, children: courseDetailPath},
-    {path: 'edit/:id', component: CourseEditComponent},
-    {path: 'new', component: CourseEditComponent},
+    {path: 'list', component: CourseListComponent, canActivate: [AuthGuard]},
+    {path: 'detail/:id', component: CourseDetailComponent, children: courseDetailPath, canActivate: [AuthGuard]},
+    {path: 'edit/:id', component: CourseEditComponent, canActivate: [AuthGuard]},
+    {path: 'new', component: CourseEditComponent, canActivate: [AuthGuard]},
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];
 
 export const courseinstanceRoutingPath = [
-    {path: 'list', component: CourseinstanceListComponent},
-    {path: 'detail/:id', component: CourseinstanceDetailComponent, children: courseinstanceDetailPath},
-    {path: 'edit/:id', component: CourseinstanceEditComponent},
-    {path: 'new', component: CourseinstanceEditComponent},
+    {path: 'list', component: CourseinstanceListComponent, canActivate: [AuthGuard]},
+    {path: 'detail/:id', component: CourseinstanceDetailComponent, children: courseinstanceDetailPath, canActivate: [AuthGuard]},
+    {path: 'edit/:id', component: CourseinstanceEditComponent, canActivate: [AuthGuard]},
+    {path: 'new', component: CourseinstanceEditComponent, canActivate: [AuthGuard]},
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];
 
 export const studentcourseinstanceRoutingPath = [
-    {path: 'list', component: StudentcourseinstanceListComponent},
-    {path: 'detail/:id', component: StudentcourseinstanceDetailComponent},
-    {path: 'edit/:id', component: StudentcourseinstanceEditComponent},
-    {path: 'new', component: StudentcourseinstanceEditComponent},
+    {path: 'list', component: StudentcourseinstanceListComponent, canActivate: [AuthGuard]},
+    {path: 'detail/:id', component: StudentcourseinstanceDetailComponent, canActivate: [AuthGuard]},
+    {path: 'edit/:id', component: StudentcourseinstanceEditComponent, canActivate: [AuthGuard]},
+    {path: 'new', component: StudentcourseinstanceEditComponent, canActivate: [AuthGuard]},
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];
