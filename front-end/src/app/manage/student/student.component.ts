@@ -4,7 +4,7 @@ import { BaseComponent, ViewType } from 'mean-rest-angular';
 import { MraCommonService } from 'mean-rest-angular';
 import { StudentService } from './student.service';
 
-const itemName = 'student';
+const itemCamelName = 'student';
 
 export { ViewType };
 
@@ -27,7 +27,7 @@ export class StudentComponent extends BaseComponent {
       protected route: ActivatedRoute,
       protected location: Location,
       protected view: ViewType ) {
-        super(studentService, commonService, router, route, location, view, itemName);
+        super(studentService, commonService, router, route, location, view, itemCamelName);
         this.dateFormat = 'MM-DD-YYYY';
         this.timeFormat = 'hh:mm:ss';
         this.indexFields = ['email', ];

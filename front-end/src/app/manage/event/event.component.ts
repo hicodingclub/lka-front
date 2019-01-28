@@ -4,7 +4,7 @@ import { BaseComponent, ViewType } from 'mean-rest-angular';
 import { MraCommonService } from 'mean-rest-angular';
 import { EventService } from './event.service';
 
-const itemName = 'event';
+const itemCamelName = 'event';
 
 export { ViewType };
 
@@ -24,7 +24,7 @@ export class EventComponent extends BaseComponent {
       protected route: ActivatedRoute,
       protected location: Location,
       protected view: ViewType ) {
-        super(eventService, commonService, router, route, location, view, itemName);
+        super(eventService, commonService, router, route, location, view, itemCamelName);
         this.dateFormat = 'MM-DD-YYYY';
         this.timeFormat = 'hh:mm:ss';
         this.indexFields = ['title', ];

@@ -4,7 +4,7 @@ import { BaseComponent, ViewType } from 'mean-rest-angular';
 import { MraCommonService } from 'mean-rest-angular';
 import { StudentcourseinstanceService } from './studentcourseinstance.service';
 
-const itemName = 'studentcourseinstance';
+const itemCamelName = 'studentCourseInstance';
 
 export { ViewType };
 
@@ -50,7 +50,7 @@ protected componentFactoryResolver: ComponentFactoryResolver,
       protected route: ActivatedRoute,
       protected location: Location,
       protected view: ViewType ) {
-        super(studentcourseinstanceService, commonService, router, route, location, view, itemName);
+        super(studentcourseinstanceService, commonService, router, route, location, view, itemCamelName);
         
         this.indexFields = ['student', ];
     }

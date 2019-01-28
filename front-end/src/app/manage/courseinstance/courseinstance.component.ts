@@ -4,7 +4,7 @@ import { BaseComponent, ViewType } from 'mean-rest-angular';
 import { MraCommonService } from 'mean-rest-angular';
 import { CourseinstanceService } from './courseinstance.service';
 
-const itemName = 'courseinstance';
+const itemCamelName = 'courseInstance';
 
 export { ViewType };
 
@@ -52,7 +52,7 @@ protected componentFactoryResolver: ComponentFactoryResolver,
       protected route: ActivatedRoute,
       protected location: Location,
       protected view: ViewType ) {
-        super(courseinstanceService, commonService, router, route, location, view, itemName);
+        super(courseinstanceService, commonService, router, route, location, view, itemCamelName);
         this.dateFormat = 'MM-DD-YYYY';
         this.timeFormat = 'hh:mm:ss';
         this.indexFields = ['title', ];

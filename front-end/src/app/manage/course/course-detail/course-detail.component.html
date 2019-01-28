@@ -8,7 +8,7 @@
 	
 	<div class="card text-left">
 	  <div class="card-body">
-	    <h4 class="card-title">{{ItemName}} Detail</h4>    
+	    <h4 class="card-title">{{ItemCamelName}} Detail</h4>    
 		<div class="card-text">
 
 			<label><b>title:</b></label>
@@ -30,11 +30,11 @@
 	  
 	  <li class="nav-item">
 	    <a [routerLink]="['./teacher/list']"
-	        class="nav-link" routerLinkActive="active">teacher</a>
+	        class="nav-link" routerLinkActive="active">Teacher</a>
 	  </li>
 	  <li class="nav-item">
 	    <a [routerLink]="['./courseinstance/list']"
-	        class="nav-link" routerLinkActive="active">courseinstance</a>
+	        class="nav-link" routerLinkActive="active">CourseInstance</a>
 	  </li>
     </ul>
     <router-outlet></router-outlet>
