@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 import { ManageComponent } from './manage/manage.component';
 
 //Import routing paths
-import {eventRoutingPath, studentRoutingPath, teacherRoutingPath, courseRoutingPath, courseinstanceRoutingPath, studentcourseinstanceRoutingPath,  } from './manage/manage-routing.path';
+import {eventRoutingPath, studentRoutingPath, teacherRoutingPath, courseRoutingPath, classRoutingPath, studentclassRoutingPath,  } from './manage/manage-routing.path';
 
 export const ManageRoutes: Routes = [
   { path: 'manage', 
@@ -27,13 +27,13 @@ export const ManageRoutes: Routes = [
         children: courseRoutingPath, 
         data: {"mraLevel": 1, "item": "course"}
       },
-      { path: "courseinstance",
-        children: courseinstanceRoutingPath, 
-        data: {"mraLevel": 1, "item": "courseinstance"}
+      { path: "class",
+        children: classRoutingPath, 
+        data: {"mraLevel": 1, "item": "class"}
       },
-      { path: "studentcourseinstance",
-        children: studentcourseinstanceRoutingPath, 
-        data: {"mraLevel": 1, "item": "studentcourseinstance"}
+      { path: "studentclass",
+        children: studentclassRoutingPath, 
+        data: {"mraLevel": 1, "item": "studentclass"}
       },
     ]
   }
@@ -41,14 +41,14 @@ export const ManageRoutes: Routes = [
 
 export const manage_server_root_uri:string = "/api/manage";
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Sat Jan 26 2019 20:18:29 GMT-0800 (PST)
+**Date: Fri Feb 01 2019 12:58:37 GMT-0800 (PST)
 
 import { Routes } from '@angular/router';
 
 import { ManageComponent } from './manage/manage.component';
 
 //Import routing paths
-import {eventRoutingPath, studentRoutingPath, teacherRoutingPath, courseRoutingPath, courseinstanceRoutingPath, studentcourseinstanceRoutingPath,  } from './manage/manage-routing.path';
+import {eventRoutingPath, studentRoutingPath, teacherRoutingPath, courseRoutingPath, classRoutingPath, studentclassRoutingPath,  } from './manage/manage-routing.path';
 
 export const ManageRoutes: Routes = [
   { path: 'manage', 
@@ -72,13 +72,13 @@ export const ManageRoutes: Routes = [
         children: courseRoutingPath, 
         data: {"mraLevel": 1, "item": "course"}
       },
-      { path: "courseinstance",
-        children: courseinstanceRoutingPath, 
-        data: {"mraLevel": 1, "item": "courseinstance"}
+      { path: "class",
+        children: classRoutingPath, 
+        data: {"mraLevel": 1, "item": "class"}
       },
-      { path: "studentcourseinstance",
-        children: studentcourseinstanceRoutingPath, 
-        data: {"mraLevel": 1, "item": "studentcourseinstance"}
+      { path: "studentclass",
+        children: studentclassRoutingPath, 
+        data: {"mraLevel": 1, "item": "studentclass"}
       },
     ]
   }

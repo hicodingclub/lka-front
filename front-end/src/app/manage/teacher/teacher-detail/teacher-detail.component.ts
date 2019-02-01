@@ -41,6 +41,7 @@ export class TeacherDetailComponent extends TeacherComponent implements OnInit {
           this.referenceFieldsMap = {'courses': 'course',};
 
 
+
   }
 
   ngOnInit() {

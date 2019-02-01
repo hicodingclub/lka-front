@@ -1,0 +1,141 @@
+<div class="edit" *ngIf="detail">
+	<div *ngIf="!subEdit" class="action-buttons">
+        <a href="javascript:void(0)" (click)="goBack()" ><i class="fas fa-angle-double-left" title="Back"></i></a>
+	</div>
+	
+	<div class="card" style="text-align: left;">
+	  <div class="card-body">
+	    <h4 class="card-title" *ngIf="!subEdit">{{action}} StudentClass</h4>    
+	    <form (ngSubmit)="onSubmit()" #editForm="ngForm">
+	    
+	     <div *ngIf="action == 'Edit'">
+<div *ngIf="!hiddenFields.includes('student')">
+
+	      <fieldset class="form-group">
+	        <label for="studentclassEditStudent">Student </label>
+		    <!-- <a class="icon-search" [routerLink]="['.']" (click)="onRefSelect('student')"><i class="fas fa-list" title="Search"></i></a>  -->
+		    <div class="input-group">
+		    	<!--  [attr.disabled]="true" -->
+		        <input class="form-control rounded" id="studentclassEditStudent" 
+		             [ngClass]="{'pointer ref-badge': detail['student']['_id']}"
+		             (focus)="onRefSelect('student')"
+	                 required
+		        	  
+		             [ngModel]="detail['student']['value']" name="studentclassEditStudent"
+		             #studentclassEditStudent="ngModel"> 
+		    <div *ngIf="detail['student']['value']" 
+		          class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('student')">
+		          <i class="fas fa-times-circle" title="Clear"></i></div>
+			</div>
+	        <div [hidden]="studentclassEditStudent.valid || studentclassEditStudent.pristine"
+	             class="alert alert-danger">
+
+	          <div *ngIf="studentclassEditStudent.errors && studentclassEditStudent.errors.required && !(detail['student']?.date)">
+    	        Student is required.
+  	          </div>
+ 
+	        </div>
+	      </fieldset>
+    
+</div><div *ngIf="!hiddenFields.includes('class')">
+
+	      <fieldset class="form-group">
+	        <label for="studentclassEditClass">Class </label>
+		    <!-- <a class="icon-search" [routerLink]="['.']" (click)="onRefSelect('class')"><i class="fas fa-list" title="Search"></i></a>  -->
+		    <div class="input-group">
+		    	<!--  [attr.disabled]="true" -->
+		        <input class="form-control rounded" id="studentclassEditClass" 
+		             [ngClass]="{'pointer ref-badge': detail['class']['_id']}"
+		             (focus)="onRefSelect('class')"
+	                 required
+		        	  
+		             [ngModel]="detail['class']['value']" name="studentclassEditClass"
+		             #studentclassEditClass="ngModel"> 
+		    <div *ngIf="detail['class']['value']" 
+		          class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('class')">
+		          <i class="fas fa-times-circle" title="Clear"></i></div>
+			</div>
+	        <div [hidden]="studentclassEditClass.valid || studentclassEditClass.pristine"
+	             class="alert alert-danger">
+
+	          <div *ngIf="studentclassEditClass.errors && studentclassEditClass.errors.required && !(detail['class']?.date)">
+    	        Class is required.
+  	          </div>
+ 
+	        </div>
+	      </fieldset>
+    
+</div>
+         </div>	
+	     <div *ngIf="action == 'Create' || action == 'Add' ">
+<div *ngIf="!hiddenFields.includes('student')">
+
+	      <fieldset class="form-group">
+	        <label for="studentclassEditStudent">Student </label>
+		    <!-- <a class="icon-search" [routerLink]="['.']" (click)="onRefSelect('student')"><i class="fas fa-list" title="Search"></i></a>  -->
+		    <div class="input-group">
+		    	<!--  [attr.disabled]="true" -->
+		        <input class="form-control rounded" id="studentclassEditStudent" 
+		             [ngClass]="{'pointer ref-badge': detail['student']['_id']}"
+		             (focus)="onRefSelect('student')"
+	                 required
+		        	  
+		             [ngModel]="detail['student']['value']" name="studentclassEditStudent"
+		             #studentclassEditStudent="ngModel"> 
+		    <div *ngIf="detail['student']['value']" 
+		          class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('student')">
+		          <i class="fas fa-times-circle" title="Clear"></i></div>
+			</div>
+	        <div [hidden]="studentclassEditStudent.valid || studentclassEditStudent.pristine"
+	             class="alert alert-danger">
+
+	          <div *ngIf="studentclassEditStudent.errors && studentclassEditStudent.errors.required && !(detail['student']?.date)">
+    	        Student is required.
+  	          </div>
+ 
+	        </div>
+	      </fieldset>
+    
+</div><div *ngIf="!hiddenFields.includes('class')">
+
+	      <fieldset class="form-group">
+	        <label for="studentclassEditClass">Class </label>
+		    <!-- <a class="icon-search" [routerLink]="['.']" (click)="onRefSelect('class')"><i class="fas fa-list" title="Search"></i></a>  -->
+		    <div class="input-group">
+		    	<!--  [attr.disabled]="true" -->
+		        <input class="form-control rounded" id="studentclassEditClass" 
+		             [ngClass]="{'pointer ref-badge': detail['class']['_id']}"
+		             (focus)="onRefSelect('class')"
+	                 required
+		        	  
+		             [ngModel]="detail['class']['value']" name="studentclassEditClass"
+		             #studentclassEditClass="ngModel"> 
+		    <div *ngIf="detail['class']['value']" 
+		          class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('class')">
+		          <i class="fas fa-times-circle" title="Clear"></i></div>
+			</div>
+	        <div [hidden]="studentclassEditClass.valid || studentclassEditClass.pristine"
+	             class="alert alert-danger">
+
+	          <div *ngIf="studentclassEditClass.errors && studentclassEditClass.errors.required && !(detail['class']?.date)">
+    	        Class is required.
+  	          </div>
+ 
+	        </div>
+	      </fieldset>
+    
+</div>
+         </div>	
+         
+		<div class="action-buttons-center">
+	     	<button type="submit" class="btn btn-success" 
+     			[disabled]="!editForm.form.valid">Submit</button>
+	     	<button class="btn btn-outline-success" 
+     			(click)="editCancel()">Cancel</button>
+		</div>
+	    </form>
+	  </div>
+	</div>
+</div>
+
+<ng-template manage-ref-select></ng-template>

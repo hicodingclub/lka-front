@@ -9,7 +9,7 @@
 	              <input type="search" class="form-control border border-secondary" id="studentTextSearch" 
 						#studentTextSearch [(ngModel)]="searchText"
 						(keyup.enter)="$event.target.blur();searchList();false"
-					    placeholder="Search for first_name, last_name"> 
+					    placeholder="Search for first_name, last_name, email"> 
 				  <div *ngIf="searchText" class="input-group-append icon-clear-inside">
 					<span >
 					    <i class="fas fa-times-circle" (click)="onSearchTextClear()" title="Clear"></i>
@@ -21,11 +21,14 @@
 				</div>
 			
 
-				<div>
-					<span class="pointer" (click)="toggleMoreSearch()">
-			            <i *ngIf="!moreSearchOpened"  class="fas fa-caret-down" title="More"></i>
-			            <i *ngIf="moreSearchOpened" class="fas fa-caret-up"  title="Less"></i>
-				    </span>
+				<div class="text-center">
+                    <span  class="pointer" (click)="toggleMoreSearch()">
+                        <span class="refine-search-text">Refine Search &nbsp;</span>
+                        <span>
+                            <i *ngIf="!moreSearchOpened"  class="fas fa-plus-circle" title="More"></i>
+                            <i *ngIf="moreSearchOpened" class="fas fa-minus-circle"  title="Less"></i>
+                        </span>
+                    </span>
 				</div>
 			    <div class="shadow" *ngIf="moreSearchOpened">
 					<div class="card">
@@ -39,7 +42,7 @@
 					</div>
 		        </div>
 		        <div *ngIf="!moreSearchOpened" style="text-align: left;">
-					<span class="badge badge-pill badge-secondary" *ngFor="let value of searchMoreDetail">
+					<span class="badge badge-pill badge-info" *ngFor="let value of searchMoreDetail">
 					    <a (click)="toggleMoreSearch()" class="pointer"> {{value[0]}}: {{value[1]}}</a>
 					    <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromDetailAndSearchList(value[0])" title="Clear"></i>
 					</span>
@@ -105,7 +108,8 @@
 		        <th scope="col">#</th>
 
 		        <th scope="col">First_name</th>
-		        <th scope="col">Last_name</th>		        
+		        <th scope="col">Last_name</th>
+		        <th scope="col">Email</th>		        
 		        <th scope="col" style="width:8rem;"></th>
 		        <th scope="col" style="width:2rem;">
 		        	<input type="checkbox" [(ngModel)]="checkAll" (change)="onCheckAllChange()">
@@ -120,6 +124,9 @@
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">  {{detail['last_name']}}
+
+	            </td>
+	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">  {{detail['email']}}
 
 	            </td>
 	            <td>

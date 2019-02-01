@@ -22,18 +22,18 @@ import { CourseDetailComponent } from './course/course-detail/course-detail.comp
 import { CourseEditComponent } from './course/course-edit/course-edit.component';
 
 
-import { CourseinstanceListComponent } from './courseinstance/courseinstance-list/courseinstance-list.component';
-import { CourseinstanceDetailComponent } from './courseinstance/courseinstance-detail/courseinstance-detail.component';
-import { CourseinstanceEditComponent } from './courseinstance/courseinstance-edit/courseinstance-edit.component';
+import { ClassListComponent } from './class/class-list/class-list.component';
+import { ClassDetailComponent } from './class/class-detail/class-detail.component';
+import { ClassEditComponent } from './class/class-edit/class-edit.component';
 
-import { CourseinstanceListSubComponent } from './courseinstance/courseinstance-list/courseinstance-list-sub.component';
+import { ClassListSubComponent } from './class/class-list/class-list-sub.component';
 
 
-import { StudentcourseinstanceListComponent } from './studentcourseinstance/studentcourseinstance-list/studentcourseinstance-list.component';
-import { StudentcourseinstanceDetailComponent } from './studentcourseinstance/studentcourseinstance-detail/studentcourseinstance-detail.component';
-import { StudentcourseinstanceEditComponent } from './studentcourseinstance/studentcourseinstance-edit/studentcourseinstance-edit.component';
+import { StudentclassListComponent } from './studentclass/studentclass-list/studentclass-list.component';
+import { StudentclassDetailComponent } from './studentclass/studentclass-detail/studentclass-detail.component';
+import { StudentclassEditComponent } from './studentclass/studentclass-edit/studentclass-edit.component';
 
-import { StudentcourseinstanceListSubComponent } from './studentcourseinstance/studentcourseinstance-list/studentcourseinstance-list-sub.component';
+import { StudentclassListSubComponent } from './studentclass/studentclass-list/studentclass-list-sub.component';
 
 
 
@@ -44,39 +44,39 @@ const teacherSubPath = [
     {path: 'list', component: TeacherListSubComponent}
 ];
 
-const courseinstanceSubPath = [
-    {path: 'list', component: CourseinstanceListSubComponent}
+const classSubPath = [
+    {path: 'list', component: ClassListSubComponent}
 ];
 
-const studentcourseinstanceSubPath = [
-    {path: 'list', component: StudentcourseinstanceListSubComponent}
+const studentclassSubPath = [
+    {path: 'list', component: StudentclassListSubComponent}
 ];
 
 
 const studentDetailPath = [
 
-    {path: 'studentcourseinstance', children: studentcourseinstanceSubPath,
-        data: {'mraLevel': 2, 'item': 'studentcourseinstance'}},
+    {path: 'studentclass', children: studentclassSubPath,
+        data: {'mraLevel': 2, 'item': 'studentclass'}},
 ];
 
 const teacherDetailPath = [
 
-    {path: 'courseinstance', children: courseinstanceSubPath,
-        data: {'mraLevel': 2, 'item': 'courseinstance'}},
+    {path: 'class', children: classSubPath,
+        data: {'mraLevel': 2, 'item': 'class'}},
 ];
 
 const courseDetailPath = [
 
     {path: 'teacher', children: teacherSubPath,
         data: {'mraLevel': 2, 'item': 'teacher'}},
-    {path: 'courseinstance', children: courseinstanceSubPath,
-        data: {'mraLevel': 2, 'item': 'courseinstance'}},
+    {path: 'class', children: classSubPath,
+        data: {'mraLevel': 2, 'item': 'class'}},
 ];
 
-const courseinstanceDetailPath = [
+const classDetailPath = [
 
-    {path: 'studentcourseinstance', children: studentcourseinstanceSubPath,
-        data: {'mraLevel': 2, 'item': 'studentcourseinstance'}},
+    {path: 'studentclass', children: studentclassSubPath,
+        data: {'mraLevel': 2, 'item': 'studentclass'}},
 ];
 
 
@@ -112,18 +112,18 @@ export const courseRoutingPath = [
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];
 
-export const courseinstanceRoutingPath = [
-    {path: 'list', component: CourseinstanceListComponent, canActivate: [AuthGuard]},
-    {path: 'detail/:id', component: CourseinstanceDetailComponent, children: courseinstanceDetailPath, canActivate: [AuthGuard]},
-    {path: 'edit/:id', component: CourseinstanceEditComponent, canActivate: [AuthGuard]},
-    {path: 'new', component: CourseinstanceEditComponent, canActivate: [AuthGuard]},
+export const classRoutingPath = [
+    {path: 'list', component: ClassListComponent, canActivate: [AuthGuard]},
+    {path: 'detail/:id', component: ClassDetailComponent, children: classDetailPath, canActivate: [AuthGuard]},
+    {path: 'edit/:id', component: ClassEditComponent, canActivate: [AuthGuard]},
+    {path: 'new', component: ClassEditComponent, canActivate: [AuthGuard]},
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];
 
-export const studentcourseinstanceRoutingPath = [
-    {path: 'list', component: StudentcourseinstanceListComponent, canActivate: [AuthGuard]},
-    {path: 'detail/:id', component: StudentcourseinstanceDetailComponent, canActivate: [AuthGuard]},
-    {path: 'edit/:id', component: StudentcourseinstanceEditComponent, canActivate: [AuthGuard]},
-    {path: 'new', component: StudentcourseinstanceEditComponent, canActivate: [AuthGuard]},
+export const studentclassRoutingPath = [
+    {path: 'list', component: StudentclassListComponent, canActivate: [AuthGuard]},
+    {path: 'detail/:id', component: StudentclassDetailComponent, canActivate: [AuthGuard]},
+    {path: 'edit/:id', component: StudentclassEditComponent, canActivate: [AuthGuard]},
+    {path: 'new', component: StudentclassEditComponent, canActivate: [AuthGuard]},
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];

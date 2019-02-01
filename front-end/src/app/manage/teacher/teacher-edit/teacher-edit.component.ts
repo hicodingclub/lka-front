@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Directive } from '@angular/core';
+import { Component, OnInit, Input, Output, Directive, EventEmitter } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { MraCommonService } from 'mean-rest-angular';
@@ -18,10 +18,15 @@ import { ComponentFactoryResolver } from '@angular/core';
 })
 export class TeacherEditComponent extends TeacherComponent implements OnInit {        
     @Input() 
-    protected id:string;
+    protected id: string;
     @Input()
-    protected cid:string;//copy id
+    protected cid: string;//copy id
+    @Input()
+    protected initData: any; //some fields has data already. eg: {a: b}. Used for add
+    @Output() done = new EventEmitter<boolean>();
+
     private action:string;
+
 
         
     constructor(
@@ -45,6 +50,7 @@ export class TeacherEditComponent extends TeacherComponent implements OnInit {
           this.referenceFieldsMap = {'courses': 'course',};
 
 
+
           
           let detail = {};
           this.detail = this.formatDetail(detail);
@@ -61,10 +67,21 @@ export class TeacherEditComponent extends TeacherComponent implements OnInit {
             if (!this.cid) this.cid = this.route.snapshot.queryParamMap.get('cid');
             if (this.cid) {
                 this.populateDetailFromCopy(this.cid);
+            } else if (this.initData) {
+                this.action="Add";
+                this.subEdit = true;
+                let detail = {
+                    
+                };
+                for (let prop in this.initData) {
+                    detail[prop] = this.initData[prop];
+                    this.hiddenFields.push(prop);
+                }
+                this.detail = this.formatDetail(detail);
             } else {
                 let detail = {
                     
-                }
+                };
                 this.detail = this.formatDetail(detail);
             }
         }

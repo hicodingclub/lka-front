@@ -30,6 +30,8 @@ export class StudentListComponent extends StudentComponent implements OnInit {
 
           this.stringFields.push('first_name');
           this.stringFields.push('last_name');
+          this.stringFields.push('email');
+
 
 
           // this is to initialize the detail that will be used for search condition selection

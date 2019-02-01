@@ -40,6 +40,7 @@ export class EventDetailComponent extends EventComponent implements OnInit {
 
           this.dateFields = ['publishDate', ];
 
+
           this.textEditorMap['eventDetailContent'] = {
             fieldName: 'content'
           };

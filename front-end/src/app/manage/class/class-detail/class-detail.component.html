@@ -1,0 +1,66 @@
+<div class="detail" *ngIf="detail">
+	<div class="action-buttons">
+        <a href="javascript:void(0)" (click)="goBack()"><i class="fas fa-angle-double-left" title="Back"></i></a>
+		<a [routerLink]="['../../edit', detail['_id'] ]" [skipLocationChange]="false" class="btn btn-outline-primary">Edit</a>
+		<a [routerLink]="['../../new']" [queryParams]="{cid: detail['_id']}" [skipLocationChange]="false" class="btn btn-outline-primary">New</a>
+		<a routerLink="." class="btn btn-outline-primary" (click)="onDelete(detail['_id'], null)">Delete</a>
+	</div>
+	
+	<div class="card text-left">
+	  <div class="card-body">
+	    <h4 class="card-title">{{ItemCamelName}} Detail</h4>    
+		<div class="card-text">
+
+			<label><b>title:</b></label>
+			<span>  {{detail['title']}}
+
+			</span><br>
+			<label><b>course:</b></label>
+			<span>  <a routerLink="."  (click)="onDisplayRefClicked('course', detail['course'], $event)">
+	            	    {{detail['course']?detail['course']['value']:""}} </a>
+
+			</span><br>
+			<label><b>description:</b></label>
+			<span>  {{detail['description']}}
+
+			</span><br>
+			<label><b>teacher:</b></label>
+			<span>  <a routerLink="."  (click)="onDisplayRefClicked('teacher', detail['teacher'], $event)">
+	            	    {{detail['teacher']?detail['teacher']['value']:""}} </a>
+
+			</span><br>
+			<label><b>price:</b></label>
+			<span>  {{detail['price']}}
+
+			</span><br>
+			<label><b>startTime:</b></label>
+			<span>  {{detail['startTime']?detail['startTime']['value']:""}}
+
+			</span><br>
+			<label><b>endTime:</b></label>
+			<span>  {{detail['endTime']?detail['endTime']['value']:""}}
+
+			</span><br>
+			<label><b>dayOfWeek:</b></label>
+			<span>
+                    <span class="badge badge-pill badge-secondary" *ngFor="let element of enums['dayOfWeek']">
+                         <div *ngIf="detail['dayOfWeek'] && detail['dayOfWeek']['selection'][element]">{{element}}</div>
+                    </span>
+
+			</span><br>
+		</div>
+	  </div>
+	</div>
+
+	<br/>
+	<hr/>	
+	
+	<ul class="nav nav-tabs">
+	  
+	  <li class="nav-item">
+	    <a [routerLink]="['./studentclass/list']"
+	        class="nav-link" routerLinkActive="active">StudentClass</a>
+	  </li>
+    </ul>
+    <router-outlet></router-outlet>
+</div>

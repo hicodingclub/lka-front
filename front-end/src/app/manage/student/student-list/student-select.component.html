@@ -20,7 +20,7 @@
 	              <input type="search" class="form-control border border-secondary" id="studentTextSearch" 
 						#studentTextSearch [(ngModel)]="searchText"
 						(keyup.enter)="$event.target.blur();searchList();false"
-					    placeholder="Search for first_name, last_name"> 
+					    placeholder="Search for first_name, last_name, email"> 
 				  <div *ngIf="searchText" class="input-group-append icon-clear-inside">
 					<span >
 					    <i class="fas fa-times-circle" (click)="onSearchTextClear()" title="Clear"></i>
@@ -86,6 +86,7 @@
 
 		        <th scope="col">First_name</th>
 		        <th scope="col">Last_name</th>
+		        <th scope="col">Email</th>
 		        <th></th>	        
 	        </tr>
 	    </thead>
@@ -98,6 +99,9 @@
 
 	            </td>
 	            <td (click)="selectViewDetail(i)"  class="pointer">  {{detail['last_name']}}
+
+	            </td>
+	            <td (click)="selectViewDetail(i)"  class="pointer">  {{detail['email']}}
 
 	            </td>
 	            <td><a routerLink="." class="btn" 

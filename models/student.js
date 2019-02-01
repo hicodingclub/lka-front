@@ -19,7 +19,7 @@ studentSchema
   return this.last_name + ', ' + this.first_name;
 });
 
-var studentBrief = "first_name last_name";
+var studentBrief = "first_name last_name email";
 var studentDetail = "first_name last_name date_of_birth email grade";
 var studentCreat = "first_name last_name date_of_birth email grade";
 var studentEdit = "first_name last_name date_of_birth email grade";

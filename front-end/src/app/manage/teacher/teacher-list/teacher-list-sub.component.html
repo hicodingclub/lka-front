@@ -1,5 +1,5 @@
 <div>
-
+    
 	<div class="container search">
 		<div class="row">			<div class="col-3">
 			</div>
@@ -56,9 +56,8 @@
 		        <th *ngIf="referenceFieldsMap['courses'] != parentItem"  scope="col">
 		        	Courses
 		        </th>		        
+                <th scope="col" style="width:2rem;"></th>
 		        <th scope="col" style="width:2rem;"></th>
-		        <th scope="col" style="width:2rem;">
-		        </th>
 	        </tr>
 	    </thead>
 	    <tbody>
@@ -69,25 +68,28 @@
 	            <td >
 	            	  {{detail['firstName']}}
 
-	            </td>
+                </td>
 	            <td >
 	            	  {{detail['lastName']}}
 
-	            </td>
+                </td>
 	            <td *ngIf="referenceFieldsMap['courses'] != parentItem"  >
 	            	  <a routerLink="."  (click)="onDisplayRefClicked('courses', detail['courses'], $event)">
 	            	    {{detail['courses']?detail['courses']['value']:""}} </a>
 
-	            </td>
+                </td>
 	            <td>
+
 			        <span class="pointer" (click)="toggleCheckedItem(i)">
 			            <i *ngIf="!checkedItem[i]" class="fas fa-caret-down" title="More"></i>
 			            <i *ngIf="checkedItem[i]" class="fas fa-caret-up" title="Less"></i>
 			        </span>
-	            </td>
+                </td>
 	            <td>
+
 	            	<a routerLink="." (click)="onDetailLinkClicked(detail['_id'])"><i class="fas fa-external-link-square-alt" title="View Details"></i></a>
-	            </td>
+                 
+                </td>   
 	        </tr>
 
 	        <tr *ngIf="checkedItem[i]" > <td colspan="3"> <app-teacher-detail-sub [inputData]="detail['_id']"></app-teacher-detail-sub></td></tr>

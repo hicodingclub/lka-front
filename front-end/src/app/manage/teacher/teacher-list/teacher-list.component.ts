@@ -34,6 +34,7 @@ protected componentFactoryResolver: ComponentFactoryResolver,
           this.referenceFields = ['courses', ];
           this.referenceFieldsMap = {'courses': 'course',};
 
+
           // this is to initialize the detail that will be used for search condition selection
           const detail = {};
           this.detail = this.formatDetail(detail);

@@ -37,15 +37,15 @@ import { CourseDetailComponent } from './course/course-detail/course-detail.comp
 import { CourseEditComponent } from './course/course-edit/course-edit.component';
 import { CourseService } from './course/course.service';
 
-import { CourseinstanceListComponent } from './courseinstance/courseinstance-list/courseinstance-list.component';
-import { CourseinstanceDetailComponent } from './courseinstance/courseinstance-detail/courseinstance-detail.component';
-import { CourseinstanceEditComponent } from './courseinstance/courseinstance-edit/courseinstance-edit.component';
-import { CourseinstanceService } from './courseinstance/courseinstance.service';
+import { ClassListComponent } from './class/class-list/class-list.component';
+import { ClassDetailComponent } from './class/class-detail/class-detail.component';
+import { ClassEditComponent } from './class/class-edit/class-edit.component';
+import { ClassService } from './class/class.service';
 
-import { StudentcourseinstanceListComponent } from './studentcourseinstance/studentcourseinstance-list/studentcourseinstance-list.component';
-import { StudentcourseinstanceDetailComponent } from './studentcourseinstance/studentcourseinstance-detail/studentcourseinstance-detail.component';
-import { StudentcourseinstanceEditComponent } from './studentcourseinstance/studentcourseinstance-edit/studentcourseinstance-edit.component';
-import { StudentcourseinstanceService } from './studentcourseinstance/studentcourseinstance.service';
+import { StudentclassListComponent } from './studentclass/studentclass-list/studentclass-list.component';
+import { StudentclassDetailComponent } from './studentclass/studentclass-detail/studentclass-detail.component';
+import { StudentclassEditComponent } from './studentclass/studentclass-edit/studentclass-edit.component';
+import { StudentclassService } from './studentclass/studentclass.service';
 
 
 import { CourseSelectComponent } from './course/course-list/course-select.component';
@@ -57,17 +57,19 @@ import { TeacherDetailSelComponent } from './teacher/teacher-detail/teacher-deta
 import { StudentSelectComponent } from './student/student-list/student-select.component';
 import { StudentDetailPopComponent } from './student/student-detail/student-detail-pop.component';
 import { StudentDetailSelComponent } from './student/student-detail/student-detail-sel.component';
-import { CourseinstanceSelectComponent } from './courseinstance/courseinstance-list/courseinstance-select.component';
-import { CourseinstanceDetailPopComponent } from './courseinstance/courseinstance-detail/courseinstance-detail-pop.component';
-import { CourseinstanceDetailSelComponent } from './courseinstance/courseinstance-detail/courseinstance-detail-sel.component';
+import { ClassSelectComponent } from './class/class-list/class-select.component';
+import { ClassDetailPopComponent } from './class/class-detail/class-detail-pop.component';
+import { ClassDetailSelComponent } from './class/class-detail/class-detail-sel.component';
 
 import { TeacherListSubComponent } from './teacher/teacher-list/teacher-list-sub.component';
 import { TeacherDetailSubComponent } from './teacher/teacher-detail/teacher-detail-sub.component';
-import { CourseinstanceListSubComponent } from './courseinstance/courseinstance-list/courseinstance-list-sub.component';
-import { CourseinstanceDetailSubComponent } from './courseinstance/courseinstance-detail/courseinstance-detail-sub.component';
-import { StudentcourseinstanceListSubComponent } from './studentcourseinstance/studentcourseinstance-list/studentcourseinstance-list-sub.component';
-import { StudentcourseinstanceDetailSubComponent } from './studentcourseinstance/studentcourseinstance-detail/studentcourseinstance-detail-sub.component';
+import { ClassListSubComponent } from './class/class-list/class-list-sub.component';
+import { ClassDetailSubComponent } from './class/class-detail/class-detail-sub.component';
+import { StudentclassListSubComponent } from './studentclass/studentclass-list/studentclass-list-sub.component';
+import { StudentclassDetailSubComponent } from './studentclass/studentclass-detail/studentclass-detail-sub.component';
 
+
+import { ClassDirectiveDayOfWeekRequired } from './class/class-edit/class-edit.component';
 
 @NgModule({
   imports: [
@@ -96,12 +98,12 @@ import { StudentcourseinstanceDetailSubComponent } from './studentcourseinstance
     CourseListComponent,
     CourseDetailComponent,
     CourseEditComponent,
-    CourseinstanceListComponent,
-    CourseinstanceDetailComponent,
-    CourseinstanceEditComponent,
-    StudentcourseinstanceListComponent,
-    StudentcourseinstanceDetailComponent,
-    StudentcourseinstanceEditComponent,
+    ClassListComponent,
+    ClassDetailComponent,
+    ClassEditComponent,
+    StudentclassListComponent,
+    StudentclassDetailComponent,
+    StudentclassEditComponent,
 
     CourseSelectComponent,
     CourseDetailPopComponent,
@@ -112,17 +114,19 @@ import { StudentcourseinstanceDetailSubComponent } from './studentcourseinstance
     StudentSelectComponent,
     StudentDetailPopComponent,
     StudentDetailSelComponent,
-    CourseinstanceSelectComponent,
-    CourseinstanceDetailPopComponent,
-    CourseinstanceDetailSelComponent,
+    ClassSelectComponent,
+    ClassDetailPopComponent,
+    ClassDetailSelComponent,
 
     TeacherListSubComponent,
     TeacherDetailSubComponent,
-    CourseinstanceListSubComponent,
-    CourseinstanceDetailSubComponent,
-    StudentcourseinstanceListSubComponent,
-    StudentcourseinstanceDetailSubComponent,
+    ClassListSubComponent,
+    ClassDetailSubComponent,
+    StudentclassListSubComponent,
+    StudentclassDetailSubComponent,
 
+
+    ClassDirectiveDayOfWeekRequired,
   ],
   exports: [
     ManageComponent,
@@ -139,12 +143,12 @@ import { StudentcourseinstanceDetailSubComponent } from './studentcourseinstance
     CourseListComponent,
     CourseDetailComponent,
     CourseEditComponent,
-    CourseinstanceListComponent,
-    CourseinstanceDetailComponent,
-    CourseinstanceEditComponent,
-    StudentcourseinstanceListComponent,
-    StudentcourseinstanceDetailComponent,
-    StudentcourseinstanceEditComponent,
+    ClassListComponent,
+    ClassDetailComponent,
+    ClassEditComponent,
+    StudentclassListComponent,
+    StudentclassDetailComponent,
+    StudentclassEditComponent,
 
     CourseSelectComponent,
     CourseDetailPopComponent,
@@ -155,16 +159,16 @@ import { StudentcourseinstanceDetailSubComponent } from './studentcourseinstance
     StudentSelectComponent,
     StudentDetailPopComponent,
     StudentDetailSelComponent,
-    CourseinstanceSelectComponent,
-    CourseinstanceDetailPopComponent,
-    CourseinstanceDetailSelComponent,
+    ClassSelectComponent,
+    ClassDetailPopComponent,
+    ClassDetailSelComponent,
 
     TeacherListSubComponent,
     TeacherDetailSubComponent,
-    CourseinstanceListSubComponent,
-    CourseinstanceDetailSubComponent,
-    StudentcourseinstanceListSubComponent,
-    StudentcourseinstanceDetailSubComponent,
+    ClassListSubComponent,
+    ClassDetailSubComponent,
+    StudentclassListSubComponent,
+    StudentclassDetailSubComponent,
   ],
   providers: [
     { provide: Manage_SERVER_ROOT_URI, useValue: manage_server_root_uri },
@@ -175,8 +179,8 @@ import { StudentcourseinstanceDetailSubComponent } from './studentcourseinstance
     StudentService,
     TeacherService,
     CourseService,
-    CourseinstanceService,
-    StudentcourseinstanceService,
+    ClassService,
+    StudentclassService,
   ],
 
   entryComponents: [
@@ -190,9 +194,9 @@ import { StudentcourseinstanceDetailSubComponent } from './studentcourseinstance
     StudentSelectComponent,
     StudentDetailPopComponent,
     StudentDetailSelComponent,
-    CourseinstanceSelectComponent,
-    CourseinstanceDetailPopComponent,
-    CourseinstanceDetailSelComponent,
+    ClassSelectComponent,
+    ClassDetailPopComponent,
+    ClassDetailSelComponent,
   ]
 })
 export class ManageModule { }

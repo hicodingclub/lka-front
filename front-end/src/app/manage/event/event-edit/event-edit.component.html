@@ -1,14 +1,15 @@
 <div class="edit" *ngIf="detail">
-	<div class="action-buttons">
+	<div *ngIf="!subEdit" class="action-buttons">
         <a href="javascript:void(0)" (click)="goBack()" ><i class="fas fa-angle-double-left" title="Back"></i></a>
 	</div>
 	
 	<div class="card" style="text-align: left;">
 	  <div class="card-body">
-	    <h4 class="card-title">{{action}} Event</h4>    
+	    <h4 class="card-title" *ngIf="!subEdit">{{action}} Event</h4>    
 	    <form (ngSubmit)="onSubmit()" #editForm="ngForm">
 	    
 	     <div *ngIf="action == 'Edit'">
+<div *ngIf="!hiddenFields.includes('title')">
 
 	      <fieldset class="form-group">
 	        <label for="eventEditTitle">Title</label>
@@ -33,6 +34,7 @@
         
 	      </fieldset>
     
+</div><div *ngIf="!hiddenFields.includes('author')">
 
 	      <fieldset class="form-group">
 	        <label for="eventEditAuthor">Author</label>
@@ -57,6 +59,7 @@
         
 	      </fieldset>
     
+</div><div *ngIf="!hiddenFields.includes('content')">
 
 	      <fieldset class="form-group">
 	        <label for="eventEditContent">Content</label>
@@ -78,9 +81,10 @@
 		    
 	      </fieldset>
     
-
+</div>
          </div>	
-	     <div *ngIf="action == 'Create'">
+	     <div *ngIf="action == 'Create' || action == 'Add' ">
+<div *ngIf="!hiddenFields.includes('title')">
 
 	      <fieldset class="form-group">
 	        <label for="eventEditTitle">Title</label>
@@ -105,6 +109,7 @@
         
 	      </fieldset>
     
+</div><div *ngIf="!hiddenFields.includes('author')">
 
 	      <fieldset class="form-group">
 	        <label for="eventEditAuthor">Author</label>
@@ -129,6 +134,7 @@
         
 	      </fieldset>
     
+</div><div *ngIf="!hiddenFields.includes('content')">
 
 	      <fieldset class="form-group">
 	        <label for="eventEditContent">Content</label>
@@ -150,12 +156,14 @@
 		    
 	      </fieldset>
     
-
+</div>
          </div>	
          
 		<div class="action-buttons-center">
 	     	<button type="submit" class="btn btn-success" 
      			[disabled]="!editForm.form.valid">Submit</button>
+	     	<button class="btn btn-outline-success" 
+     			(click)="editCancel()">Cancel</button>
 		</div>
 	    </form>
 	  </div>

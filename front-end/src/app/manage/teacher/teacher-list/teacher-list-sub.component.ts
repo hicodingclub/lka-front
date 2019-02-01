@@ -12,6 +12,7 @@ import { TeacherService } from '../teacher.service';
   styleUrls: ['./teacher-list.component.css']
 })
 export class TeacherListSubComponent extends TeacherListComponent implements OnInit {
+  private parentData = {};
   constructor(
       protected teacherService: TeacherService,
       protected commonService: MraCommonService,
@@ -24,6 +25,7 @@ export class TeacherListSubComponent extends TeacherListComponent implements OnI
   ngOnInit() {
       let ref = this.getParentRouteRefField();
       let id = this.getParentRouteItemId();
+      this.parentData[ref] = {'_id': id };
       this.detail = {};
       this.detail[ref] = {'_id': id }; //make this as the search context
       this.processSearchContext();

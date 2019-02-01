@@ -1,14 +1,15 @@
 <div class="edit" *ngIf="detail">
-	<div class="action-buttons">
+	<div *ngIf="!subEdit" class="action-buttons">
         <a href="javascript:void(0)" (click)="goBack()" ><i class="fas fa-angle-double-left" title="Back"></i></a>
 	</div>
 	
 	<div class="card" style="text-align: left;">
 	  <div class="card-body">
-	    <h4 class="card-title">{{action}} Student</h4>    
+	    <h4 class="card-title" *ngIf="!subEdit">{{action}} Student</h4>    
 	    <form (ngSubmit)="onSubmit()" #editForm="ngForm">
 	    
 	     <div *ngIf="action == 'Edit'">
+<div *ngIf="!hiddenFields.includes('first_name')">
 
 	      <fieldset class="form-group">
 	        <label for="studentEditFirst_name">First_name</label>
@@ -33,6 +34,7 @@
         
 	      </fieldset>
     
+</div><div *ngIf="!hiddenFields.includes('last_name')">
 
 	      <fieldset class="form-group">
 	        <label for="studentEditLast_name">Last_name</label>
@@ -57,6 +59,7 @@
         
 	      </fieldset>
     
+</div><div *ngIf="!hiddenFields.includes('date_of_birth')">
 
 	      <fieldset class="form-group">
 	        <label for="studentEditDate_of_birth">Date_of_birth </label> <span> ({{dateFormat}})</span>
@@ -85,6 +88,7 @@
 	        </div>
 	      </fieldset>
     
+</div><div *ngIf="!hiddenFields.includes('email')">
 
 	      <fieldset class="form-group">
 	        <label for="studentEditEmail">Email</label>
@@ -109,6 +113,7 @@
         
 	      </fieldset>
     
+</div><div *ngIf="!hiddenFields.includes('grade')">
 
 	      <fieldset class="form-group">
 	        <label for="studentEditGrade">Grade</label>
@@ -131,9 +136,10 @@
 
 	      </fieldset>
     
-
+</div>
          </div>	
-	     <div *ngIf="action == 'Create'">
+	     <div *ngIf="action == 'Create' || action == 'Add' ">
+<div *ngIf="!hiddenFields.includes('first_name')">
 
 	      <fieldset class="form-group">
 	        <label for="studentEditFirst_name">First_name</label>
@@ -158,6 +164,7 @@
         
 	      </fieldset>
     
+</div><div *ngIf="!hiddenFields.includes('last_name')">
 
 	      <fieldset class="form-group">
 	        <label for="studentEditLast_name">Last_name</label>
@@ -182,6 +189,7 @@
         
 	      </fieldset>
     
+</div><div *ngIf="!hiddenFields.includes('date_of_birth')">
 
 	      <fieldset class="form-group">
 	        <label for="studentEditDate_of_birth">Date_of_birth </label> <span> ({{dateFormat}})</span>
@@ -210,6 +218,7 @@
 	        </div>
 	      </fieldset>
     
+</div><div *ngIf="!hiddenFields.includes('email')">
 
 	      <fieldset class="form-group">
 	        <label for="studentEditEmail">Email</label>
@@ -234,6 +243,7 @@
         
 	      </fieldset>
     
+</div><div *ngIf="!hiddenFields.includes('grade')">
 
 	      <fieldset class="form-group">
 	        <label for="studentEditGrade">Grade</label>
@@ -256,12 +266,14 @@
 
 	      </fieldset>
     
-
+</div>
          </div>	
          
 		<div class="action-buttons-center">
 	     	<button type="submit" class="btn btn-success" 
      			[disabled]="!editForm.form.valid">Submit</button>
+	     	<button class="btn btn-outline-success" 
+     			(click)="editCancel()">Cancel</button>
 		</div>
 	    </form>
 	  </div>

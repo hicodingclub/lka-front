@@ -21,11 +21,14 @@
 				</div>
 			
 
-				<div>
-					<span class="pointer" (click)="toggleMoreSearch()">
-			            <i *ngIf="!moreSearchOpened"  class="fas fa-caret-down" title="More"></i>
-			            <i *ngIf="moreSearchOpened" class="fas fa-caret-up"  title="Less"></i>
-				    </span>
+				<div class="text-center">
+                    <span  class="pointer" (click)="toggleMoreSearch()">
+                        <span class="refine-search-text">Refine Search &nbsp;</span>
+                        <span>
+                            <i *ngIf="!moreSearchOpened"  class="fas fa-plus-circle" title="More"></i>
+                            <i *ngIf="moreSearchOpened" class="fas fa-minus-circle"  title="Less"></i>
+                        </span>
+                    </span>
 				</div>
 			    <div class="shadow" *ngIf="moreSearchOpened">
 					<div class="card">
@@ -66,12 +69,11 @@
 				</ng-template>
 		    </div>      
 
-    
 	      </div>
 	      
 	      <div class="col-1">
 		    <div class="icon-clear" (click)="clearValueFromDetail('publishDate')"
-		        *ngIf="checkValueDefinedFromDetail(['publishDate'])"
+		        *ngIf="checkValueDefinedFromDetail('publishDate')"
 		        ><i class="fas fa-times-circle" title="Clear"></i></div>
 	      </div>
 	    </div>
@@ -87,7 +89,7 @@
 					</div>
 		        </div>
 		        <div *ngIf="!moreSearchOpened" style="text-align: left;">
-					<span class="badge badge-pill badge-secondary" *ngFor="let value of searchMoreDetail">
+					<span class="badge badge-pill badge-info" *ngFor="let value of searchMoreDetail">
 					    <a (click)="toggleMoreSearch()" class="pointer"> {{value[0]}}: {{value[1]}}</a>
 					    <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromDetailAndSearchList(value[0])" title="Clear"></i>
 					</span>
