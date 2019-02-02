@@ -1,6 +1,6 @@
 <div class="edit" *ngIf="detail">
 	<div *ngIf="!subEdit" class="action-buttons">
-        <a href="javascript:void(0)" (click)="goBack()" ><i class="fas fa-angle-double-left" title="Back"></i></a>
+        <!-- <a href="javascript:void(0)" (click)="goBack()" ><i class="fas fa-angle-double-left" title="Back"></i></a> -->
 	</div>
 	
 	<div class="card" style="text-align: left;">
@@ -141,7 +141,7 @@
 </div><div *ngIf="!hiddenFields.includes('startTime')">
 
 	      <fieldset class="form-group">
-	        <label for="classEditStartTime">StartTime </label> <span> ({{dateFormat}})</span>
+	        <label for="classEditStartTime">Start Time </label> <span> ({{dateFormat}})</span>
 	        <div class="input-group">
 		      <input class="form-control" id="classEditStartTime" placeholder="{{dateFormat}}"
 	                 required
@@ -173,7 +173,7 @@
 </div><div *ngIf="!hiddenFields.includes('endTime')">
 
 	      <fieldset class="form-group">
-	        <label for="classEditEndTime">EndTime </label> <span> ({{dateFormat}})</span>
+	        <label for="classEditEndTime">End Time </label> <span> ({{dateFormat}})</span>
 	        <div class="input-group">
 		      <input class="form-control" id="classEditEndTime" placeholder="{{dateFormat}}"
 	                 required
@@ -206,7 +206,7 @@
 
 
           <fieldset class="form-group">
-	        <label for="classEditDayOfWeek">DayOfWeek</label>
+	        <label for="classEditDayOfWeek">Day of Week</label>
 
             <div class="form-check"
                 ngModelGroup="classEditDayOfWeek"
@@ -429,7 +429,7 @@
 </div><div *ngIf="!hiddenFields.includes('startTime')">
 
 	      <fieldset class="form-group">
-	        <label for="classEditStartTime">StartTime </label> <span> ({{dateFormat}})</span>
+	        <label for="classEditStartTime">Start Time </label> <span> ({{dateFormat}})</span>
 	        <div class="input-group">
 		      <input class="form-control" id="classEditStartTime" placeholder="{{dateFormat}}"
 	                 required
@@ -461,7 +461,7 @@
 </div><div *ngIf="!hiddenFields.includes('endTime')">
 
 	      <fieldset class="form-group">
-	        <label for="classEditEndTime">EndTime </label> <span> ({{dateFormat}})</span>
+	        <label for="classEditEndTime">End Time </label> <span> ({{dateFormat}})</span>
 	        <div class="input-group">
 		      <input class="form-control" id="classEditEndTime" placeholder="{{dateFormat}}"
 	                 required
@@ -494,7 +494,7 @@
 
 
           <fieldset class="form-group">
-	        <label for="classEditDayOfWeek">DayOfWeek</label>
+	        <label for="classEditDayOfWeek">Day of Week</label>
 
             <div class="form-check"
                 ngModelGroup="classEditDayOfWeek"
@@ -589,7 +589,7 @@
 	     	<button type="submit" class="btn btn-success" 
      			[disabled]="!editForm.form.valid">Submit</button>
 	     	<button class="btn btn-outline-success" 
-     			(click)="editCancel()">Cancel</button>
+     			type="button" (click)="editCancel()">Cancel</button>
 		</div>
 	    </form>
 	  </div>

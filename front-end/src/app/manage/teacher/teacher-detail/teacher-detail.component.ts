@@ -33,9 +33,9 @@ export class TeacherDetailComponent extends TeacherComponent implements OnInit {
 
           this.stringFields.push('firstName');
           this.stringFields.push('lastName');
-          this.stringFields.push('introduction');
           this.stringFields.push('email');
           this.stringFields.push('phoneNumber');
+          this.stringFields.push('introduction');
 
           this.referenceFields = ['courses', ];
           this.referenceFieldsMap = {'courses': 'course',};

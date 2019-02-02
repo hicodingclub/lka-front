@@ -28,6 +28,14 @@
 			<span>  {{detail['lastName']}}
 
 			</span><br>
+			<label><b>email:</b></label>
+			<span>  {{detail['email']}}
+
+			</span><br>
+			<label><b>phoneNumber:</b></label>
+			<span>  {{detail['phoneNumber']}}
+
+			</span><br>
 			<label><b>courses:</b></label>
 			<span>  <a routerLink="."  (click)="onDisplayRefClicked('courses', detail['courses'], $event)">
 	            	    {{detail['courses']?detail['courses']['value']:""}} </a>
@@ -35,14 +43,6 @@
 			</span><br>
 			<label><b>introduction:</b></label>
 			<span>  {{detail['introduction']}}
-
-			</span><br>
-			<label><b>email:</b></label>
-			<span>  {{detail['email']}}
-
-			</span><br>
-			<label><b>phoneNumber:</b></label>
-			<span>  {{detail['phoneNumber']}}
 
 			</span><br>
 		</div>

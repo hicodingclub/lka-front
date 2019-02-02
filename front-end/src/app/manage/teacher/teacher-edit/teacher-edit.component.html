@@ -1,6 +1,6 @@
 <div class="edit" *ngIf="detail">
 	<div *ngIf="!subEdit" class="action-buttons">
-        <a href="javascript:void(0)" (click)="goBack()" ><i class="fas fa-angle-double-left" title="Back"></i></a>
+        <!-- <a href="javascript:void(0)" (click)="goBack()" ><i class="fas fa-angle-double-left" title="Back"></i></a> -->
 	</div>
 	
 	<div class="card" style="text-align: left;">
@@ -12,7 +12,7 @@
 <div *ngIf="!hiddenFields.includes('firstName')">
 
 	      <fieldset class="form-group">
-	        <label for="teacherEditFirstName">FirstName</label>
+	        <label for="teacherEditFirstName">First Name</label>
 
 	        <input type="text" class="form-control" id="teacherEditFirstName" 
 	                required
@@ -37,7 +37,7 @@
 </div><div *ngIf="!hiddenFields.includes('lastName')">
 
 	      <fieldset class="form-group">
-	        <label for="teacherEditLastName">LastName</label>
+	        <label for="teacherEditLastName">Last Name</label>
 
 	        <input type="text" class="form-control" id="teacherEditLastName" 
 	                required
@@ -140,7 +140,7 @@
 </div><div *ngIf="!hiddenFields.includes('phoneNumber')">
 
 	      <fieldset class="form-group">
-	        <label for="teacherEditPhoneNumber">PhoneNumber</label>
+	        <label for="teacherEditPhoneNumber">Phone Number</label>
 
 	        <input type="text" class="form-control" id="teacherEditPhoneNumber" 
 	                
@@ -165,7 +165,7 @@
 <div *ngIf="!hiddenFields.includes('firstName')">
 
 	      <fieldset class="form-group">
-	        <label for="teacherEditFirstName">FirstName</label>
+	        <label for="teacherEditFirstName">First Name</label>
 
 	        <input type="text" class="form-control" id="teacherEditFirstName" 
 	                required
@@ -190,7 +190,7 @@
 </div><div *ngIf="!hiddenFields.includes('lastName')">
 
 	      <fieldset class="form-group">
-	        <label for="teacherEditLastName">LastName</label>
+	        <label for="teacherEditLastName">Last Name</label>
 
 	        <input type="text" class="form-control" id="teacherEditLastName" 
 	                required
@@ -293,7 +293,7 @@
 </div><div *ngIf="!hiddenFields.includes('phoneNumber')">
 
 	      <fieldset class="form-group">
-	        <label for="teacherEditPhoneNumber">PhoneNumber</label>
+	        <label for="teacherEditPhoneNumber">Phone Number</label>
 
 	        <input type="text" class="form-control" id="teacherEditPhoneNumber" 
 	                
@@ -319,7 +319,7 @@
 	     	<button type="submit" class="btn btn-success" 
      			[disabled]="!editForm.form.valid">Submit</button>
 	     	<button class="btn btn-outline-success" 
-     			(click)="editCancel()">Cancel</button>
+     			type="button" (click)="editCancel()">Cancel</button>
 		</div>
 	    </form>
 	  </div>

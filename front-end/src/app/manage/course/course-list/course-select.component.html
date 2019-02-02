@@ -92,17 +92,17 @@
 	    <tbody>
 	        <tr *ngFor="let detail of list;  let i = index" 
 	        	[ngClass]="{'clicked-row': detail['_id']==clickedId}" >
-	            <td scope="row" (click)="selectViewDetail(i)"  class="pointer">{{(page-1)*per_page+i+1}}</td>
+	            <td scope="row" (click)="selectItemSelected(i)"  class="pointer">{{(page-1)*per_page+i+1}}</td>
 
-	            <td (click)="selectViewDetail(i)"  class="pointer">  {{detail['title']}}
+	            <td (click)="selectItemSelected(i)"  class="pointer">  {{detail['title']}}
 
 	            </td>
-	            <td (click)="selectViewDetail(i)"  class="pointer">  {{detail['description']}}
+	            <td (click)="selectItemSelected(i)"  class="pointer">  {{detail['description']}}
 
 	            </td>
 	            <td><a routerLink="." class="btn" 
 	                 [ngClass]="{'btn-primary': detail['_id']==selectedId, 'btn-outline-primary': detail['_id']!==selectedId}"
-	            	 (click)="selectItemSelected(i)">Select</a>
+	            	 (click)="selectViewDetail(i)">View Details</a>
 	            </td>
 	        </tr>
 	    </tbody>

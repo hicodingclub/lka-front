@@ -1,6 +1,7 @@
 <div class="detail" *ngIf="detail">
 	<div class="action-buttons">
-        <a href="javascript:void(0)" (click)="goBack()"><i class="fas fa-angle-double-left" title="Back"></i></a>
+        <!--<a href="javascript:void(0)" (click)="goBack()"><i class="fas fa-angle-double-left" title="Back"></i></a>-->
+        <a [routerLink]="['../../list' ]"><i class="fas fa-list" title="List"></i><span>&nbsp;&nbsp;{{ItemCamelName}} List</span></a>
 		<a [routerLink]="['../../edit', detail['_id'] ]" [skipLocationChange]="false" class="btn btn-outline-primary">Edit</a>
 		<a [routerLink]="['../../new']" [queryParams]="{cid: detail['_id']}" [skipLocationChange]="false" class="btn btn-outline-primary">New</a>
 		<a routerLink="." class="btn btn-outline-primary" (click)="onDelete(detail['_id'], null)">Delete</a>
@@ -11,20 +12,27 @@
 	    <h4 class="card-title">{{ItemCamelName}} Detail</h4>    
 		<div class="card-text">
 
-			<label><b>title:</b></label>
-			<span>  {{detail['title']}}
+          <div class="row">
+      
+			<div class="col-3"><label>Title</label></div>
+			<div class="col-9">  {{detail['title']}}
+</div>
 
-			</span><br>
-			<label><b>description:</b></label>
-			<span>  {{detail['description']}}
+          </div>
 
-			</span><br>
+          <div class="row">
+      
+			<div class="col-3"><label>Description</label></div>
+			<div class="col-9">  {{detail['description']}}
+</div>
+
+          </div>
+
 		</div>
 	  </div>
 	</div>
 
 	<br/>
-	<hr/>	
 	
 	<ul class="nav nav-tabs">
 	  

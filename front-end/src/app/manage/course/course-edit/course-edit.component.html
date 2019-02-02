@@ -1,6 +1,6 @@
 <div class="edit" *ngIf="detail">
 	<div *ngIf="!subEdit" class="action-buttons">
-        <a href="javascript:void(0)" (click)="goBack()" ><i class="fas fa-angle-double-left" title="Back"></i></a>
+        <!-- <a href="javascript:void(0)" (click)="goBack()" ><i class="fas fa-angle-double-left" title="Back"></i></a> -->
 	</div>
 	
 	<div class="card" style="text-align: left;">
@@ -119,7 +119,7 @@
 	     	<button type="submit" class="btn btn-success" 
      			[disabled]="!editForm.form.valid">Submit</button>
 	     	<button class="btn btn-outline-success" 
-     			(click)="editCancel()">Cancel</button>
+     			type="button" (click)="editCancel()">Cancel</button>
 		</div>
 	    </form>
 	  </div>

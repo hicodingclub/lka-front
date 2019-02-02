@@ -87,32 +87,32 @@
 		        <th scope="col">Title</th>
 		        <th scope="col">Course</th>
 		        <th scope="col">Teacher</th>
-		        <th scope="col">StartTime</th>
+		        <th scope="col">Start Time</th>
 		        <th></th>	        
 	        </tr>
 	    </thead>
 	    <tbody>
 	        <tr *ngFor="let detail of list;  let i = index" 
 	        	[ngClass]="{'clicked-row': detail['_id']==clickedId}" >
-	            <td scope="row" (click)="selectViewDetail(i)"  class="pointer">{{(page-1)*per_page+i+1}}</td>
+	            <td scope="row" (click)="selectItemSelected(i)"  class="pointer">{{(page-1)*per_page+i+1}}</td>
 
-	            <td (click)="selectViewDetail(i)"  class="pointer">  {{detail['title']}}
+	            <td (click)="selectItemSelected(i)"  class="pointer">  {{detail['title']}}
 
 	            </td>
-	            <td (click)="selectViewDetail(i)"  class="pointer">  
+	            <td (click)="selectItemSelected(i)"  class="pointer">  
 	            	    {{detail['course']?detail['course']['value']:""}} 
 
 	            </td>
-	            <td (click)="selectViewDetail(i)"  class="pointer">  
+	            <td (click)="selectItemSelected(i)"  class="pointer">  
 	            	    {{detail['teacher']?detail['teacher']['value']:""}} 
 
 	            </td>
-	            <td (click)="selectViewDetail(i)"  class="pointer">  {{detail['startTime']?detail['startTime']['value']:""}}
+	            <td (click)="selectItemSelected(i)"  class="pointer">  {{detail['startTime']?detail['startTime']['value']:""}}
 
 	            </td>
 	            <td><a routerLink="." class="btn" 
 	                 [ngClass]="{'btn-primary': detail['_id']==selectedId, 'btn-outline-primary': detail['_id']!==selectedId}"
-	            	 (click)="selectItemSelected(i)">Select</a>
+	            	 (click)="selectViewDetail(i)">View Details</a>
 	            </td>
 	        </tr>
 	    </tbody>

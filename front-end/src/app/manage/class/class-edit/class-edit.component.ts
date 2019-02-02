@@ -98,7 +98,7 @@ export class ClassEditComponent extends ClassComponent implements OnInit {
                 this.action="Add";
                 this.subEdit = true;
                 let detail = {
-                    dayOfWeek: ["Monday"],
+                    dayOfWeek: ["Mon"],
                 };
                 for (let prop in this.initData) {
                     detail[prop] = this.initData[prop];
@@ -107,7 +107,7 @@ export class ClassEditComponent extends ClassComponent implements OnInit {
                 this.detail = this.formatDetail(detail);
             } else {
                 let detail = {
-                    dayOfWeek: ["Monday"],
+                    dayOfWeek: ["Mon"],
                 };
                 this.detail = this.formatDetail(detail);
             }
