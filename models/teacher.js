@@ -14,7 +14,7 @@ var teacherSchema = new Schema(
 );
 
 var teacherBrief = "firstName lastName courses";
-var teacherDetail = "firstName lastName courses introduction email phoneNumber";
+var teacherDetail = "firstName lastName | email | phoneNumber  courses | introduction ";
 var teacherCreat = "firstName lastName courses introduction email phoneNumber";
 var teacherEdit = "firstName lastName courses introduction email phoneNumber";
 var teacherTextSearch = "firstName lastName courses email phoneNumber";

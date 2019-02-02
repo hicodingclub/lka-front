@@ -10,14 +10,14 @@ var courseInstanceSchema = new Schema(
     startTime: {type: Date, required: true},
     endTime: {type: Date, required: true},
     dayOfWeek: {type: [String], enum: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'], 
-                 default: ['Monday'],  elementunique: true, required: true},
+                 default: ['Mon'],  elementunique: true, required: true},
     teacher: {type: Schema.Types.ObjectId, ref: 'Teacher', required: true},
     course: { type: Schema.Types.ObjectId, ref: 'Course', required: true }, 
   }
 );
 
 var courseInstanceBrief = "title course teacher startTime endTime dayOfWeek";
-var courseInstanceDetail = "title course description teacher price startTime endTime dayOfWeek";
+var courseInstanceDetail = "title | description | course price  | teacher | startTime endTime | dayOfWeek";
 var courseInstanceCreat = "title course description teacher price startTime endTime dayOfWeek";
 var courseInstanceEdit = "title course description teacher price startTime endTime dayOfWeek";
 var courseInstanceTextSearch = "title teacher course";
