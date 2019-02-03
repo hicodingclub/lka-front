@@ -1,29 +1,34 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 
-var mongoose = require('mongoose');
-var mongoDB = 'mongodb://lkauser:lkauser1@ds143683.mlab.com:43683/lka';
+const mongoose = require('mongoose');
+const mongoDB = 'mongodb://lkauser:lkauser1@ds143683.mlab.com:43683/lka';
 mongoose.connect(mongoDB, { useNewUrlParser: true }, function(error, db) {
 	if (error) throw error;
 } );
 mongoose.Promise = global.Promise;
-var db = mongoose.connection;
+const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
-var meanRestExpress = require('mean-rest-express');
-var authConfig = require('mdds-express-auth-app');
+const meanRestExpress = require('mean-rest-express');
+//for auth client
+const authConfig = require('mdds-express-auth-app');
+//for auth server
+const authServer = require('mdds-mongoose-express-auth-server');
+const authRouter = authServer.GetDefaultAuthnRouter();
+//const usersRouter = authServer.GetDefaultUserRouter(authConfig);
+//const authzRouter = authServer.GetDefaultAuthzRouter(authConfig);
+//for lka models
+const lkaDbDefinition = require('./models/index');
+const lkaRouter = meanRestExpress.RestRouter(lkaDbDefinition, authConfig);
 
-var lkaDbDefinition = require('./models/index');
-var lkaRouter = meanRestExpress.RestRouter(lkaDbDefinition, authConfig);
-var meanRestAuthRouter = meanRestExpress.authRouter;
+//const indexRouter = require('./routes/index');
+//const usersRouter = require('./routes/users');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-
-var app = express();
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -39,7 +44,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //app.use('/users', usersRouter);
 app.use('/api/manage', lkaRouter);
-app.use('/api/auth', meanRestAuthRouter);
+app.use('/api/auth', authRouter);
 
 app.get(/.*/, function(req, res, next) {
   if (req.accepts('html')) {

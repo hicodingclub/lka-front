@@ -9,7 +9,7 @@ var studentClassSchema = new Schema(
   }
 );
 
-//to make the student and courseInstance association uniqe
+//to make the association unique
 studentClassSchema.index({ student: 1, class: 1}, {unique: true}); // schema level
 
 var studentClassBrief = "student class";
@@ -17,7 +17,7 @@ var studentClassDetail = "student class";
 var studentClassCreat = "student class";
 var studentClassEdit = "student class";
 var studentClassTextSearch = "student class";
-var studentClassIndex = "student";
+var studentClassIndex = "student"; //let's temporarily put any field here since this schema is not referred. 
 
 var views = [studentClassBrief, studentClassDetail, studentClassCreat, 
              studentClassEdit, studentClassTextSearch, studentClassIndex]
