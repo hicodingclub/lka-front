@@ -1,0 +1,7 @@
+<h3>HOT Classes</h3>
+
+<ul>
+  <ng-container *ngFor="let class of classes">
+    <li *ngIf="class.hot == true">{{ class.title }}</li>
+  </ng-container>
+</ul>  

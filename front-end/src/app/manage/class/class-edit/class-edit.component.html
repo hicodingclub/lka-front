@@ -294,6 +294,45 @@
 	      </fieldset>
  
     
+</div><div *ngIf="!hiddenFields.includes('hot')">
+
+	      <fieldset class="form-group">
+	        <label for="classEditHot">Hot</label>
+	        <div class="form-check"
+
+		          [ngClass]="{'ng-valid': true} "
+		        >
+	          <div class="form-check-inline">
+		        <input type="radio" name="classEditHot" 
+		        	class="form-check-input"
+		        	id="classEditHotYes" [value]="true" 
+		        	
+		        	 
+		        	[(ngModel)]="detail['hot']"
+		        	#classEditHot="ngModel">
+		      	<label class="form-check-label">Yes</label>
+		      </div>
+	          <div class="form-check-inline">
+		        <input type="radio" name="classEditHot" 
+		        	class="form-check-input"
+		        	id="classEditHotNo" [value]="false"
+		        	
+		        	 
+		        	[(ngModel)]="detail['hot']"
+		        	#classEditHot="ngModel">
+		      	<label class="form-check-label">No</label>
+		      </div>
+		      <div *ngIf="detail['hot'] == true || detail['hot'] == false" 
+		          class="form-check-inline" (click)="clearValueFromDetail('hot')">
+		          <i class="fas fa-times-circle" title="Clear"></i></div> 
+		    </div>
+	        <div [hidden]="classEditHot.valid || classEditHot.pristine"
+     			class="alert alert-danger">
+
+ 
+	        </div>
+		  </fieldset>
+    
 </div>
          </div>	
 	     <div *ngIf="action == 'Create' || action == 'Add' ">
@@ -581,6 +620,45 @@
 	        </div>
 	      </fieldset>
  
+    
+</div><div *ngIf="!hiddenFields.includes('hot')">
+
+	      <fieldset class="form-group">
+	        <label for="classEditHot">Hot</label>
+	        <div class="form-check"
+
+		          [ngClass]="{'ng-valid': true} "
+		        >
+	          <div class="form-check-inline">
+		        <input type="radio" name="classEditHot" 
+		        	class="form-check-input"
+		        	id="classEditHotYes" [value]="true" 
+		        	
+		        	 
+		        	[(ngModel)]="detail['hot']"
+		        	#classEditHot="ngModel">
+		      	<label class="form-check-label">Yes</label>
+		      </div>
+	          <div class="form-check-inline">
+		        <input type="radio" name="classEditHot" 
+		        	class="form-check-input"
+		        	id="classEditHotNo" [value]="false"
+		        	
+		        	 
+		        	[(ngModel)]="detail['hot']"
+		        	#classEditHot="ngModel">
+		      	<label class="form-check-label">No</label>
+		      </div>
+		      <div *ngIf="detail['hot'] == true || detail['hot'] == false" 
+		          class="form-check-inline" (click)="clearValueFromDetail('hot')">
+		          <i class="fas fa-times-circle" title="Clear"></i></div> 
+		    </div>
+	        <div [hidden]="classEditHot.valid || classEditHot.pristine"
+     			class="alert alert-danger">
+
+ 
+	        </div>
+		  </fieldset>
     
 </div>
          </div>	

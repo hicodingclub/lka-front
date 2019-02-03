@@ -64,6 +64,9 @@
 		        </th>
 		        <th scope="col">
 		        	Day of Week
+		        </th>
+		        <th scope="col">
+		        	Hot
 		        </th>		        
                 <th scope="col" style="width:2rem;"></th>
 		        <th scope="col" style="width:2rem;"></th>
@@ -103,6 +106,10 @@
                     </span>
 
                 </td>
+	            <td >
+	            	  {{detail['hot']}}
+
+                </td>
 	            <td>
 
 			        <span class="pointer" (click)="toggleCheckedItem(i)">
@@ -117,7 +124,7 @@
                 </td>   
 	        </tr>
 
-	        <tr *ngIf="checkedItem[i]" > <td colspan="6"> <app-class-detail-sub [inputData]="detail['_id']"></app-class-detail-sub></td></tr>
+	        <tr *ngIf="checkedItem[i]" > <td colspan="7"> <app-class-detail-sub [inputData]="detail['_id']"></app-class-detail-sub></td></tr>
 	      </ng-template>
 	    </tbody>
 	</table>

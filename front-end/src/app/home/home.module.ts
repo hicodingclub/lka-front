@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 
 import { EventComponent } from './event/event.component';
 import { HomeComponent } from './home.component';
+import { HotClassesComponent } from './hot_classes/hot_classes.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -12,6 +13,7 @@ import { HomeComponent } from './home.component';
     FormsModule,
   ],
   declarations: [
+    HotClassesComponent,
     EventComponent,
     HomeComponent
   ],
@@ -19,6 +21,7 @@ import { HomeComponent } from './home.component';
   ],
 
   exports: [
+    HotClassesComponent,
     EventComponent,
     HomeComponent
   ],
