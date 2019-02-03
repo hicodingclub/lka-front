@@ -6,8 +6,11 @@ import { FormsModule } from '@angular/forms';
 import { EventComponent } from './event/event.component';
 import { HomeComponent } from './home.component';
 import { HotClassesComponent } from './hot_classes/hot_classes.component';
+import { RouterModule } from '@angular/router'
+
 @NgModule({
   imports: [
+    RouterModule,
     CommonModule,
     HttpClientModule,
     FormsModule,

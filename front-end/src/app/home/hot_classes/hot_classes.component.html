@@ -2,6 +2,10 @@
 
 <ul>
   <ng-container *ngFor="let class of classes">
-    <li *ngIf="class.hot == true">{{ class.title }}</li>
+    <li *ngIf="class.hot">
+      <a [routerLink]="['/public/class', class['_id']]">
+      {{ class.title }}
+      </a>
+  </li>
   </ng-container>
 </ul>  
