@@ -1,6 +1,7 @@
 
 .active {
-  background-color: #4CAF50;
+  background-color: gray;
+  
 }
 
 .carousel-inner img {
@@ -10,4 +11,9 @@
 .carousel-indicators {
     top: 240px; /*set this based on the height of img*/
     bottom: auto;
+}
+
+.carousel-control-next-icon, .carousel-control-prev-icon {
+	position: absolute;
+    top: 100px; /*set this based on the height of img*/
 }
