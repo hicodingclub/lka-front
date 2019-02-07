@@ -1,27 +1,23 @@
-<div class="header">
-  <div class="row"> 
-    <div class="col-6">
-    	 <a routerLink="/home"><img src="assets/LKA.png" align="left" class="logo"></a>
-        <div class="logo-text">Light of Knowledge Acadamy </div>
- 
-    </div>
-    <div class="col-3">
-		<div class="contact-info">
-            <div><i class="fas fa-phone"></i> (408)996-1236</div>
-        </div>
+<nav class="header navbar fixed-top navbar-light">
+	<a class="navbar-brand" routerLink="/home">
+		<img src="assets/LKA.png" align="left" class="logo">
+		<div class="logo-text mt-2 h3">Light of Knowledge Acadamy </div>
+	</a>
+	<div class="ml-3 mr-auto">
+		<i class="fas fa-phone"></i> (408)996-1236
 	</div>
-    <div class="col-2"></div>
-    <div class="col-1" align="center">
-        <div style="padding-top: 0.6rem"><app-auth-icon></app-auth-icon></div>
-    </div>
-  </div> <!-- row -->
-</div>
+	<div class="mr-4 pt-2">
+		<app-auth-icon></app-auth-icon>
+	</div>
+</nav>
 
 <div class="content">
-  <router-outlet></router-outlet>
+	<router-outlet></router-outlet>
 </div>
 
-<div id="footer footer-font" class="footer">
-  <p>© 2019 Light of Knowledge Academy, Inc. All rights reserved.</p>
-  <p><i class="fa fa-map-marker" aria-hidden="true"></i> 20432 Silverado Ave STE 6, Cupertino, CA 95014</p>
-</div>
+<nav class="footer footer-font navbar navbar-light">
+  <div class="mx-auto mb-2">
+	  <div>© 2019 Light of Knowledge Academy, Inc. All rights reserved.</div>
+	  <div><i class="fa fa-map-marker" aria-hidden="true"></i> 20432 Silverado Ave STE 6, Cupertino, CA 95014</div>
+  </div>
+</nav>

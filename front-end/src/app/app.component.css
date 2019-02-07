@@ -1,37 +1,32 @@
 .header {
-  padding: 5px;
-  background: #00BFFF;
-  color: white;
-  margin-bottom: 20px;
-  position: fixed;
-  top: 0;
-  height: 100px;
-  width: 100%;
-  z-index: 100;
+  background-color: #00BFFF;
+  height: 70px;
 }
+
 .logo {
-    max-width:80px;
+    max-width:60px;
 }
 
 .logo-text {
-    font-size: 1.5rem;
-    margin-top: 1rem;
-    margin-left: 110px; /*loto max-width + 10 */
+    margin-left: 70px; /*logo max-width + 10 */
 }
 
 .contact-info {
-    margin-top: 1.5rem;
+	
+}
+
+.content {
+	padding-top: 70px; /*same height with .header*/
+	width: 100%;
+	min-height: calc(100vh - 70px);  /*viewport height substracts footer height*/
 }
 
 
 .footer {
   background-color: #00BFFF;
   color: white;
-  text-align: center;
-  padding: 20px;
   font-size: 0.75rem;
-}
-
-.content {
-	padding-top: 100px;
+  
+  width: 100%;
+  height: 70px;
 }

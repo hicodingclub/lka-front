@@ -3,14 +3,11 @@
   background-color: #4CAF50;
 }
 
-.carousel-inner {
-  widt:100%;
-  max-height: 250px !important;
-}
-
 .carousel-inner img {
+	width: auto;
 	height: 250px; 
 }
 .carousel-indicators {
-    top: 240px;
+    top: 240px; /*set this based on the height of img*/
+    bottom: auto;
 }
