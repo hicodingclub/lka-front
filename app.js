@@ -19,14 +19,11 @@ const authConfig = require('mdds-express-auth-app');
 //for auth server
 const authServer = require('mdds-mongoose-express-auth-server');
 const authRouter = authServer.GetDefaultAuthnRouter();
-//const usersRouter = authServer.GetDefaultUserRouter(authConfig);
+const usersRouter = authServer.GetDefaultUserRouter(authConfig);
 //const authzRouter = authServer.GetDefaultAuthzRouter(authConfig);
 //for lka models
 const lkaDbDefinition = require('./models/index');
 const lkaRouter = meanRestExpress.RestRouter(lkaDbDefinition, authConfig);
-
-//const indexRouter = require('./routes/index');
-//const usersRouter = require('./routes/users');
 
 const app = express();
 
@@ -42,9 +39,10 @@ app.use(cookieParser());
 //app.use('/', indexRouter);
 app.use(express.static(path.join(__dirname, 'public')));
 
-//app.use('/users', usersRouter);
 app.use('/api/manage', lkaRouter);
 app.use('/api/auth', authRouter);
+app.use('/api/users', usersRouter);
+//app.use('/api/roles', authzRouter);
 
 app.get(/.*/, function(req, res, next) {
   if (req.accepts('html')) {

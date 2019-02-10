@@ -24,6 +24,7 @@ var config = {
 const authz = {
   "module-authz": {"LoginUser": 'CRUD', "Anyone": ""},
   "Event": {"Anyone": "R"},
+  "Class": {"Anyone": "R"},
 }
 
 module.exports = {schemas: schemas, config: config, authz: authz};
