@@ -1,19 +1,7 @@
-
-.active {
-  background-color: gray;
-  
+.carousel-caption {
+	bottom: 300px;
 }
 
-.carousel-inner img {
-	width: auto;
-	height: 250px; 
-}
-.carousel-indicators {
-    top: 240px; /*set this based on the height of img*/
-    bottom: auto;
-}
-
-.carousel-control-next-icon, .carousel-control-prev-icon {
-	position: absolute;
-    top: 100px; /*set this based on the height of img*/
+.new-carousel-subcaption {
+	font-size: 2rem;
 }
