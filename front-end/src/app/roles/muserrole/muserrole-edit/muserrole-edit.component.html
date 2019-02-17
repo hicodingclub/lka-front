@@ -1,0 +1,159 @@
+<div class="edit" *ngIf="detail">
+	<div *ngIf="!subEdit" class="action-buttons">
+        <!-- <a href="javascript:void(0)" (click)="goBack()" ><i class="fas fa-angle-double-left" title="Back"></i></a> -->
+	</div>
+	
+	<div class="card" style="text-align: left;">
+	  <div class="card-body">
+	    <h4 class="card-title" *ngIf="!subEdit">{{action}} User Role</h4>    
+	    <form (ngSubmit)="onSubmit()" #editForm="ngForm">
+	    
+	     <div *ngIf="action == 'Edit'">
+<div *ngIf="!hiddenFields.includes('user')">
+
+	      <fieldset class="form-group">
+	        <label for="muserroleEditUser">User </label>
+		    <!-- <a class="icon-search" [routerLink]="['.']" (click)="onRefSelect('user')"><i class="fas fa-list" title="Search"></i></a>  -->
+		    <div class="input-group">
+		    	<!--  [attr.disabled]="true" -->
+		        <input class="form-control rounded" id="muserroleEditUser" 
+		             [ngClass]="{'pointer ref-badge': detail['user']['_id']}"
+		             (focus)="onRefSelect('user')"
+	                 required
+		        	  
+		             [ngModel]="detail['user']['value']" name="muserroleEditUser"
+		             #muserroleEditUser="ngModel"> 
+		    <div *ngIf="detail['user']['value']" 
+		          class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('user')">
+		          <i class="fas fa-times-circle" title="Clear"></i></div>
+			</div>
+	        <div [hidden]="muserroleEditUser.valid || muserroleEditUser.pristine"
+	             class="alert alert-danger">
+
+	          <div *ngIf="muserroleEditUser.errors && muserroleEditUser.errors.required && !(detail['user']?.date)">
+    	        User is required.
+  	          </div>
+ 
+	        </div>
+	      </fieldset>
+    
+</div><div *ngIf="!hiddenFields.includes('role')">
+
+          <fieldset class="form-group">
+	        <label for="muserroleEditRole">Role</label>
+
+            <div class="form-check"
+                ngModelGroup="muserroleEditRole"
+                
+                #muserroleEditRole="ngModelGroup" 
+		        >
+                <ng-template [ngIf]="detail['role'] && detail['role']['selection']">
+                   	<div class="badge badge-pill badge-secondary" *ngFor="let element of detail['role']['selection']; let i = index;">
+                        {{element.value}}
+					    <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromArrayField('role', i)" title="Remove"></i>
+					</div>
+                </ng-template>
+			    <span *ngIf="arraySelected('role')" 
+			          class="icon-clear" (click)="clearValueFromDetail('role')">
+			          <i class="fas fa-times-circle" title="Clear"></i></span>
+				<button type="button" class="btn btn-light ml-3" (click)="onRefSelect('role')">
+				    <i class="fas fa-plus"  title="Add"></i>
+				</button>
+                <!-- fake hidden input ngModel for directive to check the values-->
+		        <input type="checkbox" name="muserroleEditRoleSelection" 
+		        	 style="display:none"
+		        	 id="muserroleEditRoleSelection"
+		             [(ngModel)]="detail['role']['selection'].length" 
+		             #muserroleEditRoleSelection="ngModel">
+		      </div>
+
+	        <div [hidden]="muserroleEditRole.valid || muserroleEditRole.pristine"
+     			class="alert alert-danger">
+
+ 
+	        </div>
+	      </fieldset>
+    
+</div>
+         </div>	
+	     <div *ngIf="action == 'Create' || action == 'Add' ">
+<div *ngIf="!hiddenFields.includes('user')">
+
+	      <fieldset class="form-group">
+	        <label for="muserroleEditUser">User </label>
+		    <!-- <a class="icon-search" [routerLink]="['.']" (click)="onRefSelect('user')"><i class="fas fa-list" title="Search"></i></a>  -->
+		    <div class="input-group">
+		    	<!--  [attr.disabled]="true" -->
+		        <input class="form-control rounded" id="muserroleEditUser" 
+		             [ngClass]="{'pointer ref-badge': detail['user']['_id']}"
+		             (focus)="onRefSelect('user')"
+	                 required
+		        	  
+		             [ngModel]="detail['user']['value']" name="muserroleEditUser"
+		             #muserroleEditUser="ngModel"> 
+		    <div *ngIf="detail['user']['value']" 
+		          class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('user')">
+		          <i class="fas fa-times-circle" title="Clear"></i></div>
+			</div>
+	        <div [hidden]="muserroleEditUser.valid || muserroleEditUser.pristine"
+	             class="alert alert-danger">
+
+	          <div *ngIf="muserroleEditUser.errors && muserroleEditUser.errors.required && !(detail['user']?.date)">
+    	        User is required.
+  	          </div>
+ 
+	        </div>
+	      </fieldset>
+    
+</div><div *ngIf="!hiddenFields.includes('role')">
+
+          <fieldset class="form-group">
+	        <label for="muserroleEditRole">Role</label>
+
+            <div class="form-check"
+                ngModelGroup="muserroleEditRole"
+                
+                #muserroleEditRole="ngModelGroup" 
+		        >
+                <ng-template [ngIf]="detail['role'] && detail['role']['selection']">
+                   	<div class="badge badge-pill badge-secondary" *ngFor="let element of detail['role']['selection']; let i = index;">
+                        {{element.value}}
+					    <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromArrayField('role', i)" title="Remove"></i>
+					</div>
+                </ng-template>
+			    <span *ngIf="arraySelected('role')" 
+			          class="icon-clear" (click)="clearValueFromDetail('role')">
+			          <i class="fas fa-times-circle" title="Clear"></i></span>
+				<button type="button" class="btn btn-light ml-3" (click)="onRefSelect('role')">
+				    <i class="fas fa-plus"  title="Add"></i>
+				</button>
+                <!-- fake hidden input ngModel for directive to check the values-->
+		        <input type="checkbox" name="muserroleEditRoleSelection" 
+		        	 style="display:none"
+		        	 id="muserroleEditRoleSelection"
+		             [(ngModel)]="detail['role']['selection'].length" 
+		             #muserroleEditRoleSelection="ngModel">
+		      </div>
+
+	        <div [hidden]="muserroleEditRole.valid || muserroleEditRole.pristine"
+     			class="alert alert-danger">
+
+ 
+	        </div>
+	      </fieldset>
+    
+</div>
+         </div>	
+         
+		<div class="action-buttons-center">
+	     	<button type="submit" class="btn btn-success" 
+     			[disabled]="!editForm.form.valid">Submit</button>
+	     	<button class="btn btn-outline-success" 
+     			type="button" (click)="editCancel()">Cancel</button>
+		</div>
+	    </form>
+	  </div>
+	</div>
+</div>
+
+<ng-template roles-ref-select></ng-template>
