@@ -38,6 +38,8 @@ protected componentFactoryResolver: ComponentFactoryResolver,
           this.dateFields = ['startTime', 'endTime', ];
 
           this.multiSelectionFields = ['dayOfWeek', ];
+
+
           // this is to initialize the detail that will be used for search condition selection
           const detail = {};
           this.detail = this.formatDetail(detail);

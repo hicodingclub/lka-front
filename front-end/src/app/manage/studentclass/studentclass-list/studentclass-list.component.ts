@@ -33,6 +33,8 @@ protected componentFactoryResolver: ComponentFactoryResolver,
           this.referenceFieldsMap = {'student': 'student','class': 'class',};
 
 
+
+
           // this is to initialize the detail that will be used for search condition selection
           const detail = {};
           this.detail = this.formatDetail(detail);

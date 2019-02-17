@@ -41,7 +41,7 @@ export const ManageRoutes: Routes = [
 
 export const manage_server_root_uri:string = "/api/manage";
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Sat Feb 02 2019 19:29:31 GMT-0800 (Pacific Standard Time)
+**Date: Sat Feb 16 2019 16:03:22 GMT-0800 (PST)
 
 import { Routes } from '@angular/router';
 

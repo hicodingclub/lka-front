@@ -38,6 +38,8 @@ export class StudentDetailComponent extends StudentComponent implements OnInit {
           this.dateFields = ['date_of_birth', ];
 
 
+
+
   }
 
   ngOnInit() {

@@ -187,73 +187,70 @@
 
 
 
-            <div class="form-check"
-		        >
 
-	          <div class="form-check-inline">
+	        <div class="form-check-inline">
 		        <input type="checkbox" name="classEditDayOfWeekMon" 
 		        	class="form-check-input"
 		        	id="classEditDayOfWeekMon"
 		        	[(ngModel)]="detail['dayOfWeek']['selection']['Mon']"
 		        	#classEditDayOfWeekMon="ngModel">
 		      	<label class="form-check-label">Mon</label>
-		      </div>
+		    </div>
 
-	          <div class="form-check-inline">
+	        <div class="form-check-inline">
 		        <input type="checkbox" name="classEditDayOfWeekTue" 
 		        	class="form-check-input"
 		        	id="classEditDayOfWeekTue"
 		        	[(ngModel)]="detail['dayOfWeek']['selection']['Tue']"
 		        	#classEditDayOfWeekTue="ngModel">
 		      	<label class="form-check-label">Tue</label>
-		      </div>
+		    </div>
 
-	          <div class="form-check-inline">
+	        <div class="form-check-inline">
 		        <input type="checkbox" name="classEditDayOfWeekWed" 
 		        	class="form-check-input"
 		        	id="classEditDayOfWeekWed"
 		        	[(ngModel)]="detail['dayOfWeek']['selection']['Wed']"
 		        	#classEditDayOfWeekWed="ngModel">
 		      	<label class="form-check-label">Wed</label>
-		      </div>
+		    </div>
 
-	          <div class="form-check-inline">
+	        <div class="form-check-inline">
 		        <input type="checkbox" name="classEditDayOfWeekThu" 
 		        	class="form-check-input"
 		        	id="classEditDayOfWeekThu"
 		        	[(ngModel)]="detail['dayOfWeek']['selection']['Thu']"
 		        	#classEditDayOfWeekThu="ngModel">
 		      	<label class="form-check-label">Thu</label>
-		      </div>
+		    </div>
 
-	          <div class="form-check-inline">
+	        <div class="form-check-inline">
 		        <input type="checkbox" name="classEditDayOfWeekFri" 
 		        	class="form-check-input"
 		        	id="classEditDayOfWeekFri"
 		        	[(ngModel)]="detail['dayOfWeek']['selection']['Fri']"
 		        	#classEditDayOfWeekFri="ngModel">
 		      	<label class="form-check-label">Fri</label>
-		      </div>
+		    </div>
 
-	          <div class="form-check-inline">
+	        <div class="form-check-inline">
 		        <input type="checkbox" name="classEditDayOfWeekSat" 
 		        	class="form-check-input"
 		        	id="classEditDayOfWeekSat"
 		        	[(ngModel)]="detail['dayOfWeek']['selection']['Sat']"
 		        	#classEditDayOfWeekSat="ngModel">
 		      	<label class="form-check-label">Sat</label>
-		      </div>
+		    </div>
 
-	          <div class="form-check-inline">
+	        <div class="form-check-inline">
 		        <input type="checkbox" name="classEditDayOfWeekSun" 
 		        	class="form-check-input"
 		        	id="classEditDayOfWeekSun"
 		        	[(ngModel)]="detail['dayOfWeek']['selection']['Sun']"
 		        	#classEditDayOfWeekSun="ngModel">
 		      	<label class="form-check-label">Sun</label>
-		      </div>
-
 		    </div>
+
 
  
 
@@ -413,9 +410,9 @@
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-                    <span class="badge badge-pill badge-secondary" *ngFor="let element of enums['dayOfWeek']">
+                    <div class="badge badge-pill badge-secondary" *ngFor="let element of enums['dayOfWeek']">
                          <div *ngIf="detail['dayOfWeek'] && detail['dayOfWeek']['selection'][element]">{{element}}</div>
-                    </span>
+                    </div>
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">  {{detail['hot']}}

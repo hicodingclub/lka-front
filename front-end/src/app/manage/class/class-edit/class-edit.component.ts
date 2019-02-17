@@ -6,33 +6,6 @@ import { MraCommonService } from 'mean-rest-angular';
 import { ClassComponent, ViewType } from '../class.component';
 import { ClassService } from '../class.service';
 
-import { NG_VALIDATORS, Validator, ValidationErrors, AbstractControl, FormGroup } from '@angular/forms';
-
-@Directive({
-  selector: '[classDirectiveDayOfWeekRequired]',
-  providers: [{provide: NG_VALIDATORS, useExisting: ClassDirectiveDayOfWeekRequired, multi: true}]
-})
-export class ClassDirectiveDayOfWeekRequired implements Validator {
-  validate(control: AbstractControl): ValidationErrors | null {
-    let selected = false;
-    let controlGroup = control as FormGroup; //cast to FormGroup
-    if(controlGroup) {
-      for(let ctrl in controlGroup.controls) {
-        if(controlGroup.controls[ctrl].value) {
-          selected = true;
-          break;
-        }
-      }
-    }
-
-    if (selected) {
-      return null; //no error
-    } else {
-      return { 'required': true };
-    }
-  }
-}
-
 
 
 import { ComponentFactoryResolver } from '@angular/core';
@@ -52,7 +25,7 @@ export class ClassEditComponent extends ClassComponent implements OnInit {
     protected initData: any; //some fields has data already. eg: {a: b}. Used for add
     @Output() done = new EventEmitter<boolean>();
 
-    private action:string;
+    protected action:string;
 
 
         
@@ -78,6 +51,8 @@ export class ClassEditComponent extends ClassComponent implements OnInit {
 
           this.multiSelectionFields = ['dayOfWeek', ];
 
+
+
           
           let detail = {};
           this.detail = this.formatDetail(detail);
@@ -87,7 +62,7 @@ export class ClassEditComponent extends ClassComponent implements OnInit {
         if (!this.id) this.id = this.route.snapshot.paramMap.get('id');
         if (this.id) {
             this.action="Edit";
-            this.populateDetail(this.id);
+            this.populateDetailForAction(this.id, "edit"); //populate with action as "edit"
         }
         else {
             this.action="Create";

@@ -24,14 +24,22 @@
 	    <h4 class="card-title">{{ItemCamelName}} Detail</h4>    
 		<div class="card-text">
 
-			<label><b>title:</b></label>
-			<span>  {{detail['title']}}
+          <div class="row">
+      
+			<div class="col-3"><label>Title</label></div>
+			<div class="col-9">  {{detail['title']}}
+</div>
 
-			</span><br>
-			<label><b>description:</b></label>
-			<span>  {{detail['description']}}
+          </div>
 
-			</span><br>
+          <div class="row">
+      
+			<div class="col-3"><label>Description</label></div>
+			<div class="col-9">  {{detail['description']}}
+</div>
+
+          </div>
+      
 		</div>
 	  </div>
 	</div>

@@ -1,7 +1,7 @@
 <div class="detail" *ngIf="detail">
 	<div class="action-buttons">
         <!--<a href="javascript:void(0)" (click)="goBack()"><i class="fas fa-angle-double-left" title="Back"></i></a>-->
-        <a [routerLink]="['../../list' ]"><i class="fas fa-list" title="List"></i><span>&nbsp;&nbsp;{{ItemCamelName}} List</span></a>
+        <a [routerLink]="['../../list' ]"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
 		<a [routerLink]="['../../edit', detail['_id'] ]" [skipLocationChange]="false" class="btn btn-outline-primary">Edit</a>
 		<a [routerLink]="['../../new']" [queryParams]="{cid: detail['_id']}" [skipLocationChange]="false" class="btn btn-outline-primary">New</a>
 		<a routerLink="." class="btn btn-outline-primary" (click)="onDelete(detail['_id'], null)">Delete</a>
@@ -66,9 +66,9 @@
       
 			<div class="col-3"><label>Day of Week</label></div>
 			<div class="col-9">
-                    <span class="badge badge-pill badge-secondary" *ngFor="let element of enums['dayOfWeek']">
+                    <div class="badge badge-pill badge-secondary" *ngFor="let element of enums['dayOfWeek']">
                          <div *ngIf="detail['dayOfWeek'] && detail['dayOfWeek']['selection'][element]">{{element}}</div>
-                    </span>
+                    </div>
 </div>
 
           </div>
@@ -80,7 +80,7 @@
 </div>
 
           </div>
-
+      
 		</div>
 	  </div>
 	</div>

@@ -24,47 +24,75 @@
 	    <h4 class="card-title">{{ItemCamelName}} Detail</h4>    
 		<div class="card-text">
 
-			<label><b>title:</b></label>
-			<span>  {{detail['title']}}
+          <div class="row">
+      
+			<div class="col-3"><label>Title</label></div>
+			<div class="col-9">  {{detail['title']}}
+</div>
 
-			</span><br>
-			<label><b>description:</b></label>
-			<span>  {{detail['description']}}
+          </div>
 
-			</span><br>
-			<label><b>course:</b></label>
-			<span>  
-	            	    {{detail['course']?detail['course']['value']:""}} 
+          <div class="row">
+      
+			<div class="col-3"><label>Description</label></div>
+			<div class="col-9">  {{detail['description']}}
+</div>
 
-			</span><br>
-			<label><b>price:</b></label>
-			<span>  {{detail['price']}}
+          </div>
 
-			</span><br>
-			<label><b>teacher:</b></label>
-			<span>  
-	            	    {{detail['teacher']?detail['teacher']['value']:""}} 
+          <div class="row">
+      
+			<div class="col-3"><label>Course</label></div>
+			<div class="col-3">  <a routerLink="."  (click)="onDisplayRefClicked('course', detail['course'], $event)">
+	            	    {{detail['course']?detail['course']['value']:""}} </a>
+</div>
 
-			</span><br>
-			<label><b>startTime:</b></label>
-			<span>  {{detail['startTime']?detail['startTime']['value']:""}}
+			<div class="col-3"><label>Price</label></div>
+			<div class="col-3">  {{detail['price']}}
+</div>
 
-			</span><br>
-			<label><b>endTime:</b></label>
-			<span>  {{detail['endTime']?detail['endTime']['value']:""}}
+          </div>
 
-			</span><br>
-			<label><b>dayOfWeek:</b></label>
-			<span>
-                    <span class="badge badge-pill badge-secondary" *ngFor="let element of enums['dayOfWeek']">
+          <div class="row">
+      
+			<div class="col-3"><label>Teacher</label></div>
+			<div class="col-9">  <a routerLink="."  (click)="onDisplayRefClicked('teacher', detail['teacher'], $event)">
+	            	    {{detail['teacher']?detail['teacher']['value']:""}} </a>
+</div>
+
+          </div>
+
+          <div class="row">
+      
+			<div class="col-3"><label>Start Time</label></div>
+			<div class="col-3">  {{detail['startTime']?detail['startTime']['value']:""}}
+</div>
+
+			<div class="col-3"><label>End Time</label></div>
+			<div class="col-3">  {{detail['endTime']?detail['endTime']['value']:""}}
+</div>
+
+          </div>
+
+          <div class="row">
+      
+			<div class="col-3"><label>Day of Week</label></div>
+			<div class="col-9">
+                    <div class="badge badge-pill badge-secondary" *ngFor="let element of enums['dayOfWeek']">
                          <div *ngIf="detail['dayOfWeek'] && detail['dayOfWeek']['selection'][element]">{{element}}</div>
-                    </span>
+                    </div>
+</div>
 
-			</span><br>
-			<label><b>hot:</b></label>
-			<span>  {{detail['hot']}}
+          </div>
 
-			</span><br>
+          <div class="row">
+      
+			<div class="col-3"><label>Hot</label></div>
+			<div class="col-9">  {{detail['hot']}}
+</div>
+
+          </div>
+      
 		</div>
 	  </div>
 	</div>

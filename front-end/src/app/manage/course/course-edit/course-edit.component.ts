@@ -24,7 +24,7 @@ export class CourseEditComponent extends CourseComponent implements OnInit {
     protected initData: any; //some fields has data already. eg: {a: b}. Used for add
     @Output() done = new EventEmitter<boolean>();
 
-    private action:string;
+    protected action:string;
 
 
         
@@ -45,6 +45,8 @@ export class CourseEditComponent extends CourseComponent implements OnInit {
 
 
 
+
+
           
           let detail = {};
           this.detail = this.formatDetail(detail);
@@ -54,7 +56,7 @@ export class CourseEditComponent extends CourseComponent implements OnInit {
         if (!this.id) this.id = this.route.snapshot.paramMap.get('id');
         if (this.id) {
             this.action="Edit";
-            this.populateDetail(this.id);
+            this.populateDetailForAction(this.id, "edit"); //populate with action as "edit"
         }
         else {
             this.action="Create";

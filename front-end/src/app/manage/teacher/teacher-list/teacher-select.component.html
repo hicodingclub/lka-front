@@ -32,6 +32,59 @@
 				</div>
 			
 
+				<div class="text-center">
+                    <span  class="pointer" (click)="toggleMoreSearch()">
+                        <span class="refine-search-text">Refine Search &nbsp;</span>
+                        <span>
+                            <i *ngIf="!moreSearchOpened"  class="fas fa-plus-circle" title="More"></i>
+                            <i *ngIf="moreSearchOpened" class="fas fa-minus-circle"  title="Less"></i>
+                        </span>
+                    </span>
+				</div>
+			    <div class="shadow" *ngIf="moreSearchOpened">
+					<div class="card">
+						<div class="card-body">
+	    <div class="single-line-edit">
+	      <div class="row">
+	        <div class="col-3"><label for="teacherEditCourses">Courses</label></div>
+	        <div class="col-8">
+
+
+		    <div class="input-group">
+		        <input class="form-control rounded" id="teacherEditCourses" 
+		             [ngClass]="{'pointer ref-badge': detail['courses']['_id']}"
+		             (focus)="detail['courses']['_id']?onRefShow('courses', 'select', detail['courses']['_id']):onRefSelect('courses')"
+		        	  
+		             [ngModel]="detail['courses']['value']" name="teacherEditCourses"
+		             #teacherEditCourses="ngModel"> 
+			</div>
+
+	      </div>
+	      
+	      <div class="col-1">
+		    <div class="icon-clear" (click)="clearValueFromDetail('courses')"
+		        *ngIf="checkValueDefinedFromDetail('courses')"
+		        ><i class="fas fa-times-circle" title="Clear"></i></div>
+	      </div>
+	    </div>
+      </div>
+      
+ 
+
+						  <div class="action-buttons" style="margin-top: 10px;">
+								<button type="button" class="btn btn-outline-success" (click)="onSearchClear()">Reset</button>
+								<button type="button" class="btn btn-success" (click)="searchList()">Search</button>
+						  </div>
+						</div>
+					</div>
+		        </div>
+		        <div *ngIf="!moreSearchOpened" style="text-align: left;">
+					<span class="badge badge-pill badge-info" *ngFor="let value of searchMoreDetail">
+					    <a (click)="toggleMoreSearch()" class="pointer"> {{value[0]}}: {{value[1]}}</a>
+					    <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromDetailAndSearchList(value[0])" title="Clear"></i>
+					</span>
+				</div>
+		    
 			
 			</div>
 			<div class="col-3">

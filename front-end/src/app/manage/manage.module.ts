@@ -6,6 +6,9 @@ import { FormsModule } from '@angular/forms';
 import { NgbModule, NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
 import { MraNgbDateFormatterService } from './manage.directive';
 
+import { DirectiveMultiSelectionRequired } from './manage.directive';
+
+
 import { MraModule } from 'mean-rest-angular';
 
 import { ManageRoutingModule } from './manage-routing.module';
@@ -69,8 +72,6 @@ import { StudentclassListSubComponent } from './studentclass/studentclass-list/s
 import { StudentclassDetailSubComponent } from './studentclass/studentclass-detail/studentclass-detail-sub.component';
 
 
-import { ClassDirectiveDayOfWeekRequired } from './class/class-edit/class-edit.component';
-
 @NgModule({
   imports: [
     CommonModule,
@@ -126,7 +127,8 @@ import { ClassDirectiveDayOfWeekRequired } from './class/class-edit/class-edit.c
     StudentclassDetailSubComponent,
 
 
-    ClassDirectiveDayOfWeekRequired,
+    DirectiveMultiSelectionRequired,
+
   ],
   exports: [
     ManageComponent,

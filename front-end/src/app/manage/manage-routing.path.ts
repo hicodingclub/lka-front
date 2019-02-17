@@ -113,8 +113,8 @@ export const courseRoutingPath = [
 ];
 
 export const classRoutingPath = [
-    {path: 'list', component: ClassListComponent, canActivate: [AuthGuard]},
-    {path: 'detail/:id', component: ClassDetailComponent, children: classDetailPath, canActivate: [AuthGuard]},
+    {path: 'list', component: ClassListComponent},
+    {path: 'detail/:id', component: ClassDetailComponent, children: classDetailPath},
     {path: 'edit/:id', component: ClassEditComponent, canActivate: [AuthGuard]},
     {path: 'new', component: ClassEditComponent, canActivate: [AuthGuard]},
     {path: '**', redirectTo: 'list', pathMatch: 'full'}

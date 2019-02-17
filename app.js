@@ -20,10 +20,11 @@ const authConfig = require('mdds-express-auth-app');
 const authServer = require('mdds-mongoose-express-auth-server');
 const authRouter = authServer.GetDefaultAuthnRouter();
 const usersRouter = authServer.GetDefaultUserRouter(authConfig);
-//const authzRouter = authServer.GetDefaultAuthzRouter(authConfig);
 //for lka models
 const lkaDbDefinition = require('./models/index');
-const lkaRouter = meanRestExpress.RestRouter(lkaDbDefinition, authConfig);
+const lkaRouter = meanRestExpress.RestRouter(lkaDbDefinition, authConfig, "Academics");
+//Authorization. Call it after all meanRestExpress resources are generated.
+//const authzRouter = authServer.GetDefaultAuthzRouter(authConfig);
 
 const app = express();
 
