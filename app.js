@@ -24,7 +24,7 @@ const usersRouter = authServer.GetDefaultUserRouter(authConfig);
 const lkaDbDefinition = require('./models/index');
 const lkaRouter = meanRestExpress.RestRouter(lkaDbDefinition, authConfig, "Academics");
 //Authorization. Call it after all meanRestExpress resources are generated.
-//const authzRouter = authServer.GetDefaultAuthzRouter(authConfig);
+const authzRouter = authServer.GetDefaultAuthzRouter(authConfig);
 
 const app = express();
 
@@ -43,7 +43,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api/manage', lkaRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/users', usersRouter);
-//app.use('/api/roles', authzRouter);
+app.use('/api/roles', authzRouter);
 
 app.get(/.*/, function(req, res, next) {
   if (req.accepts('html')) {
