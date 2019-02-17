@@ -6,6 +6,8 @@ import { FormsModule } from '@angular/forms';
 import { EventComponent } from './event/event.component';
 import { HomeComponent } from './home.component';
 import { HotClassesComponent } from './hot_classes/hot_classes.component';
+import { IntroductionComponent } from './introduction/introduction.component';
+
 import { RouterModule } from '@angular/router'
 
 @NgModule({
@@ -18,7 +20,8 @@ import { RouterModule } from '@angular/router'
   declarations: [
     HotClassesComponent,
     EventComponent,
-    HomeComponent
+    HomeComponent,
+    IntroductionComponent
   ],
   providers: [
   ],
@@ -26,7 +29,8 @@ import { RouterModule } from '@angular/router'
   exports: [
     HotClassesComponent,
     EventComponent,
-    HomeComponent
+    HomeComponent,
+    IntroductionComponent
   ],
   entryComponents: [
 
