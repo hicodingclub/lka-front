@@ -5,3 +5,7 @@
 .new-carousel-subcaption {
 	font-size: 2rem;
 }
+
+.carousel-inner img {
+	width: 100%;
+}
