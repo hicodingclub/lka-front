@@ -45,6 +45,27 @@ app.use('/api/auth', authRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/roles', authzRouter);
 
+//for file upload
+var multer = require('multer');
+var upload = multer({ dest: '/tmp/'});
+var fs = require('fs');
+
+//File input field name is simply 'file'
+app.post('/api/images', upload.single('file'), function(req, res) {
+    var file = __dirname + '/' + req.file.filename;
+    fs.rename(req.file.path, file, function(err) {
+     if (err) {
+       console.log(err);
+       res.send(500);
+     } else {
+       res.json({
+         message: 'File uploaded successfully',
+         filename: req.file.filename
+       });
+     }
+    });
+});
+
 app.get(/.*/, function(req, res, next) {
   if (req.accepts('html')) {
 	  return res.sendFile(path.join(__dirname, './public/index.html'));
