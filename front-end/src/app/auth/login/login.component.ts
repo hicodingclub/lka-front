@@ -2,7 +2,6 @@
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
-
 import { AuthenticationService } from '../auth.service';
 
 @Component(
@@ -16,13 +15,12 @@ export class LoginComponent implements OnInit {
     servererror = false;
     serverText = '';
     returnUrl: string;
-
+  
     constructor(
         private formBuilder: FormBuilder,
         private route: ActivatedRoute,
         private router: Router,
-        private authenticationService: AuthenticationService
-        ) {}
+        private authenticationService: AuthenticationService) { }
 
     ngOnInit() {
         this.loginForm = this.formBuilder.group({
