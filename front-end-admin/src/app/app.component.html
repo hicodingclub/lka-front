@@ -1,0 +1,45 @@
+<nav class="header navbar fixed-top navbar-light navbar-expand-lg">
+	<a class="navbar-brand" routerLink="/home">
+		<img src="assets/LKA.png" align="left" class="logo">
+		<div class="logo-text mt-2 h3">Light of Knowledge Acadamy </div>
+	</a>
+	<div class="ml-3 mr-5">
+		<i>Administration Portal</i>
+	</div>
+	
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarItems" aria-controls="navbarItems" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+	
+	<div class="collapse navbar-collapse ml-auto mr-auto" id="navbarItems">
+	    <ul class="navbar-nav">
+	      <li class="nav-item">
+	        <a class="nav-link bg-dark text-white" routerLink="/information">Public</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link bg-dark text-white" routerLink="/academics">Academics</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link bg-dark text-white" routerLink="/users">Users</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link bg-dark text-white" routerLink="/roles">Roles</a>
+	      </li>
+	    </ul>
+	</div>
+    
+	<div class="mr-4 pt-2">
+		<app-auth-icon></app-auth-icon>
+	</div>
+</nav>
+
+<div class="content">
+	<router-outlet></router-outlet>
+</div>
+
+<nav class="footer footer-font navbar navbar-light">
+  <div class="mx-auto mb-2">
+	  <div>© 2019 Light of Knowledge Academy, Inc. All rights reserved.</div>
+	  <div><i class="fa fa-map-marker" aria-hidden="true"></i> 20432 Silverado Ave STE 6, Cupertino, CA 95014</div>
+  </div>
+</nav>

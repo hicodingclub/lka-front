@@ -33,16 +33,16 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 //app.use('/', indexRouter);
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public-admin')));
 
-app.use('/api/manage', lkaRouter);
+app.use('/api/academics', lkaRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/roles', authzRouter);
 
 app.get(/.*/, function(req, res, next) {
   if (req.accepts('html')) {
-	  return res.sendFile(path.join(__dirname, './public/index.html'));
+	  return res.sendFile(path.join(__dirname, './public-admin/index.html'));
   } else {
     return next();
   }

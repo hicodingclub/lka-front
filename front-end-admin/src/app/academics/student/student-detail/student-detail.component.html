@@ -1,0 +1,61 @@
+<div class="detail" *ngIf="detail">
+	<div class="action-buttons">
+        <!--<a href="javascript:void(0)" (click)="goBack()"><i class="fas fa-angle-double-left" title="Back"></i></a>-->
+        <a [routerLink]="['../../list' ]"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
+		<a [routerLink]="['../../edit', detail['_id'] ]" [skipLocationChange]="false" class="btn btn-outline-primary">Edit</a>
+		<a [routerLink]="['../../new']" [queryParams]="{cid: detail['_id']}" [skipLocationChange]="false" class="btn btn-outline-primary">New</a>
+		<a routerLink="." class="btn btn-outline-primary" (click)="onDelete(detail['_id'], null)">Delete</a>
+	</div>
+	
+	<div class="card text-left">
+	  <div class="card-body">
+	    <h4 class="card-title">{{ItemCamelName}} Detail</h4>    
+		<div class="card-text">
+
+          <div class="row">
+      
+			<div class="col-3"><label>First Name</label></div>
+			<div class="col-3">  {{detail['first_name']}}
+</div>
+
+			<div class="col-3"><label>Last Name</label></div>
+			<div class="col-3">  {{detail['last_name']}}
+</div>
+
+          </div>
+
+          <div class="row">
+      
+			<div class="col-3"><label>Date of Birth</label></div>
+			<div class="col-3">  {{detail['date_of_birth']?detail['date_of_birth']['value']:""}}
+</div>
+
+			<div class="col-3"><label>Grade</label></div>
+			<div class="col-3">  {{detail['grade']}}
+</div>
+
+          </div>
+
+          <div class="row">
+      
+			<div class="col-3"><label>Email</label></div>
+			<div class="col-9">  {{detail['email']}}
+</div>
+
+          </div>
+      
+		</div>
+	  </div>
+	</div>
+
+	<br/>
+	
+	<ul class="nav nav-tabs">
+	  
+	  <li class="nav-item">
+	    <a [routerLink]="['./studentclass/list']"
+	        class="nav-link" routerLinkActive="active">StudentClass</a>
+	  </li>
+    </ul>
+    <router-outlet></router-outlet>
+</div>
