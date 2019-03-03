@@ -35,7 +35,7 @@ app.use(cookieParser());
 //app.use('/', indexRouter);
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/api/manage', lkaRouter);
+app.use('/api/academics', lkaRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/users', usersRouter);
 
