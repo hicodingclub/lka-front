@@ -7,4 +7,18 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  imageObject = [ {
+     imageURL: 'assets/images/chicago.jpg',
+     heading: 'chicago',
+     subheading: 'c1'
+   }, {
+     imageURL: 'assets/images/ny.jpg',
+     heading: 'ny',
+     subheading: 'n1'
+   }, {
+     imageURL: 'assets/images/la.jpg',
+     heading: 'la',
+     subheading: 'l1'
+   }  ] 
+
 }
