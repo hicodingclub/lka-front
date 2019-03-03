@@ -12,9 +12,13 @@ const authApp = require('mdds-express-auth-app');
 const authFuncs = authApp.authFuncs;
 //for auth server
 const authServer = require('mdds-mongoose-express-auth-server');
-const authRouter = authServer.GetDefaultAuthnRouter();
-const usersRouter = authServer.GetDefaultUserRouter(authFuncs);
+const authAccountDef = authServer.authAccountDef;
+const authRouter = authServer.GetDefaultAuthnRouter(authAccountDef, true); //with roles: true
 const authzRouter = authServer.GetDefaultAuthzRouter(authFuncs);
+
+const defaultUserDef = authServer.authUserDef;
+const usersRouter = meanRestExpress.RestRouter(defaultUserDef, 'Users', authFuncs);
+
 //for lka models
 const lkaDbDefinition = require('./models/index');
 const lkaRouter = meanRestExpress.RestRouter(lkaDbDefinition, 'Academics', authFuncs);
@@ -36,9 +40,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public-admin')));
 
 app.use('/api/academics', lkaRouter);
-app.use('/api/auth', authRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/roles', authzRouter);
+app.use('/api/auth', authRouter);
 
 app.get(/.*/, function(req, res, next) {
   if (req.accepts('html')) {
