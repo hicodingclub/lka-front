@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
-import { MraCommonService } from 'mean-rest-angular';
+import { Injector } from '@angular/core';
 
 import { MuserEditComponent } from './muser-edit.component';
 import { MuserService } from '../muser.service';
@@ -43,12 +43,12 @@ export class MuserPassComponent extends MuserEditComponent implements OnInit {
   
     constructor(
       protected muserService: MuserService,
-      protected commonService: MraCommonService,
+      protected injector: Injector,
       protected router: Router,
       protected route: ActivatedRoute,
       protected location: Location) {
           super( 
-                 muserService, commonService, router, route, location);
+                 muserService, injector, router, route, location);
     }
 
     ngOnInit() {

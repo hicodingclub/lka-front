@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
-import { MraCommonService } from 'mean-rest-angular';
+import { Injector } from '@angular/core';
 
 import { MuserComponent, ViewType } from '../muser.component';
 import { MuserService } from '../muser.service';
@@ -20,12 +20,12 @@ export class MuserListComponent extends MuserComponent implements OnInit {
   constructor(
 
       protected muserService: MuserService,
-      protected commonService: MraCommonService,
+      protected injector: Injector,
       protected router: Router,
       protected route: ActivatedRoute,
       protected location: Location) {
           super(
-                muserService, commonService, router, route, location, ViewType.LIST);
+                muserService, injector, router, route, location, ViewType.LIST);
 
           this.enums['status'] = ['Enabled', 'Disabled', 'Pending', ];
 

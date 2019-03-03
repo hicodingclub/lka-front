@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ClassService } from '../../manage/class/class.service';
+import { ClassService } from '../../academics/class/class.service';
 
 @Component({
   selector: 'home-hot-classes-component',
