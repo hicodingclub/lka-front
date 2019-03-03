@@ -4,8 +4,8 @@ var Schema = mongoose.Schema;
 
 var courseSchema = new Schema(
   {
-    title: {type: String, required: true, max: 100},
-    description: {type: String, required: true, max: 100},
+    title: {type: String, required: true, maxlength: 100},
+    description: {type: String, required: true, maxlength: 100},
   }
 );
 var courseBrief = "title description";

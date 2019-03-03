@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 var courseInstanceSchema = new Schema(
   {
     title: {type: String, required: true},
-    description: {type: String, required: true, max: 100},
+    description: {type: String, required: true, maxlength: 100},
     price: {type: Number, required: true},
     startTime: {type: Date, required: true},
     endTime: {type: Date, required: true},

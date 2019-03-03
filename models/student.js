@@ -4,10 +4,10 @@ var Schema = mongoose.Schema;
 
 var studentSchema = new Schema(
   {
-    first_name: {type: String, required: true, max: 100},
-    last_name: {type: String, required: true, max: 100},
+    first_name: {type: String, required: true, maxlength: 100},
+    last_name: {type: String, required: true, maxlength: 100},
     date_of_birth: {type: Date},
-    email: {type: String, required: true, max: 100},
+    email: {type: String, required: true, maxlength: 100},
     grade: {type: Number, required: true},
   }
 );

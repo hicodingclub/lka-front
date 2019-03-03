@@ -15,9 +15,12 @@ const authServer = require('mdds-mongoose-express-auth-server');
 const defaultUserDef = authServer.authUserDef;
 const authRouter = authServer.GetDefaultAuthnRouter(defaultUserDef);
 const usersRouter = meanRestExpress.RestRouter(defaultUserDef, 'Users', authFuncs);
-//for lka models
-const lkaDbDefinition = require('./models/index');
-const lkaRouter = meanRestExpress.RestRouter(lkaDbDefinition, 'Academics', authFuncs);
+//for academics models
+const academicsDbDefinition = require('./models/index');
+const academicsRouter = meanRestExpress.RestRouter(academicsDbDefinition, 'Academics', authFuncs);
+//for public models
+const publicInfoDbDefinition = require('./models/publicInfo/index');
+const publicInfoRouter = meanRestExpress.RestRouter(publicInfoDbDefinition, 'PublicInfo', authFuncs);
 //Authorization App Client. Call it after all meanRestExpress resources are generated.
 authApp.run('local', 'app-key', 'app-secrete');
 
@@ -35,7 +38,8 @@ app.use(cookieParser());
 //app.use('/', indexRouter);
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/api/academics', lkaRouter);
+app.use('/api/academics', academicsRouter);
+app.use('/api/publicinfo', publicInfoRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/users', usersRouter);
 

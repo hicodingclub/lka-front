@@ -4,8 +4,8 @@ var Schema = mongoose.Schema;
 
 var eventSchema = new Schema(
   {
-    title: {type: String, required: true, max: 100},
-    author: {type: String, required: true, max: 50},
+    title: {type: String, required: true, maxlength: 100},
+    author: {type: String, required: true, maxlength: 50},
     publishDate: { type: Date, default: Date.now },
     content: { type: String, editor: true, required: true },
   }
