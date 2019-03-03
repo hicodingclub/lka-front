@@ -9,6 +9,8 @@ import { AuthenticationModule } from './auth/auth.module';
 import { HomeModule } from './home/home.module';
 import { UsersModule } from './users/users.module';
 import { AcademicsModule } from './academics/academics.module';
+import { PublicinfoModule } from './publicinfo/publicinfo.module';
+
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { AcademicsModule } from './academics/academics.module';
     AcademicsModule,
     HomeModule,
     UsersModule,
+    PublicinfoModule
   ],
   providers: [],
   bootstrap: [AppComponent]
