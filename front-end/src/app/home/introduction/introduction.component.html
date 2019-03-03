@@ -4,13 +4,8 @@
   <p class="WhatLKAClass" style="line-height:28px;"></p>
   <p class="WhyLKAClass" style="line-height:28px;"></p>
 </ul>
-  
-<div class="WhatLKAClass">
-  <h2>What is LKA?</h2>
-  <p>Write introduction to LKA here...</p>
-</div>
 
-<div class="WhyLKAClass">
-  <h2>Why you should be here</h2>
-  <p>Write reasons here...</p>
+<div *ngFor="let item of list"class="WhatLKAClass">
+  <h2>{{item.title}}</h2>
+  <p>{{item.description}}</p>
 </div>
