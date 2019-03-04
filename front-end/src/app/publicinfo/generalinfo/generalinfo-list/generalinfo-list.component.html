@@ -153,7 +153,10 @@
 			  </div>
 			</div>
 			<div class="col-3">
-				<div class="total_counts">Total: <b>{{total_count}}</b> items</div>
+				<div class="total_counts">
+					Total: <b>{{total_count}}</b> items
+					<a class="float-right" routerLink="." (click)="onRefresh()"><i class="fa fa-sync-alt"></i></a>
+				</div>
 			</div>			
 
 		</div>
@@ -237,7 +240,9 @@
 			  </div>
 			</div>
 			<div class="col-3">
-				<div class="total_counts">Total: <b>{{total_count}}</b> items</div>
+				<div class="total_counts">
+					Total: <b>{{total_count}}</b> items
+				</div>
 			</div>			
 
 		</div>

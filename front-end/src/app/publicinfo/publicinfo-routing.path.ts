@@ -5,7 +5,7 @@ import { GeneralinfoDetailComponent } from './generalinfo/generalinfo-detail/gen
 
 
 
-import { AuthGuard } from 'mdds-angular-auth';
+import { AuthGuard } from '../auth/';
 
 
 
