@@ -81,8 +81,8 @@ const classDetailPath = [
 
 
 export const eventRoutingPath = [
-    {path: 'list', component: EventListComponent, canActivate: [AuthGuard]},
-    {path: 'detail/:id', component: EventDetailComponent, canActivate: [AuthGuard]},
+    {path: 'list', component: EventListComponent},
+    {path: 'detail/:id', component: EventDetailComponent},
     {path: 'edit/:id', component: EventEditComponent, canActivate: [AuthGuard]},
     {path: 'new', component: EventEditComponent, canActivate: [AuthGuard]},
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
