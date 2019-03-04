@@ -11,7 +11,7 @@ var config = {
 }
 
 const authz = {
-  "module-authz": {"LoginUser": 'CRUD', "Anyone": "R"}
+  "module-authz": {"LoginUser": '', "Anyone": "R"}
 }
 
 module.exports = {schemas: schemas, config: config, authz: authz};

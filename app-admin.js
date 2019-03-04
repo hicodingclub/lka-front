@@ -13,8 +13,11 @@ const authFuncs = authApp.authFuncs;
 //for auth server
 const authServer = require('mdds-mongoose-express-auth-server');
 const authAccountDef = authServer.authAccountDef;
-const authRouter = authServer.GetDefaultAuthnRouter(authAccountDef, true); //with roles: true
-const authzRouter = authServer.GetDefaultAuthzRouter(authFuncs);
+const option = {authz: 'role'}; //admin role based authorization
+const authRouter = authServer.GetDefaultAuthnRouter(authAccountDef, option);
+
+const authzAccessRouter = authServer.GetDefaultAccessManageRouter("Access", authFuncs); //manage public access module
+const authzRolesRouter = authServer.GetDefaultRolesManageRouter("Roles", authFuncs); //manage admin roles module
 
 const defaultUserDef = authServer.authUserDef;
 const usersRouter = meanRestExpress.RestRouter(defaultUserDef, 'Users', authFuncs);
@@ -25,8 +28,10 @@ const academicsRouter = meanRestExpress.RestRouter(academicsDbDefinition, 'Acade
 //for public models
 const publicInfoDbDefinition = require('./models/publicInfo/index');
 const publicInfoRouter = meanRestExpress.RestRouter(publicInfoDbDefinition, 'PublicInfo', authFuncs);
+
 //Authorization App Client. Call it after all meanRestExpress resources are generated.
-authApp.run('local', 'app-key', 'app-secrete');
+const manageModule = ['Users', 'Academics', 'PublicInfo', 'Access', 'Roles']; //the modules that manages
+authApp.run('local', 'app-key', 'app-secrete', {'roleModules': manageModule});
 
 const app = express();
 
@@ -45,7 +50,9 @@ app.use(express.static(path.join(__dirname, 'public-admin')));
 app.use('/api/academics', academicsRouter);
 app.use('/api/publicinfo', publicInfoRouter);
 app.use('/api/users', usersRouter);
-app.use('/api/roles', authzRouter);
+app.use('/api/roles', authzRolesRouter);
+app.use('/api/access', authzAccessRouter);
+
 app.use('/api/auth', authRouter);
 
 app.get(/.*/, function(req, res, next) {

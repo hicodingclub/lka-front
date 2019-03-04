@@ -13,16 +13,21 @@ const authFuncs = authApp.authFuncs;
 //for auth server
 const authServer = require('mdds-mongoose-express-auth-server');
 const defaultUserDef = authServer.authUserDef;
-const authRouter = authServer.GetDefaultAuthnRouter(defaultUserDef);
+const option = {authz: 'group'}; //user group based authorization
+const authRouter = authServer.GetDefaultAuthnRouter(defaultUserDef, option);
 const usersRouter = meanRestExpress.RestRouter(defaultUserDef, 'Users', authFuncs);
+
 //for academics models
 const academicsDbDefinition = require('./models/index');
 const academicsRouter = meanRestExpress.RestRouter(academicsDbDefinition, 'Academics', authFuncs);
+
 //for public models
 const publicInfoDbDefinition = require('./models/publicInfo/index');
 const publicInfoRouter = meanRestExpress.RestRouter(publicInfoDbDefinition, 'PublicInfo', authFuncs);
+
 //Authorization App Client. Call it after all meanRestExpress resources are generated.
-authApp.run('local', 'app-key', 'app-secrete');
+const publicModules = ['Users', 'Academics', 'PublicInfo']; //the modules that for public access
+authApp.run('local', 'app-key', 'app-secrete', {'accessModules': publicModules});
 
 const app = express();
 
