@@ -31,7 +31,7 @@ export class IntroductionComponent extends GeneralinfoComponent implements OnIni
 
   ngOnInit() {
       this.populateList();
-  }
+      }
 }
 //export class IntroductionComponent {
 //	private WhatTitle = 'What is LKA?';

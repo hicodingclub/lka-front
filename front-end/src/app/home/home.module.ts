@@ -7,6 +7,7 @@ import { EventComponent } from './event/event.component';
 import { HomeComponent } from './home.component';
 import { HotClassesComponent } from './hot_classes/hot_classes.component';
 import { IntroductionComponent } from './introduction/introduction.component';
+import { StaffComponent } from './Staff/staff.component';
 
 import { RouterModule } from '@angular/router'
 
@@ -21,7 +22,8 @@ import { RouterModule } from '@angular/router'
     HotClassesComponent,
     EventComponent,
     HomeComponent,
-    IntroductionComponent
+    IntroductionComponent,
+    StaffComponent
   ],
   providers: [
   ],
@@ -30,7 +32,8 @@ import { RouterModule } from '@angular/router'
     HotClassesComponent,
     EventComponent,
     HomeComponent,
-    IntroductionComponent
+    IntroductionComponent,
+    StaffComponent
   ],
   entryComponents: [
 
