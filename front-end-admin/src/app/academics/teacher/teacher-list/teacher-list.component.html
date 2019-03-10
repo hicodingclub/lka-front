@@ -9,7 +9,7 @@
 	              <input type="search" class="form-control border border-secondary" id="teacherTextSearch" 
 						#teacherTextSearch [(ngModel)]="searchText"
 						(keyup.enter)="$event.target.blur();searchList();false"
-					    placeholder="Search for firstName, lastName"> 
+					    placeholder="Search for firstName, lastName, introduction"> 
 				  <div *ngIf="searchText" class="input-group-append icon-clear-inside">
 					<span >
 					    <i class="fas fa-times-circle" (click)="onSearchTextClear()" title="Clear"></i>
@@ -138,7 +138,8 @@
 
 		        <th scope="col">First Name</th>
 		        <th scope="col">Last Name</th>
-		        <th scope="col">Courses</th>		        
+		        <th scope="col">Courses</th>
+		        <th scope="col">Introduction</th>		        
 		        <th scope="col" style="width:8rem;"></th>
 		        <th scope="col" style="width:2rem;">
 		        	<input type="checkbox" [(ngModel)]="checkAll" (change)="onCheckAllChange()">
@@ -157,6 +158,9 @@
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">  <a routerLink="."  (click)="onDisplayRefClicked('courses', detail['courses'], $event)">
 	            	    {{detail['courses']?detail['courses']['value']:""}} </a>
+
+	            </td>
+	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">  {{detail['introduction']}}
 
 	            </td>
 	            <td>

@@ -57,6 +57,9 @@
 		        </th>
 		        <th *ngIf="referenceFieldsMap['courses'] != parentItem"  scope="col">
 		        	Courses
+		        </th>
+		        <th scope="col">
+		        	Introduction
 		        </th>		        
                 <th scope="col" style="width:2rem;"></th>
 		        <th scope="col" style="width:2rem;"></th>
@@ -80,6 +83,10 @@
 	            	    {{detail['courses']?detail['courses']['value']:""}} </a>
 
                 </td>
+	            <td >
+	            	  {{detail['introduction']}}
+
+                </td>
 	            <td>
 
 			        <span class="pointer" (click)="toggleCheckedItem(i)">
@@ -94,7 +101,7 @@
                 </td>   
 	        </tr>
 
-	        <tr *ngIf="checkedItem[i]" > <td colspan="3"> <app-teacher-detail-sub [inputData]="detail['_id']"></app-teacher-detail-sub></td></tr>
+	        <tr *ngIf="checkedItem[i]" > <td colspan="4"> <app-teacher-detail-sub [inputData]="detail['_id']"></app-teacher-detail-sub></td></tr>
 	      </ng-template>
 	    </tbody>
 	</table>

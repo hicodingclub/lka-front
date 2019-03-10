@@ -20,7 +20,7 @@
 	              <input type="search" class="form-control border border-secondary" id="teacherTextSearch" 
 						#teacherTextSearch [(ngModel)]="searchText"
 						(keyup.enter)="$event.target.blur();searchList();false"
-					    placeholder="Search for firstName, lastName"> 
+					    placeholder="Search for firstName, lastName, introduction"> 
 				  <div *ngIf="searchText" class="input-group-append icon-clear-inside">
 					<span >
 					    <i class="fas fa-times-circle" (click)="onSearchTextClear()" title="Clear"></i>
@@ -142,6 +142,7 @@
 		        <th scope="col">First Name</th>
 		        <th scope="col">Last Name</th>
 		        <th scope="col">Courses</th>
+		        <th scope="col">Introduction</th>
 		        <th></th>	        
 	        </tr>
 	    </thead>
@@ -158,6 +159,9 @@
 	            </td>
 	            <td (click)="selectItemSelected(i)"  class="pointer">  
 	            	    {{detail['courses']?detail['courses']['value']:""}} 
+
+	            </td>
+	            <td (click)="selectItemSelected(i)"  class="pointer">  {{detail['introduction']}}
 
 	            </td>
 	            <td><a routerLink="." class="btn" 
