@@ -12,6 +12,11 @@ export class EventComponent {
         const result = this.eventService.getList(1,25,{}).subscribe(
            result => { 
               this.events = result.items;
+              for (let event of this.events) {
+  			  		const utcDate = event.publishDate;
+  					const localDate = new Date(utcDate);
+  					event.publishDate = localDate;
+  				}
            },
         );
     }
