@@ -1,6 +1,5 @@
 var mongoose = require('mongoose');
 
-let eventDef = require('./event');
 let studentDef = require('./student');
 let teacherDef = require('./teacher');
 let courseDef = require('./course');
@@ -8,7 +7,6 @@ let courseInstanceDef = require('./class');
 let studentClassSchemaDef = require('./student_class')
 
 var schemas = {
-  "Event": eventDef,
   "Student": studentDef,
   "Teacher": teacherDef,
   "Course": courseDef,
@@ -23,7 +21,6 @@ var config = {
 
 const authz = {
   "module-authz": {"LoginUser": 'R', "Anyone": ""},
-  "Event": {"LoginUser": '', "Anyone": "R"},
   "Class": {"LoginUser": '', "Anyone": "R"},
 }
 
