@@ -23,6 +23,11 @@ import { GeneralinfoDetailComponent } from './generalinfo/generalinfo-detail/gen
 import { GeneralinfoEditComponent } from './generalinfo/generalinfo-edit/generalinfo-edit.component';
 import { GeneralinfoService } from './generalinfo/generalinfo.service';
 
+import { FaqinfoListComponent } from './faqinfo/faqinfo-list/faqinfo-list.component';
+import { FaqinfoDetailComponent } from './faqinfo/faqinfo-detail/faqinfo-detail.component';
+import { FaqinfoEditComponent } from './faqinfo/faqinfo-edit/faqinfo-edit.component';
+import { FaqinfoService } from './faqinfo/faqinfo.service';
+
 
 
 
@@ -44,6 +49,9 @@ import { GeneralinfoService } from './generalinfo/generalinfo.service';
     GeneralinfoListComponent,
     GeneralinfoDetailComponent,
     GeneralinfoEditComponent,
+    FaqinfoListComponent,
+    FaqinfoDetailComponent,
+    FaqinfoEditComponent,
 
 
 
@@ -57,6 +65,9 @@ import { GeneralinfoService } from './generalinfo/generalinfo.service';
     GeneralinfoListComponent,
     GeneralinfoDetailComponent,
     GeneralinfoEditComponent,
+    FaqinfoListComponent,
+    FaqinfoDetailComponent,
+    FaqinfoEditComponent,
 
 
   ],
@@ -65,6 +76,7 @@ import { GeneralinfoService } from './generalinfo/generalinfo.service';
 
 
     GeneralinfoService,
+    FaqinfoService,
   ],
 
 })
