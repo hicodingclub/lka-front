@@ -13,9 +13,10 @@ export class EventComponent {
            result => { 
               this.events = result.items;
               for (let event of this.events) {
+                    const options = { weekday: 'short', year: 'numeric', month: 'long',day:'numeric'};
   			  		const utcDate = event.publishDate;
   					const localDate = new Date(utcDate);
-  					event.publishDate = localDate;
+  					event.publishDate = localDate.toLocaleDateString("en-US", options);
   				}
            },
         );
