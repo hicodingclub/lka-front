@@ -20,7 +20,13 @@ import { publicinfo_server_root_uri } from '../publicinfo.conf';
 
 import { GeneralinfoListComponent } from './generalinfo/generalinfo-list/generalinfo-list.component';
 import { GeneralinfoDetailComponent } from './generalinfo/generalinfo-detail/generalinfo-detail.component';
+import { GeneralinfoEditComponent } from './generalinfo/generalinfo-edit/generalinfo-edit.component';
 import { GeneralinfoService } from './generalinfo/generalinfo.service';
+
+import { FaqinfoListComponent } from './faqinfo/faqinfo-list/faqinfo-list.component';
+import { FaqinfoDetailComponent } from './faqinfo/faqinfo-detail/faqinfo-detail.component';
+import { FaqinfoEditComponent } from './faqinfo/faqinfo-edit/faqinfo-edit.component';
+import { FaqinfoService } from './faqinfo/faqinfo.service';
 
 
 
@@ -42,6 +48,10 @@ import { GeneralinfoService } from './generalinfo/generalinfo.service';
 
     GeneralinfoListComponent,
     GeneralinfoDetailComponent,
+    GeneralinfoEditComponent,
+    FaqinfoListComponent,
+    FaqinfoDetailComponent,
+    FaqinfoEditComponent,
 
 
 
@@ -54,6 +64,10 @@ import { GeneralinfoService } from './generalinfo/generalinfo.service';
 
     GeneralinfoListComponent,
     GeneralinfoDetailComponent,
+    GeneralinfoEditComponent,
+    FaqinfoListComponent,
+    FaqinfoDetailComponent,
+    FaqinfoEditComponent,
 
 
   ],
@@ -62,6 +76,7 @@ import { GeneralinfoService } from './generalinfo/generalinfo.service';
 
 
     GeneralinfoService,
+    FaqinfoService,
   ],
 
 })
