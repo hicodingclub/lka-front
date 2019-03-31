@@ -8,15 +8,15 @@ import { Component } from '@angular/core';
 export class HomeComponent {
 
   imageObject = [ {
-     imageURL: 'assets/images/chicago.jpg',
+     imageURL: 'assets/images/work.jpg',
      heading: 'chicago',
      subheading: 'c1'
    }, {
-     imageURL: 'assets/images/ny.jpg',
+     imageURL: 'assets/images/work.jpg',
      heading: 'ny',
      subheading: 'n1'
    }, {
-     imageURL: 'assets/images/la.jpg',
+     imageURL: 'assets/images/work.jpg',
      heading: 'la',
      subheading: 'l1'
    }  ] 
