@@ -25,10 +25,10 @@ import { GeneralinfoDetailComponent } from './generalinfo/generalinfo-detail/gen
 import { GeneralinfoEditComponent } from './generalinfo/generalinfo-edit/generalinfo-edit.component';
 import { GeneralinfoService } from './generalinfo/generalinfo.service';
 
-import { FaqinfoListComponent } from './faqinfo/faqinfo-list/faqinfo-list.component';
-import { FaqinfoDetailComponent } from './faqinfo/faqinfo-detail/faqinfo-detail.component';
-import { FaqinfoEditComponent } from './faqinfo/faqinfo-edit/faqinfo-edit.component';
-import { FaqinfoService } from './faqinfo/faqinfo.service';
+import { FaqListComponent } from './faq/faq-list/faq-list.component';
+import { FaqDetailComponent } from './faq/faq-detail/faq-detail.component';
+import { FaqEditComponent } from './faq/faq-edit/faq-edit.component';
+import { FaqService } from './faq/faq.service';
 
 import { EventListComponent } from './event/event-list/event-list.component';
 import { EventDetailComponent } from './event/event-detail/event-detail.component';
@@ -57,9 +57,9 @@ import { EventService } from './event/event.service';
     GeneralinfoListComponent,
     GeneralinfoDetailComponent,
     GeneralinfoEditComponent,
-    FaqinfoListComponent,
-    FaqinfoDetailComponent,
-    FaqinfoEditComponent,
+    FaqListComponent,
+    FaqDetailComponent,
+    FaqEditComponent,
     EventListComponent,
     EventDetailComponent,
     EventEditComponent,
@@ -76,9 +76,9 @@ import { EventService } from './event/event.service';
     GeneralinfoListComponent,
     GeneralinfoDetailComponent,
     GeneralinfoEditComponent,
-    FaqinfoListComponent,
-    FaqinfoDetailComponent,
-    FaqinfoEditComponent,
+    FaqListComponent,
+    FaqDetailComponent,
+    FaqEditComponent,
     EventListComponent,
     EventDetailComponent,
     EventEditComponent,
@@ -91,7 +91,7 @@ import { EventService } from './event/event.service';
     {provide: NgbDateParserFormatter, useClass: MraNgbDateFormatterService},
 
     GeneralinfoService,
-    FaqinfoService,
+    FaqService,
     EventService,
   ],
 

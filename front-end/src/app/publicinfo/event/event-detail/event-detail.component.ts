@@ -12,7 +12,7 @@ import { QueryList, ViewChildren } from '@angular/core';
 import { MraRichTextShowDirective } from 'mean-rest-angular';
 
 @Component({
-  selector: 'eventpublic-detail',
+  selector: 'app-event-detail',
   templateUrl: './event-detail.component.html',
   styleUrls: ['./event-detail.component.css']
 })

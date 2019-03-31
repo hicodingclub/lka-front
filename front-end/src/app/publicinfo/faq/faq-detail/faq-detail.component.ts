@@ -3,31 +3,31 @@ import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
 
-import { FaqinfoComponent, ViewType } from '../faqinfo.component';
-import { FaqinfoService } from '../faqinfo.service';
+import { FaqComponent, ViewType } from '../faq.component';
+import { FaqService } from '../faq.service';
 
 
 
 
 @Component({
-  selector: 'app-faqinfo-detail',
-  templateUrl: './faqinfo-detail.component.html',
-  styleUrls: ['./faqinfo-detail.component.css']
+  selector: 'app-faq-detail',
+  templateUrl: './faq-detail.component.html',
+  styleUrls: ['./faq-detail.component.css']
 })
-export class FaqinfoDetailComponent extends FaqinfoComponent implements OnInit {
+export class FaqDetailComponent extends FaqComponent implements OnInit {
   @Input() 
   protected id:string;
 
 
   constructor(
       
-      protected faqinfoService: FaqinfoService,
+      protected faqService: FaqService,
       protected injector: Injector,
       protected router: Router,
       protected route: ActivatedRoute,
       protected location: Location) {
           super(
-                faqinfoService, injector, router, route, location, ViewType.DETAIL);
+                faqService, injector, router, route, location, ViewType.DETAIL);
 
 
           this.stringFields.push('question');

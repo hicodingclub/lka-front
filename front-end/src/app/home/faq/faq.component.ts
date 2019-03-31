@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FaqinfoService } from '../../publicinfo/faqinfo/faqinfo.service';
+import { FaqService } from '../../publicinfo/faq/faq.service';
 
 @Component({
   selector: 'home-faq-component',
@@ -8,8 +8,8 @@ import { FaqinfoService } from '../../publicinfo/faqinfo/faqinfo.service';
 })
 export class FaqComponent {
     private faqs;
-    constructor(protected faqinfoService: FaqinfoService) {
-        const result = this.faqinfoService.getList(1,25,{}).subscribe(
+    constructor(protected faqService: FaqService) {
+        const result = this.faqService.getList(1,25,{}).subscribe(
            result => { 
               this.faqs = result.items;
            },

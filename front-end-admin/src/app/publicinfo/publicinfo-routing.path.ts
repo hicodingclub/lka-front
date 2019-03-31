@@ -5,9 +5,9 @@ import { GeneralinfoDetailComponent } from './generalinfo/generalinfo-detail/gen
 import { GeneralinfoEditComponent } from './generalinfo/generalinfo-edit/generalinfo-edit.component';
 
 
-import { FaqinfoListComponent } from './faqinfo/faqinfo-list/faqinfo-list.component';
-import { FaqinfoDetailComponent } from './faqinfo/faqinfo-detail/faqinfo-detail.component';
-import { FaqinfoEditComponent } from './faqinfo/faqinfo-edit/faqinfo-edit.component';
+import { FaqListComponent } from './faq/faq-list/faq-list.component';
+import { FaqDetailComponent } from './faq/faq-detail/faq-detail.component';
+import { FaqEditComponent } from './faq/faq-edit/faq-edit.component';
 
 
 import { EventListComponent } from './event/event-list/event-list.component';
@@ -29,11 +29,11 @@ export const generalinfoRoutingPath = [
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];
 
-export const faqinfoRoutingPath = [
-    {path: 'list', component: FaqinfoListComponent},
-    {path: 'detail/:id', component: FaqinfoDetailComponent},
-    {path: 'edit/:id', component: FaqinfoEditComponent, canActivate: [AuthGuard]},
-    {path: 'new', component: FaqinfoEditComponent, canActivate: [AuthGuard]},
+export const faqRoutingPath = [
+    {path: 'list', component: FaqListComponent},
+    {path: 'detail/:id', component: FaqDetailComponent},
+    {path: 'edit/:id', component: FaqEditComponent, canActivate: [AuthGuard]},
+    {path: 'new', component: FaqEditComponent, canActivate: [AuthGuard]},
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];
 

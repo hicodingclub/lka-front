@@ -6,8 +6,8 @@
 
 
 			    <div class="input-group">
-	              <input type="search" class="form-control border border-secondary" id="faqinfoTextSearch" 
-						#faqinfoTextSearch [(ngModel)]="searchText"
+	              <input type="search" class="form-control border border-secondary" id="faqTextSearch" 
+						#faqTextSearch [(ngModel)]="searchText"
 						(keyup.enter)="$event.target.blur();searchList();false"
 					    placeholder="Search for question, answer"> 
 				  <div *ngIf="searchText" class="input-group-append icon-clear-inside">
@@ -35,13 +35,13 @@
 						<div class="card-body">
 	    <div class="single-line-edit">
 	      <div class="row">
-	        <div class="col-3"><label for="faqinfoEditOrder">Order</label></div>
+	        <div class="col-3"><label for="faqEditOrder">Order</label></div>
 	        <div class="col-8">
 
 
-	        <input type="number" class="form-control" id="faqinfoEditOrder" 
-	                [(ngModel)]="detail['order']" name="faqinfoEditOrder"
-	                #faqinfoEditOrder="ngModel">
+	        <input type="number" class="form-control" id="faqEditOrder" 
+	                [(ngModel)]="detail['order']" name="faqEditOrder"
+	                #faqEditOrder="ngModel">
 
 	      </div>
 	      
@@ -56,25 +56,25 @@
  
 	    <div class="single-line-edit">
 	      <div class="row">
-	        <div class="col-3"><label for="faqinfoEditEnable">Enable</label></div>
+	        <div class="col-3"><label for="faqEditEnable">Enable</label></div>
 	        <div class="col-8">
 
 
 	        <div class="form-check">
 	          <div class="form-check-inline">
-		        <input type="radio" name="faqinfoEditEnable" 
+		        <input type="radio" name="faqEditEnable" 
 		        	class="form-check-input"
-		        	id="faqinfoEditEnableYes" [value]="true" 
+		        	id="faqEditEnableYes" [value]="true" 
 		        	[(ngModel)]="detail['enable']"
-		        	#faqinfoEditEnable="ngModel">
+		        	#faqEditEnable="ngModel">
 		      	<label class="form-check-label">Yes</label>
 		      </div>
 	          <div class="form-check-inline">
-		        <input type="radio" name="faqinfoEditEnable" 
+		        <input type="radio" name="faqEditEnable" 
 		        	class="form-check-input"
-		        	id="faqinfoEditEnableNo" [value]="false"
+		        	id="faqEditEnableNo" [value]="false"
 		        	[(ngModel)]="detail['enable']"
-		        	#faqinfoEditEnable="ngModel">
+		        	#faqEditEnable="ngModel">
 		      	<label class="form-check-label">No</label>
 		      </div>
 		    </div>

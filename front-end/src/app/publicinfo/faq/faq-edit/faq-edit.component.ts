@@ -3,8 +3,8 @@ import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
 
-import { FaqinfoComponent, ViewType } from '../faqinfo.component';
-import { FaqinfoService } from '../faqinfo.service';
+import { FaqComponent, ViewType } from '../faq.component';
+import { FaqService } from '../faq.service';
 
 
 
@@ -13,11 +13,11 @@ import { FaqinfoService } from '../faqinfo.service';
 
 
 @Component({
-  selector: 'app-faqinfo-edit',
-  templateUrl: './faqinfo-edit.component.html',
-  styleUrls: ['./faqinfo-edit.component.css']
+  selector: 'app-faq-edit',
+  templateUrl: './faq-edit.component.html',
+  styleUrls: ['./faq-edit.component.css']
 })
-export class FaqinfoEditComponent extends FaqinfoComponent implements OnInit {        
+export class FaqEditComponent extends FaqComponent implements OnInit {        
     @Input() 
     protected id: string;
     @Input()
@@ -32,13 +32,13 @@ export class FaqinfoEditComponent extends FaqinfoComponent implements OnInit {
         
     constructor(
       
-      protected faqinfoService: FaqinfoService,
+      protected faqService: FaqService,
       protected injector: Injector,
       protected router: Router,
       protected route: ActivatedRoute,
       protected location: Location) {
           super( 
-                 faqinfoService, injector, router, route, location, ViewType.EDIT);
+                 faqService, injector, router, route, location, ViewType.EDIT);
 
 
           this.stringFields.push('question');

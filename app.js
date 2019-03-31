@@ -18,7 +18,7 @@ const authRouter = authServer.GetDefaultAuthnRouter(defaultUserDef, option);
 const usersRouter = meanRestExpress.RestRouter(defaultUserDef, 'Users', authFuncs);
 
 //for academics models
-const academicsDbDefinition = require('./models/index');
+const academicsDbDefinition = require('./models/academics/index');
 const academicsRouter = meanRestExpress.RestRouter(academicsDbDefinition, 'Academics', authFuncs);
 
 //for public models

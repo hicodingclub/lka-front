@@ -25,4 +25,4 @@ var views = [eventBrief, eventDetail, eventCreat, eventEdit, eventTextSearch, ev
 //Export model
 //module.exports.model = mongoose.model('Event', StudentSchema);
 
-module.exports = {schema: eventSchema, views: views};
+module.exports = {schema: eventSchema, views: views,};

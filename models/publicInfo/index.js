@@ -6,7 +6,7 @@ let generalInfoDef = require('./generalInfo');
 let faqDef = require('./faq');
 var schemas = {
   "GeneralInfo": generalInfoDef,
-  "faqInfo": faqDef,
+  "Faq": faqDef,
   "Event": eventDef,
 };
 
@@ -19,4 +19,4 @@ const authz = {
   "module-authz": {"LoginUser": '', "Anyone": "R"}
 }
 
-module.exports = {schemas: schemas, config: config, authz: authz};
+module.exports = {schemas, config, authz};

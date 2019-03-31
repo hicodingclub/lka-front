@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 import { PublicinfoComponent } from './publicinfo/publicinfo.component';
 
 //Import routing paths
-import {generalinfoRoutingPath, faqinfoRoutingPath, eventRoutingPath,  } from './publicinfo/publicinfo-routing.path';
+import {generalinfoRoutingPath, faqRoutingPath, eventRoutingPath,  } from './publicinfo/publicinfo-routing.path';
 
 export const PublicinfoRoutes: Routes = [
   { path: 'publicinfo', 
@@ -15,9 +15,9 @@ export const PublicinfoRoutes: Routes = [
         children: generalinfoRoutingPath, 
         data: {"mraLevel": 1, "item": "generalinfo"}
       },
-      { path: "faqinfo",
-        children: faqinfoRoutingPath, 
-        data: {"mraLevel": 1, "item": "faqinfo"}
+      { path: "faq",
+        children: faqRoutingPath, 
+        data: {"mraLevel": 1, "item": "faq"}
       },
       { path: "event",
         children: eventRoutingPath, 

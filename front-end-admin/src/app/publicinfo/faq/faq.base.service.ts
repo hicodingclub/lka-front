@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { BaseService } from 'mean-rest-angular';
 
-const servicePath = '/faqinfo/';
+const servicePath = '/faq/';
 
-export class FaqinfoBaseService extends BaseService {
+export class FaqBaseService extends BaseService {
     constructor(http: HttpClient, serverRootUrl: string) {
         const serviceUrl = serverRootUrl + servicePath;
         super(http, serviceUrl);
