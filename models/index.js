@@ -7,11 +7,11 @@ let courseInstanceDef = require('./class');
 let studentClassSchemaDef = require('./student_class')
 
 var schemas = {
-  "Student": studentDef,
-  "Teacher": teacherDef,
-  "Course": courseDef,
-  "Class": courseInstanceDef,
-  "StudentClass": studentClassSchemaDef
+  Student: studentDef,
+  Teacher: teacherDef,
+  Course: courseDef,
+  Class: courseInstanceDef,
+  StudentClass: studentClassSchemaDef
 };
 
 var config = {
@@ -24,4 +24,4 @@ const authz = {
   "Class": {"LoginUser": '', "Anyone": "R"},
 }
 
-module.exports = {schemas: schemas, config: config, authz: authz};
+module.exports = {schemas, config, authz};
