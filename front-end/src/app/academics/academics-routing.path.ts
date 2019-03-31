@@ -32,7 +32,7 @@ import { StudentclassListSubComponent } from './studentclass/studentclass-list/s
 
 
 
-import { AuthGuard } from 'mdds-angular-auth';
+import { AuthGuard } from '../auth/';
 
 
 const teacherSubPath = [
