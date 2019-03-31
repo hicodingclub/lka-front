@@ -24,24 +24,26 @@
 
           <div class="row">
       
-			<div class="col-3"><label>Description</label></div>
-			<div class="col-9">                  {{detail['description']}} 
+			<div class="col-3"><label>Author</label></div>
+			<div class="col-9">                  {{detail['author']}} 
 </div>
 
           </div>
 
           <div class="row">
       
-			<div class="col-3"><label>Order</label></div>
-			<div class="col-9">                  {{detail['order']}} 
+			<div class="col-3"><label>Publish Date</label></div>
+			<div class="col-9">                  {{detail['publishDate']?detail['publishDate']['value']:""}}
 </div>
 
           </div>
 
           <div class="row">
       
-			<div class="col-3"><label>Enable</label></div>
-			<div class="col-9">                  {{detail['enable']}} 
+			<div class="col-3"><label>Content</label></div>
+			<div class="col-9">                 
+	            	 <div mra-richtext-show="eventDetailContent"></div>
+	            	{{detail['content']?detail['content']['value']:""}}
 </div>
 
           </div>

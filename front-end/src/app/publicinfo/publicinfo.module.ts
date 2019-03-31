@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
+import { NgbModule, NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
+import { MraNgbDateFormatterService } from './publicinfo.directive';
 
 
 
@@ -20,7 +22,13 @@ import { publicinfo_server_root_uri } from '../publicinfo.conf';
 
 import { GeneralinfoListComponent } from './generalinfo/generalinfo-list/generalinfo-list.component';
 import { GeneralinfoDetailComponent } from './generalinfo/generalinfo-detail/generalinfo-detail.component';
+import { GeneralinfoEditComponent } from './generalinfo/generalinfo-edit/generalinfo-edit.component';
 import { GeneralinfoService } from './generalinfo/generalinfo.service';
+
+import { EventListComponent } from './event/event-list/event-list.component';
+import { EventDetailComponent } from './event/event-detail/event-detail.component';
+import { EventEditComponent } from './event/event-edit/event-edit.component';
+import { EventService } from './event/event.service';
 
 
 
@@ -32,6 +40,7 @@ import { GeneralinfoService } from './generalinfo/generalinfo.service';
     HttpClientModule,
     FormsModule,
 
+    NgbModule,
     MraModule,
 
     PublicinfoRoutingModule
@@ -42,6 +51,10 @@ import { GeneralinfoService } from './generalinfo/generalinfo.service';
 
     GeneralinfoListComponent,
     GeneralinfoDetailComponent,
+    GeneralinfoEditComponent,
+    EventListComponent,
+    EventDetailComponent,
+    EventEditComponent,
 
 
 
@@ -54,14 +67,20 @@ import { GeneralinfoService } from './generalinfo/generalinfo.service';
 
     GeneralinfoListComponent,
     GeneralinfoDetailComponent,
+    GeneralinfoEditComponent,
+    EventListComponent,
+    EventDetailComponent,
+    EventEditComponent,
 
 
   ],
   providers: [
     { provide: Publicinfo_SERVER_ROOT_URI, useValue: publicinfo_server_root_uri },
 
+    {provide: NgbDateParserFormatter, useClass: MraNgbDateFormatterService},
 
     GeneralinfoService,
+    EventService,
   ],
 
 })

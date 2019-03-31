@@ -1,0 +1,286 @@
+<div class="edit" *ngIf="detail">
+	<div *ngIf="!subEdit" class="action-buttons">
+        <!-- <a href="javascript:void(0)" (click)="goBack()" ><i class="fas fa-angle-double-left" title="Back"></i></a> -->
+	</div>
+	
+	<div class="card" style="text-align: left;">
+	  <div class="card-body">
+	    <h4 class="card-title" *ngIf="!subEdit">{{action}} GeneralInfo</h4>    
+	    <form (ngSubmit)="onSubmit()" #editForm="ngForm">
+	    
+	     <div *ngIf="action == 'Edit'">
+<div *ngIf="!hiddenFields.includes('title')">
+
+	      <fieldset class="form-group">
+	        <label for="EditTitle">Title</label>
+	        
+
+        	<div class="input-group">
+		        <input type="text" class="form-control rounded" id="EditTitle" 
+		                required
+		                
+		                
+			        	 
+		                [(ngModel)]="detail['title']" name="EditTitle"
+		                #EditTitle="ngModel">
+                <div *ngIf="detail['title']" 
+			          class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('title')">
+			          <i class="fas fa-times-circle" title="Clear"></i></div>
+	        </div>
+
+	        <div [hidden]="EditTitle.valid || EditTitle.pristine || EditTitle.errors.minlength"
+     			class="alert alert-danger">
+
+	          <div *ngIf="EditTitle.errors && EditTitle.errors.required">
+    	        Title is required.
+  	          </div>
+ 
+
+	        </div>
+        
+	      </fieldset>
+    
+</div><div *ngIf="!hiddenFields.includes('description')">
+
+	      <fieldset class="form-group">
+	        <label for="EditDescription">Description</label>
+	        
+
+        	<div class="input-group">
+		        <input type="text" class="form-control rounded" id="EditDescription" 
+		                required
+		                
+		                
+			        	 
+		                [(ngModel)]="detail['description']" name="EditDescription"
+		                #EditDescription="ngModel">
+                <div *ngIf="detail['description']" 
+			          class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('description')">
+			          <i class="fas fa-times-circle" title="Clear"></i></div>
+	        </div>
+
+	        <div [hidden]="EditDescription.valid || EditDescription.pristine || EditDescription.errors.minlength"
+     			class="alert alert-danger">
+
+	          <div *ngIf="EditDescription.errors && EditDescription.errors.required">
+    	        Description is required.
+  	          </div>
+ 
+
+	        </div>
+        
+	      </fieldset>
+    
+</div><div *ngIf="!hiddenFields.includes('order')">
+
+	      <fieldset class="form-group">
+	        <label for="EditOrder">Order</label>
+	        
+	        <input type="number" class="form-control" id="EditOrder" 
+	                
+	                
+	                required
+		        	 
+	                [(ngModel)]="detail['order']" name="EditOrder"
+	                #EditOrder="ngModel">
+	        <div [hidden]="EditOrder.valid || EditOrder.pristine || EditOrder.errors.minnumber"
+     			class="alert alert-danger">
+
+	          <div *ngIf="EditOrder.errors && EditOrder.errors.required">
+    	        Order is required.
+  	          </div>
+ 
+
+	        </div>
+
+	      </fieldset>
+    
+</div><div *ngIf="!hiddenFields.includes('enable')">
+
+	      <fieldset class="form-group">
+	        <label for="EditEnable">Enable</label>
+	        
+	        <div class="form-check"
+
+		          [ngClass]="{'ng-valid': detail['enable'] == true || detail['enable'] == false,
+		                      'ng-invalid': detail['enable'] != true && detail['enable'] != false}"
+		        
+		        >
+	          <div class="form-check-inline">
+		        <input type="radio" name="EditEnable" 
+		        	class="form-check-input"
+		        	id="EditEnableYes" [value]="true" 
+		        	required
+		        	 
+		        	[(ngModel)]="detail['enable']"
+		        	#EditEnable="ngModel">
+		      	<label class="form-check-label">Yes</label>
+		      </div>
+	          <div class="form-check-inline">
+		        <input type="radio" name="EditEnable" 
+		        	class="form-check-input"
+		        	id="EditEnableNo" [value]="false"
+		        	required
+		        	 
+		        	[(ngModel)]="detail['enable']"
+		        	#EditEnable="ngModel">
+		      	<label class="form-check-label">No</label>
+		      </div>
+		      
+		    </div>
+	        <div [hidden]="EditEnable.valid || EditEnable.pristine"
+     			class="alert alert-danger">
+
+	          <div *ngIf="EditEnable.errors && EditEnable.errors.required">
+    	        Enable is required.
+  	          </div>
+ 
+	        </div>
+		  </fieldset>
+    
+</div>
+         </div>	
+	     <div *ngIf="action == 'Create' || action == 'Add' ">
+<div *ngIf="!hiddenFields.includes('title')">
+
+	      <fieldset class="form-group">
+	        <label for="EditTitle">Title</label>
+	        
+
+        	<div class="input-group">
+		        <input type="text" class="form-control rounded" id="EditTitle" 
+		                required
+		                
+		                
+			        	 
+		                [(ngModel)]="detail['title']" name="EditTitle"
+		                #EditTitle="ngModel">
+                <div *ngIf="detail['title']" 
+			          class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('title')">
+			          <i class="fas fa-times-circle" title="Clear"></i></div>
+	        </div>
+
+	        <div [hidden]="EditTitle.valid || EditTitle.pristine || EditTitle.errors.minlength"
+     			class="alert alert-danger">
+
+	          <div *ngIf="EditTitle.errors && EditTitle.errors.required">
+    	        Title is required.
+  	          </div>
+ 
+
+	        </div>
+        
+	      </fieldset>
+    
+</div><div *ngIf="!hiddenFields.includes('description')">
+
+	      <fieldset class="form-group">
+	        <label for="EditDescription">Description</label>
+	        
+
+        	<div class="input-group">
+		        <input type="text" class="form-control rounded" id="EditDescription" 
+		                required
+		                
+		                
+			        	 
+		                [(ngModel)]="detail['description']" name="EditDescription"
+		                #EditDescription="ngModel">
+                <div *ngIf="detail['description']" 
+			          class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('description')">
+			          <i class="fas fa-times-circle" title="Clear"></i></div>
+	        </div>
+
+	        <div [hidden]="EditDescription.valid || EditDescription.pristine || EditDescription.errors.minlength"
+     			class="alert alert-danger">
+
+	          <div *ngIf="EditDescription.errors && EditDescription.errors.required">
+    	        Description is required.
+  	          </div>
+ 
+
+	        </div>
+        
+	      </fieldset>
+    
+</div><div *ngIf="!hiddenFields.includes('order')">
+
+	      <fieldset class="form-group">
+	        <label for="EditOrder">Order</label>
+	        
+	        <input type="number" class="form-control" id="EditOrder" 
+	                
+	                
+	                required
+		        	 
+	                [(ngModel)]="detail['order']" name="EditOrder"
+	                #EditOrder="ngModel">
+	        <div [hidden]="EditOrder.valid || EditOrder.pristine || EditOrder.errors.minnumber"
+     			class="alert alert-danger">
+
+	          <div *ngIf="EditOrder.errors && EditOrder.errors.required">
+    	        Order is required.
+  	          </div>
+ 
+
+	        </div>
+
+	      </fieldset>
+    
+</div><div *ngIf="!hiddenFields.includes('enable')">
+
+	      <fieldset class="form-group">
+	        <label for="EditEnable">Enable</label>
+	        
+	        <div class="form-check"
+
+		          [ngClass]="{'ng-valid': detail['enable'] == true || detail['enable'] == false,
+		                      'ng-invalid': detail['enable'] != true && detail['enable'] != false}"
+		        
+		        >
+	          <div class="form-check-inline">
+		        <input type="radio" name="EditEnable" 
+		        	class="form-check-input"
+		        	id="EditEnableYes" [value]="true" 
+		        	required
+		        	 
+		        	[(ngModel)]="detail['enable']"
+		        	#EditEnable="ngModel">
+		      	<label class="form-check-label">Yes</label>
+		      </div>
+	          <div class="form-check-inline">
+		        <input type="radio" name="EditEnable" 
+		        	class="form-check-input"
+		        	id="EditEnableNo" [value]="false"
+		        	required
+		        	 
+		        	[(ngModel)]="detail['enable']"
+		        	#EditEnable="ngModel">
+		      	<label class="form-check-label">No</label>
+		      </div>
+		      
+		    </div>
+	        <div [hidden]="EditEnable.valid || EditEnable.pristine"
+     			class="alert alert-danger">
+
+	          <div *ngIf="EditEnable.errors && EditEnable.errors.required">
+    	        Enable is required.
+  	          </div>
+ 
+	        </div>
+		  </fieldset>
+    
+</div>
+         </div>	
+         
+		<div class="action-buttons-center">
+	     	<button type="submit" class="btn btn-success" 
+     			[disabled]="!editForm.form.valid">Submit</button>
+	     	<button class="btn btn-outline-success" 
+     			type="button" (click)="editCancel()">Cancel</button>
+		</div>
+	    </form>
+	  </div>
+	</div>
+</div>
+
