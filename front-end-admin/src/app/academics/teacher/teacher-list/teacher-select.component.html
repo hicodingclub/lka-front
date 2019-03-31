@@ -143,7 +143,8 @@
 		        <th scope="col">Last Name</th>
 		        <th scope="col">Courses</th>
 		        <th scope="col">Introduction</th>
-		        <th></th>	        
+
+		        <th></th>      
 	        </tr>
 	    </thead>
 	    <tbody>
@@ -151,19 +152,22 @@
 	        	[ngClass]="{'clicked-row': detail['_id']==clickedId}" >
 	            <td scope="row" (click)="selectItemSelected(i)"  class="pointer">{{(page-1)*per_page+i+1}}</td>
 
-	            <td (click)="selectItemSelected(i)"  class="pointer">  {{detail['firstName']}}
+	            <td (click)="selectItemSelected(i)"  class="pointer">                  {{detail['firstName']}} 
 
 	            </td>
-	            <td (click)="selectItemSelected(i)"  class="pointer">  {{detail['lastName']}}
+	            <td (click)="selectItemSelected(i)"  class="pointer">                  {{detail['lastName']}} 
 
 	            </td>
-	            <td (click)="selectItemSelected(i)"  class="pointer">  
-	            	    {{detail['courses']?detail['courses']['value']:""}} 
+	            <td (click)="selectItemSelected(i)"  class="pointer">                
+               	  
+	            	{{detail['courses']?detail['courses']['value']:""}}
+	              
 
 	            </td>
-	            <td (click)="selectItemSelected(i)"  class="pointer">  {{detail['introduction']}}
+	            <td (click)="selectItemSelected(i)"  class="pointer">                  {{detail['introduction']}} 
 
 	            </td>
+
 	            <td><a routerLink="." class="btn" 
 	                 [ngClass]="{'btn-primary': detail['_id']==selectedId, 'btn-outline-primary': detail['_id']!==selectedId}"
 	            	 (click)="selectViewDetail(i)">View Details</a>

@@ -27,12 +27,12 @@ export class MaccountroleComponent extends BaseComponent {
     protected selectComponents = {
 
       'account': {
-          'select-type':MaccountSelectComponent, 
+          'select-type':MaccountSelectComponent,
           'select-detail-type': MaccountDetailSelComponent,
           'pop-detail-type': MaccountDetailPopComponent,
           'componentRef': null},
       'role': {
-          'select-type':MroleSelectComponent, 
+          'select-type':MroleSelectComponent,
           'select-detail-type': MroleDetailSelComponent,
           'pop-detail-type': MroleDetailPopComponent,
           'componentRef': null},

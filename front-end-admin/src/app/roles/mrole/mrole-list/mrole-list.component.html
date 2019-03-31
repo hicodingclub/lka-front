@@ -85,7 +85,7 @@
 
 		        <th scope="col">Role</th>
 		        <th scope="col">Description</th>		        
-		        <th scope="col" style="width:8rem;"></th>
+		        <th scope="col" style="width:6rem;"></th>
 		        <th scope="col" style="width:2rem;">
 		        	<input type="checkbox" [(ngModel)]="checkAll" (change)="onCheckAllChange()">
 		        </th>
@@ -93,18 +93,24 @@
 	    </thead>
 	    <tbody>
 	        <tr *ngFor="let detail of list;  let i = index" [ngClass]="{'clicked-row': clickedId==detail['_id']}">
-	            <td scope="row" (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">{{(page-1)*per_page+i+1}}</td>
+	            <td scope="row" (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            	{{(page-1)*per_page+i+1}}
+	            </td>
 
-	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">  {{detail['role']}}
+	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            	                  {{detail['role']}} 
 
 	            </td>
-	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">  {{detail['description']}}
+	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            	                  {{detail['description']}} 
 
 	            </td>
+	            
 	            <td>
 	            	<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
 	            	<a routerLink="." (click)="onDelete(detail['_id'], i)"><i class="fas fa-trash-alt" title="Delete"></i></a>
 	            </td>
+	            
 	            <td>      
 	            	<input type="checkbox" [(ngModel)]="checkedItem[i]"/>
 	            </td>
