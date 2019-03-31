@@ -154,7 +154,8 @@
 
 		        <th scope="col">Module</th>
 		        <th scope="col">Resources</th>
-		        <th></th>	        
+
+		        <th></th>      
 	        </tr>
 	    </thead>
 	    <tbody>
@@ -162,20 +163,13 @@
 	        	[ngClass]="{'clicked-row': detail['_id']==clickedId}" >
 	            <td scope="row" (click)="selectItemSelected(i)"  class="pointer">{{(page-1)*per_page+i+1}}</td>
 
-	            <td (click)="selectItemSelected(i)"  class="pointer">  {{detail['module']}}
+	            <td (click)="selectItemSelected(i)"  class="pointer">                  {{detail['module']}} 
 
 	            </td>
-	            <td (click)="selectItemSelected(i)"  class="pointer">
-                    <div *ngIf="detail['resources'] && detail['resources']['selection']">
-                    	<ng-template ngFor let-element [ngForOf]="detail['resources']['selection']" let-idx="index">
-                            <div class="badge badge-pill badge-secondary">
-                                {{element}}
-                            </div>
-						</ng-template>
-                    </div>                    
-                        
+	            <td (click)="selectItemSelected(i)"  class="pointer">                
 
 	            </td>
+
 	            <td><a routerLink="." class="btn" 
 	                 [ngClass]="{'btn-primary': detail['_id']==selectedId, 'btn-outline-primary': detail['_id']!==selectedId}"
 	            	 (click)="selectViewDetail(i)">View Details</a>

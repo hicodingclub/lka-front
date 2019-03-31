@@ -6,10 +6,10 @@
 
 
 			    <div class="input-group">
-	              <input type="search" class="form-control border border-secondary" id="eventTextSearch" 
-						#eventTextSearch [(ngModel)]="searchText"
+	              <input type="search" class="form-control border border-secondary" id="mfileTextSearch" 
+						#mfileTextSearch [(ngModel)]="searchText"
 						(keyup.enter)="$event.target.blur();searchList();false"
-					    placeholder="Search for title, author"> 
+					    placeholder="Search for name, type, link"> 
 				  <div *ngIf="searchText" class="input-group-append icon-clear-inside">
 					<span >
 					    <i class="fas fa-times-circle" (click)="onSearchTextClear()" title="Clear"></i>
@@ -35,36 +35,96 @@
 						<div class="card-body">
 	    <div class="single-line-edit">
 	      <div class="row">
-	        <div class="col-3"><label for="eventEditPublishDate">Publish Date</label></div>
+	        <div class="col-3"><label for="mfileEditLabels">Labels</label></div>
+	        <div class="col-8">
+
+
+
+
+	        <ng-template [ngIf]="detail['labels'] && detail['labels']['selection']">
+	            <div class="badge badge-pill badge-secondary" *ngFor="let element of detail['labels']['selection']; let i = index;">
+	                      {{element}}
+				    <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromArrayField('labels', i)" title="Remove"></i>
+				</div>
+	        </ng-template>
+	
+	        <div class="input-group mt-3">
+	             <input type="search" class="form-control border"
+	             		id="mfileEditLabelsNew" #mfileEditLabelsNew
+					[(ngModel)]="detail['labels']['new']" [ngModelOptions]="{standalone: true}"
+					(keydown.enter)="$event.target.blur();onAddArrayItem('labels');false"
+				    > 
+			    <div class="input-group-append">
+			        <button type="button" class="btn btn-outline-secondary" (click)="onAddArrayItem('labels')"><i class="fas fa-plus"></i></button>
+			    </div>
+			</div>
+
+ 
+
+	      </div>
+	      
+	      <div class="col-1">
+		    <div class="icon-clear" (click)="clearValueFromDetail('labels')"
+		        *ngIf="checkValueDefinedFromDetail('labels')"
+		        ><i class="fas fa-times-circle" title="Clear"></i></div>
+	      </div>
+	    </div>
+      </div>
+      
+ 
+	    <div class="single-line-edit">
+	      <div class="row">
+	        <div class="col-3"><label for="mfileEditSize">Size</label></div>
+	        <div class="col-8">
+
+
+	        <input type="number" class="form-control" id="mfileEditSize" 
+	                [(ngModel)]="detail['size']" name="mfileEditSize"
+	                #mfileEditSize="ngModel">
+
+	      </div>
+	      
+	      <div class="col-1">
+		    <div class="icon-clear" (click)="clearValueFromDetail('size')"
+		        *ngIf="checkValueDefinedFromDetail('size')"
+		        ><i class="fas fa-times-circle" title="Clear"></i></div>
+	      </div>
+	    </div>
+      </div>
+      
+ 
+	    <div class="single-line-edit">
+	      <div class="row">
+	        <div class="col-3"><label for="mfileEditUploaded">Uploaded</label></div>
 	        <div class="col-8">
 
  
 	        <div class="input-group">
-		      <input class="form-control" id="eventEditPublishDate" placeholder="{{dateFormat}}"
-		             [(ngModel)]="detail['publishDate']['from']" name="eventEditPublishDate"
-		             ngbDatepicker #eventEditPublishDate="ngModel">
+		      <input class="form-control" id="mfileEditUploaded" placeholder="{{dateFormat}}"
+		             [(ngModel)]="detail['uploaded']['from']" name="mfileEditUploaded"
+		             ngbDatepicker #mfileEditUploaded="ngModel">
 		      <span>&nbsp; ~ &nbsp;</span>
-		      <input class="form-control" id="eventEditPublishDate" placeholder="{{dateFormat}}"
-		             [(ngModel)]="detail['publishDate']['to']" name="eventEditPublishDate"
-		             ngbDatepicker #eventEditPublishDate="ngModel">
+		      <input class="form-control" id="mfileEditUploaded" placeholder="{{dateFormat}}"
+		             [(ngModel)]="detail['uploaded']['to']" name="mfileEditUploaded"
+		             ngbDatepicker #mfileEditUploaded="ngModel">
 
 		      <div class="input-group-append">
-		        <button class="btn btn-outline-secondary" (click)="onDateSelectionToggle('publishDate')" type="button">
+		        <button class="btn btn-outline-secondary" (click)="onDateSelectionToggle('uploaded')" type="button">
 		          <i class="fas fa-calendar-alt"></i>
 		        </button>
 		      </div>
 		    </div><!-- input group --> 
-		    <div class="date-selection-pop" *ngIf="detail['publishDate']['pop']">
-			    <ngb-datepicker #dp [minDate]="minDate" (select)="onDateSelection('publishDate', $event)" [displayMonths]="2" [dayTemplate]="eventEditPublishDateT">
+		    <div class="date-selection-pop" *ngIf="detail['uploaded']['pop']">
+			    <ngb-datepicker #dp [minDate]="minDate" (select)="onDateSelection('uploaded', $event)" [displayMonths]="2" [dayTemplate]="mfileEditUploadedT">
 				</ngb-datepicker>
-				<ng-template #eventEditPublishDateT let-eventEditPublishDateDate="date" let-eventEditPublishDateFocused="focused">
+				<ng-template #mfileEditUploadedT let-mfileEditUploadedDate="date" let-mfileEditUploadedFocused="focused">
 				  <span class="custom-day"
-				        [class.focused]="eventEditPublishDateFocused"
-				        [class.range]="isRange('publishDate', eventEditPublishDateDate)"
-				        [class.faded]="isHovered('publishDate', eventEditPublishDateDate) || isInside('publishDate', eventEditPublishDateDate)"
-				        (mouseenter)="hoveredDate = eventEditPublishDateDate"
+				        [class.focused]="mfileEditUploadedFocused"
+				        [class.range]="isRange('uploaded', mfileEditUploadedDate)"
+				        [class.faded]="isHovered('uploaded', mfileEditUploadedDate) || isInside('uploaded', mfileEditUploadedDate)"
+				        (mouseenter)="hoveredDate = mfileEditUploadedDate"
 				        (mouseleave)="hoveredDate = null">
-				    {{ eventEditPublishDateDate.day }}
+				    {{ mfileEditUploadedDate.day }}
 				  </span>
 				</ng-template>
 		    </div>      
@@ -72,8 +132,25 @@
 	      </div>
 	      
 	      <div class="col-1">
-		    <div class="icon-clear" (click)="clearValueFromDetail('publishDate')"
-		        *ngIf="checkValueDefinedFromDetail('publishDate')"
+		    <div class="icon-clear" (click)="clearValueFromDetail('uploaded')"
+		        *ngIf="checkValueDefinedFromDetail('uploaded')"
+		        ><i class="fas fa-times-circle" title="Clear"></i></div>
+	      </div>
+	    </div>
+      </div>
+      
+ 
+	    <div class="single-line-edit">
+	      <div class="row">
+	        <div class="col-3"><label for="mfileEditThumbnail">Thumbnail</label></div>
+	        <div class="col-8">
+
+
+	      </div>
+	      
+	      <div class="col-1">
+		    <div class="icon-clear" (click)="clearValueFromDetail('thumbnail')"
+		        *ngIf="checkValueDefinedFromDetail('thumbnail')"
 		        ><i class="fas fa-times-circle" title="Clear"></i></div>
 	      </div>
 	    </div>
@@ -99,9 +176,8 @@
 		    </div>
 			<div class="col-3">
 		        <div class="action-buttons">
-					<a [routerLink]="['../new' ]" [skipLocationChange]="false" class="btn btn-outline-primary">Create</a>
-					<a routerLink="." class="btn btn-outline-primary" (click)="onDeleteSelected()"
-						[ngClass]="{'disabled': !isItemSelected()}">Delete</a>
+					
+					
 				</div>
 			</div>
 		</div>
@@ -157,35 +233,57 @@
 	    	<tr>
 		        <th scope="col">#</th>
 
-		        <th scope="col">Title</th>
-		        <th scope="col">Author</th>
-		        <th scope="col">Publish Date</th>		        
-		        <th scope="col" style="width:8rem;"></th>
-		        <th scope="col" style="width:2rem;">
-		        	<input type="checkbox" [(ngModel)]="checkAll" (change)="onCheckAllChange()">
-		        </th>
+		        <th scope="col">Name</th>
+		        <th scope="col">Type</th>
+		        <th scope="col">Labels</th>
+		        <th scope="col">Size</th>
+		        <th scope="col">Link</th>
+		        <th scope="col">Uploaded</th>
+		        <th scope="col">Thumbnail</th>		        
+		        <th scope="col" style="width:6rem;"></th>
+		        
 	        </tr>
 	    </thead>
 	    <tbody>
 	        <tr *ngFor="let detail of list;  let i = index" [ngClass]="{'clicked-row': clickedId==detail['_id']}">
-	            <td scope="row" (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">{{(page-1)*per_page+i+1}}</td>
+	            <td scope="row" >
+	            	{{(page-1)*per_page+i+1}}
+	            </td>
 
-	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">  {{detail['title']}}
+	            <td >
+	            	                  {{detail['name']}} 
 
 	            </td>
-	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">  {{detail['author']}}
+	            <td >
+	            	                  {{detail['type']}} 
 
 	            </td>
-	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">  {{detail['publishDate']?detail['publishDate']['value']:""}}
+	            <td >
+	            	                
 
 	            </td>
+	            <td >
+	            	                  {{detail['size']}} 
+
+	            </td>
+	            <td >
+	            	                  {{detail['link']}} 
+
+	            </td>
+	            <td >
+	            	                  {{detail['uploaded']?detail['uploaded']['value']:""}}
+
+	            </td>
+	            <td >
+	            	                  {{detail['thumbnail']}} 
+
+	            </td>
+	            
 	            <td>
 	            	<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
-	            	<a routerLink="." (click)="onDelete(detail['_id'], i)"><i class="fas fa-trash-alt" title="Delete"></i></a>
+	            	
 	            </td>
-	            <td>      
-	            	<input type="checkbox" [(ngModel)]="checkedItem[i]"/>
-	            </td>
+	            
 	        </tr>
 	    </tbody>
 	</table>

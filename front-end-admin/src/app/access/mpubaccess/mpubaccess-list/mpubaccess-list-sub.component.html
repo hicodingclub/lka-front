@@ -1,5 +1,6 @@
 <div>
-    
+
+      
 	<div class="container search">
 		<div class="row">			<div class="col-3">
 			</div>
@@ -59,6 +60,7 @@
 		        	Module Permission
 		        </th>		        
                 <th scope="col" style="width:2rem;"></th>
+
 		        <th scope="col" style="width:2rem;"></th>
 	        </tr>
 	    </thead>
@@ -68,34 +70,42 @@
 	            <td scope="row">{{(page-1)*per_page+i+1}}</td>
 
 	            <td *ngIf="referenceFieldsMap['group'] != parentItem"  >
-	            	  <a routerLink="."  (click)="onDisplayRefClicked('group', detail['group'], $event)">
-	            	    {{detail['group']?detail['group']['value']:""}} </a>
+	            	                
+               	  
+	            	{{detail['group']?detail['group']['value']:""}}
+	              
 
                 </td>
 	            <td *ngIf="referenceFieldsMap['module'] != parentItem"  >
-	            	  <a routerLink="."  (click)="onDisplayRefClicked('module', detail['module'], $event)">
-	            	    {{detail['module']?detail['module']['value']:""}} </a>
+	            	                
+               	  
+	            	{{detail['module']?detail['module']['value']:""}}
+	              
 
                 </td>
 	            <td >
-	            	  {{detail['modulePermission']}}
+	            	                  {{detail['modulePermission']}} 
 
                 </td>
 	            <td>
 
+                    	
 			        <span class="pointer" (click)="toggleCheckedItem(i)">
 			            <i *ngIf="!checkedItem[i]" class="fas fa-caret-down" title="More"></i>
 			            <i *ngIf="checkedItem[i]" class="fas fa-caret-up" title="Less"></i>
 			        </span>
                 </td>
+
 	            <td>
 
 	            	<a routerLink="." (click)="onDetailLinkClicked(detail['_id'])"><i class="fas fa-external-link-square-alt" title="View Details"></i></a>
-                 
-                </td>   
+
+                </td>
 	        </tr>
 
-	        <tr *ngIf="checkedItem[i]" > <td colspan="3"> <app-mpubaccess-detail-sub [inputData]="detail['_id']"></app-mpubaccess-detail-sub></td></tr>
+	        <tr *ngIf="checkedItem[i]" >
+	        	<td colspan="3"><app-mpubaccess-detail-sub [inputData]="detail['_id']"></app-mpubaccess-detail-sub></td>
+	        </tr>
 	      </ng-template>
 	    </tbody>
 	</table>

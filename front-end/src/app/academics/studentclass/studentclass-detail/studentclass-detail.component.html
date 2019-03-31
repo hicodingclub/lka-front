@@ -17,8 +17,10 @@
           <div class="row">
       
 			<div class="col-3"><label>Student</label></div>
-			<div class="col-9">  <a routerLink="."  (click)="onDisplayRefClicked('student', detail['student'], $event)">
-	            	    {{detail['student']?detail['student']['value']:""}} </a>
+			<div class="col-9">                
+               	  
+	            	{{detail['student']?detail['student']['value']:""}}
+	              
 </div>
 
           </div>
@@ -26,8 +28,10 @@
           <div class="row">
       
 			<div class="col-3"><label>Class</label></div>
-			<div class="col-9">  <a routerLink="."  (click)="onDisplayRefClicked('class', detail['class'], $event)">
-	            	    {{detail['class']?detail['class']['value']:""}} </a>
+			<div class="col-9">                
+               	  
+	            	{{detail['class']?detail['class']['value']:""}}
+	              
 </div>
 
           </div>

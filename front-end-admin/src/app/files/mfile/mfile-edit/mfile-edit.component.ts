@@ -3,23 +3,21 @@ import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
 
-import { EventComponent, ViewType } from '../event.component';
-import { EventService } from '../event.service';
+import { MfileComponent, ViewType } from '../mfile.component';
+import { MfileService } from '../mfile.service';
 
 
 
 
 
 
-import { QueryList, ViewChildren } from '@angular/core';
-import { MraRichTextSelectDirective } from 'mean-rest-angular';
 
 @Component({
-  selector: 'app-event-edit',
-  templateUrl: './event-edit.component.html',
-  styleUrls: ['./event-edit.component.css']
+  selector: 'app-mfile-edit',
+  templateUrl: './mfile-edit.component.html',
+  styleUrls: ['./mfile-edit.component.css']
 })
-export class EventEditComponent extends EventComponent implements OnInit {        
+export class MfileEditComponent extends MfileComponent implements OnInit {        
     @Input() 
     protected id: string;
     @Input()
@@ -31,40 +29,27 @@ export class EventEditComponent extends EventComponent implements OnInit {
     protected action:string;
 
 
-    @ViewChildren(MraRichTextSelectDirective) textEditors: QueryList<MraRichTextSelectDirective>;
-  
-    private eventEditContent = {valid: true};
-
         
     constructor(
       
-      protected eventService: EventService,
+      protected mfileService: MfileService,
       protected injector: Injector,
       protected router: Router,
       protected route: ActivatedRoute,
       protected location: Location) {
           super( 
-                 eventService, injector, router, route, location, ViewType.EDIT);
+                 mfileService, injector, router, route, location, ViewType.EDIT);
 
 
-          this.stringFields.push('title');
-          this.stringFields.push('author');
-          this.stringFields.push('content');
-
+          this.stringFields.push('name');
 
 
 
 
 
+          this.arrayFields = [['labels', 'SchemaString'],];
 
-          this.textEditorMap['eventEditContent'] = {
-            required: true ,
-            
-            
-            
-            fieldState: this.eventEditContent,
-            fieldName: 'content'
-          };
+
           
           let detail = {};
           this.detail = this.formatDetail(detail);
