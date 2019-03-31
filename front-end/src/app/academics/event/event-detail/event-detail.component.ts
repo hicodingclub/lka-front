@@ -12,8 +12,8 @@ import { QueryList, ViewChildren } from '@angular/core';
 import { MraRichTextShowDirective } from 'mean-rest-angular';
 
 @Component({
-  selector: 'app-event-detail',
-  templateUrl: './event-detail.component.html',
+  selector: 'eventpublic-detail',
+  templateUrl: './eventpublic.html',
   styleUrls: ['./event-detail.component.css']
 })
 export class EventDetailComponent extends EventComponent implements OnInit {
