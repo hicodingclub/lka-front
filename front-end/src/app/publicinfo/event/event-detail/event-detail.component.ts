@@ -13,7 +13,7 @@ import { MraRichTextShowDirective } from 'mean-rest-angular';
 
 @Component({
   selector: 'eventpublic-detail',
-  templateUrl: './eventpublic.html',
+  templateUrl: './event-detail.component.html',
   styleUrls: ['./event-detail.component.css']
 })
 export class EventDetailComponent extends EventComponent implements OnInit {
