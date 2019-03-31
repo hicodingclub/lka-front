@@ -1,21 +1,16 @@
-
 import { Routes } from '@angular/router';
 
 import { AcademicsComponent } from './academics/academics.component';
 
 //Import routing paths
-import {eventRoutingPath, studentRoutingPath, teacherRoutingPath, courseRoutingPath, classRoutingPath, studentclassRoutingPath,  } from './academics/academics-routing.path';
+import {studentRoutingPath, teacherRoutingPath, courseRoutingPath, classRoutingPath, studentclassRoutingPath,  } from './academics/academics-routing.path';
 
 export const AcademicsRoutes: Routes = [
   { path: 'academics', 
     component: AcademicsComponent,
     children: [ 
-      {path: '',  redirectTo: 'event', pathMatch: 'full'},
+      {path: '',  redirectTo: 'student', pathMatch: 'full'},
 
-      { path: "event",
-        children: eventRoutingPath, 
-        data: {"mraLevel": 1, "item": "event"}
-      },
       { path: "student",
         children: studentRoutingPath, 
         data: {"mraLevel": 1, "item": "student"}
@@ -42,25 +37,21 @@ export const AcademicsRoutes: Routes = [
 
 export const academics_server_root_uri:string = "/api/academics";
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Sat Mar 09 2019 22:02:01 GMT-0800 (Pacific Standard Time)
+**Date: Sat Mar 30 2019 19:21:45 GMT-0700 (Pacific Daylight Time)
 
 import { Routes } from '@angular/router';
 
 import { AcademicsComponent } from './academics/academics.component';
 
 //Import routing paths
-import {eventRoutingPath, studentRoutingPath, teacherRoutingPath, courseRoutingPath, classRoutingPath, studentclassRoutingPath,  } from './academics/academics-routing.path';
+import {studentRoutingPath, teacherRoutingPath, courseRoutingPath, classRoutingPath, studentclassRoutingPath,  } from './academics/academics-routing.path';
 
 export const AcademicsRoutes: Routes = [
   { path: 'academics', 
     component: AcademicsComponent,
     children: [ 
-      {path: '',  redirectTo: 'event', pathMatch: 'full'},
+      {path: '',  redirectTo: 'student', pathMatch: 'full'},
 
-      { path: "event",
-        children: eventRoutingPath, 
-        data: {"mraLevel": 1, "item": "event"}
-      },
       { path: "student",
         children: studentRoutingPath, 
         data: {"mraLevel": 1, "item": "student"}

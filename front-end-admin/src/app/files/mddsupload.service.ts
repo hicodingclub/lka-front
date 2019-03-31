@@ -22,7 +22,7 @@ export class MFilesService {
 
       // create a http-post request and pass the form
       // tell it to report the upload progress
-      const req = new HttpRequest('POST', this.fileServerRootUri + '/upload', formData, {
+      const req = new HttpRequest('POST', this.fileServerRootUri + '/upload/', formData, {
         reportProgress: true
       });
 

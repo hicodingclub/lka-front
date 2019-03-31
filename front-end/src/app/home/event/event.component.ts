@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EventService } from '../../academics/event/event.service';
+import { EventService } from '../../publicinfo/event/event.service';
 
 @Component({
   selector: 'home-event-component',

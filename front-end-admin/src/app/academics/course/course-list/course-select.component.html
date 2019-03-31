@@ -88,7 +88,8 @@
 
 		        <th scope="col">Title</th>
 		        <th scope="col">Description</th>
-		        <th></th>	        
+
+		        <th></th>      
 	        </tr>
 	    </thead>
 	    <tbody>
@@ -96,12 +97,13 @@
 	        	[ngClass]="{'clicked-row': detail['_id']==clickedId}" >
 	            <td scope="row" (click)="selectItemSelected(i)"  class="pointer">{{(page-1)*per_page+i+1}}</td>
 
-	            <td (click)="selectItemSelected(i)"  class="pointer">  {{detail['title']}}
+	            <td (click)="selectItemSelected(i)"  class="pointer">                  {{detail['title']}} 
 
 	            </td>
-	            <td (click)="selectItemSelected(i)"  class="pointer">  {{detail['description']}}
+	            <td (click)="selectItemSelected(i)"  class="pointer">                  {{detail['description']}} 
 
 	            </td>
+
 	            <td><a routerLink="." class="btn" 
 	                 [ngClass]="{'btn-primary': detail['_id']==selectedId, 'btn-outline-primary': detail['_id']!==selectedId}"
 	            	 (click)="selectViewDetail(i)">View Details</a>

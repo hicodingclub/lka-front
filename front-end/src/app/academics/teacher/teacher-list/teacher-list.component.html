@@ -140,7 +140,7 @@
 		        <th scope="col">Last Name</th>
 		        <th scope="col">Courses</th>
 		        <th scope="col">Introduction</th>		        
-		        <th scope="col" style="width:8rem;"></th>
+		        <th scope="col" style="width:6rem;"></th>
 		        <th scope="col" style="width:2rem;">
 		        	<input type="checkbox" [(ngModel)]="checkAll" (change)="onCheckAllChange()">
 		        </th>
@@ -148,25 +148,35 @@
 	    </thead>
 	    <tbody>
 	        <tr *ngFor="let detail of list;  let i = index" [ngClass]="{'clicked-row': clickedId==detail['_id']}">
-	            <td scope="row" (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">{{(page-1)*per_page+i+1}}</td>
+	            <td scope="row" (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            	{{(page-1)*per_page+i+1}}
+	            </td>
 
-	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">  {{detail['firstName']}}
+	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            	                  {{detail['firstName']}} 
 
 	            </td>
-	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">  {{detail['lastName']}}
+	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            	                  {{detail['lastName']}} 
 
 	            </td>
-	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">  <a routerLink="."  (click)="onDisplayRefClicked('courses', detail['courses'], $event)">
-	            	    {{detail['courses']?detail['courses']['value']:""}} </a>
+	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            	                
+               	  
+	            	{{detail['courses']?detail['courses']['value']:""}}
+	              
 
 	            </td>
-	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">  {{detail['introduction']}}
+	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            	                  {{detail['introduction']}} 
 
 	            </td>
+	            
 	            <td>
 	            	<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
 	            	<a routerLink="." (click)="onDelete(detail['_id'], i)"><i class="fas fa-trash-alt" title="Delete"></i></a>
 	            </td>
+	            
 	            <td>      
 	            	<input type="checkbox" [(ngModel)]="checkedItem[i]"/>
 	            </td>

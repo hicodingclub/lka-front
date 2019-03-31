@@ -21,11 +21,6 @@ import { academics_server_root_uri } from '../academics.conf';
 
 // Import components for each schema
 
-import { EventListComponent } from './event/event-list/event-list.component';
-import { EventDetailComponent } from './event/event-detail/event-detail.component';
-import { EventEditComponent } from './event/event-edit/event-edit.component';
-import { EventService } from './event/event.service';
-
 import { StudentListComponent } from './student/student-list/student-list.component';
 import { StudentDetailComponent } from './student/student-detail/student-detail.component';
 import { StudentEditComponent } from './student/student-edit/student-edit.component';
@@ -88,9 +83,6 @@ import { StudentclassDetailSubComponent } from './studentclass/studentclass-deta
     AcademicsComponent,
     AcademicsRefSelectDirective,
 
-    EventListComponent,
-    EventDetailComponent,
-    EventEditComponent,
     StudentListComponent,
     StudentDetailComponent,
     StudentEditComponent,
@@ -135,9 +127,6 @@ import { StudentclassDetailSubComponent } from './studentclass/studentclass-deta
   exports: [
     AcademicsComponent,
 
-    EventListComponent,
-    EventDetailComponent,
-    EventEditComponent,
     StudentListComponent,
     StudentDetailComponent,
     StudentEditComponent,
@@ -179,7 +168,6 @@ import { StudentclassDetailSubComponent } from './studentclass/studentclass-deta
 
     {provide: NgbDateParserFormatter, useClass: MraNgbDateFormatterService},
 
-    EventService,
     StudentService,
     TeacherService,
     CourseService,

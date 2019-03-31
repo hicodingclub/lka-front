@@ -27,12 +27,12 @@ export class MpermissionComponent extends BaseComponent {
     protected selectComponents = {
 
       'role': {
-          'select-type':MroleSelectComponent, 
+          'select-type':MroleSelectComponent,
           'select-detail-type': MroleDetailSelComponent,
           'pop-detail-type': MroleDetailPopComponent,
           'componentRef': null},
       'module': {
-          'select-type':MmoduleSelectComponent, 
+          'select-type':MmoduleSelectComponent,
           'select-detail-type': MmoduleDetailSelComponent,
           'pop-detail-type': MmoduleDetailPopComponent,
           'componentRef': null},

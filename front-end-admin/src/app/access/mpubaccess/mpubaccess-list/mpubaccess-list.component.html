@@ -165,7 +165,7 @@
 		        <th scope="col">Group</th>
 		        <th scope="col">Module</th>
 		        <th scope="col">Module Permission</th>		        
-		        <th scope="col" style="width:8rem;"></th>
+		        <th scope="col" style="width:6rem;"></th>
 		        <th scope="col" style="width:2rem;">
 		        	<input type="checkbox" [(ngModel)]="checkAll" (change)="onCheckAllChange()">
 		        </th>
@@ -173,23 +173,34 @@
 	    </thead>
 	    <tbody>
 	        <tr *ngFor="let detail of list;  let i = index" [ngClass]="{'clicked-row': clickedId==detail['_id']}">
-	            <td scope="row" (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">{{(page-1)*per_page+i+1}}</td>
+	            <td scope="row" (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            	{{(page-1)*per_page+i+1}}
+	            </td>
 
-	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">  <a routerLink="."  (click)="onDisplayRefClicked('group', detail['group'], $event)">
-	            	    {{detail['group']?detail['group']['value']:""}} </a>
+	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            	                
+               	  
+	            	{{detail['group']?detail['group']['value']:""}}
+	              
 
 	            </td>
-	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">  <a routerLink="."  (click)="onDisplayRefClicked('module', detail['module'], $event)">
-	            	    {{detail['module']?detail['module']['value']:""}} </a>
+	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            	                
+               	  
+	            	{{detail['module']?detail['module']['value']:""}}
+	              
 
 	            </td>
-	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">  {{detail['modulePermission']}}
+	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            	                  {{detail['modulePermission']}} 
 
 	            </td>
+	            
 	            <td>
 	            	<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
 	            	<a routerLink="." (click)="onDelete(detail['_id'], i)"><i class="fas fa-trash-alt" title="Delete"></i></a>
 	            </td>
+	            
 	            <td>      
 	            	<input type="checkbox" [(ngModel)]="checkedItem[i]"/>
 	            </td>

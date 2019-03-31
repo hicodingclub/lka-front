@@ -17,8 +17,10 @@
           <div class="row">
       
 			<div class="col-3"><label>Role</label></div>
-			<div class="col-9">  <a routerLink="."  (click)="onDisplayRefClicked('role', detail['role'], $event)">
-	            	    {{detail['role']?detail['role']['value']:""}} </a>
+			<div class="col-9">                
+               	  
+	            	{{detail['role']?detail['role']['value']:""}}
+	              
 </div>
 
           </div>
@@ -26,8 +28,10 @@
           <div class="row">
       
 			<div class="col-3"><label>Module</label></div>
-			<div class="col-9">  <a routerLink="."  (click)="onDisplayRefClicked('module', detail['module'], $event)">
-	            	    {{detail['module']?detail['module']['value']:""}} </a>
+			<div class="col-9">                
+               	  
+	            	{{detail['module']?detail['module']['value']:""}}
+	              
 </div>
 
           </div>
@@ -35,7 +39,7 @@
           <div class="row">
       
 			<div class="col-3"><label>Module Permission</label></div>
-			<div class="col-9">  {{detail['modulePermission']}}
+			<div class="col-9">                  {{detail['modulePermission']}} 
 </div>
 
           </div>
@@ -43,16 +47,14 @@
           <div class="row">
       
 			<div class="col-3"><label>Resource Permission</label></div>
-			<div class="col-9">
+			<div class="col-9">                
                     <div *ngIf="detail['resourcePermission'] && detail['resourcePermission']['selection']">
-                    	<ng-template ngFor let-element [ngForOf]="objectKeys(detail['resourcePermission']['selection'])" let-idx="index">
-                            <div class="row">
-                                <div class="col-3">{{element}}:</div>
-                                <div class="col-3">{{detail['resourcePermission']['selection'][element]}}</div>
+                    	<ng-template ngFor let-element [ngForOf]="detail['resourcePermission']['selection']" let-idx="index">
+                            <div class="badge badge-pill badge-secondary">
+                                {{element}}
                             </div>
 						</ng-template>
-                    </div>                    
-                        
+                    </div>
 </div>
 
           </div>
