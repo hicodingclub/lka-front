@@ -1,9 +1,12 @@
 var mongoose = require('mongoose');
 
+
 let eventDef = require('./event');
 let generalInfoDef = require('./generalInfo');
+let faqDef = require('./faq');
 var schemas = {
   "GeneralInfo": generalInfoDef,
+  "faqInfo": faqDef,
   "Event": eventDef,
 };
 

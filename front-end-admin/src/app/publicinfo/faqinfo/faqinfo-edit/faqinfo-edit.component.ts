@@ -3,23 +3,21 @@ import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
 
-import { EventComponent, ViewType } from '../event.component';
-import { EventService } from '../event.service';
+import { FaqinfoComponent, ViewType } from '../faqinfo.component';
+import { FaqinfoService } from '../faqinfo.service';
 
 
 
 
 
 
-import { QueryList, ViewChildren } from '@angular/core';
-import { MraRichTextSelectDirective } from 'mean-rest-angular';
 
 @Component({
-  selector: 'app-event-edit',
-  templateUrl: './event-edit.component.html',
-  styleUrls: ['./event-edit.component.css']
+  selector: 'app-faqinfo-edit',
+  templateUrl: './faqinfo-edit.component.html',
+  styleUrls: ['./faqinfo-edit.component.css']
 })
-export class EventEditComponent extends EventComponent implements OnInit {        
+export class FaqinfoEditComponent extends FaqinfoComponent implements OnInit {        
     @Input() 
     protected id: string;
     @Input()
@@ -31,40 +29,27 @@ export class EventEditComponent extends EventComponent implements OnInit {
     protected action:string;
 
 
-    @ViewChildren(MraRichTextSelectDirective) textEditors: QueryList<MraRichTextSelectDirective>;
-  
-    private EditContent = {valid: true};
-
         
     constructor(
       
-      protected eventService: EventService,
+      protected faqinfoService: FaqinfoService,
       protected injector: Injector,
       protected router: Router,
       protected route: ActivatedRoute,
       protected location: Location) {
           super( 
-                 eventService, injector, router, route, location, ViewType.EDIT);
+                 faqinfoService, injector, router, route, location, ViewType.EDIT);
 
 
-          this.stringFields.push('title');
-          this.stringFields.push('author');
-          this.stringFields.push('content');
-
-
+          this.stringFields.push('question');
+          this.stringFields.push('answer');
 
 
 
 
 
-          this.textEditorMap['EditContent'] = {
-            required: true ,
-            
-            
-            
-            fieldState: this.EditContent,
-            fieldName: 'content'
-          };
+
+
           
           let detail = {};
           this.detail = this.formatDetail(detail);
@@ -85,7 +70,7 @@ export class EventEditComponent extends EventComponent implements OnInit {
                 this.action="Add";
                 this.subEdit = true;
                 let detail = {
-                    
+                    enable: false,
                 };
                 for (let prop in this.initData) {
                     detail[prop] = this.initData[prop];
@@ -94,7 +79,7 @@ export class EventEditComponent extends EventComponent implements OnInit {
                 this.detail = this.formatDetail(detail);
             } else {
                 let detail = {
-                    
+                    enable: false,
                 };
                 this.detail = this.formatDetail(detail);
             }

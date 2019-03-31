@@ -25,6 +25,11 @@ import { GeneralinfoDetailComponent } from './generalinfo/generalinfo-detail/gen
 import { GeneralinfoEditComponent } from './generalinfo/generalinfo-edit/generalinfo-edit.component';
 import { GeneralinfoService } from './generalinfo/generalinfo.service';
 
+import { FaqinfoListComponent } from './faqinfo/faqinfo-list/faqinfo-list.component';
+import { FaqinfoDetailComponent } from './faqinfo/faqinfo-detail/faqinfo-detail.component';
+import { FaqinfoEditComponent } from './faqinfo/faqinfo-edit/faqinfo-edit.component';
+import { FaqinfoService } from './faqinfo/faqinfo.service';
+
 import { EventListComponent } from './event/event-list/event-list.component';
 import { EventDetailComponent } from './event/event-detail/event-detail.component';
 import { EventEditComponent } from './event/event-edit/event-edit.component';
@@ -52,6 +57,9 @@ import { EventService } from './event/event.service';
     GeneralinfoListComponent,
     GeneralinfoDetailComponent,
     GeneralinfoEditComponent,
+    FaqinfoListComponent,
+    FaqinfoDetailComponent,
+    FaqinfoEditComponent,
     EventListComponent,
     EventDetailComponent,
     EventEditComponent,
@@ -68,6 +76,9 @@ import { EventService } from './event/event.service';
     GeneralinfoListComponent,
     GeneralinfoDetailComponent,
     GeneralinfoEditComponent,
+    FaqinfoListComponent,
+    FaqinfoDetailComponent,
+    FaqinfoEditComponent,
     EventListComponent,
     EventDetailComponent,
     EventEditComponent,
@@ -80,6 +91,7 @@ import { EventService } from './event/event.service';
     {provide: NgbDateParserFormatter, useClass: MraNgbDateFormatterService},
 
     GeneralinfoService,
+    FaqinfoService,
     EventService,
   ],
 
