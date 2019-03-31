@@ -1,10 +1,5 @@
 // Import components for each schema
 
-import { EventListComponent } from './event/event-list/event-list.component';
-import { EventDetailComponent } from './event/event-detail/event-detail.component';
-import { EventEditComponent } from './event/event-edit/event-edit.component';
-
-
 import { StudentListComponent } from './student/student-list/student-list.component';
 import { StudentDetailComponent } from './student/student-detail/student-detail.component';
 import { StudentEditComponent } from './student/student-edit/student-edit.component';
@@ -79,14 +74,6 @@ const classDetailPath = [
         data: {'mraLevel': 2, 'item': 'studentclass'}},
 ];
 
-
-export const eventRoutingPath = [
-    {path: 'list', component: EventListComponent},
-    {path: 'detail/:id', component: EventDetailComponent},
-    {path: 'edit/:id', component: EventEditComponent, canActivate: [AuthGuard]},
-    {path: 'new', component: EventEditComponent, canActivate: [AuthGuard]},
-    {path: '**', redirectTo: 'list', pathMatch: 'full'}
-];
 
 export const studentRoutingPath = [
     {path: 'list', component: StudentListComponent, canActivate: [AuthGuard]},

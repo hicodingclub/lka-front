@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
+import { NgbModule, NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
+import { MraNgbDateFormatterService } from './publicinfo.directive';
 
 
 
@@ -28,6 +30,11 @@ import { FaqinfoDetailComponent } from './faqinfo/faqinfo-detail/faqinfo-detail.
 import { FaqinfoEditComponent } from './faqinfo/faqinfo-edit/faqinfo-edit.component';
 import { FaqinfoService } from './faqinfo/faqinfo.service';
 
+import { EventListComponent } from './event/event-list/event-list.component';
+import { EventDetailComponent } from './event/event-detail/event-detail.component';
+import { EventEditComponent } from './event/event-edit/event-edit.component';
+import { EventService } from './event/event.service';
+
 
 
 
@@ -38,6 +45,7 @@ import { FaqinfoService } from './faqinfo/faqinfo.service';
     HttpClientModule,
     FormsModule,
 
+    NgbModule,
     MraModule,
 
     PublicinfoRoutingModule
@@ -52,6 +60,9 @@ import { FaqinfoService } from './faqinfo/faqinfo.service';
     FaqinfoListComponent,
     FaqinfoDetailComponent,
     FaqinfoEditComponent,
+    EventListComponent,
+    EventDetailComponent,
+    EventEditComponent,
 
 
 
@@ -68,15 +79,20 @@ import { FaqinfoService } from './faqinfo/faqinfo.service';
     FaqinfoListComponent,
     FaqinfoDetailComponent,
     FaqinfoEditComponent,
+    EventListComponent,
+    EventDetailComponent,
+    EventEditComponent,
 
 
   ],
   providers: [
     { provide: Publicinfo_SERVER_ROOT_URI, useValue: publicinfo_server_root_uri },
 
+    {provide: NgbDateParserFormatter, useClass: MraNgbDateFormatterService},
 
     GeneralinfoService,
     FaqinfoService,
+    EventService,
   ],
 
 })

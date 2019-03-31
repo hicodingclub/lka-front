@@ -33,7 +33,7 @@ export class EventEditComponent extends EventComponent implements OnInit {
 
     @ViewChildren(MraRichTextSelectDirective) textEditors: QueryList<MraRichTextSelectDirective>;
   
-    private eventEditContent = {valid: true};
+    private EditContent = {valid: true};
 
         
     constructor(
@@ -57,12 +57,12 @@ export class EventEditComponent extends EventComponent implements OnInit {
 
 
 
-          this.textEditorMap['eventEditContent'] = {
+          this.textEditorMap['EditContent'] = {
             required: true ,
             
             
             
-            fieldState: this.eventEditContent,
+            fieldState: this.EditContent,
             fieldName: 'content'
           };
           

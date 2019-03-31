@@ -25,7 +25,7 @@ export class TeacherComponent extends BaseComponent {
     protected selectComponents = {
 
       'courses': {
-          'select-type':CourseSelectComponent, 
+          'select-type':CourseSelectComponent,
           'select-detail-type': CourseDetailSelComponent,
           'pop-detail-type': CourseDetailPopComponent,
           'componentRef': null},

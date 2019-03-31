@@ -27,12 +27,12 @@ export class MpubaccessComponent extends BaseComponent {
     protected selectComponents = {
 
       'group': {
-          'select-type':MusergroupSelectComponent, 
+          'select-type':MusergroupSelectComponent,
           'select-detail-type': MusergroupDetailSelComponent,
           'pop-detail-type': MusergroupDetailPopComponent,
           'componentRef': null},
       'module': {
-          'select-type':MpubmoduleSelectComponent, 
+          'select-type':MpubmoduleSelectComponent,
           'select-detail-type': MpubmoduleDetailSelComponent,
           'pop-detail-type': MpubmoduleDetailPopComponent,
           'componentRef': null},
