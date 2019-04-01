@@ -9,16 +9,7 @@ export class HomeComponent {
 
   imageObject = [ {
      imageURL: 'assets/images/work.jpg',
-     heading: 'chicago',
-     subheading: 'c1'
-   }, {
-     imageURL: 'assets/images/work.jpg',
-     heading: 'ny',
-     subheading: 'n1'
-   }, {
-     imageURL: 'assets/images/work.jpg',
-     heading: 'la',
-     subheading: 'l1'
-   }  ] 
+     heading: 'We Work Together for a Better Tomorrow',
+   }] 
 
 }
