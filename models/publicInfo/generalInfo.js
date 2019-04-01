@@ -22,4 +22,4 @@ var views = [Brief, Detail, Creat, Edit, TextSearch, Index]
 
 
 //Export model
-module.exports = {schema: generalInfoSchema, views: views};
+module.exports = {schema: generalInfoSchema, views: views, name: 'General Information'};

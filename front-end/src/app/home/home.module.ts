@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { EventComponent } from './event/event.component';
+import { FaqComponent } from './faq/faq.component';
 import { HomeComponent } from './home.component';
 import { HotClassesComponent } from './hot_classes/hot_classes.component';
 import { IntroductionComponent } from './introduction/introduction.component';
@@ -21,6 +22,7 @@ import { RouterModule } from '@angular/router'
   declarations: [
     HotClassesComponent,
     EventComponent,
+    FaqComponent,
     HomeComponent,
     IntroductionComponent,
     StaffComponent
@@ -31,6 +33,7 @@ import { RouterModule } from '@angular/router'
   exports: [
     HotClassesComponent,
     EventComponent,
+    FaqComponent,
     HomeComponent,
     IntroductionComponent,
     StaffComponent

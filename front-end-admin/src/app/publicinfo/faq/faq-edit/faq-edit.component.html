@@ -5,34 +5,34 @@
 	
 	<div class="card" style="text-align: left;">
 	  <div class="card-body">
-	    <h4 class="card-title" *ngIf="!subEdit">{{action}} General Information</h4>    
+	    <h4 class="card-title" *ngIf="!subEdit">{{action}} FAQ</h4>    
 	    <form (ngSubmit)="onSubmit()" #editForm="ngForm">
 	    
 	     <div *ngIf="action == 'Edit'">
-<div *ngIf="!hiddenFields.includes('title')">
+<div *ngIf="!hiddenFields.includes('question')">
 
 	      <fieldset class="form-group">
-	        <label for="EditTitle">Title</label>
+	        <label for="EditQuestion">Question</label>
 	        
 
         	<div class="input-group">
-		        <input type="text" class="form-control rounded" id="EditTitle" 
+		        <input type="text" class="form-control rounded" id="EditQuestion" 
 		                required
 		                
 		                
 			        	 
-		                [(ngModel)]="detail['title']" name="EditTitle"
-		                #EditTitle="ngModel">
-                <div *ngIf="detail['title']" 
-			          class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('title')">
+		                [(ngModel)]="detail['question']" name="EditQuestion"
+		                #EditQuestion="ngModel">
+                <div *ngIf="detail['question']" 
+			          class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('question')">
 			          <i class="fas fa-times-circle" title="Clear"></i></div>
 	        </div>
 
-	        <div [hidden]="EditTitle.valid || EditTitle.pristine || EditTitle.errors.minlength"
+	        <div [hidden]="EditQuestion.valid || EditQuestion.pristine || EditQuestion.errors.minlength"
      			class="alert alert-danger">
 
-	          <div *ngIf="EditTitle.errors && EditTitle.errors.required">
-    	        Title is required.
+	          <div *ngIf="EditQuestion.errors && EditQuestion.errors.required">
+    	        Question is required.
   	          </div>
  
 
@@ -40,30 +40,30 @@
         
 	      </fieldset>
     
-</div><div *ngIf="!hiddenFields.includes('description')">
+</div><div *ngIf="!hiddenFields.includes('answer')">
 
 	      <fieldset class="form-group">
-	        <label for="EditDescription">Description</label>
+	        <label for="EditAnswer">Answer</label>
 	        
 
         	<div class="input-group">
-		        <input type="text" class="form-control rounded" id="EditDescription" 
+		        <input type="text" class="form-control rounded" id="EditAnswer" 
 		                required
 		                
 		                
 			        	 
-		                [(ngModel)]="detail['description']" name="EditDescription"
-		                #EditDescription="ngModel">
-                <div *ngIf="detail['description']" 
-			          class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('description')">
+		                [(ngModel)]="detail['answer']" name="EditAnswer"
+		                #EditAnswer="ngModel">
+                <div *ngIf="detail['answer']" 
+			          class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('answer')">
 			          <i class="fas fa-times-circle" title="Clear"></i></div>
 	        </div>
 
-	        <div [hidden]="EditDescription.valid || EditDescription.pristine || EditDescription.errors.minlength"
+	        <div [hidden]="EditAnswer.valid || EditAnswer.pristine || EditAnswer.errors.minlength"
      			class="alert alert-danger">
 
-	          <div *ngIf="EditDescription.errors && EditDescription.errors.required">
-    	        Description is required.
+	          <div *ngIf="EditAnswer.errors && EditAnswer.errors.required">
+    	        Answer is required.
   	          </div>
  
 
@@ -141,30 +141,30 @@
 </div>
          </div>	
 	     <div *ngIf="action == 'Create' || action == 'Add' ">
-<div *ngIf="!hiddenFields.includes('title')">
+<div *ngIf="!hiddenFields.includes('question')">
 
 	      <fieldset class="form-group">
-	        <label for="EditTitle">Title</label>
+	        <label for="EditQuestion">Question</label>
 	        
 
         	<div class="input-group">
-		        <input type="text" class="form-control rounded" id="EditTitle" 
+		        <input type="text" class="form-control rounded" id="EditQuestion" 
 		                required
 		                
 		                
 			        	 
-		                [(ngModel)]="detail['title']" name="EditTitle"
-		                #EditTitle="ngModel">
-                <div *ngIf="detail['title']" 
-			          class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('title')">
+		                [(ngModel)]="detail['question']" name="EditQuestion"
+		                #EditQuestion="ngModel">
+                <div *ngIf="detail['question']" 
+			          class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('question')">
 			          <i class="fas fa-times-circle" title="Clear"></i></div>
 	        </div>
 
-	        <div [hidden]="EditTitle.valid || EditTitle.pristine || EditTitle.errors.minlength"
+	        <div [hidden]="EditQuestion.valid || EditQuestion.pristine || EditQuestion.errors.minlength"
      			class="alert alert-danger">
 
-	          <div *ngIf="EditTitle.errors && EditTitle.errors.required">
-    	        Title is required.
+	          <div *ngIf="EditQuestion.errors && EditQuestion.errors.required">
+    	        Question is required.
   	          </div>
  
 
@@ -172,30 +172,30 @@
         
 	      </fieldset>
     
-</div><div *ngIf="!hiddenFields.includes('description')">
+</div><div *ngIf="!hiddenFields.includes('answer')">
 
 	      <fieldset class="form-group">
-	        <label for="EditDescription">Description</label>
+	        <label for="EditAnswer">Answer</label>
 	        
 
         	<div class="input-group">
-		        <input type="text" class="form-control rounded" id="EditDescription" 
+		        <input type="text" class="form-control rounded" id="EditAnswer" 
 		                required
 		                
 		                
 			        	 
-		                [(ngModel)]="detail['description']" name="EditDescription"
-		                #EditDescription="ngModel">
-                <div *ngIf="detail['description']" 
-			          class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('description')">
+		                [(ngModel)]="detail['answer']" name="EditAnswer"
+		                #EditAnswer="ngModel">
+                <div *ngIf="detail['answer']" 
+			          class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('answer')">
 			          <i class="fas fa-times-circle" title="Clear"></i></div>
 	        </div>
 
-	        <div [hidden]="EditDescription.valid || EditDescription.pristine || EditDescription.errors.minlength"
+	        <div [hidden]="EditAnswer.valid || EditAnswer.pristine || EditAnswer.errors.minlength"
      			class="alert alert-danger">
 
-	          <div *ngIf="EditDescription.errors && EditDescription.errors.required">
-    	        Description is required.
+	          <div *ngIf="EditAnswer.errors && EditAnswer.errors.required">
+    	        Answer is required.
   	          </div>
  
 
