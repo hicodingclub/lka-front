@@ -42,7 +42,7 @@ const dbSOption = {
   storage: 'db',
   linkRoot: '/api/files',   //link = linkRoot + "/download" - download needs to be enabled.
 }
-const fileSvrRouter = fileSvr.ExpressRouter(defaultAdminSysDef, 'Files', authFuncs, dbSOption);
+const fileSvrRouter = fileSvr.ExpressRouter(defaultAdminSysDef, 'Files', authFuncs, fileSOption);
 
 //Authorization App Client. Call it after all meanRestExpress resources are generated.
 const manageModule = ['Users', 'Academics', 'PublicInfo', 'Access', 'Roles', 'Files']; //the modules that manages
