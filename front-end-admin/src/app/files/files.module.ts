@@ -26,12 +26,10 @@ import { MfileEditComponent } from './mfile/mfile-edit/mfile-edit.component';
 import { MfileService } from './mfile/mfile.service';
 
 import { MfilelabelsListComponent } from './mfilelabels/mfilelabels-list/mfilelabels-list.component';
-
-
 import { MfilelabelsService } from './mfilelabels/mfilelabels.service';
 
-
-
+import { MddsUploadComponent } from './mddsupload.component';
+import { MddsUploadService } from './mddsupload.service';
 
 
 @NgModule({
@@ -54,13 +52,7 @@ import { MfilelabelsService } from './mfilelabels/mfilelabels.service';
     MfileEditComponent,
     MfilelabelsListComponent,
     
-    
-
-
-
-
-
-
+    MddsUploadComponent,
   ],
   exports: [
     FilesComponent,
@@ -70,9 +62,7 @@ import { MfilelabelsService } from './mfilelabels/mfilelabels.service';
     MfileEditComponent,
     MfilelabelsListComponent,
     
-    
-
-
+    MddsUploadComponent,
   ],
   providers: [
     { provide: Files_SERVER_ROOT_URI, useValue: files_server_root_uri },
@@ -81,6 +71,7 @@ import { MfilelabelsService } from './mfilelabels/mfilelabels.service';
 
     MfileService,
     MfilelabelsService,
+    MddsUploadService,
   ],
 
 })

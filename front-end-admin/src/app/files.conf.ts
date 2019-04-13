@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 
 import { FilesComponent } from './files/files.component';
+import { MddsUploadComponent } from './files/mddsupload.component';
 
 //Import routing paths
 import {mfileRoutingPath, mfilelabelsRoutingPath,  } from './files/files-routing.path';
@@ -19,13 +20,16 @@ export const FilesRoutes: Routes = [
         children: mfilelabelsRoutingPath, 
         data: {"mraLevel": 1, "item": "mfilelabels"}
       },
+      { path: "upload",
+        component: MddsUploadComponent, 
+      },
     ]
   }
 ];
 
 export const files_server_root_uri:string = "/api/files";
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Sat Mar 30 2019 19:22:00 GMT-0700 (Pacific Daylight Time)
+**Date: Mon Apr 01 2019 09:57:49 GMT-0700 (Pacific Daylight Time)
 
 import { Routes } from '@angular/router';
 
