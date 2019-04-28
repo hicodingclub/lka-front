@@ -65,3 +65,6 @@ public
 package-lock.json
 front-end/package-lock.json
 public-admin
+
+# directory .idea
+.idea/*
