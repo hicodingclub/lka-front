@@ -11,7 +11,7 @@ import { ComponentFactoryResolver } from '@angular/core';
 
 @Component({
   selector: 'app-teacher-list',
-  templateUrl: './teacher-list.component.html',
+  templateUrl: './teacher-list.public.html',
   styleUrls: ['./teacher-list.component.css']
 })
 export class TeacherListComponent extends TeacherComponent implements OnInit {
