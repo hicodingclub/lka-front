@@ -1,14 +1,14 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { forkJoin } from 'rxjs';
 
-import { MFilesService } from './mddsupload.service';
+import { MddsUploadService } from './mddsupload.service';
 
 @Component({
-  selector: 'app-files',
+  selector: 'mdds-upload',
   templateUrl: './mddsupload.component.html',
   styleUrls: ['./files.component.css'],
 })
-export class MFilesComponent implements OnInit {
+export class MddsUploadComponent implements OnInit {
   @ViewChild('file') file;
   public files: Set<File> = new Set();
 
@@ -19,7 +19,7 @@ export class MFilesComponent implements OnInit {
   uploading = false;
   uploadSuccessful = false;
 
-  constructor(public uploadService: MFilesService) {}
+  constructor(public uploadService: MddsUploadService) {}
   
   ngOnInit() {
   }
