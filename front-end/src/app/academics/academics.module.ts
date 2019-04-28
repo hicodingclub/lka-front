@@ -20,7 +20,6 @@ import { Academics_SERVER_ROOT_URI } from './academics.tokens';
 import { academics_server_root_uri } from '../academics.conf';
 
 // Import components for each schema
-
 import { StudentListComponent } from './student/student-list/student-list.component';
 import { StudentDetailComponent } from './student/student-detail/student-detail.component';
 import { StudentEditComponent } from './student/student-edit/student-edit.component';
@@ -32,6 +31,7 @@ import { TeacherEditComponent } from './teacher/teacher-edit/teacher-edit.compon
 import { TeacherService } from './teacher/teacher.service';
 
 import { CourseListComponent } from './course/course-list/course-list.component';
+import { CourseSideBarComponent } from './course/course-list/course-sidebar.component';
 import { CourseDetailComponent } from './course/course-detail/course-detail.component';
 import { CourseEditComponent } from './course/course-edit/course-edit.component';
 import { CourseService } from './course/course.service';
@@ -93,6 +93,7 @@ import { StudentclassDetailSubComponent } from './studentclass/studentclass-deta
     CourseDetailComponent,
     CourseEditComponent,
     ClassListComponent,
+    CourseSideBarComponent,
     ClassDetailComponent,
     ClassEditComponent,
     StudentclassListComponent,

@@ -1,4 +1,9 @@
 <div>
+	<div style="margin-top: 100px; margin-bottom: 100px;">
+		<h1 class = "title">Courses</h1>
+		<h2 class = "subtitle">self made courses for all ages</h2> 
+	</div>
+
 	<div class="container search">
 		<div class="row">
 			<div class="col-9">
@@ -31,7 +36,7 @@
 			  <div class="card-body">
 			    <h5 class="card-title">Special title treatment</h5>
 			    <p class="card-text">{{list[i].description}}</p>
-			    <a href="#" class="btn btn-primary">Go somewhere</a>
+			    <a (click)="onDetailLinkClicked(list[i]['_id'])" class="btn btn-primary">Details</a>
 			  </div>
 			</div>
 		</div>
@@ -41,7 +46,7 @@
 			  <div class="card-body">
 			    <h5 class="card-title">Special title treatment</h5>
 			    <p class="card-text">{{list[i].description}}</p>
-			    <a href="#" class="btn btn-primary">Go somewhere</a>
+			    <a (click)="onDetailLinkClicked(list[i]['_id'])" class="btn btn-primary">Details</a>
 			  </div>
 			</div>
 		</div>
