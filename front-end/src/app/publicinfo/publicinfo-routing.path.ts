@@ -16,7 +16,7 @@ import { EventEditComponent } from './event/event-edit/event-edit.component';
 
 
 
-import { AuthGuard } from '../auth/';
+import { AuthGuard } from 'mdds-angular-auth';
 
 
 

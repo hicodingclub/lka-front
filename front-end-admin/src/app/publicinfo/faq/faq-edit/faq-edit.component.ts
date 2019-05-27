@@ -11,6 +11,8 @@ import { FaqService } from '../faq.service';
 
 
 
+import { QueryList, ViewChildren } from '@angular/core';
+import { MraRichTextSelectDirective } from 'mean-rest-angular';
 
 @Component({
   selector: 'app-faq-edit',
@@ -28,6 +30,10 @@ export class FaqEditComponent extends FaqComponent implements OnInit {
 
     protected action:string;
 
+
+    @ViewChildren(MraRichTextSelectDirective) textEditors: QueryList<MraRichTextSelectDirective>;
+  
+    private EditAnswer = {valid: true};
 
         
     constructor(
@@ -50,6 +56,14 @@ export class FaqEditComponent extends FaqComponent implements OnInit {
 
 
 
+          this.textEditorMap['EditAnswer'] = {
+            required: true ,
+            
+            
+            
+            fieldState: this.EditAnswer,
+            fieldName: 'answer'
+          };
           
           let detail = {};
           this.detail = this.formatDetail(detail);

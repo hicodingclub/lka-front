@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 var faqSchema = new Schema(
   {
     question: {type: String, required: true},
-    answer: {type: String, required: true, maxlength: 1000},
+    answer: {type: String, editor: true, required: true, maxlength: 1000},
     order: {type: Number, required: true},
     enable: {type: Boolean, required: true, default: false}
   }

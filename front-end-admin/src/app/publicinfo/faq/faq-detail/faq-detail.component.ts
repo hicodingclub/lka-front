@@ -8,6 +8,8 @@ import { FaqService } from '../faq.service';
 
 
 
+import { QueryList, ViewChildren } from '@angular/core';
+import { MraRichTextShowDirective } from 'mean-rest-angular';
 
 @Component({
   selector: 'app-faq-detail',
@@ -18,6 +20,7 @@ export class FaqDetailComponent extends FaqComponent implements OnInit {
   @Input() 
   protected id:string;
 
+  @ViewChildren(MraRichTextShowDirective) textEditors: QueryList<MraRichTextShowDirective>;
 
   constructor(
       
@@ -39,6 +42,9 @@ export class FaqDetailComponent extends FaqComponent implements OnInit {
 
 
 
+          this.textEditorMap['faqDetailAnswer'] = {
+            fieldName: 'answer'
+          };
   }
 
   ngOnInit() {

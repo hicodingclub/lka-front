@@ -45,21 +45,12 @@
 	      <fieldset class="form-group">
 	        <label for="EditAnswer">Answer</label>
 	        
-
-        	<div class="input-group">
-		        <input type="text" class="form-control rounded" id="EditAnswer" 
-		                required
-		                
-		                
-			        	 
-		                [(ngModel)]="detail['answer']" name="EditAnswer"
-		                #EditAnswer="ngModel">
-                <div *ngIf="detail['answer']" 
-			          class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('answer')">
-			          <i class="fas fa-times-circle" title="Clear"></i></div>
-	        </div>
-
-	        <div [hidden]="EditAnswer.valid || EditAnswer.pristine || EditAnswer.errors.minlength"
+    	    <div mra-richtext-select="EditAnswer"></div>
+		  	<div class="action-buttons" style="margin-top: 10px;">
+				<button type="button" class="btn btn-outline-success" (click)="onEdtiorPreview('EditAnswer')">Preview</button>
+		    </div>
+		    
+	        <div [hidden]="EditAnswer.valid"
      			class="alert alert-danger">
 
 	          <div *ngIf="EditAnswer.errors && EditAnswer.errors.required">
@@ -67,8 +58,9 @@
   	          </div>
  
 
-	        </div>
         
+	        </div>
+		    
 	      </fieldset>
     
 </div><div *ngIf="!hiddenFields.includes('order')">
@@ -177,21 +169,12 @@
 	      <fieldset class="form-group">
 	        <label for="EditAnswer">Answer</label>
 	        
-
-        	<div class="input-group">
-		        <input type="text" class="form-control rounded" id="EditAnswer" 
-		                required
-		                
-		                
-			        	 
-		                [(ngModel)]="detail['answer']" name="EditAnswer"
-		                #EditAnswer="ngModel">
-                <div *ngIf="detail['answer']" 
-			          class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('answer')">
-			          <i class="fas fa-times-circle" title="Clear"></i></div>
-	        </div>
-
-	        <div [hidden]="EditAnswer.valid || EditAnswer.pristine || EditAnswer.errors.minlength"
+    	    <div mra-richtext-select="EditAnswer"></div>
+		  	<div class="action-buttons" style="margin-top: 10px;">
+				<button type="button" class="btn btn-outline-success" (click)="onEdtiorPreview('EditAnswer')">Preview</button>
+		    </div>
+		    
+	        <div [hidden]="EditAnswer.valid"
      			class="alert alert-danger">
 
 	          <div *ngIf="EditAnswer.errors && EditAnswer.errors.required">
@@ -199,8 +182,9 @@
   	          </div>
  
 
-	        </div>
         
+	        </div>
+		    
 	      </fieldset>
     
 </div><div *ngIf="!hiddenFields.includes('order')">
