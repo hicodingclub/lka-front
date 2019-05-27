@@ -5,7 +5,7 @@ import { Subject, Observable } from 'rxjs';
 import { Files_SERVER_ROOT_URI } from './files.tokens';
 
 @Injectable()
-export class MFilesService {
+export class MddsUploadService {
   constructor(
     @Inject(Files_SERVER_ROOT_URI) private fileServerRootUri: string,
     private http: HttpClient) {}

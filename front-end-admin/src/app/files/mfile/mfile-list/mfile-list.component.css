@@ -176,3 +176,14 @@ div.badge-click:hover {
   background-color: #495057 !important;
   text-decoration: underline;
 }
+
+.thumbnail {
+	overflow: hidden;
+	height: 72px;
+	width: 72p;
+}
+.thumbnail img {
+    height: 100%;
+    left: 50%;
+    position: relative;
+    transform: translateX(-50%);}

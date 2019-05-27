@@ -142,15 +142,34 @@
  
 	    <div class="single-line-edit">
 	      <div class="row">
-	        <div class="col-3"><label for="mfileEditThumbnail">Thumbnail</label></div>
+	        <div class="col-3"><label for="mfileEditHasThumbnail">Has Thumbnail</label></div>
 	        <div class="col-8">
 
+
+	        <div class="form-check">
+	          <div class="form-check-inline">
+		        <input type="radio" name="mfileEditHasThumbnail" 
+		        	class="form-check-input"
+		        	id="mfileEditHasThumbnailYes" [value]="true" 
+		        	[(ngModel)]="detail['hasThumbnail']"
+		        	#mfileEditHasThumbnail="ngModel">
+		      	<label class="form-check-label">Yes</label>
+		      </div>
+	          <div class="form-check-inline">
+		        <input type="radio" name="mfileEditHasThumbnail" 
+		        	class="form-check-input"
+		        	id="mfileEditHasThumbnailNo" [value]="false"
+		        	[(ngModel)]="detail['hasThumbnail']"
+		        	#mfileEditHasThumbnail="ngModel">
+		      	<label class="form-check-label">No</label>
+		      </div>
+		    </div>
 
 	      </div>
 	      
 	      <div class="col-1">
-		    <div class="icon-clear" (click)="clearValueFromDetail('thumbnail')"
-		        *ngIf="checkValueDefinedFromDetail('thumbnail')"
+		    <div class="icon-clear" (click)="clearValueFromDetail('hasThumbnail')"
+		        *ngIf="checkValueDefinedFromDetail('hasThumbnail')"
 		        ><i class="fas fa-times-circle" title="Clear"></i></div>
 	      </div>
 	    </div>
@@ -231,15 +250,12 @@
 	<table class="table table-bordered table-hover">
 	    <thead class="thead-light">
 	    	<tr>
-		        <th scope="col">#</th>
+		        <th scope="col" width="30%"></th>
 
 		        <th scope="col">Name</th>
-		        <th scope="col">Type</th>
 		        <th scope="col">Labels</th>
 		        <th scope="col">Size</th>
-		        <th scope="col">Link</th>
 		        <th scope="col">Uploaded</th>
-		        <th scope="col">Thumbnail</th>		        
 		        <th scope="col" style="width:6rem;"></th>
 		        
 	        </tr>
@@ -247,15 +263,13 @@
 	    <tbody>
 	        <tr *ngFor="let detail of list;  let i = index" [ngClass]="{'clicked-row': clickedId==detail['_id']}">
 	            <td scope="row" >
-	            	{{(page-1)*per_page+i+1}}
+	              <div class="thumbnail">
+	            	<img src="{{detail['link']}}_thumbnail"/>
+	              </div>
 	            </td>
 
 	            <td >
 	            	                  {{detail['name']}} 
-
-	            </td>
-	            <td >
-	            	                  {{detail['type']}} 
 
 	            </td>
 	            <td >
@@ -267,18 +281,9 @@
 
 	            </td>
 	            <td >
-	            	                  {{detail['link']}} 
-
-	            </td>
-	            <td >
 	            	                  {{detail['uploaded']?detail['uploaded']['value']:""}}
 
 	            </td>
-	            <td >
-	            	                  {{detail['thumbnail']}} 
-
-	            </td>
-	            
 	            <td>
 	            	<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
 	            	

@@ -1,0 +1,6 @@
+<ng-template ngFor let-detail [ngForOf]="list" let-i="index">
+    <div>
+        <h3 (click)="onDetailLinkClicked(list[i]['_id'])" style = "color:rgb(100, 100, 100)">{{list[i].title}}</h3>
+    </div>
+    <hr/>
+</ng-template>

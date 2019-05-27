@@ -9,11 +9,11 @@ import { CourseService } from '../course.service';
 
 
 @Component({
-  selector: 'app-course-list',
-  templateUrl: './course-list.public.html',
+  selector: 'app-course-sidebar',
+  templateUrl: './course-sidebar.html',
   styleUrls: ['./course-list.component.css']
 })
-export class CourseListComponent extends CourseComponent implements OnInit {
+export class CourseSideBarComponent extends CourseComponent implements OnInit {
 
 
   constructor(
