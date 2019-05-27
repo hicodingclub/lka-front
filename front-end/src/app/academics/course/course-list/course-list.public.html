@@ -34,9 +34,8 @@
 			<div class="card">
 			  <h5 class="card-header">{{list[i].title}}</h5>
 			  <div class="card-body">
-			    <h5 class="card-title">Special title treatment</h5>
 			    <p class="card-text">{{list[i].description}}</p>
-			    <a (click)="onDetailLinkClicked(list[i]['_id'])" class="btn btn-primary">Details</a>
+			    <a (click)="onDetailLinkClicked(list[i]['_id'])" class="btn btn-primary" style="background-color:#00BFFF; color: white; border:#00bfff">Details</a>
 			  </div>
 			</div>
 		</div>
@@ -44,9 +43,8 @@
 			<div class="card" *ngIf="list[i+1]">
 			  <h5 class="card-header">{{list[i+1].title}}</h5>
 			  <div class="card-body">
-			    <h5 class="card-title">Special title treatment</h5>
-			    <p class="card-text">{{list[i].description}}</p>
-			    <a (click)="onDetailLinkClicked(list[i]['_id'])" class="btn btn-primary">Details</a>
+			    <p class="card-text">{{list[i+1].description}}</p>
+			    <a (click)="onDetailLinkClicked(list[i]['_id'])" class="btn btn-primary" style="background-color:#00BFFF; color: white; border:#00bfff">Details</a>
 			  </div>
 			</div>
 		</div>
