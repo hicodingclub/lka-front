@@ -4,11 +4,9 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-
     "prebuild": "rm -f ../public-admin/storage",
     "build": "ng build",
     "postbuild": "ln -s ../storage ../public-admin/storage",
-
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
