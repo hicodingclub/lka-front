@@ -16,8 +16,8 @@ const authAccountDef = authServer.authAccountDef;
 const option = {authz: 'role'}; //admin role based authorization
 const authRouter = authServer.GetDefaultAuthnRouter(authAccountDef, option);
 
-const authzAccessRouter = authServer.GetDefaultAccessManageRouter("Access", authFuncs); //manage public access module
-const authzRolesRouter = authServer.GetDefaultRolesManageRouter("Roles", authFuncs); //manage admin roles module
+const authzAccessRouter = authServer.GetDefaultAccessManageRouter('Access', authFuncs); //manage public access module
+const authzRolesRouter = authServer.GetDefaultRolesManageRouter('Roles', authFuncs); //manage admin roles module
 
 const defaultUserDef = authServer.authUserDef;
 const usersRouter = meanRestExpress.RestRouter(defaultUserDef, 'Users', authFuncs);
@@ -34,13 +34,13 @@ const publicInfoRouter = meanRestExpress.RestRouter(publicInfoDbDefinition, 'Pub
 const fileSvr = require('mdds-mongoose-express-file-server');
 const defaultAdminSysDef = fileSvr.sampleAdminSysDef;
 const fileSOption = {
-  storage: "fs",
-  directory: path.join(__dirname, 'public-admin', 'storage', 'uploads'),
-  linkRoot: "/storage/uploads", //directly download from uploads dir as static file
+  storage: 'fs',
+  directory: path.join(__dirname, 'storage', 'uploads'),
+  linkRoot: '/api/files', //link = linkRoot + '/download' - download needs to be enabled.
 }
 const dbSOption = {
   storage: 'db',
-  linkRoot: '/api/files',   //link = linkRoot + "/download" - download needs to be enabled.
+  linkRoot: '/api/files',   //link = linkRoot + '/download' - download needs to be enabled.
 }
 const fileSvrRouter = fileSvr.ExpressRouter(defaultAdminSysDef, 'Files', authFuncs, fileSOption);
 
