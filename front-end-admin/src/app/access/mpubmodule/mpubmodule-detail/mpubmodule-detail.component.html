@@ -26,6 +26,13 @@
       
 			<div class="col-3"><label>Resources</label></div>
 			<div class="col-9">                
+                    <div *ngIf="detail['resources'] && detail['resources']['selection']">
+                        <ng-template ngFor let-element [ngForOf]="detail['resources']['selection']" let-idx="index">
+                            <div class="badge badge-pill badge-secondary">
+                                {{element}}
+                            </div>
+                        </ng-template>
+                    </div>
 </div>
 
           </div>

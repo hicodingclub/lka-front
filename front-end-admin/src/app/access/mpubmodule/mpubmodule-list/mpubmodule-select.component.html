@@ -167,6 +167,13 @@
 
 	            </td>
 	            <td (click)="selectItemSelected(i)"  class="pointer">                
+                    <div *ngIf="detail['resources'] && detail['resources']['selection']">
+                        <ng-template ngFor let-element [ngForOf]="detail['resources']['selection']" let-idx="index">
+                            <div class="badge badge-pill badge-secondary">
+                                {{element}}
+                            </div>
+                        </ng-template>
+                    </div>
 
 	            </td>
 

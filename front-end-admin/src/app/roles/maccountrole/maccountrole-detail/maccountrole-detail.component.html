@@ -29,6 +29,14 @@
       
 			<div class="col-3"><label>Role</label></div>
 			<div class="col-9">                
+                    <div *ngIf="detail['role'] && detail['role']['selection']">
+                        <ng-template ngFor let-element [ngForOf]="detail['role']['selection']" let-idx="index">
+                            <div class="badge-click badge badge-pill badge-secondary" 
+                                (click)="onDisplayRefClicked('role', detail['role']['selection'][idx], $event)">
+                                {{element.value}}
+                            </div>
+                        </ng-template>
+                    </div>
 </div>
 
           </div>

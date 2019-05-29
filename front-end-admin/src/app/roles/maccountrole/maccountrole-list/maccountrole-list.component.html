@@ -144,14 +144,14 @@
 
 		</div>
 	</div>
-	
+
 	<table class="table table-bordered table-hover">
 	    <thead class="thead-light">
 	    	<tr>
 		        <th scope="col">#</th>
 
 		        <th scope="col">Account</th>
-		        <th scope="col">Role</th>		        
+		        <th scope="col">Role</th>
 		        <th scope="col" style="width:6rem;"></th>
 		        <th scope="col" style="width:2rem;">
 		        	<input type="checkbox" [(ngModel)]="checkAll" (change)="onCheckAllChange()">
@@ -173,6 +173,14 @@
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
 	            	                
+                    <div *ngIf="detail['role'] && detail['role']['selection']">
+                        <ng-template ngFor let-element [ngForOf]="detail['role']['selection']" let-idx="index">
+                            <div class="badge-click badge badge-pill badge-secondary" 
+                                (click)="onDisplayRefClicked('role', detail['role']['selection'][idx], $event)">
+                                {{element.value}}
+                            </div>
+                        </ng-template>
+                    </div>
 
 	            </td>
 	            
@@ -187,7 +195,7 @@
 	        </tr>
 	    </tbody>
 	</table>
-	
+
 	<div class="container">
 		<div class="row">			<div class="col-3">
 			</div>

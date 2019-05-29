@@ -49,11 +49,12 @@
 			<div class="col-3"><label>Resource Permission</label></div>
 			<div class="col-9">                
                     <div *ngIf="detail['resourcePermission'] && detail['resourcePermission']['selection']">
-                    	<ng-template ngFor let-element [ngForOf]="detail['resourcePermission']['selection']" let-idx="index">
-                            <div class="badge badge-pill badge-secondary">
-                                {{element}}
+                        <ng-template ngFor let-element [ngForOf]="objectKeys(detail['resourcePermission']['selection'])" let-idx="index">
+                            <div class="row">
+                                <div class="col-3">{{element}}:</div>
+                                <div class="col-3">{{detail['resourcePermission']['selection'][element]}}</div>
                             </div>
-						</ng-template>
+                        </ng-template>
                     </div>
 </div>
 
