@@ -10,7 +10,7 @@ import { MfileService } from '../mfile.service';
 
 @Component({
   selector: 'app-mfile-list',
-  templateUrl: './mfile-list.component.html',
+  templateUrl: './mfile-list.component2.html',
   styleUrls: ['./mfile-list.component.css']
 })
 export class MfileListComponent extends MfileComponent implements OnInit {

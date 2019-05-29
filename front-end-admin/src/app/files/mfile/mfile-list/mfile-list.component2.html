@@ -250,15 +250,12 @@
 	<table class="table table-bordered table-hover">
 	    <thead class="thead-light">
 	    	<tr>
-		        <th scope="col">#</th>
+		        <th scope="col" width="30%"></th>
 
 		        <th scope="col">Name</th>
-		        <th scope="col">Type</th>
 		        <th scope="col">Labels</th>
 		        <th scope="col">Size</th>
-		        <th scope="col">Link</th>
 		        <th scope="col">Uploaded</th>
-		        <th scope="col">Has Thumbnail</th>		        
 		        <th scope="col" style="width:6rem;"></th>
 		        
 	        </tr>
@@ -266,7 +263,9 @@
 	    <tbody>
 	        <tr *ngFor="let detail of list;  let i = index" [ngClass]="{'clicked-row': clickedId==detail['_id']}">
 	            <td scope="row" >
-	            	{{(page-1)*per_page+i+1}}
+	              <div class="thumbnail">
+	            	<img src="{{detail['link']}}_thumbnail"/>
+	              </div>
 	            </td>
 
 	            <td >
@@ -274,37 +273,22 @@
 
 	            </td>
 	            <td >
-	            	                  {{detail['type']}} 
-
-	            </td>
-	            <td >
-	            	                
-                    <div *ngIf="detail['labels'] && detail['labels']['selection']">
-                    	<ng-template ngFor let-element [ngForOf]="detail['labels']['selection']" let-idx="index">
-                            <div class="badge badge-pill badge-secondary">
-                                {{element}}
-                            </div>
-						</ng-template>
-                    </div>
-
+								<div *ngIf="detail['labels'] && detail['labels']['selection']">
+									<ng-template ngFor let-element [ngForOf]="detail['labels']['selection']" let-idx="index">
+												<div class="badge badge-pill badge-secondary">
+														{{element}}
+												</div>
+									</ng-template>
+								</div>
 	            </td>
 	            <td >
 	            	                  {{detail['size']}} 
 
 	            </td>
 	            <td >
-	            	                  {{detail['link']}} 
-
-	            </td>
-	            <td >
 	            	                  {{detail['uploaded']?detail['uploaded']['value']:""}}
 
 	            </td>
-	            <td >
-	            	                  {{detail['hasThumbnail']}} 
-
-	            </td>
-	            
 	            <td>
 	            	<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
 	            	
@@ -359,5 +343,3 @@
 	</div>
 	
 </div>
-
-
