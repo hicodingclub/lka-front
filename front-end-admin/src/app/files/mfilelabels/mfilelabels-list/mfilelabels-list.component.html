@@ -33,7 +33,11 @@
 
 
 		<hr/>
-		<div class="row">			<div class="col-3">
+		<div class="row">			<div class="col-3">				
+				<input type="radio" name="view-filter" id="list-view" class="view-radio" (click)="setListView(true)" checked>
+					<label for="list-view"><i class="fa fa-list-alt"></i></label>
+				<input type="radio" name="view-filter" id="grid-view" class="view-radio" (click)="setListView(false)">
+					<label for="grid-view"><i class="fa fa-th"></i></label>
 			</div>
 			<div class="col-6">
 			  <div *ngIf="total_pages > 1">
@@ -69,20 +73,20 @@
 			</div>
 			<div class="col-3">
 				<div class="total_counts">
-					Total: <b>{{total_count}}</b> items
-					<a class="float-right" routerLink="." (click)="onRefresh()"><i class="fa fa-sync-alt"></i></a>
+					Total: <b>{{total_count}}</b> items				
+					<a class="mr-2 float-right" routerLink="." (click)="onRefresh()"><i class="fa fa-sync-alt"></i></a>
 				</div>
 			</div>			
 
 		</div>
 	</div>
-	
-	<table class="table table-bordered table-hover">
+
+	<table *ngIf="isShowListView()" class="table table-bordered table-hover">
 	    <thead class="thead-light">
 	    	<tr>
 		        <th scope="col">#</th>
 
-		        <th scope="col">Label</th>		        
+		        <th scope="col">Label</th>
 		        
 		        
 	        </tr>
@@ -102,7 +106,26 @@
 	        </tr>
 	    </tbody>
 	</table>
-	
+
+	<div class="grids" *ngIf="!isShowListView()">
+		<div class="grid-block" *ngFor="let detail of list;  let i = index">
+			<div class="card text-left h-100 "
+			    >
+				<div class="card-body">
+					<div class="card-text">
+
+      <div>
+        <div class="d-inline-block"><label>Label:</label></div>
+        <div class="ml-3 d-inline-block">                  {{detail['label']}} 
+</div>
+      </div>
+          
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<div class="container">
 		<div class="row">			<div class="col-3">
 			</div>
