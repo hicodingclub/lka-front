@@ -194,7 +194,7 @@
 
 	<div class="grids" *ngIf="!isShowListView()">
 		<div class="grid-block" *ngFor="let detail of list;  let i = index">
-			<div class="card text-left clickable-card"
+			<div class="card text-left h-100 clickable-card"
 			    (click)="onDetailLinkClicked(detail['_id'])"
 				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
 				<div class="card-body">

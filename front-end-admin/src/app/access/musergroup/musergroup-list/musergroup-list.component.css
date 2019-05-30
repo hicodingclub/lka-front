@@ -211,8 +211,8 @@ div.badge-click:hover {
   display: inline-block;
   margin: 0.5rem;
   align-self: stretch;
-  border: 1px solid rgba(0,0,0,.125);
-  border-radius: .25rem;
+  /*border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25rem;*/
 }
 
 .clickable-card:hover {
@@ -223,8 +223,4 @@ div.badge-click:hover {
 .card label {
   font-weight: bold;
 	font-size: 1rem;
-}
-
-.grid-block .card {
-  border: none;
 }
