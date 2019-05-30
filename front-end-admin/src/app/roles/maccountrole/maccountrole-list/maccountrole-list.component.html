@@ -101,7 +101,11 @@
 
 
 		<hr/>
-		<div class="row">			<div class="col-3">
+		<div class="row">			<div class="col-3">				
+				<input type="radio" name="view-filter" id="list-view" class="view-radio" (click)="setListView(true)" checked>
+					<label for="list-view"><i class="fa fa-list-alt"></i></label>
+				<input type="radio" name="view-filter" id="grid-view" class="view-radio" (click)="setListView(false)">
+					<label for="grid-view"><i class="fa fa-th"></i></label>
 			</div>
 			<div class="col-6">
 			  <div *ngIf="total_pages > 1">
@@ -137,15 +141,15 @@
 			</div>
 			<div class="col-3">
 				<div class="total_counts">
-					Total: <b>{{total_count}}</b> items
-					<a class="float-right" routerLink="." (click)="onRefresh()"><i class="fa fa-sync-alt"></i></a>
+					Total: <b>{{total_count}}</b> items				
+					<a class="mr-2 float-right" routerLink="." (click)="onRefresh()"><i class="fa fa-sync-alt"></i></a>
 				</div>
 			</div>			
 
 		</div>
 	</div>
 
-	<table class="table table-bordered table-hover">
+	<table *ngIf="isShowListView()" class="table table-bordered table-hover">
 	    <thead class="thead-light">
 	    	<tr>
 		        <th scope="col">#</th>
@@ -195,6 +199,42 @@
 	        </tr>
 	    </tbody>
 	</table>
+
+	<div class="grids" *ngIf="!isShowListView()">
+		<div class="grid-block" *ngFor="let detail of list;  let i = index">
+			<div class="card text-left clickable-card"
+			    (click)="onDetailLinkClicked(detail['_id'])"
+				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
+				<div class="card-body">
+					<div class="card-text">
+
+      <div>
+        <div class="d-inline-block"><label>Account:</label></div>
+        <div class="ml-3 d-inline-block">                
+               	  
+	            	{{detail['account']?detail['account']['value']:""}}
+	              
+</div>
+      </div>
+      <div>
+        <div class="d-inline-block"><label>Role:</label></div>
+        <div class="ml-3 d-inline-block">                
+                    <div *ngIf="detail['role'] && detail['role']['selection']">
+                        <ng-template ngFor let-element [ngForOf]="detail['role']['selection']" let-idx="index">
+                            <div class="badge-click badge badge-pill badge-secondary" 
+                                (click)="onDisplayRefClicked('role', detail['role']['selection'][idx], $event)">
+                                {{element.value}}
+                            </div>
+                        </ng-template>
+                    </div>
+</div>
+      </div>
+          
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<div class="container">
 		<div class="row">			<div class="col-3">
