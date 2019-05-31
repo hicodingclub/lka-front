@@ -34,13 +34,14 @@
 
 
 		<hr/>
-		<div class="row">			<div class="col-3">				
+		<div class="row">
+			<div class="col-3">				
 				<input type="radio" name="view-filter" id="list-view" class="view-radio" 
 					(click)="setListViewFilter('list')" [checked]="isShowListView()">
 					<label for="list-view"><i class="fa fa-list-alt"></i></label>
 				<input type="radio" name="view-filter" id="grid-view" class="view-radio"
 					(click)="setListViewFilter('grid')" [checked]="!isShowListView()">
-				<label for="grid-view"><i class="fa fa-th"></i></label>
+				  <label for="grid-view"><i class="fa fa-th"></i></label>
 			</div>
 			<div class="col-6">
 			  <div *ngIf="total_pages > 1">
@@ -76,8 +77,9 @@
 			</div>
 			<div class="col-3">
 				<div class="total_counts">
-					Total: <b>{{total_count}}</b> items				
-					<a class="mr-2 float-right" routerLink="." (click)="onRefresh()"><i class="fa fa-sync-alt"></i></a>
+					Total: <b>{{total_count}}</b>
+					<input type="checkbox" class="ml-3 mr-1" [(ngModel)]="checkAll" (change)="onCheckAllChange()"><small>Select All</small>			
+					<a class="ml-3" routerLink="." (click)="onRefresh()"><i class="fa fa-sync-alt"></i></a>
 				</div>
 			</div>			
 
@@ -91,11 +93,8 @@
 
 		        <th scope="col">Role</th>
 		        <th scope="col">Description</th>
-		        <th scope="col" style="width:6rem;"></th>
-		        <th scope="col" style="width:2rem;">
-		        	<input type="checkbox" [(ngModel)]="checkAll" (change)="onCheckAllChange()">
-		        </th>
-	        </tr>
+		        <th scope="col" style="width:7.8rem;"></th>
+	    	</tr>
 	    </thead>
 	    <tbody>
 	        <tr *ngFor="let detail of list;  let i = index" [ngClass]="{'clicked-row': clickedId==detail['_id']}">
@@ -115,10 +114,7 @@
 	            <td>
 	            	<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
 	            	<a routerLink="." (click)="onDelete(detail['_id'], i)"><i class="fas fa-trash-alt" title="Delete"></i></a>
-	            </td>
-	            
-	            <td>      
-	            	<input type="checkbox" [(ngModel)]="checkedItem[i]"/>
+					<input type="checkbox" [(ngModel)]="checkedItem[i]"/>
 	            </td>
 	        </tr>
 	    </tbody>
@@ -126,7 +122,7 @@
 
 	<div class="grids" *ngIf="!isShowListView()">
 		<div class="grid-block" *ngFor="let detail of list;  let i = index">
-			<div class="card text-left h-100 clickable-card"
+			<div class="card text-left h-100 clickable-card pointer"
 				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
 				<div class="card-body" (click)="onDetailLinkClicked(detail['_id'])">
 					<div class="card-text">
@@ -134,14 +130,16 @@
       <div>
         <div class="d-inline-block"><label>Role:</label></div>
         <div class="ml-3 d-inline-block">                  {{detail['role']}} 
-</div>
+
+        </div>
       </div>
       <div>
         <div class="d-inline-block"><label>Description:</label></div>
         <div class="ml-3 d-inline-block">                  {{detail['description']}} 
-</div>
+
+        </div>
       </div>
-          
+
 					</div>
 				</div>
 				
@@ -191,7 +189,7 @@
 			</div>
 			<div class="col-3">
 				<div class="total_counts">
-					Total: <b>{{total_count}}</b> items
+					Total: <b>{{total_count}}</b>
 				</div>
 			</div>			
 

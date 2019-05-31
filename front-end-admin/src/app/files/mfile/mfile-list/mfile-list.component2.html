@@ -204,13 +204,13 @@
 
 		<hr/>
 		<div class="row">
-			<div class="col-3">
-					<input type="radio" name="view-filter" id="list-view" class="view-radio" 
+			<div class="col-3">				
+				<input type="radio" name="view-filter" id="list-view" class="view-radio" 
 					(click)="setListViewFilter('list')" [checked]="isShowListView()">
 					<label for="list-view"><i class="fa fa-list-alt"></i></label>
 				<input type="radio" name="view-filter" id="grid-view" class="view-radio"
 					(click)="setListViewFilter('grid')" [checked]="!isShowListView()">
-	  			<label for="grid-view"><i class="fa fa-th"></i></label>
+				  <label for="grid-view"><i class="fa fa-th"></i></label>
 			</div>
 			<div class="col-6">
 			  <div *ngIf="total_pages > 1">
@@ -246,14 +246,14 @@
 			</div>
 			<div class="col-3">
 				<div class="total_counts">
-					Total: <b>{{total_count}}</b> items
-					<a class="mr-2 float-right" routerLink="." (click)="onRefresh()"><i class="fa fa-sync-alt"></i></a>
+					Total: <b>{{total_count}}</b>			
+					<a class="ml-3" routerLink="." (click)="onRefresh()"><i class="fa fa-sync-alt"></i></a>
 				</div>
 			</div>			
 
 		</div>
 	</div>
-	
+
 	<table *ngIf="isShowListView()" class="table table-bordered table-hover">
 	    <thead class="thead-light">
 	    	<tr>
@@ -306,8 +306,7 @@
 	</table>
 	<div class="grids" *ngIf="!isShowListView()">
 			<div class="grid-block" *ngFor="let detail of list;  let i = index">
-				<div class="card text-left h-100 "
-						>
+				<div class="card text-left h-100  clickable-card ">
 					<div class="thumbnail-card-top">
 	            	<img src="{{detail['link']}}_thumbnail"/>
 	        </div>
@@ -352,10 +351,9 @@
 				</div>
 			</div>
 	</div>
-		
+
 	<div class="container">
-		<div class="row">
-			<div class="col-3">
+		<div class="row">			<div class="col-3">
 			</div>
 			<div class="col-6">
 			  <div *ngIf="total_pages > 1">
@@ -391,7 +389,7 @@
 			</div>
 			<div class="col-3">
 				<div class="total_counts">
-					Total: <b>{{total_count}}</b> items
+					Total: <b>{{total_count}}</b>
 				</div>
 			</div>			
 
