@@ -237,14 +237,12 @@ div.badge-click:hover {
 }
 
 .thumbnail {
-       overflow: hidden;
-       height: 72px;
-       width: 72p;
+  overflow: hidden;
+  height: 72px;
 }
-
 .thumbnail-card-top {
-       overflow: hidden;
-       height: 40%;
+  overflow: hidden;
+  height: 40%;
 }
 .thumbnail img, .thumbnail-card-top img  {
   height: 100%;
