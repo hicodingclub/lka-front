@@ -13,10 +13,13 @@ var studentSchema = new Schema(
 );
 
 // Virtual for Student's full name
-studentSchema
-.virtual('name')
-.get(function () {
-  return this.last_name + ', ' + this.first_name;
+studentSchema.virtual('name').get(function () {
+  if (this.first_name && this.last_name) {
+      return this.first_name + ' ' + this.last_name;
+  }
+  let fullName = this.first_name || this.last_name;
+  if (!fullName) fullName = "Unknown"
+  return fullName;
 });
 
 var studentBrief = "first_name last_name email";
@@ -24,7 +27,7 @@ var studentDetail = "first_name last_name | date_of_birth grade | email";
 var studentCreat = "first_name last_name date_of_birth email grade";
 var studentEdit = "first_name last_name date_of_birth email grade";
 var studentTextSearch = "first_name last_name date_of_birth email grade";
-var studentIndex = "email";
+var studentIndex = "name";
 
 var views = [studentBrief, studentDetail, studentCreat, studentEdit, studentTextSearch, studentIndex]
 
