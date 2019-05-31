@@ -339,7 +339,13 @@
 					<div class="ml-3 d-inline-block">                  {{detail['uploaded']?detail['uploaded']['value']:""}}
 	        </div>
 				</div>
+				<div class="card-action-icons">
+						<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
+				</div>
 						</div>
+					</div>
+					<div class="card-action-icons">
+							<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
 					</div>
 				</div>
 			</div>

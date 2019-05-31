@@ -2,15 +2,26 @@ table {
 	margin-top: 0.5rem;
 }
 
-td i {
+.card-action-icons {
+  text-align: right;
+  position: absolute;
+  bottom: 0px;
+  right: 0.5rem;
+}
+
+td i, .card-action-icons i {
 	color:black;
 	margin-left: 0.5rem;
 	margin-right: 0.5rem;
 }
-td a i:hover {
+.card-action-icons input {
+	margin-left: 0.5rem;
+	margin-right: 0.5rem;
+}
+td a i:hover, .card-action-icons a i:hover{
 	color: blue;
 }
-td a i.fa-trash-alt:hover {
+td a i.fa-trash-alt:hover, .card-action-icons a i.fa-trash-alt:hover {
 	color: red;
 }
 
@@ -106,10 +117,11 @@ table {
 }
 
 .clicked-row {
-background-color: #dcdfe0;
+    /*background-color: #dcdfe0;
+    background-color: rgba(0,0,0,.075); */
 }
 .selected-row {
-background-color: #c9f5eb;
+    background-color: #c9f5eb;
 }
 
 
@@ -177,7 +189,6 @@ div.badge-click:hover {
   text-decoration: underline;
 }
 
-
 .view-radio + label {
   transition: all 0.2s ease-in-out;
   color: #bbbdbf;
@@ -226,14 +237,14 @@ div.badge-click:hover {
 }
 
 .thumbnail {
-	overflow: hidden;
-	height: 72px;
-	width: 72p;
+       overflow: hidden;
+       height: 72px;
+       width: 72p;
 }
 
 .thumbnail-card-top {
-	overflow: hidden;
-	height: 40%;
+       overflow: hidden;
+       height: 40%;
 }
 .thumbnail img, .thumbnail-card-top img  {
   height: 100%;
