@@ -68,3 +68,5 @@ public-admin
 
 # directory .idea
 .idea/*
+
+storage/uploads/*
