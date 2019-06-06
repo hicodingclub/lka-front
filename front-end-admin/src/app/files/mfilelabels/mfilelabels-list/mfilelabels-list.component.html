@@ -34,12 +34,15 @@
 
 		<hr/>
 		<div class="row">
-			<div class="col-3">				
-				<input type="radio" name="view-filter" id="list-view" class="view-radio" 
-					(click)="setListViewFilter('list')" [checked]="isShowListView()">
-					<label for="list-view"><i class="fa fa-list-alt"></i></label>
+			<div class="col-3">
+				<input type="radio" name="view-filter" id="table-view" class="view-radio"
+					(click)="setListViewFilter('table')" [checked]="isShowListView('table')">
+					<label for="table-view"><i class="fa fa-list-alt"></i></label>
+				<input type="radio" name="view-filter" id="list-view" class="view-radio"
+					(click)="setListViewFilter('list')" [checked]="isShowListView('list')">
+				  <label for="list-view"><i class="fa fa-th-list"></i></label>
 				<input type="radio" name="view-filter" id="grid-view" class="view-radio"
-					(click)="setListViewFilter('grid')" [checked]="!isShowListView()">
+					(click)="setListViewFilter('grid')" [checked]="isShowListView('grid')">
 				  <label for="grid-view"><i class="fa fa-th"></i></label>
 			</div>
 			<div class="col-6">
@@ -84,7 +87,7 @@
 		</div>
 	</div>
 
-	<table *ngIf="isShowListView()" class="table table-bordered table-hover">
+	<table *ngIf="isShowListView('table')" class="table table-bordered table-hover">
 	    <thead class="thead-light">
 	    	<tr>
 		        <th scope="col">#</th>
@@ -100,7 +103,8 @@
 	            </td>
 
 	            <td >
-	            	                  {{detail['label']}} 
+	            	                
+                    {{detail['label']}}
 
 	            </td>
 	            
@@ -108,7 +112,7 @@
 	    </tbody>
 	</table>
 
-	<div class="grids" *ngIf="!isShowListView()">
+	<div class="grids" *ngIf="isShowListView('grid')">
 		<div class="grid-block" *ngFor="let detail of list;  let i = index">
 			<div class="card text-left h-100 clickable-card "
 				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
@@ -117,7 +121,8 @@
 
       <div>
         <div class="d-inline-block"><label>Label:</label></div>
-        <div class="ml-3 d-inline-block">                  {{detail['label']}} 
+        <div class="ml-3 d-inline-block">                
+                    {{detail['label']}}
 
         </div>
       </div>

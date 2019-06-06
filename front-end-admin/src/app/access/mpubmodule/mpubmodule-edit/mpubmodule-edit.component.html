@@ -11,184 +11,188 @@
 	     <div *ngIf="action == 'Edit'">
 <div *ngIf="!hiddenFields.includes('module')">
 
-	      <fieldset class="form-group">
-	        <label for="EditModule">Module</label>
-	        
+        <fieldset class="form-group">
+          <label for="EditModule">Module</label>
+          
 
-        	<div class="input-group">
-		        <input type="text" class="form-control rounded" id="EditModule" 
-		                required
-		                
-		                
-			        	 
-		                [(ngModel)]="detail['module']" name="EditModule"
-		                #EditModule="ngModel">
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditModule" 
+                    required
+                    
+                    
+                 
+                    [(ngModel)]="detail['module']" name="EditModule"
+                    #EditModule="ngModel">
                 <div *ngIf="detail['module']" 
-			          class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('module')">
-			          <i class="fas fa-times-circle" title="Clear"></i></div>
-	        </div>
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('module')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+          </div>
 
-	        <div [hidden]="EditModule.valid || EditModule.pristine || EditModule.errors.minlength"
-     			class="alert alert-danger">
+          <div [hidden]="EditModule.valid || EditModule.pristine || EditModule.errors.minlength"
+           class="alert alert-danger">
 
-	          <div *ngIf="EditModule.errors && EditModule.errors.required">
-    	        Module is required.
-  	          </div>
+            <div *ngIf="EditModule.errors && EditModule.errors.required">
+              Module is required.
+              </div>
  
 
-	        </div>
+          </div>
         
-	      </fieldset>
+        </fieldset>
+
     
 </div><div *ngIf="!hiddenFields.includes('resources')">
 
           <fieldset class="form-group">
-	        <label for="EditResources">Resources</label>
-	        
+          <label for="EditResources">Resources</label>
+          
 
             <div class="form-check"
                 ngModelGroup="EditResources"
                 
                 #EditResources="ngModelGroup" 
-		        >
+            >
                 <ng-template [ngIf]="detail['resources'] && detail['resources']['selection']">
-                   	<div class="badge badge-pill badge-secondary" *ngFor="let element of detail['resources']['selection']; let i = index;">
+                     <div class="badge badge-pill badge-secondary" *ngFor="let element of detail['resources']['selection']; let i = index;">
                         {{element}}
-					    <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromArrayField('resources', i)" title="Remove"></i>
-					</div>
+              <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromArrayField('resources', i)" title="Remove"></i>
+          </div>
                 </ng-template>
 
-			    <span *ngIf="arraySelected('resources')" 
-			          class="icon-clear" (click)="clearValueFromDetail('resources')">
-			          <i class="fas fa-times-circle" title="Clear"></i></span>
+          <span *ngIf="arraySelected('resources')" 
+                class="icon-clear" (click)="clearValueFromDetail('resources')">
+                <i class="fas fa-times-circle" title="Clear"></i></span>
 
                 <div class="input-group input-group-sm w-50 mt-3">
-	              <input type="search" class="form-control border"
-	              		id="EditResourcesNew" #EditResourcesNew="ngModel"
-						[(ngModel)]="detail['resources']['new']" [ngModelOptions]="{standalone: true}"
-		                
-		                
-			        	 
-						(keydown.enter)="$event.target.blur();onAddArrayItem('resources');false"
-					    > 
-				  <div class="input-group-append">
-				    <button type="button" class="btn btn-outline-secondary" (click)="onAddArrayItem('resources')"><i class="fas fa-plus"></i></button>
-				  </div>
-				</div>
-		        <div [hidden]="EditResourcesNew.valid
-		                       || EditResourcesNew.pristine 
-		                       || EditResourcesNew.errors.minlength"
-	     			class="alert alert-danger small p-1">
+                <input type="search" class="form-control border"
+                    id="EditResourcesNew" #EditResourcesNew="ngModel"
+            [(ngModel)]="detail['resources']['new']" [ngModelOptions]="{standalone: true}"
+                    
+                    
+                 
+            (keydown.enter)="$event.target.blur();onAddArrayItem('resources');false"
+              > 
+          <div class="input-group-append">
+            <button type="button" class="btn btn-outline-secondary" (click)="onAddArrayItem('resources')"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+            <div [hidden]="EditResourcesNew.valid
+                           || EditResourcesNew.pristine 
+                           || EditResourcesNew.errors.minlength"
+             class="alert alert-danger small p-1">
  
 
-		        </div>
+            </div>
         
 
                 <!-- fake hidden input ngModel for directive to check the values-->
-		        <input type="checkbox" name="EditResourcesSelection" 
-		        	 style="display:none"
-		        	 id="EditResourcesSelection"
-		             [(ngModel)]="detail['resources']['selection'].length" 
-		             #EditResourcesSelection="ngModel">
-		    </div>
+            <input type="checkbox" name="EditResourcesSelection" 
+               style="display:none"
+               id="EditResourcesSelection"
+                 [(ngModel)]="detail['resources']['selection'].length" 
+                 #EditResourcesSelection="ngModel">
+        </div>
 
-	        <div [hidden]="EditResources.valid || EditResources.pristine"
-     			class="alert alert-danger">
+          <div [hidden]="EditResources.valid || EditResources.pristine"
+           class="alert alert-danger">
 
-	        </div>
-	      </fieldset>
+          </div>
+        </fieldset>
     
 </div>
          </div>	
 	     <div *ngIf="action == 'Create' || action == 'Add' ">
 <div *ngIf="!hiddenFields.includes('module')">
 
-	      <fieldset class="form-group">
-	        <label for="EditModule">Module</label>
-	        
+        <fieldset class="form-group">
+          <label for="EditModule">Module</label>
+          
 
-        	<div class="input-group">
-		        <input type="text" class="form-control rounded" id="EditModule" 
-		                required
-		                
-		                
-			        	 
-		                [(ngModel)]="detail['module']" name="EditModule"
-		                #EditModule="ngModel">
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditModule" 
+                    required
+                    
+                    
+                 
+                    [(ngModel)]="detail['module']" name="EditModule"
+                    #EditModule="ngModel">
                 <div *ngIf="detail['module']" 
-			          class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('module')">
-			          <i class="fas fa-times-circle" title="Clear"></i></div>
-	        </div>
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('module')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+          </div>
 
-	        <div [hidden]="EditModule.valid || EditModule.pristine || EditModule.errors.minlength"
-     			class="alert alert-danger">
+          <div [hidden]="EditModule.valid || EditModule.pristine || EditModule.errors.minlength"
+           class="alert alert-danger">
 
-	          <div *ngIf="EditModule.errors && EditModule.errors.required">
-    	        Module is required.
-  	          </div>
+            <div *ngIf="EditModule.errors && EditModule.errors.required">
+              Module is required.
+              </div>
  
 
-	        </div>
+          </div>
         
-	      </fieldset>
+        </fieldset>
+
     
 </div><div *ngIf="!hiddenFields.includes('resources')">
 
           <fieldset class="form-group">
-	        <label for="EditResources">Resources</label>
-	        
+          <label for="EditResources">Resources</label>
+          
 
             <div class="form-check"
                 ngModelGroup="EditResources"
                 
                 #EditResources="ngModelGroup" 
-		        >
+            >
                 <ng-template [ngIf]="detail['resources'] && detail['resources']['selection']">
-                   	<div class="badge badge-pill badge-secondary" *ngFor="let element of detail['resources']['selection']; let i = index;">
+                     <div class="badge badge-pill badge-secondary" *ngFor="let element of detail['resources']['selection']; let i = index;">
                         {{element}}
-					    <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromArrayField('resources', i)" title="Remove"></i>
-					</div>
+              <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromArrayField('resources', i)" title="Remove"></i>
+          </div>
                 </ng-template>
 
-			    <span *ngIf="arraySelected('resources')" 
-			          class="icon-clear" (click)="clearValueFromDetail('resources')">
-			          <i class="fas fa-times-circle" title="Clear"></i></span>
+          <span *ngIf="arraySelected('resources')" 
+                class="icon-clear" (click)="clearValueFromDetail('resources')">
+                <i class="fas fa-times-circle" title="Clear"></i></span>
 
                 <div class="input-group input-group-sm w-50 mt-3">
-	              <input type="search" class="form-control border"
-	              		id="EditResourcesNew" #EditResourcesNew="ngModel"
-						[(ngModel)]="detail['resources']['new']" [ngModelOptions]="{standalone: true}"
-		                
-		                
-			        	 
-						(keydown.enter)="$event.target.blur();onAddArrayItem('resources');false"
-					    > 
-				  <div class="input-group-append">
-				    <button type="button" class="btn btn-outline-secondary" (click)="onAddArrayItem('resources')"><i class="fas fa-plus"></i></button>
-				  </div>
-				</div>
-		        <div [hidden]="EditResourcesNew.valid
-		                       || EditResourcesNew.pristine 
-		                       || EditResourcesNew.errors.minlength"
-	     			class="alert alert-danger small p-1">
+                <input type="search" class="form-control border"
+                    id="EditResourcesNew" #EditResourcesNew="ngModel"
+            [(ngModel)]="detail['resources']['new']" [ngModelOptions]="{standalone: true}"
+                    
+                    
+                 
+            (keydown.enter)="$event.target.blur();onAddArrayItem('resources');false"
+              > 
+          <div class="input-group-append">
+            <button type="button" class="btn btn-outline-secondary" (click)="onAddArrayItem('resources')"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+            <div [hidden]="EditResourcesNew.valid
+                           || EditResourcesNew.pristine 
+                           || EditResourcesNew.errors.minlength"
+             class="alert alert-danger small p-1">
  
 
-		        </div>
+            </div>
         
 
                 <!-- fake hidden input ngModel for directive to check the values-->
-		        <input type="checkbox" name="EditResourcesSelection" 
-		        	 style="display:none"
-		        	 id="EditResourcesSelection"
-		             [(ngModel)]="detail['resources']['selection'].length" 
-		             #EditResourcesSelection="ngModel">
-		    </div>
+            <input type="checkbox" name="EditResourcesSelection" 
+               style="display:none"
+               id="EditResourcesSelection"
+                 [(ngModel)]="detail['resources']['selection'].length" 
+                 #EditResourcesSelection="ngModel">
+        </div>
 
-	        <div [hidden]="EditResources.valid || EditResources.pristine"
-     			class="alert alert-danger">
+          <div [hidden]="EditResources.valid || EditResources.pristine"
+           class="alert alert-danger">
 
-	        </div>
-	      </fieldset>
+          </div>
+        </fieldset>
     
 </div>
          </div>	

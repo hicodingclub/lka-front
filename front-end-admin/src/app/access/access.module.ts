@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 
 
 
+
 import { MraModule } from 'mean-rest-angular';
 
 import { AccessRoutingModule } from './access-routing.module';
@@ -50,7 +51,6 @@ import { MpubaccessDetailSubComponent } from './mpubaccess/mpubaccess-detail/mpu
     CommonModule,
     HttpClientModule,
     FormsModule,
-
     MraModule,
 
     AccessRoutingModule

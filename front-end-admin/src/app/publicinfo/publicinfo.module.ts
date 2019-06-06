@@ -9,6 +9,7 @@ import { MraNgbDateFormatterService } from './publicinfo.directive';
 
 
 
+
 import { MraModule } from 'mean-rest-angular';
 
 import { PublicinfoRoutingModule } from './publicinfo-routing.module';
@@ -44,7 +45,6 @@ import { EventService } from './event/event.service';
     CommonModule,
     HttpClientModule,
     FormsModule,
-
     NgbModule,
     MraModule,
 

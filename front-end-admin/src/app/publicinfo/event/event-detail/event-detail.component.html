@@ -17,7 +17,8 @@
           <div class="row">
       
 			<div class="col-3"><label>Title</label></div>
-			<div class="col-9">                  {{detail['title']}} 
+			<div class="col-9">                
+                    {{detail['title']}}
 </div>
 
           </div>
@@ -25,7 +26,8 @@
           <div class="row">
       
 			<div class="col-3"><label>Author</label></div>
-			<div class="col-9">                  {{detail['author']}} 
+			<div class="col-9">                
+                    {{detail['author']}}
 </div>
 
           </div>
@@ -42,8 +44,8 @@
       
 			<div class="col-3"><label>Content</label></div>
 			<div class="col-9">                 
-	            	 <div mra-richtext-show="eventDetailContent"></div>
-	            	{{detail['content']?detail['content']['value']:""}}
+                    <div mra-richtext-show="eventDetailContent"></div>
+                   {{detail['content']?detail['content']['value']:""}}
 </div>
 
           </div>

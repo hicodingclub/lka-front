@@ -9,6 +9,7 @@ import { MraNgbDateFormatterService } from './roles.directive';
 
 
 
+
 import { MraModule } from 'mean-rest-angular';
 
 import { RolesRoutingModule } from './roles-routing.module';
@@ -67,7 +68,6 @@ import { MaccountroleDetailSubComponent } from './maccountrole/maccountrole-deta
     CommonModule,
     HttpClientModule,
     FormsModule,
-
     NgbModule,
     MraModule,
 
