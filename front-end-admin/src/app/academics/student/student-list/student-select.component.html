@@ -98,13 +98,16 @@
 	        	[ngClass]="{'clicked-row': detail['_id']==clickedId}" >
 	            <td scope="row" (click)="selectItemSelected(i)"  class="pointer">{{(page-1)*per_page+i+1}}</td>
 
-	            <td (click)="selectItemSelected(i)"  class="pointer">                  {{detail['first_name']}} 
+	            <td (click)="selectItemSelected(i)"  class="pointer">                
+                    {{detail['first_name']}}
 
 	            </td>
-	            <td (click)="selectItemSelected(i)"  class="pointer">                  {{detail['last_name']}} 
+	            <td (click)="selectItemSelected(i)"  class="pointer">                
+                    {{detail['last_name']}}
 
 	            </td>
-	            <td (click)="selectItemSelected(i)"  class="pointer">                  {{detail['email']}} 
+	            <td (click)="selectItemSelected(i)"  class="pointer">                
+                    {{detail['email']}}
 
 	            </td>
 

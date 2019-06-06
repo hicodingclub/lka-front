@@ -60,7 +60,7 @@
 		        	Courses
 		        </th>
 		        <th scope="col">
-		        	Introduction
+		        	Photo
 		        </th>		        
                 <th scope="col" style="width:2rem;"></th>
 
@@ -73,11 +73,13 @@
 	            <td scope="row">{{(page-1)*per_page+i+1}}</td>
 
 	            <td >
-	            	                  {{detail['firstName']}} 
+	            	                
+                    {{detail['firstName']}}
 
                 </td>
 	            <td >
-	            	                  {{detail['lastName']}} 
+	            	                
+                    {{detail['lastName']}}
 
                 </td>
 	            <td *ngIf="referenceFieldsMap['courses'] != parentItem"  >
@@ -88,7 +90,8 @@
 
                 </td>
 	            <td >
-	            	                  {{detail['introduction']}} 
+	            	                
+                    <file-display [downloadUrl]="detail['photo']"></file-display>
 
                 </td>
 	            <td>

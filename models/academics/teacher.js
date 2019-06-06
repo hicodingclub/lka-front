@@ -9,7 +9,10 @@ var teacherSchema = new Schema(
     courses: {type: Schema.Types.ObjectId, ref: 'Course', required: true},
     introduction: {type: String, required: true},
     email: {type: String, required: true},
-    phoneNumber: {type: String}
+    phoneNumber: {type: String},
+    // mraType: a link to a picture; mraPresent: present the picture; mraSharable: if the picture is sharable with other items
+    photo: {type: String,  required: true,
+      mraType: 'picture', mraSharable: false},
   }
 );
 
@@ -22,10 +25,10 @@ teacherSchema.virtual('name').get(function () {
   return fullName;
 });
 
-var teacherBrief = "firstName lastName courses introduction";
-var teacherDetail = "firstName lastName | email | phoneNumber  courses | introduction ";
-var teacherCreat = "firstName lastName courses introduction email phoneNumber";
-var teacherEdit = "firstName lastName courses introduction email phoneNumber";
+var teacherBrief = "firstName lastName courses introduction, photo";
+var teacherDetail = "firstName lastName | email | phoneNumber  courses | introduction | photo";
+var teacherCreat = "firstName lastName courses introduction email phoneNumber photo";
+var teacherEdit = "firstName lastName courses introduction email phoneNumber photo";
 var teacherTextSearch = "firstName lastName courses email phoneNumber";
 var teacherIndex = "name";
 

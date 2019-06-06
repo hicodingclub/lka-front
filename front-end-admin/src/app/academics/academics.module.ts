@@ -10,6 +10,8 @@ import { DirectiveMultiSelectionRequired } from './academics.directive';
 
 
 
+import { FileUploadModule } from 'mdds-angular-file';
+
 import { MraModule } from 'mean-rest-angular';
 
 import { AcademicsRoutingModule } from './academics-routing.module';
@@ -73,9 +75,9 @@ import { StudentclassDetailSubComponent } from './studentclass/studentclass-deta
     CommonModule,
     HttpClientModule,
     FormsModule,
-
     NgbModule,
     MraModule,
+    FileUploadModule,
 
     AcademicsRoutingModule
   ],

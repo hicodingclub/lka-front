@@ -1,4 +1,4 @@
-<input type="file" #file style="display: none" (change)="onFilesAdded()" multiple />
+<input type="file" #file style="display: none" (change)="onFilesAdded()"  /><!-- add 'multiple' to allow multiple file selection -->
 <div class="container">
   <h1>Upload Files</h1>
   <div>
@@ -20,6 +20,6 @@
   <!-- This are the actions of the dialog, containing the primary and the cancel button-->
   <div>
     <button *ngIf="showCancelButton">Cancel</button>
-    <button [disabled]="!canBeClosed" (click)="uploadFiles()">{{primaryButtonText}}</button>
+    <button [disabled]="!canBeClosed" (click)="uploadFiles()">Upload</button>
   </div>
 </div>

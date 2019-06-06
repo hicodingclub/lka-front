@@ -27,11 +27,13 @@
           <div class="row">
       
 			<div class="col-3"><label>First Name</label></div>
-			<div class="col-3">                  {{detail['firstName']}} 
+			<div class="col-3">                
+                    {{detail['firstName']}}
 </div>
 
 			<div class="col-3"><label>Last Name</label></div>
-			<div class="col-3">                  {{detail['lastName']}} 
+			<div class="col-3">                
+                    {{detail['lastName']}}
 </div>
 
           </div>
@@ -39,7 +41,8 @@
           <div class="row">
       
 			<div class="col-3"><label>Email</label></div>
-			<div class="col-9">                  {{detail['email']}} 
+			<div class="col-9">                
+                    {{detail['email']}}
 </div>
 
           </div>
@@ -47,7 +50,8 @@
           <div class="row">
       
 			<div class="col-3"><label>Phone Number</label></div>
-			<div class="col-3">                  {{detail['phoneNumber']}} 
+			<div class="col-3">                
+                    {{detail['phoneNumber']}}
 </div>
 
 			<div class="col-3"><label>Courses</label></div>
@@ -62,7 +66,17 @@
           <div class="row">
       
 			<div class="col-3"><label>Introduction</label></div>
-			<div class="col-9">                  {{detail['introduction']}} 
+			<div class="col-9">                
+                    {{detail['introduction']}}
+</div>
+
+          </div>
+
+          <div class="row">
+      
+			<div class="col-3"><label>Photo</label></div>
+			<div class="col-9">                
+                    <file-display [downloadUrl]="detail['photo']"></file-display>
 </div>
 
           </div>

@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
-import { HttpClient, HttpRequest, HttpEventType, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpRequest, HttpEventType, HttpResponse, HttpHeaderResponse } from '@angular/common/http';
 import { Subject, Observable } from 'rxjs';
 
 import { Files_SERVER_ROOT_URI } from './files.tokens';
@@ -37,14 +37,19 @@ export class MddsUploadService {
           const percentDone = Math.round(100 * event.loaded / event.total);
 
           // pass the percentage into the progress-stream
+          console.log('percentDone', percentDone);
           progress.next(percentDone);
         } else if (event instanceof HttpResponse) {
 
           // Close the progress-stream if we get an answer form the API
           // The upload is complete
+          console.log('response', event);
           progress.complete();
+
+        } else {
+          console.log('event', event);
         }
-      });
+      }, err => {console.log('err!', err)}, () => {console.log('completed!');});
 
       // Save every progress-observable in a map of all observables
       status[file.name] = {

@@ -1,12 +1,10 @@
-var mongoose = require('mongoose');
-
 let studentDef = require('./student');
 let teacherDef = require('./teacher');
 let courseDef = require('./course');
 let courseInstanceDef = require('./class');
 let studentClassSchemaDef = require('./student_class')
 
-var schemas = {
+const schemas = {
   Student: studentDef,
   Teacher: teacherDef,
   Course: courseDef,
@@ -14,9 +12,13 @@ var schemas = {
   StudentClass: studentClassSchemaDef
 };
 
-var config = {
+const config = {
   dateFormat: "MM-DD-YYYY",
-  timeFormat: "hh:mm:ss"
+  timeFormat: "hh:mm:ss",
+  fileServer: {
+    uploadUrl: '/api/files/upload',
+    downloadUrl: '/api/files/download'
+  }
 }
 
 const authz = {
