@@ -18,9 +18,9 @@
       
 			<div class="col-3"><label>Role</label></div>
 			<div class="col-9">                
-               	  
+               	  <a routerLink="."  (click)="onDisplayRefClicked('role', detail['role'], $event)">
 	            	{{detail['role']?detail['role']['value']:""}}
-	              
+	              </a>
 </div>
 
           </div>
@@ -29,9 +29,9 @@
       
 			<div class="col-3"><label>Module</label></div>
 			<div class="col-9">                
-               	  
+               	  <a routerLink="."  (click)="onDisplayRefClicked('module', detail['module'], $event)">
 	            	{{detail['module']?detail['module']['value']:""}}
-	              
+	              </a>
 </div>
 
           </div>
@@ -60,7 +60,8 @@
 </div>
 
           </div>
-      
+ 
+ 
 		</div>
 	  </div>
 	</div>

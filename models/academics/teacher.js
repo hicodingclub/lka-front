@@ -30,7 +30,7 @@ var teacherDetail = "firstName lastName | email | phoneNumber  courses | introdu
 var teacherCreat = "firstName lastName courses introduction email phoneNumber photo";
 var teacherEdit = "firstName lastName courses introduction email phoneNumber photo";
 var teacherTextSearch = "firstName lastName courses email phoneNumber";
-var teacherIndex = "name";
+var teacherIndex = "firstName lastName";
 
 var views = [teacherBrief, teacherDetail, teacherCreat, teacherEdit, teacherTextSearch, teacherIndex]
 

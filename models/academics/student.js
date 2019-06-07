@@ -22,12 +22,12 @@ studentSchema.virtual('name').get(function () {
   return fullName;
 });
 
-var studentBrief = "first_name last_name email";
-var studentDetail = "first_name last_name | date_of_birth grade | email";
+var studentBrief = "first_name last_name email grade";
+var studentDetail = "first_name last_name | date_of_birth grade grade | email";
 var studentCreat = "first_name last_name date_of_birth email grade";
 var studentEdit = "first_name last_name date_of_birth email grade";
 var studentTextSearch = "first_name last_name date_of_birth email grade";
-var studentIndex = "name";
+var studentIndex = "first_name last_name";
 
 var views = [studentBrief, studentDetail, studentCreat, studentEdit, studentTextSearch, studentIndex]
 

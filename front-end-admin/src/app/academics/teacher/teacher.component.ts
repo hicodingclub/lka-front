@@ -45,6 +45,6 @@ protected componentFactoryResolver: ComponentFactoryResolver,
       protected view: ViewType ) {
         super(teacherService, injector, router, route, location, view, itemCamelName);
         
-        this.indexFields = ['name', ];
+        this.indexFields = ['firstName','lastName', ];
     }
 }
