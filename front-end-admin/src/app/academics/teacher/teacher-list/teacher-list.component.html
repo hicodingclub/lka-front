@@ -178,7 +178,7 @@
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
 	            	                
-                    <file-display [downloadUrl]="detail['photo']"></file-display>
+                    <file-display [downloadUrl]="detail['photo']" [isLarge]="false"></file-display>
 
 	            </td>
 	            
@@ -199,7 +199,7 @@
 				<div class="list-fields w-75 pointer" (click)="onDetailLinkClicked(detail['_id'])">
 
       <div class="list-head-picture mr-1 d-inline-block">                
-                    <file-display [downloadUrl]="detail['photo']"></file-display>
+                    <file-display [downloadUrl]="detail['photo']" [isLarge]="false"></file-display>
 
       </div>
     
@@ -247,7 +247,7 @@
 
       <div class="card-header grid-head">
         <div class="grid-head-picture mr-1">                
-                    <file-display [downloadUrl]="detail['photo']"></file-display>
+                    <file-display [downloadUrl]="detail['photo']" [isLarge]="false"></file-display>
 
         </div>
         <div class="ml-1 d-inline-block">

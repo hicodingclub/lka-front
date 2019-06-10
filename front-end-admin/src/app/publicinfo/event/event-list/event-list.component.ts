@@ -28,6 +28,7 @@ export class EventListComponent extends EventComponent implements OnInit {
                 eventService, injector, router, route, location, ViewType.LIST);
 
 
+          this.stringFields.push('signaturePicture');
           this.stringFields.push('title');
           this.stringFields.push('author');
 

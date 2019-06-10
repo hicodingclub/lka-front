@@ -9,6 +9,7 @@ import { MraNgbDateFormatterService } from './publicinfo.directive';
 
 
 
+import { FileUploadModule } from 'mdds-angular-file';
 
 import { MraModule } from 'mean-rest-angular';
 
@@ -47,6 +48,7 @@ import { EventService } from './event/event.service';
     FormsModule,
     NgbModule,
     MraModule,
+    FileUploadModule,
 
     PublicinfoRoutingModule
   ],

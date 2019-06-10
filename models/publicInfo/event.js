@@ -8,14 +8,16 @@ var eventSchema = new Schema(
     author: {type: String, required: true, maxlength: 50},
     publishDate: { type: Date, default: Date.now },
     content: { type: String, editor: true, required: true },
+    signaturePicture: {type: String,  required: true,
+      mraType: 'picture', mraSharable: true},
   }
 );
 
 
-var eventBrief = "title author publishDate";
-var eventDetail = "title author publishDate content";
-var eventCreat = "title author content";
-var eventEdit = "title author content";
+var eventBrief = "signaturePicture title author publishDate";
+var eventDetail = "signaturePicture title author publishDate content"; //sequence is critical for mraUI detailType 'post'
+var eventCreat = "title author content signaturePicture";
+var eventEdit = "title author content signaturePicture";
 var eventTextSearch = "title author content" 
 var eventIndex = "title";
 
@@ -25,4 +27,10 @@ var views = [eventBrief, eventDetail, eventCreat, eventEdit, eventTextSearch, ev
 //Export model
 //module.exports.model = mongoose.model('Event', StudentSchema);
 
-module.exports = {schema: eventSchema, views: views,};
+module.exports = {
+  schema: eventSchema,
+  views: views,
+  mraUI: {
+    detailType: 'post', //use the post view in detailed page
+  }, 
+};

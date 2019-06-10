@@ -9,7 +9,7 @@
 	              <input type="search" class="form-control border border-secondary" id="eventTextSearch" 
 						#eventTextSearch [(ngModel)]="searchText"
 						(keyup.enter)="$event.target.blur();searchList();false"
-					    placeholder="Search for title, author"> 
+					    placeholder="Search for signaturePicture, title, author"> 
 				  <div *ngIf="searchText" class="input-group-append icon-clear-inside">
 					<span >
 					    <i class="fas fa-times-circle" (click)="onSearchTextClear()" title="Clear"></i>
@@ -167,6 +167,7 @@
 	    	<tr>
 		        <th scope="col">#</th>
 
+		        <th scope="col">Signature Picture</th>
 		        <th scope="col">Title</th>
 		        <th scope="col">Author</th>
 		        <th scope="col">Publish Date</th>
@@ -179,6 +180,11 @@
 	            	{{(page-1)*per_page+i+1}}
 	            </td>
 
+	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            	                
+                    <file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false"></file-display>
+
+	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
 	            	                
                     {{detail['title']}}
@@ -210,6 +216,11 @@
 				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
 				<div class="list-fields w-75 pointer" (click)="onDetailLinkClicked(detail['_id'])">
 
+      <div class="list-head-picture mr-1 d-inline-block">                
+                    <file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false"></file-display>
+
+      </div>
+    
       <div class="list-body-fields ml-1 d-inline-block">
         <h5>
           <div class="mr-1 d-inline-block">
@@ -252,6 +263,10 @@
 				<div class="grid-fields pointer" (click)="onDetailLinkClicked(detail['_id'])">
 
       <div class="card-header grid-head">
+        <div class="grid-head-picture mr-1">                
+                    <file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false"></file-display>
+
+        </div>
         <div class="ml-1 d-inline-block">
           <h5>
             <div class="mr-1 d-inline-block">

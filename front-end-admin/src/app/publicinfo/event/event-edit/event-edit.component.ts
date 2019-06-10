@@ -50,6 +50,7 @@ export class EventEditComponent extends EventComponent implements OnInit {
           this.stringFields.push('title');
           this.stringFields.push('author');
           this.stringFields.push('content');
+          this.stringFields.push('signaturePicture');
 
 
 

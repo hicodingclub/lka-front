@@ -6,75 +6,66 @@
 		<a [routerLink]="['../../new']" [queryParams]="{cid: detail['_id']}" [skipLocationChange]="false" class="btn btn-outline-primary">New</a>
 		<a routerLink="." class="btn btn-outline-primary" (click)="onDelete(detail['_id'], null)">Delete</a>
 	</div>
-	
-	<div class="card text-left">
-	  <div class="card-body">
-	    <h4 class="card-title">{{ItemCamelName}} Detail
-	    	<a class="float-right" style="font-size: 1rem;" routerLink="." (click)="onRefresh()"><i class="fa fa-sync-alt"></i></a>
-	    </h4>    
-		<div class="card-text">
 
-          <div class="row">
-      
-			<div class="col-3"><label>First Name</label></div>
-			<div class="col-3">                
+<div class="card text-left transparent-border ">
+	<div class="grid-fields">
+
+      <div class="card-header grid-head">
+        <div class="grid-head-picture mr-1">                
+                    <file-display [downloadUrl]="detail['photo']" [isLarge]="false"></file-display>
+
+        </div>
+        <div class="ml-1 d-inline-block">
+          <h5>
+            <div class="mr-1 d-inline-block">
+                              
                     {{detail['firstName']}}
-</div>
 
-			<div class="col-3"><label>Last Name</label></div>
-			<div class="col-3">                
+            </div>
+            <div class="mr-1 d-inline-block">
+                              
                     {{detail['lastName']}}
-</div>
 
-          </div>
-
-          <div class="row">
-      
-			<div class="col-3"><label>Email</label></div>
-			<div class="col-9">                
+            </div>
+          </h5>
+        </div>
+      </div>
+      <div class="card-body">
+          <div>
+            <div class="d-inline-block"><label>Email:</label></div>
+            <div class="ml-3 d-inline-block">                
                     {{detail['email']}}
-</div>
 
+            </div>
           </div>
-
-          <div class="row">
-      
-			<div class="col-3"><label>Phone Number</label></div>
-			<div class="col-3">                
+          <div>
+            <div class="d-inline-block"><label>Phone Number:</label></div>
+            <div class="ml-3 d-inline-block">                
                     {{detail['phoneNumber']}}
-</div>
 
-			<div class="col-3"><label>Courses</label></div>
-			<div class="col-3">                
+            </div>
+          </div>
+          <div>
+            <div class="d-inline-block"><label>Courses:</label></div>
+            <div class="ml-3 d-inline-block">                
                	  <a routerLink="."  (click)="onDisplayRefClicked('courses', detail['courses'], $event)">
 	            	{{detail['courses']?detail['courses']['value']:""}}
 	              </a>
-</div>
 
+            </div>
           </div>
-
-          <div class="row">
-      
-			<div class="col-3"><label>Introduction</label></div>
-			<div class="col-9">                
+          <div>
+            <div class="d-inline-block"><label>Introduction:</label></div>
+            <div class="ml-3 d-inline-block">                
                     {{detail['introduction']}}
-</div>
 
+            </div>
           </div>
+      </div>
 
-          <div class="row">
-      
-			<div class="col-3"><label>Photo</label></div>
-			<div class="col-9">                
-                    <file-display [downloadUrl]="detail['photo']"></file-display>
-</div>
-
-          </div>
- 
- 
-		</div>
-	  </div>
 	</div>
+</div>
+
 
 	<br/>
 	
@@ -87,3 +78,4 @@
     </ul>
     <router-outlet></router-outlet>
 </div>
+

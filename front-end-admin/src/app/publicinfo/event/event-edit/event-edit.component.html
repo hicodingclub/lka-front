@@ -98,6 +98,39 @@
         </fieldset>
 
     
+</div><div *ngIf="!hiddenFields.includes('signaturePicture')">
+
+        <fieldset class="form-group">
+          <label for="EditSignaturePicture">Signature Picture</label>
+          
+          <div class="form-check"
+
+                [ngClass]="{'ng-valid': detail['signaturePicture'],
+                            'ng-invalid': !detail['signaturePicture']}"
+              
+              >
+              <input type="text" class="form-control rounded" id="EditSignaturePicture" style="display: none;"
+                  required
+                  [(ngModel)]="detail['signaturePicture']" name="EditSignaturePicture"
+                  #EditSignaturePicture="ngModel">
+              <div style="display: inline-block; width: 80%;" >
+                  <file-upload [(downloadUrl)]="detail['signaturePicture']"></file-upload>
+              </div>
+              <span *ngIf="detail['signaturePicture']" 
+                class="icon-clear" (click)="clearValueFromDetail('signaturePicture')">
+                <i class="fas fa-times-circle" title="Clear"></i>
+              </span>     
+          </div>
+          <div [hidden]="EditSignaturePicture.valid || EditSignaturePicture.pristine"
+            class="alert alert-danger">
+
+              <div *ngIf="EditSignaturePicture.errors && EditSignaturePicture.errors.required">
+               SignaturePicture is required.
+              </div>
+          </div>
+        </fieldset>				
+
+    
 </div>
          </div>	
 	     <div *ngIf="action == 'Create' || action == 'Add' ">
@@ -188,6 +221,39 @@
         
           </div>
         </fieldset>
+
+    
+</div><div *ngIf="!hiddenFields.includes('signaturePicture')">
+
+        <fieldset class="form-group">
+          <label for="EditSignaturePicture">Signature Picture</label>
+          
+          <div class="form-check"
+
+                [ngClass]="{'ng-valid': detail['signaturePicture'],
+                            'ng-invalid': !detail['signaturePicture']}"
+              
+              >
+              <input type="text" class="form-control rounded" id="EditSignaturePicture" style="display: none;"
+                  required
+                  [(ngModel)]="detail['signaturePicture']" name="EditSignaturePicture"
+                  #EditSignaturePicture="ngModel">
+              <div style="display: inline-block; width: 80%;" >
+                  <file-upload [(downloadUrl)]="detail['signaturePicture']"></file-upload>
+              </div>
+              <span *ngIf="detail['signaturePicture']" 
+                class="icon-clear" (click)="clearValueFromDetail('signaturePicture')">
+                <i class="fas fa-times-circle" title="Clear"></i>
+              </span>     
+          </div>
+          <div [hidden]="EditSignaturePicture.valid || EditSignaturePicture.pristine"
+            class="alert alert-danger">
+
+              <div *ngIf="EditSignaturePicture.errors && EditSignaturePicture.errors.required">
+               SignaturePicture is required.
+              </div>
+          </div>
+        </fieldset>				
 
     
 </div>

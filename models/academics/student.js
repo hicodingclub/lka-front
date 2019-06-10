@@ -23,7 +23,7 @@ studentSchema.virtual('name').get(function () {
 });
 
 var studentBrief = "first_name last_name email grade";
-var studentDetail = "first_name last_name | date_of_birth grade grade | email";
+var studentDetail = "first_name last_name | date_of_birth grade | email";
 var studentCreat = "first_name last_name date_of_birth email grade";
 var studentEdit = "first_name last_name date_of_birth email grade";
 var studentTextSearch = "first_name last_name date_of_birth email grade";
