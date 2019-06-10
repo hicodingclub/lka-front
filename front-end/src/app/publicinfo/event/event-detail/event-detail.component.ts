@@ -33,6 +33,7 @@ export class EventDetailComponent extends EventComponent implements OnInit {
                 eventService, injector, router, route, location, ViewType.DETAIL);
 
 
+          this.stringFields.push('signaturePicture');
           this.stringFields.push('title');
           this.stringFields.push('author');
           this.stringFields.push('content');

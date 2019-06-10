@@ -11,7 +11,7 @@ import { ComponentFactoryResolver } from '@angular/core';
 
 @Component({
   selector: 'app-teacher-list',
-  templateUrl: './teacher-list.public.html',
+  templateUrl: './teacher-list.component.html',
   styleUrls: ['./teacher-list.component.css']
 })
 export class TeacherListComponent extends TeacherComponent implements OnInit {
@@ -30,7 +30,7 @@ protected componentFactoryResolver: ComponentFactoryResolver,
 
           this.stringFields.push('firstName');
           this.stringFields.push('lastName');
-          this.stringFields.push('introduction');
+          this.stringFields.push('photo');
 
           this.referenceFields = ['courses', ];
           this.referenceFieldsMap = {'courses': 'course',};

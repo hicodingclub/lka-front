@@ -20,7 +20,7 @@
 	              <input type="search" class="form-control border border-secondary" id="teacherTextSearch" 
 						#teacherTextSearch [(ngModel)]="searchText"
 						(keyup.enter)="$event.target.blur();searchList();false"
-					    placeholder="Search for firstName, lastName, introduction"> 
+					    placeholder="Search for firstName, lastName, photo"> 
 				  <div *ngIf="searchText" class="input-group-append icon-clear-inside">
 					<span >
 					    <i class="fas fa-times-circle" (click)="onSearchTextClear()" title="Clear"></i>
@@ -104,16 +104,15 @@
 				        <span class="sr-only">Previous</span>
 				      </a>
 				    </li>
-				    
+
 				    <li *ngIf="left_more" class="page-item"><a class="page-link">...</a></li>
-				    
+
 				    <li *ngFor="let p of pages;  let i = index" class="page-item"
 				    		[ngClass]="{'active': p==page}">
 				    	<a class="page-link" routerLink="." (click)="onGotoPage(p)">{{p}}</a>
 				    </li>
-				    
+
 				    <li *ngIf="right_more" class="page-item"><a class="page-link">...</a></li>
-				    
 				    <li class="page-item"
 				            [ngClass]="{'disabled': page>=total_pages}">
 				      <a class="page-link" routerLink="." (click)="onNextPage()"
@@ -127,7 +126,7 @@
 			</div>
 			<div class="col-3">
 				<div class="total_counts">
-					Total: <b>{{total_count}}</b> items
+					Total: <b>{{total_count}}</b>
 				</div>
 			</div>			
 
@@ -142,7 +141,7 @@
 		        <th scope="col">First Name</th>
 		        <th scope="col">Last Name</th>
 		        <th scope="col">Courses</th>
-		        <th scope="col">Introduction</th>
+		        <th scope="col">Photo</th>
 
 		        <th></th>      
 	        </tr>
@@ -152,19 +151,22 @@
 	        	[ngClass]="{'clicked-row': detail['_id']==clickedId}" >
 	            <td scope="row" (click)="selectItemSelected(i)"  class="pointer">{{(page-1)*per_page+i+1}}</td>
 
-	            <td (click)="selectItemSelected(i)"  class="pointer">                  {{detail['firstName']}} 
-
-	            </td>
-	            <td (click)="selectItemSelected(i)"  class="pointer">                  {{detail['lastName']}} 
+	            <td (click)="selectItemSelected(i)"  class="pointer">                
+                    {{detail['firstName']}}
 
 	            </td>
 	            <td (click)="selectItemSelected(i)"  class="pointer">                
-               	  
-	            	{{detail['courses']?detail['courses']['value']:""}}
-	              
+                    {{detail['lastName']}}
 
 	            </td>
-	            <td (click)="selectItemSelected(i)"  class="pointer">                  {{detail['introduction']}} 
+	            <td (click)="selectItemSelected(i)"  class="pointer">                
+               	  <a routerLink="."  (click)="onDisplayRefClicked('courses', detail['courses'], $event)">
+	            	{{detail['courses']?detail['courses']['value']:""}}
+	              </a>
+
+	            </td>
+	            <td (click)="selectItemSelected(i)"  class="pointer">                
+                    <file-display [downloadUrl]="detail['photo']" [isLarge]="false"></file-display>
 
 	            </td>
 
@@ -190,16 +192,15 @@
 				        <span class="sr-only">Previous</span>
 				      </a>
 				    </li>
-				    
+
 				    <li *ngIf="left_more" class="page-item"><a class="page-link">...</a></li>
-				    
+
 				    <li *ngFor="let p of pages;  let i = index" class="page-item"
 				    		[ngClass]="{'active': p==page}">
 				    	<a class="page-link" routerLink="." (click)="onGotoPage(p)">{{p}}</a>
 				    </li>
-				    
+
 				    <li *ngIf="right_more" class="page-item"><a class="page-link">...</a></li>
-				    
 				    <li class="page-item"
 				            [ngClass]="{'disabled': page>=total_pages}">
 				      <a class="page-link" routerLink="." (click)="onNextPage()"
@@ -213,7 +214,7 @@
 			</div>
 			<div class="col-3">
 				<div class="total_counts">
-					Total: <b>{{total_count}}</b> items
+					Total: <b>{{total_count}}</b>
 				</div>
 			</div>			
 

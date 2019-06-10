@@ -1,104 +1,83 @@
 <div class="detail" *ngIf="detail">
-	<div class="action-buttons">
-        <!--<a href="javascript:void(0)" (click)="goBack()"><i class="fas fa-angle-double-left" title="Back"></i></a>-->
-        <a [routerLink]="['../../list' ]"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
-		<a [routerLink]="['../../edit', detail['_id'] ]" [skipLocationChange]="false" class="btn btn-outline-primary">Edit</a>
-		<a [routerLink]="['../../new']" [queryParams]="{cid: detail['_id']}" [skipLocationChange]="false" class="btn btn-outline-primary">New</a>
-		<a routerLink="." class="btn btn-outline-primary" (click)="onDelete(detail['_id'], null)">Delete</a>
-	</div>
 	
-	<div class="card text-left">
-	  <div class="card-body">
-	    <h4 class="card-title">{{ItemCamelName}} Detail
-	    	<a class="float-right" style="font-size: 1rem;" routerLink="." (click)="onRefresh()"><i class="fa fa-sync-alt"></i></a>
-	    </h4>    
-		<div class="card-text">
 
-          <div class="row">
-      
-			<div class="col-3"><label>Title</label></div>
-			<div class="col-9">                  {{detail['title']}} 
-</div>
+<div class="card text-left transparent-border ">
+	<div class="grid-fields">
 
+      <div class="card-header grid-head">
+        <div class="ml-1 d-inline-block">
+          <h5>
+            <div class="mr-1 d-inline-block">
+                              
+                    {{detail['title']}}
+
+            </div>
+          </h5>
+        </div>
+      </div>
+      <div class="card-body">
+          <div>
+            <div class="d-inline-block"><label>Description:</label></div>
+            <div class="ml-3 d-inline-block">                
+                    {{detail['description']}}
+
+            </div>
           </div>
-
-          <div class="row">
-      
-			<div class="col-3"><label>Description</label></div>
-			<div class="col-9">                  {{detail['description']}} 
-</div>
-
-          </div>
-
-          <div class="row">
-      
-			<div class="col-3"><label>Course</label></div>
-			<div class="col-3">                
-               	  
+          <div>
+            <div class="d-inline-block"><label>Course:</label></div>
+            <div class="ml-3 d-inline-block">                
+               	  <a routerLink="."  (click)="onDisplayRefClicked('course', detail['course'], $event)">
 	            	{{detail['course']?detail['course']['value']:""}}
-	              
-</div>
+	              </a>
 
-			<div class="col-3"><label>Price</label></div>
-			<div class="col-3">                  {{detail['price']}} 
-</div>
-
+            </div>
           </div>
+          <div>
+            <div class="d-inline-block"><label>Price:</label></div>
+            <div class="ml-3 d-inline-block">                  {{detail['price']}} 
 
-          <div class="row">
-      
-			<div class="col-3"><label>Teacher</label></div>
-			<div class="col-9">                
-               	  
+            </div>
+          </div>
+          <div>
+            <div class="d-inline-block"><label>Teacher:</label></div>
+            <div class="ml-3 d-inline-block">                
+               	  <a routerLink="."  (click)="onDisplayRefClicked('teacher', detail['teacher'], $event)">
 	            	{{detail['teacher']?detail['teacher']['value']:""}}
-	              
-</div>
+	              </a>
 
+            </div>
           </div>
+          <div>
+            <div class="d-inline-block"><label>Start Time:</label></div>
+            <div class="ml-3 d-inline-block">                  {{detail['startTime']?detail['startTime']['value']:""}}
 
-          <div class="row">
-      
-			<div class="col-3"><label>Start Time</label></div>
-			<div class="col-3">                  {{detail['startTime']?detail['startTime']['value']:""}}
-</div>
-
-			<div class="col-3"><label>End Time</label></div>
-			<div class="col-3">                  {{detail['endTime']?detail['endTime']['value']:""}}
-</div>
-
+            </div>
           </div>
+          <div>
+            <div class="d-inline-block"><label>End Time:</label></div>
+            <div class="ml-3 d-inline-block">                  {{detail['endTime']?detail['endTime']['value']:""}}
 
-          <div class="row">
-      
-			<div class="col-3"><label>Day of Week</label></div>
-			<div class="col-9">                
+            </div>
+          </div>
+          <div>
+            <div class="d-inline-block"><label>Day of Week:</label></div>
+            <div class="ml-3 d-inline-block">                
                     <div class="badge badge-pill badge-secondary" *ngFor="let element of enums['dayOfWeek']">
                          <div *ngIf="detail['dayOfWeek'] && detail['dayOfWeek']['selection'][element]">{{element}}</div>
                     </div>
-</div>
 
+            </div>
           </div>
+          <div>
+            <div class="d-inline-block"><label>Hot:</label></div>
+            <div class="ml-3 d-inline-block">                  {{detail['hot']}} 
 
-          <div class="row">
-      
-			<div class="col-3"><label>Hot</label></div>
-			<div class="col-9">                  {{detail['hot']}} 
-</div>
-
+            </div>
           </div>
-      
-		</div>
-	  </div>
+      </div>
+
 	</div>
-
-	<br/>
-	
-	<ul class="nav nav-tabs">
-	  
-	    <li class="nav-item">
-	    <a [routerLink]="['./studentclass/list']"
-	        class="nav-link" routerLinkActive="active">StudentClass</a>
-	  </li>
-    </ul>
-    <router-outlet></router-outlet>
 </div>
+	
+</div>
+

@@ -21,6 +21,54 @@
 				</div>
 			
 
+				<div class="text-center">
+                    <span  class="pointer" (click)="toggleMoreSearch()">
+                        <span class="refine-search-text">Refine Search &nbsp;</span>
+                        <span>
+                            <i *ngIf="!moreSearchOpened"  class="fas fa-plus-circle" title="More"></i>
+                            <i *ngIf="moreSearchOpened" class="fas fa-minus-circle"  title="Less"></i>
+                        </span>
+                    </span>
+				</div>
+			    <div class="shadow" *ngIf="moreSearchOpened">
+					<div class="card">
+						<div class="card-body">
+	    <div class="single-line-edit">
+	      <div class="row">
+	        <div class="col-3"><label for="studentEditGrade">Grade</label></div>
+	        <div class="col-8">
+
+
+	        <input type="number" class="form-control" id="studentEditGrade" 
+	                [(ngModel)]="detail['grade']" name="studentEditGrade"
+	                #studentEditGrade="ngModel">
+
+	      </div>
+	      
+	      <div class="col-1">
+		    <div class="icon-clear" (click)="clearValueFromDetail('grade')"
+		        *ngIf="checkValueDefinedFromDetail('grade')"
+		        ><i class="fas fa-times-circle" title="Clear"></i></div>
+	      </div>
+	    </div>
+      </div>
+      
+ 
+
+						  <div class="action-buttons" style="margin-top: 10px;">
+								<button type="button" class="btn btn-outline-success" (click)="onSearchClear()">Reset</button>
+								<button type="button" class="btn btn-success" (click)="searchList()">Search</button>
+						  </div>
+						</div>
+					</div>
+		        </div>
+		        <div *ngIf="!moreSearchOpened" style="text-align: left;">
+					<span class="badge badge-pill badge-info" *ngFor="let value of searchMoreDetail">
+					    <a (click)="toggleMoreSearch()" class="pointer"> {{value[0]}}: {{value[1]}}</a>
+					    <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromDetailAndSearchList(value[0])" title="Clear"></i>
+					</span>
+				</div>
+		    
 			
 		    </div>
 			<div class="col-3">
@@ -34,7 +82,17 @@
 
 
 		<hr/>
-		<div class="row">			<div class="col-3">
+		<div class="row">
+			<div class="col-3">
+				<input type="radio" name="view-filter" id="table-view" class="view-radio"
+					(click)="setListViewFilter('table')" [checked]="isShowListView('table')">
+					<label for="table-view"><i class="fa fa-list-alt"></i></label>
+				<input type="radio" name="view-filter" id="list-view" class="view-radio"
+					(click)="setListViewFilter('list')" [checked]="isShowListView('list')">
+				  <label for="list-view"><i class="fa fa-th-list"></i></label>
+				<input type="radio" name="view-filter" id="grid-view" class="view-radio"
+					(click)="setListViewFilter('grid')" [checked]="isShowListView('grid')">
+				  <label for="grid-view"><i class="fa fa-th"></i></label>
 			</div>
 			<div class="col-6">
 			  <div *ngIf="total_pages > 1">
@@ -47,16 +105,15 @@
 				        <span class="sr-only">Previous</span>
 				      </a>
 				    </li>
-				    
+
 				    <li *ngIf="left_more" class="page-item"><a class="page-link">...</a></li>
-				    
+
 				    <li *ngFor="let p of pages;  let i = index" class="page-item"
 				    		[ngClass]="{'active': p==page}">
 				    	<a class="page-link" routerLink="." (click)="onGotoPage(p)">{{p}}</a>
 				    </li>
-				    
+
 				    <li *ngIf="right_more" class="page-item"><a class="page-link">...</a></li>
-				    
 				    <li class="page-item"
 				            [ngClass]="{'disabled': page>=total_pages}">
 				      <a class="page-link" routerLink="." (click)="onNextPage()"
@@ -70,27 +127,26 @@
 			</div>
 			<div class="col-3">
 				<div class="total_counts">
-					Total: <b>{{total_count}}</b> items
-					<a class="float-right" routerLink="." (click)="onRefresh()"><i class="fa fa-sync-alt"></i></a>
+					Total: <b>{{total_count}}</b>
+					<input type="checkbox" class="ml-3 mr-1" [(ngModel)]="checkAll" (change)="onCheckAllChange()">All
+					<a class="ml-3" routerLink="." (click)="onRefresh()"><i class="fa fa-sync-alt"></i></a>
 				</div>
 			</div>			
 
 		</div>
 	</div>
-	
-	<table class="table table-bordered table-hover">
+
+	<table *ngIf="isShowListView('table')" class="table table-bordered table-hover">
 	    <thead class="thead-light">
 	    	<tr>
 		        <th scope="col">#</th>
 
 		        <th scope="col">First Name</th>
 		        <th scope="col">Last Name</th>
-		        <th scope="col">Email</th>		        
-		        <th scope="col" style="width:6rem;"></th>
-		        <th scope="col" style="width:2rem;">
-		        	<input type="checkbox" [(ngModel)]="checkAll" (change)="onCheckAllChange()">
-		        </th>
-	        </tr>
+		        <th scope="col">Email</th>
+		        <th scope="col">Grade</th>
+		        <th scope="col" style="width:7.8rem;"></th>
+	    	</tr>
 	    </thead>
 	    <tbody>
 	        <tr *ngFor="let detail of list;  let i = index" [ngClass]="{'clicked-row': clickedId==detail['_id']}">
@@ -99,30 +155,130 @@
 	            </td>
 
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                  {{detail['first_name']}} 
+	            	                
+                    {{detail['first_name']}}
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                  {{detail['last_name']}} 
+	            	                
+                    {{detail['last_name']}}
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                  {{detail['email']}} 
+	            	                
+                    {{detail['email']}}
+
+	            </td>
+	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            	                  {{detail['grade']}} 
 
 	            </td>
 	            
 	            <td>
 	            	<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
 	            	<a routerLink="." (click)="onDelete(detail['_id'], i)"><i class="fas fa-trash-alt" title="Delete"></i></a>
-	            </td>
-	            
-	            <td>      
-	            	<input type="checkbox" [(ngModel)]="checkedItem[i]"/>
+					<input type="checkbox" [(ngModel)]="checkedItem[i]"/>
 	            </td>
 	        </tr>
 	    </tbody>
 	</table>
-	
+
+	<div class="listview" *ngIf="isShowListView('list')">
+		<div class="list-block" *ngFor="let detail of list;  let i = index">
+			<hr *ngIf="i==0" class="list-diverder">
+			<div class="list-card text-left clickable-card"
+				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
+				<div class="list-fields w-75 pointer" (click)="onDetailLinkClicked(detail['_id'])">
+
+      <div class="list-body-fields ml-1 d-inline-block">
+        <h5>
+          <div class="mr-1 d-inline-block">
+                            
+                    {{detail['first_name']}}
+
+          </div>
+          <div class="mr-1 d-inline-block">
+                            
+                    {{detail['last_name']}}
+
+          </div>
+        </h5>
+        <div class="mr-3 d-inline-block">
+          <div class="d-inline-block"><label>Email:</label></div>
+          <div class="ml-3 d-inline-block">                
+                    {{detail['email']}}
+
+          </div>
+        </div>
+        <div class="mr-3 d-inline-block">
+          <div class="d-inline-block"><label>Grade:</label></div>
+          <div class="ml-3 d-inline-block">                  {{detail['grade']}} 
+
+          </div>
+        </div>
+      </div>
+
+				</div>
+				
+				<div class="card-action-icons d-inline-block w-25">
+					<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
+					<a routerLink="." (click)="onDelete(detail['_id'], i)"><i class="fas fa-trash-alt" title="Delete"></i></a>
+					<input type="checkbox" [(ngModel)]="checkedItem[i]"/>
+				</div>
+			</div>
+			<hr class="list-diverder">
+		</div>
+	</div>
+
+	<div class="gridview" *ngIf="isShowListView('grid')">
+		<div class="grid-block" *ngFor="let detail of list;  let i = index">
+			<div class="card text-left h-100 clickable-card"
+				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
+				<div class="grid-fields pointer" (click)="onDetailLinkClicked(detail['_id'])">
+
+      <div class="card-header grid-head">
+        <div class="ml-1 d-inline-block">
+          <h5>
+            <div class="mr-1 d-inline-block">
+                              
+                    {{detail['first_name']}}
+
+            </div>
+            <div class="mr-1 d-inline-block">
+                              
+                    {{detail['last_name']}}
+
+            </div>
+          </h5>
+        </div>
+      </div>
+      <div class="card-body">
+          <div>
+            <div class="d-inline-block"><label>Email:</label></div>
+            <div class="ml-3 d-inline-block">                
+                    {{detail['email']}}
+
+            </div>
+          </div>
+          <div>
+            <div class="d-inline-block"><label>Grade:</label></div>
+            <div class="ml-3 d-inline-block">                  {{detail['grade']}} 
+
+            </div>
+          </div>
+      </div>
+
+				</div>
+				
+				<div class="card-action-icons">
+					<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
+					<a routerLink="." (click)="onDelete(detail['_id'], i)"><i class="fas fa-trash-alt" title="Delete"></i></a>
+					<input type="checkbox" [(ngModel)]="checkedItem[i]"/>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<div class="container">
 		<div class="row">			<div class="col-3">
 			</div>
@@ -137,16 +293,15 @@
 				        <span class="sr-only">Previous</span>
 				      </a>
 				    </li>
-				    
+
 				    <li *ngIf="left_more" class="page-item"><a class="page-link">...</a></li>
-				    
+
 				    <li *ngFor="let p of pages;  let i = index" class="page-item"
 				    		[ngClass]="{'active': p==page}">
 				    	<a class="page-link" routerLink="." (click)="onGotoPage(p)">{{p}}</a>
 				    </li>
-				    
+
 				    <li *ngIf="right_more" class="page-item"><a class="page-link">...</a></li>
-				    
 				    <li class="page-item"
 				            [ngClass]="{'disabled': page>=total_pages}">
 				      <a class="page-link" routerLink="." (click)="onNextPage()"
@@ -160,7 +315,7 @@
 			</div>
 			<div class="col-3">
 				<div class="total_counts">
-					Total: <b>{{total_count}}</b> items
+					Total: <b>{{total_count}}</b>
 				</div>
 			</div>			
 

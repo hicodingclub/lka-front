@@ -11,30 +11,39 @@ import { CourseService } from '../course.service';
 
 @Component({
   selector: 'app-course-detail',
-  templateUrl: './course-detail.public.html',
-  styleUrls: ['./course-detail.public.css']
+  templateUrl: './course-detail.component.html',
+  styleUrls: ['./course-detail.component.css']
 })
 export class CourseDetailComponent extends CourseComponent implements OnInit {
+  @Input() 
+  protected id:string;
+
+
   constructor(
+      
+      protected courseService: CourseService,
+      protected injector: Injector,
+      protected router: Router,
+      protected route: ActivatedRoute,
+      protected location: Location) {
+          super(
+                courseService, injector, router, route, location, ViewType.DETAIL);
 
-    protected courseService: CourseService,
-    protected injector: Injector,
-    protected router: Router,
-    protected route: ActivatedRoute,
-    protected location: Location) {
-        super(
-              courseService, injector, router, route, location, ViewType.LIST);
+
+          this.stringFields.push('title');
+          this.stringFields.push('description');
 
 
-        this.stringFields.push('title');
-        this.stringFields.push('description');
 
-        // this is to initialize the detail that will be used for search condition selection
-        const detail = {};
-        this.detail = this.formatDetail(detail);
+
+
+
+
   }
 
   ngOnInit() {
-      this.populateList();
+      if (!this.id) this.id = this.route.snapshot.paramMap.get('id');
+      if (this.id) this.populateDetail(this.id);
+      else console.error("Routing error for detail view... no id...");
   }
 }

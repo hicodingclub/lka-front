@@ -205,7 +205,7 @@
 		        	id="classEditDayOfWeekMon"
 		        	[(ngModel)]="detail['dayOfWeek']['selection']['Mon']"
 		        	#classEditDayOfWeekMon="ngModel">
-		      	<label class="form-check-label">Mon</label>
+		      	<span class="form-check-label">Mon</span>
 		    </div>
 
 	        <div class="form-check-inline">
@@ -214,7 +214,7 @@
 		        	id="classEditDayOfWeekTue"
 		        	[(ngModel)]="detail['dayOfWeek']['selection']['Tue']"
 		        	#classEditDayOfWeekTue="ngModel">
-		      	<label class="form-check-label">Tue</label>
+		      	<span class="form-check-label">Tue</span>
 		    </div>
 
 	        <div class="form-check-inline">
@@ -223,7 +223,7 @@
 		        	id="classEditDayOfWeekWed"
 		        	[(ngModel)]="detail['dayOfWeek']['selection']['Wed']"
 		        	#classEditDayOfWeekWed="ngModel">
-		      	<label class="form-check-label">Wed</label>
+		      	<span class="form-check-label">Wed</span>
 		    </div>
 
 	        <div class="form-check-inline">
@@ -232,7 +232,7 @@
 		        	id="classEditDayOfWeekThu"
 		        	[(ngModel)]="detail['dayOfWeek']['selection']['Thu']"
 		        	#classEditDayOfWeekThu="ngModel">
-		      	<label class="form-check-label">Thu</label>
+		      	<span class="form-check-label">Thu</span>
 		    </div>
 
 	        <div class="form-check-inline">
@@ -241,7 +241,7 @@
 		        	id="classEditDayOfWeekFri"
 		        	[(ngModel)]="detail['dayOfWeek']['selection']['Fri']"
 		        	#classEditDayOfWeekFri="ngModel">
-		      	<label class="form-check-label">Fri</label>
+		      	<span class="form-check-label">Fri</span>
 		    </div>
 
 	        <div class="form-check-inline">
@@ -250,7 +250,7 @@
 		        	id="classEditDayOfWeekSat"
 		        	[(ngModel)]="detail['dayOfWeek']['selection']['Sat']"
 		        	#classEditDayOfWeekSat="ngModel">
-		      	<label class="form-check-label">Sat</label>
+		      	<span class="form-check-label">Sat</span>
 		    </div>
 
 	        <div class="form-check-inline">
@@ -259,7 +259,7 @@
 		        	id="classEditDayOfWeekSun"
 		        	[(ngModel)]="detail['dayOfWeek']['selection']['Sun']"
 		        	#classEditDayOfWeekSun="ngModel">
-		      	<label class="form-check-label">Sun</label>
+		      	<span class="form-check-label">Sun</span>
 		    </div>
 
 
@@ -282,24 +282,22 @@
 	        <div class="col-8">
 
 
-	        <div class="form-check">
-	          <div class="form-check-inline">
-		        <input type="radio" name="classEditHot" 
+	        <div class="form-check-inline">
+		      	<input type="radio" name="classEditHot" 
 		        	class="form-check-input"
 		        	id="classEditHotYes" [value]="true" 
 		        	[(ngModel)]="detail['hot']"
 		        	#classEditHot="ngModel">
-		      	<label class="form-check-label">Yes</label>
+		      	<span class="form-check-label">Yes</span>
 		      </div>
-	          <div class="form-check-inline">
+	        <div class="form-check-inline">
 		        <input type="radio" name="classEditHot" 
 		        	class="form-check-input"
 		        	id="classEditHotNo" [value]="false"
 		        	[(ngModel)]="detail['hot']"
 		        	#classEditHot="ngModel">
-		      	<label class="form-check-label">No</label>
+		      	<span class="form-check-label">No</span>
 		      </div>
-		    </div>
 
 	      </div>
 	      
@@ -346,16 +344,15 @@
 				        <span class="sr-only">Previous</span>
 				      </a>
 				    </li>
-				    
+
 				    <li *ngIf="left_more" class="page-item"><a class="page-link">...</a></li>
-				    
+
 				    <li *ngFor="let p of pages;  let i = index" class="page-item"
 				    		[ngClass]="{'active': p==page}">
 				    	<a class="page-link" routerLink="." (click)="onGotoPage(p)">{{p}}</a>
 				    </li>
-				    
+
 				    <li *ngIf="right_more" class="page-item"><a class="page-link">...</a></li>
-				    
 				    <li class="page-item"
 				            [ngClass]="{'disabled': page>=total_pages}">
 				      <a class="page-link" routerLink="." (click)="onNextPage()"
@@ -369,7 +366,7 @@
 			</div>
 			<div class="col-3">
 				<div class="total_counts">
-					Total: <b>{{total_count}}</b> items
+					Total: <b>{{total_count}}</b>
 				</div>
 			</div>			
 
@@ -394,19 +391,20 @@
 	        	[ngClass]="{'clicked-row': detail['_id']==clickedId}" >
 	            <td scope="row" (click)="selectItemSelected(i)"  class="pointer">{{(page-1)*per_page+i+1}}</td>
 
-	            <td (click)="selectItemSelected(i)"  class="pointer">                  {{detail['title']}} 
+	            <td (click)="selectItemSelected(i)"  class="pointer">                
+                    {{detail['title']}}
 
 	            </td>
 	            <td (click)="selectItemSelected(i)"  class="pointer">                
-               	  
+               	  <a routerLink="."  (click)="onDisplayRefClicked('course', detail['course'], $event)">
 	            	{{detail['course']?detail['course']['value']:""}}
-	              
+	              </a>
 
 	            </td>
 	            <td (click)="selectItemSelected(i)"  class="pointer">                
-               	  
+               	  <a routerLink="."  (click)="onDisplayRefClicked('teacher', detail['teacher'], $event)">
 	            	{{detail['teacher']?detail['teacher']['value']:""}}
-	              
+	              </a>
 
 	            </td>
 	            <td (click)="selectItemSelected(i)"  class="pointer">                  {{detail['startTime']?detail['startTime']['value']:""}}
@@ -435,16 +433,15 @@
 				        <span class="sr-only">Previous</span>
 				      </a>
 				    </li>
-				    
+
 				    <li *ngIf="left_more" class="page-item"><a class="page-link">...</a></li>
-				    
+
 				    <li *ngFor="let p of pages;  let i = index" class="page-item"
 				    		[ngClass]="{'active': p==page}">
 				    	<a class="page-link" routerLink="." (click)="onGotoPage(p)">{{p}}</a>
 				    </li>
-				    
+
 				    <li *ngIf="right_more" class="page-item"><a class="page-link">...</a></li>
-				    
 				    <li class="page-item"
 				            [ngClass]="{'disabled': page>=total_pages}">
 				      <a class="page-link" routerLink="." (click)="onNextPage()"
@@ -458,7 +455,7 @@
 			</div>
 			<div class="col-3">
 				<div class="total_counts">
-					Total: <b>{{total_count}}</b> items
+					Total: <b>{{total_count}}</b>
 				</div>
 			</div>			
 

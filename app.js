@@ -25,8 +25,22 @@ const academicsRouter = meanRestExpress.RestRouter(academicsDbDefinition, 'Acade
 const publicInfoDbDefinition = require('./models/publicInfo/index');
 const publicInfoRouter = meanRestExpress.RestRouter(publicInfoDbDefinition, 'PublicInfo', authFuncs);
 
+//file server
+const fileSvr = require('mdds-mongoose-express-file-server');
+const defaultAdminSysDef = fileSvr.sampleAdminSysDef;
+const fileSOption = {
+  storage: 'fs',
+  directory: path.join(__dirname, 'storage', 'uploads'),
+  linkRoot: '/api/files', //link = linkRoot + '/download' - download needs to be enabled.
+}
+const dbSOption = {
+  storage: 'db',
+  linkRoot: '/api/files',   //link = linkRoot + '/download' - download needs to be enabled.
+}
+const fileSvrRouter = fileSvr.ExpressRouter(defaultAdminSysDef, 'Files', authFuncs, fileSOption);
+
 //Authorization App Client. Call it after all meanRestExpress resources are generated.
-const publicModules = ['Users', 'Academics', 'PublicInfo']; //the modules that for public access
+const publicModules = ['Users', 'Academics', 'PublicInfo', 'Files']; //the modules that for public access
 authApp.run('local', 'app-key', 'app-secrete', {'accessModules': publicModules});
 
 const app = express();
@@ -45,6 +59,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/academics', academicsRouter);
 app.use('/api/publicinfo', publicInfoRouter);
+app.use('/api/files', fileSvrRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/users', usersRouter);
 

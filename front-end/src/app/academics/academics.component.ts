@@ -11,7 +11,7 @@ export class AcademicsRefSelectDirective {
 
 @Component({
   selector: 'app-academics',
-  templateUrl: './academics.public.html',
+  templateUrl: './academics.component.html',
   styleUrls: ['./academics.component.css'],
 })
 export class AcademicsComponent implements OnInit {

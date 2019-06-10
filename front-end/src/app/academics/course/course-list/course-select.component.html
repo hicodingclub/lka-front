@@ -51,16 +51,15 @@
 				        <span class="sr-only">Previous</span>
 				      </a>
 				    </li>
-				    
+
 				    <li *ngIf="left_more" class="page-item"><a class="page-link">...</a></li>
-				    
+
 				    <li *ngFor="let p of pages;  let i = index" class="page-item"
 				    		[ngClass]="{'active': p==page}">
 				    	<a class="page-link" routerLink="." (click)="onGotoPage(p)">{{p}}</a>
 				    </li>
-				    
+
 				    <li *ngIf="right_more" class="page-item"><a class="page-link">...</a></li>
-				    
 				    <li class="page-item"
 				            [ngClass]="{'disabled': page>=total_pages}">
 				      <a class="page-link" routerLink="." (click)="onNextPage()"
@@ -74,7 +73,7 @@
 			</div>
 			<div class="col-3">
 				<div class="total_counts">
-					Total: <b>{{total_count}}</b> items
+					Total: <b>{{total_count}}</b>
 				</div>
 			</div>			
 
@@ -97,10 +96,12 @@
 	        	[ngClass]="{'clicked-row': detail['_id']==clickedId}" >
 	            <td scope="row" (click)="selectItemSelected(i)"  class="pointer">{{(page-1)*per_page+i+1}}</td>
 
-	            <td (click)="selectItemSelected(i)"  class="pointer">                  {{detail['title']}} 
+	            <td (click)="selectItemSelected(i)"  class="pointer">                
+                    {{detail['title']}}
 
 	            </td>
-	            <td (click)="selectItemSelected(i)"  class="pointer">                  {{detail['description']}} 
+	            <td (click)="selectItemSelected(i)"  class="pointer">                
+                    {{detail['description']}}
 
 	            </td>
 
@@ -126,16 +127,15 @@
 				        <span class="sr-only">Previous</span>
 				      </a>
 				    </li>
-				    
+
 				    <li *ngIf="left_more" class="page-item"><a class="page-link">...</a></li>
-				    
+
 				    <li *ngFor="let p of pages;  let i = index" class="page-item"
 				    		[ngClass]="{'active': p==page}">
 				    	<a class="page-link" routerLink="." (click)="onGotoPage(p)">{{p}}</a>
 				    </li>
-				    
+
 				    <li *ngIf="right_more" class="page-item"><a class="page-link">...</a></li>
-				    
 				    <li class="page-item"
 				            [ngClass]="{'disabled': page>=total_pages}">
 				      <a class="page-link" routerLink="." (click)="onNextPage()"
@@ -149,7 +149,7 @@
 			</div>
 			<div class="col-3">
 				<div class="total_counts">
-					Total: <b>{{total_count}}</b> items
+					Total: <b>{{total_count}}</b>
 				</div>
 			</div>			
 

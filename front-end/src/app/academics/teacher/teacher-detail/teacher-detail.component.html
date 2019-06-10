@@ -1,74 +1,64 @@
 <div class="detail" *ngIf="detail">
-	<div class="action-buttons">
-        <!--<a href="javascript:void(0)" (click)="goBack()"><i class="fas fa-angle-double-left" title="Back"></i></a>-->
-        <a [routerLink]="['../../list' ]"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
-		<a [routerLink]="['../../edit', detail['_id'] ]" [skipLocationChange]="false" class="btn btn-outline-primary">Edit</a>
-		<a [routerLink]="['../../new']" [queryParams]="{cid: detail['_id']}" [skipLocationChange]="false" class="btn btn-outline-primary">New</a>
-		<a routerLink="." class="btn btn-outline-primary" (click)="onDelete(detail['_id'], null)">Delete</a>
-	</div>
 	
-	<div class="card text-left">
-	  <div class="card-body">
-	    <h4 class="card-title">{{ItemCamelName}} Detail
-	    	<a class="float-right" style="font-size: 1rem;" routerLink="." (click)="onRefresh()"><i class="fa fa-sync-alt"></i></a>
-	    </h4>    
-		<div class="card-text">
 
-          <div class="row">
-      
-			<div class="col-3"><label>First Name</label></div>
-			<div class="col-3">                  {{detail['firstName']}} 
-</div>
+<div class="card text-left transparent-border ">
+	<div class="grid-fields">
 
-			<div class="col-3"><label>Last Name</label></div>
-			<div class="col-3">                  {{detail['lastName']}} 
-</div>
+      <div class="card-header grid-head">
+        <div class="grid-head-picture mr-1">                
+                    <file-display [downloadUrl]="detail['photo']" [isLarge]="false"></file-display>
 
+        </div>
+        <div class="ml-1 d-inline-block">
+          <h5>
+            <div class="mr-1 d-inline-block">
+                              
+                    {{detail['firstName']}}
+
+            </div>
+            <div class="mr-1 d-inline-block">
+                              
+                    {{detail['lastName']}}
+
+            </div>
+          </h5>
+        </div>
+      </div>
+      <div class="card-body">
+          <div>
+            <div class="d-inline-block"><label>Email:</label></div>
+            <div class="ml-3 d-inline-block">                
+                    {{detail['email']}}
+
+            </div>
           </div>
+          <div>
+            <div class="d-inline-block"><label>Phone Number:</label></div>
+            <div class="ml-3 d-inline-block">                
+                    {{detail['phoneNumber']}}
 
-          <div class="row">
-      
-			<div class="col-3"><label>Email</label></div>
-			<div class="col-9">                  {{detail['email']}} 
-</div>
-
+            </div>
           </div>
-
-          <div class="row">
-      
-			<div class="col-3"><label>Phone Number</label></div>
-			<div class="col-3">                  {{detail['phoneNumber']}} 
-</div>
-
-			<div class="col-3"><label>Courses</label></div>
-			<div class="col-3">                
-               	  
+          <div>
+            <div class="d-inline-block"><label>Courses:</label></div>
+            <div class="ml-3 d-inline-block">                
+               	  <a routerLink="."  (click)="onDisplayRefClicked('courses', detail['courses'], $event)">
 	            	{{detail['courses']?detail['courses']['value']:""}}
-	              
-</div>
+	              </a>
 
+            </div>
           </div>
+          <div>
+            <div class="d-inline-block"><label>Introduction:</label></div>
+            <div class="ml-3 d-inline-block">                
+                    {{detail['introduction']}}
 
-          <div class="row">
-      
-			<div class="col-3"><label>Introduction</label></div>
-			<div class="col-9">                  {{detail['introduction']}} 
-</div>
-
+            </div>
           </div>
-      
-		</div>
-	  </div>
+      </div>
+
 	</div>
-
-	<br/>
-	
-	<ul class="nav nav-tabs">
-	  
-	    <li class="nav-item">
-	    <a [routerLink]="['./class/list']"
-	        class="nav-link" routerLinkActive="active">Class</a>
-	  </li>
-    </ul>
-    <router-outlet></router-outlet>
 </div>
+	
+</div>
+
