@@ -98,6 +98,25 @@
 
 
 		<hr/>
+
+		<div class="row justify-content-end">
+			<div class="sort-selection">
+					<div class="dropdown" style="width: 100%;">
+						<button class="sort-dropdown btn btn-light btn-sm dropdown-toggle"
+							type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Sort: <span *ngIf="listSortField">{{listSortFieldDisplay}}</span>
+							<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up"></i>
+							<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down"></i>
+						</button>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<a class="dropdown-item pointer" (click)="setListSort('student', 'Student', 'asc')">Student<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSort('student', 'Student', 'desc')">Student<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSort('class', 'Class', 'asc')">Class<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSort('class', 'Class', 'desc')">Class<i class="fas fa-arrow-down"></i></a>
+						</div>
+					</div>
+			</div>
+		</div>
 		<div class="row">
 			<div class="col-3">
 
@@ -112,6 +131,7 @@
 				<input type="radio" name="view-filter" id="table-view" class="view-radio"
 					(click)="setListViewFilter('table')" [checked]="isShowListView('table')">
 					<label for="table-view"><i class="fa fa-list-alt"></i></label>
+
 
 			</div>
 			<div class="col-6">
@@ -151,9 +171,9 @@
 					<input type="checkbox" class="ml-3 mr-1" [(ngModel)]="checkAll" (change)="onCheckAllChange()">All
 					<a class="ml-3" routerLink="." (click)="onRefresh()"><i class="fa fa-sync-alt"></i></a>
 				</div>
-			</div>			
-
+			</div>
 		</div>
+
 	</div>
 	
 	<div class="listview" *ngIf="isShowListView('list')">
@@ -244,8 +264,20 @@
 	    	<tr>
 		        <th scope="col">#</th>
 
-		        <th scope="col">Student</th>
-		        <th scope="col">Class</th>
+				<th class="pointer" scope="col" (click)="toggleListSort('student', 'Student')">
+					Student
+					<span *ngIf="listSortField === 'student'">
+						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+					</span>
+				</th>
+				<th class="pointer" scope="col" (click)="toggleListSort('class', 'Class')">
+					Class
+					<span *ngIf="listSortField === 'class'">
+						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+					</span>
+				</th>
 		        <th scope="col" style="width:7.8rem;"></th>
 	    	</tr>
 	    </thead>
@@ -282,7 +314,9 @@
 
 
 	<div class="container">
-		<div class="row">			<div class="col-3">
+
+		<div class="row">
+			<div class="col-3">
 			</div>
 			<div class="col-6">
 			  <div *ngIf="total_pages > 1">
@@ -319,9 +353,9 @@
 				<div class="total_counts">
 					Total: <b>{{total_count}}</b>
 				</div>
-			</div>			
-
+			</div>
 		</div>
+
 	</div>
 	
 </div>

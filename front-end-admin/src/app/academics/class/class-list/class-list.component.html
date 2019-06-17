@@ -327,6 +327,33 @@
 
 
 		<hr/>
+
+		<div class="row justify-content-end">
+			<div class="sort-selection">
+					<div class="dropdown" style="width: 100%;">
+						<button class="sort-dropdown btn btn-light btn-sm dropdown-toggle"
+							type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Sort: <span *ngIf="listSortField">{{listSortFieldDisplay}}</span>
+							<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up"></i>
+							<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down"></i>
+						</button>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<a class="dropdown-item pointer" (click)="setListSort('title', 'Title', 'asc')">Title<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSort('title', 'Title', 'desc')">Title<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSort('course', 'Course', 'asc')">Course<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSort('course', 'Course', 'desc')">Course<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSort('teacher', 'Teacher', 'asc')">Teacher<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSort('teacher', 'Teacher', 'desc')">Teacher<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSort('startTime', 'Start Time', 'asc')">StartTime<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSort('startTime', 'Start Time', 'desc')">StartTime<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSort('endTime', 'End Time', 'asc')">EndTime<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSort('endTime', 'End Time', 'desc')">EndTime<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSort('hot', 'Hot', 'asc')">Hot<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSort('hot', 'Hot', 'desc')">Hot<i class="fas fa-arrow-down"></i></a>
+						</div>
+					</div>
+			</div>
+		</div>
 		<div class="row">
 			<div class="col-3">
 
@@ -341,6 +368,7 @@
 				<input type="radio" name="view-filter" id="grid-view" class="view-radio"
 					(click)="setListViewFilter('grid')" [checked]="isShowListView('grid')">
 					<label for="grid-view"><i class="fa fa-th"></i></label>
+
 
 			</div>
 			<div class="col-6">
@@ -380,9 +408,9 @@
 					<input type="checkbox" class="ml-3 mr-1" [(ngModel)]="checkAll" (change)="onCheckAllChange()">All
 					<a class="ml-3" routerLink="." (click)="onRefresh()"><i class="fa fa-sync-alt"></i></a>
 				</div>
-			</div>			
-
+			</div>
 		</div>
+
 	</div>
 	
 	<table *ngIf="isShowListView('table')" class="table table-bordered table-hover">
@@ -390,13 +418,50 @@
 	    	<tr>
 		        <th scope="col">#</th>
 
-		        <th scope="col">Title</th>
-		        <th scope="col">Course</th>
-		        <th scope="col">Teacher</th>
-		        <th scope="col">Start Time</th>
-		        <th scope="col">End Time</th>
-		        <th scope="col">Day of Week</th>
-		        <th scope="col">Hot</th>
+				<th class="pointer" scope="col" (click)="toggleListSort('title', 'Title')">
+					Title
+					<span *ngIf="listSortField === 'title'">
+						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+					</span>
+				</th>
+				<th class="pointer" scope="col" (click)="toggleListSort('course', 'Course')">
+					Course
+					<span *ngIf="listSortField === 'course'">
+						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+					</span>
+				</th>
+				<th class="pointer" scope="col" (click)="toggleListSort('teacher', 'Teacher')">
+					Teacher
+					<span *ngIf="listSortField === 'teacher'">
+						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+					</span>
+				</th>
+				<th class="pointer" scope="col" (click)="toggleListSort('startTime', 'Start Time')">
+					Start Time
+					<span *ngIf="listSortField === 'startTime'">
+						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+					</span>
+				</th>
+				<th class="pointer" scope="col" (click)="toggleListSort('endTime', 'End Time')">
+					End Time
+					<span *ngIf="listSortField === 'endTime'">
+						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+					</span>
+				</th>
+				<th scope="col">Day of Week</th>
+
+				<th class="pointer" scope="col" (click)="toggleListSort('hot', 'Hot')">
+					Hot
+					<span *ngIf="listSortField === 'hot'">
+						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+					</span>
+				</th>
 		        <th scope="col" style="width:7.8rem;"></th>
 	    	</tr>
 	    </thead>
@@ -608,7 +673,9 @@
 
 
 	<div class="container">
-		<div class="row">			<div class="col-3">
+
+		<div class="row">
+			<div class="col-3">
 			</div>
 			<div class="col-6">
 			  <div *ngIf="total_pages > 1">
@@ -645,9 +712,9 @@
 				<div class="total_counts">
 					Total: <b>{{total_count}}</b>
 				</div>
-			</div>			
-
+			</div>
 		</div>
+
 	</div>
 	
 </div>
