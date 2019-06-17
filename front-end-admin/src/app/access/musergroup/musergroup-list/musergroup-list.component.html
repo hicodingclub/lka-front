@@ -36,15 +36,19 @@
 		<hr/>
 		<div class="row">
 			<div class="col-3">
-				<input type="radio" name="view-filter" id="table-view" class="view-radio"
-					(click)="setListViewFilter('table')" [checked]="isShowListView('table')">
-					<label for="table-view"><i class="fa fa-list-alt"></i></label>
+
 				<input type="radio" name="view-filter" id="list-view" class="view-radio"
 					(click)="setListViewFilter('list')" [checked]="isShowListView('list')">
 				  <label for="list-view"><i class="fa fa-th-list"></i></label>
+
 				<input type="radio" name="view-filter" id="grid-view" class="view-radio"
 					(click)="setListViewFilter('grid')" [checked]="isShowListView('grid')">
-				  <label for="grid-view"><i class="fa fa-th"></i></label>
+					<label for="grid-view"><i class="fa fa-th"></i></label>
+
+				<input type="radio" name="view-filter" id="table-view" class="view-radio"
+					(click)="setListViewFilter('table')" [checked]="isShowListView('table')">
+					<label for="table-view"><i class="fa fa-list-alt"></i></label>
+
 			</div>
 			<div class="col-6">
 			  <div *ngIf="total_pages > 1">
@@ -87,43 +91,7 @@
 
 		</div>
 	</div>
-
-	<table *ngIf="isShowListView('table')" class="table table-bordered table-hover">
-	    <thead class="thead-light">
-	    	<tr>
-		        <th scope="col">#</th>
-
-		        <th scope="col">Group</th>
-		        <th scope="col">Description</th>
-		        <th scope="col" style="width:7.8rem;"></th>
-	    	</tr>
-	    </thead>
-	    <tbody>
-	        <tr *ngFor="let detail of list;  let i = index" [ngClass]="{'clicked-row': clickedId==detail['_id']}">
-	            <td scope="row" (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	{{(page-1)*per_page+i+1}}
-	            </td>
-
-	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
-                    {{detail['group']}}
-
-	            </td>
-	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
-                    {{detail['description']}}
-
-	            </td>
-	            
-	            <td>
-	            	<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
-	            	<a routerLink="." (click)="onDelete(detail['_id'], i)"><i class="fas fa-trash-alt" title="Delete"></i></a>
-					<input type="checkbox" [(ngModel)]="checkedItem[i]"/>
-	            </td>
-	        </tr>
-	    </tbody>
-	</table>
-
+	
 	<div class="listview" *ngIf="isShowListView('list')">
 		<div class="list-block" *ngFor="let detail of list;  let i = index">
 			<hr *ngIf="i==0" class="list-diverder">
@@ -197,6 +165,45 @@
 			</div>
 		</div>
 	</div>
+
+
+	<table *ngIf="isShowListView('table')" class="table table-bordered table-hover">
+	    <thead class="thead-light">
+	    	<tr>
+		        <th scope="col">#</th>
+
+		        <th scope="col">Group</th>
+		        <th scope="col">Description</th>
+		        <th scope="col" style="width:7.8rem;"></th>
+	    	</tr>
+	    </thead>
+	    <tbody>
+	        <tr *ngFor="let detail of list;  let i = index" [ngClass]="{'clicked-row': clickedId==detail['_id']}">
+	            <td scope="row" (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            	{{(page-1)*per_page+i+1}}
+	            </td>
+
+	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            	                
+                    {{detail['group']}}
+
+	            </td>
+	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            	                
+                    {{detail['description']}}
+
+	            </td>
+	            
+	            <td>
+	            	<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
+	            	<a routerLink="." (click)="onDelete(detail['_id'], i)"><i class="fas fa-trash-alt" title="Delete"></i></a>
+					<input type="checkbox" [(ngModel)]="checkedItem[i]"/>
+	            </td>
+	        </tr>
+	    </tbody>
+	</table>
+
+
 
 	<div class="container">
 		<div class="row">			<div class="col-3">

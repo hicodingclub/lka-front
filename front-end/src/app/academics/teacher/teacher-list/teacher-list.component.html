@@ -9,7 +9,7 @@
 	              <input type="search" class="form-control border border-secondary" id="teacherTextSearch" 
 						#teacherTextSearch [(ngModel)]="searchText"
 						(keyup.enter)="$event.target.blur();searchList();false"
-					    placeholder="Search for firstName, lastName, photo"> 
+					    placeholder="Search for firstName, lastName, introduction, photo"> 
 				  <div *ngIf="searchText" class="input-group-append icon-clear-inside">
 					<span >
 					    <i class="fas fa-times-circle" (click)="onSearchTextClear()" title="Clear"></i>
@@ -140,105 +140,7 @@
 
 		</div>
 	</div>
-
-	<table *ngIf="isShowListView('table')" class="table table-bordered table-hover">
-	    <thead class="thead-light">
-	    	<tr>
-		        <th scope="col">#</th>
-
-		        <th scope="col">First Name</th>
-		        <th scope="col">Last Name</th>
-		        <th scope="col">Courses</th>
-		        <th scope="col">Photo</th>
-		        <th scope="col" style="width:7.8rem;"></th>
-	    	</tr>
-	    </thead>
-	    <tbody>
-	        <tr *ngFor="let detail of list;  let i = index" [ngClass]="{'clicked-row': clickedId==detail['_id']}">
-	            <td scope="row" (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	{{(page-1)*per_page+i+1}}
-	            </td>
-
-	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
-                    {{detail['firstName']}}
-
-	            </td>
-	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
-                    {{detail['lastName']}}
-
-	            </td>
-	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
-               	  <a routerLink="."  (click)="onDisplayRefClicked('courses', detail['courses'], $event)">
-	            	{{detail['courses']?detail['courses']['value']:""}}
-	              </a>
-
-	            </td>
-	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
-                    <file-display [downloadUrl]="detail['photo']" [isLarge]="false"></file-display>
-
-	            </td>
-	            
-	            <td>
-	            	<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
-	            	<a routerLink="." (click)="onDelete(detail['_id'], i)"><i class="fas fa-trash-alt" title="Delete"></i></a>
-					<input type="checkbox" [(ngModel)]="checkedItem[i]"/>
-	            </td>
-	        </tr>
-	    </tbody>
-	</table>
-
-	<div class="listview" *ngIf="isShowListView('list')">
-		<div class="list-block" *ngFor="let detail of list;  let i = index">
-			<hr *ngIf="i==0" class="list-diverder">
-			<div class="list-card text-left clickable-card"
-				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
-				<div class="list-fields w-75 pointer" (click)="onDetailLinkClicked(detail['_id'])">
-
-      <div class="list-head-picture mr-1 d-inline-block">                
-                    <file-display [downloadUrl]="detail['photo']" [isLarge]="false"></file-display>
-
-      </div>
-    
-      <div class="list-body-fields ml-1 d-inline-block">
-        <h5>
-          <div class="mr-1 d-inline-block">
-                            
-                    {{detail['firstName']}}
-
-          </div>
-          <div class="mr-1 d-inline-block">
-                            
-                    {{detail['lastName']}}
-
-          </div>
-        </h5>
-        <div class="mr-3 d-inline-block">
-          <div class="d-inline-block"><label>Courses:</label></div>
-          <div class="ml-3 d-inline-block">                
-               	  <a routerLink="."  (click)="onDisplayRefClicked('courses', detail['courses'], $event)">
-	            	{{detail['courses']?detail['courses']['value']:""}}
-	              </a>
-
-          </div>
-        </div>
-      </div>
-
-				</div>
-				
-				<div class="card-action-icons d-inline-block w-25">
-					<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
-					<a routerLink="." (click)="onDelete(detail['_id'], i)"><i class="fas fa-trash-alt" title="Delete"></i></a>
-					<input type="checkbox" [(ngModel)]="checkedItem[i]"/>
-				</div>
-			</div>
-			<hr class="list-diverder">
-		</div>
-	</div>
-
+	
 	<div class="gridview" *ngIf="isShowListView('grid')">
 		<div class="grid-block" *ngFor="let detail of list;  let i = index">
 			<div class="card text-left h-100 clickable-card"
@@ -275,6 +177,13 @@
 
             </div>
           </div>
+          <div>
+            <div class="d-inline-block"><label>Introduction:</label></div>
+            <div class="ml-3 d-inline-block">                
+                    {{detail['introduction']}}
+
+            </div>
+          </div>
       </div>
 
 				</div>
@@ -287,6 +196,120 @@
 			</div>
 		</div>
 	</div>
+
+
+	<div class="listview" *ngIf="isShowListView('list')">
+		<div class="list-block" *ngFor="let detail of list;  let i = index">
+			<hr *ngIf="i==0" class="list-diverder">
+			<div class="list-card text-left clickable-card"
+				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
+				<div class="list-fields w-75 pointer" (click)="onDetailLinkClicked(detail['_id'])">
+
+      <div class="list-head-picture mr-1 d-inline-block">                
+                    <file-display [downloadUrl]="detail['photo']" [isLarge]="false"></file-display>
+
+      </div>
+    
+      <div class="list-body-fields ml-1 d-inline-block">
+        <h5>
+          <div class="mr-1 d-inline-block">
+                            
+                    {{detail['firstName']}}
+
+          </div>
+          <div class="mr-1 d-inline-block">
+                            
+                    {{detail['lastName']}}
+
+          </div>
+        </h5>
+        <div class="mr-3 d-inline-block">
+          <div class="d-inline-block"><label>Courses:</label></div>
+          <div class="ml-3 d-inline-block">                
+               	  <a routerLink="."  (click)="onDisplayRefClicked('courses', detail['courses'], $event)">
+	            	{{detail['courses']?detail['courses']['value']:""}}
+	              </a>
+
+          </div>
+        </div>
+        <div class="mr-3 d-inline-block">
+          <div class="d-inline-block"><label>Introduction:</label></div>
+          <div class="ml-3 d-inline-block">                
+                    {{detail['introduction']}}
+
+          </div>
+        </div>
+      </div>
+
+				</div>
+				
+				<div class="card-action-icons d-inline-block w-25">
+					<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
+					<a routerLink="." (click)="onDelete(detail['_id'], i)"><i class="fas fa-trash-alt" title="Delete"></i></a>
+					<input type="checkbox" [(ngModel)]="checkedItem[i]"/>
+				</div>
+			</div>
+			<hr class="list-diverder">
+		</div>
+	</div>
+
+	<table *ngIf="isShowListView('table')" class="table table-bordered table-hover">
+	    <thead class="thead-light">
+	    	<tr>
+		        <th scope="col">#</th>
+
+		        <th scope="col">First Name</th>
+		        <th scope="col">Last Name</th>
+		        <th scope="col">Courses</th>
+		        <th scope="col">Introduction</th>
+		        <th scope="col">Photo</th>
+		        <th scope="col" style="width:7.8rem;"></th>
+	    	</tr>
+	    </thead>
+	    <tbody>
+	        <tr *ngFor="let detail of list;  let i = index" [ngClass]="{'clicked-row': clickedId==detail['_id']}">
+	            <td scope="row" (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            	{{(page-1)*per_page+i+1}}
+	            </td>
+
+	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            	                
+                    {{detail['firstName']}}
+
+	            </td>
+	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            	                
+                    {{detail['lastName']}}
+
+	            </td>
+	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            	                
+               	  <a routerLink="."  (click)="onDisplayRefClicked('courses', detail['courses'], $event)">
+	            	{{detail['courses']?detail['courses']['value']:""}}
+	              </a>
+
+	            </td>
+	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            	                
+                    {{detail['introduction']}}
+
+	            </td>
+	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            	                
+                    <file-display [downloadUrl]="detail['photo']" [isLarge]="false"></file-display>
+
+	            </td>
+	            
+	            <td>
+	            	<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
+	            	<a routerLink="." (click)="onDelete(detail['_id'], i)"><i class="fas fa-trash-alt" title="Delete"></i></a>
+					<input type="checkbox" [(ngModel)]="checkedItem[i]"/>
+	            </td>
+	        </tr>
+	    </tbody>
+	</table>
+
+
 
 	<div class="container">
 		<div class="row">			<div class="col-3">

@@ -26,5 +26,5 @@ var views = [studentClassBrief, studentClassDetail, studentClassCreat,
 module.exports = {
     schema: studentClassSchema, 
     views: views,
-    embeddedViewOnly: true  //only viewable from sub-view
+    embeddedViewOnly: true,  //only viewable from sub-view
 };

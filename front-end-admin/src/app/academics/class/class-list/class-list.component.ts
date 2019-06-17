@@ -41,6 +41,8 @@ protected componentFactoryResolver: ComponentFactoryResolver,
           this.multiSelectionFields = ['dayOfWeek', ];
 
 
+
+          this.listViewFilter = 'table';
           // this is to initialize the detail that will be used for search condition selection
           const detail = {};
           this.detail = this.formatDetail(detail);

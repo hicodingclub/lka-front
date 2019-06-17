@@ -20,7 +20,7 @@
 	              <input type="search" class="form-control border border-secondary" id="teacherTextSearch" 
 						#teacherTextSearch [(ngModel)]="searchText"
 						(keyup.enter)="$event.target.blur();searchList();false"
-					    placeholder="Search for firstName, lastName, photo"> 
+					    placeholder="Search for firstName, lastName, introduction, photo"> 
 				  <div *ngIf="searchText" class="input-group-append icon-clear-inside">
 					<span >
 					    <i class="fas fa-times-circle" (click)="onSearchTextClear()" title="Clear"></i>
@@ -141,7 +141,7 @@
 		        <th scope="col">First Name</th>
 		        <th scope="col">Last Name</th>
 		        <th scope="col">Courses</th>
-		        <th scope="col">Photo</th>
+		        <th scope="col">Introduction</th>
 
 		        <th></th>      
 	        </tr>
@@ -166,7 +166,7 @@
 
 	            </td>
 	            <td (click)="selectItemSelected(i)"  class="pointer">                
-                    <file-display [downloadUrl]="detail['photo']" [isLarge]="false"></file-display>
+                    {{detail['introduction']}}
 
 	            </td>
 

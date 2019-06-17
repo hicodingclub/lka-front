@@ -25,7 +25,7 @@ teacherSchema.virtual('name').get(function () {
   return fullName;
 });
 
-var teacherBrief = "firstName lastName courses introduction, photo";
+var teacherBrief = "firstName lastName courses introduction photo";
 var teacherDetail = "firstName lastName | email | phoneNumber  courses | introduction | photo";
 var teacherCreat = "firstName lastName courses introduction email phoneNumber photo";
 var teacherEdit = "firstName lastName courses introduction email phoneNumber photo";
@@ -34,4 +34,10 @@ var teacherIndex = "firstName lastName";
 
 var views = [teacherBrief, teacherDetail, teacherCreat, teacherEdit, teacherTextSearch, teacherIndex]
 
-module.exports = {schema: teacherSchema, views: views};
+module.exports = {
+  schema: teacherSchema,
+  views: views,
+  mraUI: {
+    listType: 'grid', // table, list, or grid
+  },
+};

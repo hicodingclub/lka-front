@@ -30,6 +30,7 @@ protected componentFactoryResolver: ComponentFactoryResolver,
 
           this.stringFields.push('firstName');
           this.stringFields.push('lastName');
+          this.stringFields.push('introduction');
           this.stringFields.push('photo');
 
           this.referenceFields = ['courses', ];
@@ -39,6 +40,8 @@ protected componentFactoryResolver: ComponentFactoryResolver,
 
 
 
+
+          this.listViewFilter = 'grid';
           // this is to initialize the detail that will be used for search condition selection
           const detail = {};
           this.detail = this.formatDetail(detail);

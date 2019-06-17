@@ -38,6 +38,8 @@ protected componentFactoryResolver: ComponentFactoryResolver,
           this.arrayFields = [['role', 'ObjectId'],];
           this.referenceFieldsMap['role'] = 'mrole';
 
+
+          this.listViewFilter = 'list';
           // this is to initialize the detail that will be used for search condition selection
           const detail = {};
           this.detail = this.formatDetail(detail);

@@ -35,6 +35,8 @@ export class MpubmoduleListComponent extends MpubmoduleComponent implements OnIn
 
           this.arrayFields = [['resources', 'SchemaString'],];
 
+
+          this.listViewFilter = 'list';
           // this is to initialize the detail that will be used for search condition selection
           const detail = {};
           this.detail = this.formatDetail(detail);

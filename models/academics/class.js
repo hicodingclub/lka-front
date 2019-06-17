@@ -28,4 +28,10 @@ var views = [courseInstanceBrief, courseInstanceDetail, courseInstanceCreat, cou
 
 
 //Export model
-module.exports = {schema: courseInstanceSchema, views: views};
+module.exports = {
+  schema: courseInstanceSchema,
+  views: views,
+  mraUI: {
+    listType: 'table', // table, list, or grid
+  },
+};

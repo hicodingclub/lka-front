@@ -59,6 +59,9 @@
 		        	Courses
 		        </th>
 		        <th scope="col">
+		        	Introduction
+		        </th>
+		        <th scope="col">
 		        	Photo
 		        </th>		        
                 <th scope="col" style="width:2rem;"></th>
@@ -90,6 +93,11 @@
                 </td>
 	            <td >
 	            	                
+                    {{detail['introduction']}}
+
+                </td>
+	            <td >
+	            	                
                     <file-display [downloadUrl]="detail['photo']" [isLarge]="false"></file-display>
 
                 </td>
@@ -110,7 +118,7 @@
 	        </tr>
 
 	        <tr *ngIf="checkedItem[i]" >
-	        	<td colspan="4"><app-teacher-detail-sub [inputData]="detail['_id']"></app-teacher-detail-sub></td>
+	        	<td colspan="5"><app-teacher-detail-sub [inputData]="detail['_id']"></app-teacher-detail-sub></td>
 	        </tr>
 	      </ng-template>
 	    </tbody>

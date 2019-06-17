@@ -30,6 +30,7 @@ protected componentFactoryResolver: ComponentFactoryResolver,
 
           this.stringFields.push('firstName');
           this.stringFields.push('lastName');
+          this.stringFields.push('introduction');
           this.stringFields.push('photo');
 
           this.referenceFields = ['courses', ];

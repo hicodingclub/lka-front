@@ -10,7 +10,7 @@ import { CourseService } from '../course.service';
 
 @Component({
   selector: 'app-course-list',
-  templateUrl: './course-list.public.html',
+  templateUrl: './course-list.component.html',
   styleUrls: ['./course-list.component.css']
 })
 export class CourseListComponent extends CourseComponent implements OnInit {
@@ -29,6 +29,11 @@ export class CourseListComponent extends CourseComponent implements OnInit {
 
           this.stringFields.push('title');
           this.stringFields.push('description');
+
+
+
+
+
 
           // this is to initialize the detail that will be used for search condition selection
           const detail = {};
