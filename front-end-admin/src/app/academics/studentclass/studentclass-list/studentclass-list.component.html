@@ -109,10 +109,10 @@
 							<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down"></i>
 						</button>
 						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-							<a class="dropdown-item pointer" (click)="setListSort('student', 'Student', 'asc')">Student<i class="fas fa-arrow-up"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSort('student', 'Student', 'desc')">Student<i class="fas fa-arrow-down"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSort('class', 'Class', 'asc')">Class<i class="fas fa-arrow-up"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSort('class', 'Class', 'desc')">Class<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('student', 'Student', 'asc')">Student<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('student', 'Student', 'desc')">Student<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('class', 'Class', 'asc')">Class<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('class', 'Class', 'desc')">Class<i class="fas fa-arrow-down"></i></a>
 						</div>
 					</div>
 			</div>
@@ -168,6 +168,7 @@
 			<div class="col-3">
 				<div class="total_counts">
 					Total: <b>{{total_count}}</b>
+						
 					<input type="checkbox" class="ml-3 mr-1" [(ngModel)]="checkAll" (change)="onCheckAllChange()">All
 					<a class="ml-3" routerLink="." (click)="onRefresh()"><i class="fa fa-sync-alt"></i></a>
 				</div>
@@ -175,11 +176,10 @@
 		</div>
 
 	</div>
-	
 	<div class="listview" *ngIf="isShowListView('list')">
 		<div class="list-block" *ngFor="let detail of list;  let i = index">
 			<hr *ngIf="i==0" class="list-diverder">
-			<div class="list-card text-left clickable-card"
+			<div class="list-card text-left clickable-card "
 				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
 				<div class="list-fields w-75 pointer" (click)="onDetailLinkClicked(detail['_id'])">
 
@@ -205,7 +205,7 @@
       </div>
 
 				</div>
-				
+
 				<div class="card-action-icons d-inline-block w-25">
 					<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
 					<a routerLink="." (click)="onDelete(detail['_id'], i)"><i class="fas fa-trash-alt" title="Delete"></i></a>
@@ -216,9 +216,10 @@
 		</div>
 	</div>
 
+
 	<div class="gridview" *ngIf="isShowListView('grid')">
 		<div class="grid-block" *ngFor="let detail of list;  let i = index">
-			<div class="card text-left h-100 clickable-card"
+			<div class="card text-left h-100 clickable-card "
 				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
 				<div class="grid-fields pointer" (click)="onDetailLinkClicked(detail['_id'])">
 
@@ -248,7 +249,6 @@
       </div>
 
 				</div>
-				
 				<div class="card-action-icons">
 					<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
 					<a routerLink="." (click)="onDelete(detail['_id'], i)"><i class="fas fa-trash-alt" title="Delete"></i></a>
@@ -278,7 +278,7 @@
 						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
 					</span>
 				</th>
-		        <th scope="col" style="width:7.8rem;"></th>
+<th scope="col" style="width:7.8rem;"></th>
 	    	</tr>
 	    </thead>
 	    <tbody>
@@ -301,7 +301,7 @@
 	              </a>
 
 	            </td>
-	            
+
 	            <td>
 	            	<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
 	            	<a routerLink="." (click)="onDelete(detail['_id'], i)"><i class="fas fa-trash-alt" title="Delete"></i></a>

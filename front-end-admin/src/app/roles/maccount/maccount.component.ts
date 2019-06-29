@@ -29,6 +29,7 @@ export class MaccountComponent extends BaseComponent {
         super(maccountService, injector, router, route, location, view, itemCamelName);
         this.dateFormat = 'MM-DD-YYYY';
         this.timeFormat = 'hh:mm:ss';
+        this.modulePath = 'roles';
         this.indexFields = ['username', ];
     }
 }

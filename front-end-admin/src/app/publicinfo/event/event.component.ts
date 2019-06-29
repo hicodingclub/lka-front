@@ -26,6 +26,7 @@ export class EventComponent extends BaseComponent {
         super(eventService, injector, router, route, location, view, itemCamelName);
         this.dateFormat = 'MM-DD-YYYY';
         this.timeFormat = 'hh:mm:ss';
+        this.modulePath = 'publicinfo';
         this.indexFields = ['title', ];
     }
 }

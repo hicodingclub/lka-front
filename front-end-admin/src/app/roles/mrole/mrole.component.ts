@@ -28,6 +28,7 @@ export class MroleComponent extends BaseComponent {
       protected view: ViewType ) {
         super(mroleService, injector, router, route, location, view, itemCamelName);
         
+        this.modulePath = 'roles';
         this.indexFields = ['role', ];
     }
 }

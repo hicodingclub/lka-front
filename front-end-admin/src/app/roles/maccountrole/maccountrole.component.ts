@@ -51,6 +51,7 @@ protected componentFactoryResolver: ComponentFactoryResolver,
       protected view: ViewType ) {
         super(maccountroleService, injector, router, route, location, view, itemCamelName);
         
+        this.modulePath = 'roles';
         this.indexFields = ['account', ];
     }
 }

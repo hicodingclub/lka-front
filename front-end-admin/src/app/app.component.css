@@ -22,9 +22,17 @@
 	width: 100%;
 	min-height: calc(100vh - 70px);  /*viewport height subtracts footer height*/
 	
-	background-color: #dedddd;
+  background-color: #dedddd;
+  display: flex;
+  flex-direction: column;
 }
 
+.content-min-height {
+  flex-grow: 1; /* grow to the full height*/
+  background-color: white;
+  /* box-sizing: border-box; */
+  background-clip: content-box;
+}
 
 .footer {
   background-color: #343a40;

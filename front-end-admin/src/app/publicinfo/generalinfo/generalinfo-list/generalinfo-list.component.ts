@@ -27,8 +27,10 @@ export class GeneralinfoListComponent extends GeneralinfoComponent implements On
                 generalinfoService, injector, router, route, location, ViewType.LIST);
 
 
+          this.stringFields.push('signaturePicture');
           this.stringFields.push('title');
           this.stringFields.push('description');
+          this.stringFields.push('tag');
 
 
 
@@ -37,6 +39,7 @@ export class GeneralinfoListComponent extends GeneralinfoComponent implements On
 
 
           this.listViewFilter = 'list';
+          this.setListSort('title', 'Title', 'asc');
           // this is to initialize the detail that will be used for search condition selection
           const detail = {};
           this.detail = this.formatDetail(detail);

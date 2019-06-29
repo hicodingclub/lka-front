@@ -51,6 +51,7 @@ protected componentFactoryResolver: ComponentFactoryResolver,
       protected view: ViewType ) {
         super(mpubaccessService, injector, router, route, location, view, itemCamelName);
         
+        this.modulePath = 'access';
         this.indexFields = ['group', ];
     }
 }

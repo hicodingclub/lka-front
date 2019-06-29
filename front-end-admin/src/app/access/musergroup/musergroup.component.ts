@@ -28,6 +28,7 @@ export class MusergroupComponent extends BaseComponent {
       protected view: ViewType ) {
         super(musergroupService, injector, router, route, location, view, itemCamelName);
         
+        this.modulePath = 'access';
         this.indexFields = ['group', ];
     }
 }

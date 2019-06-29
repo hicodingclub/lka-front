@@ -28,6 +28,7 @@ export class MmoduleComponent extends BaseComponent {
       protected view: ViewType ) {
         super(mmoduleService, injector, router, route, location, view, itemCamelName);
         
+        this.modulePath = 'roles';
         this.indexFields = ['module', ];
     }
 }

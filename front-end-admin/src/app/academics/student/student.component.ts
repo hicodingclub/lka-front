@@ -29,6 +29,7 @@ export class StudentComponent extends BaseComponent {
         super(studentService, injector, router, route, location, view, itemCamelName);
         this.dateFormat = 'MM-DD-YYYY';
         this.timeFormat = 'hh:mm:ss';
+        this.modulePath = 'academics';
         this.indexFields = ['first_name','last_name', ];
     }
 }

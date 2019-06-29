@@ -25,6 +25,7 @@ export class FaqComponent extends BaseComponent {
       protected view: ViewType ) {
         super(faqService, injector, router, route, location, view, itemCamelName);
         
+        this.modulePath = 'publicinfo';
         this.indexFields = ['question', ];
     }
 }

@@ -28,6 +28,7 @@ export class MpubmoduleComponent extends BaseComponent {
       protected view: ViewType ) {
         super(mpubmoduleService, injector, router, route, location, view, itemCamelName);
         
+        this.modulePath = 'access';
         this.indexFields = ['module', ];
     }
 }

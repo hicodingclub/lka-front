@@ -24,26 +24,31 @@ import { academics_server_root_uri } from '../academics.conf';
 // Import components for each schema
 
 import { StudentListComponent } from './student/student-list/student-list.component';
+
 import { StudentDetailComponent } from './student/student-detail/student-detail.component';
 import { StudentEditComponent } from './student/student-edit/student-edit.component';
 import { StudentService } from './student/student.service';
 
 import { TeacherListComponent } from './teacher/teacher-list/teacher-list.component';
+
 import { TeacherDetailComponent } from './teacher/teacher-detail/teacher-detail.component';
 import { TeacherEditComponent } from './teacher/teacher-edit/teacher-edit.component';
 import { TeacherService } from './teacher/teacher.service';
 
 import { CourseListComponent } from './course/course-list/course-list.component';
+
 import { CourseDetailComponent } from './course/course-detail/course-detail.component';
 import { CourseEditComponent } from './course/course-edit/course-edit.component';
 import { CourseService } from './course/course.service';
 
 import { ClassListComponent } from './class/class-list/class-list.component';
+
 import { ClassDetailComponent } from './class/class-detail/class-detail.component';
 import { ClassEditComponent } from './class/class-edit/class-edit.component';
 import { ClassService } from './class/class.service';
 
 import { StudentclassListComponent } from './studentclass/studentclass-list/studentclass-list.component';
+
 import { StudentclassDetailComponent } from './studentclass/studentclass-detail/studentclass-detail.component';
 import { StudentclassEditComponent } from './studentclass/studentclass-edit/studentclass-edit.component';
 import { StudentclassService } from './studentclass/studentclass.service';
@@ -86,18 +91,23 @@ import { StudentclassDetailSubComponent } from './studentclass/studentclass-deta
     AcademicsRefSelectDirective,
 
     StudentListComponent,
+    
     StudentDetailComponent,
     StudentEditComponent,
     TeacherListComponent,
+    
     TeacherDetailComponent,
     TeacherEditComponent,
     CourseListComponent,
+    
     CourseDetailComponent,
     CourseEditComponent,
     ClassListComponent,
+    
     ClassDetailComponent,
     ClassEditComponent,
     StudentclassListComponent,
+    
     StudentclassDetailComponent,
     StudentclassEditComponent,
 
@@ -130,18 +140,23 @@ import { StudentclassDetailSubComponent } from './studentclass/studentclass-deta
     AcademicsComponent,
 
     StudentListComponent,
+    
     StudentDetailComponent,
     StudentEditComponent,
     TeacherListComponent,
+    
     TeacherDetailComponent,
     TeacherEditComponent,
     CourseListComponent,
+    
     CourseDetailComponent,
     CourseEditComponent,
     ClassListComponent,
+    
     ClassDetailComponent,
     ClassEditComponent,
     StudentclassListComponent,
+    
     StudentclassDetailComponent,
     StudentclassEditComponent,
 

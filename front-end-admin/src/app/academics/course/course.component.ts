@@ -28,6 +28,7 @@ export class CourseComponent extends BaseComponent {
       protected view: ViewType ) {
         super(courseService, injector, router, route, location, view, itemCamelName);
         
+        this.modulePath = 'academics';
         this.indexFields = ['title', ];
     }
 }

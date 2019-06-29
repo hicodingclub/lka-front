@@ -25,6 +25,7 @@ export class GeneralinfoComponent extends BaseComponent {
       protected view: ViewType ) {
         super(generalinfoService, injector, router, route, location, view, itemCamelName);
         
+        this.modulePath = 'publicinfo';
         this.indexFields = ['title', ];
     }
 }

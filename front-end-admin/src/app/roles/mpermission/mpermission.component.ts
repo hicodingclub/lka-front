@@ -51,6 +51,7 @@ protected componentFactoryResolver: ComponentFactoryResolver,
       protected view: ViewType ) {
         super(mpermissionService, injector, router, route, location, view, itemCamelName);
         
+        this.modulePath = 'roles';
         this.indexFields = ['role', ];
     }
 }

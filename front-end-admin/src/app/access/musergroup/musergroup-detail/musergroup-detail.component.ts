@@ -17,6 +17,10 @@ import { MusergroupService } from '../musergroup.service';
 export class MusergroupDetailComponent extends MusergroupComponent implements OnInit {
   @Input() 
   protected id:string;
+  @Input()
+  protected identityField:string;
+  @Input()
+  protected identityValue:string;
 
 
   constructor(
@@ -43,7 +47,13 @@ export class MusergroupDetailComponent extends MusergroupComponent implements On
 
   ngOnInit() {
       if (!this.id) this.id = this.route.snapshot.paramMap.get('id');
-      if (this.id) this.populateDetail(this.id);
-      else console.error("Routing error for detail view... no id...");
+      if (this.id) {
+        this.populateDetail(this.id);
+      } else if (this.identityField && this.identityValue) {
+        // search item based on the unique value
+        this.populateDetailByField(this.identityField, this.identityValue);
+      } else {
+        console.error("Routing error for detail view... no id...");
+      }
   }
 }
