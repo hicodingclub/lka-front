@@ -33,5 +33,9 @@ module.exports = {
   mraUI: {
     detailType: 'post', //use the post view in detailed page
     listType: 'list', // list, table, or grid
+    listToDetail: 'link', // link, click, or none
+    defaultListSort: {'publishDate': 'desc'},
+    publicListFilter: {},
+    homeListNumber: 3,
   },
 };
