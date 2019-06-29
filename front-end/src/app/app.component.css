@@ -16,11 +16,20 @@
 }
 
 .content {
+  position: relative;
 	padding-top: 70px; /*same height with .header*/
 	width: 100%;
-	min-height: calc(100vh - 70px);  /*viewport height substracts footer height*/
+  min-height: calc(100vh - 70px);  /*viewport height substracts footer height*/
+  
+  display: flex;
+  flex-direction: column;
 }
-
+.content-min-height {
+  flex-grow: 1; /* grow to the full height*/
+  background-color: white;
+  /* box-sizing: border-box; */
+  background-clip: content-box;
+}
 
 .footer {
   background-color: #00BFFF;

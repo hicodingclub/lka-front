@@ -75,70 +75,63 @@
         </fieldset>
 
     
-</div><div *ngIf="!hiddenFields.includes('order')">
+</div><div *ngIf="!hiddenFields.includes('signaturePicture')">
 
         <fieldset class="form-group">
-          <label for="EditOrder">Order</label>
-          
-          <input type="number" class="form-control" id="EditOrder" 
-                  
-                  
-                  required
-               
-                  [(ngModel)]="detail['order']" name="EditOrder"
-                  #EditOrder="ngModel">
-          <div [hidden]="EditOrder.valid || EditOrder.pristine || EditOrder.errors.minnumber"
-           class="alert alert-danger">
-
-            <div *ngIf="EditOrder.errors && EditOrder.errors.required">
-              Order is required.
-              </div>
- 
-
-          </div>
-
-        </fieldset>
-    
-</div><div *ngIf="!hiddenFields.includes('enable')">
-
-        <fieldset class="form-group">
-          <label for="EditEnable">Enable</label>
+          <label for="EditSignaturePicture">Signature Picture</label>
           
           <div class="form-check"
 
-              [ngClass]="{'ng-valid': detail['enable'] == true || detail['enable'] == false,
-                          'ng-invalid': detail['enable'] != true && detail['enable'] != false}"
-            
-            >
-            <div class="form-check-inline">
-              <input type="radio" name="EditEnable" 
-                class="form-check-input"
-                id="EditEnableYes" [value]="true" 
-                required
-                 
-                [(ngModel)]="detail['enable']"
-                #EditEnable="ngModel">
-              <label class="form-check-label">Yes</label>
-            </div>
-            <div class="form-check-inline">
-              <input type="radio" name="EditEnable" 
-                class="form-check-input"
-                id="EditEnableNo" [value]="false"
-                required
-                 
-                [(ngModel)]="detail['enable']"
-                #EditEnable="ngModel">
-              <label class="form-check-label">No</label>
-            </div>
+                [ngClass]="{'ng-valid': true} "
+              >
+              <input type="text" class="form-control rounded" id="EditSignaturePicture" style="display: none;"
+                  
+                  [(ngModel)]="detail['signaturePicture']" name="EditSignaturePicture"
+                  #EditSignaturePicture="ngModel">
+              <div style="display: inline-block; width: 80%;" >
+                  <file-upload [(downloadUrl)]="detail['signaturePicture']"></file-upload>
+              </div>
+              <span *ngIf="detail['signaturePicture']" 
+                class="icon-clear" (click)="clearValueFromDetail('signaturePicture')">
+                <i class="fas fa-times-circle" title="Clear"></i>
+              </span>     
           </div>
-          <div [hidden]="EditEnable.valid || EditEnable.pristine"
+          <div [hidden]="EditSignaturePicture.valid || EditSignaturePicture.pristine"
+            class="alert alert-danger">
+
+          </div>
+        </fieldset>				
+
+    
+</div><div *ngIf="!hiddenFields.includes('tag')">
+
+        <fieldset class="form-group">
+          <label for="EditTag">Tag</label>
+          
+
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditTag" 
+                    
+                    
+                    
+                 
+                    [(ngModel)]="detail['tag']" name="EditTag"
+                    #EditTag="ngModel">
+                <div *ngIf="detail['tag']" 
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('tag')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+          </div>
+
+          <div [hidden]="EditTag.valid || EditTag.pristine || EditTag.errors.minlength"
            class="alert alert-danger">
 
-            <div *ngIf="EditEnable.errors && EditEnable.errors.required">
-              Enable is required.
-            </div> 
+ 
+
           </div>
+        
         </fieldset>
+
     
 </div>
          </div>	
@@ -209,70 +202,63 @@
         </fieldset>
 
     
-</div><div *ngIf="!hiddenFields.includes('order')">
+</div><div *ngIf="!hiddenFields.includes('signaturePicture')">
 
         <fieldset class="form-group">
-          <label for="EditOrder">Order</label>
-          
-          <input type="number" class="form-control" id="EditOrder" 
-                  
-                  
-                  required
-               
-                  [(ngModel)]="detail['order']" name="EditOrder"
-                  #EditOrder="ngModel">
-          <div [hidden]="EditOrder.valid || EditOrder.pristine || EditOrder.errors.minnumber"
-           class="alert alert-danger">
-
-            <div *ngIf="EditOrder.errors && EditOrder.errors.required">
-              Order is required.
-              </div>
- 
-
-          </div>
-
-        </fieldset>
-    
-</div><div *ngIf="!hiddenFields.includes('enable')">
-
-        <fieldset class="form-group">
-          <label for="EditEnable">Enable</label>
+          <label for="EditSignaturePicture">Signature Picture</label>
           
           <div class="form-check"
 
-              [ngClass]="{'ng-valid': detail['enable'] == true || detail['enable'] == false,
-                          'ng-invalid': detail['enable'] != true && detail['enable'] != false}"
-            
-            >
-            <div class="form-check-inline">
-              <input type="radio" name="EditEnable" 
-                class="form-check-input"
-                id="EditEnableYes" [value]="true" 
-                required
-                 
-                [(ngModel)]="detail['enable']"
-                #EditEnable="ngModel">
-              <label class="form-check-label">Yes</label>
-            </div>
-            <div class="form-check-inline">
-              <input type="radio" name="EditEnable" 
-                class="form-check-input"
-                id="EditEnableNo" [value]="false"
-                required
-                 
-                [(ngModel)]="detail['enable']"
-                #EditEnable="ngModel">
-              <label class="form-check-label">No</label>
-            </div>
+                [ngClass]="{'ng-valid': true} "
+              >
+              <input type="text" class="form-control rounded" id="EditSignaturePicture" style="display: none;"
+                  
+                  [(ngModel)]="detail['signaturePicture']" name="EditSignaturePicture"
+                  #EditSignaturePicture="ngModel">
+              <div style="display: inline-block; width: 80%;" >
+                  <file-upload [(downloadUrl)]="detail['signaturePicture']"></file-upload>
+              </div>
+              <span *ngIf="detail['signaturePicture']" 
+                class="icon-clear" (click)="clearValueFromDetail('signaturePicture')">
+                <i class="fas fa-times-circle" title="Clear"></i>
+              </span>     
           </div>
-          <div [hidden]="EditEnable.valid || EditEnable.pristine"
+          <div [hidden]="EditSignaturePicture.valid || EditSignaturePicture.pristine"
+            class="alert alert-danger">
+
+          </div>
+        </fieldset>				
+
+    
+</div><div *ngIf="!hiddenFields.includes('tag')">
+
+        <fieldset class="form-group">
+          <label for="EditTag">Tag</label>
+          
+
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditTag" 
+                    
+                    
+                    
+                 
+                    [(ngModel)]="detail['tag']" name="EditTag"
+                    #EditTag="ngModel">
+                <div *ngIf="detail['tag']" 
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('tag')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+          </div>
+
+          <div [hidden]="EditTag.valid || EditTag.pristine || EditTag.errors.minlength"
            class="alert alert-danger">
 
-            <div *ngIf="EditEnable.errors && EditEnable.errors.required">
-              Enable is required.
-            </div> 
+ 
+
           </div>
+        
         </fieldset>
+
     
 </div>
          </div>	

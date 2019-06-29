@@ -9,7 +9,7 @@ import { ClassService } from '../../academics/class/class.service';
 export class HotClassesComponent {
     private classes;
     constructor(protected classService: ClassService) {
-        const result = this.classService.getList(1,25,{}).subscribe(
+        const result = this.classService.getList(1,25,{}, null, null).subscribe(
            result => { 
               this.classes = result.items;
            },

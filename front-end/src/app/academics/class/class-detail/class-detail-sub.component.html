@@ -20,6 +20,17 @@
 </div>
 
           </div>
+
+          <div class="row">
+      
+			<div class="col-3"><label>Teacher</label></div>
+			<div class="col-9">                
+               	  <a routerLink="."  (click)="onDisplayRefClicked('teacher', detail['teacher'], $event)">
+	            	{{detail['teacher']?detail['teacher']['value']:""}}
+	              </a>
+</div>
+
+          </div>
  
  
 		</div>

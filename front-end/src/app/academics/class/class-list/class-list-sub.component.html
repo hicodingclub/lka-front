@@ -57,9 +57,6 @@
 		        <th *ngIf="referenceFieldsMap['course'] != parentItem"  scope="col">
 		        	Course
 		        </th>
-		        <th *ngIf="referenceFieldsMap['teacher'] != parentItem"  scope="col">
-		        	Teacher
-		        </th>
 		        <th scope="col">
 		        	Start Time
 		        </th>
@@ -68,9 +65,6 @@
 		        </th>
 		        <th scope="col">
 		        	Day of Week
-		        </th>
-		        <th scope="col">
-		        	Hot
 		        </th>		        
                 <th scope="col" style="width:2rem;"></th>
 
@@ -94,13 +88,6 @@
 	              </a>
 
                 </td>
-	            <td *ngIf="referenceFieldsMap['teacher'] != parentItem"  >
-	            	                
-               	  <a routerLink="."  (click)="onDisplayRefClicked('teacher', detail['teacher'], $event)">
-	            	{{detail['teacher']?detail['teacher']['value']:""}}
-	              </a>
-
-                </td>
 	            <td >
 	            	                  {{detail['startTime']?detail['startTime']['value']:""}}
 
@@ -114,10 +101,6 @@
                     <div class="badge badge-pill badge-secondary" *ngFor="let element of enums['dayOfWeek']">
                          <div *ngIf="detail['dayOfWeek'] && detail['dayOfWeek']['selection'][element]">{{element}}</div>
                     </div>
-
-                </td>
-	            <td >
-	            	                  {{detail['hot']}} 
 
                 </td>
 	            <td>
@@ -137,7 +120,7 @@
 	        </tr>
 
 	        <tr *ngIf="checkedItem[i]" >
-	        	<td colspan="7"><app-class-detail-sub [inputData]="detail['_id']"></app-class-detail-sub></td>
+	        	<td colspan="5"><app-class-detail-sub [inputData]="detail['_id']"></app-class-detail-sub></td>
 	        </tr>
 	      </ng-template>
 	    </tbody>

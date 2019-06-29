@@ -1,0 +1,28 @@
+
+.internal_link {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    margin-top: 1rem;
+    color: #307bff;
+    cursor: pointer;
+}
+
+.carousel-caption {
+	bottom: 300px;
+}
+
+.new-carousel-subcaption {
+	font-size: 2rem;
+}
+
+.carousel-inner img {
+	width: 100%;
+}
+.horizontal {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+section {
+    padding: 20px 0 20px 0;
+}

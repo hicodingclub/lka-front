@@ -1,0 +1,62 @@
+<div class="container">
+    <div id="slides" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ul class="carousel-indicators">
+          <li data-target="#slides" data-slide-to="0" class="active"></li>
+          <li data-target="#slides" data-slide-to="1"></li>
+          <li data-target="#slides" data-slide-to="2"></li>
+        </ul>
+      
+        <!-- The slideshow -->
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="{{imageObject[0].imageURL}}" alt="We Work Together for a Better Tomorrow">
+            <div class="carousel-caption d-none d-md-block">
+              <p style="font-size:70px;">{{imageObject[0].heading}}</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="{{imageObject[0].imageURL}}" alt="We Work Together for a Better Tomorrow">
+            <div class="carousel-caption d-none d-md-block">
+              <p style="font-size:70px;">{{imageObject[0].heading}}</p>
+            </div>
+          </div>
+          
+          <div class="carousel-item">
+            <img src="{{imageObject[0].imageURL}}" alt="We Work Together for a Better Tomorrow">
+            <div class="carousel-caption d-none d-md-block">
+              <p style="font-size:70px;">{{imageObject[0].heading}}</p>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev" href="#slides" data-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#slides" data-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </a>
+        <!-- End of The slideshow -->
+    </div>
+
+    <section class="row align-items-baseline">
+      <div class="col-4 d-flex flex-column">
+          <div><app-generalinfo-detail [identityField]="'tag'" [identityValue]="'events'"></app-generalinfo-detail></div>
+          <div class="align-self-center internal_link" routerLink="/publicinfo/event">All posts</div>
+      </div>
+      <div class="col-8"><app-event-list-home></app-event-list-home></div>
+    </section>
+
+    <section class="row align-items-baseline">
+      <div class="col-8"><app-class-list-home></app-class-list-home></div>
+      <div class="col-4 d-flex flex-column">
+          <div><app-generalinfo-detail [identityField]="'tag'" [identityValue]="'classes'"></app-generalinfo-detail></div>
+          <div class="align-self-center internal_link" routerLink="/academics/class/list">Check all classes</div>
+      </div>
+    </section>
+
+    <section>
+      <div><app-keynote-detail [identityField]="'tag'" [identityValue]="'mission'"></app-keynote-detail></div>
+    </section>
+</div>

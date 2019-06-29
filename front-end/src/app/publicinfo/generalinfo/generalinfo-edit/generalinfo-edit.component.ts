@@ -43,6 +43,8 @@ export class GeneralinfoEditComponent extends GeneralinfoComponent implements On
 
           this.stringFields.push('title');
           this.stringFields.push('description');
+          this.stringFields.push('signaturePicture');
+          this.stringFields.push('tag');
 
 
 
@@ -70,7 +72,7 @@ export class GeneralinfoEditComponent extends GeneralinfoComponent implements On
                 this.action="Add";
                 this.subEdit = true;
                 let detail = {
-                    enable: false,
+                    
                 };
                 for (let prop in this.initData) {
                     detail[prop] = this.initData[prop];
@@ -79,7 +81,7 @@ export class GeneralinfoEditComponent extends GeneralinfoComponent implements On
                 this.detail = this.formatDetail(detail);
             } else {
                 let detail = {
-                    enable: false,
+                    
                 };
                 this.detail = this.formatDetail(detail);
             }

@@ -72,32 +72,6 @@
  
 	    <div class="single-line-edit">
 	      <div class="row">
-	        <div class="col-3"><label for="classEditTeacher">Teacher</label></div>
-	        <div class="col-8">
-
-
-		    <div class="input-group">
-		        <input class="form-control rounded" id="classEditTeacher" 
-		             [ngClass]="{'pointer ref-badge': detail['teacher']['_id']}"
-		             (focus)="detail['teacher']['_id']?onRefShow('teacher', 'select', detail['teacher']['_id']):onRefSelect('teacher')"
-		        	  
-		             [ngModel]="detail['teacher']['value']" name="classEditTeacher"
-		             #classEditTeacher="ngModel"> 
-			</div>
-
-	      </div>
-	      
-	      <div class="col-1">
-		    <div class="icon-clear" (click)="clearValueFromDetail('teacher')"
-		        *ngIf="checkValueDefinedFromDetail('teacher')"
-		        ><i class="fas fa-times-circle" title="Clear"></i></div>
-	      </div>
-	    </div>
-      </div>
-      
- 
-	    <div class="single-line-edit">
-	      <div class="row">
 	        <div class="col-3"><label for="classEditStartTime">Start Time</label></div>
 	        <div class="col-8">
 
@@ -276,40 +250,6 @@
       </div>
       
  
-	    <div class="single-line-edit">
-	      <div class="row">
-	        <div class="col-3"><label for="classEditHot">Hot</label></div>
-	        <div class="col-8">
-
-
-	        <div class="form-check-inline">
-		      	<input type="radio" name="classEditHot" 
-		        	class="form-check-input"
-		        	id="classEditHotYes" [value]="true" 
-		        	[(ngModel)]="detail['hot']"
-		        	#classEditHot="ngModel">
-		      	<span class="form-check-label">Yes</span>
-		      </div>
-	        <div class="form-check-inline">
-		        <input type="radio" name="classEditHot" 
-		        	class="form-check-input"
-		        	id="classEditHotNo" [value]="false"
-		        	[(ngModel)]="detail['hot']"
-		        	#classEditHot="ngModel">
-		      	<span class="form-check-label">No</span>
-		      </div>
-
-	      </div>
-	      
-	      <div class="col-1">
-		    <div class="icon-clear" (click)="clearValueFromDetail('hot')"
-		        *ngIf="checkValueDefinedFromDetail('hot')"
-		        ><i class="fas fa-times-circle" title="Clear"></i></div>
-	      </div>
-	    </div>
-      </div>
-      
- 
 
 						  <div class="action-buttons" style="margin-top: 10px;">
 								<button type="button" class="btn btn-outline-success" (click)="onSearchClear()">Reset</button>
@@ -382,8 +322,8 @@
 
 		        <th scope="col">Title</th>
 		        <th scope="col">Course</th>
-		        <th scope="col">Teacher</th>
 		        <th scope="col">Start Time</th>
+		        <th scope="col">End Time</th>
 
 		        <th></th>      
 	        </tr>
@@ -403,13 +343,10 @@
 	              </a>
 
 	            </td>
-	            <td (click)="selectItemSelected(i)"  class="pointer">                
-               	  <a routerLink="."  (click)="onDisplayRefClicked('teacher', detail['teacher'], $event)">
-	            	{{detail['teacher']?detail['teacher']['value']:""}}
-	              </a>
+	            <td (click)="selectItemSelected(i)"  class="pointer">                  {{detail['startTime']?detail['startTime']['value']:""}}
 
 	            </td>
-	            <td (click)="selectItemSelected(i)"  class="pointer">                  {{detail['startTime']?detail['startTime']['value']:""}}
+	            <td (click)="selectItemSelected(i)"  class="pointer">                  {{detail['endTime']?detail['endTime']['value']:""}}
 
 	            </td>
 

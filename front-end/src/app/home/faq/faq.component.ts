@@ -9,7 +9,7 @@ import { FaqService } from '../../publicinfo/faq/faq.service';
 export class FaqComponent {
     private faqs;
     constructor(protected faqService: FaqService) {
-        const result = this.faqService.getList(1,25,{}).subscribe(
+        const result = this.faqService.getList(1,25,{}, null, null).subscribe(
            result => { 
               this.faqs = result.items;
            },

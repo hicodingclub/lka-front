@@ -1,0 +1,19 @@
+		
+<div class="detail" *ngIf="detail">
+	
+
+	<div id="slides" class="carousel slide">
+		<!-- The slideshow -->
+		<div class="carousel-inner">
+			<div class="carousel-item  active">
+				<img src="{{detail['signaturePicture']}}" alt="{{detail['title']}}">
+
+				<div class="carousel-caption d-none d-md-block">
+					<h5>{{detail['subtitle']}}</h5>
+					<p>{{detail['description']}}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</div>

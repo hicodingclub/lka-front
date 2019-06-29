@@ -38,7 +38,7 @@ export const AcademicsRoutes: Routes = [
 
 export const academics_server_root_uri:string = "/api/academics";
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Mon Jun 17 2019 14:12:24 GMT-0700 (Pacific Daylight Time)
+**Date: Fri Jun 28 2019 18:54:13 GMT-0700 (Pacific Daylight Time)
 
 import { Routes } from '@angular/router';
 

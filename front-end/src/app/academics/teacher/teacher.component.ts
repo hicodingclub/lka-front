@@ -45,6 +45,7 @@ protected componentFactoryResolver: ComponentFactoryResolver,
       protected view: ViewType ) {
         super(teacherService, injector, router, route, location, view, itemCamelName);
         
+        this.modulePath = 'academics';
         this.indexFields = ['firstName','lastName', ];
     }
 }

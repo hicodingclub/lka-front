@@ -2,12 +2,14 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router'
 
 import { HomeComponent } from './home/home.component'
+import { HomepageComponent } from './homepage/homepage.component'
 import { publicRoutingPath } from './home/public-routing'
+import { pipelinePath } from './pipelines';
 
 const routes: Routes = [
-    { path: '', redirectTo: 'home', pathMatch: 'full'},
+    { path: '', component: HomepageComponent },
     { path: "home",  component: HomeComponent },
-	{ path: "public", children: publicRoutingPath }
+	  { path: "process", children: pipelinePath },
 ];
 
 @NgModule({

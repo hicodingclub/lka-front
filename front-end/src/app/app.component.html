@@ -1,5 +1,5 @@
 <nav class="header navbar fixed-top navbar-light navbar-expand-lg">
-	<a class="navbar-brand" routerLink="/home">
+	<a class="navbar-brand" routerLink="/">
 		<img src="assets/LKA.png" align="left" class="logo">
 		<div class="logo-text mt-2 h3">Light of Knowledge Academy </div>
 	</a>
@@ -34,7 +34,10 @@
 </nav>
 
 <div class="content">
-	<router-outlet></router-outlet>
+	<div>
+		<router-outlet></router-outlet>
+	</div>
+	<div class="content-min-height"></div>
 </div>
 
 <nav class="footer footer-font navbar navbar-light">

@@ -32,8 +32,8 @@ protected componentFactoryResolver: ComponentFactoryResolver,
 
           this.stringFields.push('title');
 
-          this.referenceFields = ['course', 'teacher', ];
-          this.referenceFieldsMap = {'course': 'course','teacher': 'teacher',};
+          this.referenceFields = ['course', ];
+          this.referenceFieldsMap = {'course': 'course',};
 
           this.dateFields = ['startTime', 'endTime', ];
 

@@ -15,6 +15,11 @@ import { EventDetailComponent } from './event/event-detail/event-detail.componen
 import { EventEditComponent } from './event/event-edit/event-edit.component';
 
 
+import { KeynoteListComponent } from './keynote/keynote-list/keynote-list.component';
+import { KeynoteDetailComponent } from './keynote/keynote-detail/keynote-detail.component';
+import { KeynoteEditComponent } from './keynote/keynote-edit/keynote-edit.component';
+
+
 
 import { AuthGuard } from 'mdds-angular-auth';
 
@@ -42,5 +47,13 @@ export const eventRoutingPath = [
     {path: 'detail/:id', component: EventDetailComponent},
     {path: 'edit/:id', component: EventEditComponent, canActivate: [AuthGuard]},
     {path: 'new', component: EventEditComponent, canActivate: [AuthGuard]},
+    {path: '**', redirectTo: 'list', pathMatch: 'full'}
+];
+
+export const keynoteRoutingPath = [
+    {path: 'list', component: KeynoteListComponent},
+    {path: 'detail/:id', component: KeynoteDetailComponent},
+    {path: 'edit/:id', component: KeynoteEditComponent, canActivate: [AuthGuard]},
+    {path: 'new', component: KeynoteEditComponent, canActivate: [AuthGuard]},
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];

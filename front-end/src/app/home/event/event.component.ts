@@ -9,7 +9,7 @@ import { EventService } from '../../publicinfo/event/event.service';
 export class EventComponent {
     private events;
     constructor(protected eventService: EventService) {
-        const result = this.eventService.getList(1,25,{}).subscribe(
+        const result = this.eventService.getList(1,25,{}, null, null).subscribe(
            result => { 
               this.events = result.items;
               for (let event of this.events) {
