@@ -20,6 +20,8 @@ export class MaccountroleDetailComponent extends MaccountroleComponent implement
   protected id:string;
   @Input()
   protected searchObj:any;
+  @Input()
+  protected disableActionButtions:boolean;
 
 
 

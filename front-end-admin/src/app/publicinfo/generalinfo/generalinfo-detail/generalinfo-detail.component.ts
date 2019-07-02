@@ -19,6 +19,8 @@ export class GeneralinfoDetailComponent extends GeneralinfoComponent implements 
   protected id:string;
   @Input()
   protected searchObj:any;
+  @Input()
+  protected disableActionButtions:boolean;
 
 
 

@@ -20,6 +20,8 @@ export class StudentclassDetailComponent extends StudentclassComponent implement
   protected id:string;
   @Input()
   protected searchObj:any;
+  @Input()
+  protected disableActionButtions:boolean;
 
 
 

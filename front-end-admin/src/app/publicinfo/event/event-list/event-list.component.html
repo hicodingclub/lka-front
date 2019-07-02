@@ -197,9 +197,9 @@
 	<div class="listview" *ngIf="isShowListView('list')">
 		<div class="list-block" *ngFor="let detail of list;  let i = index">
 			<hr *ngIf="i==0" class="list-diverder">
-			<div class="list-card text-left  "
+			<div class="list-card text-left clickable-card "
 				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
-				<div class="list-fields w-75 " >
+				<div class="list-fields w-75 pointer" (click)="onDetailLinkClicked(detail['_id'])">
 
       <div class="list-head-picture mr-1 d-inline-block">                
                     <file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false"></file-display>
@@ -227,9 +227,6 @@
 
           </div>
         </div>
-        <div class="read-more" (click)="onDetailLinkClicked(detail['_id'])">
-        Read more ...
-        </div>
       </div>
 
 				</div>
@@ -246,9 +243,9 @@
 
 	<div class="gridview" *ngIf="isShowListView('grid')">
 		<div class="grid-block" *ngFor="let detail of list;  let i = index">
-			<div class="card text-left h-100  "
+			<div class="card text-left h-100 clickable-card "
 				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
-				<div class="grid-fields " >
+				<div class="grid-fields pointer" (click)="onDetailLinkClicked(detail['_id'])">
 
       <div class="card-header grid-head">
         <div class="grid-head-picture mr-1">                
@@ -279,9 +276,6 @@
 
             </div>
           </div>
-        <div class="read-more" (click)="onDetailLinkClicked(detail['_id'])">
-          Read more ...
-        </div>
       </div>
 
 				</div>

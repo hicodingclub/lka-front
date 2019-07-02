@@ -27,32 +27,32 @@ import { AuthGuard } from 'mdds-angular-auth';
 
 
 export const generalinfoRoutingPath = [
-    {path: 'list', component: GeneralinfoListComponent},
-    {path: 'detail/:id', component: GeneralinfoDetailComponent},
+    {path: 'list', component: GeneralinfoListComponent, canActivate: [AuthGuard]},
+    {path: 'detail/:id', component: GeneralinfoDetailComponent, canActivate: [AuthGuard]},
     {path: 'edit/:id', component: GeneralinfoEditComponent, canActivate: [AuthGuard]},
     {path: 'new', component: GeneralinfoEditComponent, canActivate: [AuthGuard]},
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];
 
 export const faqRoutingPath = [
-    {path: 'list', component: FaqListComponent},
-    {path: 'detail/:id', component: FaqDetailComponent},
+    {path: 'list', component: FaqListComponent, canActivate: [AuthGuard]},
+    {path: 'detail/:id', component: FaqDetailComponent, canActivate: [AuthGuard]},
     {path: 'edit/:id', component: FaqEditComponent, canActivate: [AuthGuard]},
     {path: 'new', component: FaqEditComponent, canActivate: [AuthGuard]},
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];
 
 export const eventRoutingPath = [
-    {path: 'list', component: EventListComponent},
-    {path: 'detail/:id', component: EventDetailComponent},
+    {path: 'list', component: EventListComponent, canActivate: [AuthGuard]},
+    {path: 'detail/:id', component: EventDetailComponent, canActivate: [AuthGuard]},
     {path: 'edit/:id', component: EventEditComponent, canActivate: [AuthGuard]},
     {path: 'new', component: EventEditComponent, canActivate: [AuthGuard]},
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];
 
 export const keynoteRoutingPath = [
-    {path: 'list', component: KeynoteListComponent},
-    {path: 'detail/:id', component: KeynoteDetailComponent},
+    {path: 'list', component: KeynoteListComponent, canActivate: [AuthGuard]},
+    {path: 'detail/:id', component: KeynoteDetailComponent, canActivate: [AuthGuard]},
     {path: 'edit/:id', component: KeynoteEditComponent, canActivate: [AuthGuard]},
     {path: 'new', component: KeynoteEditComponent, canActivate: [AuthGuard]},
     {path: '**', redirectTo: 'list', pathMatch: 'full'}

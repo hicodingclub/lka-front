@@ -19,6 +19,8 @@ export class MusergroupDetailComponent extends MusergroupComponent implements On
   protected id:string;
   @Input()
   protected searchObj:any;
+  @Input()
+  protected disableActionButtions:boolean;
 
 
 

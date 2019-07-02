@@ -19,6 +19,8 @@ export class KeynoteDetailComponent extends KeynoteComponent implements OnInit {
   protected id:string;
   @Input()
   protected searchObj:any;
+  @Input()
+  protected disableActionButtions:boolean;
 
 
 

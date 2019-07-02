@@ -21,6 +21,8 @@ export class EventDetailComponent extends EventComponent implements OnInit {
   protected id:string;
   @Input()
   protected searchObj:any;
+  @Input()
+  protected disableActionButtions:boolean;
 
 
   @ViewChildren(MraRichTextShowDirective) textEditors: QueryList<MraRichTextShowDirective>;

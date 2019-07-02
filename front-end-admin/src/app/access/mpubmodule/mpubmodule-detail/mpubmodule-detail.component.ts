@@ -19,6 +19,8 @@ export class MpubmoduleDetailComponent extends MpubmoduleComponent implements On
   protected id:string;
   @Input()
   protected searchObj:any;
+  @Input()
+  protected disableActionButtions:boolean;
 
 
 

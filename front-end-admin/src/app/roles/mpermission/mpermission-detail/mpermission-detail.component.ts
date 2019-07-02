@@ -20,6 +20,8 @@ export class MpermissionDetailComponent extends MpermissionComponent implements 
   protected id:string;
   @Input()
   protected searchObj:any;
+  @Input()
+  protected disableActionButtions:boolean;
 
 
 
