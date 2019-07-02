@@ -17,6 +17,9 @@ export class StudentListComponent extends StudentComponent implements OnInit {
 
   private  minDate = {year: (new Date()).getFullYear() - 100, month: 1, day: 1};
 
+  @Input()
+  protected searchObj:any;
+
   constructor(
 
       protected studentService: StudentService,
@@ -38,9 +41,9 @@ export class StudentListComponent extends StudentComponent implements OnInit {
 
 
 
-          this.listViewFilter = 'list';
+          this.listViewFilter = 'grid';
           // this is to initialize the detail that will be used for search condition selection
-          const detail = {};
+          const detail = this.searchObj || {};
           this.detail = this.formatDetail(detail);
   }
 

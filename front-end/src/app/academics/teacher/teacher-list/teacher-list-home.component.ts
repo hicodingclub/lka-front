@@ -20,10 +20,12 @@ export class TeacherListHomeComponent extends TeacherListComponent implements On
       protected route: ActivatedRoute,
       protected location: Location) {
         super(null, teacherService, injector, router, route, location);
-        this.per_page = 6;
+        this.per_page = 4;
   }
 
   ngOnInit() {
-      this.populateList();
+    const detail = this.searchObj || {};
+    this.detail = this.formatDetail(detail);
+    this.searchList();
   }
 }

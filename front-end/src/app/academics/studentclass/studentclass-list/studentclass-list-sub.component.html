@@ -1,13 +1,12 @@
 <div>
 
-      <div class="add-area">
-        <a href="javascript:void(0)" (click)="onAdd()"><i class="fas fa-plus-square" title="Add"></i></a>
-        <div *ngIf="isAdding">
-            <app-studentclass-edit [initData]="parentData" (done)="onAddDone($event)"></app-studentclass-edit>
-        </div>
-    </div>
+	
+	<div *ngIf="list.length === 0" class="no-records">
+		<span *ngIf="loaded">No records found.</span>
+		<span *ngIf="!loaded">Loading...</span>
+	</div>
 	<div class="container search">
-		
+				
 		<div class="row">
 			<div class="col-3">
 			</div>
@@ -44,14 +43,13 @@
 			</div>
 			<div class="col-3">
 				<div class="total_counts">
-					Total: <b>{{total_count}}</b>
+					<span *ngIf="list.length > 6">Total: <b>{{total_count}}</b></span>
 				</div>
 			</div>
 		</div>
 
 	</div>
-	
-	<table class="table">
+	<table *ngIf="list.length > 0" class="table">
 	    <thead>
 	    	<tr>
 		        <th scope="col">#</th>
@@ -64,7 +62,6 @@
 		        </th>		        
                 <th scope="col" style="width:2rem;"></th>
 
-		        <th scope="col" style="width:2rem;"></th>
 	        </tr>
 	    </thead>
 	    <tbody>
@@ -90,22 +87,14 @@
 
                 </td>
 
-	            <td>
-
-	            	<a routerLink="." (click)="onDelete(detail['_id'], i)"><i class="fas fa-trash-alt" title="Delete"></i></a>
-
-                </td>
 	        </tr>
 
-	        <tr *ngIf="checkedItem[i]" >
-	        	<td colspan="2"><app-studentclass-detail-sub [inputData]="detail['_id']"></app-studentclass-detail-sub></td>
-	        </tr>
 	      </ng-template>
 	    </tbody>
 	</table>
 	
 	<div class="container">
-		
+				
 		<div class="row">
 			<div class="col-3">
 			</div>
@@ -142,7 +131,7 @@
 			</div>
 			<div class="col-3">
 				<div class="total_counts">
-					Total: <b>{{total_count}}</b>
+					<span *ngIf="list.length > 6">Total: <b>{{total_count}}</b></span>
 				</div>
 			</div>
 		</div>

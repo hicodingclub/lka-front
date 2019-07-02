@@ -10,7 +10,6 @@ export { ViewType };
 
 import { ViewChild } from '@angular/core';
 
-import { ElementRef } from '@angular/core';
 
 import { ComponentFactoryResolver } from '@angular/core';
 import { AcademicsRefSelectDirective } from '../academics.component';
@@ -33,7 +32,6 @@ export class TeacherComponent extends BaseComponent {
     @ViewChild(AcademicsRefSelectDirective) refSelectDirective: AcademicsRefSelectDirective;
 
 
-    @ViewChild('AcademicsModal') protected focusEl: ElementRef;
 
     constructor(
 protected componentFactoryResolver: ComponentFactoryResolver,

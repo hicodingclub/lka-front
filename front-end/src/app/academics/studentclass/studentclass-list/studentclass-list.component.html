@@ -3,7 +3,7 @@
 	<div class="container search">
 		<div class="row">
 			<div class="col-9">
-
+				
 
 
 				<div class="text-center">
@@ -88,13 +88,17 @@
 			
 		    </div>
 			<div class="col-3">
+		        <div class="action-buttons">
+					
+					
+				</div>
 			</div>
 		</div>
 
 
 		<hr/>
-
-		<div class="row justify-content-end">
+		
+		<div class="row justify-content-end" *ngIf="list.length > 6">
 			<div class="sort-selection">
 					<div class="dropdown" style="width: 100%;">
 						<button class="sort-dropdown btn btn-light btn-sm dropdown-toggle"
@@ -114,19 +118,21 @@
 		</div>
 		<div class="row">
 			<div class="col-3">
+				<div *ngIf="list.length > 0">
 
-				<input type="radio" name="view-filter" id="list-view" class="view-radio"
-					(click)="setListViewFilter('list')" [checked]="isShowListView('list')">
-				  <label for="list-view"><i class="fa fa-th-list"></i></label>
+					<input type="radio" name="view-filter" id="list-view" class="view-radio"
+						(click)="setListViewFilter('list')" [checked]="isShowListView('list')">
+					<label for="list-view"><i class="fa fa-th-list"></i></label>
 
-				<input type="radio" name="view-filter" id="grid-view" class="view-radio"
-					(click)="setListViewFilter('grid')" [checked]="isShowListView('grid')">
-					<label for="grid-view"><i class="fa fa-th"></i></label>
+					<input type="radio" name="view-filter" id="grid-view" class="view-radio"
+						(click)="setListViewFilter('grid')" [checked]="isShowListView('grid')">
+						<label for="grid-view"><i class="fa fa-th"></i></label>
 
-				<input type="radio" name="view-filter" id="table-view" class="view-radio"
-					(click)="setListViewFilter('table')" [checked]="isShowListView('table')">
-					<label for="table-view"><i class="fa fa-list-alt"></i></label>
+					<input type="radio" name="view-filter" id="table-view" class="view-radio"
+						(click)="setListViewFilter('table')" [checked]="isShowListView('table')">
+						<label for="table-view"><i class="fa fa-list-alt"></i></label>
 
+				</div>
 
 			</div>
 			<div class="col-6">
@@ -162,19 +168,24 @@
 			</div>
 			<div class="col-3">
 				<div class="total_counts">
-					Total: <b>{{total_count}}</b>
+					<span *ngIf="list.length > 6">Total: <b>{{total_count}}</b></span>
 					<a class="ml-3" routerLink="." (click)="onRefresh()"><i class="fa fa-sync-alt"></i></a>
 				</div>
 			</div>
 		</div>
 
 	</div>
+	<div class="no-records" *ngIf="list.length === 0">
+		<span *ngIf="loaded">No records found.</span>
+		<span *ngIf="!loaded">Loading...</span>
+	</div>
+	<div *ngIf="list.length > 0">
 	<div class="listview" *ngIf="isShowListView('list')">
 		<div class="list-block" *ngFor="let detail of list;  let i = index">
 			<hr *ngIf="i==0" class="list-diverder">
-			<div class="list-card text-left clickable-card "
+			<div class="list-card text-left  "
 				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
-				<div class="list-fields w-75 pointer" (click)="onDetailLinkClicked(detail['_id'])">
+				<div class="list-fields w-75 " >
 
       <div class="list-body-fields ml-1 d-inline-block">
         <h5>
@@ -198,7 +209,6 @@
       </div>
 
 				</div>
-
 			</div>
 			<hr class="list-diverder">
 		</div>
@@ -207,9 +217,9 @@
 
 	<div class="gridview" *ngIf="isShowListView('grid')">
 		<div class="grid-block" *ngFor="let detail of list;  let i = index">
-			<div class="card text-left h-100 clickable-card "
+			<div class="card text-left h-100  "
 				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
-				<div class="grid-fields pointer" (click)="onDetailLinkClicked(detail['_id'])">
+				<div class="grid-fields " >
 
       <div class="card-header grid-head">
         <div class="ml-1 d-inline-block">
@@ -261,38 +271,36 @@
 						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
 					</span>
 				</th>
-
 	    	</tr>
 	    </thead>
 	    <tbody>
 	        <tr *ngFor="let detail of list;  let i = index" [ngClass]="{'clicked-row': clickedId==detail['_id']}">
-	            <td scope="row" (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            <td scope="row" >
 	            	{{(page-1)*per_page+i+1}}
 	            </td>
 
-	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            <td >
 	            	                
                	  <a routerLink="."  (click)="onDisplayRefClicked('student', detail['student'], $event)">
 	            	{{detail['student']?detail['student']['value']:""}}
 	              </a>
 
 	            </td>
-	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            <td >
 	            	                
                	  <a routerLink="."  (click)="onDisplayRefClicked('class', detail['class'], $event)">
 	            	{{detail['class']?detail['class']['value']:""}}
 	              </a>
 
 	            </td>
-
 	        </tr>
 	    </tbody>
 	</table>
 
 
-
+	</div>
 	<div class="container">
-
+		
 		<div class="row">
 			<div class="col-3">
 			</div>
@@ -329,7 +337,7 @@
 			</div>
 			<div class="col-3">
 				<div class="total_counts">
-					Total: <b>{{total_count}}</b>
+					<span *ngIf="list.length > 6">Total: <b>{{total_count}}</b></span>
 				</div>
 			</div>
 		</div>

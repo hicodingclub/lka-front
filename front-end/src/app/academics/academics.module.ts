@@ -6,7 +6,6 @@ import { FormsModule } from '@angular/forms';
 import { NgbModule, NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
 import { MraNgbDateFormatterService } from './academics.directive';
 
-import { DirectiveMultiSelectionRequired } from './academics.directive';
 
 
 
@@ -32,34 +31,31 @@ import { StudentService } from './student/student.service';
 import { TeacherListComponent } from './teacher/teacher-list/teacher-list.component';
 import { TeacherListHomeComponent } from './teacher/teacher-list/teacher-list-home.component';
 import { TeacherDetailComponent } from './teacher/teacher-detail/teacher-detail.component';
-import { TeacherEditComponent } from './teacher/teacher-edit/teacher-edit.component';
+
 import { TeacherService } from './teacher/teacher.service';
 
 import { CourseListComponent } from './course/course-list/course-list.component';
 import { CourseListHomeComponent } from './course/course-list/course-list-home.component';
 import { CourseDetailComponent } from './course/course-detail/course-detail.component';
-import { CourseEditComponent } from './course/course-edit/course-edit.component';
+
 import { CourseService } from './course/course.service';
 
 import { ClassListComponent } from './class/class-list/class-list.component';
 import { ClassListHomeComponent } from './class/class-list/class-list-home.component';
 import { ClassDetailComponent } from './class/class-detail/class-detail.component';
-import { ClassEditComponent } from './class/class-edit/class-edit.component';
+
 import { ClassService } from './class/class.service';
 
 import { StudentclassListComponent } from './studentclass/studentclass-list/studentclass-list.component';
 import { StudentclassListHomeComponent } from './studentclass/studentclass-list/studentclass-list-home.component';
-import { StudentclassDetailComponent } from './studentclass/studentclass-detail/studentclass-detail.component';
-import { StudentclassEditComponent } from './studentclass/studentclass-edit/studentclass-edit.component';
+
+
 import { StudentclassService } from './studentclass/studentclass.service';
 
 
 import { CourseSelectComponent } from './course/course-list/course-select.component';
 import { CourseDetailPopComponent } from './course/course-detail/course-detail-pop.component';
 import { CourseDetailSelComponent } from './course/course-detail/course-detail-sel.component';
-import { TeacherSelectComponent } from './teacher/teacher-list/teacher-select.component';
-import { TeacherDetailPopComponent } from './teacher/teacher-detail/teacher-detail-pop.component';
-import { TeacherDetailSelComponent } from './teacher/teacher-detail/teacher-detail-sel.component';
 import { StudentSelectComponent } from './student/student-list/student-select.component';
 import { StudentDetailPopComponent } from './student/student-detail/student-detail-pop.component';
 import { StudentDetailSelComponent } from './student/student-detail/student-detail-sel.component';
@@ -72,7 +68,7 @@ import { TeacherDetailSubComponent } from './teacher/teacher-detail/teacher-deta
 import { ClassListSubComponent } from './class/class-list/class-list-sub.component';
 import { ClassDetailSubComponent } from './class/class-detail/class-detail-sub.component';
 import { StudentclassListSubComponent } from './studentclass/studentclass-list/studentclass-list-sub.component';
-import { StudentclassDetailSubComponent } from './studentclass/studentclass-detail/studentclass-detail-sub.component';
+
 
 
 @NgModule({
@@ -97,26 +93,23 @@ import { StudentclassDetailSubComponent } from './studentclass/studentclass-deta
     TeacherListComponent,
     TeacherListHomeComponent,
     TeacherDetailComponent,
-    TeacherEditComponent,
+    
     CourseListComponent,
     CourseListHomeComponent,
     CourseDetailComponent,
-    CourseEditComponent,
+    
     ClassListComponent,
     ClassListHomeComponent,
     ClassDetailComponent,
-    ClassEditComponent,
+    
     StudentclassListComponent,
     StudentclassListHomeComponent,
-    StudentclassDetailComponent,
-    StudentclassEditComponent,
+    
+    
 
     CourseSelectComponent,
     CourseDetailPopComponent,
     CourseDetailSelComponent,
-    TeacherSelectComponent,
-    TeacherDetailPopComponent,
-    TeacherDetailSelComponent,
     StudentSelectComponent,
     StudentDetailPopComponent,
     StudentDetailSelComponent,
@@ -129,10 +122,9 @@ import { StudentclassDetailSubComponent } from './studentclass/studentclass-deta
     ClassListSubComponent,
     ClassDetailSubComponent,
     StudentclassListSubComponent,
-    StudentclassDetailSubComponent,
+    
 
 
-    DirectiveMultiSelectionRequired,
 
 
   ],
@@ -146,26 +138,23 @@ import { StudentclassDetailSubComponent } from './studentclass/studentclass-deta
     TeacherListComponent,
     TeacherListHomeComponent,
     TeacherDetailComponent,
-    TeacherEditComponent,
+    
     CourseListComponent,
     CourseListHomeComponent,
     CourseDetailComponent,
-    CourseEditComponent,
+    
     ClassListComponent,
     ClassListHomeComponent,
     ClassDetailComponent,
-    ClassEditComponent,
+    
     StudentclassListComponent,
     StudentclassListHomeComponent,
-    StudentclassDetailComponent,
-    StudentclassEditComponent,
+    
+    
 
     CourseSelectComponent,
     CourseDetailPopComponent,
     CourseDetailSelComponent,
-    TeacherSelectComponent,
-    TeacherDetailPopComponent,
-    TeacherDetailSelComponent,
     StudentSelectComponent,
     StudentDetailPopComponent,
     StudentDetailSelComponent,
@@ -178,7 +167,7 @@ import { StudentclassDetailSubComponent } from './studentclass/studentclass-deta
     ClassListSubComponent,
     ClassDetailSubComponent,
     StudentclassListSubComponent,
-    StudentclassDetailSubComponent,
+    
   ],
   providers: [
     { provide: Academics_SERVER_ROOT_URI, useValue: academics_server_root_uri },
@@ -197,9 +186,6 @@ import { StudentclassDetailSubComponent } from './studentclass/studentclass-deta
     CourseSelectComponent,
     CourseDetailPopComponent,
     CourseDetailSelComponent,
-    TeacherSelectComponent,
-    TeacherDetailPopComponent,
-    TeacherDetailSelComponent,
     StudentSelectComponent,
     StudentDetailPopComponent,
     StudentDetailSelComponent,
