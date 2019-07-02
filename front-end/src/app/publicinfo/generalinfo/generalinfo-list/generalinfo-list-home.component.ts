@@ -24,6 +24,8 @@ export class GeneralinfoListHomeComponent extends GeneralinfoListComponent imple
   }
 
   ngOnInit() {
-      this.populateList();
+    const detail = this.searchObj || {};
+    this.detail = this.formatDetail(detail);
+    this.searchList();
   }
 }

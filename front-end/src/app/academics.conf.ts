@@ -1,10 +1,9 @@
-
 import { Routes } from '@angular/router';
 
 import { AcademicsComponent } from './academics/academics.component';
 
 //Import routing paths
-import {studentRoutingPath, teacherRoutingPath, courseRoutingPath, classRoutingPath, studentclassRoutingPath,  } from './academics/academics-routing.path';
+import {studentRoutingPath, teacherRoutingPath, courseRoutingPath, classRoutingPath,  } from './academics/academics-routing.path';
 
 export const AcademicsRoutes: Routes = [
   { path: 'academics', 
@@ -28,24 +27,21 @@ export const AcademicsRoutes: Routes = [
         children: classRoutingPath, 
         data: {"mraLevel": 1, "item": "class"}
       },
-      { path: "studentclass",
-        children: studentclassRoutingPath, 
-        data: {"mraLevel": 1, "item": "studentclass"}
-      },
     ]
   }
 ];
 
 export const academics_server_root_uri:string = "/api/academics";
+
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Fri Jun 28 2019 18:54:13 GMT-0700 (Pacific Daylight Time)
+**Date: Mon Jul 01 2019 23:32:16 GMT-0700 (Pacific Daylight Time)
 
 import { Routes } from '@angular/router';
 
 import { AcademicsComponent } from './academics/academics.component';
 
 //Import routing paths
-import {studentRoutingPath, teacherRoutingPath, courseRoutingPath, classRoutingPath, studentclassRoutingPath,  } from './academics/academics-routing.path';
+import { studentRoutingPath, teacherRoutingPath, courseRoutingPath, classRoutingPath, studentclassRoutingPath,  } from './academics/academics-routing.path';
 
 export const AcademicsRoutes: Routes = [
   { path: 'academics', 

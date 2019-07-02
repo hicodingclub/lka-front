@@ -29,14 +29,14 @@ export const PublicinfoRoutes: Routes = [
 
 export const publicinfo_server_root_uri:string = "/api/publicinfo";
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Fri Jun 28 2019 18:59:14 GMT-0700 (Pacific Daylight Time)
+**Date: Mon Jul 01 2019 23:35:59 GMT-0700 (Pacific Daylight Time)
 
 import { Routes } from '@angular/router';
 
 import { PublicinfoComponent } from './publicinfo/publicinfo.component';
 
 //Import routing paths
-import {generalinfoRoutingPath, faqRoutingPath, eventRoutingPath, keynoteRoutingPath,  } from './publicinfo/publicinfo-routing.path';
+import { generalinfoRoutingPath, faqRoutingPath, eventRoutingPath, keynoteRoutingPath,  } from './publicinfo/publicinfo-routing.path';
 
 export const PublicinfoRoutes: Routes = [
   { path: 'publicinfo', 

@@ -24,6 +24,8 @@ export class KeynoteListHomeComponent extends KeynoteListComponent implements On
   }
 
   ngOnInit() {
-      this.populateList();
+    const detail = this.searchObj || {};
+    this.detail = this.formatDetail(detail);
+    this.searchList();
   }
 }

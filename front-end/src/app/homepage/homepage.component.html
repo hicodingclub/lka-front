@@ -42,21 +42,21 @@
 
     <section class="row align-items-baseline">
       <div class="col-4 d-flex flex-column">
-          <div><app-generalinfo-detail [identityField]="'tag'" [identityValue]="'events'"></app-generalinfo-detail></div>
+          <div><app-generalinfo-detail [searchObj]="{'tag': 'events'}"></app-generalinfo-detail></div>
           <div class="align-self-center internal_link" routerLink="/publicinfo/event">All posts</div>
       </div>
       <div class="col-8"><app-event-list-home></app-event-list-home></div>
     </section>
 
     <section class="row align-items-baseline">
-      <div class="col-8"><app-class-list-home></app-class-list-home></div>
+      <div class="col-8"><app-class-list-home [searchObj]="{'hot': true}"></app-class-list-home></div>
       <div class="col-4 d-flex flex-column">
-          <div><app-generalinfo-detail [identityField]="'tag'" [identityValue]="'classes'"></app-generalinfo-detail></div>
+          <div><app-generalinfo-detail [searchObj]="{'tag': 'classes'}"></app-generalinfo-detail></div>
           <div class="align-self-center internal_link" routerLink="/academics/class/list">Check all classes</div>
       </div>
     </section>
 
     <section>
-      <div><app-keynote-detail [identityField]="'tag'" [identityValue]="'mission'"></app-keynote-detail></div>
+      <div><app-keynote-detail [searchObj]="{'tag': 'mission'}"></app-keynote-detail></div>
     </section>
 </div>

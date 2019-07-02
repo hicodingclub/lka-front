@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 
 import { AuthenticationModule } from 'mdds-angular-auth';
 
-import { HomeModule } from './home/home.module';
 import { UsersModule } from './users/users.module';
 import { AcademicsModule } from './academics/academics.module';
 import { PublicinfoModule } from './publicinfo/publicinfo.module';
@@ -31,7 +30,6 @@ import { HomepageComponent } from './homepage/homepage.component';
     AuthenticationModule,
 
     AcademicsModule,
-    HomeModule,
     UsersModule,
     PublicinfoModule
   ],

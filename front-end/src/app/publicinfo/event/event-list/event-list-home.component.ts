@@ -24,6 +24,8 @@ export class EventListHomeComponent extends EventListComponent implements OnInit
   }
 
   ngOnInit() {
-      this.populateList();
+    const detail = this.searchObj || {};
+    this.detail = this.formatDetail(detail);
+    this.searchList();
   }
 }

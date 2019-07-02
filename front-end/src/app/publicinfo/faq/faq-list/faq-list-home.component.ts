@@ -20,10 +20,12 @@ export class FaqListHomeComponent extends FaqListComponent implements OnInit {
       protected route: ActivatedRoute,
       protected location: Location) {
         super( faqService, injector, router, route, location);
-        this.per_page = 6;
+        this.per_page = 4;
   }
 
   ngOnInit() {
-      this.populateList();
+    const detail = this.searchObj || {};
+    this.detail = this.formatDetail(detail);
+    this.searchList();
   }
 }
