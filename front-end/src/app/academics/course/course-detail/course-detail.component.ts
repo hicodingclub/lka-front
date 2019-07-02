@@ -19,6 +19,8 @@ export class CourseDetailComponent extends CourseComponent implements OnInit {
   protected id:string;
   @Input()
   protected searchObj:any;
+  @Input()
+  protected disableActionButtions:boolean;
 
 
 

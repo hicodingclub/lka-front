@@ -20,6 +20,8 @@ export class TeacherDetailComponent extends TeacherComponent implements OnInit {
   protected id:string;
   @Input()
   protected searchObj:any;
+  @Input()
+  protected disableActionButtions:boolean;
 
 
 
