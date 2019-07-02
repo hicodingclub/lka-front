@@ -30,6 +30,10 @@ const academicsRouter = meanRestExpress.RestRouter(academicsDbDefinition, 'Acade
 const publicInfoDbDefinition = require('./models/publicInfo/index');
 const publicInfoRouter = meanRestExpress.RestRouter(publicInfoDbDefinition, 'PublicInfo', authFuncs);
 
+//for pipeline models
+const pipelineDef = require('./models/pipeline/index');
+const pipelineRouter = meanRestExpress.RestRouter(pipelineDef, 'Pipeline', authFuncs);
+
 //file server
 const fileSvr = require('mdds-mongoose-express-file-server');
 const defaultAdminSysDef = fileSvr.sampleAdminSysDef;
@@ -45,8 +49,9 @@ const dbSOption = {
 const fileSvrRouter = fileSvr.ExpressRouter(defaultAdminSysDef, 'Files', authFuncs, fileSOption);
 
 //Authorization App Client. Call it after all meanRestExpress resources are generated.
-const manageModule = ['Users', 'Academics', 'PublicInfo', 'Access', 'Roles', 'Files']; //the modules that manages
-authApp.run('local', 'app-key', 'app-secrete', {'roleModules': manageModule});
+const manageModule = ['Users', 'Academics', 'PublicInfo', 'Pipeline', 'Access', 'Roles', 'Files']; //the modules that manages
+//pass in authzRolesRouter so authApp can upload the managed role moduoes to authzRolesRouter
+authApp.run('local', 'app-key', 'app-secrete', authzRolesRouter, {'roleModules': manageModule});
 
 const app = express();
 
@@ -64,6 +69,7 @@ app.use(express.static(path.join(__dirname, 'public-admin')));
 
 app.use('/api/academics', academicsRouter);
 app.use('/api/publicinfo', publicInfoRouter);
+app.use('/api/pipeline', pipelineRouter);
 app.use('/api/files', fileSvrRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/roles', authzRolesRouter);

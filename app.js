@@ -17,13 +17,21 @@ const option = {authz: 'group'}; //user group based authorization
 const authRouter = authServer.GetDefaultAuthnRouter(defaultUserDef, option);
 const usersRouter = meanRestExpress.RestRouter(defaultUserDef, 'Users', authFuncs);
 
+// this is special: we only get the router, but will only use it internally so authApp can pass managed access modules to it.
+// this use no external routing path defined for it because we don't manage public access in public facing app.
+const authzAccessRouter = authServer.GetDefaultAccessManageRouter('Internal-Access', authFuncs); //manage public access module
+
 //for academics models
-const academicsDbDefinition = require('./models/academics/index');
+const academicsDbDefinition = require('./models/academics/index-public');
 const academicsRouter = meanRestExpress.RestRouter(academicsDbDefinition, 'Academics', authFuncs);
 
 //for public models
 const publicInfoDbDefinition = require('./models/publicInfo/index');
 const publicInfoRouter = meanRestExpress.RestRouter(publicInfoDbDefinition, 'PublicInfo', authFuncs);
+
+//for pipeline models
+const pipelineDef = require('./models/pipeline/index');
+const pipelineRouter = meanRestExpress.RestRouter(pipelineDef, 'Pipeline', authFuncs);
 
 //file server
 const fileSvr = require('mdds-mongoose-express-file-server');
@@ -40,8 +48,9 @@ const dbSOption = {
 const fileSvrRouter = fileSvr.ExpressRouter(defaultAdminSysDef, 'Files', authFuncs, fileSOption);
 
 //Authorization App Client. Call it after all meanRestExpress resources are generated.
-const publicModules = ['Users', 'Academics', 'PublicInfo', 'Files']; //the modules that for public access
-authApp.run('local', 'app-key', 'app-secrete', {'accessModules': publicModules});
+const publicModules = ['Users', 'Academics', 'PublicInfo', 'Pipeline', 'Files']; //the modules that for public access
+//pass in authzAccessRouter so authApp can upload the managed role moduoes to authzAccessRouter
+authApp.run('local', 'app-key', 'app-secrete', authzAccessRouter, {'accessModules': publicModules});
 
 const app = express();
 
@@ -59,6 +68,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/academics', academicsRouter);
 app.use('/api/publicinfo', publicInfoRouter);
+app.use('/api/pipeline', pipelineRouter);
 app.use('/api/files', fileSvrRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/users', usersRouter);
