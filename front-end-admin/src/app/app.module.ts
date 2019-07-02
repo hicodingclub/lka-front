@@ -10,6 +10,7 @@ import { AcademicsModule } from './academics/academics.module';
 import { PublicinfoModule } from './publicinfo/publicinfo.module';
 import { AccessModule } from './access/access.module';
 import { FilesModule } from './files/files.module';
+import { PipelineModule } from './pipeline/pipeline.module';
 
 import { AuthenticationModule, AUTHENTICATION_DROPDOWN_ITEMS, AUTHENTICATION_LOGIN_PIPELINE } from 'mdds-angular-auth';
 
@@ -34,6 +35,7 @@ import { file_upload_uri, file_download_uri } from './file-upload.config';
     PublicinfoModule,
     AccessModule,
     FilesModule,
+    PipelineModule,
   ],
   providers: [
     { provide: AUTHENTICATION_LOGIN_PAGE_URI, useValue: authentication_login_page_uri },

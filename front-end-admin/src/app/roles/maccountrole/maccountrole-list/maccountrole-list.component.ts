@@ -17,6 +17,9 @@ import { ComponentFactoryResolver } from '@angular/core';
 export class MaccountroleListComponent extends MaccountroleComponent implements OnInit {
 
 
+  @Input()
+  protected searchObj:any;
+
   constructor(
 protected componentFactoryResolver: ComponentFactoryResolver,
       protected maccountroleService: MaccountroleService,
@@ -41,7 +44,7 @@ protected componentFactoryResolver: ComponentFactoryResolver,
 
           this.listViewFilter = 'list';
           // this is to initialize the detail that will be used for search condition selection
-          const detail = {};
+          const detail = this.searchObj || {};
           this.detail = this.formatDetail(detail);
   }
 

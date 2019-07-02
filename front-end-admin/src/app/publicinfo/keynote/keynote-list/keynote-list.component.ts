@@ -16,6 +16,9 @@ import { KeynoteService } from '../keynote.service';
 export class KeynoteListComponent extends KeynoteComponent implements OnInit {
 
 
+  @Input()
+  protected searchObj:any;
+
   constructor(
 
       protected keynoteService: KeynoteService,
@@ -42,7 +45,7 @@ export class KeynoteListComponent extends KeynoteComponent implements OnInit {
           this.listViewFilter = 'list';
           this.setListSort('title', 'Title', 'asc');
           // this is to initialize the detail that will be used for search condition selection
-          const detail = {};
+          const detail = this.searchObj || {};
           this.detail = this.formatDetail(detail);
   }
 

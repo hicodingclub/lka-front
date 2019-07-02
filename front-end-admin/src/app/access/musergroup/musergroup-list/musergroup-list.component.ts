@@ -16,6 +16,9 @@ import { MusergroupService } from '../musergroup.service';
 export class MusergroupListComponent extends MusergroupComponent implements OnInit {
 
 
+  @Input()
+  protected searchObj:any;
+
   constructor(
 
       protected musergroupService: MusergroupService,
@@ -38,7 +41,7 @@ export class MusergroupListComponent extends MusergroupComponent implements OnIn
 
           this.listViewFilter = 'list';
           // this is to initialize the detail that will be used for search condition selection
-          const detail = {};
+          const detail = this.searchObj || {};
           this.detail = this.formatDetail(detail);
   }
 

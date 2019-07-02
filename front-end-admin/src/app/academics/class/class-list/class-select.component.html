@@ -331,7 +331,7 @@
 			</div>
 		</div>
 		<hr/>
-		
+				
 		<div class="row">
 			<div class="col-3">
 			</div>
@@ -368,7 +368,7 @@
 			</div>
 			<div class="col-3">
 				<div class="total_counts">
-					Total: <b>{{total_count}}</b>
+					<span *ngIf="list.length > 6">Total: <b>{{total_count}}</b></span>
 				</div>
 			</div>
 		</div>
@@ -422,7 +422,7 @@
 	</table>
 	
 	<div class="container">
-		
+				
 		<div class="row">
 			<div class="col-3">
 			</div>
@@ -459,7 +459,7 @@
 			</div>
 			<div class="col-3">
 				<div class="total_counts">
-					Total: <b>{{total_count}}</b>
+					<span *ngIf="list.length > 6">Total: <b>{{total_count}}</b></span>
 				</div>
 			</div>
 		</div>

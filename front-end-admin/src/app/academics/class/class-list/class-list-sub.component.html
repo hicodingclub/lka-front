@@ -1,8 +1,13 @@
 <div>
 
       
+	
+	<div *ngIf="list.length === 0" class="no-records">
+		<span *ngIf="loaded">No records found.</span>
+		<span *ngIf="!loaded">Loading...</span>
+	</div>
 	<div class="container search">
-		
+				
 		<div class="row">
 			<div class="col-3">
 			</div>
@@ -39,14 +44,13 @@
 			</div>
 			<div class="col-3">
 				<div class="total_counts">
-					Total: <b>{{total_count}}</b>
+					<span *ngIf="list.length > 6">Total: <b>{{total_count}}</b></span>
 				</div>
 			</div>
 		</div>
 
 	</div>
-	
-	<table class="table">
+	<table *ngIf="list.length > 0" class="table">
 	    <thead>
 	    	<tr>
 		        <th scope="col">#</th>
@@ -144,7 +148,7 @@
 	</table>
 	
 	<div class="container">
-		
+				
 		<div class="row">
 			<div class="col-3">
 			</div>
@@ -181,7 +185,7 @@
 			</div>
 			<div class="col-3">
 				<div class="total_counts">
-					Total: <b>{{total_count}}</b>
+					<span *ngIf="list.length > 6">Total: <b>{{total_count}}</b></span>
 				</div>
 			</div>
 		</div>

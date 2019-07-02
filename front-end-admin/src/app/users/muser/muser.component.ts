@@ -25,7 +25,7 @@ export class MuserComponent extends BaseComponent {
       protected location: Location,
       protected view: ViewType ) {
         super(muserService, injector, router, route, location, view, itemCamelName);
-        
+
         this.indexFields = ['username', ];
     }
 }

@@ -3,7 +3,7 @@
 	<div class="container search">
 		<div class="row">
 			<div class="col-9">
-
+				
 
 			    <div class="input-group">
 	              <input type="search" class="form-control border border-secondary" id="eventTextSearch" 
@@ -100,7 +100,7 @@
 			<div class="col-3">
 		        <div class="action-buttons">
 					<a [routerLink]="['../new' ]" [skipLocationChange]="false" class="btn btn-outline-primary">Create</a>
-					<a routerLink="." class="btn btn-outline-primary" (click)="onDeleteSelected()"
+					<a *ngIf="list.length > 1" routerLink="." class="btn btn-outline-primary" (click)="onDeleteSelected()"
 						[ngClass]="{'disabled': !isItemSelected()}">Delete</a>
 				</div>
 			</div>
@@ -108,8 +108,8 @@
 
 
 		<hr/>
-
-		<div class="row justify-content-end">
+		
+		<div class="row justify-content-end" *ngIf="list.length > 6">
 			<div class="sort-selection">
 					<div class="dropdown" style="width: 100%;">
 						<button class="sort-dropdown btn btn-light btn-sm dropdown-toggle"
@@ -131,19 +131,21 @@
 		</div>
 		<div class="row">
 			<div class="col-3">
+				<div *ngIf="list.length > 0">
 
-				<input type="radio" name="view-filter" id="list-view" class="view-radio"
-					(click)="setListViewFilter('list')" [checked]="isShowListView('list')">
-				  <label for="list-view"><i class="fa fa-th-list"></i></label>
+					<input type="radio" name="view-filter" id="list-view" class="view-radio"
+						(click)="setListViewFilter('list')" [checked]="isShowListView('list')">
+					<label for="list-view"><i class="fa fa-th-list"></i></label>
 
-				<input type="radio" name="view-filter" id="grid-view" class="view-radio"
-					(click)="setListViewFilter('grid')" [checked]="isShowListView('grid')">
-					<label for="grid-view"><i class="fa fa-th"></i></label>
+					<input type="radio" name="view-filter" id="grid-view" class="view-radio"
+						(click)="setListViewFilter('grid')" [checked]="isShowListView('grid')">
+						<label for="grid-view"><i class="fa fa-th"></i></label>
 
-				<input type="radio" name="view-filter" id="table-view" class="view-radio"
-					(click)="setListViewFilter('table')" [checked]="isShowListView('table')">
-					<label for="table-view"><i class="fa fa-list-alt"></i></label>
+					<input type="radio" name="view-filter" id="table-view" class="view-radio"
+						(click)="setListViewFilter('table')" [checked]="isShowListView('table')">
+						<label for="table-view"><i class="fa fa-list-alt"></i></label>
 
+				</div>
 
 			</div>
 			<div class="col-6">
@@ -179,15 +181,19 @@
 			</div>
 			<div class="col-3">
 				<div class="total_counts">
-					Total: <b>{{total_count}}</b>
-						
-					<input type="checkbox" class="ml-3 mr-1" [(ngModel)]="checkAll" (change)="onCheckAllChange()">All
+					<span *ngIf="list.length > 6">Total: <b>{{total_count}}</b></span>
+					<span *ngIf="list.length > 1"><input type="checkbox" class="ml-3 mr-1" [(ngModel)]="checkAll" (change)="onCheckAllChange()">All</span>
 					<a class="ml-3" routerLink="." (click)="onRefresh()"><i class="fa fa-sync-alt"></i></a>
 				</div>
 			</div>
 		</div>
 
 	</div>
+	<div class="no-records" *ngIf="list.length === 0">
+		<span *ngIf="loaded">No records found.</span>
+		<span *ngIf="!loaded">Loading...</span>
+	</div>
+	<div *ngIf="list.length > 0">
 	<div class="listview" *ngIf="isShowListView('list')">
 		<div class="list-block" *ngFor="let detail of list;  let i = index">
 			<hr *ngIf="i==0" class="list-diverder">
@@ -227,11 +233,10 @@
       </div>
 
 				</div>
-
 				<div class="card-action-icons d-inline-block w-25">
 					<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
 					<a routerLink="." (click)="onDelete(detail['_id'], i)"><i class="fas fa-trash-alt" title="Delete"></i></a>
-					<input type="checkbox" [(ngModel)]="checkedItem[i]"/>
+					<input *ngIf="list.length > 1" type="checkbox" [(ngModel)]="checkedItem[i]"/>
 				</div>
 			</div>
 			<hr class="list-diverder">
@@ -283,7 +288,7 @@
 				<div class="card-action-icons">
 					<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
 					<a routerLink="." (click)="onDelete(detail['_id'], i)"><i class="fas fa-trash-alt" title="Delete"></i></a>
-					<input type="checkbox" [(ngModel)]="checkedItem[i]"/>
+					<input *ngIf="list.length > 1" type="checkbox" [(ngModel)]="checkedItem[i]"/>
 				</div>
 			</div>
 		</div>
@@ -317,8 +322,7 @@
 						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
 						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
 					</span>
-				</th>
-<th scope="col" style="width:7.8rem;"></th>
+				</th><th scope="col" style="width:7.8rem;"></th>
 	    	</tr>
 	    </thead>
 	    <tbody>
@@ -346,20 +350,19 @@
 	            	                  {{detail['publishDate']?detail['publishDate']['value']:""}}
 
 	            </td>
-
 	            <td>
 	            	<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
 	            	<a routerLink="." (click)="onDelete(detail['_id'], i)"><i class="fas fa-trash-alt" title="Delete"></i></a>
-					<input type="checkbox" [(ngModel)]="checkedItem[i]"/>
+					<input *ngIf="list.length > 1" type="checkbox" [(ngModel)]="checkedItem[i]"/>
 	            </td>
 	        </tr>
 	    </tbody>
 	</table>
 
 
-
+	</div>
 	<div class="container">
-
+		
 		<div class="row">
 			<div class="col-3">
 			</div>
@@ -396,7 +399,7 @@
 			</div>
 			<div class="col-3">
 				<div class="total_counts">
-					Total: <b>{{total_count}}</b>
+					<span *ngIf="list.length > 6">Total: <b>{{total_count}}</b></span>
 				</div>
 			</div>
 		</div>

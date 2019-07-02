@@ -16,6 +16,9 @@ import { MmoduleService } from '../mmodule.service';
 export class MmoduleListComponent extends MmoduleComponent implements OnInit {
 
 
+  @Input()
+  protected searchObj:any;
+
   constructor(
 
       protected mmoduleService: MmoduleService,
@@ -38,7 +41,7 @@ export class MmoduleListComponent extends MmoduleComponent implements OnInit {
 
           this.listViewFilter = 'list';
           // this is to initialize the detail that will be used for search condition selection
-          const detail = {};
+          const detail = this.searchObj || {};
           this.detail = this.formatDetail(detail);
   }
 

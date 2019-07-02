@@ -19,9 +19,8 @@ export class MaccountroleDetailComponent extends MaccountroleComponent implement
   @Input() 
   protected id:string;
   @Input()
-  protected identityField:string;
-  @Input()
-  protected identityValue:string;
+  protected searchObj:any;
+
 
 
   constructor(
@@ -52,9 +51,9 @@ export class MaccountroleDetailComponent extends MaccountroleComponent implement
       if (!this.id) this.id = this.route.snapshot.paramMap.get('id');
       if (this.id) {
         this.populateDetail(this.id);
-      } else if (this.identityField && this.identityValue) {
+      } else if (this.searchObj) {
         // search item based on the unique value
-        this.populateDetailByField(this.identityField, this.identityValue);
+        this.populateDetailByFields(this.searchObj);
       } else {
         console.error("Routing error for detail view... no id...");
       }

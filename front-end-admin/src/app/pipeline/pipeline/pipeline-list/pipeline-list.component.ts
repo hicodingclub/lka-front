@@ -1,0 +1,53 @@
+import { Component, OnInit, Input } from '@angular/core';
+import { Location } from '@angular/common';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Injector } from '@angular/core';
+
+import { PipelineComponent, ViewType } from '../pipeline.component';
+import { PipelineService } from '../pipeline.service';
+
+
+
+@Component({
+  selector: 'app-pipeline-list',
+  templateUrl: './pipeline-list.component.html',
+  styleUrls: ['./pipeline-list.component.css']
+})
+export class PipelineListComponent extends PipelineComponent implements OnInit {
+
+  private  minDate = {year: (new Date()).getFullYear() - 100, month: 1, day: 1};
+
+  @Input()
+  protected searchObj:any;
+
+  constructor(
+
+      protected pipelineService: PipelineService,
+      protected injector: Injector,
+      protected router: Router,
+      protected route: ActivatedRoute,
+      protected location: Location) {
+          super(
+                pipelineService, injector, router, route, location, ViewType.LIST);
+
+
+          this.stringFields.push('category');
+          this.stringFields.push('muser_id');
+
+
+          this.dateFields = ['createdAt', ];
+
+
+
+
+
+          this.listViewFilter = 'list';
+          // this is to initialize the detail that will be used for search condition selection
+          const detail = this.searchObj || {};
+          this.detail = this.formatDetail(detail);
+  }
+
+  ngOnInit() {
+      this.populateList();
+  }
+}

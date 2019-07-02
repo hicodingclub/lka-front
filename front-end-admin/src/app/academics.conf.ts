@@ -37,14 +37,14 @@ export const AcademicsRoutes: Routes = [
 
 export const academics_server_root_uri:string = "/api/academics";
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Fri Jun 28 2019 19:05:17 GMT-0700 (Pacific Daylight Time)
+**Date: Mon Jul 01 2019 23:39:14 GMT-0700 (Pacific Daylight Time)
 
 import { Routes } from '@angular/router';
 
 import { AcademicsComponent } from './academics/academics.component';
 
 //Import routing paths
-import {studentRoutingPath, teacherRoutingPath, courseRoutingPath, classRoutingPath, studentclassRoutingPath,  } from './academics/academics-routing.path';
+import { studentRoutingPath, teacherRoutingPath, courseRoutingPath, classRoutingPath, studentclassRoutingPath,  } from './academics/academics-routing.path';
 
 export const AcademicsRoutes: Routes = [
   { path: 'academics', 

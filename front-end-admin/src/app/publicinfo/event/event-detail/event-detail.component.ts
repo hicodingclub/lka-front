@@ -20,9 +20,8 @@ export class EventDetailComponent extends EventComponent implements OnInit {
   @Input() 
   protected id:string;
   @Input()
-  protected identityField:string;
-  @Input()
-  protected identityValue:string;
+  protected searchObj:any;
+
 
   @ViewChildren(MraRichTextShowDirective) textEditors: QueryList<MraRichTextShowDirective>;
 
@@ -58,9 +57,9 @@ export class EventDetailComponent extends EventComponent implements OnInit {
       if (!this.id) this.id = this.route.snapshot.paramMap.get('id');
       if (this.id) {
         this.populateDetail(this.id);
-      } else if (this.identityField && this.identityValue) {
+      } else if (this.searchObj) {
         // search item based on the unique value
-        this.populateDetailByField(this.identityField, this.identityValue);
+        this.populateDetailByFields(this.searchObj);
       } else {
         console.error("Routing error for detail view... no id...");
       }

@@ -10,9 +10,9 @@
 			<div class="col-9">                
                     <div *ngIf="detail['resourcePermission'] && detail['resourcePermission']['selection']">
                         <ng-template ngFor let-element [ngForOf]="objectKeys(detail['resourcePermission']['selection'])" let-idx="index">
-                            <div class="row">
-                                <div class="col-3">{{element}}:</div>
-                                <div class="col-3">{{detail['resourcePermission']['selection'][element]}}</div>
+                            <div class="d-flex">
+                                <div class="mr-2">{{element}}:</div>
+                                <div>{{detail['resourcePermission']['selection'][element]}}</div>
                             </div>
                         </ng-template>
                     </div>

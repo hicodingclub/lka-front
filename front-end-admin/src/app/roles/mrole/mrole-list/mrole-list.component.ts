@@ -16,6 +16,9 @@ import { MroleService } from '../mrole.service';
 export class MroleListComponent extends MroleComponent implements OnInit {
 
 
+  @Input()
+  protected searchObj:any;
+
   constructor(
 
       protected mroleService: MroleService,
@@ -38,7 +41,7 @@ export class MroleListComponent extends MroleComponent implements OnInit {
 
           this.listViewFilter = 'list';
           // this is to initialize the detail that will be used for search condition selection
-          const detail = {};
+          const detail = this.searchObj || {};
           this.detail = this.formatDetail(detail);
   }
 

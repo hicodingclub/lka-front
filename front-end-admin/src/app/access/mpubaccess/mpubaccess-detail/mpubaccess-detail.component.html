@@ -1,16 +1,13 @@
 <div class="detail" *ngIf="detail">
-	
-	<div class="action-buttons">
-        <!--<a href="javascript:void(0)" (click)="goBack()"><i class="fas fa-angle-double-left" title="Back"></i></a>-->
-        <a [routerLink]="['../../list' ]"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
-		<a [routerLink]="['../../edit', detail['_id'] ]" [skipLocationChange]="false" class="btn btn-outline-primary">Edit</a>
-		<a [routerLink]="['../../new']" [queryParams]="{cid: detail['_id']}" [skipLocationChange]="false" class="btn btn-outline-primary">New</a>
-		<a routerLink="." class="btn btn-outline-primary" (click)="onDelete(detail['_id'], null)">Delete</a>
-	</div>
-	
-
-<div class="card text-left transparent-border ">
-	<div class="grid-fields">
+<div class="action-buttons">
+    <!--<a href="javascript:void(0)" (click)="goBack()"><i class="fas fa-angle-double-left" title="Back"></i></a>-->
+    <a [routerLink]="['../../list' ]"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
+    <a [routerLink]="['../../edit', detail['_id'] ]" [skipLocationChange]="false" class="btn btn-outline-primary">Edit</a>
+    <a [routerLink]="['../../new']" [queryParams]="{cid: detail['_id']}" [skipLocationChange]="false" class="btn btn-outline-primary">New</a>
+    <a routerLink="." class="btn btn-outline-primary" (click)="onDelete(detail['_id'], null)">Delete</a>
+</div>
+	<div class="card text-left transparent-border ">
+		<div class="grid-fields">
 
       <div class="card-header grid-head">
         <div class="ml-1 d-inline-block">
@@ -47,9 +44,9 @@
             <div class="ml-3 d-inline-block">                
                     <div *ngIf="detail['resourcePermission'] && detail['resourcePermission']['selection']">
                         <ng-template ngFor let-element [ngForOf]="objectKeys(detail['resourcePermission']['selection'])" let-idx="index">
-                            <div class="row">
-                                <div class="col-3">{{element}}:</div>
-                                <div class="col-3">{{detail['resourcePermission']['selection'][element]}}</div>
+                            <div class="d-flex">
+                                <div class="mr-2">{{element}}:</div>
+                                <div>{{detail['resourcePermission']['selection'][element]}}</div>
                             </div>
                         </ng-template>
                     </div>
@@ -58,11 +55,9 @@
           </div>
       </div>
 
+		</div>
 	</div>
-</div>
-	
-		
-		<router-outlet></router-outlet>
-	
+
+
 </div>
 

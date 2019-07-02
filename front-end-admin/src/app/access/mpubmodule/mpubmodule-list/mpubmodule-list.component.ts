@@ -16,6 +16,9 @@ import { MpubmoduleService } from '../mpubmodule.service';
 export class MpubmoduleListComponent extends MpubmoduleComponent implements OnInit {
 
 
+  @Input()
+  protected searchObj:any;
+
   constructor(
 
       protected mpubmoduleService: MpubmoduleService,
@@ -38,7 +41,7 @@ export class MpubmoduleListComponent extends MpubmoduleComponent implements OnIn
 
           this.listViewFilter = 'list';
           // this is to initialize the detail that will be used for search condition selection
-          const detail = {};
+          const detail = this.searchObj || {};
           this.detail = this.formatDetail(detail);
   }
 

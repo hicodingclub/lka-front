@@ -37,14 +37,14 @@ export const RolesRoutes: Routes = [
 
 export const roles_server_root_uri:string = "/api/roles";
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Fri Jun 28 2019 19:05:16 GMT-0700 (Pacific Daylight Time)
+**Date: Mon Jul 01 2019 23:39:13 GMT-0700 (Pacific Daylight Time)
 
 import { Routes } from '@angular/router';
 
 import { RolesComponent } from './roles/roles.component';
 
 //Import routing paths
-import {mroleRoutingPath, mmoduleRoutingPath, mpermissionRoutingPath, maccountRoutingPath, maccountroleRoutingPath,  } from './roles/roles-routing.path';
+import { mroleRoutingPath, mmoduleRoutingPath, mpermissionRoutingPath, maccountRoutingPath, maccountroleRoutingPath,  } from './roles/roles-routing.path';
 
 export const RolesRoutes: Routes = [
   { path: 'roles', 

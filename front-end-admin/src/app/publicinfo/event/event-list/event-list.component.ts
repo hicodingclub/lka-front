@@ -17,6 +17,9 @@ export class EventListComponent extends EventComponent implements OnInit {
 
   private  minDate = {year: (new Date()).getFullYear() - 100, month: 1, day: 1};
 
+  @Input()
+  protected searchObj:any;
+
   constructor(
 
       protected eventService: EventService,
@@ -42,7 +45,7 @@ export class EventListComponent extends EventComponent implements OnInit {
           this.listViewFilter = 'list';
           this.setListSort('publishDate', 'Publish Date', 'desc');
           // this is to initialize the detail that will be used for search condition selection
-          const detail = {};
+          const detail = this.searchObj || {};
           this.detail = this.formatDetail(detail);
   }
 

@@ -16,6 +16,9 @@ import { FaqService } from '../faq.service';
 export class FaqListComponent extends FaqComponent implements OnInit {
 
 
+  @Input()
+  protected searchObj:any;
+
   constructor(
 
       protected faqService: FaqService,
@@ -38,7 +41,7 @@ export class FaqListComponent extends FaqComponent implements OnInit {
 
           this.listViewFilter = 'list';
           // this is to initialize the detail that will be used for search condition selection
-          const detail = {};
+          const detail = this.searchObj || {};
           this.detail = this.formatDetail(detail);
   }
 

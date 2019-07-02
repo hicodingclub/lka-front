@@ -28,14 +28,14 @@ export const AccessRoutes: Routes = [
 ];
 
 export const access_server_root_uri:string = "/api/access";/*>>> Please check this recent updates and merge with existing ones***
-**Date: Fri Jun 28 2019 19:05:15 GMT-0700 (Pacific Daylight Time)
+**Date: Mon Jul 01 2019 23:39:12 GMT-0700 (Pacific Daylight Time)
 
 import { Routes } from '@angular/router';
 
 import { AccessComponent } from './access/access.component';
 
 //Import routing paths
-import {musergroupRoutingPath, mpubmoduleRoutingPath, mpubaccessRoutingPath,  } from './access/access-routing.path';
+import { musergroupRoutingPath, mpubmoduleRoutingPath, mpubaccessRoutingPath,  } from './access/access-routing.path';
 
 export const AccessRoutes: Routes = [
   { path: 'access', 

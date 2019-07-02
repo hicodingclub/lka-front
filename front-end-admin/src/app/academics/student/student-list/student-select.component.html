@@ -20,7 +20,7 @@
 	              <input type="search" class="form-control border border-secondary" id="studentTextSearch" 
 						#studentTextSearch [(ngModel)]="searchText"
 						(keyup.enter)="$event.target.blur();searchList();false"
-					    placeholder="Search for first_name, last_name, email"> 
+					    placeholder="Search for first_name, last_name, email, muser_id"> 
 				  <div *ngIf="searchText" class="input-group-append icon-clear-inside">
 					<span >
 					    <i class="fas fa-times-circle" (click)="onSearchTextClear()" title="Clear"></i>
@@ -86,7 +86,7 @@
 			</div>
 		</div>
 		<hr/>
-		
+				
 		<div class="row">
 			<div class="col-3">
 			</div>
@@ -123,7 +123,7 @@
 			</div>
 			<div class="col-3">
 				<div class="total_counts">
-					Total: <b>{{total_count}}</b>
+					<span *ngIf="list.length > 6">Total: <b>{{total_count}}</b></span>
 				</div>
 			</div>
 		</div>
@@ -173,7 +173,7 @@
 	</table>
 	
 	<div class="container">
-		
+				
 		<div class="row">
 			<div class="col-3">
 			</div>
@@ -210,7 +210,7 @@
 			</div>
 			<div class="col-3">
 				<div class="total_counts">
-					Total: <b>{{total_count}}</b>
+					<span *ngIf="list.length > 6">Total: <b>{{total_count}}</b></span>
 				</div>
 			</div>
 		</div>

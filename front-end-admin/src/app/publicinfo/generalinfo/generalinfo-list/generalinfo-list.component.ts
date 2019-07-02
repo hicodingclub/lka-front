@@ -16,6 +16,9 @@ import { GeneralinfoService } from '../generalinfo.service';
 export class GeneralinfoListComponent extends GeneralinfoComponent implements OnInit {
 
 
+  @Input()
+  protected searchObj:any;
+
   constructor(
 
       protected generalinfoService: GeneralinfoService,
@@ -41,7 +44,7 @@ export class GeneralinfoListComponent extends GeneralinfoComponent implements On
           this.listViewFilter = 'list';
           this.setListSort('title', 'Title', 'asc');
           // this is to initialize the detail that will be used for search condition selection
-          const detail = {};
+          const detail = this.searchObj || {};
           this.detail = this.formatDetail(detail);
   }
 
