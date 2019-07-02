@@ -1,8 +1,8 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-var Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
-var faqSchema = new Schema(
+const schema = new Schema(
   {
     question: {type: String, required: true},
     answer: {type: String, editor: true, required: true, maxlength: 1000},
@@ -11,15 +11,4 @@ var faqSchema = new Schema(
   }
 );
 
-var Brief = "question answer order enable";
-var Detail = "question | answer | order | enable";
-var Creat = "question answer order enable";
-var Edit = "question answer order enable";
-var TextSearch = "question";
-var Index = "question";
-
-var views = [Brief, Detail, Creat, Edit, TextSearch, Index]
-
-
-//Export model
-module.exports = {schema: faqSchema, views: views, name: 'FAQ'};
+module.exports = schema;

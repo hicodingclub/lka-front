@@ -1,23 +1,23 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-let eventDef = require('./event');
-let generalInfoDef = require('./generalInfo');
-let keyNoteDef = require('./keynote');
-let faqDef = require('./faq');
-var schemas = {
+let eventDef = require('./event-admin');
+let generalInfoDef = require('./generalInfo-admin');
+let keyNoteDef = require('./keynote-admin');
+let faqDef = require('./faq-admin');
+const schemas = {
   "GeneralInfo": generalInfoDef,
   "Faq": faqDef,
   "Event": eventDef,
   "KeyNote": keyNoteDef,
 };
 
-var config = {
+const config = {
   dateFormat: "MM-DD-YYYY",
   timeFormat: "hh:mm:ss"
 }
 
 const authz = {
-  "module-authz": {"LoginUser": '', "Anyone": "R"}
+  "module-authz": {"LoginUser": 'R', "Anyone": ''}
 }
 
 module.exports = {schemas, config, authz};
