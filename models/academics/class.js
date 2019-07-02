@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
 
-var courseInstanceSchema = new Schema(
+var schema = new Schema(
   {
     title: {type: String, required: true},
     description: {type: String, required: true, maxlength: 100},
@@ -17,21 +17,4 @@ var courseInstanceSchema = new Schema(
   }
 );
 
-var courseInstanceBrief = "title course teacher startTime endTime dayOfWeek hot";
-var courseInstanceDetail = "title | description | course price  | teacher | startTime endTime | dayOfWeek | hot";
-var courseInstanceCreat = "title course description teacher price startTime endTime dayOfWeek hot";
-var courseInstanceEdit = "title course description teacher price startTime endTime dayOfWeek hot";
-var courseInstanceTextSearch = "title teacher course";
-var courseInstanceIndex = "title";
-
-var views = [courseInstanceBrief, courseInstanceDetail, courseInstanceCreat, courseInstanceEdit, courseInstanceTextSearch, courseInstanceIndex]
-
-
-//Export model
-module.exports = {
-  schema: courseInstanceSchema,
-  views: views,
-  mraUI: {
-    listType: 'table', // table, list, or grid
-  },
-};
+module.exports = schema;

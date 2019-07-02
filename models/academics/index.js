@@ -1,8 +1,8 @@
-let studentDef = require('./student');
-let teacherDef = require('./teacher');
-let courseDef = require('./course');
-let courseInstanceDef = require('./class');
-let studentClassSchemaDef = require('./student_class')
+let studentDef = require('./student-admin');
+let teacherDef = require('./teacher-admin');
+let courseDef = require('./course-admin');
+let courseInstanceDef = require('./class-admin');
+let studentClassSchemaDef = require('./student_class-admin')
 
 const schemas = {
   Student: studentDef,

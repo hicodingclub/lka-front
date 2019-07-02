@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
 
-var teacherSchema = new Schema(
+var schema = new Schema(
   {
     firstName: {type: String, required: true},
     lastName: {type: String, required: true},
@@ -16,7 +16,7 @@ var teacherSchema = new Schema(
   }
 );
 
-teacherSchema.virtual('name').get(function () {
+schema.virtual('name').get(function () {
   if (this.firstName && this.lastName) {
       return this.firstName + ' ' + this.lastName;
   }
@@ -25,19 +25,4 @@ teacherSchema.virtual('name').get(function () {
   return fullName;
 });
 
-var teacherBrief = "firstName lastName courses introduction photo";
-var teacherDetail = "firstName lastName | email | phoneNumber  courses | introduction | photo";
-var teacherCreat = "firstName lastName courses introduction email phoneNumber photo";
-var teacherEdit = "firstName lastName courses introduction email phoneNumber photo";
-var teacherTextSearch = "firstName lastName courses email phoneNumber";
-var teacherIndex = "firstName lastName";
-
-var views = [teacherBrief, teacherDetail, teacherCreat, teacherEdit, teacherTextSearch, teacherIndex]
-
-module.exports = {
-  schema: teacherSchema,
-  views: views,
-  mraUI: {
-    listType: 'grid', // table, list, or grid
-  },
-};
+module.exports = schema;
