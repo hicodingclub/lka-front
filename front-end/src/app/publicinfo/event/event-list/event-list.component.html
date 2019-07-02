@@ -99,9 +99,8 @@
 		    </div>
 			<div class="col-3">
 		        <div class="action-buttons">
-					<a [routerLink]="['../new' ]" [skipLocationChange]="false" class="btn btn-outline-primary">Create</a>
-					<a *ngIf="list.length > 1" routerLink="." class="btn btn-outline-primary" (click)="onDeleteSelected()"
-						[ngClass]="{'disabled': !isItemSelected()}">Delete</a>
+					
+					
 				</div>
 			</div>
 		</div>
@@ -182,7 +181,6 @@
 			<div class="col-3">
 				<div class="total_counts">
 					<span *ngIf="list.length > 6">Total: <b>{{total_count}}</b></span>
-					<span *ngIf="list.length > 1"><input type="checkbox" class="ml-3 mr-1" [(ngModel)]="checkAll" (change)="onCheckAllChange()">All</span>
 					<a class="ml-3" routerLink="." (click)="onRefresh()"><i class="fa fa-sync-alt"></i></a>
 				</div>
 			</div>
@@ -233,11 +231,6 @@
       </div>
 
 				</div>
-				<div class="card-action-icons d-inline-block w-25">
-					<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
-					<a routerLink="." (click)="onDelete(detail['_id'], i)"><i class="fas fa-trash-alt" title="Delete"></i></a>
-					<input *ngIf="list.length > 1" type="checkbox" [(ngModel)]="checkedItem[i]"/>
-				</div>
 			</div>
 			<hr class="list-diverder">
 		</div>
@@ -285,11 +278,6 @@
       </div>
 
 				</div>
-				<div class="card-action-icons">
-					<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
-					<a routerLink="." (click)="onDelete(detail['_id'], i)"><i class="fas fa-trash-alt" title="Delete"></i></a>
-					<input *ngIf="list.length > 1" type="checkbox" [(ngModel)]="checkedItem[i]"/>
-				</div>
 			</div>
 		</div>
 	</div>
@@ -322,7 +310,7 @@
 						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
 						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
 					</span>
-				</th><th scope="col" style="width:7.8rem;"></th>
+				</th>
 	    	</tr>
 	    </thead>
 	    <tbody>
@@ -349,11 +337,6 @@
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
 	            	                  {{detail['publishDate']?detail['publishDate']['value']:""}}
 
-	            </td>
-	            <td>
-	            	<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
-	            	<a routerLink="." (click)="onDelete(detail['_id'], i)"><i class="fas fa-trash-alt" title="Delete"></i></a>
-					<input *ngIf="list.length > 1" type="checkbox" [(ngModel)]="checkedItem[i]"/>
 	            </td>
 	        </tr>
 	    </tbody>

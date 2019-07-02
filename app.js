@@ -26,7 +26,7 @@ const academicsDbDefinition = require('./models/academics/index-public');
 const academicsRouter = meanRestExpress.RestRouter(academicsDbDefinition, 'Academics', authFuncs);
 
 //for public models
-const publicInfoDbDefinition = require('./models/publicInfo/index');
+const publicInfoDbDefinition = require('./models/publicInfo/index-public');
 const publicInfoRouter = meanRestExpress.RestRouter(publicInfoDbDefinition, 'PublicInfo', authFuncs);
 
 //for pipeline models

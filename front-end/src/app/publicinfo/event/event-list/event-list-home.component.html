@@ -38,11 +38,6 @@
       </div>
 
 				</div>
-				<div class="card-action-icons d-inline-block w-25">
-					<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
-					<a routerLink="." (click)="onDelete(detail['_id'], i)"><i class="fas fa-trash-alt" title="Delete"></i></a>
-					<input *ngIf="list.length > 1" type="checkbox" [(ngModel)]="checkedItem[i]"/>
-				</div>
 			</div>
 			<hr class="list-diverder">
 		</div>

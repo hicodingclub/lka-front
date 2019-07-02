@@ -22,28 +22,28 @@ import { publicinfo_server_root_uri } from '../publicinfo.conf';
 
 // Import components for each schema
 
-import { GeneralinfoListComponent } from './generalinfo/generalinfo-list/generalinfo-list.component';
-import { GeneralinfoListHomeComponent } from './generalinfo/generalinfo-list/generalinfo-list-home.component';
+
+
 import { GeneralinfoDetailComponent } from './generalinfo/generalinfo-detail/generalinfo-detail.component';
-import { GeneralinfoEditComponent } from './generalinfo/generalinfo-edit/generalinfo-edit.component';
+
 import { GeneralinfoService } from './generalinfo/generalinfo.service';
 
 import { FaqListComponent } from './faq/faq-list/faq-list.component';
 import { FaqListHomeComponent } from './faq/faq-list/faq-list-home.component';
-import { FaqDetailComponent } from './faq/faq-detail/faq-detail.component';
-import { FaqEditComponent } from './faq/faq-edit/faq-edit.component';
+
+
 import { FaqService } from './faq/faq.service';
 
 import { EventListComponent } from './event/event-list/event-list.component';
 import { EventListHomeComponent } from './event/event-list/event-list-home.component';
 import { EventDetailComponent } from './event/event-detail/event-detail.component';
-import { EventEditComponent } from './event/event-edit/event-edit.component';
+
 import { EventService } from './event/event.service';
 
-import { KeynoteListComponent } from './keynote/keynote-list/keynote-list.component';
-import { KeynoteListHomeComponent } from './keynote/keynote-list/keynote-list-home.component';
+
+
 import { KeynoteDetailComponent } from './keynote/keynote-detail/keynote-detail.component';
-import { KeynoteEditComponent } from './keynote/keynote-edit/keynote-edit.component';
+
 import { KeynoteService } from './keynote/keynote.service';
 
 
@@ -65,22 +65,22 @@ import { KeynoteService } from './keynote/keynote.service';
     PublicinfoComponent,
     
 
-    GeneralinfoListComponent,
-    GeneralinfoListHomeComponent,
+    
+    
     GeneralinfoDetailComponent,
-    GeneralinfoEditComponent,
+    
     FaqListComponent,
     FaqListHomeComponent,
-    FaqDetailComponent,
-    FaqEditComponent,
+    
+    
     EventListComponent,
     EventListHomeComponent,
     EventDetailComponent,
-    EventEditComponent,
-    KeynoteListComponent,
-    KeynoteListHomeComponent,
+    
+    
+    
     KeynoteDetailComponent,
-    KeynoteEditComponent,
+    
 
 
 
@@ -91,22 +91,22 @@ import { KeynoteService } from './keynote/keynote.service';
   exports: [
     PublicinfoComponent,
 
-    GeneralinfoListComponent,
-    GeneralinfoListHomeComponent,
+    
+    
     GeneralinfoDetailComponent,
-    GeneralinfoEditComponent,
+    
     FaqListComponent,
     FaqListHomeComponent,
-    FaqDetailComponent,
-    FaqEditComponent,
+    
+    
     EventListComponent,
     EventListHomeComponent,
     EventDetailComponent,
-    EventEditComponent,
-    KeynoteListComponent,
-    KeynoteListHomeComponent,
+    
+    
+    
     KeynoteDetailComponent,
-    KeynoteEditComponent,
+    
 
 
   ],
