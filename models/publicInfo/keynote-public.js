@@ -13,7 +13,7 @@ module.exports = {
   schema,
   views, 
   name: 'Key Notes',
-  api: 'R',
+  api: 'LR',
   mraUI: {
     detailType: 'slide', //use the slide view in detailed page
     listType: 'list', // list, table, or grid

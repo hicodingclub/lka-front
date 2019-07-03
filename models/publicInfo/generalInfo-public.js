@@ -13,7 +13,7 @@ module.exports = {
   schema,
   views, 
   name: 'General Information',
-  api: "R",
+  api: "LR",
   mraUI: {
     detailType: 'info', //use the info view in detailed page
     listType: 'list', // list, table, or grid

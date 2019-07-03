@@ -3,17 +3,17 @@ import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Injector } from '@angular/core';
 
-import { FaqComponent, ViewType } from '../faq.component';
-import { FaqService } from '../faq.service';
+import { KeynoteComponent, ViewType } from '../keynote.component';
+import { KeynoteService } from '../keynote.service';
 
 
 
 @Component({
-  selector: 'app-faq-list',
-  templateUrl: './faq-list.component.html',
-  styleUrls: ['./faq-list.component.css']
+  selector: 'app-keynote-list',
+  templateUrl: './keynote-list.component.html',
+  styleUrls: ['./keynote-list.component.css']
 })
-export class FaqListComponent extends FaqComponent implements OnInit {
+export class KeynoteListComponent extends KeynoteComponent implements OnInit {
 
   protected pageTitle = "My list";
 
@@ -22,17 +22,20 @@ export class FaqListComponent extends FaqComponent implements OnInit {
 
   constructor(
 
-      protected faqService: FaqService,
+      protected keynoteService: KeynoteService,
       protected injector: Injector,
       protected router: Router,
       protected route: ActivatedRoute,
       protected location: Location) {
           super(
-                faqService, injector, router, route, location, ViewType.LIST);
+                keynoteService, injector, router, route, location, ViewType.LIST);
 
 
-          this.stringFields.push('question');
-          this.stringFields.push('answer');
+          this.stringFields.push('signaturePicture');
+          this.stringFields.push('title');
+          this.stringFields.push('subtitle');
+          this.stringFields.push('description');
+          this.stringFields.push('tag');
 
 
 
@@ -41,6 +44,7 @@ export class FaqListComponent extends FaqComponent implements OnInit {
 
 
           this.listViewFilter = 'list';
+          this.setListSort('title', 'Title', 'asc');
           // this is to initialize the detail that will be used for search condition selection
           const detail = this.searchObj || {};
           this.detail = this.formatDetail(detail);

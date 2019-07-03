@@ -1,6 +1,6 @@
 // Import components for each schema
 
-
+import { GeneralinfoListComponent } from './generalinfo/generalinfo-list/generalinfo-list.component';
 import { GeneralinfoDetailComponent } from './generalinfo/generalinfo-detail/generalinfo-detail.component';
 
 
@@ -15,7 +15,7 @@ import { EventDetailComponent } from './event/event-detail/event-detail.componen
 
 
 
-
+import { KeynoteListComponent } from './keynote/keynote-list/keynote-list.component';
 import { KeynoteDetailComponent } from './keynote/keynote-detail/keynote-detail.component';
 
 
@@ -27,11 +27,11 @@ import { AuthGuard } from 'mdds-angular-auth';
 
 
 export const generalinfoRoutingPath = [
-    
+    {path: 'list', component: GeneralinfoListComponent},
     {path: 'detail/:id', component: GeneralinfoDetailComponent},
     
     
-    
+    {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];
 
 export const faqRoutingPath = [
@@ -51,9 +51,9 @@ export const eventRoutingPath = [
 ];
 
 export const keynoteRoutingPath = [
-    
+    {path: 'list', component: KeynoteListComponent},
     {path: 'detail/:id', component: KeynoteDetailComponent},
     
     
-    
+    {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];

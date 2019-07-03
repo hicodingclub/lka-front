@@ -22,8 +22,8 @@ import { publicinfo_server_root_uri } from '../publicinfo.conf';
 
 // Import components for each schema
 
-
-
+import { GeneralinfoListComponent } from './generalinfo/generalinfo-list/generalinfo-list.component';
+import { GeneralinfoListHomeComponent } from './generalinfo/generalinfo-list/generalinfo-list-home.component';
 import { GeneralinfoDetailComponent } from './generalinfo/generalinfo-detail/generalinfo-detail.component';
 
 import { GeneralinfoService } from './generalinfo/generalinfo.service';
@@ -40,8 +40,8 @@ import { EventDetailComponent } from './event/event-detail/event-detail.componen
 
 import { EventService } from './event/event.service';
 
-
-
+import { KeynoteListComponent } from './keynote/keynote-list/keynote-list.component';
+import { KeynoteListHomeComponent } from './keynote/keynote-list/keynote-list-home.component';
 import { KeynoteDetailComponent } from './keynote/keynote-detail/keynote-detail.component';
 
 import { KeynoteService } from './keynote/keynote.service';
@@ -65,8 +65,8 @@ import { KeynoteService } from './keynote/keynote.service';
     PublicinfoComponent,
     
 
-    
-    
+    GeneralinfoListComponent,
+    GeneralinfoListHomeComponent,
     GeneralinfoDetailComponent,
     
     FaqListComponent,
@@ -77,8 +77,8 @@ import { KeynoteService } from './keynote/keynote.service';
     EventListHomeComponent,
     EventDetailComponent,
     
-    
-    
+    KeynoteListComponent,
+    KeynoteListHomeComponent,
     KeynoteDetailComponent,
     
 
@@ -91,8 +91,8 @@ import { KeynoteService } from './keynote/keynote.service';
   exports: [
     PublicinfoComponent,
 
-    
-    
+    GeneralinfoListComponent,
+    GeneralinfoListHomeComponent,
     GeneralinfoDetailComponent,
     
     FaqListComponent,
@@ -103,8 +103,8 @@ import { KeynoteService } from './keynote/keynote.service';
     EventListHomeComponent,
     EventDetailComponent,
     
-    
-    
+    KeynoteListComponent,
+    KeynoteListHomeComponent,
     KeynoteDetailComponent,
     
 

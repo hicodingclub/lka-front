@@ -16,6 +16,7 @@ import { EventService } from '../event.service';
 export class EventListComponent extends EventComponent implements OnInit {
 
   private  minDate = {year: (new Date()).getFullYear() - 100, month: 1, day: 1};
+  protected pageTitle = "My list";
 
   @Input()
   protected searchObj:any;

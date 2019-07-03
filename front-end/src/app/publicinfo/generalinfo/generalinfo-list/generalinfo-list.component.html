@@ -6,10 +6,10 @@
 				
 
 			    <div class="input-group">
-	              <input type="search" class="form-control border border-secondary" id="faqTextSearch" 
-						#faqTextSearch [(ngModel)]="searchText"
+	              <input type="search" class="form-control border border-secondary" id="generalinfoTextSearch" 
+						#generalinfoTextSearch [(ngModel)]="searchText"
 						(keyup.enter)="$event.target.blur();searchList();false"
-					    placeholder="Search for question, answer"> 
+					    placeholder="Search for signaturePicture, title, description, tag"> 
 				  <div *ngIf="searchText" class="input-group-append icon-clear-inside">
 					<span >
 					    <i class="fas fa-times-circle" (click)="onSearchTextClear()" title="Clear"></i>
@@ -44,8 +44,12 @@
 							<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down"></i>
 						</button>
 						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('question', 'Question', 'asc')">Question<i class="fas fa-arrow-up"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('question', 'Question', 'desc')">Question<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('title', 'Title', 'asc')">Title<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('title', 'Title', 'desc')">Title<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('description', 'Description', 'asc')">Description<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('description', 'Description', 'desc')">Description<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('tag', 'Tag', 'asc')">Tag<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('tag', 'Tag', 'desc')">Tag<i class="fas fa-arrow-down"></i></a>
 						</div>
 					</div>
 			</div>
@@ -117,22 +121,34 @@
 	<div class="listview" *ngIf="isShowListView('list')">
 		<div class="list-block" *ngFor="let detail of list;  let i = index">
 			<hr *ngIf="i==0" class="list-diverder">
-			<div class="list-card text-left  "
+			<div class="list-card text-left clickable-card "
 				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
-				<div class="list-fields w-75 " >
+				<div class="list-fields w-75 pointer" (click)="onDetailLinkClicked(detail['_id'])">
 
+      <div class="list-head-picture mr-1 d-inline-block">                
+                    <file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false"></file-display>
+
+      </div>
+    
       <div class="list-body-fields ml-1 d-inline-block">
         <h5>
           <div class="mr-1 d-inline-block">
                             
-                    {{detail['question']}}
+                    {{detail['title']}}
 
           </div>
         </h5>
         <div class="mr-3 d-inline-block">
-          <div class="d-inline-block"><label>Answer:</label></div>
+          <div class="d-inline-block"><label>Description:</label></div>
           <div class="ml-3 d-inline-block">                
-                    {{detail['answer']}}
+                    {{detail['description']}}
+
+          </div>
+        </div>
+        <div class="mr-3 d-inline-block">
+          <div class="d-inline-block"><label>Tag:</label></div>
+          <div class="ml-3 d-inline-block">                
+                    {{detail['tag']}}
 
           </div>
         </div>
@@ -147,16 +163,20 @@
 
 	<div class="gridview" *ngIf="isShowListView('grid')">
 		<div class="grid-block" *ngFor="let detail of list;  let i = index">
-			<div class="card text-left h-100  "
+			<div class="card text-left h-100 clickable-card "
 				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
-				<div class="grid-fields " >
+				<div class="grid-fields pointer" (click)="onDetailLinkClicked(detail['_id'])">
 
       <div class="card-header grid-head">
+        <div class="grid-head-picture mr-1">                
+                    <file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false"></file-display>
+
+        </div>
         <div class="ml-1 d-inline-block">
           <h5>
             <div class="mr-1 d-inline-block">
                               
-                    {{detail['question']}}
+                    {{detail['title']}}
 
             </div>
           </h5>
@@ -164,9 +184,16 @@
       </div>
       <div class="card-body">
           <div>
-            <div class="d-inline-block"><label>Answer:</label></div>
+            <div class="d-inline-block"><label>Description:</label></div>
             <div class="ml-3 d-inline-block">                
-                    {{detail['answer']}}
+                    {{detail['description']}}
+
+            </div>
+          </div>
+          <div>
+            <div class="d-inline-block"><label>Tag:</label></div>
+            <div class="ml-3 d-inline-block">                
+                    {{detail['tag']}}
 
             </div>
           </div>
@@ -183,31 +210,55 @@
 	    	<tr>
 		        <th scope="col">#</th>
 
-				<th class="pointer" scope="col" (click)="toggleListSort('question', 'Question')">
-					Question
-					<span *ngIf="listSortField === 'question'">
+				<th scope="col">Signature Picture</th>
+
+				<th class="pointer" scope="col" (click)="toggleListSort('title', 'Title')">
+					Title
+					<span *ngIf="listSortField === 'title'">
 						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
 						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
 					</span>
 				</th>
-				<th scope="col">Answer</th>
-
+				<th class="pointer" scope="col" (click)="toggleListSort('description', 'Description')">
+					Description
+					<span *ngIf="listSortField === 'description'">
+						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+					</span>
+				</th>
+				<th class="pointer" scope="col" (click)="toggleListSort('tag', 'Tag')">
+					Tag
+					<span *ngIf="listSortField === 'tag'">
+						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+					</span>
+				</th>
 	    	</tr>
 	    </thead>
 	    <tbody>
 	        <tr *ngFor="let detail of list;  let i = index" [ngClass]="{'clicked-row': clickedId==detail['_id']}">
-	            <td scope="row" >
+	            <td scope="row" (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
 	            	{{(page-1)*per_page+i+1}}
 	            </td>
 
-	            <td >
+	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
 	            	                
-                    {{detail['question']}}
+                    <file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false"></file-display>
 
 	            </td>
-	            <td >
+	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
 	            	                
-                    {{detail['answer']}}
+                    {{detail['title']}}
+
+	            </td>
+	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            	                
+                    {{detail['description']}}
+
+	            </td>
+	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            	                
+                    {{detail['tag']}}
 
 	            </td>
 	        </tr>
