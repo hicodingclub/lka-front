@@ -38,15 +38,18 @@ export class PassswordEqualValidator implements Validator {
 })
 export class MuserPassComponent extends MuserEditComponent implements OnInit {        
     @Input() 
-    protected id: string;
-    @Output() done = new EventEmitter<boolean>();
+    public id: string;
+    @Output() 
+    public done = new EventEmitter<boolean>();
   
+    public tempString;
+
     constructor(
-      protected muserService: MuserService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location) {
+      public muserService: MuserService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location) {
           super( 
                  muserService, injector, router, route, location);
     }
