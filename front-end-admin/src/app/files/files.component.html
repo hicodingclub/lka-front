@@ -1,7 +1,7 @@
 <div class="container">
 		<div class="card component-main-card">
 		  <div class="card-header">
-			<nav class="nav nav-pills">
+			  <nav class="nav nav-pills">
 
 			    <a class="nav-item nav-link" routerLink="./mfile" 
 			    	routerLinkActive="active">Mfile</a>
@@ -10,10 +10,10 @@
 			    	routerLinkActive="active">Mfilelabels</a>
 				<a class="nav-item nav-link" routerLink="./upload" 
 					routerLinkActive="active">Upload</a>
-			</nav>
+			  </nav>
+		  </div>
+		  <div class="card-body">
+			<router-outlet></router-outlet>
+		  </div>
 		</div>
-		<div class="card-body">
-		<router-outlet></router-outlet>
-		</div>
-	</div>
 </div>

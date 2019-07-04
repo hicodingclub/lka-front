@@ -15,8 +15,7 @@ import { MfileService } from '../mfile.service';
 })
 export class MfileListComponent extends MfileComponent implements OnInit {
 
-  protected minDate = {year: (new Date()).getFullYear() - 100, month: 1, day: 1};
-  protected pageTitle = "My list";
+  public minDate = {year: (new Date()).getFullYear() - 100, month: 1, day: 1};
 
   @Input()
   public searchObj:any;

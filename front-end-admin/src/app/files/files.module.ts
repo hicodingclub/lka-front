@@ -9,6 +9,7 @@ import { MraNgbDateFormatterService } from './files.directive';
 
 
 
+import { FileUploadModule } from 'mdds-angular-file';
 
 import { MraModule } from 'mean-rest-angular';
 
@@ -33,10 +34,8 @@ import { MfilelabelsListComponent } from './mfilelabels/mfilelabels-list/mfilela
 
 import { MfilelabelsService } from './mfilelabels/mfilelabels.service';
 
-
 import { MddsUploadComponent } from './mddsupload.component';
 import { MddsUploadService } from './mddsupload.service';
-
 
 @NgModule({
   imports: [
@@ -45,6 +44,7 @@ import { MddsUploadService } from './mddsupload.service';
     FormsModule,
     NgbModule,
     MraModule,
+    FileUploadModule,
 
     FilesRoutingModule
   ],
@@ -88,6 +88,7 @@ import { MddsUploadService } from './mddsupload.service';
 
     MfileService,
     MfilelabelsService,
+
     MddsUploadService,
   ],
 

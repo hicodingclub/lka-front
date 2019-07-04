@@ -15,7 +15,6 @@ import { MfilelabelsService } from '../mfilelabels.service';
 })
 export class MfilelabelsListComponent extends MfilelabelsComponent implements OnInit {
 
-  protected pageTitle = "My list";
 
   @Input()
   public searchObj:any;

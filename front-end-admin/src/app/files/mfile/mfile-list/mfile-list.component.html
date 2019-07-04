@@ -1,5 +1,4 @@
 <div>
-	<div>{{pageTitle}}</div>
 	<div class="container search">
 		<div class="row">
 			<div class="col-9">
@@ -218,8 +217,6 @@
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('type', 'Type', 'desc')">Type<i class="fas fa-arrow-down"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('size', 'Size', 'asc')">Size<i class="fas fa-arrow-up"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('size', 'Size', 'desc')">Size<i class="fas fa-arrow-down"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('link', 'Link', 'asc')">Link<i class="fas fa-arrow-up"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('link', 'Link', 'desc')">Link<i class="fas fa-arrow-down"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('uploaded', 'Uploaded', 'asc')">Uploaded<i class="fas fa-arrow-up"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('uploaded', 'Uploaded', 'desc')">Uploaded<i class="fas fa-arrow-down"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('hasThumbnail', 'Has Thumbnail', 'asc')">HasThumbnail<i class="fas fa-arrow-up"></i></a>
@@ -299,6 +296,11 @@
 				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
 				<div class="list-fields w-75 " >
 
+      <div class="list-head-picture mr-1 d-inline-block">                
+                    <file-display [downloadUrl]="detail['link']" [isLarge]="false"></file-display>
+
+      </div>
+    
       <div class="list-body-fields ml-1 d-inline-block">
         <h5>
           <div class="mr-1 d-inline-block">
@@ -330,13 +332,6 @@
         <div class="mr-3 d-inline-block">
           <div class="d-inline-block"><label>Size:</label></div>
           <div class="ml-3 d-inline-block">                  {{detail['size']}} 
-
-          </div>
-        </div>
-        <div class="mr-3 d-inline-block">
-          <div class="d-inline-block"><label>Link:</label></div>
-          <div class="ml-3 d-inline-block">                
-                    {{detail['link']}}
 
           </div>
         </div>
@@ -373,6 +368,10 @@
 				<div class="grid-fields " >
 
       <div class="card-header grid-head">
+        <div class="grid-head-picture mr-1">                
+                    <file-display [downloadUrl]="detail['link']" [isLarge]="false"></file-display>
+
+        </div>
         <div class="ml-1 d-inline-block">
           <h5>
             <div class="mr-1 d-inline-block">
@@ -407,13 +406,6 @@
           <div>
             <div class="d-inline-block"><label>Size:</label></div>
             <div class="ml-3 d-inline-block">                  {{detail['size']}} 
-
-            </div>
-          </div>
-          <div>
-            <div class="d-inline-block"><label>Link:</label></div>
-            <div class="ml-3 d-inline-block">                
-                    {{detail['link']}}
 
             </div>
           </div>
@@ -470,13 +462,8 @@
 						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
 					</span>
 				</th>
-				<th class="pointer" scope="col" (click)="toggleListSort('link', 'Link')">
-					Link
-					<span *ngIf="listSortField === 'link'">
-						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
-						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
-					</span>
-				</th>
+				<th scope="col">Link</th>
+
 				<th class="pointer" scope="col" (click)="toggleListSort('uploaded', 'Uploaded')">
 					Uploaded
 					<span *ngIf="listSortField === 'uploaded'">
@@ -526,7 +513,7 @@
 	            </td>
 	            <td >
 	            	                
-                    {{detail['link']}}
+                    <file-display [downloadUrl]="detail['link']" [isLarge]="false"></file-display>
 
 	            </td>
 	            <td >
