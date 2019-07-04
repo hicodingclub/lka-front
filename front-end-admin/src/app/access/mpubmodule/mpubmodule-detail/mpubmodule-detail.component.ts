@@ -16,21 +16,21 @@ import { MpubmoduleService } from '../mpubmodule.service';
 })
 export class MpubmoduleDetailComponent extends MpubmoduleComponent implements OnInit {
   @Input() 
-  protected id:string;
+  public id:string;
   @Input()
-  protected searchObj:any;
+  public searchObj:any;
   @Input()
-  protected disableActionButtions:boolean;
+  public disableActionButtions:boolean;
 
 
 
   constructor(
       
-      protected mpubmoduleService: MpubmoduleService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location) {
+      public mpubmoduleService: MpubmoduleService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location) {
           super(
                 mpubmoduleService, injector, router, route, location, ViewType.DETAIL);
 

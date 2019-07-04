@@ -17,15 +17,15 @@ export class MmoduleListComponent extends MmoduleComponent implements OnInit {
 
 
   @Input()
-  protected searchObj:any;
+  public searchObj:any;
 
   constructor(
 
-      protected mmoduleService: MmoduleService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location) {
+      public mmoduleService: MmoduleService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location) {
           super(
                 mmoduleService, injector, router, route, location, ViewType.LIST);
 

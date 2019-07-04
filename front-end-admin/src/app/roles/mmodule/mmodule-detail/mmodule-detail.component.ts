@@ -16,21 +16,21 @@ import { MmoduleService } from '../mmodule.service';
 })
 export class MmoduleDetailComponent extends MmoduleComponent implements OnInit {
   @Input() 
-  protected id:string;
+  public id:string;
   @Input()
-  protected searchObj:any;
+  public searchObj:any;
   @Input()
-  protected disableActionButtions:boolean;
+  public disableActionButtions:boolean;
 
 
 
   constructor(
       
-      protected mmoduleService: MmoduleService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location) {
+      public mmoduleService: MmoduleService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location) {
           super(
                 mmoduleService, injector, router, route, location, ViewType.DETAIL);
 

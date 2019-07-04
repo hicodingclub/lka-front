@@ -22,7 +22,7 @@ import { CourseSelectComponent } from '../course/course-list/course-select.compo
 
 export class TeacherComponent extends BaseComponent {
 
-    protected selectComponents = {
+    public selectComponents = {
 
       'courses': {
           'select-type':CourseSelectComponent,
@@ -33,16 +33,16 @@ export class TeacherComponent extends BaseComponent {
     @ViewChild(AcademicsRefSelectDirective) refSelectDirective: AcademicsRefSelectDirective;
 
 
-    @ViewChild('AcademicsModal') protected focusEl: ElementRef;
+    @ViewChild('AcademicsModal') public focusEl: ElementRef;
 
     constructor(
-protected componentFactoryResolver: ComponentFactoryResolver,
-      protected teacherService: TeacherService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location,
-      protected view: ViewType ) {
+public componentFactoryResolver: ComponentFactoryResolver,
+      public teacherService: TeacherService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location,
+      public view: ViewType ) {
         super(teacherService, injector, router, route, location, view, itemCamelName);
         
         this.modulePath = 'academics';

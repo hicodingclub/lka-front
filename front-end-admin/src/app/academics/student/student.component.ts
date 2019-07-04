@@ -16,16 +16,16 @@ import { ElementRef } from '@angular/core';
 export class StudentComponent extends BaseComponent {
 
 
-    @ViewChild('AcademicsModal') protected focusEl: ElementRef;
+    @ViewChild('AcademicsModal') public focusEl: ElementRef;
 
     constructor(
 
-      protected studentService: StudentService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location,
-      protected view: ViewType ) {
+      public studentService: StudentService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location,
+      public view: ViewType ) {
         super(studentService, injector, router, route, location, view, itemCamelName);
         this.dateFormat = 'MM-DD-YYYY';
         this.timeFormat = 'hh:mm:ss';

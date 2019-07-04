@@ -20,24 +20,24 @@ import { ComponentFactoryResolver } from '@angular/core';
 })
 export class ClassEditComponent extends ClassComponent implements OnInit {        
     @Input() 
-    protected id: string;
+    public id: string;
     @Input()
-    protected cid: string;//copy id
+    public cid: string;//copy id
     @Input()
-    protected initData: any; //some fields has data already. eg: {a: b}. Used for add
+    public initData: any; //some fields has data already. eg: {a: b}. Used for add
     @Output() done = new EventEmitter<boolean>();
 
-    protected action:string;
+    public action:string;
 
 
         
     constructor(
-      protected componentFactoryResolver: ComponentFactoryResolver,
-      protected classService: ClassService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location) {
+      public componentFactoryResolver: ComponentFactoryResolver,
+      public classService: ClassService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location) {
           super( componentFactoryResolver,
                  classService, injector, router, route, location, ViewType.EDIT);
 

@@ -18,15 +18,15 @@ export class MaccountroleListComponent extends MaccountroleComponent implements 
 
 
   @Input()
-  protected searchObj:any;
+  public searchObj:any;
 
   constructor(
-protected componentFactoryResolver: ComponentFactoryResolver,
-      protected maccountroleService: MaccountroleService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location) {
+public componentFactoryResolver: ComponentFactoryResolver,
+      public maccountroleService: MaccountroleService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location) {
           super(componentFactoryResolver,
                 maccountroleService, injector, router, route, location, ViewType.LIST);
 

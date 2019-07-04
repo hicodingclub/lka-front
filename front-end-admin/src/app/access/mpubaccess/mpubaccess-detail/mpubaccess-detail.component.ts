@@ -17,21 +17,21 @@ import { ComponentFactoryResolver } from '@angular/core';
 })
 export class MpubaccessDetailComponent extends MpubaccessComponent implements OnInit {
   @Input() 
-  protected id:string;
+  public id:string;
   @Input()
-  protected searchObj:any;
+  public searchObj:any;
   @Input()
-  protected disableActionButtions:boolean;
+  public disableActionButtions:boolean;
 
 
 
   constructor(
-      protected componentFactoryResolver: ComponentFactoryResolver,
-      protected mpubaccessService: MpubaccessService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location) {
+      public componentFactoryResolver: ComponentFactoryResolver,
+      public mpubaccessService: MpubaccessService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location) {
           super(componentFactoryResolver,
                 mpubaccessService, injector, router, route, location, ViewType.DETAIL);
 

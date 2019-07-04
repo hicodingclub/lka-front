@@ -16,11 +16,11 @@ export class MaccountroleDetailSubComponent extends MaccountroleDetailComponent
     @Input() inputData;
     
     constructor(
-        protected maccountroleService: MaccountroleService,
-        protected injector: Injector,
-        protected router: Router,
-        protected route: ActivatedRoute,
-        protected location: Location) {
+        public maccountroleService: MaccountroleService,
+        public injector: Injector,
+        public router: Router,
+        public route: ActivatedRoute,
+        public location: Location) {
             super(null,maccountroleService, injector, router, route, location);
     }
 

@@ -16,16 +16,16 @@ import { ElementRef } from '@angular/core';
 export class MaccountComponent extends BaseComponent {
 
 
-    @ViewChild('RolesModal') protected focusEl: ElementRef;
+    @ViewChild('RolesModal') public focusEl: ElementRef;
 
     constructor(
 
-      protected maccountService: MaccountService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location,
-      protected view: ViewType ) {
+      public maccountService: MaccountService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location,
+      public view: ViewType ) {
         super(maccountService, injector, router, route, location, view, itemCamelName);
         this.dateFormat = 'MM-DD-YYYY';
         this.timeFormat = 'hh:mm:ss';

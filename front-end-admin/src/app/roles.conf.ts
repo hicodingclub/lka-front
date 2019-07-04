@@ -37,7 +37,7 @@ export const RolesRoutes: Routes = [
 
 export const roles_server_root_uri:string = "/api/roles";
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Tue Jul 02 2019 10:19:23 GMT-0700 (Pacific Daylight Time)
+**Date: Wed Jul 03 2019 20:41:05 GMT-0700 (Pacific Daylight Time)
 
 import { Routes } from '@angular/router';
 
@@ -47,29 +47,29 @@ import { RolesComponent } from './roles/roles.component';
 import { mroleRoutingPath, mmoduleRoutingPath, mpermissionRoutingPath, maccountRoutingPath, maccountroleRoutingPath,  } from './roles/roles-routing.path';
 
 export const RolesRoutes: Routes = [
-  { path: 'roles', 
+  { path: 'roles',
     component: RolesComponent,
-    children: [ 
+    children: [
       {path: '',  redirectTo: 'mrole', pathMatch: 'full'},
 
       { path: "mrole",
-        children: mroleRoutingPath, 
+        children: mroleRoutingPath,
         data: {"mraLevel": 1, "item": "mrole"}
       },
       { path: "mmodule",
-        children: mmoduleRoutingPath, 
+        children: mmoduleRoutingPath,
         data: {"mraLevel": 1, "item": "mmodule"}
       },
       { path: "mpermission",
-        children: mpermissionRoutingPath, 
+        children: mpermissionRoutingPath,
         data: {"mraLevel": 1, "item": "mpermission"}
       },
       { path: "maccount",
-        children: maccountRoutingPath, 
+        children: maccountRoutingPath,
         data: {"mraLevel": 1, "item": "maccount"}
       },
       { path: "maccountrole",
-        children: maccountroleRoutingPath, 
+        children: maccountroleRoutingPath,
         data: {"mraLevel": 1, "item": "maccountrole"}
       },
     ]

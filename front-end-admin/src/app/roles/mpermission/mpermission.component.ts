@@ -24,7 +24,7 @@ import { MmoduleSelectComponent } from '../mmodule/mmodule-list/mmodule-select.c
 
 export class MpermissionComponent extends BaseComponent {
 
-    protected selectComponents = {
+    public selectComponents = {
 
       'role': {
           'select-type':MroleSelectComponent,
@@ -42,13 +42,13 @@ export class MpermissionComponent extends BaseComponent {
 
 
     constructor(
-protected componentFactoryResolver: ComponentFactoryResolver,
-      protected mpermissionService: MpermissionService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location,
-      protected view: ViewType ) {
+public componentFactoryResolver: ComponentFactoryResolver,
+      public mpermissionService: MpermissionService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location,
+      public view: ViewType ) {
         super(mpermissionService, injector, router, route, location, view, itemCamelName);
         
         this.modulePath = 'roles';

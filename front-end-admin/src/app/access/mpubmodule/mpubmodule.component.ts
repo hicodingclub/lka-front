@@ -16,16 +16,16 @@ import { ElementRef } from '@angular/core';
 export class MpubmoduleComponent extends BaseComponent {
 
 
-    @ViewChild('AccessModal') protected focusEl: ElementRef;
+    @ViewChild('AccessModal') public focusEl: ElementRef;
 
     constructor(
 
-      protected mpubmoduleService: MpubmoduleService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location,
-      protected view: ViewType ) {
+      public mpubmoduleService: MpubmoduleService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location,
+      public view: ViewType ) {
         super(mpubmoduleService, injector, router, route, location, view, itemCamelName);
         
         this.modulePath = 'access';

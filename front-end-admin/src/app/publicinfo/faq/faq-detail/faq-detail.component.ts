@@ -18,22 +18,22 @@ import { MraRichTextShowDirective } from 'mean-rest-angular';
 })
 export class FaqDetailComponent extends FaqComponent implements OnInit {
   @Input() 
-  protected id:string;
+  public id:string;
   @Input()
-  protected searchObj:any;
+  public searchObj:any;
   @Input()
-  protected disableActionButtions:boolean;
+  public disableActionButtions:boolean;
 
 
   @ViewChildren(MraRichTextShowDirective) textEditors: QueryList<MraRichTextShowDirective>;
 
   constructor(
       
-      protected faqService: FaqService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location) {
+      public faqService: FaqService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location) {
           super(
                 faqService, injector, router, route, location, ViewType.DETAIL);
 

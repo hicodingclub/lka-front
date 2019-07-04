@@ -18,11 +18,11 @@ export class CourseSelectComponent extends CourseListComponent
     done = new EventEmitter<boolean>();
 
     constructor(
-        protected courseService: CourseService,
-        protected injector: Injector,
-        protected router: Router,
-        protected route: ActivatedRoute,
-        protected location: Location
+        public courseService: CourseService,
+        public injector: Injector,
+        public router: Router,
+        public route: ActivatedRoute,
+        public location: Location
         ) {
             super(courseService, injector, router, route, location);
             this.majorUi = false;

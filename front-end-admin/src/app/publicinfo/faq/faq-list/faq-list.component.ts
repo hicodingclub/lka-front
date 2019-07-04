@@ -17,15 +17,15 @@ export class FaqListComponent extends FaqComponent implements OnInit {
 
 
   @Input()
-  protected searchObj:any;
+  public searchObj:any;
 
   constructor(
 
-      protected faqService: FaqService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location) {
+      public faqService: FaqService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location) {
           super(
                 faqService, injector, router, route, location, ViewType.LIST);
 

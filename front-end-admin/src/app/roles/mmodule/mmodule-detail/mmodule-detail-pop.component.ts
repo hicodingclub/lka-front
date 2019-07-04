@@ -18,11 +18,11 @@ export class MmoduleDetailPopComponent extends MmoduleDetailComponent
     done = new EventEmitter<boolean>();
     
     constructor(
-        protected mmoduleService: MmoduleService,
-        protected injector: Injector,
-        protected router: Router,
-        protected route: ActivatedRoute,
-        protected location: Location) {
+        public mmoduleService: MmoduleService,
+        public injector: Injector,
+        public router: Router,
+        public route: ActivatedRoute,
+        public location: Location) {
             super(mmoduleService, injector, router, route, location);
             this.majorUi = false;
     }

@@ -19,24 +19,24 @@ import { StudentService } from '../student.service';
 })
 export class StudentEditComponent extends StudentComponent implements OnInit {        
     @Input() 
-    protected id: string;
+    public id: string;
     @Input()
-    protected cid: string;//copy id
+    public cid: string;//copy id
     @Input()
-    protected initData: any; //some fields has data already. eg: {a: b}. Used for add
+    public initData: any; //some fields has data already. eg: {a: b}. Used for add
     @Output() done = new EventEmitter<boolean>();
 
-    protected action:string;
+    public action:string;
 
 
         
     constructor(
       
-      protected studentService: StudentService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location) {
+      public studentService: StudentService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location) {
           super( 
                  studentService, injector, router, route, location, ViewType.EDIT);
 

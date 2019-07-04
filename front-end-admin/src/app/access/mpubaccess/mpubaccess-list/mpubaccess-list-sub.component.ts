@@ -14,11 +14,11 @@ import { MpubaccessService } from '../mpubaccess.service';
 export class MpubaccessListSubComponent extends MpubaccessListComponent implements OnInit {
   private parentData = {};
   constructor(
-      protected mpubaccessService: MpubaccessService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location) {
+      public mpubaccessService: MpubaccessService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location) {
         super(null, mpubaccessService, injector, router, route, location);
   }
 

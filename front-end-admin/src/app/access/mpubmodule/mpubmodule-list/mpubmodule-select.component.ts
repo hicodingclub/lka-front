@@ -18,11 +18,11 @@ export class MpubmoduleSelectComponent extends MpubmoduleListComponent
     done = new EventEmitter<boolean>();
 
     constructor(
-        protected mpubmoduleService: MpubmoduleService,
-        protected injector: Injector,
-        protected router: Router,
-        protected route: ActivatedRoute,
-        protected location: Location
+        public mpubmoduleService: MpubmoduleService,
+        public injector: Injector,
+        public router: Router,
+        public route: ActivatedRoute,
+        public location: Location
         ) {
             super(mpubmoduleService, injector, router, route, location);
             this.majorUi = false;

@@ -18,15 +18,15 @@ export class MpermissionListComponent extends MpermissionComponent implements On
 
 
   @Input()
-  protected searchObj:any;
+  public searchObj:any;
 
   constructor(
-protected componentFactoryResolver: ComponentFactoryResolver,
-      protected mpermissionService: MpermissionService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location) {
+public componentFactoryResolver: ComponentFactoryResolver,
+      public mpermissionService: MpermissionService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location) {
           super(componentFactoryResolver,
                 mpermissionService, injector, router, route, location, ViewType.LIST);
 

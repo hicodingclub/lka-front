@@ -18,15 +18,15 @@ export class StudentclassListComponent extends StudentclassComponent implements 
 
 
   @Input()
-  protected searchObj:any;
+  public searchObj:any;
 
   constructor(
-protected componentFactoryResolver: ComponentFactoryResolver,
-      protected studentclassService: StudentclassService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location) {
+public componentFactoryResolver: ComponentFactoryResolver,
+      public studentclassService: StudentclassService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location) {
           super(componentFactoryResolver,
                 studentclassService, injector, router, route, location, ViewType.LIST);
 

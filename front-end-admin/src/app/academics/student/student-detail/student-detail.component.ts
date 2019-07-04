@@ -16,21 +16,21 @@ import { StudentService } from '../student.service';
 })
 export class StudentDetailComponent extends StudentComponent implements OnInit {
   @Input() 
-  protected id:string;
+  public id:string;
   @Input()
-  protected searchObj:any;
+  public searchObj:any;
   @Input()
-  protected disableActionButtions:boolean;
+  public disableActionButtions:boolean;
 
 
 
   constructor(
       
-      protected studentService: StudentService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location) {
+      public studentService: StudentService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location) {
           super(
                 studentService, injector, router, route, location, ViewType.DETAIL);
 

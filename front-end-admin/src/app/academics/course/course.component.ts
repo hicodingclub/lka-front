@@ -16,16 +16,16 @@ import { ElementRef } from '@angular/core';
 export class CourseComponent extends BaseComponent {
 
 
-    @ViewChild('AcademicsModal') protected focusEl: ElementRef;
+    @ViewChild('AcademicsModal') public focusEl: ElementRef;
 
     constructor(
 
-      protected courseService: CourseService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location,
-      protected view: ViewType ) {
+      public courseService: CourseService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location,
+      public view: ViewType ) {
         super(courseService, injector, router, route, location, view, itemCamelName);
         
         this.modulePath = 'academics';

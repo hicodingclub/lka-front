@@ -24,7 +24,7 @@ import { MpubmoduleSelectComponent } from '../mpubmodule/mpubmodule-list/mpubmod
 
 export class MpubaccessComponent extends BaseComponent {
 
-    protected selectComponents = {
+    public selectComponents = {
 
       'group': {
           'select-type':MusergroupSelectComponent,
@@ -42,13 +42,13 @@ export class MpubaccessComponent extends BaseComponent {
 
 
     constructor(
-protected componentFactoryResolver: ComponentFactoryResolver,
-      protected mpubaccessService: MpubaccessService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location,
-      protected view: ViewType ) {
+public componentFactoryResolver: ComponentFactoryResolver,
+      public mpubaccessService: MpubaccessService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location,
+      public view: ViewType ) {
         super(mpubaccessService, injector, router, route, location, view, itemCamelName);
         
         this.modulePath = 'access';

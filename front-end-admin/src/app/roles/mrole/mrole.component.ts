@@ -16,16 +16,16 @@ import { ElementRef } from '@angular/core';
 export class MroleComponent extends BaseComponent {
 
 
-    @ViewChild('RolesModal') protected focusEl: ElementRef;
+    @ViewChild('RolesModal') public focusEl: ElementRef;
 
     constructor(
 
-      protected mroleService: MroleService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location,
-      protected view: ViewType ) {
+      public mroleService: MroleService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location,
+      public view: ViewType ) {
         super(mroleService, injector, router, route, location, view, itemCamelName);
         
         this.modulePath = 'roles';

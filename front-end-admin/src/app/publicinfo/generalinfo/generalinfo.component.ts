@@ -17,12 +17,12 @@ export class GeneralinfoComponent extends BaseComponent {
 
     constructor(
 
-      protected generalinfoService: GeneralinfoService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location,
-      protected view: ViewType ) {
+      public generalinfoService: GeneralinfoService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location,
+      public view: ViewType ) {
         super(generalinfoService, injector, router, route, location, view, itemCamelName);
         
         this.modulePath = 'publicinfo';

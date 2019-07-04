@@ -14,11 +14,11 @@ import { MpermissionService } from '../mpermission.service';
 export class MpermissionListSubComponent extends MpermissionListComponent implements OnInit {
   private parentData = {};
   constructor(
-      protected mpermissionService: MpermissionService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location) {
+      public mpermissionService: MpermissionService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location) {
         super(null, mpermissionService, injector, router, route, location);
   }
 

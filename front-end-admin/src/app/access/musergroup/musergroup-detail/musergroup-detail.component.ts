@@ -16,21 +16,21 @@ import { MusergroupService } from '../musergroup.service';
 })
 export class MusergroupDetailComponent extends MusergroupComponent implements OnInit {
   @Input() 
-  protected id:string;
+  public id:string;
   @Input()
-  protected searchObj:any;
+  public searchObj:any;
   @Input()
-  protected disableActionButtions:boolean;
+  public disableActionButtions:boolean;
 
 
 
   constructor(
       
-      protected musergroupService: MusergroupService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location) {
+      public musergroupService: MusergroupService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location) {
           super(
                 musergroupService, injector, router, route, location, ViewType.DETAIL);
 

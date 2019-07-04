@@ -16,16 +16,16 @@ import { ElementRef } from '@angular/core';
 export class MusergroupComponent extends BaseComponent {
 
 
-    @ViewChild('AccessModal') protected focusEl: ElementRef;
+    @ViewChild('AccessModal') public focusEl: ElementRef;
 
     constructor(
 
-      protected musergroupService: MusergroupService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location,
-      protected view: ViewType ) {
+      public musergroupService: MusergroupService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location,
+      public view: ViewType ) {
         super(musergroupService, injector, router, route, location, view, itemCamelName);
         
         this.modulePath = 'access';

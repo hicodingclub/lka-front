@@ -17,12 +17,12 @@ export class KeynoteComponent extends BaseComponent {
 
     constructor(
 
-      protected keynoteService: KeynoteService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location,
-      protected view: ViewType ) {
+      public keynoteService: KeynoteService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location,
+      public view: ViewType ) {
         super(keynoteService, injector, router, route, location, view, itemCamelName);
         
         this.modulePath = 'publicinfo';

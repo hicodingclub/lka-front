@@ -21,14 +21,14 @@ import { MraRichTextSelectDirective } from 'mean-rest-angular';
 })
 export class FaqEditComponent extends FaqComponent implements OnInit {        
     @Input() 
-    protected id: string;
+    public id: string;
     @Input()
-    protected cid: string;//copy id
+    public cid: string;//copy id
     @Input()
-    protected initData: any; //some fields has data already. eg: {a: b}. Used for add
+    public initData: any; //some fields has data already. eg: {a: b}. Used for add
     @Output() done = new EventEmitter<boolean>();
 
-    protected action:string;
+    public action:string;
 
 
     @ViewChildren(MraRichTextSelectDirective) textEditors: QueryList<MraRichTextSelectDirective>;
@@ -38,11 +38,11 @@ export class FaqEditComponent extends FaqComponent implements OnInit {
         
     constructor(
       
-      protected faqService: FaqService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location) {
+      public faqService: FaqService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location) {
           super( 
                  faqService, injector, router, route, location, ViewType.EDIT);
 

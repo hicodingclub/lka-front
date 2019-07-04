@@ -19,24 +19,24 @@ import { MusergroupService } from '../musergroup.service';
 })
 export class MusergroupEditComponent extends MusergroupComponent implements OnInit {        
     @Input() 
-    protected id: string;
+    public id: string;
     @Input()
-    protected cid: string;//copy id
+    public cid: string;//copy id
     @Input()
-    protected initData: any; //some fields has data already. eg: {a: b}. Used for add
+    public initData: any; //some fields has data already. eg: {a: b}. Used for add
     @Output() done = new EventEmitter<boolean>();
 
-    protected action:string;
+    public action:string;
 
 
         
     constructor(
       
-      protected musergroupService: MusergroupService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location) {
+      public musergroupService: MusergroupService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location) {
           super( 
                  musergroupService, injector, router, route, location, ViewType.EDIT);
 

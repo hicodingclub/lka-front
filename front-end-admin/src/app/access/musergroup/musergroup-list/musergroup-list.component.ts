@@ -17,15 +17,15 @@ export class MusergroupListComponent extends MusergroupComponent implements OnIn
 
 
   @Input()
-  protected searchObj:any;
+  public searchObj:any;
 
   constructor(
 
-      protected musergroupService: MusergroupService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location) {
+      public musergroupService: MusergroupService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location) {
           super(
                 musergroupService, injector, router, route, location, ViewType.LIST);
 

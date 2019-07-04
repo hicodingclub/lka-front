@@ -18,22 +18,22 @@ import { MraRichTextShowDirective } from 'mean-rest-angular';
 })
 export class EventDetailComponent extends EventComponent implements OnInit {
   @Input() 
-  protected id:string;
+  public id:string;
   @Input()
-  protected searchObj:any;
+  public searchObj:any;
   @Input()
-  protected disableActionButtions:boolean;
+  public disableActionButtions:boolean;
 
 
   @ViewChildren(MraRichTextShowDirective) textEditors: QueryList<MraRichTextShowDirective>;
 
   constructor(
       
-      protected eventService: EventService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location) {
+      public eventService: EventService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location) {
           super(
                 eventService, injector, router, route, location, ViewType.DETAIL);
 

@@ -18,11 +18,11 @@ export class MusergroupSelectComponent extends MusergroupListComponent
     done = new EventEmitter<boolean>();
 
     constructor(
-        protected musergroupService: MusergroupService,
-        protected injector: Injector,
-        protected router: Router,
-        protected route: ActivatedRoute,
-        protected location: Location
+        public musergroupService: MusergroupService,
+        public injector: Injector,
+        public router: Router,
+        public route: ActivatedRoute,
+        public location: Location
         ) {
             super(musergroupService, injector, router, route, location);
             this.majorUi = false;

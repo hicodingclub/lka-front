@@ -17,15 +17,15 @@ export class MroleListComponent extends MroleComponent implements OnInit {
 
 
   @Input()
-  protected searchObj:any;
+  public searchObj:any;
 
   constructor(
 
-      protected mroleService: MroleService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location) {
+      public mroleService: MroleService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location) {
           super(
                 mroleService, injector, router, route, location, ViewType.LIST);
 

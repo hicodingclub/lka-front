@@ -16,21 +16,21 @@ import { PipelineService } from '../pipeline.service';
 })
 export class PipelineDetailComponent extends PipelineComponent implements OnInit {
   @Input() 
-  protected id:string;
+  public id:string;
   @Input()
-  protected searchObj:any;
+  public searchObj:any;
   @Input()
-  protected disableActionButtions:boolean;
+  public disableActionButtions:boolean;
 
 
 
   constructor(
       
-      protected pipelineService: PipelineService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location) {
+      public pipelineService: PipelineService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location) {
           super(
                 pipelineService, injector, router, route, location, ViewType.DETAIL);
 

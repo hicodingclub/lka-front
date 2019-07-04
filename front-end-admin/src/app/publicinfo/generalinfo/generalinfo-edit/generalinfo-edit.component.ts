@@ -19,24 +19,24 @@ import { GeneralinfoService } from '../generalinfo.service';
 })
 export class GeneralinfoEditComponent extends GeneralinfoComponent implements OnInit {        
     @Input() 
-    protected id: string;
+    public id: string;
     @Input()
-    protected cid: string;//copy id
+    public cid: string;//copy id
     @Input()
-    protected initData: any; //some fields has data already. eg: {a: b}. Used for add
+    public initData: any; //some fields has data already. eg: {a: b}. Used for add
     @Output() done = new EventEmitter<boolean>();
 
-    protected action:string;
+    public action:string;
 
 
         
     constructor(
       
-      protected generalinfoService: GeneralinfoService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location) {
+      public generalinfoService: GeneralinfoService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location) {
           super( 
                  generalinfoService, injector, router, route, location, ViewType.EDIT);
 

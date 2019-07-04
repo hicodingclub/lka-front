@@ -18,15 +18,15 @@ export class TeacherListComponent extends TeacherComponent implements OnInit {
 
 
   @Input()
-  protected searchObj:any;
+  public searchObj:any;
 
   constructor(
-protected componentFactoryResolver: ComponentFactoryResolver,
-      protected teacherService: TeacherService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location) {
+public componentFactoryResolver: ComponentFactoryResolver,
+      public teacherService: TeacherService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location) {
           super(componentFactoryResolver,
                 teacherService, injector, router, route, location, ViewType.LIST);
 

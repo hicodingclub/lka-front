@@ -21,14 +21,14 @@ import { MraRichTextSelectDirective } from 'mean-rest-angular';
 })
 export class EventEditComponent extends EventComponent implements OnInit {        
     @Input() 
-    protected id: string;
+    public id: string;
     @Input()
-    protected cid: string;//copy id
+    public cid: string;//copy id
     @Input()
-    protected initData: any; //some fields has data already. eg: {a: b}. Used for add
+    public initData: any; //some fields has data already. eg: {a: b}. Used for add
     @Output() done = new EventEmitter<boolean>();
 
-    protected action:string;
+    public action:string;
 
 
     @ViewChildren(MraRichTextSelectDirective) textEditors: QueryList<MraRichTextSelectDirective>;
@@ -38,11 +38,11 @@ export class EventEditComponent extends EventComponent implements OnInit {
         
     constructor(
       
-      protected eventService: EventService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location) {
+      public eventService: EventService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location) {
           super( 
                  eventService, injector, router, route, location, ViewType.EDIT);
 

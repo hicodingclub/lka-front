@@ -14,11 +14,11 @@ import { MaccountroleService } from '../maccountrole.service';
 export class MaccountroleListSubComponent extends MaccountroleListComponent implements OnInit {
   private parentData = {};
   constructor(
-      protected maccountroleService: MaccountroleService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location) {
+      public maccountroleService: MaccountroleService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location) {
         super(null, maccountroleService, injector, router, route, location);
   }
 

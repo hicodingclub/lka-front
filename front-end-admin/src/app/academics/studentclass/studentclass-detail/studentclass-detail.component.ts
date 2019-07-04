@@ -17,21 +17,21 @@ import { ComponentFactoryResolver } from '@angular/core';
 })
 export class StudentclassDetailComponent extends StudentclassComponent implements OnInit {
   @Input() 
-  protected id:string;
+  public id:string;
   @Input()
-  protected searchObj:any;
+  public searchObj:any;
   @Input()
-  protected disableActionButtions:boolean;
+  public disableActionButtions:boolean;
 
 
 
   constructor(
-      protected componentFactoryResolver: ComponentFactoryResolver,
-      protected studentclassService: StudentclassService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location) {
+      public componentFactoryResolver: ComponentFactoryResolver,
+      public studentclassService: StudentclassService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location) {
           super(componentFactoryResolver,
                 studentclassService, injector, router, route, location, ViewType.DETAIL);
 

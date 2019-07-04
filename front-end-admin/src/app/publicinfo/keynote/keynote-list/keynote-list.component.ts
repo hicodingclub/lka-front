@@ -17,15 +17,15 @@ export class KeynoteListComponent extends KeynoteComponent implements OnInit {
 
 
   @Input()
-  protected searchObj:any;
+  public searchObj:any;
 
   constructor(
 
-      protected keynoteService: KeynoteService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location) {
+      public keynoteService: KeynoteService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location) {
           super(
                 keynoteService, injector, router, route, location, ViewType.LIST);
 

@@ -25,7 +25,7 @@ import { TeacherSelectComponent } from '../teacher/teacher-list/teacher-select.c
 
 export class ClassComponent extends BaseComponent {
 
-    protected selectComponents = {
+    public selectComponents = {
 
       'course': {
           'select-type':CourseSelectComponent,
@@ -41,16 +41,16 @@ export class ClassComponent extends BaseComponent {
     @ViewChild(AcademicsRefSelectDirective) refSelectDirective: AcademicsRefSelectDirective;
 
 
-    @ViewChild('AcademicsModal') protected focusEl: ElementRef;
+    @ViewChild('AcademicsModal') public focusEl: ElementRef;
 
     constructor(
-protected componentFactoryResolver: ComponentFactoryResolver,
-      protected classService: ClassService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location,
-      protected view: ViewType ) {
+public componentFactoryResolver: ComponentFactoryResolver,
+      public classService: ClassService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location,
+      public view: ViewType ) {
         super(classService, injector, router, route, location, view, itemCamelName);
         this.dateFormat = 'MM-DD-YYYY';
         this.timeFormat = 'hh:mm:ss';

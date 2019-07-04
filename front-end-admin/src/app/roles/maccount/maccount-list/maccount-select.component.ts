@@ -18,11 +18,11 @@ export class MaccountSelectComponent extends MaccountListComponent
     done = new EventEmitter<boolean>();
 
     constructor(
-        protected maccountService: MaccountService,
-        protected injector: Injector,
-        protected router: Router,
-        protected route: ActivatedRoute,
-        protected location: Location
+        public maccountService: MaccountService,
+        public injector: Injector,
+        public router: Router,
+        public route: ActivatedRoute,
+        public location: Location
         ) {
             super(maccountService, injector, router, route, location);
             this.majorUi = false;

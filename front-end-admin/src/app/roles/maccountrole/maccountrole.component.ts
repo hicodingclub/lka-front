@@ -24,7 +24,7 @@ import { MroleSelectComponent } from '../mrole/mrole-list/mrole-select.component
 
 export class MaccountroleComponent extends BaseComponent {
 
-    protected selectComponents = {
+    public selectComponents = {
 
       'account': {
           'select-type':MaccountSelectComponent,
@@ -42,13 +42,13 @@ export class MaccountroleComponent extends BaseComponent {
 
 
     constructor(
-protected componentFactoryResolver: ComponentFactoryResolver,
-      protected maccountroleService: MaccountroleService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location,
-      protected view: ViewType ) {
+public componentFactoryResolver: ComponentFactoryResolver,
+      public maccountroleService: MaccountroleService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location,
+      public view: ViewType ) {
         super(maccountroleService, injector, router, route, location, view, itemCamelName);
         
         this.modulePath = 'roles';
