@@ -1,9 +1,9 @@
 <div>
-
+	<div>{{pageTitle}}</div>
 	<div class="container search">
 		<div class="row">
 			<div class="col-9">
-
+				
 
 			    <div class="input-group">
 	              <input type="search" class="form-control border border-secondary" id="mfileTextSearch" 
@@ -146,24 +146,22 @@
 	        <div class="col-8">
 
 
-	        <div class="form-check">
-	          <div class="form-check-inline">
-		        <input type="radio" name="mfileEditHasThumbnail" 
+	        <div class="form-check-inline">
+		      	<input type="radio" name="mfileEditHasThumbnail" 
 		        	class="form-check-input"
 		        	id="mfileEditHasThumbnailYes" [value]="true" 
 		        	[(ngModel)]="detail['hasThumbnail']"
 		        	#mfileEditHasThumbnail="ngModel">
-		      	<label class="form-check-label">Yes</label>
+		      	<span class="form-check-label">Yes</span>
 		      </div>
-	          <div class="form-check-inline">
+	        <div class="form-check-inline">
 		        <input type="radio" name="mfileEditHasThumbnail" 
 		        	class="form-check-input"
 		        	id="mfileEditHasThumbnailNo" [value]="false"
 		        	[(ngModel)]="detail['hasThumbnail']"
 		        	#mfileEditHasThumbnail="ngModel">
-		      	<label class="form-check-label">No</label>
+		      	<span class="form-check-label">No</span>
 		      </div>
-		    </div>
 
 	      </div>
 	      
@@ -203,17 +201,51 @@
 
 
 		<hr/>
+		
+		<div class="row justify-content-end" *ngIf="list.length > 6">
+			<div class="sort-selection">
+					<div class="dropdown" style="width: 100%;">
+						<button class="sort-dropdown btn btn-light btn-sm dropdown-toggle"
+							type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Sort: <span *ngIf="listSortField">{{listSortFieldDisplay}}</span>
+							<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up"></i>
+							<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down"></i>
+						</button>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('name', 'Name', 'asc')">Name<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('name', 'Name', 'desc')">Name<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('type', 'Type', 'asc')">Type<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('type', 'Type', 'desc')">Type<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('size', 'Size', 'asc')">Size<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('size', 'Size', 'desc')">Size<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('link', 'Link', 'asc')">Link<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('link', 'Link', 'desc')">Link<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('uploaded', 'Uploaded', 'asc')">Uploaded<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('uploaded', 'Uploaded', 'desc')">Uploaded<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('hasThumbnail', 'Has Thumbnail', 'asc')">HasThumbnail<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('hasThumbnail', 'Has Thumbnail', 'desc')">HasThumbnail<i class="fas fa-arrow-down"></i></a>
+						</div>
+					</div>
+			</div>
+		</div>
 		<div class="row">
 			<div class="col-3">
-				<input type="radio" name="view-filter" id="table-view" class="view-radio"
-					(click)="setListViewFilter('table')" [checked]="isShowListView('table')">
-					<label for="table-view"><i class="fa fa-list-alt"></i></label>
-				<input type="radio" name="view-filter" id="list-view" class="view-radio"
-					(click)="setListViewFilter('list')" [checked]="isShowListView('list')">
-				  <label for="list-view"><i class="fa fa-th-list"></i></label>
-				<input type="radio" name="view-filter" id="grid-view" class="view-radio"
-					(click)="setListViewFilter('grid')" [checked]="isShowListView('grid')">
-				  <label for="grid-view"><i class="fa fa-th"></i></label>
+				<div *ngIf="list.length > 0">
+
+					<input type="radio" name="view-filter" id="list-view" class="view-radio"
+						(click)="setListViewFilter('list')" [checked]="isShowListView('list')">
+					<label for="list-view"><i class="fa fa-th-list"></i></label>
+
+					<input type="radio" name="view-filter" id="grid-view" class="view-radio"
+						(click)="setListViewFilter('grid')" [checked]="isShowListView('grid')">
+						<label for="grid-view"><i class="fa fa-th"></i></label>
+
+					<input type="radio" name="view-filter" id="table-view" class="view-radio"
+						(click)="setListViewFilter('table')" [checked]="isShowListView('table')">
+						<label for="table-view"><i class="fa fa-list-alt"></i></label>
+
+				</div>
+
 			</div>
 			<div class="col-6">
 			  <div *ngIf="total_pages > 1">
@@ -226,16 +258,15 @@
 				        <span class="sr-only">Previous</span>
 				      </a>
 				    </li>
-				    
+
 				    <li *ngIf="left_more" class="page-item"><a class="page-link">...</a></li>
-				    
+
 				    <li *ngFor="let p of pages;  let i = index" class="page-item"
 				    		[ngClass]="{'active': p==page}">
 				    	<a class="page-link" routerLink="." (click)="onGotoPage(p)">{{p}}</a>
 				    </li>
-				    
+
 				    <li *ngIf="right_more" class="page-item"><a class="page-link">...</a></li>
-				    
 				    <li class="page-item"
 				            [ngClass]="{'disabled': page>=total_pages}">
 				      <a class="page-link" routerLink="." (click)="onNextPage()"
@@ -249,27 +280,217 @@
 			</div>
 			<div class="col-3">
 				<div class="total_counts">
-					Total: <b>{{total_count}}</b>			
+					<span *ngIf="list.length > 6">Total: <b>{{total_count}}</b></span>
 					<a class="ml-3" routerLink="." (click)="onRefresh()"><i class="fa fa-sync-alt"></i></a>
 				</div>
-			</div>			
+			</div>
+		</div>
 
+	</div>
+	<div class="no-records" *ngIf="list.length === 0">
+		<span *ngIf="loaded">No records found.</span>
+		<span *ngIf="!loaded">Loading...</span>
+	</div>
+	<div *ngIf="list.length > 0">
+	<div class="listview" *ngIf="isShowListView('list')">
+		<div class="list-block" *ngFor="let detail of list;  let i = index">
+			<hr *ngIf="i==0" class="list-diverder">
+			<div class="list-card text-left  "
+				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
+				<div class="list-fields w-75 " >
+
+      <div class="list-body-fields ml-1 d-inline-block">
+        <h5>
+          <div class="mr-1 d-inline-block">
+                            
+                    {{detail['name']}}
+
+          </div>
+        </h5>
+        <div class="mr-3 d-inline-block">
+          <div class="d-inline-block"><label>Type:</label></div>
+          <div class="ml-3 d-inline-block">                
+                    {{detail['type']}}
+
+          </div>
+        </div>
+        <div class="mr-3 d-inline-block">
+          <div class="d-inline-block"><label>Labels:</label></div>
+          <div class="ml-3 d-inline-block">                
+                    <div *ngIf="detail['labels'] && detail['labels']['selection']">
+                        <ng-template ngFor let-element [ngForOf]="detail['labels']['selection']" let-idx="index">
+                            <div class="badge badge-pill badge-secondary">
+                                {{element}}
+                            </div>
+                        </ng-template>
+                    </div>
+
+          </div>
+        </div>
+        <div class="mr-3 d-inline-block">
+          <div class="d-inline-block"><label>Size:</label></div>
+          <div class="ml-3 d-inline-block">                  {{detail['size']}} 
+
+          </div>
+        </div>
+        <div class="mr-3 d-inline-block">
+          <div class="d-inline-block"><label>Link:</label></div>
+          <div class="ml-3 d-inline-block">                
+                    {{detail['link']}}
+
+          </div>
+        </div>
+        <div class="mr-3 d-inline-block">
+          <div class="d-inline-block"><label>Uploaded:</label></div>
+          <div class="ml-3 d-inline-block">                  {{detail['uploaded']?detail['uploaded']['value']:""}}
+
+          </div>
+        </div>
+        <div class="mr-3 d-inline-block">
+          <div class="d-inline-block"><label>Has Thumbnail:</label></div>
+          <div class="ml-3 d-inline-block">                  {{detail['hasThumbnail']}} 
+
+          </div>
+        </div>
+      </div>
+
+				</div>
+				<div class="card-action-icons d-inline-block w-25">
+					<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
+					
+					
+				</div>
+			</div>
+			<hr class="list-diverder">
 		</div>
 	</div>
+
+
+	<div class="gridview" *ngIf="isShowListView('grid')">
+		<div class="grid-block" *ngFor="let detail of list;  let i = index">
+			<div class="card text-left h-100  "
+				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
+				<div class="grid-fields " >
+
+      <div class="card-header grid-head">
+        <div class="ml-1 d-inline-block">
+          <h5>
+            <div class="mr-1 d-inline-block">
+                              
+                    {{detail['name']}}
+
+            </div>
+          </h5>
+        </div>
+      </div>
+      <div class="card-body">
+          <div>
+            <div class="d-inline-block"><label>Type:</label></div>
+            <div class="ml-3 d-inline-block">                
+                    {{detail['type']}}
+
+            </div>
+          </div>
+          <div>
+            <div class="d-inline-block"><label>Labels:</label></div>
+            <div class="ml-3 d-inline-block">                
+                    <div *ngIf="detail['labels'] && detail['labels']['selection']">
+                        <ng-template ngFor let-element [ngForOf]="detail['labels']['selection']" let-idx="index">
+                            <div class="badge badge-pill badge-secondary">
+                                {{element}}
+                            </div>
+                        </ng-template>
+                    </div>
+
+            </div>
+          </div>
+          <div>
+            <div class="d-inline-block"><label>Size:</label></div>
+            <div class="ml-3 d-inline-block">                  {{detail['size']}} 
+
+            </div>
+          </div>
+          <div>
+            <div class="d-inline-block"><label>Link:</label></div>
+            <div class="ml-3 d-inline-block">                
+                    {{detail['link']}}
+
+            </div>
+          </div>
+          <div>
+            <div class="d-inline-block"><label>Uploaded:</label></div>
+            <div class="ml-3 d-inline-block">                  {{detail['uploaded']?detail['uploaded']['value']:""}}
+
+            </div>
+          </div>
+          <div>
+            <div class="d-inline-block"><label>Has Thumbnail:</label></div>
+            <div class="ml-3 d-inline-block">                  {{detail['hasThumbnail']}} 
+
+            </div>
+          </div>
+      </div>
+
+				</div>
+				<div class="card-action-icons">
+					<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
+					
+					
+				</div>
+			</div>
+		</div>
+	</div>
+
 
 	<table *ngIf="isShowListView('table')" class="table table-bordered table-hover">
 	    <thead class="thead-light">
 	    	<tr>
 		        <th scope="col">#</th>
 
-		        <th scope="col">Name</th>
-		        <th scope="col">Type</th>
-		        <th scope="col">Labels</th>
-		        <th scope="col">Size</th>
-		        <th scope="col">Link</th>
-		        <th scope="col">Uploaded</th>
-		        <th scope="col">Has Thumbnail</th>
-		        <th scope="col" style="width:3.8rem;"></th>
+				<th class="pointer" scope="col" (click)="toggleListSort('name', 'Name')">
+					Name
+					<span *ngIf="listSortField === 'name'">
+						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+					</span>
+				</th>
+				<th class="pointer" scope="col" (click)="toggleListSort('type', 'Type')">
+					Type
+					<span *ngIf="listSortField === 'type'">
+						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+					</span>
+				</th>
+				<th scope="col">Labels</th>
+
+				<th class="pointer" scope="col" (click)="toggleListSort('size', 'Size')">
+					Size
+					<span *ngIf="listSortField === 'size'">
+						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+					</span>
+				</th>
+				<th class="pointer" scope="col" (click)="toggleListSort('link', 'Link')">
+					Link
+					<span *ngIf="listSortField === 'link'">
+						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+					</span>
+				</th>
+				<th class="pointer" scope="col" (click)="toggleListSort('uploaded', 'Uploaded')">
+					Uploaded
+					<span *ngIf="listSortField === 'uploaded'">
+						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+					</span>
+				</th>
+				<th class="pointer" scope="col" (click)="toggleListSort('hasThumbnail', 'Has Thumbnail')">
+					Has Thumbnail
+					<span *ngIf="listSortField === 'hasThumbnail'">
+						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+					</span>
+				</th><th scope="col" style="width:3.8rem;"></th>
 	    	</tr>
 	    </thead>
 	    <tbody>
@@ -316,7 +537,6 @@
 	            	                  {{detail['hasThumbnail']}} 
 
 	            </td>
-	            
 	            <td>
 	            	<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
 	            	
@@ -326,80 +546,12 @@
 	    </tbody>
 	</table>
 
-	<div class="grids" *ngIf="isShowListView('grid')">
-		<div class="grid-block" *ngFor="let detail of list;  let i = index">
-			<div class="card text-left h-100 clickable-card "
-				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
-				<div class="card-body" >
-					<div class="card-text">
 
-      <div>
-        <div class="d-inline-block"><label>Name:</label></div>
-        <div class="ml-3 d-inline-block">                
-                    {{detail['name']}}
-
-        </div>
-      </div>
-      <div>
-        <div class="d-inline-block"><label>Type:</label></div>
-        <div class="ml-3 d-inline-block">                
-                    {{detail['type']}}
-
-        </div>
-      </div>
-      <div>
-        <div class="d-inline-block"><label>Labels:</label></div>
-        <div class="ml-3 d-inline-block">                
-                    <div *ngIf="detail['labels'] && detail['labels']['selection']">
-                        <ng-template ngFor let-element [ngForOf]="detail['labels']['selection']" let-idx="index">
-                            <div class="badge badge-pill badge-secondary">
-                                {{element}}
-                            </div>
-                        </ng-template>
-                    </div>
-
-        </div>
-      </div>
-      <div>
-        <div class="d-inline-block"><label>Size:</label></div>
-        <div class="ml-3 d-inline-block">                  {{detail['size']}} 
-
-        </div>
-      </div>
-      <div>
-        <div class="d-inline-block"><label>Link:</label></div>
-        <div class="ml-3 d-inline-block">                
-                    {{detail['link']}}
-
-        </div>
-      </div>
-      <div>
-        <div class="d-inline-block"><label>Uploaded:</label></div>
-        <div class="ml-3 d-inline-block">                  {{detail['uploaded']?detail['uploaded']['value']:""}}
-
-        </div>
-      </div>
-      <div>
-        <div class="d-inline-block"><label>Has Thumbnail:</label></div>
-        <div class="ml-3 d-inline-block">                  {{detail['hasThumbnail']}} 
-
-        </div>
-      </div>
-
-					</div>
-				</div>
-				
-				<div class="card-action-icons">
-					<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
-					
-					
-				</div>
-			</div>
-		</div>
 	</div>
-
 	<div class="container">
-		<div class="row">			<div class="col-3">
+		
+		<div class="row">
+			<div class="col-3">
 			</div>
 			<div class="col-6">
 			  <div *ngIf="total_pages > 1">
@@ -412,16 +564,15 @@
 				        <span class="sr-only">Previous</span>
 				      </a>
 				    </li>
-				    
+
 				    <li *ngIf="left_more" class="page-item"><a class="page-link">...</a></li>
-				    
+
 				    <li *ngFor="let p of pages;  let i = index" class="page-item"
 				    		[ngClass]="{'active': p==page}">
 				    	<a class="page-link" routerLink="." (click)="onGotoPage(p)">{{p}}</a>
 				    </li>
-				    
+
 				    <li *ngIf="right_more" class="page-item"><a class="page-link">...</a></li>
-				    
 				    <li class="page-item"
 				            [ngClass]="{'disabled': page>=total_pages}">
 				      <a class="page-link" routerLink="." (click)="onNextPage()"
@@ -435,11 +586,11 @@
 			</div>
 			<div class="col-3">
 				<div class="total_counts">
-					Total: <b>{{total_count}}</b>
+					<span *ngIf="list.length > 6">Total: <b>{{total_count}}</b></span>
 				</div>
-			</div>			
-
+			</div>
 		</div>
+
 	</div>
 	
 </div>

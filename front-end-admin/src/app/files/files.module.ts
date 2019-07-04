@@ -9,6 +9,7 @@ import { MraNgbDateFormatterService } from './files.directive';
 
 
 
+
 import { MraModule } from 'mean-rest-angular';
 
 import { FilesRoutingModule } from './files-routing.module';
@@ -22,11 +23,16 @@ import { files_server_root_uri } from '../files.conf';
 
 import { MfileListComponent } from './mfile/mfile-list/mfile-list.component';
 
+
 import { MfileEditComponent } from './mfile/mfile-edit/mfile-edit.component';
 import { MfileService } from './mfile/mfile.service';
 
 import { MfilelabelsListComponent } from './mfilelabels/mfilelabels-list/mfilelabels-list.component';
+
+
+
 import { MfilelabelsService } from './mfilelabels/mfilelabels.service';
+
 
 import { MddsUploadComponent } from './mddsupload.component';
 import { MddsUploadService } from './mddsupload.service';
@@ -37,7 +43,6 @@ import { MddsUploadService } from './mddsupload.service';
     CommonModule,
     HttpClientModule,
     FormsModule,
-
     NgbModule,
     MraModule,
 
@@ -49,20 +54,32 @@ import { MddsUploadService } from './mddsupload.service';
 
     MfileListComponent,
     
+    
     MfileEditComponent,
     MfilelabelsListComponent,
     
+    
     MddsUploadComponent,
+
+
+
+
+
+
   ],
   exports: [
     FilesComponent,
 
     MfileListComponent,
     
+    
     MfileEditComponent,
     MfilelabelsListComponent,
     
     MddsUploadComponent,
+    
+
+
   ],
   providers: [
     { provide: Files_SERVER_ROOT_URI, useValue: files_server_root_uri },

@@ -10,20 +10,24 @@ import { MfileService } from '../mfile.service';
 
 @Component({
   selector: 'app-mfile-list',
-  templateUrl: './mfile-list.component2.html',
+  templateUrl: './mfile-list.component.html',
   styleUrls: ['./mfile-list.component.css']
 })
 export class MfileListComponent extends MfileComponent implements OnInit {
 
-  private  minDate = {year: (new Date()).getFullYear() - 100, month: 1, day: 1};
+  protected minDate = {year: (new Date()).getFullYear() - 100, month: 1, day: 1};
+  protected pageTitle = "My list";
+
+  @Input()
+  public searchObj:any;
 
   constructor(
 
-      protected mfileService: MfileService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location) {
+      public mfileService: MfileService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location) {
           super(
                 mfileService, injector, router, route, location, ViewType.LIST);
 
@@ -39,8 +43,10 @@ export class MfileListComponent extends MfileComponent implements OnInit {
 
           this.arrayFields = [['labels', 'SchemaString'],];
 
+
+          this.listViewFilter = 'list';
           // this is to initialize the detail that will be used for search condition selection
-          const detail = {};
+          const detail = this.searchObj || {};
           this.detail = this.formatDetail(detail);
   }
 

@@ -15,14 +15,18 @@ import { MfilelabelsService } from '../mfilelabels.service';
 })
 export class MfilelabelsListComponent extends MfilelabelsComponent implements OnInit {
 
+  protected pageTitle = "My list";
+
+  @Input()
+  public searchObj:any;
 
   constructor(
 
-      protected mfilelabelsService: MfilelabelsService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location) {
+      public mfilelabelsService: MfilelabelsService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location) {
           super(
                 mfilelabelsService, injector, router, route, location, ViewType.LIST);
 
@@ -34,8 +38,10 @@ export class MfilelabelsListComponent extends MfilelabelsComponent implements On
 
 
 
+
+          this.listViewFilter = 'list';
           // this is to initialize the detail that will be used for search condition selection
-          const detail = {};
+          const detail = this.searchObj || {};
           this.detail = this.formatDetail(detail);
   }
 

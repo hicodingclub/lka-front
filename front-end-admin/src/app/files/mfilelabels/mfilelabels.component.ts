@@ -17,14 +17,15 @@ export class MfilelabelsComponent extends BaseComponent {
 
     constructor(
 
-      protected mfilelabelsService: MfilelabelsService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location,
-      protected view: ViewType ) {
+      public mfilelabelsService: MfilelabelsService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location,
+      public view: ViewType ) {
         super(mfilelabelsService, injector, router, route, location, view, itemCamelName);
         
+        this.modulePath = 'files';
         this.indexFields = ['label', ];
     }
 }

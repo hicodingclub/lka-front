@@ -21,18 +21,28 @@ tr th:first-child{
   white-space:nowrap;
 }
 
-.grids {
+.line-breaker {
+  height: 0px;
+  border-top: 1px solid #dee2e6;
+  width: 100%;
+  margin: 20px 0 20px 0;
+}
+
+.gridview {
   display: flex;
   flex-wrap: wrap;
   justify-content: left;
+
+  /*
   border-top: 1px solid #dee2e6;
   border-bottom: 1px solid #dee2e6;
+  */
 }
 
 .grid-block {
   width: 18rem;
   display: inline-block;
-  margin: 0.5rem;
+  margin: 1rem;
   align-self: stretch;
 
   word-break: break-word;
@@ -41,18 +51,72 @@ tr th:first-child{
   border-radius: .25rem;*/
 }
 
+.grid-fields {
+  height: 100%;
+}
+.grid-head {
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+.grid-head-picture, .list-head-picture {
+  width: 6rem;
+  height: 6rem;
+  background-color: #f1f1f1;
+}
+
+.listview {
+  /*
+  border-top: 1px solid #dee2e6;
+  border-bottom: 1px solid #dee2e6;
+  */
+}
+
+.list-block {
+  width: 100%;
+  margin: 0.5rem;
+
+  word-break: break-word;
+  overflow-wrap: break-word;
+  /*border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25rem;*/
+}
+
+.list-card {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.list-fields {
+  display: inline-flex;
+  align-items: center;
+}
+
+.list-body-fields {
+}
+.list-diverder-gradient {
+  border: 0;
+  height: 2px;
+  background: #095484;
+  background-image: linear-gradient(to right, #ccc, #095484, #ccc);
+}
+.list-diverder {
+  width: 80%
+}
+
 .clickable-card:hover {
   background-color: rgba(0,0,0,.075);
 }
 
-.card label {
+.card label, .list-body-fields label {
   font-weight: bold;
 	font-size: 1rem;
 }
 
 .card-action-icons {
   text-align: right;
-  position: absolute;
   bottom: 0px;
   right: 0.5rem;
 }
@@ -255,4 +319,39 @@ div.badge-click:hover {
 
 .view-radio {
   display: none;
+}
+
+.sort-selection {
+  min-width: 200px;
+  position: relative;
+}
+
+.sort-dropdown {
+  width: 100%;
+  text-align: left;
+}
+
+.sort-selection i {
+  color:#007bff;
+  margin-left: 1rem;
+  margin-right: 2rem;
+}
+
+.th-sort-arrow {
+  color:#007bff;
+  margin-left: 1rem;
+}
+
+.read-more {
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  margin-top: 1rem;
+  color: #307bff;
+  cursor: pointer;
+}
+
+.no-records {
+    margin: 1rem auto 1rem auto; /*centering*/
+
+    width: 20rem;
+    font-size: 1.25rem;
 }
