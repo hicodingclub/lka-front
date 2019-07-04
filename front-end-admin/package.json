@@ -7,6 +7,7 @@
     "prebuild": "echo 'start build'",
     "build": "ng build",
     "postbuild": "echo 'finished build'",
+    "prod": "ng build --prod --aot --build-optimizer",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
