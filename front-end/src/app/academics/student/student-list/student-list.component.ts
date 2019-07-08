@@ -15,18 +15,18 @@ import { StudentService } from '../student.service';
 })
 export class StudentListComponent extends StudentComponent implements OnInit {
 
-  private  minDate = {year: (new Date()).getFullYear() - 100, month: 1, day: 1};
+  public minDate = {year: (new Date()).getFullYear() - 100, month: 1, day: 1};
 
   @Input()
-  protected searchObj:any;
+  public searchObj:any;
 
   constructor(
 
-      protected studentService: StudentService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location) {
+      public studentService: StudentService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location) {
           super(
                 studentService, injector, router, route, location, ViewType.LIST);
 

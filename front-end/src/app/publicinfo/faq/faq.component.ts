@@ -17,12 +17,12 @@ export class FaqComponent extends BaseComponent {
 
     constructor(
 
-      protected faqService: FaqService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location,
-      protected view: ViewType ) {
+      public faqService: FaqService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location,
+      public view: ViewType ) {
         super(faqService, injector, router, route, location, view, itemCamelName);
         
         this.modulePath = 'publicinfo';

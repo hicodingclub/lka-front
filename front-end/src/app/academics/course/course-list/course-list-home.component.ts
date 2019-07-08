@@ -14,11 +14,11 @@ import { CourseService } from '../course.service';
 export class CourseListHomeComponent extends CourseListComponent implements OnInit {
   private parentData = {};
   constructor(
-      protected courseService: CourseService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location) {
+      public courseService: CourseService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location) {
         super( courseService, injector, router, route, location);
         this.per_page = 4;
   }

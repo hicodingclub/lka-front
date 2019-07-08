@@ -14,11 +14,11 @@ import { ClassService } from '../class.service';
 export class ClassListHomeComponent extends ClassListComponent implements OnInit {
   private parentData = {};
   constructor(
-      protected classService: ClassService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location) {
+      public classService: ClassService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location) {
         super(null, classService, injector, router, route, location);
         this.per_page = 4;
   }

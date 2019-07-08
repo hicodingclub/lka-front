@@ -23,13 +23,13 @@ import { academics_server_root_uri } from '../academics.conf';
 // Import components for each schema
 
 import { StudentListComponent } from './student/student-list/student-list.component';
-import { StudentListHomeComponent } from './student/student-list/student-list-home.component';
+
 import { StudentDetailComponent } from './student/student-detail/student-detail.component';
 import { StudentEditComponent } from './student/student-edit/student-edit.component';
 import { StudentService } from './student/student.service';
 
 import { TeacherListComponent } from './teacher/teacher-list/teacher-list.component';
-import { TeacherListHomeComponent } from './teacher/teacher-list/teacher-list-home.component';
+
 import { TeacherDetailComponent } from './teacher/teacher-detail/teacher-detail.component';
 
 import { TeacherService } from './teacher/teacher.service';
@@ -47,7 +47,7 @@ import { ClassDetailComponent } from './class/class-detail/class-detail.componen
 import { ClassService } from './class/class.service';
 
 import { StudentclassListComponent } from './studentclass/studentclass-list/studentclass-list.component';
-import { StudentclassListHomeComponent } from './studentclass/studentclass-list/studentclass-list-home.component';
+
 
 
 import { StudentclassService } from './studentclass/studentclass.service';
@@ -87,11 +87,11 @@ import { StudentclassListSubComponent } from './studentclass/studentclass-list/s
     AcademicsRefSelectDirective,
 
     StudentListComponent,
-    StudentListHomeComponent,
+    
     StudentDetailComponent,
     StudentEditComponent,
     TeacherListComponent,
-    TeacherListHomeComponent,
+    
     TeacherDetailComponent,
     
     CourseListComponent,
@@ -103,7 +103,7 @@ import { StudentclassListSubComponent } from './studentclass/studentclass-list/s
     ClassDetailComponent,
     
     StudentclassListComponent,
-    StudentclassListHomeComponent,
+    
     
     
 
@@ -132,11 +132,11 @@ import { StudentclassListSubComponent } from './studentclass/studentclass-list/s
     AcademicsComponent,
 
     StudentListComponent,
-    StudentListHomeComponent,
+    
     StudentDetailComponent,
     StudentEditComponent,
     TeacherListComponent,
-    TeacherListHomeComponent,
+    
     TeacherDetailComponent,
     
     CourseListComponent,
@@ -148,7 +148,7 @@ import { StudentclassListSubComponent } from './studentclass/studentclass-list/s
     ClassDetailComponent,
     
     StudentclassListComponent,
-    StudentclassListHomeComponent,
+    
     
     
 

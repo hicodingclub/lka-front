@@ -17,4 +17,5 @@ module.exports = {
   schema,
   views,
   api: "LR",
+  extraViews: 'H', //home - home page list view, s: select view for pipeline/composite
 };

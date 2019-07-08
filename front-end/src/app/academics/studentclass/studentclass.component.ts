@@ -24,7 +24,7 @@ import { ClassSelectComponent } from '../class/class-list/class-select.component
 
 export class StudentclassComponent extends BaseComponent {
 
-    protected selectComponents = {
+    public selectComponents = {
 
       'student': {
           'select-type':StudentSelectComponent,
@@ -42,13 +42,13 @@ export class StudentclassComponent extends BaseComponent {
 
 
     constructor(
-protected componentFactoryResolver: ComponentFactoryResolver,
-      protected studentclassService: StudentclassService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location,
-      protected view: ViewType ) {
+public componentFactoryResolver: ComponentFactoryResolver,
+      public studentclassService: StudentclassService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location,
+      public view: ViewType ) {
         super(studentclassService, injector, router, route, location, view, itemCamelName);
         
         this.modulePath = 'academics';

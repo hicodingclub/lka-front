@@ -13,6 +13,7 @@ module.exports = {
   schema,
   views,
   api: "LR",
+  extraViews: "H",
   mraUI: {
     detailType: 'post', //use the post view in detailed page
     listType: 'list', // list, table, or grid

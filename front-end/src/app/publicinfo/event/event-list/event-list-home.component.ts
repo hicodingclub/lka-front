@@ -14,11 +14,11 @@ import { EventService } from '../event.service';
 export class EventListHomeComponent extends EventListComponent implements OnInit {
   private parentData = {};
   constructor(
-      protected eventService: EventService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location) {
+      public eventService: EventService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location) {
         super( eventService, injector, router, route, location);
         this.per_page = 3;
   }

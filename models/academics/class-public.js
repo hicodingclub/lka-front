@@ -14,10 +14,13 @@ module.exports = {
   schema,
   views,
   api: 'LR',
+  extraViews: 'HS', //home - home page list view, s: select view for pipeline/composite
   mraUI: {
     listType: 'table', // table, list, or grid
     listItemPipelines: [],
     detailPipelines: [["Enroll", "/pipeline/register-class"]],
     detailRefBlackList: ['StudentClass'], // not show these reference sub list in detail view
+
+    selectExtraType: 'dropdown', // select extraView type: dropdown, card, table, list
   },
 };

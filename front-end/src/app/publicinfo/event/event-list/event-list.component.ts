@@ -15,19 +15,18 @@ import { EventService } from '../event.service';
 })
 export class EventListComponent extends EventComponent implements OnInit {
 
-  private  minDate = {year: (new Date()).getFullYear() - 100, month: 1, day: 1};
-  protected pageTitle = "My list";
+  public minDate = {year: (new Date()).getFullYear() - 100, month: 1, day: 1};
 
   @Input()
-  protected searchObj:any;
+  public searchObj:any;
 
   constructor(
 
-      protected eventService: EventService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location) {
+      public eventService: EventService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location) {
           super(
                 eventService, injector, router, route, location, ViewType.LIST);
 

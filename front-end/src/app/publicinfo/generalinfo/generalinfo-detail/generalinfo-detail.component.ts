@@ -16,21 +16,21 @@ import { GeneralinfoService } from '../generalinfo.service';
 })
 export class GeneralinfoDetailComponent extends GeneralinfoComponent implements OnInit {
   @Input() 
-  protected id:string;
+  public id:string;
   @Input()
-  protected searchObj:any;
+  public searchObj:any;
   @Input()
-  protected disableActionButtions:boolean;
+  public disableActionButtions:boolean;
 
 
 
   constructor(
       
-      protected generalinfoService: GeneralinfoService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location) {
+      public generalinfoService: GeneralinfoService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location) {
           super(
                 generalinfoService, injector, router, route, location, ViewType.DETAIL);
 

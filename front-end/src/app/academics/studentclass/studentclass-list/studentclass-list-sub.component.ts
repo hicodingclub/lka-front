@@ -14,11 +14,11 @@ import { StudentclassService } from '../studentclass.service';
 export class StudentclassListSubComponent extends StudentclassListComponent implements OnInit {
   private parentData = {};
   constructor(
-      protected studentclassService: StudentclassService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location) {
+      public studentclassService: StudentclassService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location) {
         super(null, studentclassService, injector, router, route, location);
   }
 
