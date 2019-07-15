@@ -3,13 +3,15 @@ let teacherDef = require('./teacher-admin');
 let courseDef = require('./course-admin');
 let courseInstanceDef = require('./class-admin');
 let studentClassSchemaDef = require('./student_class-admin')
+let classEnrollDef = require('./classenroll-admin')
 
 const schemas = {
   Student: studentDef,
   Teacher: teacherDef,
   Course: courseDef,
   Class: courseInstanceDef,
-  StudentClass: studentClassSchemaDef
+  StudentClass: studentClassSchemaDef,
+  ClassEnroll: classEnrollDef,
 };
 
 const config = {
@@ -23,7 +25,6 @@ const config = {
 
 const authz = {
   "module-authz": {"LoginUser": 'R', "Anyone": ""},
-  "Class": {"LoginUser": '', "Anyone": "R"},
 }
 
 module.exports = {schemas, config, authz};

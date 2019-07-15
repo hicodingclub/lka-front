@@ -3,6 +3,7 @@ let teacherDef = require('./teacher-public');
 let courseDef = require('./course-public');
 let courseInstanceDef = require('./class-public');
 let studentClassSchemaDef = require('./student_class-public')
+let classEnrollDef = require('./classenroll-public')
 
 const schemas = {
   Student: studentDef,
@@ -10,11 +11,12 @@ const schemas = {
   Course: courseDef,
   Class: courseInstanceDef,
   StudentClass: studentClassSchemaDef,
+  ClassEnroll: classEnrollDef,
 };
 
 const config = {
-  dateFormat: "MM-DD-YYYY",
-  timeFormat: "hh:mm:ss",
+  dateFormat: 'MM-DD-YYYY',
+  timeFormat: 'hh:mm:ss',
   fileServer: {
     uploadUrl: '/api/files/upload',
     downloadUrl: '/api/files/download'
@@ -22,9 +24,10 @@ const config = {
 }
 
 const authz = {
-  "module-authz": {"LoginUser": 'R', "Anyone": ""},
-  "Class": {"LoginUser": '', "Anyone": "R"},
-  "Student": {"LoginUser": {'others': '', 'own': 'CRUD'}, "Anyone": ""},
+  'module-authz': {'LoginUser': 'R', 'Anyone': ''},
+  'Class': {'LoginUser': '', 'Anyone': 'R'},
+  'Student': {'LoginUser': {'others': '', 'own': 'CRUD'}, 'Anyone': ''},
+  'ClassEnroll': {'LoginUser': {'others': '', 'own': 'CRUD'}, 'Anyone': ''},
 }
 
 module.exports = {schemas, config, authz};

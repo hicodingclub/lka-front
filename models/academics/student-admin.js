@@ -17,6 +17,7 @@ module.exports = {
   mraUI: {
     detailRefName: {
       'StudentClass': 'Attended Classes',
-    }
+      'ClassEnroll': 'Enrolled Classes',
+    },
   },
 };

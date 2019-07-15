@@ -18,6 +18,7 @@ module.exports = {
     listType: 'table', // table, list, or grid
     detailRefName: {
       'StudentClass': 'Class Students',
+      "ClassEnroll": "Class Enrollments"
     }
   },
 };
