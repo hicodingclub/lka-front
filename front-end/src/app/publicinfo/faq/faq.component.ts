@@ -4,7 +4,7 @@ import { BaseComponent, ViewType } from 'mean-rest-angular';
 import { Injector } from '@angular/core';
 import { FaqService } from './faq.service';
 
-const itemCamelName = 'faq';
+const itemCamelName = 'fAQ';
 
 export { ViewType };
 
@@ -24,6 +24,7 @@ export class FaqComponent extends BaseComponent {
       public location: Location,
       public view: ViewType ) {
         super(faqService, injector, router, route, location, view, itemCamelName);
+        this.schemaName = 'faq';
         
         this.modulePath = 'publicinfo';
         this.indexFields = ['question', ];

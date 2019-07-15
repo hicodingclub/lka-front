@@ -33,14 +33,14 @@ export const PublicinfoRoutes: Routes = [
 
 export const publicinfo_server_root_uri:string = "/api/publicinfo";
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Sun Jul 07 2019 19:33:33 GMT-0700 (Pacific Daylight Time)
+**Date: Mon Jul 15 2019 09:50:58 GMT-0700 (Pacific Daylight Time)
 
 import { Routes } from '@angular/router';
 
 import { PublicinfoComponent } from './publicinfo/publicinfo.component';
 
 //Import routing paths
-import { generalinfoRoutingPath, faqRoutingPath, eventRoutingPath, keynoteRoutingPath,  } from './publicinfo/publicinfo-routing.path';
+import { generalinfoRoutingPath, faqRoutingPath, eventRoutingPath, keynoteRoutingPath, termsRoutingPath,  } from './publicinfo/publicinfo-routing.path';
 
 export const PublicinfoRoutes: Routes = [
   { path: 'publicinfo',
@@ -63,6 +63,10 @@ export const PublicinfoRoutes: Routes = [
       { path: "keynote",
         children: keynoteRoutingPath,
         data: {"mraLevel": 1, "item": "keynote"}
+      },
+      { path: "terms",
+        children: termsRoutingPath,
+        data: {"mraLevel": 1, "item": "terms"}
       },
     ]
   }

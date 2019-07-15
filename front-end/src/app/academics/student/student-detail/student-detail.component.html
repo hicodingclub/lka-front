@@ -3,8 +3,8 @@
     <!--<a href="javascript:void(0)" (click)="goBack()"><i class="fas fa-angle-double-left" title="Back"></i></a>-->
     <a [routerLink]="['../../list' ]"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
     <a [routerLink]="['../../edit', detail['_id'] ]" [skipLocationChange]="false" class="btn btn-outline-primary">Edit student profile</a>
-    <a [routerLink]="['../../new']" [queryParams]="{cid: detail['_id']}" [skipLocationChange]="false" class="btn btn-outline-primary">Copy and add another student</a>
-    <a routerLink="." class="btn btn-outline-primary" (click)="onDelete(detail['_id'], null)">Remove this profile</a>
+    
+    <a routerLink="." class="btn btn-outline-primary" (click)="onDelete(detail['_id'], null)">Remove this student</a>
 </div>
 	<div class="card text-left transparent-border ">
 		<div class="grid-fields">
@@ -57,6 +57,10 @@
             <li class="nav-item">
             <a [routerLink]="['./studentclass/list']"
                     class="nav-link" routerLinkActive="active">Attended Classes</a>
+        </li>
+            <li class="nav-item">
+            <a [routerLink]="['./classenroll/list']"
+                    class="nav-link" routerLinkActive="active">Enrolled Classes</a>
         </li>
     </ul>
     <router-outlet></router-outlet>

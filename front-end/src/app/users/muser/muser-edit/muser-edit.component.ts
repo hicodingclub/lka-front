@@ -17,23 +17,26 @@ import { MuserService } from '../muser.service';
 })
 export class MuserEditComponent extends MuserComponent implements OnInit {        
     @Input() 
-    protected id: string;
+    public id: string;
     @Input()
-    protected cid: string;//copy id
+    public cid: string;//copy id
     @Input()
-    protected initData: any; //some fields has data already. eg: {a: b}. Used for add
-    @Output() done = new EventEmitter<boolean>();
+    public initData: any; //some fields has data already. eg: {a: b}. Used for add
+    @Output()
+    public done = new EventEmitter<boolean>();
+    @Input()
+    public embeddedView: boolean;
 
-    protected action:string;
-    protected confirmPassword;
+    public action:string;
+    public confirmPassword;
         
     constructor(
       
-      protected muserService: MuserService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location) {
+      public muserService: MuserService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location) {
           super( 
                  muserService, injector, router, route, location, ViewType.EDIT);
 
@@ -66,7 +69,6 @@ export class MuserEditComponent extends MuserComponent implements OnInit {
                 this.populateDetailFromCopy(this.cid);
             } else if (this.initData) {
                 this.action="Add";
-                this.subEdit = true;
                 let detail = {
                     
                 };

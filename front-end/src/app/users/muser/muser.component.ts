@@ -18,12 +18,12 @@ export class MuserComponent extends BaseComponent {
 
     constructor(
 
-      protected muserService: MuserService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location,
-      protected view: ViewType ) {
+      public muserService: MuserService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location,
+      public view: ViewType ) {
         super(muserService, injector, router, route, location, view, itemCamelName);
         
         this.indexFields = ['username', ];

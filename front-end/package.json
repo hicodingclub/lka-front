@@ -25,6 +25,7 @@
     "mdds-angular-auth": "^0.6.0",
     "mdds-angular-file": "^0.6.0",
     "mean-rest-angular": "^0.6.0",
+    "mdds-angular-composite": "^0.6.0",
     "ng": "0.0.0",
     "rxjs": "^6.3.3",
     "tsickle": "^0.34.0",

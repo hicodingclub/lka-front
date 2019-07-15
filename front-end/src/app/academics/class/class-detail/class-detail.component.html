@@ -80,12 +80,13 @@
 
     <br/>
     <div class="row">
-        <button type="button" class="btn btn-primary">Enroll</button>
+        <button type="button" class="btn btn-primary" routerLink="/actions/enroll" [queryParams]="{class: detail['_id']}">Enroll</button>
     </div>
 
     <br/>
     <ul class="nav nav-tabs">
         
+            
             
     </ul>
     <router-outlet></router-outlet>

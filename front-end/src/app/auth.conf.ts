@@ -6,6 +6,6 @@ export const authentication_login_pipeline = undefined;
 
 export const authentication_dropdown_items: DropdownItem[] = [
     {displayName: 'My classes', routerLink: '/academics/class'},
-    {displayName: 'Student Profile', routerLink: '/academics/student'},
-    {displayName: 'My Teachers', routerLink: '/academics/teacher'},
+    {displayName: 'Student Profiles', routerLink: '/academics/student'},
+    {displayName: 'Class Enrollments', routerLink: '/academics/classenroll'},
 ] 

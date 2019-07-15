@@ -4,7 +4,7 @@
 			<hr *ngIf="i==0" class="list-diverder">
 			<div class="list-card text-left clickable-card "
 				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
-				<div class="list-fields w-75 pointer" (click)="onDetailLinkClicked(detail['_id'])">
+				<div class="list-fields w-75 pointer" (click)="onDetailLinkClicked(detail['_id'])" >
 
       <div class="list-body-fields ml-1 d-inline-block">
         <h5>

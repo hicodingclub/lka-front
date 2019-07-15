@@ -31,6 +31,13 @@ import { StudentclassListComponent } from './studentclass/studentclass-list/stud
 import { StudentclassListSubComponent } from './studentclass/studentclass-list/studentclass-list-sub.component';
 
 
+import { ClassenrollListComponent } from './classenroll/classenroll-list/classenroll-list.component';
+import { ClassenrollDetailComponent } from './classenroll/classenroll-detail/classenroll-detail.component';
+import { ClassenrollEditComponent } from './classenroll/classenroll-edit/classenroll-edit.component';
+
+import { ClassenrollListSubComponent } from './classenroll/classenroll-list/classenroll-list-sub.component';
+
+
 
 import { AuthGuard } from 'mdds-angular-auth';
 
@@ -47,11 +54,17 @@ const studentclassSubPath = [
     {path: 'list', component: StudentclassListSubComponent}
 ];
 
+const classenrollSubPath = [
+    {path: 'list', component: ClassenrollListSubComponent}
+];
+
 
 const studentDetailPath = [
 
     {path: 'studentclass', children: studentclassSubPath,
         data: {'mraLevel': 2, 'item': 'studentclass'}},
+    {path: 'classenroll', children: classenrollSubPath,
+        data: {'mraLevel': 2, 'item': 'classenroll'}},
 ];
 
 const courseDetailPath = [
@@ -66,6 +79,8 @@ const classDetailPath = [
 
     {path: 'studentclass', children: studentclassSubPath,
         data: {'mraLevel': 2, 'item': 'studentclass'}},
+    {path: 'classenroll', children: classenrollSubPath,
+        data: {'mraLevel': 2, 'item': 'classenroll'}},
 ];
 
 
@@ -106,5 +121,13 @@ export const studentclassRoutingPath = [
     
     
     
+    {path: '**', redirectTo: 'list', pathMatch: 'full'}
+];
+
+export const classenrollRoutingPath = [
+    {path: 'list', component: ClassenrollListComponent, canActivate: [AuthGuard]},
+    {path: 'detail/:id', component: ClassenrollDetailComponent, canActivate: [AuthGuard]},
+    
+    {path: 'new', component: ClassenrollEditComponent, canActivate: [AuthGuard]},
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];

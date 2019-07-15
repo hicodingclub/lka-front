@@ -12,7 +12,6 @@ import { TeacherService } from '../teacher.service';
   styleUrls: ['./teacher-list.component.css']
 })
 export class TeacherListSubComponent extends TeacherListComponent implements OnInit {
-  private parentData = {};
   constructor(
       public teacherService: TeacherService,
       public injector: Injector,
@@ -27,6 +26,7 @@ export class TeacherListSubComponent extends TeacherListComponent implements OnI
       let id = this.getParentRouteItemId();
       this.detail = {};
 
+      this.parentData = {};
       if (this.arrayFields.some(x=>x[0] == ref)) {
           this.parentData[ref] = {'selection':[{'_id': id}] }; 
           this.detail[ref] = {'selection':[{'_id': id}] }; //search on array list

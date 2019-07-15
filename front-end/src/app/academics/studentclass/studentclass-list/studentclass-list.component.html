@@ -2,7 +2,7 @@
 	<div class="container search">
 		<div class="row">
 			<div class="col-9">
-				
+
 
 
 				<div class="text-center">
@@ -86,15 +86,15 @@
 		    
 			
 		    </div>
-			<div class="col-3">
+		</div>
+		<div class="row">
+			<div class="col">
 		        <div class="action-buttons">
 					
 					
 				</div>
 			</div>
 		</div>
-
-
 		<hr/>
 		
 		<div class="row justify-content-end" *ngIf="list.length > 6">
@@ -184,7 +184,7 @@
 			<hr *ngIf="i==0" class="list-diverder">
 			<div class="list-card text-left  "
 				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
-				<div class="list-fields w-75 " >
+				<div class="list-fields w-75 "  >
 
       <div class="list-body-fields ml-1 d-inline-block">
         <h5>
@@ -218,7 +218,7 @@
 		<div class="grid-block" *ngFor="let detail of list;  let i = index">
 			<div class="card text-left h-100  "
 				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
-				<div class="grid-fields " >
+				<div class="grid-fields "  >
 
       <div class="card-header grid-head">
         <div class="ml-1 d-inline-block">

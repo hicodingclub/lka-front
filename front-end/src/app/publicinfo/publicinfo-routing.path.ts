@@ -20,6 +20,11 @@ import { KeynoteDetailComponent } from './keynote/keynote-detail/keynote-detail.
 
 
 
+import { TermsListComponent } from './terms/terms-list/terms-list.component';
+import { TermsDetailComponent } from './terms/terms-detail/terms-detail.component';
+
+
+
 
 import { AuthGuard } from 'mdds-angular-auth';
 
@@ -53,6 +58,14 @@ export const eventRoutingPath = [
 export const keynoteRoutingPath = [
     {path: 'list', component: KeynoteListComponent},
     {path: 'detail/:id', component: KeynoteDetailComponent},
+    
+    
+    {path: '**', redirectTo: 'list', pathMatch: 'full'}
+];
+
+export const termsRoutingPath = [
+    {path: 'list', component: TermsListComponent},
+    {path: 'detail/:id', component: TermsDetailComponent},
     
     
     {path: '**', redirectTo: 'list', pathMatch: 'full'}

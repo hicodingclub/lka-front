@@ -4,7 +4,7 @@ import { BaseComponent, ViewType } from 'mean-rest-angular';
 import { Injector } from '@angular/core';
 import { StudentclassService } from './studentclass.service';
 
-const itemCamelName = 'studentClass';
+const itemCamelName = 'student Class';
 
 export { ViewType };
 
@@ -50,6 +50,7 @@ public componentFactoryResolver: ComponentFactoryResolver,
       public location: Location,
       public view: ViewType ) {
         super(studentclassService, injector, router, route, location, view, itemCamelName);
+        this.schemaName = 'studentclass';
         
         this.modulePath = 'academics';
         this.indexFields = ['student', ];

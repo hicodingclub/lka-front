@@ -2,15 +2,17 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router'
 
 import { HomepageComponent } from './homepage/homepage.component'
-import { pipelinePath } from './pipelines';
+import { actionPath } from './actions';
 
 const routes: Routes = [
     { path: '', component: HomepageComponent },
-	  { path: "process", children: pipelinePath },
+	  { path: "actions", children: actionPath },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, {enableTracing: false})
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

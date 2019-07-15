@@ -27,6 +27,7 @@ export class StudentComponent extends BaseComponent {
       public location: Location,
       public view: ViewType ) {
         super(studentService, injector, router, route, location, view, itemCamelName);
+        this.schemaName = 'student';
         this.dateFormat = 'MM-DD-YYYY';
         this.timeFormat = 'hh:mm:ss';
         this.modulePath = 'academics';

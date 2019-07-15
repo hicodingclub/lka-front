@@ -4,7 +4,7 @@ import { BaseComponent, ViewType } from 'mean-rest-angular';
 import { Injector } from '@angular/core';
 import { GeneralinfoService } from './generalinfo.service';
 
-const itemCamelName = 'generalInfo';
+const itemCamelName = 'general Information';
 
 export { ViewType };
 
@@ -24,6 +24,7 @@ export class GeneralinfoComponent extends BaseComponent {
       public location: Location,
       public view: ViewType ) {
         super(generalinfoService, injector, router, route, location, view, itemCamelName);
+        this.schemaName = 'generalinfo';
         
         this.modulePath = 'publicinfo';
         this.indexFields = ['title', ];

@@ -19,11 +19,11 @@ export class MuserListComponent extends MuserComponent implements OnInit {
 
   constructor(
 
-      protected muserService: MuserService,
-      protected injector: Injector,
-      protected router: Router,
-      protected route: ActivatedRoute,
-      protected location: Location) {
+      public muserService: MuserService,
+      public injector: Injector,
+      public router: Router,
+      public route: ActivatedRoute,
+      public location: Location) {
           super(
                 muserService, injector, router, route, location, ViewType.LIST);
 

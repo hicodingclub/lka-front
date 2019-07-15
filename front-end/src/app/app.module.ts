@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { AuthenticationModule } from 'mdds-angular-auth';
+import { CompositeModule} from 'mdds-angular-composite';
 
 import { UsersModule } from './users/users.module';
 import { AcademicsModule } from './academics/academics.module';
@@ -17,17 +18,21 @@ import { authentication_login_page_uri, authentication_server_root_uri,
 import { FILE_UPLOAD_URI, FILE_DOWNLOAD_URI } from 'mdds-angular-file';
 import { file_upload_uri, file_download_uri } from './file-upload.config';
 import { HomepageComponent } from './homepage/homepage.component';
+import { EnrollComponent } from './actions';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomepageComponent,
+    EnrollComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
 
     AuthenticationModule,
+    CompositeModule,
 
     AcademicsModule,
     UsersModule,
@@ -42,6 +47,6 @@ import { HomepageComponent } from './homepage/homepage.component';
     { provide: FILE_UPLOAD_URI, useValue: file_upload_uri },
     { provide: FILE_DOWNLOAD_URI, useValue: file_download_uri },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

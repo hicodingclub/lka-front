@@ -7,12 +7,11 @@ import { ClassListComponent } from './class-list.component';
 import { ClassService } from '../class.service';
 
 @Component({
-  selector: 'app-class-list-home',
+  selector: 'app-class-list-ex-h',
   templateUrl: './class-list-home.component.html',
   styleUrls: ['./class-list.component.css']
 })
 export class ClassListHomeComponent extends ClassListComponent implements OnInit {
-  private parentData = {};
   constructor(
       public classService: ClassService,
       public injector: Injector,

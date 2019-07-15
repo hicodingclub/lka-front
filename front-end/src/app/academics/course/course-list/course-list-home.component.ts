@@ -7,12 +7,11 @@ import { CourseListComponent } from './course-list.component';
 import { CourseService } from '../course.service';
 
 @Component({
-  selector: 'app-course-list-home',
+  selector: 'app-course-list-ex-h',
   templateUrl: './course-list-home.component.html',
   styleUrls: ['./course-list.component.css']
 })
 export class CourseListHomeComponent extends CourseListComponent implements OnInit {
-  private parentData = {};
   constructor(
       public courseService: CourseService,
       public injector: Injector,
