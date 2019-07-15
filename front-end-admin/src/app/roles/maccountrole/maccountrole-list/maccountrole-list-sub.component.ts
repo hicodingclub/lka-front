@@ -12,7 +12,6 @@ import { MaccountroleService } from '../maccountrole.service';
   styleUrls: ['./maccountrole-list.component.css']
 })
 export class MaccountroleListSubComponent extends MaccountroleListComponent implements OnInit {
-  private parentData = {};
   constructor(
       public maccountroleService: MaccountroleService,
       public injector: Injector,
@@ -27,6 +26,7 @@ export class MaccountroleListSubComponent extends MaccountroleListComponent impl
       let id = this.getParentRouteItemId();
       this.detail = {};
 
+      this.parentData = {};
       if (this.arrayFields.some(x=>x[0] == ref)) {
           this.parentData[ref] = {'selection':[{'_id': id}] }; 
           this.detail[ref] = {'selection':[{'_id': id}] }; //search on array list

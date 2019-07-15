@@ -4,7 +4,7 @@ import { BaseComponent, ViewType } from 'mean-rest-angular';
 import { Injector } from '@angular/core';
 import { MaccountService } from './maccount.service';
 
-const itemCamelName = 'maccount';
+const itemCamelName = 'account';
 
 export { ViewType };
 
@@ -27,6 +27,7 @@ export class MaccountComponent extends BaseComponent {
       public location: Location,
       public view: ViewType ) {
         super(maccountService, injector, router, route, location, view, itemCamelName);
+        this.schemaName = 'maccount';
         this.dateFormat = 'MM-DD-YYYY';
         this.timeFormat = 'hh:mm:ss';
         this.modulePath = 'roles';

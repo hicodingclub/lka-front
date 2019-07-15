@@ -2,7 +2,7 @@
 	<div class="container search">
 		<div class="row">
 			<div class="col-9">
-				
+
 
 			    <div class="input-group">
 	              <input type="search" class="form-control border border-secondary" id="mpubmoduleTextSearch" 
@@ -88,7 +88,9 @@
 		    
 			
 		    </div>
-			<div class="col-3">
+		</div>
+		<div class="row">
+			<div class="col">
 		        <div class="action-buttons">
 					<a [routerLink]="['../new' ]" [skipLocationChange]="false" class="btn btn-outline-primary">Create</a>
 					<a *ngIf="list.length > 1" routerLink="." class="btn btn-outline-primary" (click)="onDeleteSelected()"
@@ -96,8 +98,6 @@
 				</div>
 			</div>
 		</div>
-
-
 		<hr/>
 		
 		<div class="row justify-content-end" *ngIf="list.length > 6">
@@ -186,7 +186,7 @@
 			<hr *ngIf="i==0" class="list-diverder">
 			<div class="list-card text-left clickable-card "
 				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
-				<div class="list-fields w-75 pointer" (click)="onDetailLinkClicked(detail['_id'])">
+				<div class="list-fields w-75 pointer" (click)="onDetailLinkClicked(detail['_id'])" >
 
       <div class="list-body-fields ml-1 d-inline-block">
         <h5>
@@ -213,7 +213,9 @@
 
 				</div>
 				<div class="card-action-icons d-inline-block w-25">
-					<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
+					
+						<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
+					
 					<a routerLink="." (click)="onDelete(detail['_id'], i)"><i class="fas fa-trash-alt" title="Delete"></i></a>
 					<input *ngIf="list.length > 1" type="checkbox" [(ngModel)]="checkedItem[i]"/>
 				</div>
@@ -227,7 +229,7 @@
 		<div class="grid-block" *ngFor="let detail of list;  let i = index">
 			<div class="card text-left h-100 clickable-card "
 				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
-				<div class="grid-fields pointer" (click)="onDetailLinkClicked(detail['_id'])">
+				<div class="grid-fields pointer" (click)="onDetailLinkClicked(detail['_id'])" >
 
       <div class="card-header grid-head">
         <div class="ml-1 d-inline-block">
@@ -258,7 +260,9 @@
 
 				</div>
 				<div class="card-action-icons">
-					<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
+					
+						<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
+					
 					<a routerLink="." (click)="onDelete(detail['_id'], i)"><i class="fas fa-trash-alt" title="Delete"></i></a>
 					<input *ngIf="list.length > 1" type="checkbox" [(ngModel)]="checkedItem[i]"/>
 				</div>
@@ -306,7 +310,9 @@
 
 	            </td>
 	            <td>
-	            	<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
+					
+						<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
+					
 	            	<a routerLink="." (click)="onDelete(detail['_id'], i)"><i class="fas fa-trash-alt" title="Delete"></i></a>
 					<input *ngIf="list.length > 1" type="checkbox" [(ngModel)]="checkedItem[i]"/>
 	            </td>

@@ -21,17 +21,20 @@ import { access_server_root_uri } from '../access.conf';
 
 import { MusergroupListComponent } from './musergroup/musergroup-list/musergroup-list.component';
 
+
 import { MusergroupDetailComponent } from './musergroup/musergroup-detail/musergroup-detail.component';
 import { MusergroupEditComponent } from './musergroup/musergroup-edit/musergroup-edit.component';
 import { MusergroupService } from './musergroup/musergroup.service';
 
 import { MpubmoduleListComponent } from './mpubmodule/mpubmodule-list/mpubmodule-list.component';
 
+
 import { MpubmoduleDetailComponent } from './mpubmodule/mpubmodule-detail/mpubmodule-detail.component';
 import { MpubmoduleEditComponent } from './mpubmodule/mpubmodule-edit/mpubmodule-edit.component';
 import { MpubmoduleService } from './mpubmodule/mpubmodule.service';
 
 import { MpubaccessListComponent } from './mpubaccess/mpubaccess-list/mpubaccess-list.component';
+
 
 import { MpubaccessDetailComponent } from './mpubaccess/mpubaccess-detail/mpubaccess-detail.component';
 import { MpubaccessEditComponent } from './mpubaccess/mpubaccess-edit/mpubaccess-edit.component';
@@ -64,13 +67,16 @@ import { MpubaccessDetailSubComponent } from './mpubaccess/mpubaccess-detail/mpu
 
     MusergroupListComponent,
     
+    
     MusergroupDetailComponent,
     MusergroupEditComponent,
     MpubmoduleListComponent,
     
+    
     MpubmoduleDetailComponent,
     MpubmoduleEditComponent,
     MpubaccessListComponent,
+    
     
     MpubaccessDetailComponent,
     MpubaccessEditComponent,
@@ -94,13 +100,16 @@ import { MpubaccessDetailSubComponent } from './mpubaccess/mpubaccess-detail/mpu
 
     MusergroupListComponent,
     
+    
     MusergroupDetailComponent,
     MusergroupEditComponent,
     MpubmoduleListComponent,
     
+    
     MpubmoduleDetailComponent,
     MpubmoduleEditComponent,
     MpubaccessListComponent,
+    
     
     MpubaccessDetailComponent,
     MpubaccessEditComponent,
@@ -123,15 +132,7 @@ import { MpubaccessDetailSubComponent } from './mpubaccess/mpubaccess-detail/mpu
     MpubmoduleService,
     MpubaccessService,
   ],
-
-  entryComponents: [
-
-    MusergroupSelectComponent,
-    MusergroupDetailPopComponent,
-    MusergroupDetailSelComponent,
-    MpubmoduleSelectComponent,
-    MpubmoduleDetailPopComponent,
-    MpubmoduleDetailSelComponent,
+  entryComponents: [MusergroupSelectComponent,MusergroupDetailPopComponent,MusergroupDetailSelComponent,MpubmoduleSelectComponent,MpubmoduleDetailPopComponent,MpubmoduleDetailSelComponent,MusergroupEditComponent,MpubmoduleEditComponent,MpubaccessEditComponent,
   ]
 })
 export class AccessModule { }

@@ -42,3 +42,27 @@ export class DirectiveMultiSelectionRequired implements Validator {
     }
   }
 }
+@Directive({
+  selector: '[directiveArrayRequired]',
+  providers: [{provide: NG_VALIDATORS, useExisting: DirectiveArrayRequired, multi: true}]
+})
+export class DirectiveArrayRequired implements Validator {
+  validate(control: AbstractControl): ValidationErrors | null {
+    let selected = false;
+    let controlGroup = control as FormGroup; //cast to FormGroup
+    if(controlGroup) {
+      for(let ctrl in controlGroup.controls) {
+        if(controlGroup.controls[ctrl].value) { //length of array
+          selected = true;
+          break;
+        }
+      }
+    }
+
+    if (selected) {
+      return null; //no error
+    } else {
+      return { 'required': true };
+    }
+  }
+}

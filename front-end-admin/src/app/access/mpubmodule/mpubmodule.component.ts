@@ -4,7 +4,7 @@ import { BaseComponent, ViewType } from 'mean-rest-angular';
 import { Injector } from '@angular/core';
 import { MpubmoduleService } from './mpubmodule.service';
 
-const itemCamelName = 'mpubmodule';
+const itemCamelName = 'public Module';
 
 export { ViewType };
 
@@ -27,6 +27,7 @@ export class MpubmoduleComponent extends BaseComponent {
       public location: Location,
       public view: ViewType ) {
         super(mpubmoduleService, injector, router, route, location, view, itemCamelName);
+        this.schemaName = 'mpubmodule';
         
         this.modulePath = 'access';
         this.indexFields = ['module', ];

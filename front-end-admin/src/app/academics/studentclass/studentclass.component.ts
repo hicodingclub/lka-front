@@ -50,6 +50,7 @@ public componentFactoryResolver: ComponentFactoryResolver,
       public location: Location,
       public view: ViewType ) {
         super(studentclassService, injector, router, route, location, view, itemCamelName);
+        this.schemaName = 'studentclass';
         
         this.modulePath = 'academics';
         this.indexFields = ['student', ];

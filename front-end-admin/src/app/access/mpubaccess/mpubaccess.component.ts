@@ -4,7 +4,7 @@ import { BaseComponent, ViewType } from 'mean-rest-angular';
 import { Injector } from '@angular/core';
 import { MpubaccessService } from './mpubaccess.service';
 
-const itemCamelName = 'mpubaccess';
+const itemCamelName = 'access Control';
 
 export { ViewType };
 
@@ -50,6 +50,7 @@ public componentFactoryResolver: ComponentFactoryResolver,
       public location: Location,
       public view: ViewType ) {
         super(mpubaccessService, injector, router, route, location, view, itemCamelName);
+        this.schemaName = 'mpubaccess';
         
         this.modulePath = 'access';
         this.indexFields = ['group', ];

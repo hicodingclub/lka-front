@@ -52,6 +52,7 @@ public componentFactoryResolver: ComponentFactoryResolver,
       public location: Location,
       public view: ViewType ) {
         super(classService, injector, router, route, location, view, itemCamelName);
+        this.schemaName = 'class';
         this.dateFormat = 'MM-DD-YYYY';
         this.timeFormat = 'hh:mm:ss';
         this.modulePath = 'academics';

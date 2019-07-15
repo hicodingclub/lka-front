@@ -4,7 +4,7 @@ import { BaseComponent, ViewType } from 'mean-rest-angular';
 import { Injector } from '@angular/core';
 import { MusergroupService } from './musergroup.service';
 
-const itemCamelName = 'musergroup';
+const itemCamelName = 'user Group';
 
 export { ViewType };
 
@@ -27,6 +27,7 @@ export class MusergroupComponent extends BaseComponent {
       public location: Location,
       public view: ViewType ) {
         super(musergroupService, injector, router, route, location, view, itemCamelName);
+        this.schemaName = 'musergroup';
         
         this.modulePath = 'access';
         this.indexFields = ['group', ];

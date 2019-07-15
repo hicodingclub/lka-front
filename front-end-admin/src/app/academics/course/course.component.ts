@@ -27,6 +27,7 @@ export class CourseComponent extends BaseComponent {
       public location: Location,
       public view: ViewType ) {
         super(courseService, injector, router, route, location, view, itemCamelName);
+        this.schemaName = 'course';
         
         this.modulePath = 'academics';
         this.indexFields = ['title', ];

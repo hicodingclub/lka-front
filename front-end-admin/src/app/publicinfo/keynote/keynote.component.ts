@@ -4,7 +4,7 @@ import { BaseComponent, ViewType } from 'mean-rest-angular';
 import { Injector } from '@angular/core';
 import { KeynoteService } from './keynote.service';
 
-const itemCamelName = 'keyNote';
+const itemCamelName = 'key Notes';
 
 export { ViewType };
 
@@ -24,6 +24,7 @@ export class KeynoteComponent extends BaseComponent {
       public location: Location,
       public view: ViewType ) {
         super(keynoteService, injector, router, route, location, view, itemCamelName);
+        this.schemaName = 'keynote';
         
         this.modulePath = 'publicinfo';
         this.indexFields = ['title', ];

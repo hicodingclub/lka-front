@@ -20,6 +20,11 @@ import { KeynoteDetailComponent } from './keynote/keynote-detail/keynote-detail.
 import { KeynoteEditComponent } from './keynote/keynote-edit/keynote-edit.component';
 
 
+import { TermsListComponent } from './terms/terms-list/terms-list.component';
+import { TermsDetailComponent } from './terms/terms-detail/terms-detail.component';
+import { TermsEditComponent } from './terms/terms-edit/terms-edit.component';
+
+
 
 import { AuthGuard } from 'mdds-angular-auth';
 
@@ -55,5 +60,13 @@ export const keynoteRoutingPath = [
     {path: 'detail/:id', component: KeynoteDetailComponent, canActivate: [AuthGuard]},
     {path: 'edit/:id', component: KeynoteEditComponent, canActivate: [AuthGuard]},
     {path: 'new', component: KeynoteEditComponent, canActivate: [AuthGuard]},
+    {path: '**', redirectTo: 'list', pathMatch: 'full'}
+];
+
+export const termsRoutingPath = [
+    {path: 'list', component: TermsListComponent, canActivate: [AuthGuard]},
+    {path: 'detail/:id', component: TermsDetailComponent, canActivate: [AuthGuard]},
+    {path: 'edit/:id', component: TermsEditComponent, canActivate: [AuthGuard]},
+    {path: 'new', component: TermsEditComponent, canActivate: [AuthGuard]},
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];

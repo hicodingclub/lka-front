@@ -12,7 +12,6 @@ import { MpermissionService } from '../mpermission.service';
   styleUrls: ['./mpermission-list.component.css']
 })
 export class MpermissionListSubComponent extends MpermissionListComponent implements OnInit {
-  private parentData = {};
   constructor(
       public mpermissionService: MpermissionService,
       public injector: Injector,
@@ -27,6 +26,7 @@ export class MpermissionListSubComponent extends MpermissionListComponent implem
       let id = this.getParentRouteItemId();
       this.detail = {};
 
+      this.parentData = {};
       if (this.arrayFields.some(x=>x[0] == ref)) {
           this.parentData[ref] = {'selection':[{'_id': id}] }; 
           this.detail[ref] = {'selection':[{'_id': id}] }; //search on array list

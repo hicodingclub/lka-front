@@ -4,7 +4,7 @@ import { BaseComponent, ViewType } from 'mean-rest-angular';
 import { Injector } from '@angular/core';
 import { MaccountroleService } from './maccountrole.service';
 
-const itemCamelName = 'maccountRole';
+const itemCamelName = 'account Role';
 
 export { ViewType };
 
@@ -50,6 +50,7 @@ public componentFactoryResolver: ComponentFactoryResolver,
       public location: Location,
       public view: ViewType ) {
         super(maccountroleService, injector, router, route, location, view, itemCamelName);
+        this.schemaName = 'maccountrole';
         
         this.modulePath = 'roles';
         this.indexFields = ['account', ];

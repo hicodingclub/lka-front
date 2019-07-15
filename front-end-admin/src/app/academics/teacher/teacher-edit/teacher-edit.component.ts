@@ -25,7 +25,10 @@ export class TeacherEditComponent extends TeacherComponent implements OnInit {
     public cid: string;//copy id
     @Input()
     public initData: any; //some fields has data already. eg: {a: b}. Used for add
-    @Output() done = new EventEmitter<boolean>();
+    @Output()
+    public done = new EventEmitter<boolean>();
+    @Input()
+    public embeddedView: boolean;
 
     public action:string;
 
@@ -75,7 +78,6 @@ export class TeacherEditComponent extends TeacherComponent implements OnInit {
                 this.populateDetailFromCopy(this.cid);
             } else if (this.initData) {
                 this.action="Add";
-                this.subEdit = true;
                 let detail = {
                     
                 };

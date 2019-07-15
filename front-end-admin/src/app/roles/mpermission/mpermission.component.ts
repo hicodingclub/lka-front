@@ -4,7 +4,7 @@ import { BaseComponent, ViewType } from 'mean-rest-angular';
 import { Injector } from '@angular/core';
 import { MpermissionService } from './mpermission.service';
 
-const itemCamelName = 'mpermission';
+const itemCamelName = 'permission';
 
 export { ViewType };
 
@@ -50,6 +50,7 @@ public componentFactoryResolver: ComponentFactoryResolver,
       public location: Location,
       public view: ViewType ) {
         super(mpermissionService, injector, router, route, location, view, itemCamelName);
+        this.schemaName = 'mpermission';
         
         this.modulePath = 'roles';
         this.indexFields = ['role', ];

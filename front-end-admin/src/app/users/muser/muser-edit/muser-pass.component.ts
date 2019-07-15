@@ -41,6 +41,8 @@ export class MuserPassComponent extends MuserEditComponent implements OnInit {
     public id: string;
     @Output() 
     public done = new EventEmitter<boolean>();
+    @Input()
+    public embeddedView: boolean;
   
     public tempString;
 
@@ -56,7 +58,6 @@ export class MuserPassComponent extends MuserEditComponent implements OnInit {
 
     ngOnInit() {
         if (this.id) {
-            this.subEdit = true;
         } else {
             this.id = this.route.snapshot.paramMap.get('id');
         }

@@ -12,7 +12,6 @@ import { MpubaccessService } from '../mpubaccess.service';
   styleUrls: ['./mpubaccess-list.component.css']
 })
 export class MpubaccessListSubComponent extends MpubaccessListComponent implements OnInit {
-  private parentData = {};
   constructor(
       public mpubaccessService: MpubaccessService,
       public injector: Injector,
@@ -27,6 +26,7 @@ export class MpubaccessListSubComponent extends MpubaccessListComponent implemen
       let id = this.getParentRouteItemId();
       this.detail = {};
 
+      this.parentData = {};
       if (this.arrayFields.some(x=>x[0] == ref)) {
           this.parentData[ref] = {'selection':[{'_id': id}] }; 
           this.detail[ref] = {'selection':[{'_id': id}] }; //search on array list

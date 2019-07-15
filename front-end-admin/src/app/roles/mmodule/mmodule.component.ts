@@ -4,7 +4,7 @@ import { BaseComponent, ViewType } from 'mean-rest-angular';
 import { Injector } from '@angular/core';
 import { MmoduleService } from './mmodule.service';
 
-const itemCamelName = 'mmodule';
+const itemCamelName = 'system Module';
 
 export { ViewType };
 
@@ -27,6 +27,7 @@ export class MmoduleComponent extends BaseComponent {
       public location: Location,
       public view: ViewType ) {
         super(mmoduleService, injector, router, route, location, view, itemCamelName);
+        this.schemaName = 'mmodule';
         
         this.modulePath = 'roles';
         this.indexFields = ['module', ];

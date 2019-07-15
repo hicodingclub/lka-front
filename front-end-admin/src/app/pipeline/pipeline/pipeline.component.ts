@@ -24,6 +24,7 @@ export class PipelineComponent extends BaseComponent {
       public location: Location,
       public view: ViewType ) {
         super(pipelineService, injector, router, route, location, view, itemCamelName);
+        this.schemaName = 'pipeline';
         this.dateFormat = 'MM-DD-YYYY';
         this.timeFormat = 'hh:mm:ss';
         this.modulePath = 'pipeline';
