@@ -18,4 +18,7 @@ module.exports = {
   views,
   api: "LR",
   actionViews: 'H', //home - home page list view, s: select view for pipeline/composite
+  mraUI: {
+    listTitle: 'Class Categories',
+  }
 };

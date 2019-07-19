@@ -15,5 +15,6 @@ module.exports = {
   api: "LR",
   mraUI: {
     listType: 'grid', // table, list, or grid
+    listTitle: 'Our Staff',
   },
 };

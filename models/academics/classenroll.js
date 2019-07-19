@@ -8,7 +8,7 @@ var schema = new Schema(
       validate: v => v == null || v.length > 0
     }, //reference to the associated student
     class: { type: Schema.Types.ObjectId, ref: 'Class', required: true }, //reference to the associated course instance
-    status: {type: String, enum: ['enrolled', 'payed', 'confirmed', 'cancelled'], 
+    status: {type: String, enum: ['processing', 'payed', 'confirmed', 'cancelled'], 
                  default: ['enrolled'], required: true},
     notes: {type: [String]},
   },

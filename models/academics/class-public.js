@@ -20,6 +20,8 @@ module.exports = {
     listItemPipelines: [],
     detailActions: [["Enroll", "/actions/enroll"]],
     detailRefBlackList: ['StudentClass', 'ClassEnroll'], // not show these reference sub list in detail view
+    listCategoryField: 'course',
+    listTitle: 'Classes',
 
     selectActionViewType: 'dropdown', // select extraView type: dropdown, grid, table, list
   },

@@ -1,6 +1,6 @@
-const schema = require('./event');
+const schema = require('./article');
 
-const brief = "signaturePicture title author publishDate";
+const brief = "signaturePicture title author publishDate (category)";
 const detail = "signaturePicture title author publishDate content"; //sequence is critical for mraUI detailType 'post'
 const create = "title author content signaturePicture";
 const edit = "title author content signaturePicture";
@@ -21,8 +21,8 @@ module.exports = {
     defaultListSort: {'publishDate': 'desc'},
     publicListFilter: {},
     homeListNumber: 3,
+    listTitle: 'Resource Center',
 
-    listTitle: 'News and Events',
-
+    listCategoryField: 'category',
   },
 };

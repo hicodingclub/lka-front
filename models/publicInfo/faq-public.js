@@ -17,6 +17,9 @@ module.exports = {
   mraUI: {
     listType: 'list', // list, table, or grid
     defaultListSort: {'order': 'asc'},
-    publicListFilter: {},
+    publicListFilter: {'enable': true},
+
+    listTitle: 'Frequently Asked Questions',
+
   },
 };
