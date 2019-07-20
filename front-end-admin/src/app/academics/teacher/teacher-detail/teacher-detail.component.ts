@@ -50,7 +50,6 @@ export class TeacherDetailComponent extends TeacherComponent implements OnInit {
 
 
 
-
   }
 
   ngOnInit() {

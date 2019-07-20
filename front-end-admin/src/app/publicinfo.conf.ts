@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 import { PublicinfoComponent } from './publicinfo/publicinfo.component';
 
 //Import routing paths
-import { generalinfoRoutingPath, faqRoutingPath, eventRoutingPath, keynoteRoutingPath, termsRoutingPath,  } from './publicinfo/publicinfo-routing.path';
+import { generalinfoRoutingPath, faqRoutingPath, eventRoutingPath, keynoteRoutingPath, termsRoutingPath, articleRoutingPath,  } from './publicinfo/publicinfo-routing.path';
 
 export const PublicinfoRoutes: Routes = [
   { path: 'publicinfo',
@@ -30,6 +30,10 @@ export const PublicinfoRoutes: Routes = [
       { path: "terms",
         children: termsRoutingPath,
         data: {"mraLevel": 1, "item": "terms"}
+      },
+      { path: "article",
+        children: articleRoutingPath,
+        data: {"mraLevel": 1, "item": "article"}
       },
     ]
   }
@@ -37,14 +41,14 @@ export const PublicinfoRoutes: Routes = [
 
 export const publicinfo_server_root_uri:string = "/api/publicinfo";
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Mon Jul 15 2019 09:52:34 GMT-0700 (Pacific Daylight Time)
+**Date: Fri Jul 19 2019 19:45:22 GMT-0700 (Pacific Daylight Time)
 
 import { Routes } from '@angular/router';
 
 import { PublicinfoComponent } from './publicinfo/publicinfo.component';
 
 //Import routing paths
-import { generalinfoRoutingPath, faqRoutingPath, eventRoutingPath, keynoteRoutingPath, termsRoutingPath,  } from './publicinfo/publicinfo-routing.path';
+import { generalinfoRoutingPath, faqRoutingPath, eventRoutingPath, keynoteRoutingPath, termsRoutingPath, articleRoutingPath,  } from './publicinfo/publicinfo-routing.path';
 
 export const PublicinfoRoutes: Routes = [
   { path: 'publicinfo',
@@ -71,6 +75,10 @@ export const PublicinfoRoutes: Routes = [
       { path: "terms",
         children: termsRoutingPath,
         data: {"mraLevel": 1, "item": "terms"}
+      },
+      { path: "article",
+        children: articleRoutingPath,
+        data: {"mraLevel": 1, "item": "article"}
       },
     ]
   }

@@ -44,7 +44,6 @@ export class PipelineDetailComponent extends PipelineComponent implements OnInit
 
 
 
-
   }
 
   ngOnInit() {

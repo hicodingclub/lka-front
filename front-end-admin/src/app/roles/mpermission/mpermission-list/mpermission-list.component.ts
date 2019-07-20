@@ -9,6 +9,7 @@ import { MpermissionService } from '../mpermission.service';
 
 import { ComponentFactoryResolver } from '@angular/core';
 
+  
 @Component({
   selector: 'app-mpermission-list',
   templateUrl: './mpermission-list.component.html',
@@ -19,6 +20,9 @@ export class MpermissionListComponent extends MpermissionComponent implements On
 
   @Input()
   public searchObj:any;
+  @Input()
+  public categoryBy:string; //field name whose value is used as category
+  
 
   constructor(
 public componentFactoryResolver: ComponentFactoryResolver,
@@ -42,12 +46,12 @@ public componentFactoryResolver: ComponentFactoryResolver,
 
 
           this.listViewFilter = 'list';
-          // this is to initialize the detail that will be used for search condition selection
-          const detail = this.searchObj || {};
-          this.detail = this.formatDetail(detail);
   }
 
   ngOnInit() {
+      // this is to initialize the detail that will be used for search condition selection
+      const detail = this.searchObj || {};
+      this.detail = this.formatDetail(detail);
       this.populateList();
   }
 }

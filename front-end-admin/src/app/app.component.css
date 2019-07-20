@@ -13,9 +13,14 @@
   color: white;
 }
 
-.contact-info {
-	
+.navbar-light .navbar-nav .nav-link {
+    color: white;
 }
+
+.navbar-light .navbar-nav .nav-link.active {
+    background-color: #121212;
+}
+
 
 .content {
 	padding-top: 70px; /*same height with .header*/
@@ -27,9 +32,13 @@
   flex-direction: column;
 }
 
+.nav-item {
+  margin: 0 3px 0 3px;
+  font-size: 1rem;
+}
 .content-min-height {
   flex-grow: 1; /* grow to the full height*/
-  background-color: white;
+  background-color: #dedddd;
   /* box-sizing: border-box; */
   background-clip: content-box;
 }

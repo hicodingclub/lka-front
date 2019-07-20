@@ -43,7 +43,6 @@ export class MroleDetailComponent extends MroleComponent implements OnInit {
 
 
 
-
   }
 
   ngOnInit() {

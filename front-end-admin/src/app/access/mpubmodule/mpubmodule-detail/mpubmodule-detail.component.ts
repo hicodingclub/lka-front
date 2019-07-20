@@ -43,7 +43,6 @@ export class MpubmoduleDetailComponent extends MpubmoduleComponent implements On
 
           this.arrayFields = [['resources', 'SchemaString'],];
 
-
   }
 
   ngOnInit() {

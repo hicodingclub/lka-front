@@ -49,10 +49,6 @@ export class EventDetailComponent extends EventComponent implements OnInit {
 
 
 
-
-          this.textEditorMap['eventDetailContent'] = {
-            fieldName: 'content'
-          };
   }
 
   ngOnInit() {

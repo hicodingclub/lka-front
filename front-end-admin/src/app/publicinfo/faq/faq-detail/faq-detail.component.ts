@@ -46,10 +46,6 @@ export class FaqDetailComponent extends FaqComponent implements OnInit {
 
 
 
-
-          this.textEditorMap['faqDetailAnswer'] = {
-            fieldName: 'answer'
-          };
   }
 
   ngOnInit() {

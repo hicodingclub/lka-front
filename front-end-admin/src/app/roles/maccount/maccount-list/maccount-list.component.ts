@@ -8,6 +8,7 @@ import { MaccountService } from '../maccount.service';
 
 
 
+  
 @Component({
   selector: 'app-maccount-list',
   templateUrl: './maccount-list.component.html',
@@ -19,6 +20,9 @@ export class MaccountListComponent extends MaccountComponent implements OnInit {
 
   @Input()
   public searchObj:any;
+  @Input()
+  public categoryBy:string; //field name whose value is used as category
+  
 
   constructor(
 
@@ -45,12 +49,12 @@ export class MaccountListComponent extends MaccountComponent implements OnInit {
 
 
           this.listViewFilter = 'list';
-          // this is to initialize the detail that will be used for search condition selection
-          const detail = this.searchObj || {};
-          this.detail = this.formatDetail(detail);
   }
 
   ngOnInit() {
+      // this is to initialize the detail that will be used for search condition selection
+      const detail = this.searchObj || {};
+      this.detail = this.formatDetail(detail);
       this.populateList();
   }
 }

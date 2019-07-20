@@ -57,6 +57,13 @@ import { TermsDetailComponent } from './terms/terms-detail/terms-detail.componen
 import { TermsEditComponent } from './terms/terms-edit/terms-edit.component';
 import { TermsService } from './terms/terms.service';
 
+import { ArticleListComponent } from './article/article-list/article-list.component';
+
+
+import { ArticleDetailComponent } from './article/article-detail/article-detail.component';
+import { ArticleEditComponent } from './article/article-edit/article-edit.component';
+import { ArticleService } from './article/article.service';
+
 
 
 
@@ -101,6 +108,11 @@ import { TermsService } from './terms/terms.service';
     
     TermsDetailComponent,
     TermsEditComponent,
+    ArticleListComponent,
+    
+    
+    ArticleDetailComponent,
+    ArticleEditComponent,
 
 
 
@@ -136,6 +148,11 @@ import { TermsService } from './terms/terms.service';
     
     TermsDetailComponent,
     TermsEditComponent,
+    ArticleListComponent,
+    
+    
+    ArticleDetailComponent,
+    ArticleEditComponent,
 
 
   ],
@@ -149,8 +166,9 @@ import { TermsService } from './terms/terms.service';
     EventService,
     KeynoteService,
     TermsService,
+    ArticleService,
   ],
-  entryComponents: [GeneralinfoEditComponent,FaqEditComponent,EventEditComponent,KeynoteEditComponent,TermsEditComponent,
+  entryComponents: [GeneralinfoEditComponent,FaqEditComponent,EventEditComponent,KeynoteEditComponent,TermsEditComponent,ArticleEditComponent,
   ]
 })
 export class PublicinfoModule { }

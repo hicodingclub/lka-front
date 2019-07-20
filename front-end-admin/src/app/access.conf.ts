@@ -28,7 +28,7 @@ export const AccessRoutes: Routes = [
 ];
 
 export const access_server_root_uri:string = "/api/access";/*>>> Please check this recent updates and merge with existing ones***
-**Date: Mon Jul 15 2019 09:52:35 GMT-0700 (Pacific Daylight Time)
+**Date: Fri Jul 19 2019 19:45:23 GMT-0700 (Pacific Daylight Time)
 
 import { Routes } from '@angular/router';
 

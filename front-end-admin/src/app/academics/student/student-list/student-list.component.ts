@@ -8,6 +8,7 @@ import { StudentService } from '../student.service';
 
 
 
+  
 @Component({
   selector: 'app-student-list',
   templateUrl: './student-list.component.html',
@@ -19,6 +20,9 @@ export class StudentListComponent extends StudentComponent implements OnInit {
 
   @Input()
   public searchObj:any;
+  @Input()
+  public categoryBy:string; //field name whose value is used as category
+  
 
   constructor(
 
@@ -43,12 +47,12 @@ export class StudentListComponent extends StudentComponent implements OnInit {
 
 
           this.listViewFilter = 'list';
-          // this is to initialize the detail that will be used for search condition selection
-          const detail = this.searchObj || {};
-          this.detail = this.formatDetail(detail);
   }
 
   ngOnInit() {
+      // this is to initialize the detail that will be used for search condition selection
+      const detail = this.searchObj || {};
+      this.detail = this.formatDetail(detail);
       this.populateList();
   }
 }

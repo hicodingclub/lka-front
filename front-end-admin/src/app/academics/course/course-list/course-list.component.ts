@@ -8,6 +8,7 @@ import { CourseService } from '../course.service';
 
 
 
+  
 @Component({
   selector: 'app-course-list',
   templateUrl: './course-list.component.html',
@@ -18,6 +19,9 @@ export class CourseListComponent extends CourseComponent implements OnInit {
 
   @Input()
   public searchObj:any;
+  @Input()
+  public categoryBy:string; //field name whose value is used as category
+  
 
   constructor(
 
@@ -40,12 +44,12 @@ export class CourseListComponent extends CourseComponent implements OnInit {
 
 
           this.listViewFilter = 'list';
-          // this is to initialize the detail that will be used for search condition selection
-          const detail = this.searchObj || {};
-          this.detail = this.formatDetail(detail);
   }
 
   ngOnInit() {
+      // this is to initialize the detail that will be used for search condition selection
+      const detail = this.searchObj || {};
+      this.detail = this.formatDetail(detail);
       this.populateList();
   }
 }

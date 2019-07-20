@@ -8,6 +8,9 @@ import { FaqService } from '../faq.service';
 
 
 
+import { QueryList, ViewChildren } from '@angular/core';
+import { MraRichTextShowDirective } from 'mean-rest-angular';
+  
 @Component({
   selector: 'app-faq-list',
   templateUrl: './faq-list.component.html',
@@ -18,6 +21,10 @@ export class FaqListComponent extends FaqComponent implements OnInit {
 
   @Input()
   public searchObj:any;
+  @Input()
+  public categoryBy:string; //field name whose value is used as category
+  
+  @ViewChildren(MraRichTextShowDirective) textEditors: QueryList<MraRichTextShowDirective>;
 
   constructor(
 
@@ -41,12 +48,12 @@ export class FaqListComponent extends FaqComponent implements OnInit {
 
           this.listViewFilter = 'list';
           this.setListSort('order', 'Order', 'asc');
-          // this is to initialize the detail that will be used for search condition selection
-          const detail = this.searchObj || {};
-          this.detail = this.formatDetail(detail);
   }
 
   ngOnInit() {
+      // this is to initialize the detail that will be used for search condition selection
+      const detail = this.searchObj || {};
+      this.detail = this.formatDetail(detail);
       this.populateList();
   }
 }

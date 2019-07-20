@@ -35,7 +35,7 @@ export class ClassenrollDetailComponent extends ClassenrollComponent implements 
           super(componentFactoryResolver,
                 classenrollService, injector, router, route, location, ViewType.DETAIL);
 
-          this.enums['status'] = ['enrolled', 'payed', 'confirmed', 'cancelled', ];
+          this.enums['status'] = ['processing', 'payed', 'confirmed', 'cancelled', ];
 
           this.stringFields.push('status');
 
@@ -48,7 +48,6 @@ export class ClassenrollDetailComponent extends ClassenrollComponent implements 
 
           this.arrayFields = [['student', 'ObjectId'],['notes', 'SchemaString'],];
           this.referenceFieldsMap['student'] = 'student';
-
 
   }
 

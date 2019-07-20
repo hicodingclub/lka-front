@@ -46,6 +46,30 @@
 						<div class="card-body">
 	    <div class="single-line-edit">
 	      <div class="row">
+	        <div class="col-3"><label for="mmoduleEditModule">Module</label></div>
+	        <div class="col-8">
+
+
+
+	        <input type="text" class="form-control" id="mmoduleEditModule" 
+		        	 
+	                [(ngModel)]="detail['module']" name="mmoduleEditModule"
+	                #mmoduleEditModule="ngModel">
+
+
+	      </div>
+	      
+	      <div class="col-1">
+		    <div class="icon-clear" (click)="clearValueFromDetail('module')"
+		        *ngIf="checkValueDefinedFromDetail('module')"
+		        ><i class="fas fa-times-circle" title="Clear"></i></div>
+	      </div>
+	    </div>
+      </div>
+      
+ 
+	    <div class="single-line-edit">
+	      <div class="row">
 	        <div class="col-3"><label for="mmoduleEditResources">Resources</label></div>
 	        <div class="col-8">
 

@@ -24,8 +24,7 @@
           <div>
             <div class="d-inline-block"><label>Answer:</label></div>
             <div class="ml-3 d-inline-block">                 
-                    <div mra-richtext-show="faqDetailAnswer"></div>
-                   {{detail['answer']?detail['answer']['value']:""}}
+                    <div mra-richtext-show="faqDetailAnswer" [content]="detail['answer']"></div>
 
             </div>
           </div>

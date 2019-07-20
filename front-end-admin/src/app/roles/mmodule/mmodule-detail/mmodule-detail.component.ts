@@ -43,7 +43,6 @@ export class MmoduleDetailComponent extends MmoduleComponent implements OnInit {
 
           this.arrayFields = [['resources', 'SchemaString'],];
 
-
   }
 
   ngOnInit() {

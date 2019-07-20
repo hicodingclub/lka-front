@@ -48,10 +48,6 @@ export class TermsDetailComponent extends TermsComponent implements OnInit {
 
 
 
-
-          this.textEditorMap['termsDetailContent'] = {
-            fieldName: 'content'
-          };
   }
 
   ngOnInit() {

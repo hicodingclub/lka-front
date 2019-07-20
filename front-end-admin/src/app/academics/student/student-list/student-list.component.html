@@ -1,3 +1,11 @@
+
+
+<ul *ngIf="categoryBy" class="nav nav-pills category-nav">
+	<li *ngFor="let ele of categoryDisplays; let idx = index;" class="nav-item" >
+		<a class="nav-link" [ngClass]="{'active': idx === selectedCategory }" [routerLink]="['.']" [queryParamsHandling]="preserve" (click)="categorySelected(idx)">{{ele}}</a>
+	</li>
+</ul>
+
 <div>
 	<div class="container search">
 		<div class="row">
@@ -34,6 +42,78 @@
 						<div class="card-body">
 	    <div class="single-line-edit">
 	      <div class="row">
+	        <div class="col-3"><label for="studentEditFirst_name">First Name</label></div>
+	        <div class="col-8">
+
+
+
+	        <input type="text" class="form-control" id="studentEditFirst_name" 
+		        	 
+	                [(ngModel)]="detail['first_name']" name="studentEditFirst_name"
+	                #studentEditFirst_name="ngModel">
+
+
+	      </div>
+	      
+	      <div class="col-1">
+		    <div class="icon-clear" (click)="clearValueFromDetail('first_name')"
+		        *ngIf="checkValueDefinedFromDetail('first_name')"
+		        ><i class="fas fa-times-circle" title="Clear"></i></div>
+	      </div>
+	    </div>
+      </div>
+      
+ 
+	    <div class="single-line-edit">
+	      <div class="row">
+	        <div class="col-3"><label for="studentEditLast_name">Last Name</label></div>
+	        <div class="col-8">
+
+
+
+	        <input type="text" class="form-control" id="studentEditLast_name" 
+		        	 
+	                [(ngModel)]="detail['last_name']" name="studentEditLast_name"
+	                #studentEditLast_name="ngModel">
+
+
+	      </div>
+	      
+	      <div class="col-1">
+		    <div class="icon-clear" (click)="clearValueFromDetail('last_name')"
+		        *ngIf="checkValueDefinedFromDetail('last_name')"
+		        ><i class="fas fa-times-circle" title="Clear"></i></div>
+	      </div>
+	    </div>
+      </div>
+      
+ 
+	    <div class="single-line-edit">
+	      <div class="row">
+	        <div class="col-3"><label for="studentEditEmail">Email</label></div>
+	        <div class="col-8">
+
+
+
+	        <input type="text" class="form-control" id="studentEditEmail" 
+		        	 
+	                [(ngModel)]="detail['email']" name="studentEditEmail"
+	                #studentEditEmail="ngModel">
+
+
+	      </div>
+	      
+	      <div class="col-1">
+		    <div class="icon-clear" (click)="clearValueFromDetail('email')"
+		        *ngIf="checkValueDefinedFromDetail('email')"
+		        ><i class="fas fa-times-circle" title="Clear"></i></div>
+	      </div>
+	    </div>
+      </div>
+      
+ 
+	    <div class="single-line-edit">
+	      <div class="row">
 	        <div class="col-3"><label for="studentEditGrade">Grade</label></div>
 	        <div class="col-8">
 
@@ -47,6 +127,30 @@
 	      <div class="col-1">
 		    <div class="icon-clear" (click)="clearValueFromDetail('grade')"
 		        *ngIf="checkValueDefinedFromDetail('grade')"
+		        ><i class="fas fa-times-circle" title="Clear"></i></div>
+	      </div>
+	    </div>
+      </div>
+      
+ 
+	    <div class="single-line-edit">
+	      <div class="row">
+	        <div class="col-3"><label for="studentEditMuser_id">Muser Id</label></div>
+	        <div class="col-8">
+
+
+
+	        <input type="text" class="form-control" id="studentEditMuser_id" 
+		        	 
+	                [(ngModel)]="detail['muser_id']" name="studentEditMuser_id"
+	                #studentEditMuser_id="ngModel">
+
+
+	      </div>
+	      
+	      <div class="col-1">
+		    <div class="icon-clear" (click)="clearValueFromDetail('muser_id')"
+		        *ngIf="checkValueDefinedFromDetail('muser_id')"
 		        ><i class="fas fa-times-circle" title="Clear"></i></div>
 	      </div>
 	    </div>
@@ -87,9 +191,10 @@
 					<div class="dropdown" style="width: 100%;">
 						<button class="sort-dropdown btn btn-light btn-sm dropdown-toggle"
 							type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							Sort: <span *ngIf="listSortField">{{listSortFieldDisplay}}</span>
-							<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up"></i>
-							<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down"></i>
+							Sort: <span *ngIf="listSortField && !viewHiddenFields.includes(listSortField)">{{listSortFieldDisplay}}
+									<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up"></i>
+									<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down"></i>
+							</span>
 						</button>
 						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('first_name', 'First Name', 'asc')">First_name<i class="fas fa-arrow-up"></i></a>
@@ -172,7 +277,7 @@
 	</div>
 	<div *ngIf="list.length > 0">
 	<div class="listview" *ngIf="isShowListView('list')">
-		<div class="list-block" *ngFor="let detail of list;  let i = index">
+		<div class="list-block" *ngFor="let detail of list;  let i = index; let list_index = index;">
 			<hr *ngIf="i==0" class="list-diverder">
 			<div class="list-card text-left clickable-card "
 				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
@@ -191,20 +296,20 @@
 
           </div>
         </h5>
-        <div class="mr-3 d-inline-block">
+        <div *ngIf="detail['email']" class="mr-3 d-inline-block">
           <div class="d-inline-block"><label>Email:</label></div>
           <div class="ml-3 d-inline-block">                
                     {{detail['email']}}
 
           </div>
         </div>
-        <div class="mr-3 d-inline-block">
+        <div *ngIf="detail['grade']" class="mr-3 d-inline-block">
           <div class="d-inline-block"><label>Grade:</label></div>
           <div class="ml-3 d-inline-block">                  {{detail['grade']}} 
 
           </div>
         </div>
-        <div class="mr-3 d-inline-block">
+        <div *ngIf="detail['muser_id']" class="mr-3 d-inline-block">
           <div class="d-inline-block"><label>Muser Id:</label></div>
           <div class="ml-3 d-inline-block">                
                     {{detail['muser_id']}}
@@ -228,7 +333,7 @@
 
 
 	<div class="gridview" *ngIf="isShowListView('grid')">
-		<div class="grid-block" *ngFor="let detail of list;  let i = index">
+		<div class="grid-block" *ngFor="let detail of list;  let i = index; let list_index = index;">
 			<div class="card text-left h-100 clickable-card "
 				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
 				<div class="grid-fields pointer" (click)="onDetailLinkClicked(detail['_id'])" >
@@ -250,20 +355,20 @@
         </div>
       </div>
       <div class="card-body">
-          <div>
+          <div *ngIf="detail['email']">
             <div class="d-inline-block"><label>Email:</label></div>
             <div class="ml-3 d-inline-block">                
                     {{detail['email']}}
 
             </div>
           </div>
-          <div>
+          <div *ngIf="detail['grade']">
             <div class="d-inline-block"><label>Grade:</label></div>
             <div class="ml-3 d-inline-block">                  {{detail['grade']}} 
 
             </div>
           </div>
-          <div>
+          <div *ngIf="detail['muser_id']">
             <div class="d-inline-block"><label>Muser Id:</label></div>
             <div class="ml-3 d-inline-block">                
                     {{detail['muser_id']}}
@@ -328,7 +433,7 @@
 	    	</tr>
 	    </thead>
 	    <tbody>
-	        <tr *ngFor="let detail of list;  let i = index" [ngClass]="{'clicked-row': clickedId==detail['_id']}">
+	        <tr *ngFor="let detail of list;  let i = index; let list_index = index;" [ngClass]="{'clicked-row': clickedId==detail['_id']}">
 	            <td scope="row" (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
 	            	{{(page-1)*per_page+i+1}}
 	            </td>

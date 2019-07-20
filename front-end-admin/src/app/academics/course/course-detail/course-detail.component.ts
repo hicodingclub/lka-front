@@ -43,7 +43,6 @@ export class CourseDetailComponent extends CourseComponent implements OnInit {
 
 
 
-
   }
 
   ngOnInit() {

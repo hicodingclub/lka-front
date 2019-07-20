@@ -19,15 +19,14 @@
 			<h6 class="card-subtitle mb-2 text-muted">
 				                
                     {{detail['author']}}
-, 
+ &nbsp;&nbsp;
 				                  {{detail['publishDate']?detail['publishDate']['value']:""}}
 
 			</h6>
 
 			<div class="card-text">
 					                 
-                    <div mra-richtext-show="eventDetailContent"></div>
-                   {{detail['content']?detail['content']['value']:""}}
+                    <div mra-richtext-show="eventDetailContent" [content]="detail['content']"></div>
 
 			</div>
 		</div>

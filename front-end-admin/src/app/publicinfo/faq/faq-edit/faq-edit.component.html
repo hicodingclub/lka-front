@@ -47,7 +47,7 @@
         <fieldset class="form-group">
           <label for="EditAnswer">Answer</label>
           
-          <div mra-richtext-select="EditAnswer"></div>
+          <div mra-richtext-select="EditAnswer" [content]="detail['answer']"></div>
           <div class="action-buttons" style="margin-top: 10px;">
             <button type="button" class="btn btn-outline-success" (click)="onEdtiorPreview('EditAnswer')">Preview</button>
           </div>
@@ -171,7 +171,7 @@
         <fieldset class="form-group">
           <label for="EditAnswer">Answer</label>
           
-          <div mra-richtext-select="EditAnswer"></div>
+          <div mra-richtext-select="EditAnswer" [content]="detail['answer']"></div>
           <div class="action-buttons" style="margin-top: 10px;">
             <button type="button" class="btn btn-outline-success" (click)="onEdtiorPreview('EditAnswer')">Preview</button>
           </div>

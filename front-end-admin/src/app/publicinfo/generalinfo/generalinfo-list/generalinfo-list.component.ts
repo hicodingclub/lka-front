@@ -8,6 +8,7 @@ import { GeneralinfoService } from '../generalinfo.service';
 
 
 
+  
 @Component({
   selector: 'app-generalinfo-list',
   templateUrl: './generalinfo-list.component.html',
@@ -18,6 +19,9 @@ export class GeneralinfoListComponent extends GeneralinfoComponent implements On
 
   @Input()
   public searchObj:any;
+  @Input()
+  public categoryBy:string; //field name whose value is used as category
+  
 
   constructor(
 
@@ -43,12 +47,12 @@ export class GeneralinfoListComponent extends GeneralinfoComponent implements On
 
           this.listViewFilter = 'list';
           this.setListSort('title', 'Title', 'asc');
-          // this is to initialize the detail that will be used for search condition selection
-          const detail = this.searchObj || {};
-          this.detail = this.formatDetail(detail);
   }
 
   ngOnInit() {
+      // this is to initialize the detail that will be used for search condition selection
+      const detail = this.searchObj || {};
+      this.detail = this.formatDetail(detail);
       this.populateList();
   }
 }

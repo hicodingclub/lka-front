@@ -1,3 +1,11 @@
+
+
+<ul *ngIf="categoryBy" class="nav nav-pills category-nav">
+	<li *ngFor="let ele of categoryDisplays; let idx = index;" class="nav-item" >
+		<a class="nav-link" [ngClass]="{'active': idx === selectedCategory }" [routerLink]="['.']" [queryParamsHandling]="preserve" (click)="categorySelected(idx)">{{ele}}</a>
+	</li>
+</ul>
+
 <div>
 	<div class="container search">
 		<div class="row">
@@ -32,6 +40,30 @@
 			    <div class="shadow" *ngIf="moreSearchOpened">
 					<div class="card">
 						<div class="card-body">
+	    <div class="single-line-edit">
+	      <div class="row">
+	        <div class="col-3"><label for="classEditTitle">Title</label></div>
+	        <div class="col-8">
+
+
+
+	        <input type="text" class="form-control" id="classEditTitle" 
+		        	 
+	                [(ngModel)]="detail['title']" name="classEditTitle"
+	                #classEditTitle="ngModel">
+
+
+	      </div>
+	      
+	      <div class="col-1">
+		    <div class="icon-clear" (click)="clearValueFromDetail('title')"
+		        *ngIf="checkValueDefinedFromDetail('title')"
+		        ><i class="fas fa-times-circle" title="Clear"></i></div>
+	      </div>
+	    </div>
+      </div>
+      
+ 
 	    <div class="single-line-edit">
 	      <div class="row">
 	        <div class="col-3"><label for="classEditCourse">Course</label></div>
@@ -332,9 +364,10 @@
 					<div class="dropdown" style="width: 100%;">
 						<button class="sort-dropdown btn btn-light btn-sm dropdown-toggle"
 							type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							Sort: <span *ngIf="listSortField">{{listSortFieldDisplay}}</span>
-							<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up"></i>
-							<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down"></i>
+							Sort: <span *ngIf="listSortField && !viewHiddenFields.includes(listSortField)">{{listSortFieldDisplay}}
+									<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up"></i>
+									<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down"></i>
+							</span>
 						</button>
 						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('title', 'Title', 'asc')">Title<i class="fas fa-arrow-up"></i></a>
@@ -470,7 +503,7 @@
 	    	</tr>
 	    </thead>
 	    <tbody>
-	        <tr *ngFor="let detail of list;  let i = index" [ngClass]="{'clicked-row': clickedId==detail['_id']}">
+	        <tr *ngFor="let detail of list;  let i = index; let list_index = index;" [ngClass]="{'clicked-row': clickedId==detail['_id']}">
 	            <td scope="row" (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
 	            	{{(page-1)*per_page+i+1}}
 	            </td>
@@ -526,7 +559,7 @@
 
 
 	<div class="listview" *ngIf="isShowListView('list')">
-		<div class="list-block" *ngFor="let detail of list;  let i = index">
+		<div class="list-block" *ngFor="let detail of list;  let i = index; let list_index = index;">
 			<hr *ngIf="i==0" class="list-diverder">
 			<div class="list-card text-left clickable-card "
 				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
@@ -540,7 +573,7 @@
 
           </div>
         </h5>
-        <div class="mr-3 d-inline-block">
+        <div *ngIf="detail['course']" class="mr-3 d-inline-block">
           <div class="d-inline-block"><label>Course:</label></div>
           <div class="ml-3 d-inline-block">                
                	  <a routerLink="."  (click)="onDisplayRefClicked('course', detail['course'], $event)">
@@ -549,7 +582,7 @@
 
           </div>
         </div>
-        <div class="mr-3 d-inline-block">
+        <div *ngIf="detail['teacher']" class="mr-3 d-inline-block">
           <div class="d-inline-block"><label>Teacher:</label></div>
           <div class="ml-3 d-inline-block">                
                	  <a routerLink="."  (click)="onDisplayRefClicked('teacher', detail['teacher'], $event)">
@@ -558,19 +591,19 @@
 
           </div>
         </div>
-        <div class="mr-3 d-inline-block">
+        <div *ngIf="detail['startTime']" class="mr-3 d-inline-block">
           <div class="d-inline-block"><label>Start Time:</label></div>
           <div class="ml-3 d-inline-block">                  {{detail['startTime']?detail['startTime']['value']:""}}
 
           </div>
         </div>
-        <div class="mr-3 d-inline-block">
+        <div *ngIf="detail['endTime']" class="mr-3 d-inline-block">
           <div class="d-inline-block"><label>End Time:</label></div>
           <div class="ml-3 d-inline-block">                  {{detail['endTime']?detail['endTime']['value']:""}}
 
           </div>
         </div>
-        <div class="mr-3 d-inline-block">
+        <div *ngIf="detail['dayOfWeek']" class="mr-3 d-inline-block">
           <div class="d-inline-block"><label>Day of Week:</label></div>
           <div class="ml-3 d-inline-block">                
                     <div class="badge badge-pill badge-secondary" *ngFor="let element of enums['dayOfWeek']">
@@ -579,7 +612,7 @@
 
           </div>
         </div>
-        <div class="mr-3 d-inline-block">
+        <div *ngIf="detail['hot']" class="mr-3 d-inline-block">
           <div class="d-inline-block"><label>Hot:</label></div>
           <div class="ml-3 d-inline-block">                  {{detail['hot']}} 
 
@@ -602,7 +635,7 @@
 
 
 	<div class="gridview" *ngIf="isShowListView('grid')">
-		<div class="grid-block" *ngFor="let detail of list;  let i = index">
+		<div class="grid-block" *ngFor="let detail of list;  let i = index; let list_index = index;">
 			<div class="card text-left h-100 clickable-card "
 				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
 				<div class="grid-fields pointer" (click)="onDetailLinkClicked(detail['_id'])" >
@@ -619,7 +652,7 @@
         </div>
       </div>
       <div class="card-body">
-          <div>
+          <div *ngIf="detail['course']">
             <div class="d-inline-block"><label>Course:</label></div>
             <div class="ml-3 d-inline-block">                
                	  <a routerLink="."  (click)="onDisplayRefClicked('course', detail['course'], $event)">
@@ -628,7 +661,7 @@
 
             </div>
           </div>
-          <div>
+          <div *ngIf="detail['teacher']">
             <div class="d-inline-block"><label>Teacher:</label></div>
             <div class="ml-3 d-inline-block">                
                	  <a routerLink="."  (click)="onDisplayRefClicked('teacher', detail['teacher'], $event)">
@@ -637,19 +670,19 @@
 
             </div>
           </div>
-          <div>
+          <div *ngIf="detail['startTime']">
             <div class="d-inline-block"><label>Start Time:</label></div>
             <div class="ml-3 d-inline-block">                  {{detail['startTime']?detail['startTime']['value']:""}}
 
             </div>
           </div>
-          <div>
+          <div *ngIf="detail['endTime']">
             <div class="d-inline-block"><label>End Time:</label></div>
             <div class="ml-3 d-inline-block">                  {{detail['endTime']?detail['endTime']['value']:""}}
 
             </div>
           </div>
-          <div>
+          <div *ngIf="detail['dayOfWeek']">
             <div class="d-inline-block"><label>Day of Week:</label></div>
             <div class="ml-3 d-inline-block">                
                     <div class="badge badge-pill badge-secondary" *ngFor="let element of enums['dayOfWeek']">
@@ -658,7 +691,7 @@
 
             </div>
           </div>
-          <div>
+          <div *ngIf="detail['hot']">
             <div class="d-inline-block"><label>Hot:</label></div>
             <div class="ml-3 d-inline-block">                  {{detail['hot']}} 
 

@@ -25,6 +25,11 @@ import { TermsDetailComponent } from './terms/terms-detail/terms-detail.componen
 import { TermsEditComponent } from './terms/terms-edit/terms-edit.component';
 
 
+import { ArticleListComponent } from './article/article-list/article-list.component';
+import { ArticleDetailComponent } from './article/article-detail/article-detail.component';
+import { ArticleEditComponent } from './article/article-edit/article-edit.component';
+
+
 
 import { AuthGuard } from 'mdds-angular-auth';
 
@@ -68,5 +73,13 @@ export const termsRoutingPath = [
     {path: 'detail/:id', component: TermsDetailComponent, canActivate: [AuthGuard]},
     {path: 'edit/:id', component: TermsEditComponent, canActivate: [AuthGuard]},
     {path: 'new', component: TermsEditComponent, canActivate: [AuthGuard]},
+    {path: '**', redirectTo: 'list', pathMatch: 'full'}
+];
+
+export const articleRoutingPath = [
+    {path: 'list', component: ArticleListComponent, canActivate: [AuthGuard]},
+    {path: 'detail/:id', component: ArticleDetailComponent, canActivate: [AuthGuard]},
+    {path: 'edit/:id', component: ArticleEditComponent, canActivate: [AuthGuard]},
+    {path: 'new', component: ArticleEditComponent, canActivate: [AuthGuard]},
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];

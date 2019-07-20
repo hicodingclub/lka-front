@@ -8,6 +8,9 @@ import { TermsService } from '../terms.service';
 
 
 
+import { QueryList, ViewChildren } from '@angular/core';
+import { MraRichTextShowDirective } from 'mean-rest-angular';
+  
 @Component({
   selector: 'app-terms-list',
   templateUrl: './terms-list.component.html',
@@ -18,6 +21,10 @@ export class TermsListComponent extends TermsComponent implements OnInit {
 
   @Input()
   public searchObj:any;
+  @Input()
+  public categoryBy:string; //field name whose value is used as category
+  
+  @ViewChildren(MraRichTextShowDirective) textEditors: QueryList<MraRichTextShowDirective>;
 
   constructor(
 
@@ -39,12 +46,12 @@ export class TermsListComponent extends TermsComponent implements OnInit {
 
 
           this.listViewFilter = 'list';
-          // this is to initialize the detail that will be used for search condition selection
-          const detail = this.searchObj || {};
-          this.detail = this.formatDetail(detail);
   }
 
   ngOnInit() {
+      // this is to initialize the detail that will be used for search condition selection
+      const detail = this.searchObj || {};
+      this.detail = this.formatDetail(detail);
       this.populateList();
   }
 }

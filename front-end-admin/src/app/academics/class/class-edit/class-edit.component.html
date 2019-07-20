@@ -140,14 +140,22 @@
         <fieldset class="form-group">
           <label for="EditPrice">Price</label>
           
-          <input type="number" class="form-control" id="EditPrice" 
-                  
-                  
-                  required
-               
-                  [(ngModel)]="detail['price']" name="EditPrice"
-                  #EditPrice="ngModel">
-          <div [hidden]="EditPrice.valid || EditPrice.pristine || EditPrice.errors.minnumber"
+
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditPrice" 
+                    required
+                    
+                    
+                 
+                    [(ngModel)]="detail['price']" name="EditPrice"
+                    #EditPrice="ngModel">
+                <div *ngIf="detail['price']" 
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('price')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+          </div>
+
+          <div [hidden]="EditPrice.valid || EditPrice.pristine || EditPrice.errors.minlength"
            class="alert alert-danger">
 
             <div *ngIf="EditPrice.errors && EditPrice.errors.required">
@@ -156,8 +164,9 @@
  
 
           </div>
-
+        
         </fieldset>
+
     
 </div><div *ngIf="!hiddenFields.includes('startTime')">
 
@@ -488,14 +497,22 @@
         <fieldset class="form-group">
           <label for="EditPrice">Price</label>
           
-          <input type="number" class="form-control" id="EditPrice" 
-                  
-                  
-                  required
-               
-                  [(ngModel)]="detail['price']" name="EditPrice"
-                  #EditPrice="ngModel">
-          <div [hidden]="EditPrice.valid || EditPrice.pristine || EditPrice.errors.minnumber"
+
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditPrice" 
+                    required
+                    
+                    
+                 
+                    [(ngModel)]="detail['price']" name="EditPrice"
+                    #EditPrice="ngModel">
+                <div *ngIf="detail['price']" 
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('price')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+          </div>
+
+          <div [hidden]="EditPrice.valid || EditPrice.pristine || EditPrice.errors.minlength"
            class="alert alert-danger">
 
             <div *ngIf="EditPrice.errors && EditPrice.errors.required">
@@ -504,8 +521,9 @@
  
 
           </div>
-
+        
         </fieldset>
+
     
 </div><div *ngIf="!hiddenFields.includes('startTime')">
 

@@ -44,7 +44,7 @@ export class ClassenrollEditComponent extends ClassenrollComponent implements On
           super( componentFactoryResolver,
                  classenrollService, injector, router, route, location, ViewType.EDIT);
 
-          this.enums['status'] = ['enrolled', 'payed', 'confirmed', 'cancelled', ];
+          this.enums['status'] = ['processing', 'payed', 'confirmed', 'cancelled', ];
 
           this.stringFields.push('status');
 
