@@ -1,7 +1,7 @@
 
 
 <div class="mt-4 mb-4">
-	<h3>Our Staff</h3>
+	<h3>Resource Center</h3>
 </div>
 <ul *ngIf="categoryBy" class="nav nav-pills category-nav">
 	<li *ngFor="let ele of categoryDisplays; let idx = index;" class="nav-item" >
@@ -16,10 +16,10 @@
 
 
 			    <div class="input-group">
-	              <input type="search" class="form-control border border-secondary" id="teacherTextSearch" 
-						#teacherTextSearch [(ngModel)]="searchText"
+	              <input type="search" class="form-control border border-secondary" id="articleTextSearch" 
+						#articleTextSearch [(ngModel)]="searchText"
 						(keyup.enter)="$event.target.blur();searchList();false"
-					    placeholder="Search for firstName, lastName, introduction, photo"> 
+					    placeholder="Search for signaturePicture, title, author"> 
 				  <div *ngIf="searchText" class="input-group-append icon-clear-inside">
 					<span >
 					    <i class="fas fa-times-circle" (click)="onSearchTextClear()" title="Clear"></i>
@@ -45,22 +45,22 @@
 						<div class="card-body">
 	    <div class="single-line-edit">
 	      <div class="row">
-	        <div class="col-3"><label for="teacherEditFirstName">First Name</label></div>
+	        <div class="col-3"><label for="articleEditSignaturePicture">Signature Picture</label></div>
 	        <div class="col-8">
 
 
 
-	        <input type="text" class="form-control" id="teacherEditFirstName" 
+	        <input type="text" class="form-control" id="articleEditSignaturePicture" 
 		        	 
-	                [(ngModel)]="detail['firstName']" name="teacherEditFirstName"
-	                #teacherEditFirstName="ngModel">
+	                [(ngModel)]="detail['signaturePicture']" name="articleEditSignaturePicture"
+	                #articleEditSignaturePicture="ngModel">
 
 
 	      </div>
 	      
 	      <div class="col-1">
-		    <div class="icon-clear" (click)="clearValueFromDetail('firstName')"
-		        *ngIf="checkValueDefinedFromDetail('firstName')"
+		    <div class="icon-clear" (click)="clearValueFromDetail('signaturePicture')"
+		        *ngIf="checkValueDefinedFromDetail('signaturePicture')"
 		        ><i class="fas fa-times-circle" title="Clear"></i></div>
 	      </div>
 	    </div>
@@ -69,22 +69,22 @@
  
 	    <div class="single-line-edit">
 	      <div class="row">
-	        <div class="col-3"><label for="teacherEditLastName">Last Name</label></div>
+	        <div class="col-3"><label for="articleEditTitle">Title</label></div>
 	        <div class="col-8">
 
 
 
-	        <input type="text" class="form-control" id="teacherEditLastName" 
+	        <input type="text" class="form-control" id="articleEditTitle" 
 		        	 
-	                [(ngModel)]="detail['lastName']" name="teacherEditLastName"
-	                #teacherEditLastName="ngModel">
+	                [(ngModel)]="detail['title']" name="articleEditTitle"
+	                #articleEditTitle="ngModel">
 
 
 	      </div>
 	      
 	      <div class="col-1">
-		    <div class="icon-clear" (click)="clearValueFromDetail('lastName')"
-		        *ngIf="checkValueDefinedFromDetail('lastName')"
+		    <div class="icon-clear" (click)="clearValueFromDetail('title')"
+		        *ngIf="checkValueDefinedFromDetail('title')"
 		        ><i class="fas fa-times-circle" title="Clear"></i></div>
 	      </div>
 	    </div>
@@ -93,24 +93,22 @@
  
 	    <div class="single-line-edit">
 	      <div class="row">
-	        <div class="col-3"><label for="teacherEditCourses">Courses</label></div>
+	        <div class="col-3"><label for="articleEditAuthor">Author</label></div>
 	        <div class="col-8">
 
 
-		    <div class="input-group">
-		        <input class="form-control rounded" id="teacherEditCourses" 
-		             [ngClass]="{'pointer ref-badge': detail['courses']['_id']}"
-		             (focus)="detail['courses']['_id']?onRefShow('courses', 'select', detail['courses']['_id']):onRefSelect('courses')"
-		        	  
-		             [ngModel]="detail['courses']['value']" name="teacherEditCourses"
-		             #teacherEditCourses="ngModel"> 
-			</div>
+
+	        <input type="text" class="form-control" id="articleEditAuthor" 
+		        	 
+	                [(ngModel)]="detail['author']" name="articleEditAuthor"
+	                #articleEditAuthor="ngModel">
+
 
 	      </div>
 	      
 	      <div class="col-1">
-		    <div class="icon-clear" (click)="clearValueFromDetail('courses')"
-		        *ngIf="checkValueDefinedFromDetail('courses')"
+		    <div class="icon-clear" (click)="clearValueFromDetail('author')"
+		        *ngIf="checkValueDefinedFromDetail('author')"
 		        ><i class="fas fa-times-circle" title="Clear"></i></div>
 	      </div>
 	    </div>
@@ -119,46 +117,45 @@
  
 	    <div class="single-line-edit">
 	      <div class="row">
-	        <div class="col-3"><label for="teacherEditIntroduction">Introduction</label></div>
+	        <div class="col-3"><label for="articleEditPublishDate">Publish Date</label></div>
 	        <div class="col-8">
 
-
-
-	        <input type="text" class="form-control" id="teacherEditIntroduction" 
-		        	 
-	                [(ngModel)]="detail['introduction']" name="teacherEditIntroduction"
-	                #teacherEditIntroduction="ngModel">
-
-
-	      </div>
-	      
-	      <div class="col-1">
-		    <div class="icon-clear" (click)="clearValueFromDetail('introduction')"
-		        *ngIf="checkValueDefinedFromDetail('introduction')"
-		        ><i class="fas fa-times-circle" title="Clear"></i></div>
-	      </div>
-	    </div>
-      </div>
-      
  
-	    <div class="single-line-edit">
-	      <div class="row">
-	        <div class="col-3"><label for="teacherEditPhoto">Photo</label></div>
-	        <div class="col-8">
+	        <div class="input-group">
+		      <input class="form-control" id="articleEditPublishDate" placeholder="{{dateFormat}}"
+		             [(ngModel)]="detail['publishDate']['from']" name="articleEditPublishDate"
+		             ngbDatepicker #articleEditPublishDate="ngModel">
+		      <span>&nbsp; ~ &nbsp;</span>
+		      <input class="form-control" id="articleEditPublishDate" placeholder="{{dateFormat}}"
+		             [(ngModel)]="detail['publishDate']['to']" name="articleEditPublishDate"
+		             ngbDatepicker #articleEditPublishDate="ngModel">
 
-
-
-	        <input type="text" class="form-control" id="teacherEditPhoto" 
-		        	 
-	                [(ngModel)]="detail['photo']" name="teacherEditPhoto"
-	                #teacherEditPhoto="ngModel">
-
+		      <div class="input-group-append">
+		        <button class="btn btn-outline-secondary" (click)="onDateSelectionToggle('publishDate')" type="button">
+		          <i class="fas fa-calendar-alt"></i>
+		        </button>
+		      </div>
+		    </div><!-- input group --> 
+		    <div class="date-selection-pop" *ngIf="detail['publishDate']['pop']">
+			    <ngb-datepicker #dp [minDate]="minDate" (select)="onDateSelection('publishDate', $event)" [displayMonths]="2" [dayTemplate]="articleEditPublishDateT">
+				</ngb-datepicker>
+				<ng-template #articleEditPublishDateT let-articleEditPublishDateDate="date" let-articleEditPublishDateFocused="focused">
+				  <span class="custom-day"
+				        [class.focused]="articleEditPublishDateFocused"
+				        [class.range]="isRange('publishDate', articleEditPublishDateDate)"
+				        [class.faded]="isHovered('publishDate', articleEditPublishDateDate) || isInside('publishDate', articleEditPublishDateDate)"
+				        (mouseenter)="hoveredDate = articleEditPublishDateDate"
+				        (mouseleave)="hoveredDate = null">
+				    {{ articleEditPublishDateDate.day }}
+				  </span>
+				</ng-template>
+		    </div>      
 
 	      </div>
 	      
 	      <div class="col-1">
-		    <div class="icon-clear" (click)="clearValueFromDetail('photo')"
-		        *ngIf="checkValueDefinedFromDetail('photo')"
+		    <div class="icon-clear" (click)="clearValueFromDetail('publishDate')"
+		        *ngIf="checkValueDefinedFromDetail('publishDate')"
 		        ><i class="fas fa-times-circle" title="Clear"></i></div>
 	      </div>
 	    </div>
@@ -204,14 +201,12 @@
 							</span>
 						</button>
 						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('firstName', 'First Name', 'asc')">FirstName<i class="fas fa-arrow-up"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('firstName', 'First Name', 'desc')">FirstName<i class="fas fa-arrow-down"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('lastName', 'Last Name', 'asc')">LastName<i class="fas fa-arrow-up"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('lastName', 'Last Name', 'desc')">LastName<i class="fas fa-arrow-down"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('courses', 'Courses', 'asc')">Courses<i class="fas fa-arrow-up"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('courses', 'Courses', 'desc')">Courses<i class="fas fa-arrow-down"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('introduction', 'Introduction', 'asc')">Introduction<i class="fas fa-arrow-up"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('introduction', 'Introduction', 'desc')">Introduction<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('title', 'Title', 'asc')">Title<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('title', 'Title', 'desc')">Title<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('author', 'Author', 'asc')">Author<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('author', 'Author', 'desc')">Author<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('publishDate', 'Publish Date', 'asc')">PublishDate<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('publishDate', 'Publish Date', 'desc')">PublishDate<i class="fas fa-arrow-down"></i></a>
 						</div>
 					</div>
 			</div>
@@ -220,13 +215,13 @@
 			<div class="col-3">
 				<div *ngIf="list.length > 0">
 
-					<input type="radio" name="view-filter" id="grid-view" class="view-radio"
-						(click)="setListViewFilter('grid')" [checked]="isShowListView('grid')">
-						<label for="grid-view"><i class="fa fa-th"></i></label>
-
 					<input type="radio" name="view-filter" id="list-view" class="view-radio"
 						(click)="setListViewFilter('list')" [checked]="isShowListView('list')">
 					<label for="list-view"><i class="fa fa-th-list"></i></label>
+
+					<input type="radio" name="view-filter" id="grid-view" class="view-radio"
+						(click)="setListViewFilter('grid')" [checked]="isShowListView('grid')">
+						<label for="grid-view"><i class="fa fa-th"></i></label>
 
 					<input type="radio" name="view-filter" id="table-view" class="view-radio"
 						(click)="setListViewFilter('table')" [checked]="isShowListView('table')">
@@ -280,67 +275,15 @@
 		<span *ngIf="!loaded">Loading...</span>
 	</div>
 	<div *ngIf="list.length > 0">
-
-	<div class="gridview" *ngIf="isShowListView('grid')">
-		<div class="grid-block" *ngFor="let detail of list;  let i = index; let list_index = index;">
-			<div class="card text-left h-100 clickable-card "
-				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
-				<div class="grid-fields pointer" (click)="onDetailLinkClicked(detail['_id'])" >
-
-      <div class="card-header grid-head">
-        <div class="grid-head-picture mr-1">                
-                    <file-display [downloadUrl]="detail['photo']" [isLarge]="false"></file-display>
-
-        </div>
-        <div class="ml-1 d-inline-block">
-          <h5>
-            <div class="mr-1 d-inline-block">
-                              
-                    {{detail['firstName']}}
-
-            </div>
-            <div class="mr-1 d-inline-block">
-                              
-                    {{detail['lastName']}}
-
-            </div>
-          </h5>
-        </div>
-      </div>
-      <div class="card-body">
-          <div *ngIf="detail['courses']">
-            <div class="d-inline-block"><label>Courses:</label></div>
-            <div class="ml-3 d-inline-block">                
-               	  <a routerLink="."  (click)="onDisplayRefClicked('courses', detail['courses'], $event)">
-	            	{{detail['courses']?detail['courses']['value']:""}}
-	              </a>
-
-            </div>
-          </div>
-          <div *ngIf="detail['introduction']">
-            <div class="d-inline-block"><label>Introduction:</label></div>
-            <div class="ml-3 d-inline-block">                
-                    {{detail['introduction']}}
-
-            </div>
-          </div>
-      </div>
-
-				</div>
-			</div>
-		</div>
-	</div>
-
-
 	<div class="listview" *ngIf="isShowListView('list')">
 		<div class="list-block" *ngFor="let detail of list;  let i = index; let list_index = index;">
 			<hr *ngIf="i==0" class="list-diverder">
-			<div class="list-card text-left clickable-card "
+			<div class="list-card text-left  "
 				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
-				<div class="list-fields w-75 pointer" (click)="onDetailLinkClicked(detail['_id'])" >
+				<div class="list-fields w-75 "  >
 
       <div class="list-head-picture mr-1 d-inline-block">                
-                    <file-display [downloadUrl]="detail['photo']" [isLarge]="false"></file-display>
+                    <file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false"></file-display>
 
       </div>
     
@@ -348,30 +291,25 @@
         <h5>
           <div class="mr-1 d-inline-block">
                             
-                    {{detail['firstName']}}
-
-          </div>
-          <div class="mr-1 d-inline-block">
-                            
-                    {{detail['lastName']}}
+                    {{detail['title']}}
 
           </div>
         </h5>
-        <div *ngIf="detail['courses']" class="mr-3 d-inline-block">
-          <div class="d-inline-block"><label>Courses:</label></div>
+        <div *ngIf="detail['author']" class="mr-3 d-inline-block">
+          <div class="d-inline-block"><label>Author:</label></div>
           <div class="ml-3 d-inline-block">                
-               	  <a routerLink="."  (click)="onDisplayRefClicked('courses', detail['courses'], $event)">
-	            	{{detail['courses']?detail['courses']['value']:""}}
-	              </a>
+                    {{detail['author']}}
 
           </div>
         </div>
-        <div *ngIf="detail['introduction']" class="mr-3 d-inline-block">
-          <div class="d-inline-block"><label>Introduction:</label></div>
-          <div class="ml-3 d-inline-block">                
-                    {{detail['introduction']}}
+        <div *ngIf="detail['publishDate']" class="mr-3 d-inline-block">
+          <div class="d-inline-block"><label>Publish Date:</label></div>
+          <div class="ml-3 d-inline-block">                  {{detail['publishDate']?detail['publishDate']['value']:""}}
 
           </div>
+        </div>
+        <div class="read-more" (click)="onDetailLinkClicked(detail['_id'])">
+        Read more ...
         </div>
       </div>
 
@@ -381,41 +319,81 @@
 		</div>
 	</div>
 
+
+	<div class="gridview" *ngIf="isShowListView('grid')">
+		<div class="grid-block" *ngFor="let detail of list;  let i = index; let list_index = index;">
+			<div class="card text-left h-100  "
+				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
+				<div class="grid-fields "  >
+
+      <div class="card-header grid-head">
+        <div class="grid-head-picture mr-1">                
+                    <file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false"></file-display>
+
+        </div>
+        <div class="ml-1 d-inline-block">
+          <h5>
+            <div class="mr-1 d-inline-block">
+                              
+                    {{detail['title']}}
+
+            </div>
+          </h5>
+        </div>
+      </div>
+      <div class="card-body">
+          <div *ngIf="detail['author']">
+            <div class="d-inline-block"><label>Author:</label></div>
+            <div class="ml-3 d-inline-block">                
+                    {{detail['author']}}
+
+            </div>
+          </div>
+          <div *ngIf="detail['publishDate']">
+            <div class="d-inline-block"><label>Publish Date:</label></div>
+            <div class="ml-3 d-inline-block">                  {{detail['publishDate']?detail['publishDate']['value']:""}}
+
+            </div>
+          </div>
+        <div class="read-more" (click)="onDetailLinkClicked(detail['_id'])">
+          Read more ...
+        </div>
+      </div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
 	<table *ngIf="isShowListView('table')" class="table table-bordered table-hover">
 	    <thead class="thead-light">
 	    	<tr>
 		        <th scope="col">#</th>
 
-				<th class="pointer" scope="col" (click)="toggleListSort('firstName', 'First Name')">
-					First Name
-					<span *ngIf="listSortField === 'firstName'">
-						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
-						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
-					</span>
-				</th>
-				<th class="pointer" scope="col" (click)="toggleListSort('lastName', 'Last Name')">
-					Last Name
-					<span *ngIf="listSortField === 'lastName'">
-						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
-						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
-					</span>
-				</th>
-				<th class="pointer" scope="col" (click)="toggleListSort('courses', 'Courses')">
-					Courses
-					<span *ngIf="listSortField === 'courses'">
-						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
-						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
-					</span>
-				</th>
-				<th class="pointer" scope="col" (click)="toggleListSort('introduction', 'Introduction')">
-					Introduction
-					<span *ngIf="listSortField === 'introduction'">
-						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
-						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
-					</span>
-				</th>
-				<th scope="col">Photo</th>
+				<th scope="col">Signature Picture</th>
 
+				<th class="pointer" scope="col" (click)="toggleListSort('title', 'Title')">
+					Title
+					<span *ngIf="listSortField === 'title'">
+						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+					</span>
+				</th>
+				<th class="pointer" scope="col" (click)="toggleListSort('author', 'Author')">
+					Author
+					<span *ngIf="listSortField === 'author'">
+						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+					</span>
+				</th>
+				<th class="pointer" scope="col" (click)="toggleListSort('publishDate', 'Publish Date')">
+					Publish Date
+					<span *ngIf="listSortField === 'publishDate'">
+						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+					</span>
+				</th>
 	    	</tr>
 	    </thead>
 	    <tbody>
@@ -424,31 +402,23 @@
 	            	{{(page-1)*per_page+i+1}}
 	            </td>
 
-	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            <td >
 	            	                
-                    {{detail['firstName']}}
+                    <file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false"></file-display>
 
 	            </td>
-	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            <td >
 	            	                
-                    {{detail['lastName']}}
+                    {{detail['title']}}
 
 	            </td>
-	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            <td >
 	            	                
-               	  <a routerLink="."  (click)="onDisplayRefClicked('courses', detail['courses'], $event)">
-	            	{{detail['courses']?detail['courses']['value']:""}}
-	              </a>
+                    {{detail['author']}}
 
 	            </td>
-	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
-                    {{detail['introduction']}}
-
-	            </td>
-	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
-                    <file-display [downloadUrl]="detail['photo']" [isLarge]="false"></file-display>
+	            <td >
+	            	                  {{detail['publishDate']?detail['publishDate']['value']:""}}
 
 	            </td>
 	        </tr>
@@ -505,4 +475,3 @@
 </div>
 
 
-<ng-template academics-ref-select></ng-template>

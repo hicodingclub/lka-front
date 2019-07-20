@@ -9,6 +9,7 @@ import { ClassenrollService } from '../classenroll.service';
 
 import { ComponentFactoryResolver } from '@angular/core';
 
+  
 @Component({
   selector: 'app-classenroll-list',
   templateUrl: './classenroll-list.component.html',
@@ -20,6 +21,9 @@ export class ClassenrollListComponent extends ClassenrollComponent implements On
 
   @Input()
   public searchObj:any;
+  @Input()
+  public categoryBy:string; //field name whose value is used as category
+  
 
   constructor(
 public componentFactoryResolver: ComponentFactoryResolver,
@@ -31,7 +35,7 @@ public componentFactoryResolver: ComponentFactoryResolver,
           super(componentFactoryResolver,
                 classenrollService, injector, router, route, location, ViewType.LIST);
 
-          this.enums['status'] = ['enrolled', 'payed', 'confirmed', 'cancelled', ];
+          this.enums['status'] = ['processing', 'payed', 'confirmed', 'cancelled', ];
 
           this.stringFields.push('status');
 
@@ -48,12 +52,12 @@ public componentFactoryResolver: ComponentFactoryResolver,
 
           this.listViewFilter = 'table';
           this.setListSort('createdAt', 'Created Time', 'desc');
-          // this is to initialize the detail that will be used for search condition selection
-          const detail = this.searchObj || {};
-          this.detail = this.formatDetail(detail);
   }
 
   ngOnInit() {
+      // this is to initialize the detail that will be used for search condition selection
+      const detail = this.searchObj || {};
+      this.detail = this.formatDetail(detail);
       this.populateList();
   }
 }

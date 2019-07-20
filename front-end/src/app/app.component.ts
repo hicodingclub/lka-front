@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+
+  public currentUrl: string = '';
+
+  constructor(private router: Router) {
+    router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        if (event.urlAfterRedirects) {
+          this.currentUrl = event.urlAfterRedirects;
+        } else {
+          this.currentUrl = event.url;
+        }
+      }
+    });
+  }
 }

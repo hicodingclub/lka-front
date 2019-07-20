@@ -42,6 +42,8 @@ export class MuserPassComponent extends MuserEditComponent implements OnInit {
     @Output() done = new EventEmitter<boolean>();
     @Input()
     public embeddedView: boolean;
+
+    public tempString:string;
   
     constructor(
       public muserService: MuserService,

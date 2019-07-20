@@ -1,8 +1,16 @@
+
+
+<div class="mt-4 mb-4">
+	<h3>Student Profile</h3>
+</div>
+<ul *ngIf="categoryBy" class="nav nav-pills category-nav">
+	<li *ngFor="let ele of categoryDisplays; let idx = index;" class="nav-item" >
+		<a class="nav-link" [ngClass]="{'active': idx === selectedCategory }" [routerLink]="['.']" [queryParamsHandling]="preserve" (click)="categorySelected(idx)">{{ele}}</a>
+	</li>
+</ul>
+
 <div>
 	<div class="container search">
-		<div class="mt-3 mb-3">
-			<h3>Student Profile</h3>
-		</div>
 		<div class="row">
 			<div class="col">
 		        <div class="action-buttons">
@@ -19,9 +27,10 @@
 					<div class="dropdown" style="width: 100%;">
 						<button class="sort-dropdown btn btn-light btn-sm dropdown-toggle"
 							type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							Sort: <span *ngIf="listSortField">{{listSortFieldDisplay}}</span>
-							<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up"></i>
-							<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down"></i>
+							Sort: <span *ngIf="listSortField && !viewHiddenFields.includes(listSortField)">{{listSortFieldDisplay}}
+									<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up"></i>
+									<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down"></i>
+							</span>
 						</button>
 						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('first_name', 'First Name', 'asc')">First_name<i class="fas fa-arrow-up"></i></a>
@@ -103,7 +112,7 @@
 	<div *ngIf="list.length > 0">
 
 	<div class="gridview" *ngIf="isShowListView('grid')">
-		<div class="grid-block" *ngFor="let detail of list;  let i = index">
+		<div class="grid-block" *ngFor="let detail of list;  let i = index; let list_index = index;">
 			<div class="card text-left h-100 clickable-card "
 				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
 				<div class="grid-fields pointer" (click)="onDetailLinkClicked(detail['_id'])" >
@@ -125,14 +134,14 @@
         </div>
       </div>
       <div class="card-body">
-          <div>
+          <div *ngIf="detail['email']">
             <div class="d-inline-block"><label>Email:</label></div>
             <div class="ml-3 d-inline-block">                
                     {{detail['email']}}
 
             </div>
           </div>
-          <div>
+          <div *ngIf="detail['grade']">
             <div class="d-inline-block"><label>Grade:</label></div>
             <div class="ml-3 d-inline-block">                  {{detail['grade']}} 
 
@@ -154,7 +163,7 @@
 
 
 	<div class="listview" *ngIf="isShowListView('list')">
-		<div class="list-block" *ngFor="let detail of list;  let i = index">
+		<div class="list-block" *ngFor="let detail of list;  let i = index; let list_index = index;">
 			<hr *ngIf="i==0" class="list-diverder">
 			<div class="list-card text-left clickable-card "
 				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
@@ -173,14 +182,14 @@
 
           </div>
         </h5>
-        <div class="mr-3 d-inline-block">
+        <div *ngIf="detail['email']" class="mr-3 d-inline-block">
           <div class="d-inline-block"><label>Email:</label></div>
           <div class="ml-3 d-inline-block">                
                     {{detail['email']}}
 
           </div>
         </div>
-        <div class="mr-3 d-inline-block">
+        <div *ngIf="detail['grade']" class="mr-3 d-inline-block">
           <div class="d-inline-block"><label>Grade:</label></div>
           <div class="ml-3 d-inline-block">                  {{detail['grade']}} 
 
@@ -237,7 +246,7 @@
 	    	</tr>
 	    </thead>
 	    <tbody>
-	        <tr *ngFor="let detail of list;  let i = index" [ngClass]="{'clicked-row': clickedId==detail['_id']}">
+	        <tr *ngFor="let detail of list;  let i = index; let list_index = index;" [ngClass]="{'clicked-row': clickedId==detail['_id']}">
 	            <td scope="row" (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
 	            	{{(page-1)*per_page+i+1}}
 	            </td>

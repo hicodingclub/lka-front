@@ -3,8 +3,8 @@ import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Injector } from '@angular/core';
 
-import { FaqComponent, ViewType } from '../faq.component';
-import { FaqService } from '../faq.service';
+import { ArticleComponent, ViewType } from '../article.component';
+import { ArticleService } from '../article.service';
 
 
 
@@ -12,12 +12,13 @@ import { QueryList, ViewChildren } from '@angular/core';
 import { MraRichTextShowDirective } from 'mean-rest-angular';
   
 @Component({
-  selector: 'app-faq-list',
-  templateUrl: './faq-list.component.html',
-  styleUrls: ['./faq-list.component.css']
+  selector: 'app-article-list',
+  templateUrl: './article-list.component.html',
+  styleUrls: ['./article-list.component.css']
 })
-export class FaqListComponent extends FaqComponent implements OnInit {
+export class ArticleListComponent extends ArticleComponent implements OnInit {
 
+  public minDate = {year: (new Date()).getFullYear() - 100, month: 1, day: 1};
 
   @Input()
   public searchObj:any;
@@ -28,27 +29,31 @@ export class FaqListComponent extends FaqComponent implements OnInit {
 
   constructor(
 
-      public faqService: FaqService,
+      public articleService: ArticleService,
       public injector: Injector,
       public router: Router,
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                faqService, injector, router, route, location, ViewType.LIST);
+                articleService, injector, router, route, location, ViewType.LIST);
 
 
-          this.stringFields.push('question');
-          this.stringFields.push('answer');
+          this.stringFields.push('signaturePicture');
+          this.stringFields.push('title');
+          this.stringFields.push('author');
+          this.stringFields.push('category');
+
+
+          this.dateFields = ['publishDate', ];
 
 
 
 
-
-
-          this.viewHiddenFields = ['order', ];
+          this.viewHiddenFields = ['category', ];
 
           this.listViewFilter = 'list';
-          this.setListSort('order', 'Order', 'asc');
+          this.setListSort('publishDate', 'Publish Date', 'desc');
+          this.categoryBy = 'category';
   }
 
   ngOnInit() {

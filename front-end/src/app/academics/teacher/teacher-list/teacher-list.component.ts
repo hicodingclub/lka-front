@@ -9,6 +9,7 @@ import { TeacherService } from '../teacher.service';
 
 import { ComponentFactoryResolver } from '@angular/core';
 
+  
 @Component({
   selector: 'app-teacher-list',
   templateUrl: './teacher-list.component.html',
@@ -19,6 +20,9 @@ export class TeacherListComponent extends TeacherComponent implements OnInit {
 
   @Input()
   public searchObj:any;
+  @Input()
+  public categoryBy:string; //field name whose value is used as category
+  
 
   constructor(
 public componentFactoryResolver: ComponentFactoryResolver,
@@ -45,12 +49,12 @@ public componentFactoryResolver: ComponentFactoryResolver,
 
 
           this.listViewFilter = 'grid';
-          // this is to initialize the detail that will be used for search condition selection
-          const detail = this.searchObj || {};
-          this.detail = this.formatDetail(detail);
   }
 
   ngOnInit() {
+      // this is to initialize the detail that will be used for search condition selection
+      const detail = this.searchObj || {};
+      this.detail = this.formatDetail(detail);
       this.populateList();
   }
 }

@@ -25,6 +25,11 @@ import { TermsDetailComponent } from './terms/terms-detail/terms-detail.componen
 
 
 
+import { ArticleListComponent } from './article/article-list/article-list.component';
+import { ArticleDetailComponent } from './article/article-detail/article-detail.component';
+
+
+
 
 import { AuthGuard } from 'mdds-angular-auth';
 
@@ -66,6 +71,14 @@ export const keynoteRoutingPath = [
 export const termsRoutingPath = [
     {path: 'list', component: TermsListComponent},
     {path: 'detail/:id', component: TermsDetailComponent},
+    
+    
+    {path: '**', redirectTo: 'list', pathMatch: 'full'}
+];
+
+export const articleRoutingPath = [
+    {path: 'list', component: ArticleListComponent},
+    {path: 'detail/:id', component: ArticleDetailComponent},
     
     
     {path: '**', redirectTo: 'list', pathMatch: 'full'}

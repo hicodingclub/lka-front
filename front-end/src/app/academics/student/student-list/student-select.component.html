@@ -46,6 +46,78 @@
 						<div class="card-body">
 	    <div class="single-line-edit">
 	      <div class="row">
+	        <div class="col-3"><label for="studentEditFirst_name">First Name</label></div>
+	        <div class="col-8">
+
+
+
+	        <input type="text" class="form-control" id="studentEditFirst_name" 
+		        	 
+	                [(ngModel)]="detail['first_name']" name="studentEditFirst_name"
+	                #studentEditFirst_name="ngModel">
+
+
+	      </div>
+	      
+	      <div class="col-1">
+		    <div class="icon-clear" (click)="clearValueFromDetail('first_name')"
+		        *ngIf="checkValueDefinedFromDetail('first_name')"
+		        ><i class="fas fa-times-circle" title="Clear"></i></div>
+	      </div>
+	    </div>
+      </div>
+      
+ 
+	    <div class="single-line-edit">
+	      <div class="row">
+	        <div class="col-3"><label for="studentEditLast_name">Last Name</label></div>
+	        <div class="col-8">
+
+
+
+	        <input type="text" class="form-control" id="studentEditLast_name" 
+		        	 
+	                [(ngModel)]="detail['last_name']" name="studentEditLast_name"
+	                #studentEditLast_name="ngModel">
+
+
+	      </div>
+	      
+	      <div class="col-1">
+		    <div class="icon-clear" (click)="clearValueFromDetail('last_name')"
+		        *ngIf="checkValueDefinedFromDetail('last_name')"
+		        ><i class="fas fa-times-circle" title="Clear"></i></div>
+	      </div>
+	    </div>
+      </div>
+      
+ 
+	    <div class="single-line-edit">
+	      <div class="row">
+	        <div class="col-3"><label for="studentEditEmail">Email</label></div>
+	        <div class="col-8">
+
+
+
+	        <input type="text" class="form-control" id="studentEditEmail" 
+		        	 
+	                [(ngModel)]="detail['email']" name="studentEditEmail"
+	                #studentEditEmail="ngModel">
+
+
+	      </div>
+	      
+	      <div class="col-1">
+		    <div class="icon-clear" (click)="clearValueFromDetail('email')"
+		        *ngIf="checkValueDefinedFromDetail('email')"
+		        ><i class="fas fa-times-circle" title="Clear"></i></div>
+	      </div>
+	    </div>
+      </div>
+      
+ 
+	    <div class="single-line-edit">
+	      <div class="row">
 	        <div class="col-3"><label for="studentEditGrade">Grade</label></div>
 	        <div class="col-8">
 

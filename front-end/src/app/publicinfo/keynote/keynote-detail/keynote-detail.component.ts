@@ -45,7 +45,6 @@ export class KeynoteDetailComponent extends KeynoteComponent implements OnInit {
 
 
 
-
   }
 
   ngOnInit() {

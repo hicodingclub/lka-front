@@ -3,18 +3,20 @@ import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
 
-import { StudentComponent, ViewType } from '../student.component';
-import { StudentService } from '../student.service';
+import { ArticleComponent, ViewType } from '../article.component';
+import { ArticleService } from '../article.service';
 
 
 
+import { QueryList, ViewChildren } from '@angular/core';
+import { MraRichTextShowDirective } from 'mean-rest-angular';
 
 @Component({
-  selector: 'app-student-detail',
-  templateUrl: './student-detail.component.html',
-  styleUrls: ['./student-detail.component.css']
+  selector: 'app-article-detail',
+  templateUrl: './article-detail.component.html',
+  styleUrls: ['./article-detail.component.css']
 })
-export class StudentDetailComponent extends StudentComponent implements OnInit {
+export class ArticleDetailComponent extends ArticleComponent implements OnInit {
   @Input() 
   public id:string;
   @Input()
@@ -23,24 +25,26 @@ export class StudentDetailComponent extends StudentComponent implements OnInit {
   public disableActionButtions:boolean;
 
 
+  @ViewChildren(MraRichTextShowDirective) textEditors: QueryList<MraRichTextShowDirective>;
 
   constructor(
       
-      public studentService: StudentService,
+      public articleService: ArticleService,
       public injector: Injector,
       public router: Router,
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                studentService, injector, router, route, location, ViewType.DETAIL);
+                articleService, injector, router, route, location, ViewType.DETAIL);
 
 
-          this.stringFields.push('first_name');
-          this.stringFields.push('last_name');
-          this.stringFields.push('email');
+          this.stringFields.push('signaturePicture');
+          this.stringFields.push('title');
+          this.stringFields.push('author');
+          this.stringFields.push('content');
 
 
-          this.dateFields = ['date_of_birth', ];
+          this.dateFields = ['publishDate', ];
 
 
 

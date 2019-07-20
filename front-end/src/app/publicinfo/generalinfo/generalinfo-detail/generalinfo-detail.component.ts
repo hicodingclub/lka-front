@@ -44,7 +44,6 @@ export class GeneralinfoDetailComponent extends GeneralinfoComponent implements 
 
 
 
-
   }
 
   ngOnInit() {

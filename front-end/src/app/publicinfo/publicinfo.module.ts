@@ -57,6 +57,13 @@ import { TermsDetailComponent } from './terms/terms-detail/terms-detail.componen
 
 import { TermsService } from './terms/terms.service';
 
+import { ArticleListComponent } from './article/article-list/article-list.component';
+import { ArticleListHomeComponent } from './article/article-list/article-list-home.component';
+
+import { ArticleDetailComponent } from './article/article-detail/article-detail.component';
+
+import { ArticleService } from './article/article.service';
+
 
 
 
@@ -101,6 +108,11 @@ import { TermsService } from './terms/terms.service';
     
     TermsDetailComponent,
     
+    ArticleListComponent,
+    ArticleListHomeComponent,
+    
+    ArticleDetailComponent,
+    
 
 
 
@@ -136,6 +148,11 @@ import { TermsService } from './terms/terms.service';
     
     TermsDetailComponent,
     
+    ArticleListComponent,
+    ArticleListHomeComponent,
+    
+    ArticleDetailComponent,
+    
 
 
   ],
@@ -149,6 +166,7 @@ import { TermsService } from './terms/terms.service';
     EventService,
     KeynoteService,
     TermsService,
+    ArticleService,
   ],
   entryComponents: [TermsDetailComponent,
   ]
