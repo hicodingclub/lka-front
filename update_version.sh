@@ -1,5 +1,4 @@
-#!/bin/sh
-
+#!/bin/sh 
 install="N"
 build="N"
 
@@ -47,7 +46,7 @@ packages=(
 )
 
 BASEDIR=$PWD
-folders=("." "front-end" "front-end-admin")
+folders=("front-end" "front-end-admin")
 
 number=0
 for fd in "${folders[@]}"
@@ -63,9 +62,7 @@ do
     rm -rf node_modules
     npm install
   fi
-  if [ $fd = "front-end" ] || [ $fd = "front-end-admin" ]; then
-    if [ $build = "Y" ]; then
-      npm run prod
-    fi
+  if [ $build = "Y" ]; then
+    npm run prod
   fi
 done

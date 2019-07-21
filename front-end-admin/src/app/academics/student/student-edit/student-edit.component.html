@@ -140,7 +140,7 @@
                     required
                     
                     
-                 
+                studentDirectiveEmail="" 
                     [(ngModel)]="detail['email']" name="EditEmail"
                     #EditEmail="ngModel">
                 <div *ngIf="detail['email']" 
@@ -155,7 +155,10 @@
             <div *ngIf="EditEmail.errors && EditEmail.errors.required">
               Email is required.
               </div>
- 
+
+            <div *ngIf="EditEmail.errors && EditEmail.errors.studentDirectiveEmail">
+                {{EditEmail.errors.studentDirectiveEmail}}
+              </div> 
 
           </div>
         
@@ -173,7 +176,7 @@
                     required
                     
                     
-                 
+                studentDirectivePhoneNumber="" 
                     [(ngModel)]="detail['phoneNumber']" name="EditPhoneNumber"
                     #EditPhoneNumber="ngModel">
                 <div *ngIf="detail['phoneNumber']" 
@@ -188,7 +191,10 @@
             <div *ngIf="EditPhoneNumber.errors && EditPhoneNumber.errors.required">
               PhoneNumber is required.
               </div>
- 
+
+            <div *ngIf="EditPhoneNumber.errors && EditPhoneNumber.errors.studentDirectivePhoneNumber">
+                {{EditPhoneNumber.errors.studentDirectivePhoneNumber}}
+              </div> 
 
           </div>
         
@@ -269,7 +275,7 @@
                     
                     
                     
-                 
+                studentDirectiveGuardianOnePhone="" 
                     [(ngModel)]="detail['GuardianOnePhone']" name="EditGuardianOnePhone"
                     #EditGuardianOnePhone="ngModel">
                 <div *ngIf="detail['GuardianOnePhone']" 
@@ -281,7 +287,10 @@
           <div [hidden]="EditGuardianOnePhone.valid || EditGuardianOnePhone.pristine || EditGuardianOnePhone.errors.minlength"
            class="alert alert-danger">
 
- 
+
+            <div *ngIf="EditGuardianOnePhone.errors && EditGuardianOnePhone.errors.studentDirectiveGuardianOnePhone">
+                {{EditGuardianOnePhone.errors.studentDirectiveGuardianOnePhone}}
+              </div> 
 
           </div>
         
@@ -299,7 +308,7 @@
                     
                     
                     
-                 
+                studentDirectiveGuardianOneEmail="" 
                     [(ngModel)]="detail['GuardianOneEmail']" name="EditGuardianOneEmail"
                     #EditGuardianOneEmail="ngModel">
                 <div *ngIf="detail['GuardianOneEmail']" 
@@ -311,7 +320,10 @@
           <div [hidden]="EditGuardianOneEmail.valid || EditGuardianOneEmail.pristine || EditGuardianOneEmail.errors.minlength"
            class="alert alert-danger">
 
- 
+
+            <div *ngIf="EditGuardianOneEmail.errors && EditGuardianOneEmail.errors.studentDirectiveGuardianOneEmail">
+                {{EditGuardianOneEmail.errors.studentDirectiveGuardianOneEmail}}
+              </div> 
 
           </div>
         
@@ -359,7 +371,7 @@
                     
                     
                     
-                 
+                studentDirectiveGuardianTwoPhone="" 
                     [(ngModel)]="detail['GuardianTwoPhone']" name="EditGuardianTwoPhone"
                     #EditGuardianTwoPhone="ngModel">
                 <div *ngIf="detail['GuardianTwoPhone']" 
@@ -371,7 +383,10 @@
           <div [hidden]="EditGuardianTwoPhone.valid || EditGuardianTwoPhone.pristine || EditGuardianTwoPhone.errors.minlength"
            class="alert alert-danger">
 
- 
+
+            <div *ngIf="EditGuardianTwoPhone.errors && EditGuardianTwoPhone.errors.studentDirectiveGuardianTwoPhone">
+                {{EditGuardianTwoPhone.errors.studentDirectiveGuardianTwoPhone}}
+              </div> 
 
           </div>
         
@@ -389,7 +404,7 @@
                     
                     
                     
-                 
+                studentDirectiveGuardianTwoEmail="" 
                     [(ngModel)]="detail['GuardianTwoEmail']" name="EditGuardianTwoEmail"
                     #EditGuardianTwoEmail="ngModel">
                 <div *ngIf="detail['GuardianTwoEmail']" 
@@ -401,7 +416,10 @@
           <div [hidden]="EditGuardianTwoEmail.valid || EditGuardianTwoEmail.pristine || EditGuardianTwoEmail.errors.minlength"
            class="alert alert-danger">
 
- 
+
+            <div *ngIf="EditGuardianTwoEmail.errors && EditGuardianTwoEmail.errors.studentDirectiveGuardianTwoEmail">
+                {{EditGuardianTwoEmail.errors.studentDirectiveGuardianTwoEmail}}
+              </div> 
 
           </div>
         
@@ -572,7 +590,7 @@
                     required
                     
                     
-                 
+                studentDirectiveEmail="" 
                     [(ngModel)]="detail['email']" name="EditEmail"
                     #EditEmail="ngModel">
                 <div *ngIf="detail['email']" 
@@ -587,7 +605,10 @@
             <div *ngIf="EditEmail.errors && EditEmail.errors.required">
               Email is required.
               </div>
- 
+
+            <div *ngIf="EditEmail.errors && EditEmail.errors.studentDirectiveEmail">
+                {{EditEmail.errors.studentDirectiveEmail}}
+              </div> 
 
           </div>
         
@@ -605,7 +626,7 @@
                     required
                     
                     
-                 
+                studentDirectivePhoneNumber="" 
                     [(ngModel)]="detail['phoneNumber']" name="EditPhoneNumber"
                     #EditPhoneNumber="ngModel">
                 <div *ngIf="detail['phoneNumber']" 
@@ -620,7 +641,10 @@
             <div *ngIf="EditPhoneNumber.errors && EditPhoneNumber.errors.required">
               PhoneNumber is required.
               </div>
- 
+
+            <div *ngIf="EditPhoneNumber.errors && EditPhoneNumber.errors.studentDirectivePhoneNumber">
+                {{EditPhoneNumber.errors.studentDirectivePhoneNumber}}
+              </div> 
 
           </div>
         
@@ -701,7 +725,7 @@
                     
                     
                     
-                 
+                studentDirectiveGuardianOnePhone="" 
                     [(ngModel)]="detail['GuardianOnePhone']" name="EditGuardianOnePhone"
                     #EditGuardianOnePhone="ngModel">
                 <div *ngIf="detail['GuardianOnePhone']" 
@@ -713,7 +737,10 @@
           <div [hidden]="EditGuardianOnePhone.valid || EditGuardianOnePhone.pristine || EditGuardianOnePhone.errors.minlength"
            class="alert alert-danger">
 
- 
+
+            <div *ngIf="EditGuardianOnePhone.errors && EditGuardianOnePhone.errors.studentDirectiveGuardianOnePhone">
+                {{EditGuardianOnePhone.errors.studentDirectiveGuardianOnePhone}}
+              </div> 
 
           </div>
         
@@ -731,7 +758,7 @@
                     
                     
                     
-                 
+                studentDirectiveGuardianOneEmail="" 
                     [(ngModel)]="detail['GuardianOneEmail']" name="EditGuardianOneEmail"
                     #EditGuardianOneEmail="ngModel">
                 <div *ngIf="detail['GuardianOneEmail']" 
@@ -743,7 +770,10 @@
           <div [hidden]="EditGuardianOneEmail.valid || EditGuardianOneEmail.pristine || EditGuardianOneEmail.errors.minlength"
            class="alert alert-danger">
 
- 
+
+            <div *ngIf="EditGuardianOneEmail.errors && EditGuardianOneEmail.errors.studentDirectiveGuardianOneEmail">
+                {{EditGuardianOneEmail.errors.studentDirectiveGuardianOneEmail}}
+              </div> 
 
           </div>
         
@@ -791,7 +821,7 @@
                     
                     
                     
-                 
+                studentDirectiveGuardianTwoPhone="" 
                     [(ngModel)]="detail['GuardianTwoPhone']" name="EditGuardianTwoPhone"
                     #EditGuardianTwoPhone="ngModel">
                 <div *ngIf="detail['GuardianTwoPhone']" 
@@ -803,7 +833,10 @@
           <div [hidden]="EditGuardianTwoPhone.valid || EditGuardianTwoPhone.pristine || EditGuardianTwoPhone.errors.minlength"
            class="alert alert-danger">
 
- 
+
+            <div *ngIf="EditGuardianTwoPhone.errors && EditGuardianTwoPhone.errors.studentDirectiveGuardianTwoPhone">
+                {{EditGuardianTwoPhone.errors.studentDirectiveGuardianTwoPhone}}
+              </div> 
 
           </div>
         
@@ -821,7 +854,7 @@
                     
                     
                     
-                 
+                studentDirectiveGuardianTwoEmail="" 
                     [(ngModel)]="detail['GuardianTwoEmail']" name="EditGuardianTwoEmail"
                     #EditGuardianTwoEmail="ngModel">
                 <div *ngIf="detail['GuardianTwoEmail']" 
@@ -833,7 +866,10 @@
           <div [hidden]="EditGuardianTwoEmail.valid || EditGuardianTwoEmail.pristine || EditGuardianTwoEmail.errors.minlength"
            class="alert alert-danger">
 
- 
+
+            <div *ngIf="EditGuardianTwoEmail.errors && EditGuardianTwoEmail.errors.studentDirectiveGuardianTwoEmail">
+                {{EditGuardianTwoEmail.errors.studentDirectiveGuardianTwoEmail}}
+              </div> 
 
           </div>
         

@@ -94,6 +94,12 @@ import { StudentclassDetailSubComponent } from './studentclass/studentclass-deta
 import { ClassenrollListSubComponent } from './classenroll/classenroll-list/classenroll-list-sub.component';
 import { ClassenrollDetailSubComponent } from './classenroll/classenroll-detail/classenroll-detail-sub.component';
 
+import { StudentDirectiveEmail } from './student/student-edit/student-edit.component';
+import { StudentDirectivePhoneNumber } from './student/student-edit/student-edit.component';
+import { StudentDirectiveGuardianOnePhone } from './student/student-edit/student-edit.component';
+import { StudentDirectiveGuardianOneEmail } from './student/student-edit/student-edit.component';
+import { StudentDirectiveGuardianTwoPhone } from './student/student-edit/student-edit.component';
+import { StudentDirectiveGuardianTwoEmail } from './student/student-edit/student-edit.component';
 
 @NgModule({
   imports: [
@@ -169,6 +175,12 @@ import { ClassenrollDetailSubComponent } from './classenroll/classenroll-detail/
     ClassenrollListSubComponent,
     ClassenrollDetailSubComponent,
 
+    StudentDirectiveEmail,
+    StudentDirectivePhoneNumber,
+    StudentDirectiveGuardianOnePhone,
+    StudentDirectiveGuardianOneEmail,
+    StudentDirectiveGuardianTwoPhone,
+    StudentDirectiveGuardianTwoEmail,
 
 
     DirectiveArrayRequired,
