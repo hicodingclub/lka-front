@@ -7,12 +7,15 @@
 var debug = require('debug')('lka:server');
 var http = require('http');
 
+require('dotenv').config()
 
 /**
  * Get port from environment and store in Express.
  */
 
 var port = normalizePort(process.env.PORT || '3000');
+var admin_port = process.env.ADMIN_PORT? normalizePort(process.env.ADMIN_PORT) : port + 1;
+var listening_address = process.env.LISTENING_ADDR || '0.0.0.0';
 
 /**
  * Create HTTP server.
@@ -26,7 +29,7 @@ var server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port);
+server.listen(port, listening_address);
 server.on('error', onError(port));
 server.on('listening', onListening(server));
 
@@ -35,7 +38,6 @@ server.on('listening', onListening(server));
  */
 var admin_app = require('../app-admin');
 
-var admin_port = port + 1; //3001
 admin_app.set('port', admin_port);
 
 /**
@@ -48,7 +50,7 @@ var admin_server = http.createServer(admin_app);
  * Listen on provided port, on all network interfaces.
  */
 
-admin_server.listen(admin_port);
+admin_server.listen(admin_port, listening_address);
 admin_server.on('error', onError(admin_port));
 admin_server.on('listening', onListening(admin_server));
 
@@ -113,8 +115,9 @@ function onListening(server) {
 	  var addr = server.address();
 	  var bind = typeof addr === 'string'
 	    ? 'pipe ' + addr
-	    : 'port ' + addr.port;
+	    : addr.address + ':' + addr.port;
 	  debug('Listening on ' + bind);
+	  console.log('Listening on ' + bind);
   }
   return onListeningFunc;
 }
