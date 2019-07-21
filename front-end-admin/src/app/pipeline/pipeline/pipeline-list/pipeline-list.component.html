@@ -42,30 +42,6 @@
 						<div class="card-body">
 	    <div class="single-line-edit">
 	      <div class="row">
-	        <div class="col-3"><label for="pipelineEditCategory">Category</label></div>
-	        <div class="col-8">
-
-
-
-	        <input type="text" class="form-control" id="pipelineEditCategory" 
-		        	 
-	                [(ngModel)]="detail['category']" name="pipelineEditCategory"
-	                #pipelineEditCategory="ngModel">
-
-
-	      </div>
-	      
-	      <div class="col-1">
-		    <div class="icon-clear" (click)="clearValueFromDetail('category')"
-		        *ngIf="checkValueDefinedFromDetail('category')"
-		        ><i class="fas fa-times-circle" title="Clear"></i></div>
-	      </div>
-	    </div>
-      </div>
-      
- 
-	    <div class="single-line-edit">
-	      <div class="row">
 	        <div class="col-3"><label for="pipelineEditCreatedAt">Created at</label></div>
 	        <div class="col-8">
 
@@ -105,30 +81,6 @@
 	      <div class="col-1">
 		    <div class="icon-clear" (click)="clearValueFromDetail('createdAt')"
 		        *ngIf="checkValueDefinedFromDetail('createdAt')"
-		        ><i class="fas fa-times-circle" title="Clear"></i></div>
-	      </div>
-	    </div>
-      </div>
-      
- 
-	    <div class="single-line-edit">
-	      <div class="row">
-	        <div class="col-3"><label for="pipelineEditMuser_id">Muser Id</label></div>
-	        <div class="col-8">
-
-
-
-	        <input type="text" class="form-control" id="pipelineEditMuser_id" 
-		        	 
-	                [(ngModel)]="detail['muser_id']" name="pipelineEditMuser_id"
-	                #pipelineEditMuser_id="ngModel">
-
-
-	      </div>
-	      
-	      <div class="col-1">
-		    <div class="icon-clear" (click)="clearValueFromDetail('muser_id')"
-		        *ngIf="checkValueDefinedFromDetail('muser_id')"
 		        ><i class="fas fa-times-circle" title="Clear"></i></div>
 	      </div>
 	    </div>

@@ -92,30 +92,6 @@
       </div>
       
  
-	    <div class="single-line-edit">
-	      <div class="row">
-	        <div class="col-3"><label for="mpubaccessEditModulePermission">Module Permission</label></div>
-	        <div class="col-8">
-
-
-
-	        <input type="text" class="form-control" id="mpubaccessEditModulePermission" 
-		        	 
-	                [(ngModel)]="detail['modulePermission']" name="mpubaccessEditModulePermission"
-	                #mpubaccessEditModulePermission="ngModel">
-
-
-	      </div>
-	      
-	      <div class="col-1">
-		    <div class="icon-clear" (click)="clearValueFromDetail('modulePermission')"
-		        *ngIf="checkValueDefinedFromDetail('modulePermission')"
-		        ><i class="fas fa-times-circle" title="Clear"></i></div>
-	      </div>
-	    </div>
-      </div>
-      
- 
 
 						  <div class="action-buttons" style="margin-top: 10px;">
 								<button type="button" class="btn btn-outline-success" (click)="onSearchClear()">Reset</button>

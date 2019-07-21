@@ -97,60 +97,6 @@
  
 	    <div class="single-line-edit">
 	      <div class="row">
-	        <div class="col-3"><label for="classenrollEditStatus">Status</label></div>
-	        <div class="col-8">
-
-
-
-
-	          <div class="form-check-inline">
-		        <input type="radio" name="classenrollEditStatus" 
-		        	class="form-check-input"
-					id="classenrollEditStatusprocessing" [value]="'processing'"
-					[(ngModel)]="detail['status']"
-		        	#classenrollEditStatus="ngModel">
-		      	<span class="form-check-label">processing</span>
-
-	          <div class="form-check-inline">
-		        <input type="radio" name="classenrollEditStatus" 
-		        	class="form-check-input"
-					id="classenrollEditStatuspayed" [value]="'payed'"
-					[(ngModel)]="detail['status']"
-		        	#classenrollEditStatus="ngModel">
-		      	<span class="form-check-label">payed</span>
-
-	          <div class="form-check-inline">
-		        <input type="radio" name="classenrollEditStatus" 
-		        	class="form-check-input"
-					id="classenrollEditStatusconfirmed" [value]="'confirmed'"
-					[(ngModel)]="detail['status']"
-		        	#classenrollEditStatus="ngModel">
-		      	<span class="form-check-label">confirmed</span>
-
-	          <div class="form-check-inline">
-		        <input type="radio" name="classenrollEditStatus" 
-		        	class="form-check-input"
-					id="classenrollEditStatuscancelled" [value]="'cancelled'"
-					[(ngModel)]="detail['status']"
-		        	#classenrollEditStatus="ngModel">
-		      	<span class="form-check-label">cancelled</span>
-
-		    </div>
-
-
-	      </div>
-	      
-	      <div class="col-1">
-		    <div class="icon-clear" (click)="clearValueFromDetail('status')"
-		        *ngIf="checkValueDefinedFromDetail('status')"
-		        ><i class="fas fa-times-circle" title="Clear"></i></div>
-	      </div>
-	    </div>
-      </div>
-      
- 
-	    <div class="single-line-edit">
-	      <div class="row">
 	        <div class="col-3"><label for="classenrollEditCreatedAt">Created At</label></div>
 	        <div class="col-8">
 

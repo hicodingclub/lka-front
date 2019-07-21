@@ -42,78 +42,6 @@
 						<div class="card-body">
 	    <div class="single-line-edit">
 	      <div class="row">
-	        <div class="col-3"><label for="maccountEditUsername">Username</label></div>
-	        <div class="col-8">
-
-
-
-	        <input type="text" class="form-control" id="maccountEditUsername" 
-		        	 
-	                [(ngModel)]="detail['username']" name="maccountEditUsername"
-	                #maccountEditUsername="ngModel">
-
-
-	      </div>
-	      
-	      <div class="col-1">
-		    <div class="icon-clear" (click)="clearValueFromDetail('username')"
-		        *ngIf="checkValueDefinedFromDetail('username')"
-		        ><i class="fas fa-times-circle" title="Clear"></i></div>
-	      </div>
-	    </div>
-      </div>
-      
- 
-	    <div class="single-line-edit">
-	      <div class="row">
-	        <div class="col-3"><label for="maccountEditEmail">Email</label></div>
-	        <div class="col-8">
-
-
-
-	        <input type="text" class="form-control" id="maccountEditEmail" 
-		        	 
-	                [(ngModel)]="detail['email']" name="maccountEditEmail"
-	                #maccountEditEmail="ngModel">
-
-
-	      </div>
-	      
-	      <div class="col-1">
-		    <div class="icon-clear" (click)="clearValueFromDetail('email')"
-		        *ngIf="checkValueDefinedFromDetail('email')"
-		        ><i class="fas fa-times-circle" title="Clear"></i></div>
-	      </div>
-	    </div>
-      </div>
-      
- 
-	    <div class="single-line-edit">
-	      <div class="row">
-	        <div class="col-3"><label for="maccountEditPhone">Phone</label></div>
-	        <div class="col-8">
-
-
-
-	        <input type="text" class="form-control" id="maccountEditPhone" 
-		        	 
-	                [(ngModel)]="detail['phone']" name="maccountEditPhone"
-	                #maccountEditPhone="ngModel">
-
-
-	      </div>
-	      
-	      <div class="col-1">
-		    <div class="icon-clear" (click)="clearValueFromDetail('phone')"
-		        *ngIf="checkValueDefinedFromDetail('phone')"
-		        ><i class="fas fa-times-circle" title="Clear"></i></div>
-	      </div>
-	    </div>
-      </div>
-      
- 
-	    <div class="single-line-edit">
-	      <div class="row">
 	        <div class="col-3"><label for="maccountEditSince">Since</label></div>
 	        <div class="col-8">
 
@@ -153,52 +81,6 @@
 	      <div class="col-1">
 		    <div class="icon-clear" (click)="clearValueFromDetail('since')"
 		        *ngIf="checkValueDefinedFromDetail('since')"
-		        ><i class="fas fa-times-circle" title="Clear"></i></div>
-	      </div>
-	    </div>
-      </div>
-      
- 
-	    <div class="single-line-edit">
-	      <div class="row">
-	        <div class="col-3"><label for="maccountEditStatus">Status</label></div>
-	        <div class="col-8">
-
-
-
-
-	          <div class="form-check-inline">
-		        <input type="radio" name="maccountEditStatus" 
-		        	class="form-check-input"
-					id="maccountEditStatusEnabled" [value]="'Enabled'"
-					[(ngModel)]="detail['status']"
-		        	#maccountEditStatus="ngModel">
-		      	<span class="form-check-label">Enabled</span>
-
-	          <div class="form-check-inline">
-		        <input type="radio" name="maccountEditStatus" 
-		        	class="form-check-input"
-					id="maccountEditStatusDisabled" [value]="'Disabled'"
-					[(ngModel)]="detail['status']"
-		        	#maccountEditStatus="ngModel">
-		      	<span class="form-check-label">Disabled</span>
-
-	          <div class="form-check-inline">
-		        <input type="radio" name="maccountEditStatus" 
-		        	class="form-check-input"
-					id="maccountEditStatusPending" [value]="'Pending'"
-					[(ngModel)]="detail['status']"
-		        	#maccountEditStatus="ngModel">
-		      	<span class="form-check-label">Pending</span>
-
-		    </div>
-
-
-	      </div>
-	      
-	      <div class="col-1">
-		    <div class="icon-clear" (click)="clearValueFromDetail('status')"
-		        *ngIf="checkValueDefinedFromDetail('status')"
 		        ><i class="fas fa-times-circle" title="Clear"></i></div>
 	      </div>
 	    </div>

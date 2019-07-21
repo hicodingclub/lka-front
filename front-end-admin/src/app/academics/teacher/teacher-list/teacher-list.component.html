@@ -16,7 +16,7 @@
 	              <input type="search" class="form-control border border-secondary" id="teacherTextSearch" 
 						#teacherTextSearch [(ngModel)]="searchText"
 						(keyup.enter)="$event.target.blur();searchList();false"
-					    placeholder="Search for firstName, lastName, introduction, photo"> 
+					    placeholder="Search for firstName, lastName, introduction"> 
 				  <div *ngIf="searchText" class="input-group-append icon-clear-inside">
 					<span >
 					    <i class="fas fa-times-circle" (click)="onSearchTextClear()" title="Clear"></i>
@@ -42,54 +42,6 @@
 						<div class="card-body">
 	    <div class="single-line-edit">
 	      <div class="row">
-	        <div class="col-3"><label for="teacherEditFirstName">First Name</label></div>
-	        <div class="col-8">
-
-
-
-	        <input type="text" class="form-control" id="teacherEditFirstName" 
-		        	 
-	                [(ngModel)]="detail['firstName']" name="teacherEditFirstName"
-	                #teacherEditFirstName="ngModel">
-
-
-	      </div>
-	      
-	      <div class="col-1">
-		    <div class="icon-clear" (click)="clearValueFromDetail('firstName')"
-		        *ngIf="checkValueDefinedFromDetail('firstName')"
-		        ><i class="fas fa-times-circle" title="Clear"></i></div>
-	      </div>
-	    </div>
-      </div>
-      
- 
-	    <div class="single-line-edit">
-	      <div class="row">
-	        <div class="col-3"><label for="teacherEditLastName">Last Name</label></div>
-	        <div class="col-8">
-
-
-
-	        <input type="text" class="form-control" id="teacherEditLastName" 
-		        	 
-	                [(ngModel)]="detail['lastName']" name="teacherEditLastName"
-	                #teacherEditLastName="ngModel">
-
-
-	      </div>
-	      
-	      <div class="col-1">
-		    <div class="icon-clear" (click)="clearValueFromDetail('lastName')"
-		        *ngIf="checkValueDefinedFromDetail('lastName')"
-		        ><i class="fas fa-times-circle" title="Clear"></i></div>
-	      </div>
-	    </div>
-      </div>
-      
- 
-	    <div class="single-line-edit">
-	      <div class="row">
 	        <div class="col-3"><label for="teacherEditCourses">Courses</label></div>
 	        <div class="col-8">
 
@@ -108,54 +60,6 @@
 	      <div class="col-1">
 		    <div class="icon-clear" (click)="clearValueFromDetail('courses')"
 		        *ngIf="checkValueDefinedFromDetail('courses')"
-		        ><i class="fas fa-times-circle" title="Clear"></i></div>
-	      </div>
-	    </div>
-      </div>
-      
- 
-	    <div class="single-line-edit">
-	      <div class="row">
-	        <div class="col-3"><label for="teacherEditIntroduction">Introduction</label></div>
-	        <div class="col-8">
-
-
-
-	        <input type="text" class="form-control" id="teacherEditIntroduction" 
-		        	 
-	                [(ngModel)]="detail['introduction']" name="teacherEditIntroduction"
-	                #teacherEditIntroduction="ngModel">
-
-
-	      </div>
-	      
-	      <div class="col-1">
-		    <div class="icon-clear" (click)="clearValueFromDetail('introduction')"
-		        *ngIf="checkValueDefinedFromDetail('introduction')"
-		        ><i class="fas fa-times-circle" title="Clear"></i></div>
-	      </div>
-	    </div>
-      </div>
-      
- 
-	    <div class="single-line-edit">
-	      <div class="row">
-	        <div class="col-3"><label for="teacherEditPhoto">Photo</label></div>
-	        <div class="col-8">
-
-
-
-	        <input type="text" class="form-control" id="teacherEditPhoto" 
-		        	 
-	                [(ngModel)]="detail['photo']" name="teacherEditPhoto"
-	                #teacherEditPhoto="ngModel">
-
-
-	      </div>
-	      
-	      <div class="col-1">
-		    <div class="icon-clear" (click)="clearValueFromDetail('photo')"
-		        *ngIf="checkValueDefinedFromDetail('photo')"
 		        ><i class="fas fa-times-circle" title="Clear"></i></div>
 	      </div>
 	    </div>
