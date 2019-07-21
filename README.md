@@ -12,7 +12,11 @@ PORT=3000
 ADMIN_PORT=3001
 LISTENING_ADDR=0.0.0.0
 
-MONGODB_URL=<your mongodb url> 
+MONGODB_URL=<your mongodb url>
+
+# Log levels: error, warn, info, verbose, debug, silly
+CONSOLE_LOG_LEVEL=debug
+FILE_LOG_LEVEL=warn
 ```
 
 An example of the MONGODB_URL is: 
@@ -32,4 +36,6 @@ LISTENING_ADDR=0.0.0.0
 
 MONGODB_URL=<your mongodb url>
 
+CONSOLE_LOG_LEVEL=warn
+FILE_LOG_LEVEL=warn
 ```
