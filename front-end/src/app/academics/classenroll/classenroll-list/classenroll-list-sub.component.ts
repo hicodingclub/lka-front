@@ -19,6 +19,8 @@ export class ClassenrollListSubComponent extends ClassenrollListComponent implem
       public route: ActivatedRoute,
       public location: Location) {
         super(null, classenrollService, injector, router, route, location);
+
+        this.categoryBy = undefined; // no do query based on category for sub view;
   }
 
   ngOnInit() {

@@ -19,6 +19,8 @@ export class MaccountroleListSubComponent extends MaccountroleListComponent impl
       public route: ActivatedRoute,
       public location: Location) {
         super(null, maccountroleService, injector, router, route, location);
+
+        this.categoryBy = undefined; // no do query based on category for sub view;
   }
 
   ngOnInit() {

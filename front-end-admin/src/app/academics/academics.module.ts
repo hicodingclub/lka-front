@@ -6,7 +6,6 @@ import { FormsModule } from '@angular/forms';
 import { NgbModule, NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
 import { MraNgbDateFormatterService } from './academics.directive';
 
-import { DirectiveMultiSelectionRequired } from './academics.directive';
 
 import { DirectiveArrayRequired } from './academics.directive';
 
@@ -171,7 +170,6 @@ import { ClassenrollDetailSubComponent } from './classenroll/classenroll-detail/
     ClassenrollDetailSubComponent,
 
 
-    DirectiveMultiSelectionRequired,
 
     DirectiveArrayRequired,
 

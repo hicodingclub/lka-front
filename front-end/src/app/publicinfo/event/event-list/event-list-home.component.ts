@@ -20,6 +20,7 @@ export class EventListHomeComponent extends EventListComponent implements OnInit
       public location: Location) {
         super( eventService, injector, router, route, location);
         this.per_page = 3;
+        this.categoryBy = undefined; // no do query based on category for home view;
   }
 
   ngOnInit() {

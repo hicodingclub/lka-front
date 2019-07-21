@@ -38,6 +38,7 @@ export class ClassenrollDetailComponent extends ClassenrollComponent implements 
           this.enums['status'] = ['processing', 'payed', 'confirmed', 'cancelled', ];
 
           this.stringFields.push('status');
+          this.stringFields.push('muser_id');
 
           this.referenceFields = ['class', ];
           this.referenceFieldsMap = {'class': 'class',};

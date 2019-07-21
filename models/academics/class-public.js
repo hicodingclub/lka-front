@@ -1,7 +1,7 @@
 const schema = require('./class');
 
 var brief = "title course startTime endTime dayOfWeek";
-var detail = "title | description | course price  | teacher | startTime endTime | dayOfWeek";
+var detail = "title | description | course price  | teacher | startTime endTime | duration | dayOfWeek timeSlot";
 var creat = "title course description teacher price startTime endTime dayOfWeek hot";
 var edit = "title course description teacher price startTime endTime dayOfWeek hot";
 var textSearch = "title teacher course";

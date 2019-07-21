@@ -49,6 +49,8 @@ export class ClassEditComponent extends ClassComponent implements OnInit {
           this.stringFields.push('title');
           this.stringFields.push('description');
           this.stringFields.push('price');
+          this.stringFields.push('duration');
+          this.stringFields.push('timeSlot');
 
           this.referenceFields = ['course', 'teacher', ];
           this.referenceFieldsMap = {'course': 'course','teacher': 'teacher',};

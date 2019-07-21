@@ -105,6 +105,30 @@
           </div>
         </fieldset>
     
+</div><div *ngIf="!hiddenFields.includes('grade')">
+
+        <fieldset class="form-group">
+          <label for="EditGrade">Grade</label>
+          
+          <input type="number" class="form-control" id="EditGrade" 
+                  
+                  
+                  required
+               
+                  [(ngModel)]="detail['grade']" name="EditGrade"
+                  #EditGrade="ngModel">
+          <div [hidden]="EditGrade.valid || EditGrade.pristine || EditGrade.errors.minnumber"
+           class="alert alert-danger">
+
+            <div *ngIf="EditGrade.errors && EditGrade.errors.required">
+              Grade is required.
+              </div>
+ 
+
+          </div>
+
+        </fieldset>
+    
 </div><div *ngIf="!hiddenFields.includes('email')">
 
         <fieldset class="form-group">
@@ -138,29 +162,281 @@
         </fieldset>
 
     
-</div><div *ngIf="!hiddenFields.includes('grade')">
+</div><div *ngIf="!hiddenFields.includes('phoneNumber')">
 
         <fieldset class="form-group">
-          <label for="EditGrade">Grade</label>
+          <label for="EditPhoneNumber">Phone Number</label>
           
-          <input type="number" class="form-control" id="EditGrade" 
-                  
-                  
-                  required
-               
-                  [(ngModel)]="detail['grade']" name="EditGrade"
-                  #EditGrade="ngModel">
-          <div [hidden]="EditGrade.valid || EditGrade.pristine || EditGrade.errors.minnumber"
+
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditPhoneNumber" 
+                    required
+                    
+                    
+                 
+                    [(ngModel)]="detail['phoneNumber']" name="EditPhoneNumber"
+                    #EditPhoneNumber="ngModel">
+                <div *ngIf="detail['phoneNumber']" 
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('phoneNumber')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+          </div>
+
+          <div [hidden]="EditPhoneNumber.valid || EditPhoneNumber.pristine || EditPhoneNumber.errors.minlength"
            class="alert alert-danger">
 
-            <div *ngIf="EditGrade.errors && EditGrade.errors.required">
-              Grade is required.
+            <div *ngIf="EditPhoneNumber.errors && EditPhoneNumber.errors.required">
+              PhoneNumber is required.
               </div>
  
 
           </div>
-
+        
         </fieldset>
+
+    
+</div><div *ngIf="!hiddenFields.includes('school')">
+
+        <fieldset class="form-group">
+          <label for="EditSchool">School</label>
+          
+
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditSchool" 
+                    required
+                    
+                    
+                 
+                    [(ngModel)]="detail['school']" name="EditSchool"
+                    #EditSchool="ngModel">
+                <div *ngIf="detail['school']" 
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('school')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+          </div>
+
+          <div [hidden]="EditSchool.valid || EditSchool.pristine || EditSchool.errors.minlength"
+           class="alert alert-danger">
+
+            <div *ngIf="EditSchool.errors && EditSchool.errors.required">
+              School is required.
+              </div>
+ 
+
+          </div>
+        
+        </fieldset>
+
+    
+</div><div *ngIf="!hiddenFields.includes('GuardianOneName')">
+
+        <fieldset class="form-group">
+          <label for="EditGuardianOneName">Guardian One Name</label>
+          
+
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditGuardianOneName" 
+                    
+                    
+                    
+                 
+                    [(ngModel)]="detail['GuardianOneName']" name="EditGuardianOneName"
+                    #EditGuardianOneName="ngModel">
+                <div *ngIf="detail['GuardianOneName']" 
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('GuardianOneName')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+          </div>
+
+          <div [hidden]="EditGuardianOneName.valid || EditGuardianOneName.pristine || EditGuardianOneName.errors.minlength"
+           class="alert alert-danger">
+
+ 
+
+          </div>
+        
+        </fieldset>
+
+    
+</div><div *ngIf="!hiddenFields.includes('GuardianOnePhone')">
+
+        <fieldset class="form-group">
+          <label for="EditGuardianOnePhone">Guardian One Phone</label>
+          
+
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditGuardianOnePhone" 
+                    
+                    
+                    
+                 
+                    [(ngModel)]="detail['GuardianOnePhone']" name="EditGuardianOnePhone"
+                    #EditGuardianOnePhone="ngModel">
+                <div *ngIf="detail['GuardianOnePhone']" 
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('GuardianOnePhone')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+          </div>
+
+          <div [hidden]="EditGuardianOnePhone.valid || EditGuardianOnePhone.pristine || EditGuardianOnePhone.errors.minlength"
+           class="alert alert-danger">
+
+ 
+
+          </div>
+        
+        </fieldset>
+
+    
+</div><div *ngIf="!hiddenFields.includes('GuardianOneEmail')">
+
+        <fieldset class="form-group">
+          <label for="EditGuardianOneEmail">Guardian One Email</label>
+          
+
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditGuardianOneEmail" 
+                    
+                    
+                    
+                 
+                    [(ngModel)]="detail['GuardianOneEmail']" name="EditGuardianOneEmail"
+                    #EditGuardianOneEmail="ngModel">
+                <div *ngIf="detail['GuardianOneEmail']" 
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('GuardianOneEmail')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+          </div>
+
+          <div [hidden]="EditGuardianOneEmail.valid || EditGuardianOneEmail.pristine || EditGuardianOneEmail.errors.minlength"
+           class="alert alert-danger">
+
+ 
+
+          </div>
+        
+        </fieldset>
+
+    
+</div><div *ngIf="!hiddenFields.includes('GuardianTwoName')">
+
+        <fieldset class="form-group">
+          <label for="EditGuardianTwoName">Guardian Two Name</label>
+          
+
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditGuardianTwoName" 
+                    
+                    
+                    
+                 
+                    [(ngModel)]="detail['GuardianTwoName']" name="EditGuardianTwoName"
+                    #EditGuardianTwoName="ngModel">
+                <div *ngIf="detail['GuardianTwoName']" 
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('GuardianTwoName')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+          </div>
+
+          <div [hidden]="EditGuardianTwoName.valid || EditGuardianTwoName.pristine || EditGuardianTwoName.errors.minlength"
+           class="alert alert-danger">
+
+ 
+
+          </div>
+        
+        </fieldset>
+
+    
+</div><div *ngIf="!hiddenFields.includes('GuardianTwoPhone')">
+
+        <fieldset class="form-group">
+          <label for="EditGuardianTwoPhone">Guardian Two Phone</label>
+          
+
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditGuardianTwoPhone" 
+                    
+                    
+                    
+                 
+                    [(ngModel)]="detail['GuardianTwoPhone']" name="EditGuardianTwoPhone"
+                    #EditGuardianTwoPhone="ngModel">
+                <div *ngIf="detail['GuardianTwoPhone']" 
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('GuardianTwoPhone')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+          </div>
+
+          <div [hidden]="EditGuardianTwoPhone.valid || EditGuardianTwoPhone.pristine || EditGuardianTwoPhone.errors.minlength"
+           class="alert alert-danger">
+
+ 
+
+          </div>
+        
+        </fieldset>
+
+    
+</div><div *ngIf="!hiddenFields.includes('GuardianTwoEmail')">
+
+        <fieldset class="form-group">
+          <label for="EditGuardianTwoEmail">Guardian Two Email</label>
+          
+
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditGuardianTwoEmail" 
+                    
+                    
+                    
+                 
+                    [(ngModel)]="detail['GuardianTwoEmail']" name="EditGuardianTwoEmail"
+                    #EditGuardianTwoEmail="ngModel">
+                <div *ngIf="detail['GuardianTwoEmail']" 
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('GuardianTwoEmail')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+          </div>
+
+          <div [hidden]="EditGuardianTwoEmail.valid || EditGuardianTwoEmail.pristine || EditGuardianTwoEmail.errors.minlength"
+           class="alert alert-danger">
+
+ 
+
+          </div>
+        
+        </fieldset>
+
+    
+</div><div *ngIf="!hiddenFields.includes('muser_id')">
+
+        <fieldset class="form-group">
+          <label for="EditMuser_id">Muser Id</label>
+          
+
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditMuser_id" 
+                    
+                    
+                    
+                 
+                    [(ngModel)]="detail['muser_id']" name="EditMuser_id"
+                    #EditMuser_id="ngModel">
+                <div *ngIf="detail['muser_id']" 
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('muser_id')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+          </div>
+
+          <div [hidden]="EditMuser_id.valid || EditMuser_id.pristine || EditMuser_id.errors.minlength"
+           class="alert alert-danger">
+
+ 
+
+          </div>
+        
+        </fieldset>
+
     
 </div>
          </div>	
@@ -261,6 +537,30 @@
           </div>
         </fieldset>
     
+</div><div *ngIf="!hiddenFields.includes('grade')">
+
+        <fieldset class="form-group">
+          <label for="EditGrade">Grade</label>
+          
+          <input type="number" class="form-control" id="EditGrade" 
+                  
+                  
+                  required
+               
+                  [(ngModel)]="detail['grade']" name="EditGrade"
+                  #EditGrade="ngModel">
+          <div [hidden]="EditGrade.valid || EditGrade.pristine || EditGrade.errors.minnumber"
+           class="alert alert-danger">
+
+            <div *ngIf="EditGrade.errors && EditGrade.errors.required">
+              Grade is required.
+              </div>
+ 
+
+          </div>
+
+        </fieldset>
+    
 </div><div *ngIf="!hiddenFields.includes('email')">
 
         <fieldset class="form-group">
@@ -294,29 +594,251 @@
         </fieldset>
 
     
-</div><div *ngIf="!hiddenFields.includes('grade')">
+</div><div *ngIf="!hiddenFields.includes('phoneNumber')">
 
         <fieldset class="form-group">
-          <label for="EditGrade">Grade</label>
+          <label for="EditPhoneNumber">Phone Number</label>
           
-          <input type="number" class="form-control" id="EditGrade" 
-                  
-                  
-                  required
-               
-                  [(ngModel)]="detail['grade']" name="EditGrade"
-                  #EditGrade="ngModel">
-          <div [hidden]="EditGrade.valid || EditGrade.pristine || EditGrade.errors.minnumber"
+
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditPhoneNumber" 
+                    required
+                    
+                    
+                 
+                    [(ngModel)]="detail['phoneNumber']" name="EditPhoneNumber"
+                    #EditPhoneNumber="ngModel">
+                <div *ngIf="detail['phoneNumber']" 
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('phoneNumber')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+          </div>
+
+          <div [hidden]="EditPhoneNumber.valid || EditPhoneNumber.pristine || EditPhoneNumber.errors.minlength"
            class="alert alert-danger">
 
-            <div *ngIf="EditGrade.errors && EditGrade.errors.required">
-              Grade is required.
+            <div *ngIf="EditPhoneNumber.errors && EditPhoneNumber.errors.required">
+              PhoneNumber is required.
               </div>
  
 
           </div>
-
+        
         </fieldset>
+
+    
+</div><div *ngIf="!hiddenFields.includes('school')">
+
+        <fieldset class="form-group">
+          <label for="EditSchool">School</label>
+          
+
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditSchool" 
+                    required
+                    
+                    
+                 
+                    [(ngModel)]="detail['school']" name="EditSchool"
+                    #EditSchool="ngModel">
+                <div *ngIf="detail['school']" 
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('school')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+          </div>
+
+          <div [hidden]="EditSchool.valid || EditSchool.pristine || EditSchool.errors.minlength"
+           class="alert alert-danger">
+
+            <div *ngIf="EditSchool.errors && EditSchool.errors.required">
+              School is required.
+              </div>
+ 
+
+          </div>
+        
+        </fieldset>
+
+    
+</div><div *ngIf="!hiddenFields.includes('GuardianOneName')">
+
+        <fieldset class="form-group">
+          <label for="EditGuardianOneName">Guardian One Name</label>
+          
+
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditGuardianOneName" 
+                    
+                    
+                    
+                 
+                    [(ngModel)]="detail['GuardianOneName']" name="EditGuardianOneName"
+                    #EditGuardianOneName="ngModel">
+                <div *ngIf="detail['GuardianOneName']" 
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('GuardianOneName')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+          </div>
+
+          <div [hidden]="EditGuardianOneName.valid || EditGuardianOneName.pristine || EditGuardianOneName.errors.minlength"
+           class="alert alert-danger">
+
+ 
+
+          </div>
+        
+        </fieldset>
+
+    
+</div><div *ngIf="!hiddenFields.includes('GuardianOnePhone')">
+
+        <fieldset class="form-group">
+          <label for="EditGuardianOnePhone">Guardian One Phone</label>
+          
+
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditGuardianOnePhone" 
+                    
+                    
+                    
+                 
+                    [(ngModel)]="detail['GuardianOnePhone']" name="EditGuardianOnePhone"
+                    #EditGuardianOnePhone="ngModel">
+                <div *ngIf="detail['GuardianOnePhone']" 
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('GuardianOnePhone')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+          </div>
+
+          <div [hidden]="EditGuardianOnePhone.valid || EditGuardianOnePhone.pristine || EditGuardianOnePhone.errors.minlength"
+           class="alert alert-danger">
+
+ 
+
+          </div>
+        
+        </fieldset>
+
+    
+</div><div *ngIf="!hiddenFields.includes('GuardianOneEmail')">
+
+        <fieldset class="form-group">
+          <label for="EditGuardianOneEmail">Guardian One Email</label>
+          
+
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditGuardianOneEmail" 
+                    
+                    
+                    
+                 
+                    [(ngModel)]="detail['GuardianOneEmail']" name="EditGuardianOneEmail"
+                    #EditGuardianOneEmail="ngModel">
+                <div *ngIf="detail['GuardianOneEmail']" 
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('GuardianOneEmail')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+          </div>
+
+          <div [hidden]="EditGuardianOneEmail.valid || EditGuardianOneEmail.pristine || EditGuardianOneEmail.errors.minlength"
+           class="alert alert-danger">
+
+ 
+
+          </div>
+        
+        </fieldset>
+
+    
+</div><div *ngIf="!hiddenFields.includes('GuardianTwoName')">
+
+        <fieldset class="form-group">
+          <label for="EditGuardianTwoName">Guardian Two Name</label>
+          
+
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditGuardianTwoName" 
+                    
+                    
+                    
+                 
+                    [(ngModel)]="detail['GuardianTwoName']" name="EditGuardianTwoName"
+                    #EditGuardianTwoName="ngModel">
+                <div *ngIf="detail['GuardianTwoName']" 
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('GuardianTwoName')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+          </div>
+
+          <div [hidden]="EditGuardianTwoName.valid || EditGuardianTwoName.pristine || EditGuardianTwoName.errors.minlength"
+           class="alert alert-danger">
+
+ 
+
+          </div>
+        
+        </fieldset>
+
+    
+</div><div *ngIf="!hiddenFields.includes('GuardianTwoPhone')">
+
+        <fieldset class="form-group">
+          <label for="EditGuardianTwoPhone">Guardian Two Phone</label>
+          
+
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditGuardianTwoPhone" 
+                    
+                    
+                    
+                 
+                    [(ngModel)]="detail['GuardianTwoPhone']" name="EditGuardianTwoPhone"
+                    #EditGuardianTwoPhone="ngModel">
+                <div *ngIf="detail['GuardianTwoPhone']" 
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('GuardianTwoPhone')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+          </div>
+
+          <div [hidden]="EditGuardianTwoPhone.valid || EditGuardianTwoPhone.pristine || EditGuardianTwoPhone.errors.minlength"
+           class="alert alert-danger">
+
+ 
+
+          </div>
+        
+        </fieldset>
+
+    
+</div><div *ngIf="!hiddenFields.includes('GuardianTwoEmail')">
+
+        <fieldset class="form-group">
+          <label for="EditGuardianTwoEmail">Guardian Two Email</label>
+          
+
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditGuardianTwoEmail" 
+                    
+                    
+                    
+                 
+                    [(ngModel)]="detail['GuardianTwoEmail']" name="EditGuardianTwoEmail"
+                    #EditGuardianTwoEmail="ngModel">
+                <div *ngIf="detail['GuardianTwoEmail']" 
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('GuardianTwoEmail')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+          </div>
+
+          <div [hidden]="EditGuardianTwoEmail.valid || EditGuardianTwoEmail.pristine || EditGuardianTwoEmail.errors.minlength"
+           class="alert alert-danger">
+
+ 
+
+          </div>
+        
+        </fieldset>
+
     
 </div>
          </div>	

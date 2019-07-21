@@ -32,6 +32,13 @@
 
             </div>
           </div>
+          <div *ngIf="detail['phoneNumber']">
+            <div class="d-inline-block"><label>Phone Number:</label></div>
+            <div class="ml-3 d-inline-block">                
+                    {{detail['phoneNumber']}}
+
+            </div>
+          </div>
           <div *ngIf="detail['grade']">
             <div class="d-inline-block"><label>Grade:</label></div>
             <div class="ml-3 d-inline-block">                  {{detail['grade']}} 

@@ -19,6 +19,8 @@ export class StudentclassListSubComponent extends StudentclassListComponent impl
       public route: ActivatedRoute,
       public location: Location) {
         super(null, studentclassService, injector, router, route, location);
+
+        this.categoryBy = undefined; // no do query based on category for sub view;
   }
 
   ngOnInit() {

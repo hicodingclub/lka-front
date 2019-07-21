@@ -9,8 +9,10 @@ var schema = new Schema(
     price: {type: String, required: true},
     startTime: {type: Date, required: true},
     endTime: {type: Date, required: true},
+    duration: {type: String, required: false},
     dayOfWeek: {type: [String], enum: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'], 
-                 default: ['Mon'],  elementunique: true, required: true},
+                 default: ['Mon'],  elementunique: true, required: false},
+    timeSlot: {type: String, required: false},
     teacher: {type: Schema.Types.ObjectId, ref: 'Teacher', required: true},
     course: { type: Schema.Types.ObjectId, ref: 'Course', required: true },
     hot: {type: Boolean, default: false}

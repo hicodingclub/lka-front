@@ -67,11 +67,25 @@
             </div>
           </div>
           <div>
+            <div class="d-inline-block"><label>Duration:</label></div>
+            <div class="ml-3 d-inline-block">                
+                    {{detail['duration']}}
+
+            </div>
+          </div>
+          <div>
             <div class="d-inline-block"><label>Day of Week:</label></div>
             <div class="ml-3 d-inline-block">                
                     <div class="badge badge-pill badge-secondary" *ngFor="let element of enums['dayOfWeek']">
                          <div *ngIf="detail['dayOfWeek'] && detail['dayOfWeek']['selection'][element]">{{element}}</div>
                     </div>
+
+            </div>
+          </div>
+          <div>
+            <div class="d-inline-block"><label>Time Slot:</label></div>
+            <div class="ml-3 d-inline-block">                
+                    {{detail['timeSlot']}}
 
             </div>
           </div>

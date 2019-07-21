@@ -8,7 +8,16 @@ var schema = new Schema(
     last_name: {type: String, required: true, maxlength: 100},
     date_of_birth: {type: Date},
     email: {type: String, required: true, maxlength: 100},
+    phoneNumber: {type: String, required: true, maxlength: 20},
+    school: {type: String, required: true, maxlength: 100},
     grade: {type: Number, required: true},
+    GuardianOneName: {type: String, required: false, maxlength: 100},
+    GuardianOnePhone: {type: String, required: false, maxlength: 20},
+    GuardianOneEmail: {type: String, required: false, maxlength: 100},
+
+    GuardianTwoName: {type: String, required: false, maxlength: 100},
+    GuardianTwoPhone: {type: String, required: false, maxlength: 20},
+    GuardianTwoEmail: {type: String, required: false, maxlength: 100},
   },
   {
     timestamps: true

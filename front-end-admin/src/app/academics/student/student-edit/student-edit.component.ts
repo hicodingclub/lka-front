@@ -47,6 +47,15 @@ export class StudentEditComponent extends StudentComponent implements OnInit {
           this.stringFields.push('first_name');
           this.stringFields.push('last_name');
           this.stringFields.push('email');
+          this.stringFields.push('phoneNumber');
+          this.stringFields.push('school');
+          this.stringFields.push('GuardianOneName');
+          this.stringFields.push('GuardianOnePhone');
+          this.stringFields.push('GuardianOneEmail');
+          this.stringFields.push('GuardianTwoName');
+          this.stringFields.push('GuardianTwoPhone');
+          this.stringFields.push('GuardianTwoEmail');
+          this.stringFields.push('muser_id');
 
 
           this.dateFields = ['date_of_birth', ];

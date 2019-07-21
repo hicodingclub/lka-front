@@ -20,6 +20,7 @@ export class ArticleListHomeComponent extends ArticleListComponent implements On
       public location: Location) {
         super( articleService, injector, router, route, location);
         this.per_page = 3;
+        this.categoryBy = undefined; // no do query based on category for home view;
   }
 
   ngOnInit() {

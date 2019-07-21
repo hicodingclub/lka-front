@@ -234,6 +234,36 @@
           </div>
         </fieldset>
     
+</div><div *ngIf="!hiddenFields.includes('duration')">
+
+        <fieldset class="form-group">
+          <label for="EditDuration">Duration</label>
+          
+
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditDuration" 
+                    
+                    
+                    
+                 
+                    [(ngModel)]="detail['duration']" name="EditDuration"
+                    #EditDuration="ngModel">
+                <div *ngIf="detail['duration']" 
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('duration')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+          </div>
+
+          <div [hidden]="EditDuration.valid || EditDuration.pristine || EditDuration.errors.minlength"
+           class="alert alert-danger">
+
+ 
+
+          </div>
+        
+        </fieldset>
+
+    
 </div><div *ngIf="!hiddenFields.includes('dayOfWeek')">
 
           <fieldset class="form-group">
@@ -242,7 +272,7 @@
 
             <div class="form-check"
                 ngModelGroup="EditDayOfWeek"
-                directiveMultiSelectionRequired
+                
                 #EditDayOfWeek="ngModelGroup" 
             >
 
@@ -317,11 +347,38 @@
           <div [hidden]="EditDayOfWeek.valid || EditDayOfWeek.pristine"
            class="alert alert-danger">
 
-            <div *ngIf="EditDayOfWeek.errors && EditDayOfWeek.errors.required">
-              DayOfWeek is required.
-              </div>
           </div>
         </fieldset>
+    
+</div><div *ngIf="!hiddenFields.includes('timeSlot')">
+
+        <fieldset class="form-group">
+          <label for="EditTimeSlot">Time Slot</label>
+          
+
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditTimeSlot" 
+                    
+                    
+                    
+                 
+                    [(ngModel)]="detail['timeSlot']" name="EditTimeSlot"
+                    #EditTimeSlot="ngModel">
+                <div *ngIf="detail['timeSlot']" 
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('timeSlot')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+          </div>
+
+          <div [hidden]="EditTimeSlot.valid || EditTimeSlot.pristine || EditTimeSlot.errors.minlength"
+           class="alert alert-danger">
+
+ 
+
+          </div>
+        
+        </fieldset>
+
     
 </div><div *ngIf="!hiddenFields.includes('hot')">
 
@@ -591,6 +648,36 @@
           </div>
         </fieldset>
     
+</div><div *ngIf="!hiddenFields.includes('duration')">
+
+        <fieldset class="form-group">
+          <label for="EditDuration">Duration</label>
+          
+
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditDuration" 
+                    
+                    
+                    
+                 
+                    [(ngModel)]="detail['duration']" name="EditDuration"
+                    #EditDuration="ngModel">
+                <div *ngIf="detail['duration']" 
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('duration')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+          </div>
+
+          <div [hidden]="EditDuration.valid || EditDuration.pristine || EditDuration.errors.minlength"
+           class="alert alert-danger">
+
+ 
+
+          </div>
+        
+        </fieldset>
+
+    
 </div><div *ngIf="!hiddenFields.includes('dayOfWeek')">
 
           <fieldset class="form-group">
@@ -599,7 +686,7 @@
 
             <div class="form-check"
                 ngModelGroup="EditDayOfWeek"
-                directiveMultiSelectionRequired
+                
                 #EditDayOfWeek="ngModelGroup" 
             >
 
@@ -674,11 +761,38 @@
           <div [hidden]="EditDayOfWeek.valid || EditDayOfWeek.pristine"
            class="alert alert-danger">
 
-            <div *ngIf="EditDayOfWeek.errors && EditDayOfWeek.errors.required">
-              DayOfWeek is required.
-              </div>
           </div>
         </fieldset>
+    
+</div><div *ngIf="!hiddenFields.includes('timeSlot')">
+
+        <fieldset class="form-group">
+          <label for="EditTimeSlot">Time Slot</label>
+          
+
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditTimeSlot" 
+                    
+                    
+                    
+                 
+                    [(ngModel)]="detail['timeSlot']" name="EditTimeSlot"
+                    #EditTimeSlot="ngModel">
+                <div *ngIf="detail['timeSlot']" 
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('timeSlot')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+          </div>
+
+          <div [hidden]="EditTimeSlot.valid || EditTimeSlot.pristine || EditTimeSlot.errors.minlength"
+           class="alert alert-danger">
+
+ 
+
+          </div>
+        
+        </fieldset>
+
     
 </div><div *ngIf="!hiddenFields.includes('hot')">
 

@@ -19,6 +19,8 @@ export class ClassListSubComponent extends ClassListComponent implements OnInit 
       public route: ActivatedRoute,
       public location: Location) {
         super(null, classService, injector, router, route, location);
+
+        this.categoryBy = undefined; // no do query based on category for sub view;
   }
 
   ngOnInit() {

@@ -19,6 +19,8 @@ export class MpubaccessListSubComponent extends MpubaccessListComponent implemen
       public route: ActivatedRoute,
       public location: Location) {
         super(null, mpubaccessService, injector, router, route, location);
+
+        this.categoryBy = undefined; // no do query based on category for sub view;
   }
 
   ngOnInit() {

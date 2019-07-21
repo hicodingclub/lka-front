@@ -19,30 +19,6 @@ export class MraNgbDateFormatterService extends NgbDateParserFormatter {
     }
 }
 @Directive({
-  selector: '[directiveMultiSelectionRequired]',
-  providers: [{provide: NG_VALIDATORS, useExisting: DirectiveMultiSelectionRequired, multi: true}]
-})
-export class DirectiveMultiSelectionRequired implements Validator {
-  validate(control: AbstractControl): ValidationErrors | null {
-    let selected = false;
-    let controlGroup = control as FormGroup; //cast to FormGroup
-    if(controlGroup) {
-      for(let ctrl in controlGroup.controls) {
-        if(controlGroup.controls[ctrl].value) { //true or false of the selected item
-          selected = true;
-          break;
-        }
-      }
-    }
-
-    if (selected) {
-      return null; //no error
-    } else {
-      return { 'required': true };
-    }
-  }
-}
-@Directive({
   selector: '[directiveArrayRequired]',
   providers: [{provide: NG_VALIDATORS, useExisting: DirectiveArrayRequired, multi: true}]
 })
