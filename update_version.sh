@@ -26,7 +26,7 @@ done
 set -- "${POSITIONAL[@]}"
 
 if [ "$#" -ne 1 ]; then
-  echo "Usage: -i|--install -b|--build $0 MDDS_VERSION" >&2
+  echo "Usage: $0 -i|--install -b|--build MDDS_VERSION" >&2
   exit 1
 fi
 
