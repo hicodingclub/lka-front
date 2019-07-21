@@ -67,21 +67,22 @@
   display: flex;
   flex-direction: column;
 
-  background-color: #1875d20b;
+  background-color: #F6F6F6;
 
 }
 .content-min-height {
   flex-grow: 1; /* grow to the full height*/
-  background-color: #1875d20b;;
+  background-color: #F6F6F6;;
   /* box-sizing: border-box; */
   background-clip: content-box;
 }
 
 .footer {
-  background-color: #1875d20b;
-  color: #0c028b;
-  font-size: 0.75rem;
-  
+  background-color: #1875d229;
+  color: #343254;
+  font-size: 1rem;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+
   width: 100%;
   height: 70px;
 }

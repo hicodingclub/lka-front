@@ -23,6 +23,8 @@ module.exports = {
     listCategoryField: 'course',
     listTitle: 'Classes',
 
+    detailTitle: 'Class',
+
     selectActionViewType: 'dropdown', // select extraView type: dropdown, grid, table, list
   },
 };

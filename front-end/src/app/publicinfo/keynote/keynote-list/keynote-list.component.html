@@ -16,7 +16,7 @@
 	              <input type="search" class="form-control border border-secondary" id="keynoteTextSearch" 
 						#keynoteTextSearch [(ngModel)]="searchText"
 						(keyup.enter)="$event.target.blur();searchList();false"
-					    placeholder="Search for signaturePicture, title, subtitle, description, tag"> 
+					    placeholder="Search for title, subtitle, description, tag"> 
 				  <div *ngIf="searchText" class="input-group-append icon-clear-inside">
 					<span >
 					    <i class="fas fa-times-circle" (click)="onSearchTextClear()" title="Clear"></i>

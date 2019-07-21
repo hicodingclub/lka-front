@@ -25,6 +25,7 @@ import { publicinfo_server_root_uri } from '../publicinfo.conf';
 import { GeneralinfoListComponent } from './generalinfo/generalinfo-list/generalinfo-list.component';
 
 
+
 import { GeneralinfoDetailComponent } from './generalinfo/generalinfo-detail/generalinfo-detail.component';
 
 import { GeneralinfoService } from './generalinfo/generalinfo.service';
@@ -34,10 +35,12 @@ import { FaqListComponent } from './faq/faq-list/faq-list.component';
 
 
 
+
 import { FaqService } from './faq/faq.service';
 
 import { EventListComponent } from './event/event-list/event-list.component';
 import { EventListHomeComponent } from './event/event-list/event-list-home.component';
+
 
 import { EventDetailComponent } from './event/event-detail/event-detail.component';
 
@@ -46,11 +49,13 @@ import { EventService } from './event/event.service';
 import { KeynoteListComponent } from './keynote/keynote-list/keynote-list.component';
 
 
+import { KeynoteListActSldComponent } from './keynote/keynote-list/keynote-list-act-sld.component';
 import { KeynoteDetailComponent } from './keynote/keynote-detail/keynote-detail.component';
 
 import { KeynoteService } from './keynote/keynote.service';
 
 import { TermsListComponent } from './terms/terms-list/terms-list.component';
+
 
 
 import { TermsDetailComponent } from './terms/terms-detail/terms-detail.component';
@@ -59,6 +64,7 @@ import { TermsService } from './terms/terms.service';
 
 import { ArticleListComponent } from './article/article-list/article-list.component';
 import { ArticleListHomeComponent } from './article/article-list/article-list-home.component';
+
 
 import { ArticleDetailComponent } from './article/article-detail/article-detail.component';
 
@@ -86,6 +92,7 @@ import { ArticleService } from './article/article.service';
     GeneralinfoListComponent,
     
     
+    
     GeneralinfoDetailComponent,
     
     FaqListComponent,
@@ -93,23 +100,28 @@ import { ArticleService } from './article/article.service';
     
     
     
+    
     EventListComponent,
     EventListHomeComponent,
+    
     
     EventDetailComponent,
     
     KeynoteListComponent,
     
     
+    KeynoteListActSldComponent,
     KeynoteDetailComponent,
     
     TermsListComponent,
+    
     
     
     TermsDetailComponent,
     
     ArticleListComponent,
     ArticleListHomeComponent,
+    
     
     ArticleDetailComponent,
     
@@ -126,6 +138,7 @@ import { ArticleService } from './article/article.service';
     GeneralinfoListComponent,
     
     
+    
     GeneralinfoDetailComponent,
     
     FaqListComponent,
@@ -133,23 +146,28 @@ import { ArticleService } from './article/article.service';
     
     
     
+    
     EventListComponent,
     EventListHomeComponent,
+    
     
     EventDetailComponent,
     
     KeynoteListComponent,
     
     
+    KeynoteListActSldComponent,
     KeynoteDetailComponent,
     
     TermsListComponent,
+    
     
     
     TermsDetailComponent,
     
     ArticleListComponent,
     ArticleListHomeComponent,
+    
     
     ArticleDetailComponent,
     

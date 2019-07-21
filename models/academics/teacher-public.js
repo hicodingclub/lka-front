@@ -16,5 +16,7 @@ module.exports = {
   mraUI: {
     listType: 'grid', // table, list, or grid
     listTitle: 'Our Staff',
+    detailTitle: 'Staff',
+
   },
 };

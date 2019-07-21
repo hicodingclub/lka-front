@@ -15,13 +15,14 @@ module.exports = {
   api: 'LCRUD',
   patch: ['muser_id'], //extra fields to patch to schema
   owner: {enable: true, type: 'user'},
-  actionViews: 'S', //home - home page list view, s: select view for pipeline/composite
+  actionViews: 'S', //home - home page list view, s: select view for pipeline/composite, d: slides list view
 
   mraUI: {
     listType: 'grid', // table, list, or grid
     disableListSearch: true, // not show the search bar
     listActionButtons: ['Add another student', 'Remove selected students'],
     listTitle: 'Student Profile',
+    detailTitle: 'Student',
 
     detailActionButtons: ['Edit student profile', '', 'Remove this student'],
 

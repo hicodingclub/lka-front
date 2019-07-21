@@ -12,6 +12,9 @@
 		<div class="collapse navbar-collapse ml-auto mr-auto" id="navbarItems">
 			<ul class="navbar-nav" data-toggle="collapse" data-target=".navbar-collapse.show">
 				<li class="nav-item">
+					<a class="nav-link" [ngClass]="{'active': currentUrl === '' || currentUrl === '/' }" routerLink="/">Home</a>
+				</li>
+				<li class="nav-item">
 					<a class="nav-link" [ngClass]="{'active': currentUrl.includes('/academics/class/') || currentUrl.includes('/academics/course') }" routerLink="/academics/class">Classes</a>
 				</li>
 				<li class="nav-item">

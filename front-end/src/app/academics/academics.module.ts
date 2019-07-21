@@ -26,11 +26,13 @@ import { academics_server_root_uri } from '../academics.conf';
 import { StudentListComponent } from './student/student-list/student-list.component';
 
 import { StudentListActSelComponent } from './student/student-list/student-list-act-sel.component';
+
 import { StudentDetailComponent } from './student/student-detail/student-detail.component';
 import { StudentEditComponent } from './student/student-edit/student-edit.component';
 import { StudentService } from './student/student.service';
 
 import { TeacherListComponent } from './teacher/teacher-list/teacher-list.component';
+
 
 
 import { TeacherDetailComponent } from './teacher/teacher-detail/teacher-detail.component';
@@ -40,6 +42,7 @@ import { TeacherService } from './teacher/teacher.service';
 import { CourseListComponent } from './course/course-list/course-list.component';
 import { CourseListHomeComponent } from './course/course-list/course-list-home.component';
 
+
 import { CourseDetailComponent } from './course/course-detail/course-detail.component';
 
 import { CourseService } from './course/course.service';
@@ -47,6 +50,7 @@ import { CourseService } from './course/course.service';
 import { ClassListComponent } from './class/class-list/class-list.component';
 import { ClassListHomeComponent } from './class/class-list/class-list-home.component';
 import { ClassListActSelComponent } from './class/class-list/class-list-act-sel.component';
+
 import { ClassDetailComponent } from './class/class-detail/class-detail.component';
 
 import { ClassService } from './class/class.service';
@@ -56,9 +60,11 @@ import { StudentclassListComponent } from './studentclass/studentclass-list/stud
 
 
 
+
 import { StudentclassService } from './studentclass/studentclass.service';
 
 import { ClassenrollListComponent } from './classenroll/classenroll-list/classenroll-list.component';
+
 
 
 import { ClassenrollDetailComponent } from './classenroll/classenroll-detail/classenroll-detail.component';
@@ -104,9 +110,11 @@ import { ClassenrollDetailSubComponent } from './classenroll/classenroll-detail/
     StudentListComponent,
     
     StudentListActSelComponent,
+    
     StudentDetailComponent,
     StudentEditComponent,
     TeacherListComponent,
+    
     
     
     TeacherDetailComponent,
@@ -114,11 +122,13 @@ import { ClassenrollDetailSubComponent } from './classenroll/classenroll-detail/
     CourseListComponent,
     CourseListHomeComponent,
     
+    
     CourseDetailComponent,
     
     ClassListComponent,
     ClassListHomeComponent,
     ClassListActSelComponent,
+    
     ClassDetailComponent,
     
     StudentclassListComponent,
@@ -126,7 +136,9 @@ import { ClassenrollDetailSubComponent } from './classenroll/classenroll-detail/
     
     
     
+    
     ClassenrollListComponent,
+    
     
     
     ClassenrollDetailComponent,
@@ -162,9 +174,11 @@ import { ClassenrollDetailSubComponent } from './classenroll/classenroll-detail/
     StudentListComponent,
     
     StudentListActSelComponent,
+    
     StudentDetailComponent,
     StudentEditComponent,
     TeacherListComponent,
+    
     
     
     TeacherDetailComponent,
@@ -172,11 +186,13 @@ import { ClassenrollDetailSubComponent } from './classenroll/classenroll-detail/
     CourseListComponent,
     CourseListHomeComponent,
     
+    
     CourseDetailComponent,
     
     ClassListComponent,
     ClassListHomeComponent,
     ClassListActSelComponent,
+    
     ClassDetailComponent,
     
     StudentclassListComponent,
@@ -184,7 +200,9 @@ import { ClassenrollDetailSubComponent } from './classenroll/classenroll-detail/
     
     
     
+    
     ClassenrollListComponent,
+    
     
     
     ClassenrollDetailComponent,

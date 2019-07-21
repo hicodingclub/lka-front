@@ -31,6 +31,8 @@ module.exports = {
           'ClassEnroll': 'Enrolled Classes',
         },
     
+        detailTitle: 'Enrollment',
+
         selectActionViewType: 'grid', // select extraView type: dropdown, grid, table, list
     },
 };

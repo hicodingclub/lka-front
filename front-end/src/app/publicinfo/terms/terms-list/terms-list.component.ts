@@ -20,6 +20,8 @@ export class TermsListComponent extends TermsComponent implements OnInit {
 
 
   @Input()
+  public inputData:any;
+  @Input()
   public searchObj:any;
   @Input()
   public categoryBy:string; //field name whose value is used as category
