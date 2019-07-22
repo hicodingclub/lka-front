@@ -49,11 +49,11 @@
 	        <div class="input-group">
 		      <input class="form-control" id="articleEditPublishDate" placeholder="{{dateFormat}}"
 		             [(ngModel)]="detail['publishDate']['from']" name="articleEditPublishDate"
-		             ngbDatepicker #articleEditPublishDate="ngModel">
+		             ngbDatepicker [minDate]="minDate" #articleEditPublishDate="ngModel">
 		      <span>&nbsp; ~ &nbsp;</span>
 		      <input class="form-control" id="articleEditPublishDate" placeholder="{{dateFormat}}"
 		             [(ngModel)]="detail['publishDate']['to']" name="articleEditPublishDate"
-		             ngbDatepicker #articleEditPublishDate="ngModel">
+		             ngbDatepicker [minDate]="minDate" #articleEditPublishDate="ngModel">
 
 		      <div class="input-group-append">
 		        <button class="btn btn-outline-secondary" (click)="onDateSelectionToggle('publishDate')" type="button">

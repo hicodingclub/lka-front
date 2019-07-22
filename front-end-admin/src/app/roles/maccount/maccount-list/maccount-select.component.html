@@ -53,11 +53,11 @@
 	        <div class="input-group">
 		      <input class="form-control" id="maccountEditSince" placeholder="{{dateFormat}}"
 		             [(ngModel)]="detail['since']['from']" name="maccountEditSince"
-		             ngbDatepicker #maccountEditSince="ngModel">
+		             ngbDatepicker [minDate]="minDate" #maccountEditSince="ngModel">
 		      <span>&nbsp; ~ &nbsp;</span>
 		      <input class="form-control" id="maccountEditSince" placeholder="{{dateFormat}}"
 		             [(ngModel)]="detail['since']['to']" name="maccountEditSince"
-		             ngbDatepicker #maccountEditSince="ngModel">
+		             ngbDatepicker [minDate]="minDate" #maccountEditSince="ngModel">
 
 		      <div class="input-group-append">
 		        <button class="btn btn-outline-secondary" (click)="onDateSelectionToggle('since')" type="button">

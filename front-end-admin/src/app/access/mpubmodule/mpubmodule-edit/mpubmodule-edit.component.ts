@@ -30,6 +30,7 @@ export class MpubmoduleEditComponent extends MpubmoduleComponent implements OnIn
     public embeddedView: boolean;
 
     public action:string;
+    public minDate = {year: (new Date()).getFullYear() - 100, month: 1, day: 1};
 
 
         

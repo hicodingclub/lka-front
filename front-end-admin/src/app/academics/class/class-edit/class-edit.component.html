@@ -178,7 +178,7 @@
                     required
                  
                   [(ngModel)]="detail['startTime']['date']" name="EditStartTime"
-                  ngbDatepicker #EditStartTimeDate="ngbDatepicker" #EditStartTime="ngModel">
+                  ngbDatepicker [minDate]="minDate" #EditStartTimeDate="ngbDatepicker" #EditStartTime="ngModel">
             <div class="input-group-append">
               <button class="btn btn-outline-secondary" (click)="EditStartTimeDate.toggle()" type="button">
                 <i class="fas fa-calendar-alt"></i>
@@ -211,7 +211,7 @@
                     required
                  
                   [(ngModel)]="detail['endTime']['date']" name="EditEndTime"
-                  ngbDatepicker #EditEndTimeDate="ngbDatepicker" #EditEndTime="ngModel">
+                  ngbDatepicker [minDate]="minDate" #EditEndTimeDate="ngbDatepicker" #EditEndTime="ngModel">
             <div class="input-group-append">
               <button class="btn btn-outline-secondary" (click)="EditEndTimeDate.toggle()" type="button">
                 <i class="fas fa-calendar-alt"></i>
@@ -592,7 +592,7 @@
                     required
                  
                   [(ngModel)]="detail['startTime']['date']" name="EditStartTime"
-                  ngbDatepicker #EditStartTimeDate="ngbDatepicker" #EditStartTime="ngModel">
+                  ngbDatepicker [minDate]="minDate" #EditStartTimeDate="ngbDatepicker" #EditStartTime="ngModel">
             <div class="input-group-append">
               <button class="btn btn-outline-secondary" (click)="EditStartTimeDate.toggle()" type="button">
                 <i class="fas fa-calendar-alt"></i>
@@ -625,7 +625,7 @@
                     required
                  
                   [(ngModel)]="detail['endTime']['date']" name="EditEndTime"
-                  ngbDatepicker #EditEndTimeDate="ngbDatepicker" #EditEndTime="ngModel">
+                  ngbDatepicker [minDate]="minDate" #EditEndTimeDate="ngbDatepicker" #EditEndTime="ngModel">
             <div class="input-group-append">
               <button class="btn btn-outline-secondary" (click)="EditEndTimeDate.toggle()" type="button">
                 <i class="fas fa-calendar-alt"></i>

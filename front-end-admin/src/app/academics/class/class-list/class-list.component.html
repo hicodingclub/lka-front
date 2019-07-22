@@ -101,11 +101,11 @@
 	        <div class="input-group">
 		      <input class="form-control" id="classEditStartTime" placeholder="{{dateFormat}}"
 		             [(ngModel)]="detail['startTime']['from']" name="classEditStartTime"
-		             ngbDatepicker #classEditStartTime="ngModel">
+		             ngbDatepicker [minDate]="minDate" #classEditStartTime="ngModel">
 		      <span>&nbsp; ~ &nbsp;</span>
 		      <input class="form-control" id="classEditStartTime" placeholder="{{dateFormat}}"
 		             [(ngModel)]="detail['startTime']['to']" name="classEditStartTime"
-		             ngbDatepicker #classEditStartTime="ngModel">
+		             ngbDatepicker [minDate]="minDate" #classEditStartTime="ngModel">
 
 		      <div class="input-group-append">
 		        <button class="btn btn-outline-secondary" (click)="onDateSelectionToggle('startTime')" type="button">
@@ -148,11 +148,11 @@
 	        <div class="input-group">
 		      <input class="form-control" id="classEditEndTime" placeholder="{{dateFormat}}"
 		             [(ngModel)]="detail['endTime']['from']" name="classEditEndTime"
-		             ngbDatepicker #classEditEndTime="ngModel">
+		             ngbDatepicker [minDate]="minDate" #classEditEndTime="ngModel">
 		      <span>&nbsp; ~ &nbsp;</span>
 		      <input class="form-control" id="classEditEndTime" placeholder="{{dateFormat}}"
 		             [(ngModel)]="detail['endTime']['to']" name="classEditEndTime"
-		             ngbDatepicker #classEditEndTime="ngModel">
+		             ngbDatepicker [minDate]="minDate" #classEditEndTime="ngModel">
 
 		      <div class="input-group-append">
 		        <button class="btn btn-outline-secondary" (click)="onDateSelectionToggle('endTime')" type="button">

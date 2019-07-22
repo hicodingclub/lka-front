@@ -104,11 +104,11 @@
 	        <div class="input-group">
 		      <input class="form-control" id="classenrollEditCreatedAt" placeholder="{{dateFormat}}"
 		             [(ngModel)]="detail['createdAt']['from']" name="classenrollEditCreatedAt"
-		             ngbDatepicker #classenrollEditCreatedAt="ngModel">
+		             ngbDatepicker [minDate]="minDate" #classenrollEditCreatedAt="ngModel">
 		      <span>&nbsp; ~ &nbsp;</span>
 		      <input class="form-control" id="classenrollEditCreatedAt" placeholder="{{dateFormat}}"
 		             [(ngModel)]="detail['createdAt']['to']" name="classenrollEditCreatedAt"
-		             ngbDatepicker #classenrollEditCreatedAt="ngModel">
+		             ngbDatepicker [minDate]="minDate" #classenrollEditCreatedAt="ngModel">
 
 		      <div class="input-group-append">
 		        <button class="btn btn-outline-secondary" (click)="onDateSelectionToggle('createdAt')" type="button">

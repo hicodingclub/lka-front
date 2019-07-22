@@ -85,7 +85,7 @@
                     
                  
                   [(ngModel)]="detail['date_of_birth']['date']" name="EditDate_of_birth"
-                  ngbDatepicker #EditDate_of_birthDate="ngbDatepicker" #EditDate_of_birth="ngModel">
+                  ngbDatepicker [minDate]="minDate" #EditDate_of_birthDate="ngbDatepicker" #EditDate_of_birth="ngModel">
             <div class="input-group-append">
               <button class="btn btn-outline-secondary" (click)="EditDate_of_birthDate.toggle()" type="button">
                 <i class="fas fa-calendar-alt"></i>
@@ -505,7 +505,7 @@
                     
                  
                   [(ngModel)]="detail['date_of_birth']['date']" name="EditDate_of_birth"
-                  ngbDatepicker #EditDate_of_birthDate="ngbDatepicker" #EditDate_of_birth="ngModel">
+                  ngbDatepicker [minDate]="minDate" #EditDate_of_birthDate="ngbDatepicker" #EditDate_of_birth="ngModel">
             <div class="input-group-append">
               <button class="btn btn-outline-secondary" (click)="EditDate_of_birthDate.toggle()" type="button">
                 <i class="fas fa-calendar-alt"></i>
