@@ -4,7 +4,7 @@ import { BaseComponent, ViewType } from 'mean-rest-angular';
 import { Injector } from '@angular/core';
 import { EventService } from './event.service';
 
-const itemCamelName = 'event';
+const itemCamelName = 'event and News';
 
 export { ViewType };
 

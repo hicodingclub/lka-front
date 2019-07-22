@@ -4,7 +4,7 @@ import { BaseComponent, ViewType } from 'mean-rest-angular';
 import { Injector } from '@angular/core';
 import { ArticleService } from './article.service';
 
-const itemCamelName = 'article';
+const itemCamelName = 'resource';
 
 export { ViewType };
 

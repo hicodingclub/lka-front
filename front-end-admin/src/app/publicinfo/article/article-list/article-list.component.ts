@@ -51,7 +51,6 @@ export class ArticleListComponent extends ArticleComponent implements OnInit {
 
 
 
-          this.viewHiddenFields = ['category', ];
 
           this.listViewFilter = 'list';
           this.setListSort('publishDate', 'Publish Date', 'desc');

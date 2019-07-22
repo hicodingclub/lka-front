@@ -16,7 +16,7 @@
 	              <input type="search" class="form-control border border-secondary" id="articleTextSearch" 
 						#articleTextSearch [(ngModel)]="searchText"
 						(keyup.enter)="$event.target.blur();searchList();false"
-					    placeholder="Search for title, author"> 
+					    placeholder="Search for title, author, category"> 
 				  <div *ngIf="searchText" class="input-group-append icon-clear-inside">
 					<span >
 					    <i class="fas fa-times-circle" (click)="onSearchTextClear()" title="Clear"></i>
@@ -133,6 +133,8 @@
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('author', 'Author', 'desc')">Author<i class="fas fa-arrow-down"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('publishDate', 'Publish Date', 'asc')">PublishDate<i class="fas fa-arrow-up"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('publishDate', 'Publish Date', 'desc')">PublishDate<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('category', 'Category', 'asc')">Category<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('category', 'Category', 'desc')">Category<i class="fas fa-arrow-down"></i></a>
 						</div>
 					</div>
 			</div>
@@ -235,6 +237,13 @@
 
           </div>
         </div>
+        <div *ngIf="detail['category']" class="mr-3 d-inline-block">
+          <div class="d-inline-block"><label>Category:</label></div>
+          <div class="ml-3 d-inline-block">                
+                    {{detail['category']}}
+
+          </div>
+        </div>
       </div>
 
 				</div>
@@ -286,6 +295,13 @@
 
             </div>
           </div>
+          <div *ngIf="detail['category']">
+            <div class="d-inline-block"><label>Category:</label></div>
+            <div class="ml-3 d-inline-block">                
+                    {{detail['category']}}
+
+            </div>
+          </div>
       </div>
 
 				</div>
@@ -328,6 +344,13 @@
 						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
 						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
 					</span>
+				</th>
+				<th class="pointer" scope="col" (click)="toggleListSort('category', 'Category')">
+					Category
+					<span *ngIf="listSortField === 'category'">
+						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+					</span>
 				</th><th scope="col" style="width:7.8rem;"></th>
 	    	</tr>
 	    </thead>
@@ -354,6 +377,11 @@
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
 	            	                  {{detail['publishDate']?detail['publishDate']['value']:""}}
+
+	            </td>
+	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            	                
+                    {{detail['category']}}
 
 	            </td>
 	            <td>

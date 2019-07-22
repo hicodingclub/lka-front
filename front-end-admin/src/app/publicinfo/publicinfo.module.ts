@@ -22,13 +22,21 @@ import { publicinfo_server_root_uri } from '../publicinfo.conf';
 
 // Import components for each schema
 
-import { GeneralinfoListComponent } from './generalinfo/generalinfo-list/generalinfo-list.component';
+import { EventListComponent } from './event/event-list/event-list.component';
 
 
 
-import { GeneralinfoDetailComponent } from './generalinfo/generalinfo-detail/generalinfo-detail.component';
-import { GeneralinfoEditComponent } from './generalinfo/generalinfo-edit/generalinfo-edit.component';
-import { GeneralinfoService } from './generalinfo/generalinfo.service';
+import { EventDetailComponent } from './event/event-detail/event-detail.component';
+import { EventEditComponent } from './event/event-edit/event-edit.component';
+import { EventService } from './event/event.service';
+
+import { ArticleListComponent } from './article/article-list/article-list.component';
+
+
+
+import { ArticleDetailComponent } from './article/article-detail/article-detail.component';
+import { ArticleEditComponent } from './article/article-edit/article-edit.component';
+import { ArticleService } from './article/article.service';
 
 import { FaqListComponent } from './faq/faq-list/faq-list.component';
 
@@ -38,13 +46,13 @@ import { FaqDetailComponent } from './faq/faq-detail/faq-detail.component';
 import { FaqEditComponent } from './faq/faq-edit/faq-edit.component';
 import { FaqService } from './faq/faq.service';
 
-import { EventListComponent } from './event/event-list/event-list.component';
+import { GeneralinfoListComponent } from './generalinfo/generalinfo-list/generalinfo-list.component';
 
 
 
-import { EventDetailComponent } from './event/event-detail/event-detail.component';
-import { EventEditComponent } from './event/event-edit/event-edit.component';
-import { EventService } from './event/event.service';
+import { GeneralinfoDetailComponent } from './generalinfo/generalinfo-detail/generalinfo-detail.component';
+import { GeneralinfoEditComponent } from './generalinfo/generalinfo-edit/generalinfo-edit.component';
+import { GeneralinfoService } from './generalinfo/generalinfo.service';
 
 import { KeynoteListComponent } from './keynote/keynote-list/keynote-list.component';
 
@@ -61,14 +69,6 @@ import { TermsListComponent } from './terms/terms-list/terms-list.component';
 import { TermsDetailComponent } from './terms/terms-detail/terms-detail.component';
 import { TermsEditComponent } from './terms/terms-edit/terms-edit.component';
 import { TermsService } from './terms/terms.service';
-
-import { ArticleListComponent } from './article/article-list/article-list.component';
-
-
-
-import { ArticleDetailComponent } from './article/article-detail/article-detail.component';
-import { ArticleEditComponent } from './article/article-edit/article-edit.component';
-import { ArticleService } from './article/article.service';
 
 
 
@@ -89,24 +89,30 @@ import { ArticleService } from './article/article.service';
     PublicinfoComponent,
     
 
-    GeneralinfoListComponent,
-    
-    
-    
-    GeneralinfoDetailComponent,
-    GeneralinfoEditComponent,
-    FaqListComponent,
-    
-    
-    
-    FaqDetailComponent,
-    FaqEditComponent,
     EventListComponent,
     
     
     
     EventDetailComponent,
     EventEditComponent,
+    ArticleListComponent,
+    
+    
+    
+    ArticleDetailComponent,
+    ArticleEditComponent,
+    FaqListComponent,
+    
+    
+    
+    FaqDetailComponent,
+    FaqEditComponent,
+    GeneralinfoListComponent,
+    
+    
+    
+    GeneralinfoDetailComponent,
+    GeneralinfoEditComponent,
     KeynoteListComponent,
     
     
@@ -119,12 +125,6 @@ import { ArticleService } from './article/article.service';
     
     TermsDetailComponent,
     TermsEditComponent,
-    ArticleListComponent,
-    
-    
-    
-    ArticleDetailComponent,
-    ArticleEditComponent,
 
 
 
@@ -135,24 +135,30 @@ import { ArticleService } from './article/article.service';
   exports: [
     PublicinfoComponent,
 
-    GeneralinfoListComponent,
-    
-    
-    
-    GeneralinfoDetailComponent,
-    GeneralinfoEditComponent,
-    FaqListComponent,
-    
-    
-    
-    FaqDetailComponent,
-    FaqEditComponent,
     EventListComponent,
     
     
     
     EventDetailComponent,
     EventEditComponent,
+    ArticleListComponent,
+    
+    
+    
+    ArticleDetailComponent,
+    ArticleEditComponent,
+    FaqListComponent,
+    
+    
+    
+    FaqDetailComponent,
+    FaqEditComponent,
+    GeneralinfoListComponent,
+    
+    
+    
+    GeneralinfoDetailComponent,
+    GeneralinfoEditComponent,
     KeynoteListComponent,
     
     
@@ -165,12 +171,6 @@ import { ArticleService } from './article/article.service';
     
     TermsDetailComponent,
     TermsEditComponent,
-    ArticleListComponent,
-    
-    
-    
-    ArticleDetailComponent,
-    ArticleEditComponent,
 
 
   ],
@@ -179,14 +179,14 @@ import { ArticleService } from './article/article.service';
 
     {provide: NgbDateParserFormatter, useClass: MraNgbDateFormatterService},
 
-    GeneralinfoService,
-    FaqService,
     EventService,
+    ArticleService,
+    FaqService,
+    GeneralinfoService,
     KeynoteService,
     TermsService,
-    ArticleService,
   ],
-  entryComponents: [GeneralinfoEditComponent,FaqEditComponent,EventEditComponent,KeynoteEditComponent,TermsEditComponent,ArticleEditComponent,
+  entryComponents: [EventEditComponent,ArticleEditComponent,FaqEditComponent,GeneralinfoEditComponent,KeynoteEditComponent,TermsEditComponent,
   ]
 })
 export class PublicinfoModule { }

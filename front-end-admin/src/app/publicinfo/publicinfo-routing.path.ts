@@ -1,8 +1,13 @@
 // Import components for each schema
 
-import { GeneralinfoListComponent } from './generalinfo/generalinfo-list/generalinfo-list.component';
-import { GeneralinfoDetailComponent } from './generalinfo/generalinfo-detail/generalinfo-detail.component';
-import { GeneralinfoEditComponent } from './generalinfo/generalinfo-edit/generalinfo-edit.component';
+import { EventListComponent } from './event/event-list/event-list.component';
+import { EventDetailComponent } from './event/event-detail/event-detail.component';
+import { EventEditComponent } from './event/event-edit/event-edit.component';
+
+
+import { ArticleListComponent } from './article/article-list/article-list.component';
+import { ArticleDetailComponent } from './article/article-detail/article-detail.component';
+import { ArticleEditComponent } from './article/article-edit/article-edit.component';
 
 
 import { FaqListComponent } from './faq/faq-list/faq-list.component';
@@ -10,9 +15,9 @@ import { FaqDetailComponent } from './faq/faq-detail/faq-detail.component';
 import { FaqEditComponent } from './faq/faq-edit/faq-edit.component';
 
 
-import { EventListComponent } from './event/event-list/event-list.component';
-import { EventDetailComponent } from './event/event-detail/event-detail.component';
-import { EventEditComponent } from './event/event-edit/event-edit.component';
+import { GeneralinfoListComponent } from './generalinfo/generalinfo-list/generalinfo-list.component';
+import { GeneralinfoDetailComponent } from './generalinfo/generalinfo-detail/generalinfo-detail.component';
+import { GeneralinfoEditComponent } from './generalinfo/generalinfo-edit/generalinfo-edit.component';
 
 
 import { KeynoteListComponent } from './keynote/keynote-list/keynote-list.component';
@@ -25,22 +30,25 @@ import { TermsDetailComponent } from './terms/terms-detail/terms-detail.componen
 import { TermsEditComponent } from './terms/terms-edit/terms-edit.component';
 
 
-import { ArticleListComponent } from './article/article-list/article-list.component';
-import { ArticleDetailComponent } from './article/article-detail/article-detail.component';
-import { ArticleEditComponent } from './article/article-edit/article-edit.component';
-
-
 
 import { AuthGuard } from 'mdds-angular-auth';
 
 
 
 
-export const generalinfoRoutingPath = [
-    {path: 'list', component: GeneralinfoListComponent, canActivate: [AuthGuard]},
-    {path: 'detail/:id', component: GeneralinfoDetailComponent, canActivate: [AuthGuard]},
-    {path: 'edit/:id', component: GeneralinfoEditComponent, canActivate: [AuthGuard]},
-    {path: 'new', component: GeneralinfoEditComponent, canActivate: [AuthGuard]},
+export const eventRoutingPath = [
+    {path: 'list', component: EventListComponent, canActivate: [AuthGuard]},
+    {path: 'detail/:id', component: EventDetailComponent, canActivate: [AuthGuard]},
+    {path: 'edit/:id', component: EventEditComponent, canActivate: [AuthGuard]},
+    {path: 'new', component: EventEditComponent, canActivate: [AuthGuard]},
+    {path: '**', redirectTo: 'list', pathMatch: 'full'}
+];
+
+export const articleRoutingPath = [
+    {path: 'list', component: ArticleListComponent, canActivate: [AuthGuard]},
+    {path: 'detail/:id', component: ArticleDetailComponent, canActivate: [AuthGuard]},
+    {path: 'edit/:id', component: ArticleEditComponent, canActivate: [AuthGuard]},
+    {path: 'new', component: ArticleEditComponent, canActivate: [AuthGuard]},
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];
 
@@ -52,11 +60,11 @@ export const faqRoutingPath = [
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];
 
-export const eventRoutingPath = [
-    {path: 'list', component: EventListComponent, canActivate: [AuthGuard]},
-    {path: 'detail/:id', component: EventDetailComponent, canActivate: [AuthGuard]},
-    {path: 'edit/:id', component: EventEditComponent, canActivate: [AuthGuard]},
-    {path: 'new', component: EventEditComponent, canActivate: [AuthGuard]},
+export const generalinfoRoutingPath = [
+    {path: 'list', component: GeneralinfoListComponent, canActivate: [AuthGuard]},
+    {path: 'detail/:id', component: GeneralinfoDetailComponent, canActivate: [AuthGuard]},
+    {path: 'edit/:id', component: GeneralinfoEditComponent, canActivate: [AuthGuard]},
+    {path: 'new', component: GeneralinfoEditComponent, canActivate: [AuthGuard]},
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];
 
@@ -73,13 +81,5 @@ export const termsRoutingPath = [
     {path: 'detail/:id', component: TermsDetailComponent, canActivate: [AuthGuard]},
     {path: 'edit/:id', component: TermsEditComponent, canActivate: [AuthGuard]},
     {path: 'new', component: TermsEditComponent, canActivate: [AuthGuard]},
-    {path: '**', redirectTo: 'list', pathMatch: 'full'}
-];
-
-export const articleRoutingPath = [
-    {path: 'list', component: ArticleListComponent, canActivate: [AuthGuard]},
-    {path: 'detail/:id', component: ArticleDetailComponent, canActivate: [AuthGuard]},
-    {path: 'edit/:id', component: ArticleEditComponent, canActivate: [AuthGuard]},
-    {path: 'new', component: ArticleEditComponent, canActivate: [AuthGuard]},
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];

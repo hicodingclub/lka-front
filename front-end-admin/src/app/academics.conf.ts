@@ -41,32 +41,24 @@ export const AcademicsRoutes: Routes = [
 
 export const academics_server_root_uri:string = "/api/academics";
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Sun Jul 21 2019 22:06:37 GMT-0700 (Pacific Daylight Time)
+**Date: Mon Jul 22 2019 07:41:30 GMT-0700 (Pacific Daylight Time)
 
 import { Routes } from '@angular/router';
 
 import { AcademicsComponent } from './academics/academics.component';
 
 //Import routing paths
-import { studentRoutingPath, teacherRoutingPath, courseRoutingPath, classRoutingPath, studentclassRoutingPath, classenrollRoutingPath,  } from './academics/academics-routing.path';
+import { classenrollRoutingPath, classRoutingPath, studentclassRoutingPath, courseRoutingPath, studentRoutingPath, teacherRoutingPath,  } from './academics/academics-routing.path';
 
 export const AcademicsRoutes: Routes = [
   { path: 'academics',
     component: AcademicsComponent,
     children: [
-      {path: '',  redirectTo: 'student', pathMatch: 'full'},
+      {path: '',  redirectTo: 'classenroll', pathMatch: 'full'},
 
-      { path: "student",
-        children: studentRoutingPath,
-        data: {"mraLevel": 1, "item": "student"}
-      },
-      { path: "teacher",
-        children: teacherRoutingPath,
-        data: {"mraLevel": 1, "item": "teacher"}
-      },
-      { path: "course",
-        children: courseRoutingPath,
-        data: {"mraLevel": 1, "item": "course"}
+      { path: "classenroll",
+        children: classenrollRoutingPath,
+        data: {"mraLevel": 1, "item": "classenroll"}
       },
       { path: "class",
         children: classRoutingPath,
@@ -76,9 +68,17 @@ export const AcademicsRoutes: Routes = [
         children: studentclassRoutingPath,
         data: {"mraLevel": 1, "item": "studentclass"}
       },
-      { path: "classenroll",
-        children: classenrollRoutingPath,
-        data: {"mraLevel": 1, "item": "classenroll"}
+      { path: "course",
+        children: courseRoutingPath,
+        data: {"mraLevel": 1, "item": "course"}
+      },
+      { path: "student",
+        children: studentRoutingPath,
+        data: {"mraLevel": 1, "item": "student"}
+      },
+      { path: "teacher",
+        children: teacherRoutingPath,
+        data: {"mraLevel": 1, "item": "teacher"}
       },
     ]
   }

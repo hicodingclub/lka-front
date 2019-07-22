@@ -41,32 +41,36 @@ export const PublicinfoRoutes: Routes = [
 
 export const publicinfo_server_root_uri:string = "/api/publicinfo";
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Sun Jul 21 2019 22:06:34 GMT-0700 (Pacific Daylight Time)
+**Date: Mon Jul 22 2019 07:41:28 GMT-0700 (Pacific Daylight Time)
 
 import { Routes } from '@angular/router';
 
 import { PublicinfoComponent } from './publicinfo/publicinfo.component';
 
 //Import routing paths
-import { generalinfoRoutingPath, faqRoutingPath, eventRoutingPath, keynoteRoutingPath, termsRoutingPath, articleRoutingPath,  } from './publicinfo/publicinfo-routing.path';
+import { eventRoutingPath, articleRoutingPath, faqRoutingPath, generalinfoRoutingPath, keynoteRoutingPath, termsRoutingPath,  } from './publicinfo/publicinfo-routing.path';
 
 export const PublicinfoRoutes: Routes = [
   { path: 'publicinfo',
     component: PublicinfoComponent,
     children: [
-      {path: '',  redirectTo: 'generalinfo', pathMatch: 'full'},
+      {path: '',  redirectTo: 'event', pathMatch: 'full'},
 
-      { path: "generalinfo",
-        children: generalinfoRoutingPath,
-        data: {"mraLevel": 1, "item": "generalinfo"}
+      { path: "event",
+        children: eventRoutingPath,
+        data: {"mraLevel": 1, "item": "event"}
+      },
+      { path: "article",
+        children: articleRoutingPath,
+        data: {"mraLevel": 1, "item": "article"}
       },
       { path: "faq",
         children: faqRoutingPath,
         data: {"mraLevel": 1, "item": "faq"}
       },
-      { path: "event",
-        children: eventRoutingPath,
-        data: {"mraLevel": 1, "item": "event"}
+      { path: "generalinfo",
+        children: generalinfoRoutingPath,
+        data: {"mraLevel": 1, "item": "generalinfo"}
       },
       { path: "keynote",
         children: keynoteRoutingPath,
@@ -75,10 +79,6 @@ export const PublicinfoRoutes: Routes = [
       { path: "terms",
         children: termsRoutingPath,
         data: {"mraLevel": 1, "item": "terms"}
-      },
-      { path: "article",
-        children: articleRoutingPath,
-        data: {"mraLevel": 1, "item": "article"}
       },
     ]
   }
