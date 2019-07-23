@@ -1,10 +1,9 @@
 .slides-session {
-	margin-top: 5px;
+	margin-top: 80px;
 	width: 100%;
 }
 
 .internal_link {
-    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
     margin-top: 1rem;
     color: #307bff;
     cursor: pointer;
@@ -36,4 +35,21 @@ section {
 
 .container {
 	background-color: white;
+}
+
+.card {
+	background-color: lightblue;
+}
+
+.col-large{
+	flex-grow: 1;
+	padding-right: 15px;
+	padding-left: 15px;
+	max-width: 740px;
+}
+
+.col-small {
+	width: 370px;
+	padding-right: 15px;
+    padding-left: 15px;
 }

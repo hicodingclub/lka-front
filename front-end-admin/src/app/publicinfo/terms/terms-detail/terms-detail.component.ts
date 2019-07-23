@@ -23,6 +23,8 @@ export class TermsDetailComponent extends TermsComponent implements OnInit {
   public searchObj:any;
   @Input()
   public disableActionButtions:boolean;
+  @Input()
+  public style: any; // {}
 
 
   @ViewChildren(MraRichTextShowDirective) textEditors: QueryList<MraRichTextShowDirective>;
@@ -51,6 +53,7 @@ export class TermsDetailComponent extends TermsComponent implements OnInit {
   }
 
   ngOnInit() {
+      this.style = this.style || {};
       if (!this.id) this.id = this.route.snapshot.paramMap.get('id');
       if (this.id) {
         this.populateDetail(this.id);

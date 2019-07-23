@@ -22,6 +22,8 @@ export class MpermissionDetailComponent extends MpermissionComponent implements 
   public searchObj:any;
   @Input()
   public disableActionButtions:boolean;
+  @Input()
+  public style: any; // {}
 
 
 
@@ -51,6 +53,7 @@ export class MpermissionDetailComponent extends MpermissionComponent implements 
   }
 
   ngOnInit() {
+      this.style = this.style || {};
       if (!this.id) this.id = this.route.snapshot.paramMap.get('id');
       if (this.id) {
         this.populateDetail(this.id);

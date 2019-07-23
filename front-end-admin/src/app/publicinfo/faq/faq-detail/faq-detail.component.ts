@@ -23,6 +23,8 @@ export class FaqDetailComponent extends FaqComponent implements OnInit {
   public searchObj:any;
   @Input()
   public disableActionButtions:boolean;
+  @Input()
+  public style: any; // {}
 
 
   @ViewChildren(MraRichTextShowDirective) textEditors: QueryList<MraRichTextShowDirective>;
@@ -49,6 +51,7 @@ export class FaqDetailComponent extends FaqComponent implements OnInit {
   }
 
   ngOnInit() {
+      this.style = this.style || {};
       if (!this.id) this.id = this.route.snapshot.paramMap.get('id');
       if (this.id) {
         this.populateDetail(this.id);

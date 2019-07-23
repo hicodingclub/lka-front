@@ -21,6 +21,8 @@ export class GeneralinfoDetailComponent extends GeneralinfoComponent implements 
   public searchObj:any;
   @Input()
   public disableActionButtions:boolean;
+  @Input()
+  public style: any; // {}
 
 
 
@@ -47,6 +49,7 @@ export class GeneralinfoDetailComponent extends GeneralinfoComponent implements 
   }
 
   ngOnInit() {
+      this.style = this.style || {};
       if (!this.id) this.id = this.route.snapshot.paramMap.get('id');
       if (this.id) {
         this.populateDetail(this.id);

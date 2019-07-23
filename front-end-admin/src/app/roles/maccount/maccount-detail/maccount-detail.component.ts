@@ -21,6 +21,8 @@ export class MaccountDetailComponent extends MaccountComponent implements OnInit
   public searchObj:any;
   @Input()
   public disableActionButtions:boolean;
+  @Input()
+  public style: any; // {}
 
 
 
@@ -50,6 +52,7 @@ export class MaccountDetailComponent extends MaccountComponent implements OnInit
   }
 
   ngOnInit() {
+      this.style = this.style || {};
       if (!this.id) this.id = this.route.snapshot.paramMap.get('id');
       if (this.id) {
         this.populateDetail(this.id);

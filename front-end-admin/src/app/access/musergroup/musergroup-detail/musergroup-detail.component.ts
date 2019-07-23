@@ -21,6 +21,8 @@ export class MusergroupDetailComponent extends MusergroupComponent implements On
   public searchObj:any;
   @Input()
   public disableActionButtions:boolean;
+  @Input()
+  public style: any; // {}
 
 
 
@@ -46,6 +48,7 @@ export class MusergroupDetailComponent extends MusergroupComponent implements On
   }
 
   ngOnInit() {
+      this.style = this.style || {};
       if (!this.id) this.id = this.route.snapshot.paramMap.get('id');
       if (this.id) {
         this.populateDetail(this.id);

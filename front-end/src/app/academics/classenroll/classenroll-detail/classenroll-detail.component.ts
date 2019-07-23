@@ -22,6 +22,8 @@ export class ClassenrollDetailComponent extends ClassenrollComponent implements 
   public searchObj:any;
   @Input()
   public disableActionButtions:boolean;
+  @Input()
+  public style: any; // {}
 
 
 
@@ -52,6 +54,7 @@ export class ClassenrollDetailComponent extends ClassenrollComponent implements 
   }
 
   ngOnInit() {
+      this.style = this.style || {};
       if (!this.id) this.id = this.route.snapshot.paramMap.get('id');
       if (this.id) {
         this.populateDetail(this.id);
