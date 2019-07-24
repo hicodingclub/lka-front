@@ -24,6 +24,8 @@ export class ArticleListHomeComponent extends ArticleListComponent implements On
   }
 
   ngOnInit() {
+    this.adjustListViewForWindowSize();
+
     const detail = this.searchObj || {};
     this.detail = this.formatDetail(detail);
     this.searchList();

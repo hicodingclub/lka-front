@@ -24,6 +24,8 @@ export class CourseListHomeComponent extends CourseListComponent implements OnIn
   }
 
   ngOnInit() {
+    this.adjustListViewForWindowSize();
+
     const detail = this.searchObj || {};
     this.detail = this.formatDetail(detail);
     this.searchList();

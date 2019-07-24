@@ -1,5 +1,5 @@
 
-	<table *ngIf="isShowListView('table')" class="table table-bordered table-hover">
+		<table *ngIf="isShowListView('table')" class="table table-bordered table-hover">
 	    <thead class="thead-light">
 	    	<tr>
 		        <th scope="col">#</th>
@@ -72,3 +72,111 @@
 	        </tr>
 	    </tbody>
 	</table>
+
+		<div class="listview" *ngIf="isShowListView('list')">
+		<div class="list-block" *ngFor="let detail of list;  let i = index; let list_index = index;">
+			<hr *ngIf="i==0" class="list-diverder">
+			<div class="list-card text-left clickable-card "
+				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
+				<div class="list-fields pointer" (click)="onDetailLinkClicked(detail['_id'])" >
+
+      <div class="list-body-fields ml-1 d-inline-block">
+        <h5>
+          <div class="mr-1 d-inline-block">
+                            
+                    {{detail['title']}}
+
+          </div>
+        </h5>
+        <div *ngIf="detail['course']" class="mr-3 d-inline-block">
+          <div class="d-inline-block"><label>Course:</label></div>
+          <div class="ml-3 d-inline-block">                
+               	  <a routerLink="."  (click)="onDisplayRefClicked('course', detail['course'], $event)">
+	            	{{detail['course']?detail['course']['value']:""}}
+	              </a>
+
+          </div>
+        </div>
+        <div *ngIf="detail['startTime']" class="mr-3 d-inline-block">
+          <div class="d-inline-block"><label>Start Time:</label></div>
+          <div class="ml-3 d-inline-block">                  {{detail['startTime']?detail['startTime']['value']:""}}
+
+          </div>
+        </div>
+        <div *ngIf="detail['endTime']" class="mr-3 d-inline-block">
+          <div class="d-inline-block"><label>End Time:</label></div>
+          <div class="ml-3 d-inline-block">                  {{detail['endTime']?detail['endTime']['value']:""}}
+
+          </div>
+        </div>
+        <div *ngIf="detail['dayOfWeek']" class="mr-3 d-inline-block">
+          <div class="d-inline-block"><label>Day of Week:</label></div>
+          <div class="ml-3 d-inline-block">                
+                    <div class="badge badge-pill badge-secondary" *ngFor="let element of enums['dayOfWeek']">
+                         <div *ngIf="detail['dayOfWeek'] && detail['dayOfWeek']['selection'][element]">{{element}}</div>
+                    </div>
+
+          </div>
+        </div>
+      </div>
+
+				</div>
+			</div>
+			<hr class="list-diverder">
+		</div>
+	</div>
+	
+	<div class="gridview" *ngIf="isShowListView('grid')">
+		<div class="grid-block" *ngFor="let detail of list;  let i = index; let list_index = index;">
+			<div class="card text-left h-100 clickable-card "
+				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
+				<div class="grid-fields pointer" (click)="onDetailLinkClicked(detail['_id'])" >
+
+      <div class="card-header grid-head">
+        <div class="ml-1 d-inline-block">
+          <h5>
+            <div class="mr-1 d-inline-block">
+                              
+                    {{detail['title']}}
+
+            </div>
+          </h5>
+        </div>
+      </div>
+      <div class="card-body">
+          <div *ngIf="detail['course']">
+            <div class="d-inline-block"><label>Course:</label></div>
+            <div class="ml-3 d-inline-block">                
+               	  <a routerLink="."  (click)="onDisplayRefClicked('course', detail['course'], $event)">
+	            	{{detail['course']?detail['course']['value']:""}}
+	              </a>
+
+            </div>
+          </div>
+          <div *ngIf="detail['startTime']">
+            <div class="d-inline-block"><label>Start Time:</label></div>
+            <div class="ml-3 d-inline-block">                  {{detail['startTime']?detail['startTime']['value']:""}}
+
+            </div>
+          </div>
+          <div *ngIf="detail['endTime']">
+            <div class="d-inline-block"><label>End Time:</label></div>
+            <div class="ml-3 d-inline-block">                  {{detail['endTime']?detail['endTime']['value']:""}}
+
+            </div>
+          </div>
+          <div *ngIf="detail['dayOfWeek']">
+            <div class="d-inline-block"><label>Day of Week:</label></div>
+            <div class="ml-3 d-inline-block">                
+                    <div class="badge badge-pill badge-secondary" *ngFor="let element of enums['dayOfWeek']">
+                         <div *ngIf="detail['dayOfWeek'] && detail['dayOfWeek']['selection'][element]">{{element}}</div>
+                    </div>
+
+            </div>
+          </div>
+      </div>
+
+				</div>
+			</div>
+		</div>
+	</div>

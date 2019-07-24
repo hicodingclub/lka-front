@@ -52,6 +52,8 @@ export class GeneralinfoListComponent extends GeneralinfoComponent implements On
   }
 
   ngOnInit() {
+      this.adjustListViewForWindowSize();
+
       // this is to initialize the detail that will be used for search condition selection
       const detail = this.searchObj || {};
       this.detail = this.formatDetail(detail);

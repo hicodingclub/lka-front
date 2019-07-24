@@ -1,10 +1,10 @@
 
-	<div class="listview" *ngIf="isShowListView('list')">
+		<div class="listview" *ngIf="isShowListView('list')">
 		<div class="list-block" *ngFor="let detail of list;  let i = index; let list_index = index;">
 			<hr *ngIf="i==0" class="list-diverder">
 			<div class="list-card text-left  "
 				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
-				<div class="list-fields w-75 "  >
+				<div class="list-fields "  >
 
       <div class="list-head-picture mr-1 d-inline-block">                
                     <file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false"></file-display>
@@ -42,3 +42,107 @@
 			<hr class="list-diverder">
 		</div>
 	</div>
+	
+	<div class="gridview" *ngIf="isShowListView('grid')">
+		<div class="grid-block" *ngFor="let detail of list;  let i = index; let list_index = index;">
+			<div class="card text-left h-100  "
+				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
+				<div class="grid-fields "  >
+
+      <div class="card-header grid-head">
+        <div class="grid-head-picture mr-1">                
+                    <file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false"></file-display>
+
+        </div>
+        <div class="ml-1 d-inline-block">
+          <h5>
+            <div class="mr-1 d-inline-block">
+                              
+                    {{detail['title']}}
+
+            </div>
+          </h5>
+        </div>
+      </div>
+      <div class="card-body">
+          <div *ngIf="detail['author']">
+            <div class="d-inline-block"><label>Author:</label></div>
+            <div class="ml-3 d-inline-block">                
+                    {{detail['author']}}
+
+            </div>
+          </div>
+          <div *ngIf="detail['publishDate']">
+            <div class="d-inline-block"><label>Publish Date:</label></div>
+            <div class="ml-3 d-inline-block">                  {{detail['publishDate']?detail['publishDate']['value']:""}}
+
+            </div>
+          </div>
+        <div class="read-more" (click)="onDetailLinkClicked(detail['_id'])">
+          Read more ...
+        </div>
+      </div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+		<table *ngIf="isShowListView('table')" class="table table-bordered table-hover">
+	    <thead class="thead-light">
+	    	<tr>
+		        <th scope="col">#</th>
+
+				<th scope="col">Signature Picture</th>
+
+				<th class="pointer" scope="col" (click)="toggleListSort('title', 'Title')">
+					Title
+					<span *ngIf="listSortField === 'title'">
+						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+					</span>
+				</th>
+				<th class="pointer" scope="col" (click)="toggleListSort('author', 'Author')">
+					Author
+					<span *ngIf="listSortField === 'author'">
+						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+					</span>
+				</th>
+				<th class="pointer" scope="col" (click)="toggleListSort('publishDate', 'Publish Date')">
+					Publish Date
+					<span *ngIf="listSortField === 'publishDate'">
+						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+					</span>
+				</th>
+	    	</tr>
+	    </thead>
+	    <tbody>
+	        <tr *ngFor="let detail of list;  let i = index; let list_index = index;" [ngClass]="{'clicked-row': clickedId==detail['_id']}">
+	            <td scope="row" (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            	{{(page-1)*per_page+i+1}}
+	            </td>
+
+	            <td >
+	            	                
+                    <file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false"></file-display>
+
+	            </td>
+	            <td >
+	            	                
+                    {{detail['title']}}
+
+	            </td>
+	            <td >
+	            	                
+                    {{detail['author']}}
+
+	            </td>
+	            <td >
+	            	                  {{detail['publishDate']?detail['publishDate']['value']:""}}
+
+	            </td>
+	        </tr>
+	    </tbody>
+	</table>

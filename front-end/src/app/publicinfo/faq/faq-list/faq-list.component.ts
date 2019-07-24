@@ -54,6 +54,8 @@ export class FaqListComponent extends FaqComponent implements OnInit {
   }
 
   ngOnInit() {
+      this.adjustListViewForWindowSize();
+
       // this is to initialize the detail that will be used for search condition selection
       const detail = this.searchObj || {};
       this.detail = this.formatDetail(detail);

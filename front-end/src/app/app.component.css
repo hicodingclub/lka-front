@@ -1,6 +1,6 @@
 .header {
   background-color: #00274C; /*#1975d2*/
-  height: 70px;
+  height: 100px;
   color: #e8f1fa;
   display: flex;
   width: 100%;
@@ -23,7 +23,7 @@
   color: white;
 
   /*font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;*/
-  font-size: 1.75rem;
+  font-size: 2rem;
 }
 
 .logo-text span {
@@ -54,7 +54,7 @@
 
 .content {
   position: relative;
-	padding-top: 70px; /*same height with .header*/
+	padding-top: 100px; /*same height with .header*/
 	width: 100%;
   min-height: calc(100vh - 70px);  /*viewport height substracts footer height*/
   

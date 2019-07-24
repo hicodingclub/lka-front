@@ -24,6 +24,8 @@ export class ClassListHomeComponent extends ClassListComponent implements OnInit
   }
 
   ngOnInit() {
+    this.adjustListViewForWindowSize();
+
     const detail = this.searchObj || {};
     this.detail = this.formatDetail(detail);
     this.searchList();
