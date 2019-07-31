@@ -16,5 +16,6 @@ export const pipelineRoutingPath = [
     {path: 'detail/:id', component: PipelineDetailComponent},
     {path: 'edit/:id', component: PipelineEditComponent, canActivate: [AuthGuard]},
     {path: 'new', component: PipelineEditComponent},
+    
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];

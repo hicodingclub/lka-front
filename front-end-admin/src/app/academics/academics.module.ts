@@ -29,6 +29,7 @@ import { ClassenrollListComponent } from './classenroll/classenroll-list/classen
 
 import { ClassenrollDetailComponent } from './classenroll/classenroll-detail/classenroll-detail.component';
 import { ClassenrollEditComponent } from './classenroll/classenroll-edit/classenroll-edit.component';
+
 import { ClassenrollService } from './classenroll/classenroll.service';
 
 import { ClassListComponent } from './class/class-list/class-list.component';
@@ -37,6 +38,7 @@ import { ClassListComponent } from './class/class-list/class-list.component';
 
 import { ClassDetailComponent } from './class/class-detail/class-detail.component';
 import { ClassEditComponent } from './class/class-edit/class-edit.component';
+import { ClassAssoComponent } from './class/class-detail/class-detail-asso.component';
 import { ClassService } from './class/class.service';
 
 import { StudentclassListComponent } from './studentclass/studentclass-list/studentclass-list.component';
@@ -45,6 +47,7 @@ import { StudentclassListComponent } from './studentclass/studentclass-list/stud
 
 import { StudentclassDetailComponent } from './studentclass/studentclass-detail/studentclass-detail.component';
 import { StudentclassEditComponent } from './studentclass/studentclass-edit/studentclass-edit.component';
+
 import { StudentclassService } from './studentclass/studentclass.service';
 
 import { CourseListComponent } from './course/course-list/course-list.component';
@@ -53,6 +56,7 @@ import { CourseListComponent } from './course/course-list/course-list.component'
 
 import { CourseDetailComponent } from './course/course-detail/course-detail.component';
 import { CourseEditComponent } from './course/course-edit/course-edit.component';
+
 import { CourseService } from './course/course.service';
 
 import { StudentListComponent } from './student/student-list/student-list.component';
@@ -61,6 +65,7 @@ import { StudentListComponent } from './student/student-list/student-list.compon
 
 import { StudentDetailComponent } from './student/student-detail/student-detail.component';
 import { StudentEditComponent } from './student/student-edit/student-edit.component';
+
 import { StudentService } from './student/student.service';
 
 import { TeacherListComponent } from './teacher/teacher-list/teacher-list.component';
@@ -69,7 +74,17 @@ import { TeacherListComponent } from './teacher/teacher-list/teacher-list.compon
 
 import { TeacherDetailComponent } from './teacher/teacher-detail/teacher-detail.component';
 import { TeacherEditComponent } from './teacher/teacher-edit/teacher-edit.component';
+
 import { TeacherService } from './teacher/teacher.service';
+
+import { TermsListComponent } from './terms/terms-list/terms-list.component';
+
+
+
+import { TermsDetailComponent } from './terms/terms-detail/terms-detail.component';
+import { TermsEditComponent } from './terms/terms-edit/terms-edit.component';
+
+import { TermsService } from './terms/terms.service';
 
 
 import { StudentSelectComponent } from './student/student-list/student-select.component';
@@ -84,12 +99,17 @@ import { CourseDetailSelComponent } from './course/course-detail/course-detail-s
 import { TeacherSelectComponent } from './teacher/teacher-list/teacher-select.component';
 import { TeacherDetailPopComponent } from './teacher/teacher-detail/teacher-detail-pop.component';
 import { TeacherDetailSelComponent } from './teacher/teacher-detail/teacher-detail-sel.component';
+import { TermsSelectComponent } from './terms/terms-list/terms-select.component';
+import { TermsDetailPopComponent } from './terms/terms-detail/terms-detail-pop.component';
+import { TermsDetailSelComponent } from './terms/terms-detail/terms-detail-sel.component';
 
 import { ClassenrollListSubComponent } from './classenroll/classenroll-list/classenroll-list-sub.component';
+import { ClassenrollListAssoComponent } from './classenroll/classenroll-list/classenroll-list-asso.component';
 import { ClassenrollDetailSubComponent } from './classenroll/classenroll-detail/classenroll-detail-sub.component';
 import { ClassListSubComponent } from './class/class-list/class-list-sub.component';
 import { ClassDetailSubComponent } from './class/class-detail/class-detail-sub.component';
 import { StudentclassListSubComponent } from './studentclass/studentclass-list/studentclass-list-sub.component';
+import { StudentclassListAssoComponent } from './studentclass/studentclass-list/studentclass-list-asso.component';
 import { StudentclassDetailSubComponent } from './studentclass/studentclass-detail/studentclass-detail-sub.component';
 import { TeacherListSubComponent } from './teacher/teacher-list/teacher-list-sub.component';
 import { TeacherDetailSubComponent } from './teacher/teacher-detail/teacher-detail-sub.component';
@@ -122,36 +142,49 @@ import { StudentDirectiveGuardianTwoEmail } from './student/student-edit/student
     
     ClassenrollDetailComponent,
     ClassenrollEditComponent,
+
     ClassListComponent,
     
     
     
     ClassDetailComponent,
     ClassEditComponent,
+ClassAssoComponent,
     StudentclassListComponent,
     
     
     
     StudentclassDetailComponent,
     StudentclassEditComponent,
+
     CourseListComponent,
     
     
     
     CourseDetailComponent,
     CourseEditComponent,
+
     StudentListComponent,
     
     
     
     StudentDetailComponent,
     StudentEditComponent,
+
     TeacherListComponent,
     
     
     
     TeacherDetailComponent,
     TeacherEditComponent,
+
+    TermsListComponent,
+    
+    
+    
+    TermsDetailComponent,
+    TermsEditComponent,
+
 
     StudentSelectComponent,
     StudentDetailPopComponent,
@@ -165,12 +198,17 @@ import { StudentDirectiveGuardianTwoEmail } from './student/student-edit/student
     TeacherSelectComponent,
     TeacherDetailPopComponent,
     TeacherDetailSelComponent,
+    TermsSelectComponent,
+    TermsDetailPopComponent,
+    TermsDetailSelComponent,
 
     ClassenrollListSubComponent,
+    ClassenrollListAssoComponent,
     ClassenrollDetailSubComponent,
     ClassListSubComponent,
     ClassDetailSubComponent,
     StudentclassListSubComponent,
+    StudentclassListAssoComponent,
     StudentclassDetailSubComponent,
     TeacherListSubComponent,
     TeacherDetailSubComponent,
@@ -195,36 +233,49 @@ import { StudentDirectiveGuardianTwoEmail } from './student/student-edit/student
     
     ClassenrollDetailComponent,
     ClassenrollEditComponent,
+
     ClassListComponent,
     
     
     
     ClassDetailComponent,
     ClassEditComponent,
+ClassAssoComponent,
     StudentclassListComponent,
     
     
     
     StudentclassDetailComponent,
     StudentclassEditComponent,
+
     CourseListComponent,
     
     
     
     CourseDetailComponent,
     CourseEditComponent,
+
     StudentListComponent,
     
     
     
     StudentDetailComponent,
     StudentEditComponent,
+
     TeacherListComponent,
     
     
     
     TeacherDetailComponent,
     TeacherEditComponent,
+
+    TermsListComponent,
+    
+    
+    
+    TermsDetailComponent,
+    TermsEditComponent,
+
 
     StudentSelectComponent,
     StudentDetailPopComponent,
@@ -238,12 +289,17 @@ import { StudentDirectiveGuardianTwoEmail } from './student/student-edit/student
     TeacherSelectComponent,
     TeacherDetailPopComponent,
     TeacherDetailSelComponent,
+    TermsSelectComponent,
+    TermsDetailPopComponent,
+    TermsDetailSelComponent,
 
     ClassenrollListSubComponent,
+    ClassenrollListAssoComponent,
     ClassenrollDetailSubComponent,
     ClassListSubComponent,
     ClassDetailSubComponent,
     StudentclassListSubComponent,
+    StudentclassListAssoComponent,
     StudentclassDetailSubComponent,
     TeacherListSubComponent,
     TeacherDetailSubComponent,
@@ -259,8 +315,9 @@ import { StudentDirectiveGuardianTwoEmail } from './student/student-edit/student
     CourseService,
     StudentService,
     TeacherService,
+    TermsService,
   ],
-  entryComponents: [StudentSelectComponent,StudentDetailPopComponent,StudentDetailSelComponent,ClassSelectComponent,ClassDetailPopComponent,ClassDetailSelComponent,CourseSelectComponent,CourseDetailPopComponent,CourseDetailSelComponent,TeacherSelectComponent,TeacherDetailPopComponent,TeacherDetailSelComponent,ClassenrollEditComponent,ClassEditComponent,StudentclassEditComponent,CourseEditComponent,StudentEditComponent,TeacherEditComponent,
+  entryComponents: [StudentSelectComponent,StudentDetailPopComponent,StudentDetailSelComponent,ClassSelectComponent,ClassDetailPopComponent,ClassDetailSelComponent,CourseSelectComponent,CourseDetailPopComponent,CourseDetailSelComponent,TeacherSelectComponent,TeacherDetailPopComponent,TeacherDetailSelComponent,TermsSelectComponent,TermsDetailPopComponent,TermsDetailSelComponent,ClassenrollEditComponent,ClassEditComponent,StudentclassEditComponent,CourseEditComponent,StudentEditComponent,TeacherEditComponent,TermsEditComponent,
   ]
 })
 export class AcademicsModule { }

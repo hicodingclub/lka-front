@@ -12,6 +12,9 @@ import { MpermissionService } from '../mpermission.service';
   styleUrls: ['./mpermission-list.component.css']
 })
 export class MpermissionListSubComponent extends MpermissionListComponent implements OnInit {
+  public parentSchema;
+  public parentItemId;
+
   constructor(
       public mpermissionService: MpermissionService,
       public injector: Injector,
@@ -24,8 +27,13 @@ export class MpermissionListSubComponent extends MpermissionListComponent implem
   }
 
   ngOnInit() {
-      let ref = this.getParentRouteRefField();
-      let id = this.getParentRouteItemId();
+    
+      this.parentSchema = this.getParentRouteRefField();
+      let ref = this.referenceFieldsReverseMap[this.parentSchema];
+
+      this.parentItemId = this.getParentRouteItemId();
+      let id = this.parentItemId;
+
       this.detail = {};
 
       this.parentData = {};

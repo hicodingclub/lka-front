@@ -19,14 +19,22 @@ export class MroleComponent extends BaseComponent {
     @ViewChild('RolesModal') public focusEl: ElementRef;
 
     constructor(
-
+      
       public mroleService: MroleService,
       public injector: Injector,
       public router: Router,
       public route: ActivatedRoute,
       public location: Location,
       public view: ViewType ) {
+
         super(mroleService, injector, router, route, location, view, itemCamelName);
+
+        
+  this.briefFieldsInfo = [];
+  this.briefFieldsInfo.push(['role', 'Role']);
+  this.briefFieldsInfo.push(['description', 'Description']);
+  
+
         this.schemaName = 'mrole';
         
         this.modulePath = 'roles';

@@ -32,4 +32,7 @@ export class MusergroupDetailPopComponent extends MusergroupDetailComponent
       if (this.id) this.populateDetail(this.id);
       else console.error("Routing error for detail view... no id...");
     }
+
+    ngAfterViewInit() {
+    }
 }

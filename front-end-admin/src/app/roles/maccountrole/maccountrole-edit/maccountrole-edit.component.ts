@@ -49,6 +49,7 @@ export class MaccountroleEditComponent extends MaccountroleComponent implements 
 
           this.referenceFields = ['account', ];
           this.referenceFieldsMap = {'account': 'maccount',};
+          this.referenceFieldsReverseMap = {'maccount': 'account',};
 
 
 

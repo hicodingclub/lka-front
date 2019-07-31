@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
@@ -15,7 +15,7 @@ import { ComponentFactoryResolver } from '@angular/core';
   templateUrl: './maccountrole-detail.component.html',
   styleUrls: ['./maccountrole-detail.component.css']
 })
-export class MaccountroleDetailComponent extends MaccountroleComponent implements OnInit {
+export class MaccountroleDetailComponent extends MaccountroleComponent implements OnInit, AfterViewInit {
   @Input() 
   public id:string;
   @Input()
@@ -41,6 +41,7 @@ export class MaccountroleDetailComponent extends MaccountroleComponent implement
 
           this.referenceFields = ['account', ];
           this.referenceFieldsMap = {'account': 'maccount',};
+          this.referenceFieldsReverseMap = {'maccount': 'account',};
 
 
 
@@ -60,6 +61,11 @@ export class MaccountroleDetailComponent extends MaccountroleComponent implement
         this.populateDetailByFields(this.searchObj);
       } else {
         console.error("Routing error for detail view... no id...");
+        return;
       }
+  }
+
+  ngAfterViewInit() {
+
   }
 }

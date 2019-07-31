@@ -19,14 +19,22 @@ export class MmoduleComponent extends BaseComponent {
     @ViewChild('RolesModal') public focusEl: ElementRef;
 
     constructor(
-
+      
       public mmoduleService: MmoduleService,
       public injector: Injector,
       public router: Router,
       public route: ActivatedRoute,
       public location: Location,
       public view: ViewType ) {
+
         super(mmoduleService, injector, router, route, location, view, itemCamelName);
+
+        
+  this.briefFieldsInfo = [];
+  this.briefFieldsInfo.push(['module', 'Module']);
+  this.briefFieldsInfo.push(['resources', 'Resources']);
+  
+
         this.schemaName = 'mmodule';
         
         this.modulePath = 'roles';

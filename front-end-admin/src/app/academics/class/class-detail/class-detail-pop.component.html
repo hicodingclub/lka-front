@@ -20,97 +20,101 @@
 	  <div class="card-body">
 		<div class="card-text">
 
-          <div class="row">
-      
-			<div class="col-3"><label>Title</label></div>
-			<div class="col-9">                
+      <div class="card-header grid-head">
+        <div class="ml-1 d-inline-block">
+          <h5>
+            <div class="mr-1 d-inline-block">
+                              
                     {{detail['title']}}
-</div>
 
-          </div>
-
-          <div class="row">
-      
-			<div class="col-3"><label>Description</label></div>
-			<div class="col-9">                
+            </div>
+          </h5>
+        </div>
+      </div>
+      <div class="card-body">
+          <div>
+            <div class="d-inline-block mr-5" style="min-width: 200px;">
+                <div class="d-inline-block"><label>Description:</label></div>
+                <div class="d-inline-block ml-3">                
                     {{detail['description']}}
 </div>
-
+            </div>
           </div>
-
-          <div class="row">
-      
-			<div class="col-3"><label>Course</label></div>
-			<div class="col-3">                
+          <div>
+            <div class="d-inline-block mr-5" style="min-width: 200px;">
+                <div class="d-inline-block"><label>Course:</label></div>
+                <div class="d-inline-block ml-3">                
                	  <a routerLink="."  (click)="onDisplayRefClicked('course', detail['course'], $event)">
 	            	{{detail['course']?detail['course']['value']:""}}
 	              </a>
 </div>
-
-			<div class="col-3"><label>Price</label></div>
-			<div class="col-3">                
-                    {{detail['price']}}
-</div>
-
-          </div>
-
-          <div class="row">
-      
-			<div class="col-3"><label>Teacher</label></div>
-			<div class="col-9">                
+            </div>
+            <div class="d-inline-block mr-5" style="min-width: 200px;">
+                <div class="d-inline-block"><label>Teacher:</label></div>
+                <div class="d-inline-block ml-3">                
                	  <a routerLink="."  (click)="onDisplayRefClicked('teacher', detail['teacher'], $event)">
 	            	{{detail['teacher']?detail['teacher']['value']:""}}
 	              </a>
 </div>
-
-          </div>
-
-          <div class="row">
-      
-			<div class="col-3"><label>Start Time</label></div>
-			<div class="col-3">                  {{detail['startTime']?detail['startTime']['value']:""}}
+            </div>
+            <div class="d-inline-block mr-5" style="min-width: 200px;">
+                <div class="d-inline-block"><label>Price:</label></div>
+                <div class="d-inline-block ml-3">                
+                    {{detail['price']}}
 </div>
-
-			<div class="col-3"><label>End Time</label></div>
-			<div class="col-3">                  {{detail['endTime']?detail['endTime']['value']:""}}
-</div>
-
+            </div>
           </div>
-
-          <div class="row">
-      
-			<div class="col-3"><label>Duration</label></div>
-			<div class="col-9">                
+          <div>
+            <div class="d-inline-block mr-5" style="min-width: 200px;">
+                <div class="d-inline-block"><label>Start Time:</label></div>
+                <div class="d-inline-block ml-3">                  {{detail['startTime']?detail['startTime']['value']:""}}
+</div>
+            </div>
+            <div class="d-inline-block mr-5" style="min-width: 200px;">
+                <div class="d-inline-block"><label>End Time:</label></div>
+                <div class="d-inline-block ml-3">                  {{detail['endTime']?detail['endTime']['value']:""}}
+</div>
+            </div>
+            <div class="d-inline-block mr-5" style="min-width: 200px;">
+                <div class="d-inline-block"><label>Duration:</label></div>
+                <div class="d-inline-block ml-3">                
                     {{detail['duration']}}
 </div>
-
+            </div>
           </div>
-
-          <div class="row">
-      
-			<div class="col-3"><label>Day of Week</label></div>
-			<div class="col-3">                
+          <div>
+            <div class="d-inline-block mr-5" style="min-width: 200px;">
+                <div class="d-inline-block"><label>Day of Week:</label></div>
+                <div class="d-inline-block ml-3">                
                     <div class="badge badge-pill badge-secondary" *ngFor="let element of enums['dayOfWeek']">
                          <div *ngIf="detail['dayOfWeek'] && detail['dayOfWeek']['selection'][element]">{{element}}</div>
                     </div>
 </div>
-
-			<div class="col-3"><label>Time Slot</label></div>
-			<div class="col-3">                
+            </div>
+            <div class="d-inline-block mr-5" style="min-width: 200px;">
+                <div class="d-inline-block"><label>Time Slot:</label></div>
+                <div class="d-inline-block ml-3">                
                     {{detail['timeSlot']}}
 </div>
-
+            </div>
           </div>
-
-          <div class="row">
-      
-			<div class="col-3"><label>Hot</label></div>
-			<div class="col-9">                  {{detail['hot']}} 
+          <div>
+            <div class="d-inline-block mr-5" style="min-width: 200px;">
+                <div class="d-inline-block"><label>Hot:</label></div>
+                <div class="d-inline-block ml-3">                  {{detail['hot']}} 
 </div>
-
+            </div>
+            <div class="d-inline-block mr-5" style="min-width: 200px;">
+                <div class="d-inline-block"><label>Enroll Term:</label></div>
+                <div class="d-inline-block ml-3">                
+               	  <a routerLink="."  (click)="onDisplayRefClicked('enrollTerm', detail['enrollTerm'], $event)">
+	            	{{detail['enrollTerm']?detail['enrollTerm']['value']:""}}
+	              </a>
+</div>
+            </div>
           </div>
- 
- 
+      </div>
+
 		</div>
 	  </div>
 	</div>

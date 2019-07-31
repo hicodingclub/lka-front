@@ -42,14 +42,22 @@ export class MaccountroleComponent extends BaseComponent {
 
 
     constructor(
-public componentFactoryResolver: ComponentFactoryResolver,
+      public componentFactoryResolver: ComponentFactoryResolver,
       public maccountroleService: MaccountroleService,
       public injector: Injector,
       public router: Router,
       public route: ActivatedRoute,
       public location: Location,
       public view: ViewType ) {
+
         super(maccountroleService, injector, router, route, location, view, itemCamelName);
+
+        
+  this.briefFieldsInfo = [];
+  this.briefFieldsInfo.push(['account', 'Account']);
+  this.briefFieldsInfo.push(['role', 'Role']);
+  
+
         this.schemaName = 'maccountrole';
         
         this.modulePath = 'roles';

@@ -51,9 +51,17 @@ export class TermsListComponent extends TermsComponent implements OnInit {
   }
 
   ngOnInit() {
+      this.adjustListViewForWindowSize();
+
       // this is to initialize the detail that will be used for search condition selection
       const detail = this.searchObj || {};
       this.detail = this.formatDetail(detail);
       this.populateList();
   }
+
+  static getInstance() {
+    //used by others to call some common functions
+    return new TermsListComponent(null, null, null, null, null);
+  }
 }
+

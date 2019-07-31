@@ -12,6 +12,9 @@ import { ClassenrollService } from '../classenroll.service';
   styleUrls: ['./classenroll-list.component.css']
 })
 export class ClassenrollListSubComponent extends ClassenrollListComponent implements OnInit {
+  public parentSchema;
+  public parentItemId;
+
   constructor(
       public classenrollService: ClassenrollService,
       public injector: Injector,
@@ -24,8 +27,13 @@ export class ClassenrollListSubComponent extends ClassenrollListComponent implem
   }
 
   ngOnInit() {
-      let ref = this.getParentRouteRefField();
-      let id = this.getParentRouteItemId();
+    
+      this.parentSchema = this.getParentRouteRefField();
+      let ref = this.referenceFieldsReverseMap[this.parentSchema];
+
+      this.parentItemId = this.getParentRouteItemId();
+      let id = this.parentItemId;
+
       this.detail = {};
 
       this.parentData = {};

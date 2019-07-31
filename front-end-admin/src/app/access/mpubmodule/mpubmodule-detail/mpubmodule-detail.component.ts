@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
@@ -14,7 +14,7 @@ import { MpubmoduleService } from '../mpubmodule.service';
   templateUrl: './mpubmodule-detail.component.html',
   styleUrls: ['./mpubmodule-detail.component.css']
 })
-export class MpubmoduleDetailComponent extends MpubmoduleComponent implements OnInit {
+export class MpubmoduleDetailComponent extends MpubmoduleComponent implements OnInit, AfterViewInit {
   @Input() 
   public id:string;
   @Input()
@@ -57,6 +57,15 @@ export class MpubmoduleDetailComponent extends MpubmoduleComponent implements On
         this.populateDetailByFields(this.searchObj);
       } else {
         console.error("Routing error for detail view... no id...");
+        return;
       }
+  }
+
+  ngAfterViewInit() {
+
+    //Load first reference, if not others activated
+    if (!this.isChildRouterActivated()) {
+      this.router.navigate(['./mpubaccess/list', {}], {relativeTo: this.route, queryParamsHandling: 'preserve',});
+    }
   }
 }

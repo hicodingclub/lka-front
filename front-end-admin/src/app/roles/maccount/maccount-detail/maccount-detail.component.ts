@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
@@ -14,7 +14,7 @@ import { MaccountService } from '../maccount.service';
   templateUrl: './maccount-detail.component.html',
   styleUrls: ['./maccount-detail.component.css']
 })
-export class MaccountDetailComponent extends MaccountComponent implements OnInit {
+export class MaccountDetailComponent extends MaccountComponent implements OnInit, AfterViewInit {
   @Input() 
   public id:string;
   @Input()
@@ -61,6 +61,15 @@ export class MaccountDetailComponent extends MaccountComponent implements OnInit
         this.populateDetailByFields(this.searchObj);
       } else {
         console.error("Routing error for detail view... no id...");
+        return;
       }
+  }
+
+  ngAfterViewInit() {
+
+    //Load first reference, if not others activated
+    if (!this.isChildRouterActivated()) {
+      this.router.navigate(['./maccountrole/list', {}], {relativeTo: this.route, queryParamsHandling: 'preserve',});
+    }
   }
 }

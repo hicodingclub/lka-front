@@ -13,9 +13,7 @@ import { MmoduleEditComponent } from './mmodule/mmodule-edit/mmodule-edit.compon
 import { MpermissionListComponent } from './mpermission/mpermission-list/mpermission-list.component';
 import { MpermissionDetailComponent } from './mpermission/mpermission-detail/mpermission-detail.component';
 import { MpermissionEditComponent } from './mpermission/mpermission-edit/mpermission-edit.component';
-
 import { MpermissionListSubComponent } from './mpermission/mpermission-list/mpermission-list-sub.component';
-
 
 import { MaccountListComponent } from './maccount/maccount-list/maccount-list.component';
 import { MaccountDetailComponent } from './maccount/maccount-detail/maccount-detail.component';
@@ -25,9 +23,7 @@ import { MaccountEditComponent } from './maccount/maccount-edit/maccount-edit.co
 import { MaccountroleListComponent } from './maccountrole/maccountrole-list/maccountrole-list.component';
 import { MaccountroleDetailComponent } from './maccountrole/maccountrole-detail/maccountrole-detail.component';
 import { MaccountroleEditComponent } from './maccountrole/maccountrole-edit/maccountrole-edit.component';
-
 import { MaccountroleListSubComponent } from './maccountrole/maccountrole-list/maccountrole-list-sub.component';
-
 
 
 import { AuthGuard } from 'mdds-angular-auth';
@@ -68,6 +64,7 @@ export const mroleRoutingPath = [
     {path: 'detail/:id', component: MroleDetailComponent, children: mroleDetailPath, canActivate: [AuthGuard]},
     {path: 'edit/:id', component: MroleEditComponent, canActivate: [AuthGuard]},
     {path: 'new', component: MroleEditComponent, canActivate: [AuthGuard]},
+    
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];
 
@@ -76,6 +73,7 @@ export const mmoduleRoutingPath = [
     {path: 'detail/:id', component: MmoduleDetailComponent, children: mmoduleDetailPath, canActivate: [AuthGuard]},
     {path: 'edit/:id', component: MmoduleEditComponent, canActivate: [AuthGuard]},
     {path: 'new', component: MmoduleEditComponent, canActivate: [AuthGuard]},
+    
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];
 
@@ -84,6 +82,7 @@ export const mpermissionRoutingPath = [
     {path: 'detail/:id', component: MpermissionDetailComponent, canActivate: [AuthGuard]},
     {path: 'edit/:id', component: MpermissionEditComponent, canActivate: [AuthGuard]},
     {path: 'new', component: MpermissionEditComponent, canActivate: [AuthGuard]},
+    
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];
 
@@ -92,6 +91,7 @@ export const maccountRoutingPath = [
     {path: 'detail/:id', component: MaccountDetailComponent, children: maccountDetailPath, canActivate: [AuthGuard]},
     {path: 'edit/:id', component: MaccountEditComponent, canActivate: [AuthGuard]},
     {path: 'new', component: MaccountEditComponent, canActivate: [AuthGuard]},
+    
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];
 
@@ -100,5 +100,6 @@ export const maccountroleRoutingPath = [
     {path: 'detail/:id', component: MaccountroleDetailComponent, canActivate: [AuthGuard]},
     {path: 'edit/:id', component: MaccountroleEditComponent, canActivate: [AuthGuard]},
     {path: 'new', component: MaccountroleEditComponent, canActivate: [AuthGuard]},
+    
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];

@@ -12,6 +12,9 @@ import { MpubaccessService } from '../mpubaccess.service';
   styleUrls: ['./mpubaccess-list.component.css']
 })
 export class MpubaccessListSubComponent extends MpubaccessListComponent implements OnInit {
+  public parentSchema;
+  public parentItemId;
+
   constructor(
       public mpubaccessService: MpubaccessService,
       public injector: Injector,
@@ -24,8 +27,13 @@ export class MpubaccessListSubComponent extends MpubaccessListComponent implemen
   }
 
   ngOnInit() {
-      let ref = this.getParentRouteRefField();
-      let id = this.getParentRouteItemId();
+    
+      this.parentSchema = this.getParentRouteRefField();
+      let ref = this.referenceFieldsReverseMap[this.parentSchema];
+
+      this.parentItemId = this.getParentRouteItemId();
+      let id = this.parentItemId;
+
       this.detail = {};
 
       this.parentData = {};

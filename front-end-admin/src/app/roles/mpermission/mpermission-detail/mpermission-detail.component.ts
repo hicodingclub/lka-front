@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
@@ -15,7 +15,7 @@ import { ComponentFactoryResolver } from '@angular/core';
   templateUrl: './mpermission-detail.component.html',
   styleUrls: ['./mpermission-detail.component.css']
 })
-export class MpermissionDetailComponent extends MpermissionComponent implements OnInit {
+export class MpermissionDetailComponent extends MpermissionComponent implements OnInit, AfterViewInit {
   @Input() 
   public id:string;
   @Input()
@@ -42,6 +42,7 @@ export class MpermissionDetailComponent extends MpermissionComponent implements 
 
           this.referenceFields = ['role', 'module', ];
           this.referenceFieldsMap = {'role': 'mrole','module': 'mmodule',};
+          this.referenceFieldsReverseMap = {'mrole': 'role','mmodule': 'module',};
 
 
           this.mapFields = [
@@ -62,6 +63,11 @@ export class MpermissionDetailComponent extends MpermissionComponent implements 
         this.populateDetailByFields(this.searchObj);
       } else {
         console.error("Routing error for detail view... no id...");
+        return;
       }
+  }
+
+  ngAfterViewInit() {
+
   }
 }

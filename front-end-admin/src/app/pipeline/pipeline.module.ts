@@ -27,6 +27,7 @@ import { PipelineListComponent } from './pipeline/pipeline-list/pipeline-list.co
 
 import { PipelineDetailComponent } from './pipeline/pipeline-detail/pipeline-detail.component';
 import { PipelineEditComponent } from './pipeline/pipeline-edit/pipeline-edit.component';
+
 import { PipelineService } from './pipeline/pipeline.service';
 
 
@@ -59,6 +60,7 @@ import { PipelineService } from './pipeline/pipeline.service';
 
 
 
+
   ],
   exports: [
     PipelineComponent,
@@ -69,6 +71,7 @@ import { PipelineService } from './pipeline/pipeline.service';
     
     PipelineDetailComponent,
     PipelineEditComponent,
+
 
 
   ],

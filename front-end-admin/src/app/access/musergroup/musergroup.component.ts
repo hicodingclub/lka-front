@@ -19,14 +19,22 @@ export class MusergroupComponent extends BaseComponent {
     @ViewChild('AccessModal') public focusEl: ElementRef;
 
     constructor(
-
+      
       public musergroupService: MusergroupService,
       public injector: Injector,
       public router: Router,
       public route: ActivatedRoute,
       public location: Location,
       public view: ViewType ) {
+
         super(musergroupService, injector, router, route, location, view, itemCamelName);
+
+        
+  this.briefFieldsInfo = [];
+  this.briefFieldsInfo.push(['group', 'Group']);
+  this.briefFieldsInfo.push(['description', 'Description']);
+  
+
         this.schemaName = 'musergroup';
         
         this.modulePath = 'access';

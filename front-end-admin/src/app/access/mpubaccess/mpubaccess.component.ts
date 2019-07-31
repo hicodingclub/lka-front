@@ -42,14 +42,23 @@ export class MpubaccessComponent extends BaseComponent {
 
 
     constructor(
-public componentFactoryResolver: ComponentFactoryResolver,
+      public componentFactoryResolver: ComponentFactoryResolver,
       public mpubaccessService: MpubaccessService,
       public injector: Injector,
       public router: Router,
       public route: ActivatedRoute,
       public location: Location,
       public view: ViewType ) {
+
         super(mpubaccessService, injector, router, route, location, view, itemCamelName);
+
+        
+  this.briefFieldsInfo = [];
+  this.briefFieldsInfo.push(['group', 'Group']);
+  this.briefFieldsInfo.push(['module', 'Module']);
+  this.briefFieldsInfo.push(['modulePermission', 'Module Permission']);
+  
+
         this.schemaName = 'mpubaccess';
         
         this.modulePath = 'access';

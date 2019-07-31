@@ -40,6 +40,7 @@ public componentFactoryResolver: ComponentFactoryResolver,
 
           this.referenceFields = ['student', 'class', ];
           this.referenceFieldsMap = {'student': 'student','class': 'class',};
+          this.referenceFieldsReverseMap = {'student': 'student','class': 'class',};
 
 
 
@@ -50,9 +51,17 @@ public componentFactoryResolver: ComponentFactoryResolver,
   }
 
   ngOnInit() {
+      this.adjustListViewForWindowSize();
+
       // this is to initialize the detail that will be used for search condition selection
       const detail = this.searchObj || {};
       this.detail = this.formatDetail(detail);
       this.populateList();
   }
+
+  static getInstance() {
+    //used by others to call some common functions
+    return new StudentclassListComponent(null, null, null, null, null, null);
+  }
 }
+

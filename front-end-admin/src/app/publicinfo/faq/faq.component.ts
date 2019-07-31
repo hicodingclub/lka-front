@@ -16,14 +16,24 @@ export class FaqComponent extends BaseComponent {
 
 
     constructor(
-
+      
       public faqService: FaqService,
       public injector: Injector,
       public router: Router,
       public route: ActivatedRoute,
       public location: Location,
       public view: ViewType ) {
+
         super(faqService, injector, router, route, location, view, itemCamelName);
+
+        
+  this.briefFieldsInfo = [];
+  this.briefFieldsInfo.push(['question', 'Question']);
+  this.briefFieldsInfo.push(['answer', 'Answer']);
+  this.briefFieldsInfo.push(['order', 'Order']);
+  this.briefFieldsInfo.push(['enable', 'Enable']);
+  
+
         this.schemaName = 'faq';
         
         this.modulePath = 'publicinfo';

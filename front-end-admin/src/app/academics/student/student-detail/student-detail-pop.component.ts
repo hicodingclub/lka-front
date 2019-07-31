@@ -32,4 +32,7 @@ export class StudentDetailPopComponent extends StudentDetailComponent
       if (this.id) this.populateDetail(this.id);
       else console.error("Routing error for detail view... no id...");
     }
+
+    ngAfterViewInit() {
+    }
 }

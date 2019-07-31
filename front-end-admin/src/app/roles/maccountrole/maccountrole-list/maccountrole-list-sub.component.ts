@@ -12,6 +12,9 @@ import { MaccountroleService } from '../maccountrole.service';
   styleUrls: ['./maccountrole-list.component.css']
 })
 export class MaccountroleListSubComponent extends MaccountroleListComponent implements OnInit {
+  public parentSchema;
+  public parentItemId;
+
   constructor(
       public maccountroleService: MaccountroleService,
       public injector: Injector,
@@ -24,8 +27,13 @@ export class MaccountroleListSubComponent extends MaccountroleListComponent impl
   }
 
   ngOnInit() {
-      let ref = this.getParentRouteRefField();
-      let id = this.getParentRouteItemId();
+    
+      this.parentSchema = this.getParentRouteRefField();
+      let ref = this.referenceFieldsReverseMap[this.parentSchema];
+
+      this.parentItemId = this.getParentRouteItemId();
+      let id = this.parentItemId;
+
       this.detail = {};
 
       this.parentData = {};

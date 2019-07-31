@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
@@ -14,7 +14,7 @@ import { GeneralinfoService } from '../generalinfo.service';
   templateUrl: './generalinfo-detail.component.html',
   styleUrls: ['./generalinfo-detail.component.css']
 })
-export class GeneralinfoDetailComponent extends GeneralinfoComponent implements OnInit {
+export class GeneralinfoDetailComponent extends GeneralinfoComponent implements OnInit, AfterViewInit {
   @Input() 
   public id:string;
   @Input()
@@ -58,6 +58,11 @@ export class GeneralinfoDetailComponent extends GeneralinfoComponent implements 
         this.populateDetailByFields(this.searchObj);
       } else {
         console.error("Routing error for detail view... no id...");
+        return;
       }
+  }
+
+  ngAfterViewInit() {
+
   }
 }

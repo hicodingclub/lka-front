@@ -3,52 +3,7 @@ import { Routes } from '@angular/router';
 import { PublicinfoComponent } from './publicinfo/publicinfo.component';
 
 //Import routing paths
-import { generalinfoRoutingPath, faqRoutingPath, eventRoutingPath, keynoteRoutingPath, termsRoutingPath, articleRoutingPath,  } from './publicinfo/publicinfo-routing.path';
-
-export const PublicinfoRoutes: Routes = [
-  { path: 'publicinfo',
-    component: PublicinfoComponent,
-    children: [
-      {path: '',  redirectTo: 'generalinfo', pathMatch: 'full'},
-
-      { path: "generalinfo",
-        children: generalinfoRoutingPath,
-        data: {"mraLevel": 1, "item": "generalinfo"}
-      },
-      { path: "faq",
-        children: faqRoutingPath,
-        data: {"mraLevel": 1, "item": "faq"}
-      },
-      { path: "event",
-        children: eventRoutingPath,
-        data: {"mraLevel": 1, "item": "event"}
-      },
-      { path: "keynote",
-        children: keynoteRoutingPath,
-        data: {"mraLevel": 1, "item": "keynote"}
-      },
-      { path: "terms",
-        children: termsRoutingPath,
-        data: {"mraLevel": 1, "item": "terms"}
-      },
-      { path: "article",
-        children: articleRoutingPath,
-        data: {"mraLevel": 1, "item": "article"}
-      },
-    ]
-  }
-];
-
-export const publicinfo_server_root_uri:string = "/api/publicinfo";
-/*>>> Please check this recent updates and merge with existing ones***
-**Date: Tue Jul 23 2019 10:35:24 GMT-0700 (Pacific Daylight Time)
-
-import { Routes } from '@angular/router';
-
-import { PublicinfoComponent } from './publicinfo/publicinfo.component';
-
-//Import routing paths
-import { eventRoutingPath, articleRoutingPath, faqRoutingPath, generalinfoRoutingPath, keynoteRoutingPath, termsRoutingPath,  } from './publicinfo/publicinfo-routing.path';
+import { eventRoutingPath, articleRoutingPath, faqRoutingPath, generalinfoRoutingPath, keynoteRoutingPath,  } from './publicinfo/publicinfo-routing.path';
 
 export const PublicinfoRoutes: Routes = [
   { path: 'publicinfo',
@@ -76,9 +31,45 @@ export const PublicinfoRoutes: Routes = [
         children: keynoteRoutingPath,
         data: {"mraLevel": 1, "item": "keynote"}
       },
-      { path: "terms",
-        children: termsRoutingPath,
-        data: {"mraLevel": 1, "item": "terms"}
+    ]
+  }
+];
+
+export const publicinfo_server_root_uri:string = "/api/publicinfo";/*>>> Please check this recent updates and merge with existing ones***
+**Date: Wed Jul 31 2019 15:13:19 GMT-0700 (Pacific Daylight Time)
+
+import { Routes } from '@angular/router';
+
+import { PublicinfoComponent } from './publicinfo/publicinfo.component';
+
+//Import routing paths
+import { eventRoutingPath, articleRoutingPath, faqRoutingPath, generalinfoRoutingPath, keynoteRoutingPath,  } from './publicinfo/publicinfo-routing.path';
+
+export const PublicinfoRoutes: Routes = [
+  { path: 'publicinfo',
+    component: PublicinfoComponent,
+    children: [
+      {path: '',  redirectTo: 'event', pathMatch: 'full'},
+
+      { path: "event",
+        children: eventRoutingPath,
+        data: {"mraLevel": 1, "item": "event"}
+      },
+      { path: "article",
+        children: articleRoutingPath,
+        data: {"mraLevel": 1, "item": "article"}
+      },
+      { path: "faq",
+        children: faqRoutingPath,
+        data: {"mraLevel": 1, "item": "faq"}
+      },
+      { path: "generalinfo",
+        children: generalinfoRoutingPath,
+        data: {"mraLevel": 1, "item": "generalinfo"}
+      },
+      { path: "keynote",
+        children: keynoteRoutingPath,
+        data: {"mraLevel": 1, "item": "keynote"}
       },
     ]
   }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
@@ -15,7 +15,7 @@ import { ComponentFactoryResolver } from '@angular/core';
   templateUrl: './class-detail.component.html',
   styleUrls: ['./class-detail.component.css']
 })
-export class ClassDetailComponent extends ClassComponent implements OnInit {
+export class ClassDetailComponent extends ClassComponent implements OnInit, AfterViewInit {
   @Input() 
   public id:string;
   @Input()
@@ -45,8 +45,9 @@ export class ClassDetailComponent extends ClassComponent implements OnInit {
           this.stringFields.push('duration');
           this.stringFields.push('timeSlot');
 
-          this.referenceFields = ['course', 'teacher', ];
-          this.referenceFieldsMap = {'course': 'course','teacher': 'teacher',};
+          this.referenceFields = ['course', 'teacher', 'enrollTerm', ];
+          this.referenceFieldsMap = {'course': 'course','teacher': 'teacher','enrollTerm': 'terms',};
+          this.referenceFieldsReverseMap = {'course': 'course','teacher': 'teacher','terms': 'enrollTerm',};
 
           this.dateFields = ['startTime', 'endTime', ];
 
@@ -66,6 +67,15 @@ export class ClassDetailComponent extends ClassComponent implements OnInit {
         this.populateDetailByFields(this.searchObj);
       } else {
         console.error("Routing error for detail view... no id...");
+        return;
       }
+  }
+
+  ngAfterViewInit() {
+
+    //Load first reference, if not others activated
+    if (!this.isChildRouterActivated()) {
+      this.router.navigate(['./classenroll/list', {}], {relativeTo: this.route, queryParamsHandling: 'preserve',});
+    }
   }
 }

@@ -13,9 +13,7 @@ import { MpubmoduleEditComponent } from './mpubmodule/mpubmodule-edit/mpubmodule
 import { MpubaccessListComponent } from './mpubaccess/mpubaccess-list/mpubaccess-list.component';
 import { MpubaccessDetailComponent } from './mpubaccess/mpubaccess-detail/mpubaccess-detail.component';
 import { MpubaccessEditComponent } from './mpubaccess/mpubaccess-edit/mpubaccess-edit.component';
-
 import { MpubaccessListSubComponent } from './mpubaccess/mpubaccess-list/mpubaccess-list-sub.component';
-
 
 
 import { AuthGuard } from 'mdds-angular-auth';
@@ -44,6 +42,7 @@ export const musergroupRoutingPath = [
     {path: 'detail/:id', component: MusergroupDetailComponent, children: musergroupDetailPath, canActivate: [AuthGuard]},
     {path: 'edit/:id', component: MusergroupEditComponent, canActivate: [AuthGuard]},
     {path: 'new', component: MusergroupEditComponent, canActivate: [AuthGuard]},
+    
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];
 
@@ -52,6 +51,7 @@ export const mpubmoduleRoutingPath = [
     {path: 'detail/:id', component: MpubmoduleDetailComponent, children: mpubmoduleDetailPath, canActivate: [AuthGuard]},
     {path: 'edit/:id', component: MpubmoduleEditComponent, canActivate: [AuthGuard]},
     {path: 'new', component: MpubmoduleEditComponent, canActivate: [AuthGuard]},
+    
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];
 
@@ -60,5 +60,6 @@ export const mpubaccessRoutingPath = [
     {path: 'detail/:id', component: MpubaccessDetailComponent, canActivate: [AuthGuard]},
     {path: 'edit/:id', component: MpubaccessEditComponent, canActivate: [AuthGuard]},
     {path: 'new', component: MpubaccessEditComponent, canActivate: [AuthGuard]},
+    
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];

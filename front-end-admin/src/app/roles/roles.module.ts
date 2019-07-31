@@ -27,6 +27,7 @@ import { MroleListComponent } from './mrole/mrole-list/mrole-list.component';
 
 import { MroleDetailComponent } from './mrole/mrole-detail/mrole-detail.component';
 import { MroleEditComponent } from './mrole/mrole-edit/mrole-edit.component';
+
 import { MroleService } from './mrole/mrole.service';
 
 import { MmoduleListComponent } from './mmodule/mmodule-list/mmodule-list.component';
@@ -35,6 +36,7 @@ import { MmoduleListComponent } from './mmodule/mmodule-list/mmodule-list.compon
 
 import { MmoduleDetailComponent } from './mmodule/mmodule-detail/mmodule-detail.component';
 import { MmoduleEditComponent } from './mmodule/mmodule-edit/mmodule-edit.component';
+
 import { MmoduleService } from './mmodule/mmodule.service';
 
 import { MpermissionListComponent } from './mpermission/mpermission-list/mpermission-list.component';
@@ -43,6 +45,7 @@ import { MpermissionListComponent } from './mpermission/mpermission-list/mpermis
 
 import { MpermissionDetailComponent } from './mpermission/mpermission-detail/mpermission-detail.component';
 import { MpermissionEditComponent } from './mpermission/mpermission-edit/mpermission-edit.component';
+
 import { MpermissionService } from './mpermission/mpermission.service';
 
 import { MaccountListComponent } from './maccount/maccount-list/maccount-list.component';
@@ -51,6 +54,7 @@ import { MaccountListComponent } from './maccount/maccount-list/maccount-list.co
 
 import { MaccountDetailComponent } from './maccount/maccount-detail/maccount-detail.component';
 import { MaccountEditComponent } from './maccount/maccount-edit/maccount-edit.component';
+
 import { MaccountService } from './maccount/maccount.service';
 
 import { MaccountroleListComponent } from './maccountrole/maccountrole-list/maccountrole-list.component';
@@ -59,6 +63,7 @@ import { MaccountroleListComponent } from './maccountrole/maccountrole-list/macc
 
 import { MaccountroleDetailComponent } from './maccountrole/maccountrole-detail/maccountrole-detail.component';
 import { MaccountroleEditComponent } from './maccountrole/maccountrole-edit/maccountrole-edit.component';
+
 import { MaccountroleService } from './maccountrole/maccountrole.service';
 
 
@@ -98,30 +103,35 @@ import { MaccountroleDetailSubComponent } from './maccountrole/maccountrole-deta
     
     MroleDetailComponent,
     MroleEditComponent,
+
     MmoduleListComponent,
     
     
     
     MmoduleDetailComponent,
     MmoduleEditComponent,
+
     MpermissionListComponent,
     
     
     
     MpermissionDetailComponent,
     MpermissionEditComponent,
+
     MaccountListComponent,
     
     
     
     MaccountDetailComponent,
     MaccountEditComponent,
+
     MaccountroleListComponent,
     
     
     
     MaccountroleDetailComponent,
     MaccountroleEditComponent,
+
 
     MroleSelectComponent,
     MroleDetailPopComponent,
@@ -151,30 +161,35 @@ import { MaccountroleDetailSubComponent } from './maccountrole/maccountrole-deta
     
     MroleDetailComponent,
     MroleEditComponent,
+
     MmoduleListComponent,
     
     
     
     MmoduleDetailComponent,
     MmoduleEditComponent,
+
     MpermissionListComponent,
     
     
     
     MpermissionDetailComponent,
     MpermissionEditComponent,
+
     MaccountListComponent,
     
     
     
     MaccountDetailComponent,
     MaccountEditComponent,
+
     MaccountroleListComponent,
     
     
     
     MaccountroleDetailComponent,
     MaccountroleEditComponent,
+
 
     MroleSelectComponent,
     MroleDetailPopComponent,

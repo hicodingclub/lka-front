@@ -40,6 +40,7 @@ public componentFactoryResolver: ComponentFactoryResolver,
 
           this.referenceFields = ['account', ];
           this.referenceFieldsMap = {'account': 'maccount',};
+          this.referenceFieldsReverseMap = {'maccount': 'account',};
 
 
 
@@ -52,9 +53,17 @@ public componentFactoryResolver: ComponentFactoryResolver,
   }
 
   ngOnInit() {
+      this.adjustListViewForWindowSize();
+
       // this is to initialize the detail that will be used for search condition selection
       const detail = this.searchObj || {};
       this.detail = this.formatDetail(detail);
       this.populateList();
   }
+
+  static getInstance() {
+    //used by others to call some common functions
+    return new MaccountroleListComponent(null, null, null, null, null, null);
+  }
 }
+

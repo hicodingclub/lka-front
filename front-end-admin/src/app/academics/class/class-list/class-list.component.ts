@@ -40,9 +40,11 @@ public componentFactoryResolver: ComponentFactoryResolver,
           this.enums['dayOfWeek'] = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun', ];
 
           this.stringFields.push('title');
+          this.stringFields.push('timeSlot');
 
           this.referenceFields = ['course', 'teacher', ];
           this.referenceFieldsMap = {'course': 'course','teacher': 'teacher',};
+          this.referenceFieldsReverseMap = {'course': 'course','teacher': 'teacher',};
 
           this.dateFields = ['startTime', 'endTime', ];
 
@@ -55,9 +57,17 @@ public componentFactoryResolver: ComponentFactoryResolver,
   }
 
   ngOnInit() {
+      this.adjustListViewForWindowSize();
+
       // this is to initialize the detail that will be used for search condition selection
       const detail = this.searchObj || {};
       this.detail = this.formatDetail(detail);
       this.populateList();
   }
+
+  static getInstance() {
+    //used by others to call some common functions
+    return new ClassListComponent(null, null, null, null, null, null);
+  }
 }
+

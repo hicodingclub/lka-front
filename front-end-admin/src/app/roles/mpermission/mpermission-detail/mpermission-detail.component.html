@@ -7,6 +7,7 @@
     <a [routerLink]="['../../new']" [queryParams]="{cid: detail['_id']}" [skipLocationChange]="false" class="btn btn-outline-primary">New</a>
     <a routerLink="." class="btn btn-outline-primary" (click)="onDelete(detail['_id'], null)">Delete</a>
 </div>
+
 	<div class="card text-left transparent-border ">
 		<div class="grid-fields">
 
@@ -25,24 +26,27 @@
       </div>
       <div class="card-body">
           <div>
-            <div class="d-inline-block"><label>Module:</label></div>
-            <div class="ml-3 d-inline-block">                
+            <div class="d-inline-block mr-5" style="min-width: 200px;">
+                <div class="d-inline-block"><label>Module:</label></div>
+                <div class="d-inline-block ml-3">                
                	  <a routerLink="."  (click)="onDisplayRefClicked('module', detail['module'], $event)">
 	            	{{detail['module']?detail['module']['value']:""}}
 	              </a>
-
+</div>
             </div>
           </div>
           <div>
-            <div class="d-inline-block"><label>Module Permission:</label></div>
-            <div class="ml-3 d-inline-block">                
+            <div class="d-inline-block mr-5" style="min-width: 200px;">
+                <div class="d-inline-block"><label>Module Permission:</label></div>
+                <div class="d-inline-block ml-3">                
                     {{detail['modulePermission']}}
-
+</div>
             </div>
           </div>
           <div>
-            <div class="d-inline-block"><label>Resource Permission:</label></div>
-            <div class="ml-3 d-inline-block">                
+            <div class="d-inline-block mr-5" style="min-width: 200px;">
+                <div class="d-inline-block"><label>Resource Permission:</label></div>
+                <div class="d-inline-block ml-3">                
                     <div *ngIf="detail['resourcePermission'] && detail['resourcePermission']['selection']">
                         <ng-template ngFor let-element [ngForOf]="objectKeys(detail['resourcePermission']['selection'])" let-idx="index">
                             <div class="d-flex">
@@ -51,13 +55,15 @@
                             </div>
                         </ng-template>
                     </div>
-
+</div>
             </div>
           </div>
       </div>
 
 		</div>
 	</div>
+
+
 
 
 </div>

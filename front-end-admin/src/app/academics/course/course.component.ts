@@ -19,14 +19,22 @@ export class CourseComponent extends BaseComponent {
     @ViewChild('AcademicsModal') public focusEl: ElementRef;
 
     constructor(
-
+      
       public courseService: CourseService,
       public injector: Injector,
       public router: Router,
       public route: ActivatedRoute,
       public location: Location,
       public view: ViewType ) {
+
         super(courseService, injector, router, route, location, view, itemCamelName);
+
+        
+  this.briefFieldsInfo = [];
+  this.briefFieldsInfo.push(['title', 'Title']);
+  this.briefFieldsInfo.push(['description', 'Description']);
+  
+
         this.schemaName = 'course';
         
         this.modulePath = 'academics';

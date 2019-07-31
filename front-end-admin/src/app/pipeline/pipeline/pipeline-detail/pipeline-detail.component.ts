@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
@@ -14,7 +14,7 @@ import { PipelineService } from '../pipeline.service';
   templateUrl: './pipeline-detail.component.html',
   styleUrls: ['./pipeline-detail.component.css']
 })
-export class PipelineDetailComponent extends PipelineComponent implements OnInit {
+export class PipelineDetailComponent extends PipelineComponent implements OnInit, AfterViewInit {
   @Input() 
   public id:string;
   @Input()
@@ -58,6 +58,11 @@ export class PipelineDetailComponent extends PipelineComponent implements OnInit
         this.populateDetailByFields(this.searchObj);
       } else {
         console.error("Routing error for detail view... no id...");
+        return;
       }
+  }
+
+  ngAfterViewInit() {
+
   }
 }

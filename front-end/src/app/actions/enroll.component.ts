@@ -98,8 +98,6 @@ export class EnrollComponent implements OnInit {
   }
 
   onComponentEvents(message: any) {
-    console.log('User action:', message);
-
     let classDetails;
     let reloadTerm: boolean = false;
     if (message.stepIndex === 0 && message.message.type === 'selection') {
@@ -114,35 +112,25 @@ export class EnrollComponent implements OnInit {
     }
 
     if (reloadTerm) {
+      let searchObj;
       if (classDetails && classDetails.enrollTerm) {
-        const config: compositeStepConfig = {
-          stepTitle: '',
-
-          stepComponent: TermsDetailComponent, //define the component at this time
-          mandatory: true,
-          preSelectedId: undefined,
-          multiSelect: false,
-          disableActionButtions: true,
-          //searchObj: {'_id': classId},
-          searchObj: {'_id': classDetails.enrollTerm._id},
-          submitFieldName: 'ack',
-        }
-        this.compositeInstance.reloadStep(2, config)
+        searchObj = {'_id': classDetails.enrollTerm._id};
       } else {
-        const config: compositeStepConfig = {
-          stepTitle: '',
-
-          stepComponent: TermsDetailComponent, //define the component at this time
-          mandatory: true,
-          preSelectedId: undefined,
-          multiSelect: false,
-          disableActionButtions: true,
-          //searchObj: {'_id': classId},
-          searchObj: {'tag': 'class-enroll'},
-          submitFieldName: 'ack',
-        }
-        this.compositeInstance.reloadStep(2, config)
+        searchObj = {'tag': 'class-enroll'};
       }
+      const config: compositeStepConfig = {
+        stepTitle: '',
+
+        stepComponent: TermsDetailComponent, //define the component at this time
+        mandatory: true,
+        preSelectedId: undefined,
+        multiSelect: false,
+        disableActionButtions: true,
+        //searchObj: {'_id': classId},
+        searchObj,
+        submitFieldName: 'ack',
+      };
+      this.compositeInstance.reloadStep(2, config);
     }
   }
 }

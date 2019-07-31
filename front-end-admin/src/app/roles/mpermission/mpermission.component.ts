@@ -42,14 +42,23 @@ export class MpermissionComponent extends BaseComponent {
 
 
     constructor(
-public componentFactoryResolver: ComponentFactoryResolver,
+      public componentFactoryResolver: ComponentFactoryResolver,
       public mpermissionService: MpermissionService,
       public injector: Injector,
       public router: Router,
       public route: ActivatedRoute,
       public location: Location,
       public view: ViewType ) {
+
         super(mpermissionService, injector, router, route, location, view, itemCamelName);
+
+        
+  this.briefFieldsInfo = [];
+  this.briefFieldsInfo.push(['role', 'Role']);
+  this.briefFieldsInfo.push(['module', 'Module']);
+  this.briefFieldsInfo.push(['modulePermission', 'Module Permission']);
+  
+
         this.schemaName = 'mpermission';
         
         this.modulePath = 'roles';

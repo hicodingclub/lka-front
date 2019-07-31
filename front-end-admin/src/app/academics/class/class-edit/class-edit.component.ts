@@ -53,8 +53,9 @@ export class ClassEditComponent extends ClassComponent implements OnInit {
           this.stringFields.push('duration');
           this.stringFields.push('timeSlot');
 
-          this.referenceFields = ['course', 'teacher', ];
-          this.referenceFieldsMap = {'course': 'course','teacher': 'teacher',};
+          this.referenceFields = ['course', 'teacher', 'enrollTerm', ];
+          this.referenceFieldsMap = {'course': 'course','teacher': 'teacher','enrollTerm': 'terms',};
+          this.referenceFieldsReverseMap = {'course': 'course','teacher': 'teacher','terms': 'enrollTerm',};
 
           this.dateFields = ['startTime', 'endTime', ];
 

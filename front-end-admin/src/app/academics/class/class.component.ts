@@ -21,6 +21,9 @@ import { CourseSelectComponent } from '../course/course-list/course-select.compo
 import { TeacherDetailSelComponent } from '../teacher/teacher-detail/teacher-detail-sel.component';
 import { TeacherDetailPopComponent } from '../teacher/teacher-detail/teacher-detail-pop.component';
 import { TeacherSelectComponent } from '../teacher/teacher-list/teacher-select.component';
+import { TermsDetailSelComponent } from '../terms/terms-detail/terms-detail-sel.component';
+import { TermsDetailPopComponent } from '../terms/terms-detail/terms-detail-pop.component';
+import { TermsSelectComponent } from '../terms/terms-list/terms-select.component';
 
 
 export class ClassComponent extends BaseComponent {
@@ -37,6 +40,11 @@ export class ClassComponent extends BaseComponent {
           'select-detail-type': TeacherDetailSelComponent,
           'pop-detail-type': TeacherDetailPopComponent,
           'componentRef': null},
+      'enrollTerm': {
+          'select-type':TermsSelectComponent,
+          'select-detail-type': TermsDetailSelComponent,
+          'pop-detail-type': TermsDetailPopComponent,
+          'componentRef': null},
     }
     @ViewChild(AcademicsRefSelectDirective) refSelectDirective: AcademicsRefSelectDirective;
 
@@ -44,14 +52,28 @@ export class ClassComponent extends BaseComponent {
     @ViewChild('AcademicsModal') public focusEl: ElementRef;
 
     constructor(
-public componentFactoryResolver: ComponentFactoryResolver,
+      public componentFactoryResolver: ComponentFactoryResolver,
       public classService: ClassService,
       public injector: Injector,
       public router: Router,
       public route: ActivatedRoute,
       public location: Location,
       public view: ViewType ) {
+
         super(classService, injector, router, route, location, view, itemCamelName);
+
+        
+  this.briefFieldsInfo = [];
+  this.briefFieldsInfo.push(['title', 'Title']);
+  this.briefFieldsInfo.push(['course', 'Course']);
+  this.briefFieldsInfo.push(['teacher', 'Teacher']);
+  this.briefFieldsInfo.push(['hot', 'Hot']);
+  this.briefFieldsInfo.push(['startTime', 'Start Time']);
+  this.briefFieldsInfo.push(['endTime', 'End Time']);
+  this.briefFieldsInfo.push(['dayOfWeek', 'Day of Week']);
+  this.briefFieldsInfo.push(['timeSlot', 'Time Slot']);
+  
+
         this.schemaName = 'class';
         this.dateFormat = 'MM-DD-YYYY';
         this.timeFormat = 'hh:mm:ss';
