@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
@@ -15,7 +15,7 @@ import { ComponentFactoryResolver } from '@angular/core';
   templateUrl: './class-detail.component.html',
   styleUrls: ['./class-detail.component.css']
 })
-export class ClassDetailComponent extends ClassComponent implements OnInit {
+export class ClassDetailComponent extends ClassComponent implements OnInit, AfterViewInit {
   @Input() 
   public id:string;
   @Input()
@@ -47,6 +47,7 @@ export class ClassDetailComponent extends ClassComponent implements OnInit {
 
           this.referenceFields = ['course', 'teacher', ];
           this.referenceFieldsMap = {'course': 'course','teacher': 'teacher',};
+          this.referenceFieldsReverseMap = {'course': 'course','teacher': 'teacher',};
 
           this.dateFields = ['startTime', 'endTime', ];
 
@@ -66,6 +67,11 @@ export class ClassDetailComponent extends ClassComponent implements OnInit {
         this.populateDetailByFields(this.searchObj);
       } else {
         console.error("Routing error for detail view... no id...");
+        return;
       }
+  }
+
+  ngAfterViewInit() {
+
   }
 }

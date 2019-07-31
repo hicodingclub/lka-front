@@ -34,6 +34,13 @@
 				</th>
 				<th scope="col">Day of Week</th>
 
+				<th class="pointer" scope="col" (click)="toggleListSort('timeSlot', 'Time Slot')">
+					Time Slot
+					<span *ngIf="listSortField === 'timeSlot'">
+						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+					</span>
+				</th>
 	    	</tr>
 	    </thead>
 	    <tbody>
@@ -67,6 +74,11 @@
                     <div class="badge badge-pill badge-secondary" *ngFor="let element of enums['dayOfWeek']">
                          <div *ngIf="detail['dayOfWeek'] && detail['dayOfWeek']['selection'][element]">{{element}}</div>
                     </div>
+
+	            </td>
+	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            	                
+                    {{detail['timeSlot']}}
 
 	            </td>
 	        </tr>
@@ -118,6 +130,13 @@
 
           </div>
         </div>
+        <div *ngIf="detail['timeSlot']" class="mr-3 d-inline-block">
+          <div class="d-inline-block"><label>Time Slot:</label></div>
+          <div class="ml-3 d-inline-block">                
+                    {{detail['timeSlot']}}
+
+          </div>
+        </div>
       </div>
 
 				</div>
@@ -125,6 +144,7 @@
 			<hr class="list-diverder">
 		</div>
 	</div>
+
 	
 	<div class="gridview" *ngIf="isShowListView('grid')">
 		<div class="grid-block" *ngFor="let detail of list;  let i = index; let list_index = index;">
@@ -174,9 +194,17 @@
 
             </div>
           </div>
+          <div *ngIf="detail['timeSlot']">
+            <div class="d-inline-block"><label>Time Slot:</label></div>
+            <div class="ml-3 d-inline-block">                
+                    {{detail['timeSlot']}}
+
+            </div>
+          </div>
       </div>
 
 				</div>
 			</div>
 		</div>
 	</div>
+

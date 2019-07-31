@@ -1,3 +1,5 @@
 <div class="container">
-    <app-composite [steps]="compositeSteps" [title]="title" [submit]="submitComp"></app-composite>
+    <app-composite #composite [steps]="compositeSteps" [stepConfigs]="compositeStepConfigs"
+    [title]="title" 
+    [submit]="submitComp" (componentEvents)="onComponentEvents($event)"></app-composite>
 </div>

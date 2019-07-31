@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
@@ -16,7 +16,7 @@ import { MraRichTextShowDirective } from 'mean-rest-angular';
   templateUrl: './article-detail.component.html',
   styleUrls: ['./article-detail.component.css']
 })
-export class ArticleDetailComponent extends ArticleComponent implements OnInit {
+export class ArticleDetailComponent extends ArticleComponent implements OnInit, AfterViewInit {
   @Input() 
   public id:string;
   @Input()
@@ -63,6 +63,11 @@ export class ArticleDetailComponent extends ArticleComponent implements OnInit {
         this.populateDetailByFields(this.searchObj);
       } else {
         console.error("Routing error for detail view... no id...");
+        return;
       }
+  }
+
+  ngAfterViewInit() {
+
   }
 }

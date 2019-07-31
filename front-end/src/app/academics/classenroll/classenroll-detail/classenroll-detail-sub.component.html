@@ -4,10 +4,11 @@
 	  <div class="card-body">
 		<div class="card-text">
 
-          <div class="row">
-      
-			<div class="col-3"><label>Notes</label></div>
-			<div class="col-9">                
+      <div class="card-body">
+          <div>
+            <div class="d-inline-block mr-5" style="min-width: 200px;">
+                <div class="d-inline-block"><label>Notes:</label></div>
+                <div class="d-inline-block ml-3">                
                     <div *ngIf="detail['notes'] && detail['notes']['selection']">
                         <ng-template ngFor let-element [ngForOf]="detail['notes']['selection']" let-idx="index">
                             <div class="badge badge-pill badge-secondary">
@@ -16,10 +17,10 @@
                         </ng-template>
                     </div>
 </div>
-
+            </div>
           </div>
- 
- 
+      </div>
+
 		</div>
 	  </div>
 	</div>

@@ -63,4 +63,10 @@ export class EventListComponent extends EventComponent implements OnInit {
       this.detail = this.formatDetail(detail);
       this.populateList();
   }
+
+  static getInstance() {
+    //used by others to call some common functions
+    return new EventListComponent(null, null, null, null, null);
+  }
 }
+

@@ -16,14 +16,24 @@ export class GeneralinfoComponent extends BaseComponent {
 
 
     constructor(
-
+      
       public generalinfoService: GeneralinfoService,
       public injector: Injector,
       public router: Router,
       public route: ActivatedRoute,
       public location: Location,
       public view: ViewType ) {
+
         super(generalinfoService, injector, router, route, location, view, itemCamelName);
+
+        
+  this.briefFieldsInfo = [];
+  this.briefFieldsInfo.push(['signaturePicture', 'Signature Picture']);
+  this.briefFieldsInfo.push(['title', 'Title']);
+  this.briefFieldsInfo.push(['description', 'Description']);
+  this.briefFieldsInfo.push(['tag', 'Tag']);
+  
+
         this.schemaName = 'generalinfo';
         
         this.modulePath = 'publicinfo';

@@ -55,17 +55,19 @@
       <div class="col-large" style="border-right: solid 1px #00274C;"><app-event-list-ex-h></app-event-list-ex-h></div>
     </section>
 
+    <div class="d-flex flex-column">
+      <div><app-generalinfo-detail [searchObj]="{'tag': 'classes'}" [disableActionButtions]="true"
+        [style]="{'background-color': 'rgba(0, 39, 76, 0.15)'}"
+        >
+      </app-generalinfo-detail></div>
+      <div class="align-self-center internal_link" routerLink="/academics/class/list">Check all classes</div>
+    </div>
+    <div style=""><app-class-list-ex-h [searchObj]="{'hot': true}"></app-class-list-ex-h></div>
     <section class="row align-items-baseline" style="flex-direction: row-reverse;">
-      <div class="col-small d-flex flex-column">
-          <div><app-generalinfo-detail [searchObj]="{'tag': 'classes'}" [disableActionButtions]="true"
-            [style]="{'background-color': 'rgba(0, 39, 76, 0.15)'}"
-            >
-          </app-generalinfo-detail></div>
-          <div class="align-self-center internal_link" routerLink="/academics/class/list">Check all classes</div>
-      </div>
-      <div class="col-large" style=""><app-class-list-ex-h [searchObj]="{'hot': true}"></app-class-list-ex-h></div>
+
     </section>
 
+    <!--
     <section class="row align-items-baseline">
       <div class="col-small d-flex flex-column">
           <div><app-generalinfo-detail [searchObj]="{'tag': 'resources'}" [disableActionButtions]="true"
@@ -76,7 +78,7 @@
       </div>
       <div class="col-large" style="border-right: solid 1px #00274C;"><app-article-list-ex-h></app-article-list-ex-h></div>
     </section>
-
+    -->
     <section>
       <div><app-keynote-detail [searchObj]="{'tag': 'mission'}" [disableActionButtions]="true"></app-keynote-detail></div>
     </section>

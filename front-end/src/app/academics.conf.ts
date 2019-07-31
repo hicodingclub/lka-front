@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 import { AcademicsComponent } from './academics/academics.component';
 
 //Import routing paths
-import { studentRoutingPath, teacherRoutingPath, courseRoutingPath, classRoutingPath, studentclassRoutingPath, classenrollRoutingPath,  } from './academics/academics-routing.path';
+import { studentRoutingPath, teacherRoutingPath, courseRoutingPath, classRoutingPath, studentclassRoutingPath, classenrollRoutingPath, termsRoutingPath,  } from './academics/academics-routing.path';
 
 export const AcademicsRoutes: Routes = [
   { path: 'academics',
@@ -34,20 +34,24 @@ export const AcademicsRoutes: Routes = [
       { path: "classenroll",
         children: classenrollRoutingPath,
         data: {"mraLevel": 1, "item": "classenroll"}
+      },
+      { path: "terms",
+        children: termsRoutingPath,
+        data: {"mraLevel": 1, "item": "terms"}
       },
     ]
   }
 ];
 
 export const academics_server_root_uri:string = "/api/academics";/*>>> Please check this recent updates and merge with existing ones***
-**Date: Tue Jul 23 2019 11:26:13 GMT-0700 (Pacific Daylight Time)
+**Date: Wed Jul 31 2019 15:11:55 GMT-0700 (Pacific Daylight Time)
 
 import { Routes } from '@angular/router';
 
 import { AcademicsComponent } from './academics/academics.component';
 
 //Import routing paths
-import { studentRoutingPath, teacherRoutingPath, courseRoutingPath, classRoutingPath, studentclassRoutingPath, classenrollRoutingPath,  } from './academics/academics-routing.path';
+import { studentRoutingPath, teacherRoutingPath, courseRoutingPath, classRoutingPath, studentclassRoutingPath, classenrollRoutingPath, termsRoutingPath,  } from './academics/academics-routing.path';
 
 export const AcademicsRoutes: Routes = [
   { path: 'academics',
@@ -78,6 +82,10 @@ export const AcademicsRoutes: Routes = [
       { path: "classenroll",
         children: classenrollRoutingPath,
         data: {"mraLevel": 1, "item": "classenroll"}
+      },
+      { path: "terms",
+        children: termsRoutingPath,
+        data: {"mraLevel": 1, "item": "terms"}
       },
     ]
   }

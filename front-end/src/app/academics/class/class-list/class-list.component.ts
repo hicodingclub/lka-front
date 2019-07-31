@@ -40,9 +40,11 @@ public componentFactoryResolver: ComponentFactoryResolver,
           this.enums['dayOfWeek'] = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun', ];
 
           this.stringFields.push('title');
+          this.stringFields.push('timeSlot');
 
-          this.referenceFields = ['course', ];
-          this.referenceFieldsMap = {'course': 'course',};
+          this.referenceFields = ['course', 'enrollTerm', ];
+          this.referenceFieldsMap = {'course': 'course','enrollTerm': 'terms',};
+          this.referenceFieldsReverseMap = {'course': 'course','terms': 'enrollTerm',};
 
           this.dateFields = ['startTime', 'endTime', ];
 
@@ -50,6 +52,7 @@ public componentFactoryResolver: ComponentFactoryResolver,
           this.multiSelectionFields = ['dayOfWeek', ];
 
 
+          this.viewHiddenFields = ['enrollTerm', ];
 
           this.listViewFilter = 'table';
           this.categoryBy = 'course';
@@ -63,4 +66,10 @@ public componentFactoryResolver: ComponentFactoryResolver,
       this.detail = this.formatDetail(detail);
       this.populateList();
   }
+
+  static getInstance() {
+    //used by others to call some common functions
+    return new ClassListComponent(null, null, null, null, null, null);
+  }
 }
+

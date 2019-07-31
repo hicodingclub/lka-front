@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
@@ -14,7 +14,7 @@ import { KeynoteService } from '../keynote.service';
   templateUrl: './keynote-detail.component.html',
   styleUrls: ['./keynote-detail.component.css']
 })
-export class KeynoteDetailComponent extends KeynoteComponent implements OnInit {
+export class KeynoteDetailComponent extends KeynoteComponent implements OnInit, AfterViewInit {
   @Input() 
   public id:string;
   @Input()
@@ -59,6 +59,11 @@ export class KeynoteDetailComponent extends KeynoteComponent implements OnInit {
         this.populateDetailByFields(this.searchObj);
       } else {
         console.error("Routing error for detail view... no id...");
+        return;
       }
+  }
+
+  ngAfterViewInit() {
+
   }
 }

@@ -42,14 +42,22 @@ export class StudentclassComponent extends BaseComponent {
 
 
     constructor(
-public componentFactoryResolver: ComponentFactoryResolver,
+      public componentFactoryResolver: ComponentFactoryResolver,
       public studentclassService: StudentclassService,
       public injector: Injector,
       public router: Router,
       public route: ActivatedRoute,
       public location: Location,
       public view: ViewType ) {
+
         super(studentclassService, injector, router, route, location, view, itemCamelName);
+
+        
+  this.briefFieldsInfo = [];
+  this.briefFieldsInfo.push(['student', 'Student']);
+  this.briefFieldsInfo.push(['class', 'Class']);
+  
+
         this.schemaName = 'studentclass';
         
         this.modulePath = 'academics';

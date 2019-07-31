@@ -20,11 +20,6 @@ import { KeynoteDetailComponent } from './keynote/keynote-detail/keynote-detail.
 
 
 
-import { TermsListComponent } from './terms/terms-list/terms-list.component';
-import { TermsDetailComponent } from './terms/terms-detail/terms-detail.component';
-
-
-
 import { ArticleListComponent } from './article/article-list/article-list.component';
 import { ArticleDetailComponent } from './article/article-detail/article-detail.component';
 
@@ -41,11 +36,13 @@ export const generalinfoRoutingPath = [
     {path: 'detail/:id', component: GeneralinfoDetailComponent},
     
     
+    
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];
 
 export const faqRoutingPath = [
     {path: 'list', component: FaqListComponent},
+    
     
     
     
@@ -57,6 +54,7 @@ export const eventRoutingPath = [
     {path: 'detail/:id', component: EventDetailComponent},
     
     
+    
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];
 
@@ -65,13 +63,6 @@ export const keynoteRoutingPath = [
     {path: 'detail/:id', component: KeynoteDetailComponent},
     
     
-    {path: '**', redirectTo: 'list', pathMatch: 'full'}
-];
-
-export const termsRoutingPath = [
-    {path: 'list', component: TermsListComponent},
-    {path: 'detail/:id', component: TermsDetailComponent},
-    
     
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];
@@ -79,6 +70,7 @@ export const termsRoutingPath = [
 export const articleRoutingPath = [
     {path: 'list', component: ArticleListComponent},
     {path: 'detail/:id', component: ArticleDetailComponent},
+    
     
     
     {path: '**', redirectTo: 'list', pathMatch: 'full'}

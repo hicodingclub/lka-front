@@ -6,6 +6,7 @@
     
     
 </div>
+
 	<div class="card text-left transparent-border ">
 		<div class="info-term-text">
 			<div>                 
@@ -13,7 +14,7 @@
 
 			</div>
 			<div>
-				<input class="mr-3" *ngIf="detail['acknowledge']" type="checkbox" [(ngModel)]="termChecked"/>				
+				<input class="mr-3" *ngIf="detail['acknowledge']" type="checkbox" [(ngModel)]="termChecked" (change)="onTermChecked()"/>				
 				<label>                
                     {{detail['acknowledge']}}
 
@@ -22,5 +23,15 @@
 		</div>
 	</div>
 
+
+
+    <br/>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a [routerLink]="['./class/list']"
+                    class="nav-link" routerLinkActive="active">Class</a>
+        </li>
+    </ul>
+    <router-outlet></router-outlet>
 
 </div>

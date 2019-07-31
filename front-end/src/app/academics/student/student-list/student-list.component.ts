@@ -59,4 +59,10 @@ export class StudentListComponent extends StudentComponent implements OnInit {
       this.detail = this.formatDetail(detail);
       this.populateList();
   }
+
+  static getInstance() {
+    //used by others to call some common functions
+    return new StudentListComponent(null, null, null, null, null);
+  }
 }
+

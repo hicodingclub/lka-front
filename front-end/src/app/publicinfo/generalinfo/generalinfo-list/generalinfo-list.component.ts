@@ -59,4 +59,10 @@ export class GeneralinfoListComponent extends GeneralinfoComponent implements On
       this.detail = this.formatDetail(detail);
       this.populateList();
   }
+
+  static getInstance() {
+    //used by others to call some common functions
+    return new GeneralinfoListComponent(null, null, null, null, null);
+  }
 }
+

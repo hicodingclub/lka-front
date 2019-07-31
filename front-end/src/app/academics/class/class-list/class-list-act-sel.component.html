@@ -2,7 +2,9 @@
 
 <form>
 	<div class="form-group list-selection">
-		<select class="form-control" id="selectclass" [(ngModel)]="selectedId" name="electclass">
+		<select class="form-control" id="selectclass" [(ngModel)]="selectedId"
+			(change)="onItemSelected()"
+			name="electclass">
 			<option *ngFor="let ele of dropdownItems" [ngValue]="ele.id">{{ele.displayName}}</option>
 		</select>
 	</div>

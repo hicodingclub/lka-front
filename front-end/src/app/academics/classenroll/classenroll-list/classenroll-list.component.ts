@@ -43,6 +43,7 @@ public componentFactoryResolver: ComponentFactoryResolver,
 
           this.referenceFields = ['class', ];
           this.referenceFieldsMap = {'class': 'class',};
+          this.referenceFieldsReverseMap = {'class': 'class',};
 
           this.dateFields = ['createdAt', ];
 
@@ -64,4 +65,10 @@ public componentFactoryResolver: ComponentFactoryResolver,
       this.detail = this.formatDetail(detail);
       this.populateList();
   }
+
+  static getInstance() {
+    //used by others to call some common functions
+    return new ClassenrollListComponent(null, null, null, null, null, null);
+  }
 }
+

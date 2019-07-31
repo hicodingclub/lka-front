@@ -56,4 +56,10 @@ export class CourseListComponent extends CourseComponent implements OnInit {
       this.detail = this.formatDetail(detail);
       this.populateList();
   }
+
+  static getInstance() {
+    //used by others to call some common functions
+    return new CourseListComponent(null, null, null, null, null);
+  }
 }
+

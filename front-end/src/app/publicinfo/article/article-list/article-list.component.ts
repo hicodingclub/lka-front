@@ -66,4 +66,10 @@ export class ArticleListComponent extends ArticleComponent implements OnInit {
       this.detail = this.formatDetail(detail);
       this.populateList();
   }
+
+  static getInstance() {
+    //used by others to call some common functions
+    return new ArticleListComponent(null, null, null, null, null);
+  }
 }
+

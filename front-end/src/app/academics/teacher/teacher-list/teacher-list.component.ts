@@ -44,6 +44,7 @@ public componentFactoryResolver: ComponentFactoryResolver,
 
           this.referenceFields = ['courses', ];
           this.referenceFieldsMap = {'courses': 'course',};
+          this.referenceFieldsReverseMap = {'course': 'courses',};
 
 
 
@@ -61,4 +62,10 @@ public componentFactoryResolver: ComponentFactoryResolver,
       this.detail = this.formatDetail(detail);
       this.populateList();
   }
+
+  static getInstance() {
+    //used by others to call some common functions
+    return new TeacherListComponent(null, null, null, null, null, null);
+  }
 }
+

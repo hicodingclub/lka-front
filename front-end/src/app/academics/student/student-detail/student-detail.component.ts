@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
@@ -14,7 +14,7 @@ import { StudentService } from '../student.service';
   templateUrl: './student-detail.component.html',
   styleUrls: ['./student-detail.component.css']
 })
-export class StudentDetailComponent extends StudentComponent implements OnInit {
+export class StudentDetailComponent extends StudentComponent implements OnInit, AfterViewInit {
   @Input() 
   public id:string;
   @Input()
@@ -67,6 +67,15 @@ export class StudentDetailComponent extends StudentComponent implements OnInit {
         this.populateDetailByFields(this.searchObj);
       } else {
         console.error("Routing error for detail view... no id...");
+        return;
       }
+  }
+
+  ngAfterViewInit() {
+
+    //Load first reference, if not others activated
+    if (!this.isChildRouterActivated()) {
+      this.router.navigate(['./studentclass/list', {}], {relativeTo: this.route, queryParamsHandling: 'preserve',});
+    }
   }
 }

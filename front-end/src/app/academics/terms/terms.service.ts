@@ -1,14 +1,14 @@
 import { Injectable, Inject, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { TermsBaseService } from './terms.base.service';
-import { Publicinfo_SERVER_ROOT_URI } from '../publicinfo.tokens';
+import { Academics_SERVER_ROOT_URI } from '../academics.tokens';
 
 @Injectable()
 export class TermsService extends TermsBaseService implements OnDestroy {
     constructor(
         http: HttpClient,
-        @Inject(Publicinfo_SERVER_ROOT_URI) private publicinfoServerRootUri: string) {
-        super(http, publicinfoServerRootUri);
+        @Inject(Academics_SERVER_ROOT_URI) private academicsServerRootUri: string) {
+        super(http, academicsServerRootUri);
     }
     ngOnDestroy() { }
 }

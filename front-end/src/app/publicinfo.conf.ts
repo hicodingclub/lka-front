@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 import { PublicinfoComponent } from './publicinfo/publicinfo.component';
 
 //Import routing paths
-import { generalinfoRoutingPath, faqRoutingPath, eventRoutingPath, keynoteRoutingPath, termsRoutingPath, articleRoutingPath,  } from './publicinfo/publicinfo-routing.path';
+import { generalinfoRoutingPath, faqRoutingPath, eventRoutingPath, keynoteRoutingPath, articleRoutingPath,  } from './publicinfo/publicinfo-routing.path';
 
 export const PublicinfoRoutes: Routes = [
   { path: 'publicinfo',
@@ -26,10 +26,6 @@ export const PublicinfoRoutes: Routes = [
       { path: "keynote",
         children: keynoteRoutingPath,
         data: {"mraLevel": 1, "item": "keynote"}
-      },
-      { path: "terms",
-        children: termsRoutingPath,
-        data: {"mraLevel": 1, "item": "terms"}
       },
       { path: "article",
         children: articleRoutingPath,
@@ -39,16 +35,15 @@ export const PublicinfoRoutes: Routes = [
   }
 ];
 
-export const publicinfo_server_root_uri:string = "/api/publicinfo";
-/*>>> Please check this recent updates and merge with existing ones***
-**Date: Tue Jul 23 2019 11:26:06 GMT-0700 (Pacific Daylight Time)
+export const publicinfo_server_root_uri:string = "/api/publicinfo";/*>>> Please check this recent updates and merge with existing ones***
+**Date: Wed Jul 31 2019 15:11:54 GMT-0700 (Pacific Daylight Time)
 
 import { Routes } from '@angular/router';
 
 import { PublicinfoComponent } from './publicinfo/publicinfo.component';
 
 //Import routing paths
-import { generalinfoRoutingPath, faqRoutingPath, eventRoutingPath, keynoteRoutingPath, termsRoutingPath, articleRoutingPath,  } from './publicinfo/publicinfo-routing.path';
+import { generalinfoRoutingPath, faqRoutingPath, eventRoutingPath, keynoteRoutingPath, articleRoutingPath,  } from './publicinfo/publicinfo-routing.path';
 
 export const PublicinfoRoutes: Routes = [
   { path: 'publicinfo',
@@ -71,10 +66,6 @@ export const PublicinfoRoutes: Routes = [
       { path: "keynote",
         children: keynoteRoutingPath,
         data: {"mraLevel": 1, "item": "keynote"}
-      },
-      { path: "terms",
-        children: termsRoutingPath,
-        data: {"mraLevel": 1, "item": "terms"}
       },
       { path: "article",
         children: articleRoutingPath,

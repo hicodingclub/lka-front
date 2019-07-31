@@ -3,27 +3,27 @@ import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
 
-import { StudentDetailComponent } from './student-detail.component';
-import { StudentService } from '../student.service';
+import { TermsDetailComponent } from './terms-detail.component';
+import { TermsService } from '../terms.service';
 
 @Component({
-  selector: 'app-student-detail-pop',
-  templateUrl: './student-detail-pop.component.html',
-  styleUrls: ['./student-detail.component.css']
+  selector: 'app-terms-detail-pop',
+  templateUrl: './terms-detail-pop.component.html',
+  styleUrls: ['./terms-detail.component.css']
 })
-export class StudentDetailPopComponent extends StudentDetailComponent 
+export class TermsDetailPopComponent extends TermsDetailComponent 
         implements OnInit {
     @Input() inputData;
     @Output() outputData;
     done = new EventEmitter<boolean>();
     
     constructor(
-        public studentService: StudentService,
+        public termsService: TermsService,
         public injector: Injector,
         public router: Router,
         public route: ActivatedRoute,
         public location: Location) {
-            super(studentService, injector, router, route, location);
+            super(termsService, injector, router, route, location);
             this.majorUi = false;
     }
 

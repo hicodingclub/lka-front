@@ -8,9 +8,7 @@ import { StudentEditComponent } from './student/student-edit/student-edit.compon
 import { TeacherListComponent } from './teacher/teacher-list/teacher-list.component';
 import { TeacherDetailComponent } from './teacher/teacher-detail/teacher-detail.component';
 
-
 import { TeacherListSubComponent } from './teacher/teacher-list/teacher-list-sub.component';
-
 
 import { CourseListComponent } from './course/course-list/course-list.component';
 import { CourseDetailComponent } from './course/course-detail/course-detail.component';
@@ -20,22 +18,21 @@ import { CourseDetailComponent } from './course/course-detail/course-detail.comp
 import { ClassListComponent } from './class/class-list/class-list.component';
 import { ClassDetailComponent } from './class/class-detail/class-detail.component';
 
-
 import { ClassListSubComponent } from './class/class-list/class-list-sub.component';
-
 
 import { StudentclassListComponent } from './studentclass/studentclass-list/studentclass-list.component';
 
 
-
 import { StudentclassListSubComponent } from './studentclass/studentclass-list/studentclass-list-sub.component';
-
 
 import { ClassenrollListComponent } from './classenroll/classenroll-list/classenroll-list.component';
 import { ClassenrollDetailComponent } from './classenroll/classenroll-detail/classenroll-detail.component';
 import { ClassenrollEditComponent } from './classenroll/classenroll-edit/classenroll-edit.component';
-
 import { ClassenrollListSubComponent } from './classenroll/classenroll-list/classenroll-list-sub.component';
+
+import { TermsListComponent } from './terms/terms-list/terms-list.component';
+import { TermsDetailComponent } from './terms/terms-detail/terms-detail.component';
+
 
 
 
@@ -83,18 +80,26 @@ const classDetailPath = [
         data: {'mraLevel': 2, 'item': 'classenroll'}},
 ];
 
+const termsDetailPath = [
+
+    {path: 'class', children: classSubPath,
+        data: {'mraLevel': 2, 'item': 'class'}},
+];
+
 
 export const studentRoutingPath = [
     {path: 'list', component: StudentListComponent, canActivate: [AuthGuard]},
     {path: 'detail/:id', component: StudentDetailComponent, children: studentDetailPath, canActivate: [AuthGuard]},
     {path: 'edit/:id', component: StudentEditComponent, canActivate: [AuthGuard]},
     {path: 'new', component: StudentEditComponent, canActivate: [AuthGuard]},
+    
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];
 
 export const teacherRoutingPath = [
     {path: 'list', component: TeacherListComponent, canActivate: [AuthGuard]},
     {path: 'detail/:id', component: TeacherDetailComponent, canActivate: [AuthGuard]},
+    
     
     
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
@@ -105,6 +110,7 @@ export const courseRoutingPath = [
     {path: 'detail/:id', component: CourseDetailComponent, children: courseDetailPath, canActivate: [AuthGuard]},
     
     
+    
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];
 
@@ -113,11 +119,13 @@ export const classRoutingPath = [
     {path: 'detail/:id', component: ClassDetailComponent, children: classDetailPath},
     
     
+    
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];
 
 export const studentclassRoutingPath = [
     {path: 'list', component: StudentclassListComponent, canActivate: [AuthGuard]},
+    
     
     
     
@@ -129,5 +137,15 @@ export const classenrollRoutingPath = [
     {path: 'detail/:id', component: ClassenrollDetailComponent, canActivate: [AuthGuard]},
     
     {path: 'new', component: ClassenrollEditComponent, canActivate: [AuthGuard]},
+    
+    {path: '**', redirectTo: 'list', pathMatch: 'full'}
+];
+
+export const termsRoutingPath = [
+    {path: 'list', component: TermsListComponent, canActivate: [AuthGuard]},
+    {path: 'detail/:id', component: TermsDetailComponent, children: termsDetailPath, canActivate: [AuthGuard]},
+    
+    
+    
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];

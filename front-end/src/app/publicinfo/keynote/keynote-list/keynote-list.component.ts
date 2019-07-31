@@ -60,4 +60,10 @@ export class KeynoteListComponent extends KeynoteComponent implements OnInit {
       this.detail = this.formatDetail(detail);
       this.populateList();
   }
+
+  static getInstance() {
+    //used by others to call some common functions
+    return new KeynoteListComponent(null, null, null, null, null);
+  }
 }
+

@@ -12,6 +12,9 @@ import { TeacherService } from '../teacher.service';
   styleUrls: ['./teacher-list.component.css']
 })
 export class TeacherListSubComponent extends TeacherListComponent implements OnInit {
+  public parentSchema;
+  public parentItemId;
+
   constructor(
       public teacherService: TeacherService,
       public injector: Injector,
@@ -24,8 +27,13 @@ export class TeacherListSubComponent extends TeacherListComponent implements OnI
   }
 
   ngOnInit() {
-      let ref = this.getParentRouteRefField();
-      let id = this.getParentRouteItemId();
+    
+      this.parentSchema = this.getParentRouteRefField();
+      let ref = this.referenceFieldsReverseMap[this.parentSchema];
+
+      this.parentItemId = this.getParentRouteItemId();
+      let id = this.parentItemId;
+
       this.detail = {};
 
       this.parentData = {};
