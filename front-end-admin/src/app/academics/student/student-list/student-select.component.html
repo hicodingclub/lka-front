@@ -20,7 +20,7 @@
 	              <input type="search" class="form-control border border-secondary" id="studentTextSearch" 
 						#studentTextSearch [(ngModel)]="searchText"
 						(keyup.enter)="$event.target.blur();searchList();false"
-					    placeholder="Search for first_name, last_name, email, muser_id"> 
+					    placeholder="Search for first_name, last_name, email, school, GuardianOnePhone, muser_id"> 
 				  <div *ngIf="searchText" class="input-group-append icon-clear-inside">
 					<span >
 					    <i class="fas fa-times-circle" (click)="onSearchTextClear()" title="Clear"></i>

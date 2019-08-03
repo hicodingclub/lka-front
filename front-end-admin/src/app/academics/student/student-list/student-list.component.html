@@ -16,7 +16,7 @@
 	              <input type="search" class="form-control border border-secondary" id="studentTextSearch" 
 						#studentTextSearch [(ngModel)]="searchText"
 						(keyup.enter)="$event.target.blur();searchList();false"
-					    placeholder="Search for first_name, last_name, email, muser_id"> 
+					    placeholder="Search for first_name, last_name, email, school, GuardianOnePhone, muser_id"> 
 				  <div *ngIf="searchText" class="input-group-append icon-clear-inside">
 					<span >
 					    <i class="fas fa-times-circle" (click)="onSearchTextClear()" title="Clear"></i>
@@ -110,6 +110,10 @@
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('email', 'Email', 'desc')">Email<i class="fas fa-arrow-down"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('grade', 'Grade', 'asc')">Grade<i class="fas fa-arrow-up"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('grade', 'Grade', 'desc')">Grade<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('school', 'School', 'asc')">School<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('school', 'School', 'desc')">School<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('GuardianOnePhone', 'Guardian One Phone', 'asc')">GuardianOnePhone<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('GuardianOnePhone', 'Guardian One Phone', 'desc')">GuardianOnePhone<i class="fas fa-arrow-down"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('muser_id', 'Muser Id', 'asc')">Muser_id<i class="fas fa-arrow-up"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('muser_id', 'Muser Id', 'desc')">Muser_id<i class="fas fa-arrow-down"></i></a>
 						</div>
@@ -217,6 +221,20 @@
 
           </div>
         </div>
+        <div *ngIf="detail['school']" class="mr-3 d-inline-block">
+          <div class="d-inline-block"><label>School:</label></div>
+          <div class="ml-3 d-inline-block">                
+                    {{detail['school']}}
+
+          </div>
+        </div>
+        <div *ngIf="detail['GuardianOnePhone']" class="mr-3 d-inline-block">
+          <div class="d-inline-block"><label>Guardian One Phone:</label></div>
+          <div class="ml-3 d-inline-block">                
+                    {{detail['GuardianOnePhone']}}
+
+          </div>
+        </div>
         <div *ngIf="detail['muser_id']" class="mr-3 d-inline-block">
           <div class="d-inline-block"><label>Muser Id:</label></div>
           <div class="ml-3 d-inline-block">                
@@ -277,6 +295,20 @@
 
             </div>
           </div>
+          <div *ngIf="detail['school']">
+            <div class="d-inline-block"><label>School:</label></div>
+            <div class="ml-3 d-inline-block">                
+                    {{detail['school']}}
+
+            </div>
+          </div>
+          <div *ngIf="detail['GuardianOnePhone']">
+            <div class="d-inline-block"><label>Guardian One Phone:</label></div>
+            <div class="ml-3 d-inline-block">                
+                    {{detail['GuardianOnePhone']}}
+
+            </div>
+          </div>
           <div *ngIf="detail['muser_id']">
             <div class="d-inline-block"><label>Muser Id:</label></div>
             <div class="ml-3 d-inline-block">                
@@ -332,6 +364,20 @@
 						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
 					</span>
 				</th>
+				<th class="pointer" scope="col" (click)="toggleListSort('school', 'School')">
+					School
+					<span *ngIf="listSortField === 'school'">
+						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+					</span>
+				</th>
+				<th class="pointer" scope="col" (click)="toggleListSort('GuardianOnePhone', 'Guardian One Phone')">
+					Guardian One Phone
+					<span *ngIf="listSortField === 'GuardianOnePhone'">
+						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+					</span>
+				</th>
 				<th class="pointer" scope="col" (click)="toggleListSort('muser_id', 'Muser Id')">
 					Muser Id
 					<span *ngIf="listSortField === 'muser_id'">
@@ -364,6 +410,16 @@
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
 	            	                  {{detail['grade']}} 
+
+	            </td>
+	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            	                
+                    {{detail['school']}}
+
+	            </td>
+	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            	                
+                    {{detail['GuardianOnePhone']}}
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">

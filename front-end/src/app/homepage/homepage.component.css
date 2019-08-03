@@ -29,7 +29,7 @@
 
 section {
 	padding: 20px 0 20px 0;
-	margin: 80px 0 80px 0;
+	margin: 50px 0 50px 0;
 }
 
 
@@ -52,4 +52,9 @@ section {
 	width: 370px;
 	padding-right: 15px;
     padding-left: 15px;
+}
+
+.row-border {
+    border-left: solid 1px #00274C90;	
+    border-right: solid 1px #00274C90;	
 }

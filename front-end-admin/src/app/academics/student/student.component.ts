@@ -35,6 +35,8 @@ export class StudentComponent extends BaseComponent {
   this.briefFieldsInfo.push(['last_name', 'Last Name']);
   this.briefFieldsInfo.push(['email', 'Email']);
   this.briefFieldsInfo.push(['grade', 'Grade']);
+  this.briefFieldsInfo.push(['school', 'School']);
+  this.briefFieldsInfo.push(['GuardianOnePhone', 'Guardian One Phone']);
   this.briefFieldsInfo.push(['muser_id', 'Muser Id']);
   
 

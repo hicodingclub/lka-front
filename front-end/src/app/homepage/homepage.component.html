@@ -44,20 +44,20 @@
         <app-keynote-list-act-sld [searchObj]="{'tag': 'slides'}" [inputData]="['title', 'subtitle', 'description', 'signaturePicture']"></app-keynote-list-act-sld>
     </div>
 
-    <section class="row align-items-baseline">
+    <section class="row align-items-baseline row-border">
       <div class="col-small d-flex flex-column">
           <div><app-generalinfo-detail [searchObj]="{'tag': 'events'}" [disableActionButtions]="true"
-            [style]="{'background-color': 'rgba(0, 39, 76, 0.15)'}"
+            [style]="{'background-color': 'white', 'color': '#00274c'}"
             >
           </app-generalinfo-detail></div>
           <div class="align-self-center internal_link" routerLink="/publicinfo/event">Read all posts</div>
       </div>
-      <div class="col-large" style="border-right: solid 1px #00274C;"><app-event-list-ex-h></app-event-list-ex-h></div>
+      <div class="col-large"><app-event-list-ex-h></app-event-list-ex-h></div>
     </section>
 
     <div class="d-flex flex-column">
       <div><app-generalinfo-detail [searchObj]="{'tag': 'classes'}" [disableActionButtions]="true"
-        [style]="{'background-color': 'rgba(0, 39, 76, 0.15)'}"
+        [style]="{'background-color': 'white', 'color': '#00274c'}"
         >
       </app-generalinfo-detail></div>
       <div class="align-self-center internal_link" routerLink="/academics/class/list">Check all classes</div>
@@ -68,7 +68,7 @@
     </section>
 
     <!--
-    <section class="row align-items-baseline">
+    <section class="row align-items-baseline row-border">
       <div class="col-small d-flex flex-column">
           <div><app-generalinfo-detail [searchObj]="{'tag': 'resources'}" [disableActionButtions]="true"
             [style]="{'background-color': 'rgba(0, 39, 76, 0.15)'}"
@@ -76,7 +76,7 @@
           </app-generalinfo-detail></div>
           <div class="align-self-center internal_link" routerLink="/publicinfo/article">Resource Center</div>
       </div>
-      <div class="col-large" style="border-right: solid 1px #00274C;"><app-article-list-ex-h></app-article-list-ex-h></div>
+      <div class="col-large"><app-article-list-ex-h></app-article-list-ex-h></div>
     </section>
     -->
     <section>

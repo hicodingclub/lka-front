@@ -280,7 +280,7 @@
 
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditGuardianOnePhone" 
-                    
+                    required
                     
                     
                 studentDirectiveGuardianOnePhone="" 
@@ -295,6 +295,9 @@
           <div [hidden]="EditGuardianOnePhone.valid || EditGuardianOnePhone.pristine || EditGuardianOnePhone.errors.minlength"
            class="alert alert-danger">
 
+            <div *ngIf="EditGuardianOnePhone.errors && EditGuardianOnePhone.errors.required">
+              GuardianOnePhone is required.
+              </div>
 
             <div *ngIf="EditGuardianOnePhone.errors && EditGuardianOnePhone.errors.studentDirectiveGuardianOnePhone">
                 {{EditGuardianOnePhone.errors.studentDirectiveGuardianOnePhone}}
@@ -744,7 +747,7 @@
 
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditGuardianOnePhone" 
-                    
+                    required
                     
                     
                 studentDirectiveGuardianOnePhone="" 
@@ -759,6 +762,9 @@
           <div [hidden]="EditGuardianOnePhone.valid || EditGuardianOnePhone.pristine || EditGuardianOnePhone.errors.minlength"
            class="alert alert-danger">
 
+            <div *ngIf="EditGuardianOnePhone.errors && EditGuardianOnePhone.errors.required">
+              GuardianOnePhone is required.
+              </div>
 
             <div *ngIf="EditGuardianOnePhone.errors && EditGuardianOnePhone.errors.studentDirectiveGuardianOnePhone">
                 {{EditGuardianOnePhone.errors.studentDirectiveGuardianOnePhone}}
