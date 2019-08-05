@@ -54,6 +54,7 @@ export class ArticleListComponent extends ArticleComponent implements OnInit {
 
           this.listViewFilter = 'list';
           this.setListSort('publishDate', 'Publish Date', 'desc');
+
   }
 
   ngOnInit() {

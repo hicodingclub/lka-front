@@ -71,10 +71,10 @@
 		        	Title
 		        </th>
 		        <th *ngIf="referenceFieldsMap['course'] != parentItem"  scope="col">
-		        	Course
+		        	Program
 		        </th>
 		        <th *ngIf="referenceFieldsMap['teacher'] != parentItem"  scope="col">
-		        	Teacher
+		        	Instructor
 		        </th>
 		        <th scope="col">
 		        	Hot
@@ -93,7 +93,7 @@
 		        </th>		        
                 <th scope="col" style="width:2rem;"></th>
 
-		        <th scope="col" style="width:2rem;"></th>
+		        <th scope="col" style="width:5rem;"></th>
 	        </tr>
 	    </thead>
 	    <tbody>
@@ -155,7 +155,7 @@
 
 	            <td>
 
-	            	<a routerLink="." (click)="onDetailLinkClicked(detail['_id'])"><i class="fas fa-external-link-square-alt" title="View Details"></i></a>
+					<span class="read-more-in-table" (click)="onDetailLinkClicked(detail['_id'])">Detail <i class="fas fa-arrow-right" ></i></span>
 
                 </td>
 	        </tr>

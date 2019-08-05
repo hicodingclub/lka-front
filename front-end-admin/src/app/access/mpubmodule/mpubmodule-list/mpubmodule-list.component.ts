@@ -46,6 +46,7 @@ export class MpubmoduleListComponent extends MpubmoduleComponent implements OnIn
 
 
           this.listViewFilter = 'list';
+
   }
 
   ngOnInit() {

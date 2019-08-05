@@ -8,6 +8,9 @@
 		<a class="nav-link" [ngClass]="{'active': idx === selectedCategory }" [routerLink]="['.']" [queryParamsHandling]="preserve" (click)="categorySelected(idx)">{{ele}}</a>
 	</li>
 </ul>
+<div *ngIf="categoryBy && listCategoryShowMore && categoryMore.length > 0" class="ml-3 mb-5">
+	{{categoryMore[selectedCategory]}}
+</div>
 
 <div>
 	<div class="container search">
@@ -326,12 +329,12 @@
 						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
 						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
 					</span>
-				</th>
+				</th><th scope="col" style="width:4.8rem;"></th>
 	    	</tr>
 	    </thead>
 	    <tbody>
 	        <tr *ngFor="let detail of list;  let i = index; let list_index = index;" [ngClass]="{'clicked-row': clickedId==detail['_id']}">
-	            <td scope="row" (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            <td scope="row" >
 	            	{{(page-1)*per_page+i+1}}
 	            </td>
 
@@ -353,6 +356,12 @@
 	            <td >
 	            	                  {{detail['publishDate']?detail['publishDate']['value']:""}}
 
+	            </td>
+	            <td>
+					
+	            	
+					
+					<span class="read-more-in-table" (click)="onDetailLinkClicked(detail['_id'])">Detail <i class="fas fa-arrow-right" ></i></span>
 	            </td>
 	        </tr>
 	    </tbody>

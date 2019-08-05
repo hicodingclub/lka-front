@@ -16,8 +16,8 @@
         </h5>
         <div *ngIf="detail['description']" class="mr-3 d-inline-block">
           <div class="d-inline-block"><label>Description:</label></div>
-          <div class="ml-3 d-inline-block">                
-                    {{detail['description']}}
+          <div class="ml-3 d-inline-block">                 
+                    <div mra-richtext-show="courseDetailDescription" [content]="detail['description']"></div>
 
           </div>
         </div>
@@ -50,8 +50,8 @@
       <div class="card-body">
           <div *ngIf="detail['description']">
             <div class="d-inline-block"><label>Description:</label></div>
-            <div class="ml-3 d-inline-block">                
-                    {{detail['description']}}
+            <div class="ml-3 d-inline-block">                 
+                    <div mra-richtext-show="courseDetailDescription" [content]="detail['description']"></div>
 
             </div>
           </div>
@@ -74,18 +74,13 @@
 						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
 					</span>
 				</th>
-				<th class="pointer" scope="col" (click)="toggleListSort('description', 'Description')">
-					Description
-					<span *ngIf="listSortField === 'description'">
-						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
-						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
-					</span>
-				</th>
+				<th scope="col">Description</th>
+
 	    	</tr>
 	    </thead>
 	    <tbody>
 	        <tr *ngFor="let detail of list;  let i = index; let list_index = index;" [ngClass]="{'clicked-row': clickedId==detail['_id']}">
-	            <td scope="row" (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            <td scope="row" (click)="onDetailLinkClicked(detail['_id'])"  class="pointer read-more">
 	            	{{(page-1)*per_page+i+1}}
 	            </td>
 
@@ -95,8 +90,8 @@
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
-                    {{detail['description']}}
+	            	                 
+                    <div mra-richtext-show="courseDetailDescription" [content]="detail['description']"></div>
 
 	            </td>
 	        </tr>

@@ -52,6 +52,7 @@ public componentFactoryResolver: ComponentFactoryResolver,
 
 
           this.listViewFilter = 'grid';
+
   }
 
   ngOnInit() {

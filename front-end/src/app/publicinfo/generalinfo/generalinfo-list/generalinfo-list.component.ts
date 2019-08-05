@@ -49,6 +49,7 @@ export class GeneralinfoListComponent extends GeneralinfoComponent implements On
 
           this.listViewFilter = 'list';
           this.setListSort('title', 'Title', 'asc');
+
   }
 
   ngOnInit() {

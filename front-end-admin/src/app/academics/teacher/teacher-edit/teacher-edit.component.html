@@ -5,7 +5,7 @@
 	
 	<div class="card" style="text-align: left;">
 	  <div class="card-body">
-	    <h4 class="card-title" *ngIf="!embeddedView">{{action}} Teacher</h4>
+	    <h4 class="card-title" *ngIf="!embeddedView">{{action}} Instructors</h4>
 	    <form (ngSubmit)="onSubmit()" #editForm="ngForm">
 	    
 	     <div *ngIf="action == 'Edit'">
@@ -80,7 +80,7 @@
 <div *ngIf="!hiddenFields.includes('courses')">
 
         <fieldset class="form-group">
-          <label for="EditCourses">Courses </label>
+          <label for="EditCourses">Program </label>
           
           <!-- <a class="icon-search" [routerLink]="['.']" (click)="onRefSelect('courses')"><i class="fas fa-list" title="Search"></i></a>  -->
           <div class="input-group">
@@ -315,7 +315,7 @@
 <div *ngIf="!hiddenFields.includes('courses')">
 
         <fieldset class="form-group">
-          <label for="EditCourses">Courses </label>
+          <label for="EditCourses">Program </label>
           
           <!-- <a class="icon-search" [routerLink]="['.']" (click)="onRefSelect('courses')"><i class="fas fa-list" title="Search"></i></a>  -->
           <div class="input-group">

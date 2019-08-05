@@ -50,6 +50,7 @@ public componentFactoryResolver: ComponentFactoryResolver,
 
 
           this.listViewFilter = 'list';
+
   }
 
   ngOnInit() {

@@ -64,6 +64,12 @@ const studentDetailPath = [
         data: {'mraLevel': 2, 'item': 'classenroll'}},
 ];
 
+const teacherDetailPath = [
+
+    {path: 'class', children: classSubPath,
+        data: {'mraLevel': 2, 'item': 'class'}},
+];
+
 const courseDetailPath = [
 
     {path: 'teacher', children: teacherSubPath,
@@ -98,7 +104,7 @@ export const studentRoutingPath = [
 
 export const teacherRoutingPath = [
     {path: 'list', component: TeacherListComponent, canActivate: [AuthGuard]},
-    {path: 'detail/:id', component: TeacherDetailComponent, canActivate: [AuthGuard]},
+    {path: 'detail/:id', component: TeacherDetailComponent, children: teacherDetailPath, canActivate: [AuthGuard]},
     
     
     

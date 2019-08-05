@@ -5,6 +5,9 @@
 		<a class="nav-link" [ngClass]="{'active': idx === selectedCategory }" [routerLink]="['.']" [queryParamsHandling]="preserve" (click)="categorySelected(idx)">{{ele}}</a>
 	</li>
 </ul>
+<div *ngIf="categoryBy && listCategoryShowMore && categoryMore.length > 0" class="ml-3 mb-5">
+	{{categoryMore[selectedCategory]}}
+</div>
 
 <div>
 	<div class="container search">
@@ -42,7 +45,7 @@
 						<div class="card-body">
 	    <div class="single-line-edit">
 	      <div class="row">
-	        <div class="col-3"><label for="classEditCourse">Course</label></div>
+	        <div class="col-3"><label for="classEditCourse">Program</label></div>
 	        <div class="col-8">
 
 
@@ -68,7 +71,7 @@
  
 	    <div class="single-line-edit">
 	      <div class="row">
-	        <div class="col-3"><label for="classEditTeacher">Teacher</label></div>
+	        <div class="col-3"><label for="classEditTeacher">Instructor</label></div>
 	        <div class="col-8">
 
 
@@ -349,10 +352,10 @@
 						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('title', 'Title', 'asc')">Title<i class="fas fa-arrow-up"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('title', 'Title', 'desc')">Title<i class="fas fa-arrow-down"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('course', 'Course', 'asc')">Course<i class="fas fa-arrow-up"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('course', 'Course', 'desc')">Course<i class="fas fa-arrow-down"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('teacher', 'Teacher', 'asc')">Teacher<i class="fas fa-arrow-up"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('teacher', 'Teacher', 'desc')">Teacher<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('course', 'Program', 'asc')">Course<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('course', 'Program', 'desc')">Course<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('teacher', 'Instructor', 'asc')">Teacher<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('teacher', 'Instructor', 'desc')">Teacher<i class="fas fa-arrow-down"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('hot', 'Hot', 'asc')">Hot<i class="fas fa-arrow-up"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('hot', 'Hot', 'desc')">Hot<i class="fas fa-arrow-down"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('startTime', 'Start Time', 'asc')">StartTime<i class="fas fa-arrow-up"></i></a>
@@ -445,15 +448,15 @@
 						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
 					</span>
 				</th>
-				<th class="pointer" scope="col" (click)="toggleListSort('course', 'Course')">
-					Course
+				<th class="pointer" scope="col" (click)="toggleListSort('course', 'Program')">
+					Program
 					<span *ngIf="listSortField === 'course'">
 						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
 						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
 					</span>
 				</th>
-				<th class="pointer" scope="col" (click)="toggleListSort('teacher', 'Teacher')">
-					Teacher
+				<th class="pointer" scope="col" (click)="toggleListSort('teacher', 'Instructor')">
+					Instructor
 					<span *ngIf="listSortField === 'teacher'">
 						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
 						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
@@ -488,54 +491,54 @@
 						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
 						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
 					</span>
-				</th><th scope="col" style="width:7.8rem;"></th>
+				</th><th scope="col" style="width:10.8rem;"></th>
 	    	</tr>
 	    </thead>
 	    <tbody>
 	        <tr *ngFor="let detail of list;  let i = index; let list_index = index;" [ngClass]="{'clicked-row': clickedId==detail['_id']}">
-	            <td scope="row" (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            <td scope="row" >
 	            	{{(page-1)*per_page+i+1}}
 	            </td>
 
-	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            <td >
 	            	                
                     {{detail['title']}}
 
 	            </td>
-	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            <td >
 	            	                
                	  <a routerLink="."  (click)="onDisplayRefClicked('course', detail['course'], $event)">
 	            	{{detail['course']?detail['course']['value']:""}}
 	              </a>
 
 	            </td>
-	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            <td >
 	            	                
                	  <a routerLink="."  (click)="onDisplayRefClicked('teacher', detail['teacher'], $event)">
 	            	{{detail['teacher']?detail['teacher']['value']:""}}
 	              </a>
 
 	            </td>
-	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            <td >
 	            	                  {{detail['hot']}} 
 
 	            </td>
-	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            <td >
 	            	                  {{detail['startTime']?detail['startTime']['value']:""}}
 
 	            </td>
-	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            <td >
 	            	                  {{detail['endTime']?detail['endTime']['value']:""}}
 
 	            </td>
-	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            <td >
 	            	                
                     <div class="badge badge-pill badge-secondary" *ngFor="let element of enums['dayOfWeek']">
                          <div *ngIf="detail['dayOfWeek'] && detail['dayOfWeek']['selection'][element]">{{element}}</div>
                     </div>
 
 	            </td>
-	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            <td >
 	            	                
                     {{detail['timeSlot']}}
 
@@ -546,6 +549,7 @@
 					
 	            	<a routerLink="." (click)="onDelete(detail['_id'], i)"><i class="fas fa-trash-alt" title="Delete"></i></a>
 					<input *ngIf="list.length > 1" type="checkbox" [(ngModel)]="checkedItem[i]"/>
+					<span class="read-more-in-table" (click)="onDetailLinkClicked(detail['_id'])">Detail <i class="fas fa-arrow-right" ></i></span>
 	            </td>
 	        </tr>
 	    </tbody>
@@ -555,9 +559,9 @@
 	<div class="listview" *ngIf="isShowListView('list')">
 		<div class="list-block" *ngFor="let detail of list;  let i = index; let list_index = index;">
 			<hr *ngIf="i==0" class="list-diverder">
-			<div class="list-card text-left clickable-card "
+			<div class="list-card text-left  "
 				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
-				<div class="list-fields pointer" (click)="onDetailLinkClicked(detail['_id'])" >
+				<div class="list-fields "  >
 
       <div class="list-body-fields ml-1 d-inline-block">
         <h5>
@@ -568,7 +572,7 @@
           </div>
         </h5>
         <div *ngIf="detail['course']" class="mr-3 d-inline-block">
-          <div class="d-inline-block"><label>Course:</label></div>
+          <div class="d-inline-block"><label>Program:</label></div>
           <div class="ml-3 d-inline-block">                
                	  <a routerLink="."  (click)="onDisplayRefClicked('course', detail['course'], $event)">
 	            	{{detail['course']?detail['course']['value']:""}}
@@ -577,7 +581,7 @@
           </div>
         </div>
         <div *ngIf="detail['teacher']" class="mr-3 d-inline-block">
-          <div class="d-inline-block"><label>Teacher:</label></div>
+          <div class="d-inline-block"><label>Instructor:</label></div>
           <div class="ml-3 d-inline-block">                
                	  <a routerLink="."  (click)="onDisplayRefClicked('teacher', detail['teacher'], $event)">
 	            	{{detail['teacher']?detail['teacher']['value']:""}}
@@ -619,6 +623,9 @@
 
           </div>
         </div>
+        <div class="read-more" (click)="onDetailLinkClicked(detail['_id'])">
+        Read more ...
+        </div>
       </div>
 
 				</div>
@@ -638,9 +645,9 @@
 
 	<div class="gridview" *ngIf="isShowListView('grid')">
 		<div class="grid-block" *ngFor="let detail of list;  let i = index; let list_index = index;">
-			<div class="card text-left h-100 clickable-card "
+			<div class="card text-left h-100  "
 				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
-				<div class="grid-fields pointer" (click)="onDetailLinkClicked(detail['_id'])" >
+				<div class="grid-fields "  >
 
       <div class="card-header grid-head">
         <div class="ml-1 d-inline-block">
@@ -655,7 +662,7 @@
       </div>
       <div class="card-body">
           <div *ngIf="detail['course']">
-            <div class="d-inline-block"><label>Course:</label></div>
+            <div class="d-inline-block"><label>Program:</label></div>
             <div class="ml-3 d-inline-block">                
                	  <a routerLink="."  (click)="onDisplayRefClicked('course', detail['course'], $event)">
 	            	{{detail['course']?detail['course']['value']:""}}
@@ -664,7 +671,7 @@
             </div>
           </div>
           <div *ngIf="detail['teacher']">
-            <div class="d-inline-block"><label>Teacher:</label></div>
+            <div class="d-inline-block"><label>Instructor:</label></div>
             <div class="ml-3 d-inline-block">                
                	  <a routerLink="."  (click)="onDisplayRefClicked('teacher', detail['teacher'], $event)">
 	            	{{detail['teacher']?detail['teacher']['value']:""}}
@@ -706,6 +713,9 @@
 
             </div>
           </div>
+        <div class="read-more" (click)="onDetailLinkClicked(detail['_id'])">
+          Read more ...
+        </div>
       </div>
 
 				</div>

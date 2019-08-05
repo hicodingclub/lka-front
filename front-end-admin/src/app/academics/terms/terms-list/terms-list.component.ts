@@ -48,6 +48,7 @@ export class TermsListComponent extends TermsComponent implements OnInit {
 
 
           this.listViewFilter = 'list';
+
   }
 
   ngOnInit() {

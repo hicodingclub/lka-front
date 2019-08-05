@@ -46,6 +46,7 @@ export class MroleListComponent extends MroleComponent implements OnInit {
 
 
           this.listViewFilter = 'list';
+
   }
 
   ngOnInit() {

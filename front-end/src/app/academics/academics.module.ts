@@ -93,6 +93,9 @@ import { CourseDetailSelComponent } from './course/course-detail/course-detail-s
 import { TermsSelectComponent } from './terms/terms-list/terms-select.component';
 import { TermsDetailPopComponent } from './terms/terms-detail/terms-detail-pop.component';
 import { TermsDetailSelComponent } from './terms/terms-detail/terms-detail-sel.component';
+import { TeacherSelectComponent } from './teacher/teacher-list/teacher-select.component';
+import { TeacherDetailPopComponent } from './teacher/teacher-detail/teacher-detail-pop.component';
+import { TeacherDetailSelComponent } from './teacher/teacher-detail/teacher-detail-sel.component';
 import { StudentSelectComponent } from './student/student-list/student-select.component';
 import { StudentDetailPopComponent } from './student/student-detail/student-detail-pop.component';
 import { StudentDetailSelComponent } from './student/student-detail/student-detail-sel.component';
@@ -187,6 +190,9 @@ import { StudentDirectiveGuardianTwoEmail } from './student/student-edit/student
     TermsSelectComponent,
     TermsDetailPopComponent,
     TermsDetailSelComponent,
+    TeacherSelectComponent,
+    TeacherDetailPopComponent,
+    TeacherDetailSelComponent,
     StudentSelectComponent,
     StudentDetailPopComponent,
     StudentDetailSelComponent,
@@ -273,6 +279,9 @@ import { StudentDirectiveGuardianTwoEmail } from './student/student-edit/student
     TermsSelectComponent,
     TermsDetailPopComponent,
     TermsDetailSelComponent,
+    TeacherSelectComponent,
+    TeacherDetailPopComponent,
+    TeacherDetailSelComponent,
     StudentSelectComponent,
     StudentDetailPopComponent,
     StudentDetailSelComponent,
@@ -302,7 +311,7 @@ import { StudentDirectiveGuardianTwoEmail } from './student/student-edit/student
     ClassenrollService,
     TermsService,
   ],
-  entryComponents: [CourseSelectComponent,CourseDetailPopComponent,CourseDetailSelComponent,TermsSelectComponent,TermsDetailPopComponent,TermsDetailSelComponent,StudentSelectComponent,StudentDetailPopComponent,StudentDetailSelComponent,ClassSelectComponent,ClassDetailPopComponent,ClassDetailSelComponent,StudentListActSelComponent,StudentEditComponent,ClassListActSelComponent,ClassenrollEditComponent,TermsDetailComponent,
+  entryComponents: [CourseSelectComponent,CourseDetailPopComponent,CourseDetailSelComponent,TermsSelectComponent,TermsDetailPopComponent,TermsDetailSelComponent,TeacherSelectComponent,TeacherDetailPopComponent,TeacherDetailSelComponent,StudentSelectComponent,StudentDetailPopComponent,StudentDetailSelComponent,ClassSelectComponent,ClassDetailPopComponent,ClassDetailSelComponent,StudentListActSelComponent,StudentEditComponent,ClassListActSelComponent,ClassenrollEditComponent,TermsDetailComponent,
   ]
 })
 export class AcademicsModule { }

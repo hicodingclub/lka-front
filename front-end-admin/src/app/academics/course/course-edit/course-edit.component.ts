@@ -11,6 +11,8 @@ import { CourseService } from '../course.service';
 
 
 
+import { QueryList, ViewChildren } from '@angular/core';
+import { MraRichTextSelectDirective } from 'mean-rest-angular';
 
 @Component({
   selector: 'app-course-edit',
@@ -33,6 +35,10 @@ export class CourseEditComponent extends CourseComponent implements OnInit {
     public minDate = {year: (new Date()).getFullYear() - 100, month: 1, day: 1};
 
 
+    @ViewChildren(MraRichTextSelectDirective) textEditors: QueryList<MraRichTextSelectDirective>;
+  
+    private EditDescription = {valid: true};
+
         
     constructor(
       
@@ -54,6 +60,14 @@ export class CourseEditComponent extends CourseComponent implements OnInit {
 
 
 
+          this.textEditorMap['EditDescription'] = {
+            required: true ,
+            
+            
+            
+            fieldState: this.EditDescription,
+            fieldName: 'description'
+          };
           
           let detail = {};
           this.detail = this.formatDetail(detail);

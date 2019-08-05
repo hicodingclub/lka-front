@@ -46,7 +46,7 @@
 <div *ngIf="!hiddenFields.includes('course')">
 
         <fieldset class="form-group">
-          <label for="EditCourse">Course </label>
+          <label for="EditCourse">Program </label>
           
           <!-- <a class="icon-search" [routerLink]="['.']" (click)="onRefSelect('course')"><i class="fas fa-list" title="Search"></i></a>  -->
           <div class="input-group">
@@ -79,22 +79,12 @@
         <fieldset class="form-group">
           <label for="EditDescription">Description</label>
           
-
-          <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditDescription" 
-                    required
-                    
-                    
-                 
-                    [(ngModel)]="detail['description']" name="EditDescription"
-                    #EditDescription="ngModel">
-                <div *ngIf="detail['description']" 
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('description')">
-                  <i class="fas fa-times-circle" title="Clear"></i>
-                </div>
+          <div mra-richtext-select="EditDescription" [content]="detail['description']"></div>
+          <div class="action-buttons" style="margin-top: 10px;">
+            <button type="button" class="btn btn-outline-success" (click)="onEdtiorPreview('EditDescription')">Preview</button>
           </div>
-
-          <div [hidden]="EditDescription.valid || EditDescription.pristine || EditDescription.errors.minlength"
+        
+          <div [hidden]="EditDescription.valid"
            class="alert alert-danger">
 
             <div *ngIf="EditDescription.errors && EditDescription.errors.required">
@@ -102,8 +92,8 @@
               </div>
  
 
-          </div>
         
+          </div>
         </fieldset>
 
     
@@ -111,7 +101,7 @@
 <div *ngIf="!hiddenFields.includes('teacher')">
 
         <fieldset class="form-group">
-          <label for="EditTeacher">Teacher </label>
+          <label for="EditTeacher">Instructor </label>
           
           <!-- <a class="icon-search" [routerLink]="['.']" (click)="onRefSelect('teacher')"><i class="fas fa-list" title="Search"></i></a>  -->
           <div class="input-group">
@@ -502,7 +492,7 @@
 <div *ngIf="!hiddenFields.includes('course')">
 
         <fieldset class="form-group">
-          <label for="EditCourse">Course </label>
+          <label for="EditCourse">Program </label>
           
           <!-- <a class="icon-search" [routerLink]="['.']" (click)="onRefSelect('course')"><i class="fas fa-list" title="Search"></i></a>  -->
           <div class="input-group">
@@ -535,22 +525,12 @@
         <fieldset class="form-group">
           <label for="EditDescription">Description</label>
           
-
-          <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditDescription" 
-                    required
-                    
-                    
-                 
-                    [(ngModel)]="detail['description']" name="EditDescription"
-                    #EditDescription="ngModel">
-                <div *ngIf="detail['description']" 
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('description')">
-                  <i class="fas fa-times-circle" title="Clear"></i>
-                </div>
+          <div mra-richtext-select="EditDescription" [content]="detail['description']"></div>
+          <div class="action-buttons" style="margin-top: 10px;">
+            <button type="button" class="btn btn-outline-success" (click)="onEdtiorPreview('EditDescription')">Preview</button>
           </div>
-
-          <div [hidden]="EditDescription.valid || EditDescription.pristine || EditDescription.errors.minlength"
+        
+          <div [hidden]="EditDescription.valid"
            class="alert alert-danger">
 
             <div *ngIf="EditDescription.errors && EditDescription.errors.required">
@@ -558,8 +538,8 @@
               </div>
  
 
-          </div>
         
+          </div>
         </fieldset>
 
     
@@ -567,7 +547,7 @@
 <div *ngIf="!hiddenFields.includes('teacher')">
 
         <fieldset class="form-group">
-          <label for="EditTeacher">Teacher </label>
+          <label for="EditTeacher">Instructor </label>
           
           <!-- <a class="icon-search" [routerLink]="['.']" (click)="onRefSelect('teacher')"><i class="fas fa-list" title="Search"></i></a>  -->
           <div class="input-group">

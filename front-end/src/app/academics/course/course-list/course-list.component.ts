@@ -8,6 +8,8 @@ import { CourseService } from '../course.service';
 
 
 
+import { QueryList, ViewChildren } from '@angular/core';
+import { MraRichTextShowDirective } from 'mean-rest-angular';
   
 @Component({
   selector: 'app-course-list',
@@ -24,6 +26,7 @@ export class CourseListComponent extends CourseComponent implements OnInit {
   @Input()
   public categoryBy:string; //field name whose value is used as category
   
+  @ViewChildren(MraRichTextShowDirective) textEditors: QueryList<MraRichTextShowDirective>;
 
   constructor(
 
@@ -46,6 +49,7 @@ export class CourseListComponent extends CourseComponent implements OnInit {
 
 
           this.listViewFilter = 'list';
+
   }
 
   ngOnInit() {

@@ -9,6 +9,8 @@ import { ClassService } from '../class.service';
 
 import { ComponentFactoryResolver } from '@angular/core';
 
+import { QueryList, ViewChildren } from '@angular/core';
+import { MraRichTextShowDirective } from 'mean-rest-angular';
   
 @Component({
   selector: 'app-class-list',
@@ -26,6 +28,7 @@ export class ClassListComponent extends ClassComponent implements OnInit {
   @Input()
   public categoryBy:string; //field name whose value is used as category
   
+  @ViewChildren(MraRichTextShowDirective) textEditors: QueryList<MraRichTextShowDirective>;
 
   constructor(
 public componentFactoryResolver: ComponentFactoryResolver,
@@ -54,6 +57,7 @@ public componentFactoryResolver: ComponentFactoryResolver,
 
 
           this.listViewFilter = 'table';
+
   }
 
   ngOnInit() {

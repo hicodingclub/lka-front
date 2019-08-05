@@ -21,6 +21,9 @@ import { CourseSelectComponent } from '../course/course-list/course-select.compo
 import { TermsDetailSelComponent } from '../terms/terms-detail/terms-detail-sel.component';
 import { TermsDetailPopComponent } from '../terms/terms-detail/terms-detail-pop.component';
 import { TermsSelectComponent } from '../terms/terms-list/terms-select.component';
+import { TeacherDetailSelComponent } from '../teacher/teacher-detail/teacher-detail-sel.component';
+import { TeacherDetailPopComponent } from '../teacher/teacher-detail/teacher-detail-pop.component';
+import { TeacherSelectComponent } from '../teacher/teacher-list/teacher-select.component';
 
 
 export class ClassComponent extends BaseComponent {
@@ -36,6 +39,11 @@ export class ClassComponent extends BaseComponent {
           'select-type':TermsSelectComponent,
           'select-detail-type': TermsDetailSelComponent,
           'pop-detail-type': TermsDetailPopComponent,
+          'componentRef': null},
+      'teacher': {
+          'select-type':TeacherSelectComponent,
+          'select-detail-type': TeacherDetailSelComponent,
+          'pop-detail-type': TeacherDetailPopComponent,
           'componentRef': null},
     }
     @ViewChild(AcademicsRefSelectDirective) refSelectDirective: AcademicsRefSelectDirective;

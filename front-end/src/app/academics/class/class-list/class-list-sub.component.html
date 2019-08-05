@@ -68,9 +68,6 @@
 		        <th scope="col">
 		        	Title
 		        </th>
-		        <th *ngIf="referenceFieldsMap['course'] != parentItem"  scope="col">
-		        	Course
-		        </th>
 		        <th scope="col">
 		        	Start Time
 		        </th>
@@ -85,7 +82,7 @@
 		        </th>		        
                 <th scope="col" style="width:2rem;"></th>
 
-		        <th scope="col" style="width:2rem;"></th>
+		        <th scope="col" style="width:5rem;"></th>
 	        </tr>
 	    </thead>
 	    <tbody>
@@ -96,13 +93,6 @@
 	            <td >
 	            	                
                     {{detail['title']}}
-
-                </td>
-	            <td *ngIf="referenceFieldsMap['course'] != parentItem"  >
-	            	                
-               	  <a routerLink="."  (click)="onDisplayRefClicked('course', detail['course'], $event)">
-	            	{{detail['course']?detail['course']['value']:""}}
-	              </a>
 
                 </td>
 	            <td >
@@ -136,7 +126,7 @@
 
 	            <td>
 
-	            	<a routerLink="." (click)="onDetailLinkClicked(detail['_id'])"><i class="fas fa-external-link-square-alt" title="View Details"></i></a>
+					<span class="read-more-in-table" (click)="onDetailLinkClicked(detail['_id'])">Detail <i class="fas fa-arrow-right" ></i></span>
 
                 </td>
 	        </tr>

@@ -8,6 +8,9 @@
 		<a class="nav-link" [ngClass]="{'active': idx === selectedCategory }" [routerLink]="['.']" [queryParamsHandling]="preserve" (click)="categorySelected(idx)">{{ele}}</a>
 	</li>
 </ul>
+<div *ngIf="categoryBy && listCategoryShowMore && categoryMore.length > 0" class="ml-3 mb-5">
+	{{categoryMore[selectedCategory]}}
+</div>
 
 <div>
 	<div class="container search">
@@ -141,7 +144,7 @@
 	    </thead>
 	    <tbody>
 	        <tr *ngFor="let detail of list;  let i = index; let list_index = index;" [ngClass]="{'clicked-row': clickedId==detail['_id']}">
-	            <td scope="row" (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            <td scope="row" (click)="onDetailLinkClicked(detail['_id'])"  class="pointer read-more">
 	            	{{(page-1)*per_page+i+1}}
 	            </td>
 

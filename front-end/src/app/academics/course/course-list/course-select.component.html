@@ -108,8 +108,8 @@
                     {{detail['title']}}
 
 	            </td>
-	            <td (click)="selectItemSelected(i)"  class="pointer">                
-                    {{detail['description']}}
+	            <td (click)="selectItemSelected(i)"  class="pointer">                 
+                    <div mra-richtext-show="courseDetailDescription" [content]="detail['description']"></div>
 
 	            </td>
 

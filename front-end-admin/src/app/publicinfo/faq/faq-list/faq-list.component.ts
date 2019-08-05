@@ -50,6 +50,7 @@ export class FaqListComponent extends FaqComponent implements OnInit {
 
           this.listViewFilter = 'list';
           this.setListSort('order', 'Order', 'asc');
+
   }
 
   ngOnInit() {

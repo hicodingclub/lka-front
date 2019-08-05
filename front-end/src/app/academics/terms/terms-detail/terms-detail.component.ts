@@ -67,9 +67,5 @@ export class TermsDetailComponent extends TermsComponent implements OnInit, Afte
 
   ngAfterViewInit() {
 
-    //Load first reference, if not others activated
-    if (!this.isChildRouterActivated()) {
-      this.router.navigate(['./class/list', {}], {relativeTo: this.route, queryParamsHandling: 'preserve',});
-    }
   }
 }

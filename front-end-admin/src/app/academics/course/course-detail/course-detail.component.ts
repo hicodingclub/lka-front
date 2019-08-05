@@ -8,6 +8,8 @@ import { CourseService } from '../course.service';
 
 
 
+import { QueryList, ViewChildren } from '@angular/core';
+import { MraRichTextShowDirective } from 'mean-rest-angular';
 
 @Component({
   selector: 'app-course-detail',
@@ -25,6 +27,7 @@ export class CourseDetailComponent extends CourseComponent implements OnInit, Af
   public style: any; // {}
 
 
+  @ViewChildren(MraRichTextShowDirective) textEditors: QueryList<MraRichTextShowDirective>;
 
   constructor(
       

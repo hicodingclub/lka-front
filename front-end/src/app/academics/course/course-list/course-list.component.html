@@ -1,13 +1,16 @@
 
 
 <div class="mt-4 mb-4">
-	<h3>Class Categories</h3>
+	<h3>All Programs</h3>
 </div>
 <ul *ngIf="categoryBy" class="nav nav-pills category-nav">
 	<li *ngFor="let ele of categoryDisplays; let idx = index;" class="nav-item" >
 		<a class="nav-link" [ngClass]="{'active': idx === selectedCategory }" [routerLink]="['.']" [queryParamsHandling]="preserve" (click)="categorySelected(idx)">{{ele}}</a>
 	</li>
 </ul>
+<div *ngIf="categoryBy && listCategoryShowMore && categoryMore.length > 0" class="ml-3 mb-5">
+	{{categoryMore[selectedCategory]}}
+</div>
 
 <div>
 	<div class="container search">
@@ -58,8 +61,6 @@
 						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('title', 'Title', 'asc')">Title<i class="fas fa-arrow-up"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('title', 'Title', 'desc')">Title<i class="fas fa-arrow-down"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('description', 'Description', 'asc')">Description<i class="fas fa-arrow-up"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('description', 'Description', 'desc')">Description<i class="fas fa-arrow-down"></i></a>
 						</div>
 					</div>
 			</div>
@@ -148,8 +149,8 @@
         </h5>
         <div *ngIf="detail['description']" class="mr-3 d-inline-block">
           <div class="d-inline-block"><label>Description:</label></div>
-          <div class="ml-3 d-inline-block">                
-                    {{detail['description']}}
+          <div class="ml-3 d-inline-block">                 
+                    <div mra-richtext-show="courseDetailDescription" [content]="detail['description']"></div>
 
           </div>
         </div>
@@ -183,8 +184,8 @@
       <div class="card-body">
           <div *ngIf="detail['description']">
             <div class="d-inline-block"><label>Description:</label></div>
-            <div class="ml-3 d-inline-block">                
-                    {{detail['description']}}
+            <div class="ml-3 d-inline-block">                 
+                    <div mra-richtext-show="courseDetailDescription" [content]="detail['description']"></div>
 
             </div>
           </div>
@@ -208,18 +209,13 @@
 						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
 					</span>
 				</th>
-				<th class="pointer" scope="col" (click)="toggleListSort('description', 'Description')">
-					Description
-					<span *ngIf="listSortField === 'description'">
-						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
-						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
-					</span>
-				</th>
+				<th scope="col">Description</th>
+
 	    	</tr>
 	    </thead>
 	    <tbody>
 	        <tr *ngFor="let detail of list;  let i = index; let list_index = index;" [ngClass]="{'clicked-row': clickedId==detail['_id']}">
-	            <td scope="row" (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            <td scope="row" (click)="onDetailLinkClicked(detail['_id'])"  class="pointer read-more">
 	            	{{(page-1)*per_page+i+1}}
 	            </td>
 
@@ -229,8 +225,8 @@
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
-                    {{detail['description']}}
+	            	                 
+                    <div mra-richtext-show="courseDetailDescription" [content]="detail['description']"></div>
 
 	            </td>
 	        </tr>

@@ -4,7 +4,7 @@ import { BaseComponent, ViewType } from 'mean-rest-angular';
 import { Injector } from '@angular/core';
 import { CourseService } from './course.service';
 
-const itemCamelName = 'course';
+const itemCamelName = 'programs';
 
 export { ViewType };
 

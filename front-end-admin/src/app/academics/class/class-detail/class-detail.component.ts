@@ -9,6 +9,8 @@ import { ClassService } from '../class.service';
 
 import { ComponentFactoryResolver } from '@angular/core';
 
+import { QueryList, ViewChildren } from '@angular/core';
+import { MraRichTextShowDirective } from 'mean-rest-angular';
 
 @Component({
   selector: 'app-class-detail',
@@ -26,6 +28,7 @@ export class ClassDetailComponent extends ClassComponent implements OnInit, Afte
   public style: any; // {}
 
 
+  @ViewChildren(MraRichTextShowDirective) textEditors: QueryList<MraRichTextShowDirective>;
 
   constructor(
       public componentFactoryResolver: ComponentFactoryResolver,

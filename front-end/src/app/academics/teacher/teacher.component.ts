@@ -4,12 +4,13 @@ import { BaseComponent, ViewType } from 'mean-rest-angular';
 import { Injector } from '@angular/core';
 import { TeacherService } from './teacher.service';
 
-const itemCamelName = 'teacher';
+const itemCamelName = 'instructors';
 
 export { ViewType };
 
 import { ViewChild } from '@angular/core';
 
+import { ElementRef } from '@angular/core';
 
 import { ComponentFactoryResolver } from '@angular/core';
 import { AcademicsRefSelectDirective } from '../academics.component';
@@ -32,6 +33,7 @@ export class TeacherComponent extends BaseComponent {
     @ViewChild(AcademicsRefSelectDirective) refSelectDirective: AcademicsRefSelectDirective;
 
 
+    @ViewChild('AcademicsModal') public focusEl: ElementRef;
 
     constructor(
       public componentFactoryResolver: ComponentFactoryResolver,
@@ -48,7 +50,7 @@ export class TeacherComponent extends BaseComponent {
   this.briefFieldsInfo = [];
   this.briefFieldsInfo.push(['firstName', 'First Name']);
   this.briefFieldsInfo.push(['lastName', 'Last Name']);
-  this.briefFieldsInfo.push(['courses', 'Courses']);
+  this.briefFieldsInfo.push(['courses', 'Program']);
   this.briefFieldsInfo.push(['introduction', 'Introduction']);
   this.briefFieldsInfo.push(['photo', 'Photo']);
   
