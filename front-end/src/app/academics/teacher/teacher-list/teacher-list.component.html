@@ -217,21 +217,20 @@
         </div>
       </div>
       <div class="card-body">
-          <div *ngIf="detail['courses']">
-            <div class="d-inline-block"><label>Program:</label></div>
-            <div class="ml-3 d-inline-block">                
+          <div *ngIf="detail['courses']" class="d-flex flex-wrap">
+            <div class=""><label>Program:</label></div>
+            <div class="ml-3">                
                	  <a routerLink="."  (click)="onDisplayRefClicked('courses', detail['courses'], $event)">
 	            	{{detail['courses']?detail['courses']['value']:""}}
 	              </a>
-
-            </div>
+</div>
           </div>
-          <div *ngIf="detail['introduction']">
-            <div class="d-inline-block"><label>Introduction:</label></div>
-            <div class="ml-3 d-inline-block">                
-                    {{detail['introduction']}}
-
-            </div>
+          <div *ngIf="detail['introduction']" class="d-flex flex-wrap">
+            <div class=""><label>Introduction:</label></div>
+            <div class="ml-3">                
+                    <div [innerHTML]="detail['introduction']"></div>
+                        
+</div>
           </div>
       </div>
 
@@ -266,19 +265,20 @@
 
           </div>
         </h5>
-        <div *ngIf="detail['courses']" class="mr-3 d-inline-block">
-          <div class="d-inline-block"><label>Program:</label></div>
-          <div class="ml-3 d-inline-block">                
+        <div *ngIf="detail['courses']" class="mr-3 d-inline-flex flex-wrap">
+          <div><label>Program:</label></div>
+          <div class="ml-3">                
                	  <a routerLink="."  (click)="onDisplayRefClicked('courses', detail['courses'], $event)">
 	            	{{detail['courses']?detail['courses']['value']:""}}
 	              </a>
 
           </div>
         </div>
-        <div *ngIf="detail['introduction']" class="mr-3 d-inline-block">
-          <div class="d-inline-block"><label>Introduction:</label></div>
-          <div class="ml-3 d-inline-block">                
-                    {{detail['introduction']}}
+        <div *ngIf="detail['introduction']" class="mr-3 d-inline-flex flex-wrap">
+          <div><label>Introduction:</label></div>
+          <div class="ml-3">                
+                    <div [innerHTML]="detail['introduction']"></div>
+                        
 
           </div>
         </div>
@@ -353,7 +353,8 @@
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
 	            	                
-                    {{detail['introduction']}}
+                    <div [innerHTML]="detail['introduction']"></div>
+                        
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">

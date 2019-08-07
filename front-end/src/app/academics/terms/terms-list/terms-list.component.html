@@ -144,16 +144,16 @@
 
           </div>
         </h5>
-        <div *ngIf="detail['content']" class="mr-3 d-inline-block">
-          <div class="d-inline-block"><label>Content:</label></div>
-          <div class="ml-3 d-inline-block">                 
+        <div *ngIf="detail['content']" class="mr-3 d-inline-flex flex-wrap">
+          <div><label>Content:</label></div>
+          <div class="ml-3">                 
                     <div mra-richtext-show="termsDetailContent" [content]="detail['content']"></div>
 
           </div>
         </div>
-        <div *ngIf="detail['acknowledge']" class="mr-3 d-inline-block">
-          <div class="d-inline-block"><label>Acknowledge:</label></div>
-          <div class="ml-3 d-inline-block">                
+        <div *ngIf="detail['acknowledge']" class="mr-3 d-inline-flex flex-wrap">
+          <div><label>Acknowledge:</label></div>
+          <div class="ml-3">                
                     {{detail['acknowledge']}}
 
           </div>
@@ -186,19 +186,17 @@
         </div>
       </div>
       <div class="card-body">
-          <div *ngIf="detail['content']">
-            <div class="d-inline-block"><label>Content:</label></div>
-            <div class="ml-3 d-inline-block">                 
+          <div *ngIf="detail['content']" class="d-flex flex-wrap">
+            <div class=""><label>Content:</label></div>
+            <div class="ml-3">                 
                     <div mra-richtext-show="termsDetailContent" [content]="detail['content']"></div>
-
-            </div>
+</div>
           </div>
-          <div *ngIf="detail['acknowledge']">
-            <div class="d-inline-block"><label>Acknowledge:</label></div>
-            <div class="ml-3 d-inline-block">                
+          <div *ngIf="detail['acknowledge']" class="d-flex flex-wrap">
+            <div class=""><label>Acknowledge:</label></div>
+            <div class="ml-3">                
                     {{detail['acknowledge']}}
-
-            </div>
+</div>
           </div>
       </div>
 

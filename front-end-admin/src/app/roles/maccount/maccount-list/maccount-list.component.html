@@ -226,29 +226,29 @@
 
           </div>
         </h5>
-        <div *ngIf="detail['email']" class="mr-3 d-inline-block">
-          <div class="d-inline-block"><label>Email:</label></div>
-          <div class="ml-3 d-inline-block">                
+        <div *ngIf="detail['email']" class="mr-3 d-inline-flex flex-wrap">
+          <div><label>Email:</label></div>
+          <div class="ml-3">                
                     {{detail['email']}}
 
           </div>
         </div>
-        <div *ngIf="detail['phone']" class="mr-3 d-inline-block">
-          <div class="d-inline-block"><label>Phone:</label></div>
-          <div class="ml-3 d-inline-block">                
+        <div *ngIf="detail['phone']" class="mr-3 d-inline-flex flex-wrap">
+          <div><label>Phone:</label></div>
+          <div class="ml-3">                
                     {{detail['phone']}}
 
           </div>
         </div>
-        <div *ngIf="detail['since']" class="mr-3 d-inline-block">
-          <div class="d-inline-block"><label>Since:</label></div>
-          <div class="ml-3 d-inline-block">                  {{detail['since']?detail['since']['value']:""}}
+        <div *ngIf="detail['since']" class="mr-3 d-inline-flex flex-wrap">
+          <div><label>Since:</label></div>
+          <div class="ml-3">                  {{detail['since']?detail['since']['value']:""}}
 
           </div>
         </div>
-        <div *ngIf="detail['status']" class="mr-3 d-inline-block">
-          <div class="d-inline-block"><label>Status:</label></div>
-          <div class="ml-3 d-inline-block">                
+        <div *ngIf="detail['status']" class="mr-3 d-inline-flex flex-wrap">
+          <div><label>Status:</label></div>
+          <div class="ml-3">                
                     {{detail['status']}}
 
           </div>
@@ -288,32 +288,28 @@
         </div>
       </div>
       <div class="card-body">
-          <div *ngIf="detail['email']">
-            <div class="d-inline-block"><label>Email:</label></div>
-            <div class="ml-3 d-inline-block">                
+          <div *ngIf="detail['email']" class="d-flex flex-wrap">
+            <div class=""><label>Email:</label></div>
+            <div class="ml-3">                
                     {{detail['email']}}
-
-            </div>
+</div>
           </div>
-          <div *ngIf="detail['phone']">
-            <div class="d-inline-block"><label>Phone:</label></div>
-            <div class="ml-3 d-inline-block">                
+          <div *ngIf="detail['phone']" class="d-flex flex-wrap">
+            <div class=""><label>Phone:</label></div>
+            <div class="ml-3">                
                     {{detail['phone']}}
-
-            </div>
+</div>
           </div>
-          <div *ngIf="detail['since']">
-            <div class="d-inline-block"><label>Since:</label></div>
-            <div class="ml-3 d-inline-block">                  {{detail['since']?detail['since']['value']:""}}
-
-            </div>
+          <div *ngIf="detail['since']" class="d-flex flex-wrap">
+            <div class=""><label>Since:</label></div>
+            <div class="ml-3">                  {{detail['since']?detail['since']['value']:""}}
+</div>
           </div>
-          <div *ngIf="detail['status']">
-            <div class="d-inline-block"><label>Status:</label></div>
-            <div class="ml-3 d-inline-block">                
+          <div *ngIf="detail['status']" class="d-flex flex-wrap">
+            <div class=""><label>Status:</label></div>
+            <div class="ml-3">                
                     {{detail['status']}}
-
-            </div>
+</div>
           </div>
       </div>
 

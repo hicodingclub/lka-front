@@ -227,9 +227,9 @@
 
           </div>
         </h5>
-        <div *ngIf="detail['createdAt']" class="mr-3 d-inline-block">
-          <div class="d-inline-block"><label>Created at:</label></div>
-          <div class="ml-3 d-inline-block">                  {{detail['createdAt']?detail['createdAt']['value']:""}}
+        <div *ngIf="detail['createdAt']" class="mr-3 d-inline-flex flex-wrap">
+          <div><label>Created at:</label></div>
+          <div class="ml-3">                  {{detail['createdAt']?detail['createdAt']['value']:""}}
 
           </div>
         </div>
@@ -273,11 +273,10 @@
         </div>
       </div>
       <div class="card-body">
-          <div *ngIf="detail['createdAt']">
-            <div class="d-inline-block"><label>Created at:</label></div>
-            <div class="ml-3 d-inline-block">                  {{detail['createdAt']?detail['createdAt']['value']:""}}
-
-            </div>
+          <div *ngIf="detail['createdAt']" class="d-flex flex-wrap">
+            <div class=""><label>Created at:</label></div>
+            <div class="ml-3">                  {{detail['createdAt']?detail['createdAt']['value']:""}}
+</div>
           </div>
       </div>
 

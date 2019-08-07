@@ -569,54 +569,54 @@
 
           </div>
         </h5>
-        <div *ngIf="detail['course']" class="mr-3 d-inline-block">
-          <div class="d-inline-block"><label>Program:</label></div>
-          <div class="ml-3 d-inline-block">                
+        <div *ngIf="detail['course']" class="mr-3 d-inline-flex flex-wrap">
+          <div><label>Program:</label></div>
+          <div class="ml-3">                
                	  <a routerLink="."  (click)="onDisplayRefClicked('course', detail['course'], $event)">
 	            	{{detail['course']?detail['course']['value']:""}}
 	              </a>
 
           </div>
         </div>
-        <div *ngIf="detail['teacher']" class="mr-3 d-inline-block">
-          <div class="d-inline-block"><label>Instructor:</label></div>
-          <div class="ml-3 d-inline-block">                
+        <div *ngIf="detail['teacher']" class="mr-3 d-inline-flex flex-wrap">
+          <div><label>Instructor:</label></div>
+          <div class="ml-3">                
                	  <a routerLink="."  (click)="onDisplayRefClicked('teacher', detail['teacher'], $event)">
 	            	{{detail['teacher']?detail['teacher']['value']:""}}
 	              </a>
 
           </div>
         </div>
-        <div *ngIf="detail['hot']" class="mr-3 d-inline-block">
-          <div class="d-inline-block"><label>Hot:</label></div>
-          <div class="ml-3 d-inline-block">                  {{detail['hot']}} 
+        <div *ngIf="detail['hot']" class="mr-3 d-inline-flex flex-wrap">
+          <div><label>Hot:</label></div>
+          <div class="ml-3">                  {{detail['hot']}} 
 
           </div>
         </div>
-        <div *ngIf="detail['startTime']" class="mr-3 d-inline-block">
-          <div class="d-inline-block"><label>Start Time:</label></div>
-          <div class="ml-3 d-inline-block">                  {{detail['startTime']?detail['startTime']['value']:""}}
+        <div *ngIf="detail['startTime']" class="mr-3 d-inline-flex flex-wrap">
+          <div><label>Start Time:</label></div>
+          <div class="ml-3">                  {{detail['startTime']?detail['startTime']['value']:""}}
 
           </div>
         </div>
-        <div *ngIf="detail['endTime']" class="mr-3 d-inline-block">
-          <div class="d-inline-block"><label>End Time:</label></div>
-          <div class="ml-3 d-inline-block">                  {{detail['endTime']?detail['endTime']['value']:""}}
+        <div *ngIf="detail['endTime']" class="mr-3 d-inline-flex flex-wrap">
+          <div><label>End Time:</label></div>
+          <div class="ml-3">                  {{detail['endTime']?detail['endTime']['value']:""}}
 
           </div>
         </div>
-        <div *ngIf="detail['dayOfWeek']" class="mr-3 d-inline-block">
-          <div class="d-inline-block"><label>Day of Week:</label></div>
-          <div class="ml-3 d-inline-block">                
+        <div *ngIf="detail['dayOfWeek']" class="mr-3 d-inline-flex flex-wrap">
+          <div><label>Day of Week:</label></div>
+          <div class="ml-3">                
                     <div class="badge badge-pill badge-secondary" *ngFor="let element of enums['dayOfWeek']">
                          <div *ngIf="detail['dayOfWeek'] && detail['dayOfWeek']['selection'][element]">{{element}}</div>
                     </div>
 
           </div>
         </div>
-        <div *ngIf="detail['timeSlot']" class="mr-3 d-inline-block">
-          <div class="d-inline-block"><label>Time Slot:</label></div>
-          <div class="ml-3 d-inline-block">                
+        <div *ngIf="detail['timeSlot']" class="mr-3 d-inline-flex flex-wrap">
+          <div><label>Time Slot:</label></div>
+          <div class="ml-3">                
                     {{detail['timeSlot']}}
 
           </div>
@@ -659,57 +659,50 @@
         </div>
       </div>
       <div class="card-body">
-          <div *ngIf="detail['course']">
-            <div class="d-inline-block"><label>Program:</label></div>
-            <div class="ml-3 d-inline-block">                
+          <div *ngIf="detail['course']" class="d-flex flex-wrap">
+            <div class=""><label>Program:</label></div>
+            <div class="ml-3">                
                	  <a routerLink="."  (click)="onDisplayRefClicked('course', detail['course'], $event)">
 	            	{{detail['course']?detail['course']['value']:""}}
 	              </a>
-
-            </div>
+</div>
           </div>
-          <div *ngIf="detail['teacher']">
-            <div class="d-inline-block"><label>Instructor:</label></div>
-            <div class="ml-3 d-inline-block">                
+          <div *ngIf="detail['teacher']" class="d-flex flex-wrap">
+            <div class=""><label>Instructor:</label></div>
+            <div class="ml-3">                
                	  <a routerLink="."  (click)="onDisplayRefClicked('teacher', detail['teacher'], $event)">
 	            	{{detail['teacher']?detail['teacher']['value']:""}}
 	              </a>
-
-            </div>
+</div>
           </div>
-          <div *ngIf="detail['hot']">
-            <div class="d-inline-block"><label>Hot:</label></div>
-            <div class="ml-3 d-inline-block">                  {{detail['hot']}} 
-
-            </div>
+          <div *ngIf="detail['hot']" class="d-flex flex-wrap">
+            <div class=""><label>Hot:</label></div>
+            <div class="ml-3">                  {{detail['hot']}} 
+</div>
           </div>
-          <div *ngIf="detail['startTime']">
-            <div class="d-inline-block"><label>Start Time:</label></div>
-            <div class="ml-3 d-inline-block">                  {{detail['startTime']?detail['startTime']['value']:""}}
-
-            </div>
+          <div *ngIf="detail['startTime']" class="d-flex flex-wrap">
+            <div class=""><label>Start Time:</label></div>
+            <div class="ml-3">                  {{detail['startTime']?detail['startTime']['value']:""}}
+</div>
           </div>
-          <div *ngIf="detail['endTime']">
-            <div class="d-inline-block"><label>End Time:</label></div>
-            <div class="ml-3 d-inline-block">                  {{detail['endTime']?detail['endTime']['value']:""}}
-
-            </div>
+          <div *ngIf="detail['endTime']" class="d-flex flex-wrap">
+            <div class=""><label>End Time:</label></div>
+            <div class="ml-3">                  {{detail['endTime']?detail['endTime']['value']:""}}
+</div>
           </div>
-          <div *ngIf="detail['dayOfWeek']">
-            <div class="d-inline-block"><label>Day of Week:</label></div>
-            <div class="ml-3 d-inline-block">                
+          <div *ngIf="detail['dayOfWeek']" class="d-flex flex-wrap">
+            <div class=""><label>Day of Week:</label></div>
+            <div class="ml-3">                
                     <div class="badge badge-pill badge-secondary" *ngFor="let element of enums['dayOfWeek']">
                          <div *ngIf="detail['dayOfWeek'] && detail['dayOfWeek']['selection'][element]">{{element}}</div>
                     </div>
-
-            </div>
+</div>
           </div>
-          <div *ngIf="detail['timeSlot']">
-            <div class="d-inline-block"><label>Time Slot:</label></div>
-            <div class="ml-3 d-inline-block">                
+          <div *ngIf="detail['timeSlot']" class="d-flex flex-wrap">
+            <div class=""><label>Time Slot:</label></div>
+            <div class="ml-3">                
                     {{detail['timeSlot']}}
-
-            </div>
+</div>
           </div>
         <div class="read-more" (click)="onDetailLinkClicked(detail['_id'])">
           Read more ...

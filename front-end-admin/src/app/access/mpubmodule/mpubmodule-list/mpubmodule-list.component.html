@@ -210,9 +210,9 @@
 
           </div>
         </h5>
-        <div *ngIf="detail['resources']" class="mr-3 d-inline-block">
-          <div class="d-inline-block"><label>Resources:</label></div>
-          <div class="ml-3 d-inline-block">                
+        <div *ngIf="detail['resources']" class="mr-3 d-inline-flex flex-wrap">
+          <div><label>Resources:</label></div>
+          <div class="ml-3">                
                     <div *ngIf="detail['resources'] && detail['resources']['selection']">
                         <ng-template ngFor let-element [ngForOf]="detail['resources']['selection']" let-idx="index">
                             <div class="badge badge-pill badge-secondary">
@@ -258,9 +258,9 @@
         </div>
       </div>
       <div class="card-body">
-          <div *ngIf="detail['resources']">
-            <div class="d-inline-block"><label>Resources:</label></div>
-            <div class="ml-3 d-inline-block">                
+          <div *ngIf="detail['resources']" class="d-flex flex-wrap">
+            <div class=""><label>Resources:</label></div>
+            <div class="ml-3">                
                     <div *ngIf="detail['resources'] && detail['resources']['selection']">
                         <ng-template ngFor let-element [ngForOf]="detail['resources']['selection']" let-idx="index">
                             <div class="badge badge-pill badge-secondary">
@@ -268,8 +268,7 @@
                             </div>
                         </ng-template>
                     </div>
-
-            </div>
+</div>
           </div>
       </div>
 

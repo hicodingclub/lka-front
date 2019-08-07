@@ -153,23 +153,23 @@
 
           </div>
         </h5>
-        <div *ngIf="detail['subtitle']" class="mr-3 d-inline-block">
-          <div class="d-inline-block"><label>Subtitle:</label></div>
-          <div class="ml-3 d-inline-block">                
+        <div *ngIf="detail['subtitle']" class="mr-3 d-inline-flex flex-wrap">
+          <div><label>Subtitle:</label></div>
+          <div class="ml-3">                
                     {{detail['subtitle']}}
 
           </div>
         </div>
-        <div *ngIf="detail['description']" class="mr-3 d-inline-block">
-          <div class="d-inline-block"><label>Description:</label></div>
-          <div class="ml-3 d-inline-block">                
+        <div *ngIf="detail['description']" class="mr-3 d-inline-flex flex-wrap">
+          <div><label>Description:</label></div>
+          <div class="ml-3">                
                     {{detail['description']}}
 
           </div>
         </div>
-        <div *ngIf="detail['tag']" class="mr-3 d-inline-block">
-          <div class="d-inline-block"><label>Tag:</label></div>
-          <div class="ml-3 d-inline-block">                
+        <div *ngIf="detail['tag']" class="mr-3 d-inline-flex flex-wrap">
+          <div><label>Tag:</label></div>
+          <div class="ml-3">                
                     {{detail['tag']}}
 
           </div>
@@ -206,26 +206,23 @@
         </div>
       </div>
       <div class="card-body">
-          <div *ngIf="detail['subtitle']">
-            <div class="d-inline-block"><label>Subtitle:</label></div>
-            <div class="ml-3 d-inline-block">                
+          <div *ngIf="detail['subtitle']" class="d-flex flex-wrap">
+            <div class=""><label>Subtitle:</label></div>
+            <div class="ml-3">                
                     {{detail['subtitle']}}
-
-            </div>
+</div>
           </div>
-          <div *ngIf="detail['description']">
-            <div class="d-inline-block"><label>Description:</label></div>
-            <div class="ml-3 d-inline-block">                
+          <div *ngIf="detail['description']" class="d-flex flex-wrap">
+            <div class=""><label>Description:</label></div>
+            <div class="ml-3">                
                     {{detail['description']}}
-
-            </div>
+</div>
           </div>
-          <div *ngIf="detail['tag']">
-            <div class="d-inline-block"><label>Tag:</label></div>
-            <div class="ml-3 d-inline-block">                
+          <div *ngIf="detail['tag']" class="d-flex flex-wrap">
+            <div class=""><label>Tag:</label></div>
+            <div class="ml-3">                
                     {{detail['tag']}}
-
-            </div>
+</div>
           </div>
       </div>
 

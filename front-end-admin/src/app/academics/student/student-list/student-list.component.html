@@ -209,36 +209,36 @@
 
           </div>
         </h5>
-        <div *ngIf="detail['email']" class="mr-3 d-inline-block">
-          <div class="d-inline-block"><label>Email:</label></div>
-          <div class="ml-3 d-inline-block">                
+        <div *ngIf="detail['email']" class="mr-3 d-inline-flex flex-wrap">
+          <div><label>Email:</label></div>
+          <div class="ml-3">                
                     {{detail['email']}}
 
           </div>
         </div>
-        <div *ngIf="detail['grade']" class="mr-3 d-inline-block">
-          <div class="d-inline-block"><label>Grade:</label></div>
-          <div class="ml-3 d-inline-block">                  {{detail['grade']}} 
+        <div *ngIf="detail['grade']" class="mr-3 d-inline-flex flex-wrap">
+          <div><label>Grade:</label></div>
+          <div class="ml-3">                  {{detail['grade']}} 
 
           </div>
         </div>
-        <div *ngIf="detail['school']" class="mr-3 d-inline-block">
-          <div class="d-inline-block"><label>School:</label></div>
-          <div class="ml-3 d-inline-block">                
+        <div *ngIf="detail['school']" class="mr-3 d-inline-flex flex-wrap">
+          <div><label>School:</label></div>
+          <div class="ml-3">                
                     {{detail['school']}}
 
           </div>
         </div>
-        <div *ngIf="detail['GuardianOnePhone']" class="mr-3 d-inline-block">
-          <div class="d-inline-block"><label>Guardian One Phone:</label></div>
-          <div class="ml-3 d-inline-block">                
+        <div *ngIf="detail['GuardianOnePhone']" class="mr-3 d-inline-flex flex-wrap">
+          <div><label>Guardian One Phone:</label></div>
+          <div class="ml-3">                
                     {{detail['GuardianOnePhone']}}
 
           </div>
         </div>
-        <div *ngIf="detail['muser_id']" class="mr-3 d-inline-block">
-          <div class="d-inline-block"><label>Muser Id:</label></div>
-          <div class="ml-3 d-inline-block">                
+        <div *ngIf="detail['muser_id']" class="mr-3 d-inline-flex flex-wrap">
+          <div><label>Muser Id:</label></div>
+          <div class="ml-3">                
                     {{detail['muser_id']}}
 
           </div>
@@ -283,39 +283,34 @@
         </div>
       </div>
       <div class="card-body">
-          <div *ngIf="detail['email']">
-            <div class="d-inline-block"><label>Email:</label></div>
-            <div class="ml-3 d-inline-block">                
+          <div *ngIf="detail['email']" class="d-flex flex-wrap">
+            <div class=""><label>Email:</label></div>
+            <div class="ml-3">                
                     {{detail['email']}}
-
-            </div>
+</div>
           </div>
-          <div *ngIf="detail['grade']">
-            <div class="d-inline-block"><label>Grade:</label></div>
-            <div class="ml-3 d-inline-block">                  {{detail['grade']}} 
-
-            </div>
+          <div *ngIf="detail['grade']" class="d-flex flex-wrap">
+            <div class=""><label>Grade:</label></div>
+            <div class="ml-3">                  {{detail['grade']}} 
+</div>
           </div>
-          <div *ngIf="detail['school']">
-            <div class="d-inline-block"><label>School:</label></div>
-            <div class="ml-3 d-inline-block">                
+          <div *ngIf="detail['school']" class="d-flex flex-wrap">
+            <div class=""><label>School:</label></div>
+            <div class="ml-3">                
                     {{detail['school']}}
-
-            </div>
+</div>
           </div>
-          <div *ngIf="detail['GuardianOnePhone']">
-            <div class="d-inline-block"><label>Guardian One Phone:</label></div>
-            <div class="ml-3 d-inline-block">                
+          <div *ngIf="detail['GuardianOnePhone']" class="d-flex flex-wrap">
+            <div class=""><label>Guardian One Phone:</label></div>
+            <div class="ml-3">                
                     {{detail['GuardianOnePhone']}}
-
-            </div>
+</div>
           </div>
-          <div *ngIf="detail['muser_id']">
-            <div class="d-inline-block"><label>Muser Id:</label></div>
-            <div class="ml-3 d-inline-block">                
+          <div *ngIf="detail['muser_id']" class="d-flex flex-wrap">
+            <div class=""><label>Muser Id:</label></div>
+            <div class="ml-3">                
                     {{detail['muser_id']}}
-
-            </div>
+</div>
           </div>
       </div>
 

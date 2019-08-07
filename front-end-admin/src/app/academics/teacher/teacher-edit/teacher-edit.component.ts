@@ -62,6 +62,7 @@ export class TeacherEditComponent extends TeacherComponent implements OnInit {
 
 
 
+          this.textareaFields = ['introduction', ];
 
           
           let detail = {};

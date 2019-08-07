@@ -54,6 +54,7 @@ export class TeacherDetailComponent extends TeacherComponent implements OnInit, 
 
 
 
+          this.textareaFields = ['introduction', ];
   }
 
   ngOnInit() {

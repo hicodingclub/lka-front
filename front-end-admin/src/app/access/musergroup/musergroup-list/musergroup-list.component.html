@@ -146,9 +146,9 @@
 
           </div>
         </h5>
-        <div *ngIf="detail['description']" class="mr-3 d-inline-block">
-          <div class="d-inline-block"><label>Description:</label></div>
-          <div class="ml-3 d-inline-block">                
+        <div *ngIf="detail['description']" class="mr-3 d-inline-flex flex-wrap">
+          <div><label>Description:</label></div>
+          <div class="ml-3">                
                     {{detail['description']}}
 
           </div>
@@ -188,12 +188,11 @@
         </div>
       </div>
       <div class="card-body">
-          <div *ngIf="detail['description']">
-            <div class="d-inline-block"><label>Description:</label></div>
-            <div class="ml-3 d-inline-block">                
+          <div *ngIf="detail['description']" class="d-flex flex-wrap">
+            <div class=""><label>Description:</label></div>
+            <div class="ml-3">                
                     {{detail['description']}}
-
-            </div>
+</div>
           </div>
       </div>
 

@@ -115,13 +115,13 @@
           
 
           <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditIntroduction" 
+            <textarea rows="8" class="form-control rounded" id="EditIntroduction"
                     required
                     
                     
                  
                     [(ngModel)]="detail['introduction']" name="EditIntroduction"
-                    #EditIntroduction="ngModel">
+                    #EditIntroduction="ngModel"></textarea>
             <div *ngIf="detail['introduction']" 
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('introduction')">
                   <i class="fas fa-times-circle" title="Clear"></i>
@@ -350,13 +350,13 @@
           
 
           <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditIntroduction" 
+            <textarea rows="8" class="form-control rounded" id="EditIntroduction"
                     required
                     
                     
                  
                     [(ngModel)]="detail['introduction']" name="EditIntroduction"
-                    #EditIntroduction="ngModel">
+                    #EditIntroduction="ngModel"></textarea>
             <div *ngIf="detail['introduction']" 
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('introduction')">
                   <i class="fas fa-times-circle" title="Clear"></i>

@@ -174,7 +174,8 @@
 
 	            </td>
 	            <td (click)="selectItemSelected(i)"  class="pointer">                
-                    {{detail['introduction']}}
+                    <div [innerHTML]="detail['introduction']"></div>
+                        
 
 	            </td>
 

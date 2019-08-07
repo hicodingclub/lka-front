@@ -18,7 +18,8 @@
 	              </a>
 </div>
 		<div *ngIf="detail && showFields.includes('introduction')">                
-                    {{detail['introduction']}}
+                    <div [innerHTML]="detail['introduction']"></div>
+                        
 </div>
 		<div *ngIf="detail && showFields.includes('photo')">                
                     <file-display [downloadUrl]="detail['photo']" [isLarge]="false"></file-display>

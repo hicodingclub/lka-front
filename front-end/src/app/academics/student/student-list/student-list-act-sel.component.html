@@ -25,25 +25,22 @@
         </div>
       </div>
       <div class="card-body">
-          <div *ngIf="detail['email']">
-            <div class="d-inline-block"><label>Email:</label></div>
-            <div class="ml-3 d-inline-block">                
+          <div *ngIf="detail['email']" class="d-flex flex-wrap">
+            <div class=""><label>Email:</label></div>
+            <div class="ml-3">                
                     {{detail['email']}}
-
-            </div>
+</div>
           </div>
-          <div *ngIf="detail['phoneNumber']">
-            <div class="d-inline-block"><label>Phone Number:</label></div>
-            <div class="ml-3 d-inline-block">                
+          <div *ngIf="detail['phoneNumber']" class="d-flex flex-wrap">
+            <div class=""><label>Phone Number:</label></div>
+            <div class="ml-3">                
                     {{detail['phoneNumber']}}
-
-            </div>
+</div>
           </div>
-          <div *ngIf="detail['grade']">
-            <div class="d-inline-block"><label>Grade:</label></div>
-            <div class="ml-3 d-inline-block">                  {{detail['grade']}} 
-
-            </div>
+          <div *ngIf="detail['grade']" class="d-flex flex-wrap">
+            <div class=""><label>Grade:</label></div>
+            <div class="ml-3">                  {{detail['grade']}} 
+</div>
           </div>
       </div>
 

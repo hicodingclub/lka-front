@@ -230,22 +230,22 @@
 
           </div>
         </h5>
-        <div *ngIf="detail['answer']" class="mr-3 d-inline-block">
-          <div class="d-inline-block"><label>Answer:</label></div>
-          <div class="ml-3 d-inline-block">                 
+        <div *ngIf="detail['answer']" class="mr-3 d-inline-flex flex-wrap">
+          <div><label>Answer:</label></div>
+          <div class="ml-3">                 
                     <div mra-richtext-show="faqDetailAnswer" [content]="detail['answer']"></div>
 
           </div>
         </div>
-        <div *ngIf="detail['order']" class="mr-3 d-inline-block">
-          <div class="d-inline-block"><label>Order:</label></div>
-          <div class="ml-3 d-inline-block">                  {{detail['order']}} 
+        <div *ngIf="detail['order']" class="mr-3 d-inline-flex flex-wrap">
+          <div><label>Order:</label></div>
+          <div class="ml-3">                  {{detail['order']}} 
 
           </div>
         </div>
-        <div *ngIf="detail['enable']" class="mr-3 d-inline-block">
-          <div class="d-inline-block"><label>Enable:</label></div>
-          <div class="ml-3 d-inline-block">                  {{detail['enable']}} 
+        <div *ngIf="detail['enable']" class="mr-3 d-inline-flex flex-wrap">
+          <div><label>Enable:</label></div>
+          <div class="ml-3">                  {{detail['enable']}} 
 
           </div>
         </div>
@@ -284,24 +284,21 @@
         </div>
       </div>
       <div class="card-body">
-          <div *ngIf="detail['answer']">
-            <div class="d-inline-block"><label>Answer:</label></div>
-            <div class="ml-3 d-inline-block">                 
+          <div *ngIf="detail['answer']" class="d-flex flex-wrap">
+            <div class=""><label>Answer:</label></div>
+            <div class="ml-3">                 
                     <div mra-richtext-show="faqDetailAnswer" [content]="detail['answer']"></div>
-
-            </div>
+</div>
           </div>
-          <div *ngIf="detail['order']">
-            <div class="d-inline-block"><label>Order:</label></div>
-            <div class="ml-3 d-inline-block">                  {{detail['order']}} 
-
-            </div>
+          <div *ngIf="detail['order']" class="d-flex flex-wrap">
+            <div class=""><label>Order:</label></div>
+            <div class="ml-3">                  {{detail['order']}} 
+</div>
           </div>
-          <div *ngIf="detail['enable']">
-            <div class="d-inline-block"><label>Enable:</label></div>
-            <div class="ml-3 d-inline-block">                  {{detail['enable']}} 
-
-            </div>
+          <div *ngIf="detail['enable']" class="d-flex flex-wrap">
+            <div class=""><label>Enable:</label></div>
+            <div class="ml-3">                  {{detail['enable']}} 
+</div>
           </div>
       </div>
 
