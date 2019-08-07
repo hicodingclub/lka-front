@@ -1,0 +1,25 @@
+
+
+		<div *ngIf="detail && showFields.includes('firstName')">                
+                    {{detail['firstName']}}
+</div>
+		<div *ngIf="detail && showFields.includes('lastName')">                
+                    {{detail['lastName']}}
+</div>
+		<div *ngIf="detail && showFields.includes('email')">                
+                    {{detail['email']}}
+</div>
+		<div *ngIf="detail && showFields.includes('phoneNumber')">                
+                    {{detail['phoneNumber']}}
+</div>
+		<div *ngIf="detail && showFields.includes('courses')">                
+               	  <a routerLink="."  (click)="onDisplayRefClicked('courses', detail['courses'], $event)">
+	            	{{detail['courses']?detail['courses']['value']:""}}
+	              </a>
+</div>
+		<div *ngIf="detail && showFields.includes('introduction')">                
+                    {{detail['introduction']}}
+</div>
+		<div *ngIf="detail && showFields.includes('photo')">                
+                    <file-display [downloadUrl]="detail['photo']" [isLarge]="false"></file-display>
+</div>

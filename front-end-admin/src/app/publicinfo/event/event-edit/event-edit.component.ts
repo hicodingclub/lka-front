@@ -62,6 +62,7 @@ export class EventEditComponent extends EventComponent implements OnInit {
 
 
 
+
           this.textEditorMap['EditContent'] = {
             required: true ,
             

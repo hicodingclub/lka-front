@@ -289,6 +289,7 @@ export class StudentEditComponent extends StudentComponent implements OnInit {
 
 
 
+
           
           let detail = {};
           this.detail = this.formatDetail(detail);

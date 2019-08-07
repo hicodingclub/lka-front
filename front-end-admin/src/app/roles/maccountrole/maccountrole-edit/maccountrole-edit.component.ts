@@ -58,6 +58,7 @@ export class MaccountroleEditComponent extends MaccountroleComponent implements 
           this.referenceFieldsMap['role'] = 'mrole';
 
 
+
           
           let detail = {};
           this.detail = this.formatDetail(detail);

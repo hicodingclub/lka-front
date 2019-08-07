@@ -48,6 +48,7 @@ export class CourseListComponent extends CourseComponent implements OnInit {
 
 
 
+
           this.listViewFilter = 'list';
 
   }

@@ -70,6 +70,7 @@ export class ClassEditComponent extends ClassComponent implements OnInit {
 
 
 
+
           this.textEditorMap['EditDescription'] = {
             required: true ,
             

@@ -62,6 +62,7 @@ export class TermsEditComponent extends TermsComponent implements OnInit {
 
 
 
+
           this.textEditorMap['EditContent'] = {
             required: true ,
             

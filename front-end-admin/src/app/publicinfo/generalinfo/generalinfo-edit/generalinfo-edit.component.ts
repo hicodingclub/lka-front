@@ -56,6 +56,7 @@ export class GeneralinfoEditComponent extends GeneralinfoComponent implements On
 
 
 
+
           
           let detail = {};
           this.detail = this.formatDetail(detail);

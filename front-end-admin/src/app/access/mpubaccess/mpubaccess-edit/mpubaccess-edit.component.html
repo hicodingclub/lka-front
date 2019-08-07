@@ -85,10 +85,10 @@
                  
                     [(ngModel)]="detail['modulePermission']" name="EditModulePermission"
                     #EditModulePermission="ngModel">
-                <div *ngIf="detail['modulePermission']" 
+            <div *ngIf="detail['modulePermission']" 
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('modulePermission')">
                   <i class="fas fa-times-circle" title="Clear"></i>
-                </div>
+            </div>
           </div>
 
           <div [hidden]="EditModulePermission.valid || EditModulePermission.pristine || EditModulePermission.errors.minlength"
@@ -241,10 +241,10 @@
                  
                     [(ngModel)]="detail['modulePermission']" name="EditModulePermission"
                     #EditModulePermission="ngModel">
-                <div *ngIf="detail['modulePermission']" 
+            <div *ngIf="detail['modulePermission']" 
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('modulePermission')">
                   <i class="fas fa-times-circle" title="Clear"></i>
-                </div>
+            </div>
           </div>
 
           <div [hidden]="EditModulePermission.valid || EditModulePermission.pristine || EditModulePermission.errors.minlength"

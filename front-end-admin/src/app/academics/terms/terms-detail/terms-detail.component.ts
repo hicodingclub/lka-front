@@ -50,6 +50,7 @@ export class TermsDetailComponent extends TermsComponent implements OnInit, Afte
 
 
 
+
   }
 
   ngOnInit() {

@@ -1,0 +1,36 @@
+
+
+		<div *ngIf="detail && showFields.includes('student')">                
+                    <div *ngIf="detail['student'] && detail['student']['selection']">
+                        <ng-template ngFor let-element [ngForOf]="detail['student']['selection']" let-idx="index">
+                            <div class="badge-click badge badge-pill badge-secondary" 
+                                (click)="onDisplayRefClicked('student', detail['student']['selection'][idx], $event)">
+                                {{element.value}}
+                            </div>
+                        </ng-template>
+                    </div>
+</div>
+		<div *ngIf="detail && showFields.includes('class')">                
+               	  <a routerLink="."  (click)="onDisplayRefClicked('class', detail['class'], $event)">
+	            	{{detail['class']?detail['class']['value']:""}}
+	              </a>
+</div>
+		<div *ngIf="detail && showFields.includes('status')">                
+                    {{detail['status']}}
+</div>
+		<div *ngIf="detail && showFields.includes('notes')">                
+                    <div *ngIf="detail['notes'] && detail['notes']['selection']">
+                        <ng-template ngFor let-element [ngForOf]="detail['notes']['selection']" let-idx="index">
+                            <div class="badge badge-pill badge-secondary">
+                                {{element}}
+                            </div>
+                        </ng-template>
+                    </div>
+</div>
+		<div *ngIf="detail && showFields.includes('createdAt')">                  {{detail['createdAt']?detail['createdAt']['value']:""}}
+</div>
+		<div *ngIf="detail && showFields.includes('updatedAt')">                  {{detail['updatedAt']?detail['updatedAt']['value']:""}}
+</div>
+		<div *ngIf="detail && showFields.includes('muser_id')">                
+                    {{detail['muser_id']}}
+</div>

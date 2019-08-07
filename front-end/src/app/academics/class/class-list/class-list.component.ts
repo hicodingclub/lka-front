@@ -57,6 +57,7 @@ public componentFactoryResolver: ComponentFactoryResolver,
 
           this.viewHiddenFields = ['course', 'enrollTerm', ];
 
+
           this.listViewFilter = 'table';
           this.categoryBy = 'course';
           this.listCategoryShowMore = 'description';

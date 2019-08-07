@@ -57,6 +57,7 @@ export class KeynoteEditComponent extends KeynoteComponent implements OnInit {
 
 
 
+
           
           let detail = {};
           this.detail = this.formatDetail(detail);

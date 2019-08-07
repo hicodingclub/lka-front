@@ -1,0 +1,36 @@
+
+
+		<div *ngIf="detail && showFields.includes('title')">                
+                    {{detail['title']}}
+</div>
+		<div *ngIf="detail && showFields.includes('description')">                 
+                    <div mra-richtext-show="classDetailDescription" [content]="detail['description']"></div>
+</div>
+		<div *ngIf="detail && showFields.includes('course')">                
+               	  <a routerLink="."  (click)="onDisplayRefClicked('course', detail['course'], $event)">
+	            	{{detail['course']?detail['course']['value']:""}}
+	              </a>
+</div>
+		<div *ngIf="detail && showFields.includes('teacher')">                
+               	  <a routerLink="."  (click)="onDisplayRefClicked('teacher', detail['teacher'], $event)">
+	            	{{detail['teacher']?detail['teacher']['value']:""}}
+	              </a>
+</div>
+		<div *ngIf="detail && showFields.includes('price')">                
+                    {{detail['price']}}
+</div>
+		<div *ngIf="detail && showFields.includes('startTime')">                  {{detail['startTime']?detail['startTime']['value']:""}}
+</div>
+		<div *ngIf="detail && showFields.includes('endTime')">                  {{detail['endTime']?detail['endTime']['value']:""}}
+</div>
+		<div *ngIf="detail && showFields.includes('duration')">                
+                    {{detail['duration']}}
+</div>
+		<div *ngIf="detail && showFields.includes('dayOfWeek')">                
+                    <div class="badge badge-pill badge-secondary" *ngFor="let element of enums['dayOfWeek']">
+                         <div *ngIf="detail['dayOfWeek'] && detail['dayOfWeek']['selection'][element]">{{element}}</div>
+                    </div>
+</div>
+		<div *ngIf="detail && showFields.includes('timeSlot')">                
+                    {{detail['timeSlot']}}
+</div>

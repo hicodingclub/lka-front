@@ -48,6 +48,7 @@ export class FaqDetailComponent extends FaqComponent implements OnInit, AfterVie
 
 
 
+
   }
 
   ngOnInit() {

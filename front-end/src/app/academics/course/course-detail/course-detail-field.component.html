@@ -1,0 +1,8 @@
+
+
+		<div *ngIf="detail && showFields.includes('title')">                
+                    {{detail['title']}}
+</div>
+		<div *ngIf="detail && showFields.includes('description')">                 
+                    <div mra-richtext-show="courseDetailDescription" [content]="detail['description']"></div>
+</div>

@@ -49,6 +49,7 @@ public componentFactoryResolver: ComponentFactoryResolver,
           this.referenceFieldsMap['role'] = 'mrole';
 
 
+
           this.listViewFilter = 'list';
 
   }

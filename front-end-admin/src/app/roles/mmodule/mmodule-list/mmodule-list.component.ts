@@ -45,6 +45,7 @@ export class MmoduleListComponent extends MmoduleComponent implements OnInit {
           this.arrayFields = [['resources', 'SchemaString'],];
 
 
+
           this.listViewFilter = 'list';
 
   }

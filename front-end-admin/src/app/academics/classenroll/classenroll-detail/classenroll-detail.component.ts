@@ -53,6 +53,7 @@ export class ClassenrollDetailComponent extends ClassenrollComponent implements 
           this.arrayFields = [['student', 'ObjectId'],['notes', 'SchemaString'],];
           this.referenceFieldsMap['student'] = 'student';
 
+
   }
 
   ngOnInit() {

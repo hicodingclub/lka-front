@@ -56,6 +56,7 @@ public componentFactoryResolver: ComponentFactoryResolver,
 
 
 
+
           this.listViewFilter = 'table';
 
   }

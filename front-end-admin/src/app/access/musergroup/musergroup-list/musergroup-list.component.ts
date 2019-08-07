@@ -45,6 +45,7 @@ export class MusergroupListComponent extends MusergroupComponent implements OnIn
 
 
 
+
           this.listViewFilter = 'list';
 
   }

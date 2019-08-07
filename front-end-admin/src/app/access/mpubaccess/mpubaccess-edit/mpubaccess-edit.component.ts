@@ -60,6 +60,7 @@ export class MpubaccessEditComponent extends MpubaccessComponent implements OnIn
 
 
 
+
           
           let detail = {};
           this.detail = this.formatDetail(detail);

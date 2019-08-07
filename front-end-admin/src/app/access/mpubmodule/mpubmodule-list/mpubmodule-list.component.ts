@@ -45,6 +45,7 @@ export class MpubmoduleListComponent extends MpubmoduleComponent implements OnIn
           this.arrayFields = [['resources', 'SchemaString'],];
 
 
+
           this.listViewFilter = 'list';
 
   }

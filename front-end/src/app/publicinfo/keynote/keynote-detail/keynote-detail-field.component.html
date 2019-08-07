@@ -1,0 +1,14 @@
+
+
+		<div *ngIf="detail && showFields.includes('signaturePicture')">                
+                    <file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false"></file-display>
+</div>
+		<div *ngIf="detail && showFields.includes('title')">                
+                    {{detail['title']}}
+</div>
+		<div *ngIf="detail && showFields.includes('subtitle')">                
+                    {{detail['subtitle']}}
+</div>
+		<div *ngIf="detail && showFields.includes('description')">                
+                    {{detail['description']}}
+</div>

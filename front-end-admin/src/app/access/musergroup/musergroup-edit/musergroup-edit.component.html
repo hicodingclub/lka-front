@@ -23,10 +23,10 @@
                  
                     [(ngModel)]="detail['group']" name="EditGroup"
                     #EditGroup="ngModel">
-                <div *ngIf="detail['group']" 
+            <div *ngIf="detail['group']" 
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('group')">
                   <i class="fas fa-times-circle" title="Clear"></i>
-                </div>
+            </div>
           </div>
 
           <div [hidden]="EditGroup.valid || EditGroup.pristine || EditGroup.errors.minlength"
@@ -57,10 +57,10 @@
                  
                     [(ngModel)]="detail['description']" name="EditDescription"
                     #EditDescription="ngModel">
-                <div *ngIf="detail['description']" 
+            <div *ngIf="detail['description']" 
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('description')">
                   <i class="fas fa-times-circle" title="Clear"></i>
-                </div>
+            </div>
           </div>
 
           <div [hidden]="EditDescription.valid || EditDescription.pristine || EditDescription.errors.minlength"
@@ -91,10 +91,10 @@
                  
                     [(ngModel)]="detail['group']" name="EditGroup"
                     #EditGroup="ngModel">
-                <div *ngIf="detail['group']" 
+            <div *ngIf="detail['group']" 
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('group')">
                   <i class="fas fa-times-circle" title="Clear"></i>
-                </div>
+            </div>
           </div>
 
           <div [hidden]="EditGroup.valid || EditGroup.pristine || EditGroup.errors.minlength"
@@ -125,10 +125,10 @@
                  
                     [(ngModel)]="detail['description']" name="EditDescription"
                     #EditDescription="ngModel">
-                <div *ngIf="detail['description']" 
+            <div *ngIf="detail['description']" 
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('description')">
                   <i class="fas fa-times-circle" title="Clear"></i>
-                </div>
+            </div>
           </div>
 
           <div [hidden]="EditDescription.valid || EditDescription.pristine || EditDescription.errors.minlength"

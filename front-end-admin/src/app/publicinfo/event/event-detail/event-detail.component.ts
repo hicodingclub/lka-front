@@ -51,6 +51,7 @@ export class EventDetailComponent extends EventComponent implements OnInit, Afte
 
 
 
+
   }
 
   ngOnInit() {

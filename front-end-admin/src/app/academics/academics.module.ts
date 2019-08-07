@@ -28,6 +28,7 @@ import { ClassenrollListComponent } from './classenroll/classenroll-list/classen
 
 
 import { ClassenrollDetailComponent } from './classenroll/classenroll-detail/classenroll-detail.component';
+import { ClassenrollDetailFieldComponent } from './classenroll/classenroll-detail/classenroll-detail-field.component';
 import { ClassenrollEditComponent } from './classenroll/classenroll-edit/classenroll-edit.component';
 
 import { ClassenrollService } from './classenroll/classenroll.service';
@@ -37,6 +38,7 @@ import { ClassListComponent } from './class/class-list/class-list.component';
 
 
 import { ClassDetailComponent } from './class/class-detail/class-detail.component';
+import { ClassDetailFieldComponent } from './class/class-detail/class-detail-field.component';
 import { ClassEditComponent } from './class/class-edit/class-edit.component';
 import { ClassAssoComponent } from './class/class-detail/class-detail-asso.component';
 import { ClassService } from './class/class.service';
@@ -46,6 +48,7 @@ import { StudentclassListComponent } from './studentclass/studentclass-list/stud
 
 
 import { StudentclassDetailComponent } from './studentclass/studentclass-detail/studentclass-detail.component';
+import { StudentclassDetailFieldComponent } from './studentclass/studentclass-detail/studentclass-detail-field.component';
 import { StudentclassEditComponent } from './studentclass/studentclass-edit/studentclass-edit.component';
 
 import { StudentclassService } from './studentclass/studentclass.service';
@@ -55,6 +58,7 @@ import { CourseListComponent } from './course/course-list/course-list.component'
 
 
 import { CourseDetailComponent } from './course/course-detail/course-detail.component';
+import { CourseDetailFieldComponent } from './course/course-detail/course-detail-field.component';
 import { CourseEditComponent } from './course/course-edit/course-edit.component';
 
 import { CourseService } from './course/course.service';
@@ -64,6 +68,7 @@ import { StudentListComponent } from './student/student-list/student-list.compon
 
 
 import { StudentDetailComponent } from './student/student-detail/student-detail.component';
+import { StudentDetailFieldComponent } from './student/student-detail/student-detail-field.component';
 import { StudentEditComponent } from './student/student-edit/student-edit.component';
 
 import { StudentService } from './student/student.service';
@@ -73,6 +78,7 @@ import { TeacherListComponent } from './teacher/teacher-list/teacher-list.compon
 
 
 import { TeacherDetailComponent } from './teacher/teacher-detail/teacher-detail.component';
+import { TeacherDetailFieldComponent } from './teacher/teacher-detail/teacher-detail-field.component';
 import { TeacherEditComponent } from './teacher/teacher-edit/teacher-edit.component';
 
 import { TeacherService } from './teacher/teacher.service';
@@ -82,6 +88,7 @@ import { TermsListComponent } from './terms/terms-list/terms-list.component';
 
 
 import { TermsDetailComponent } from './terms/terms-detail/terms-detail.component';
+import { TermsDetailFieldComponent } from './terms/terms-detail/terms-detail-field.component';
 import { TermsEditComponent } from './terms/terms-edit/terms-edit.component';
 
 import { TermsService } from './terms/terms.service';
@@ -141,6 +148,7 @@ import { StudentDirectiveGuardianTwoEmail } from './student/student-edit/student
     
     
     ClassenrollDetailComponent,
+ClassenrollDetailFieldComponent,
     ClassenrollEditComponent,
 
     ClassListComponent,
@@ -148,6 +156,7 @@ import { StudentDirectiveGuardianTwoEmail } from './student/student-edit/student
     
     
     ClassDetailComponent,
+ClassDetailFieldComponent,
     ClassEditComponent,
 ClassAssoComponent,
     StudentclassListComponent,
@@ -155,6 +164,7 @@ ClassAssoComponent,
     
     
     StudentclassDetailComponent,
+StudentclassDetailFieldComponent,
     StudentclassEditComponent,
 
     CourseListComponent,
@@ -162,6 +172,7 @@ ClassAssoComponent,
     
     
     CourseDetailComponent,
+CourseDetailFieldComponent,
     CourseEditComponent,
 
     StudentListComponent,
@@ -169,6 +180,7 @@ ClassAssoComponent,
     
     
     StudentDetailComponent,
+StudentDetailFieldComponent,
     StudentEditComponent,
 
     TeacherListComponent,
@@ -176,6 +188,7 @@ ClassAssoComponent,
     
     
     TeacherDetailComponent,
+TeacherDetailFieldComponent,
     TeacherEditComponent,
 
     TermsListComponent,
@@ -183,6 +196,7 @@ ClassAssoComponent,
     
     
     TermsDetailComponent,
+TermsDetailFieldComponent,
     TermsEditComponent,
 
 
@@ -232,6 +246,7 @@ ClassAssoComponent,
     
     
     ClassenrollDetailComponent,
+ClassenrollDetailFieldComponent,
     ClassenrollEditComponent,
 
     ClassListComponent,
@@ -239,6 +254,7 @@ ClassAssoComponent,
     
     
     ClassDetailComponent,
+ClassDetailFieldComponent,
     ClassEditComponent,
 ClassAssoComponent,
     StudentclassListComponent,
@@ -246,6 +262,7 @@ ClassAssoComponent,
     
     
     StudentclassDetailComponent,
+StudentclassDetailFieldComponent,
     StudentclassEditComponent,
 
     CourseListComponent,
@@ -253,6 +270,7 @@ ClassAssoComponent,
     
     
     CourseDetailComponent,
+CourseDetailFieldComponent,
     CourseEditComponent,
 
     StudentListComponent,
@@ -260,6 +278,7 @@ ClassAssoComponent,
     
     
     StudentDetailComponent,
+StudentDetailFieldComponent,
     StudentEditComponent,
 
     TeacherListComponent,
@@ -267,6 +286,7 @@ ClassAssoComponent,
     
     
     TeacherDetailComponent,
+TeacherDetailFieldComponent,
     TeacherEditComponent,
 
     TermsListComponent,
@@ -274,6 +294,7 @@ ClassAssoComponent,
     
     
     TermsDetailComponent,
+TermsDetailFieldComponent,
     TermsEditComponent,
 
 

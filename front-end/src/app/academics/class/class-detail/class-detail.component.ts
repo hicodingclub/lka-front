@@ -58,6 +58,7 @@ export class ClassDetailComponent extends ClassComponent implements OnInit, Afte
           this.multiSelectionFields = ['dayOfWeek', ];
 
 
+
   }
 
   ngOnInit() {

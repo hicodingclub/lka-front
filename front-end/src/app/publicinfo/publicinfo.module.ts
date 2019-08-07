@@ -27,6 +27,7 @@ import { GeneralinfoListComponent } from './generalinfo/generalinfo-list/general
 
 
 import { GeneralinfoDetailComponent } from './generalinfo/generalinfo-detail/generalinfo-detail.component';
+import { GeneralinfoDetailFieldComponent } from './generalinfo/generalinfo-detail/generalinfo-detail-field.component';
 
 
 import { GeneralinfoService } from './generalinfo/generalinfo.service';
@@ -36,6 +37,7 @@ import { FaqListComponent } from './faq/faq-list/faq-list.component';
 
 
 
+import { FaqDetailFieldComponent } from './faq/faq-detail/faq-detail-field.component';
 
 
 import { FaqService } from './faq/faq.service';
@@ -45,6 +47,7 @@ import { EventListHomeComponent } from './event/event-list/event-list-home.compo
 
 
 import { EventDetailComponent } from './event/event-detail/event-detail.component';
+import { EventDetailFieldComponent } from './event/event-detail/event-detail-field.component';
 
 
 import { EventService } from './event/event.service';
@@ -54,6 +57,7 @@ import { KeynoteListComponent } from './keynote/keynote-list/keynote-list.compon
 
 import { KeynoteListActSldComponent } from './keynote/keynote-list/keynote-list-act-sld.component';
 import { KeynoteDetailComponent } from './keynote/keynote-detail/keynote-detail.component';
+import { KeynoteDetailFieldComponent } from './keynote/keynote-detail/keynote-detail-field.component';
 
 
 import { KeynoteService } from './keynote/keynote.service';
@@ -63,6 +67,7 @@ import { ArticleListHomeComponent } from './article/article-list/article-list-ho
 
 
 import { ArticleDetailComponent } from './article/article-detail/article-detail.component';
+import { ArticleDetailFieldComponent } from './article/article-detail/article-detail-field.component';
 
 
 import { ArticleService } from './article/article.service';
@@ -91,6 +96,7 @@ import { ArticleService } from './article/article.service';
     
     
     GeneralinfoDetailComponent,
+GeneralinfoDetailFieldComponent,
     
 
     FaqListComponent,
@@ -98,6 +104,7 @@ import { ArticleService } from './article/article.service';
     
     
     
+FaqDetailFieldComponent,
     
 
     EventListComponent,
@@ -105,6 +112,7 @@ import { ArticleService } from './article/article.service';
     
     
     EventDetailComponent,
+EventDetailFieldComponent,
     
 
     KeynoteListComponent,
@@ -112,6 +120,7 @@ import { ArticleService } from './article/article.service';
     
     KeynoteListActSldComponent,
     KeynoteDetailComponent,
+KeynoteDetailFieldComponent,
     
 
     ArticleListComponent,
@@ -119,6 +128,7 @@ import { ArticleService } from './article/article.service';
     
     
     ArticleDetailComponent,
+ArticleDetailFieldComponent,
     
 
 
@@ -136,6 +146,7 @@ import { ArticleService } from './article/article.service';
     
     
     GeneralinfoDetailComponent,
+GeneralinfoDetailFieldComponent,
     
 
     FaqListComponent,
@@ -143,6 +154,7 @@ import { ArticleService } from './article/article.service';
     
     
     
+FaqDetailFieldComponent,
     
 
     EventListComponent,
@@ -150,6 +162,7 @@ import { ArticleService } from './article/article.service';
     
     
     EventDetailComponent,
+EventDetailFieldComponent,
     
 
     KeynoteListComponent,
@@ -157,6 +170,7 @@ import { ArticleService } from './article/article.service';
     
     KeynoteListActSldComponent,
     KeynoteDetailComponent,
+KeynoteDetailFieldComponent,
     
 
     ArticleListComponent,
@@ -164,6 +178,7 @@ import { ArticleService } from './article/article.service';
     
     
     ArticleDetailComponent,
+ArticleDetailFieldComponent,
     
 
 

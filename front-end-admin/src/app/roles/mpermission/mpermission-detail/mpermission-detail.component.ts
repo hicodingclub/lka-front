@@ -51,6 +51,7 @@ export class MpermissionDetailComponent extends MpermissionComponent implements 
 
 
 
+
   }
 
   ngOnInit() {

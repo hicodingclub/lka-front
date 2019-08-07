@@ -58,6 +58,7 @@ export class ClassenrollEditComponent extends ClassenrollComponent implements On
           this.referenceFieldsMap['student'] = 'student';
 
 
+
           
           let detail = {};
           this.detail = this.formatDetail(detail);

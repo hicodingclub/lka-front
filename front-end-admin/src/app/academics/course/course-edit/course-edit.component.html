@@ -23,10 +23,10 @@
                  
                     [(ngModel)]="detail['title']" name="EditTitle"
                     #EditTitle="ngModel">
-                <div *ngIf="detail['title']" 
+            <div *ngIf="detail['title']" 
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('title')">
                   <i class="fas fa-times-circle" title="Clear"></i>
-                </div>
+            </div>
           </div>
 
           <div [hidden]="EditTitle.valid || EditTitle.pristine || EditTitle.errors.minlength"
@@ -84,10 +84,10 @@
                  
                     [(ngModel)]="detail['title']" name="EditTitle"
                     #EditTitle="ngModel">
-                <div *ngIf="detail['title']" 
+            <div *ngIf="detail['title']" 
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('title')">
                   <i class="fas fa-times-circle" title="Clear"></i>
-                </div>
+            </div>
           </div>
 
           <div [hidden]="EditTitle.valid || EditTitle.pristine || EditTitle.errors.minlength"

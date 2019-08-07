@@ -23,10 +23,10 @@
                  
                     [(ngModel)]="detail['title']" name="EditTitle"
                     #EditTitle="ngModel">
-                <div *ngIf="detail['title']" 
+            <div *ngIf="detail['title']" 
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('title')">
                   <i class="fas fa-times-circle" title="Clear"></i>
-                </div>
+            </div>
           </div>
 
           <div [hidden]="EditTitle.valid || EditTitle.pristine || EditTitle.errors.minlength"
@@ -57,10 +57,10 @@
                  
                     [(ngModel)]="detail['author']" name="EditAuthor"
                     #EditAuthor="ngModel">
-                <div *ngIf="detail['author']" 
+            <div *ngIf="detail['author']" 
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('author')">
                   <i class="fas fa-times-circle" title="Clear"></i>
-                </div>
+            </div>
           </div>
 
           <div [hidden]="EditAuthor.valid || EditAuthor.pristine || EditAuthor.errors.minlength"
@@ -152,10 +152,10 @@
                  
                     [(ngModel)]="detail['title']" name="EditTitle"
                     #EditTitle="ngModel">
-                <div *ngIf="detail['title']" 
+            <div *ngIf="detail['title']" 
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('title')">
                   <i class="fas fa-times-circle" title="Clear"></i>
-                </div>
+            </div>
           </div>
 
           <div [hidden]="EditTitle.valid || EditTitle.pristine || EditTitle.errors.minlength"
@@ -186,10 +186,10 @@
                  
                     [(ngModel)]="detail['author']" name="EditAuthor"
                     #EditAuthor="ngModel">
-                <div *ngIf="detail['author']" 
+            <div *ngIf="detail['author']" 
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('author')">
                   <i class="fas fa-times-circle" title="Clear"></i>
-                </div>
+            </div>
           </div>
 
           <div [hidden]="EditAuthor.valid || EditAuthor.pristine || EditAuthor.errors.minlength"

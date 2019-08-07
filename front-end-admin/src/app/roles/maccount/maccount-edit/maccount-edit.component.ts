@@ -58,6 +58,7 @@ export class MaccountEditComponent extends MaccountComponent implements OnInit {
 
 
 
+
           
           let detail = {};
           this.detail = this.formatDetail(detail);

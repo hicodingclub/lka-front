@@ -49,6 +49,7 @@ export class MaccountroleDetailComponent extends MaccountroleComponent implement
           this.arrayFields = [['role', 'ObjectId'],];
           this.referenceFieldsMap['role'] = 'mrole';
 
+
   }
 
   ngOnInit() {

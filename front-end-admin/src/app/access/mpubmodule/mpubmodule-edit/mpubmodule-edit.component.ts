@@ -54,6 +54,7 @@ export class MpubmoduleEditComponent extends MpubmoduleComponent implements OnIn
           this.arrayFields = [['resources', 'SchemaString'],];
 
 
+
           
           let detail = {};
           this.detail = this.formatDetail(detail);

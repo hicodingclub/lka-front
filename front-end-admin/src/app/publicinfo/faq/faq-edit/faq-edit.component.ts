@@ -60,6 +60,7 @@ export class FaqEditComponent extends FaqComponent implements OnInit {
 
 
 
+
           this.textEditorMap['EditAnswer'] = {
             required: true ,
             

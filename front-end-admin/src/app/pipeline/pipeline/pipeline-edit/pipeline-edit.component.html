@@ -23,10 +23,10 @@
                  
                     [(ngModel)]="detail['category']" name="EditCategory"
                     #EditCategory="ngModel">
-                <div *ngIf="detail['category']" 
+            <div *ngIf="detail['category']" 
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('category')">
                   <i class="fas fa-times-circle" title="Clear"></i>
-                </div>
+            </div>
           </div>
 
           <div [hidden]="EditCategory.valid || EditCategory.pristine || EditCategory.errors.minlength"
@@ -60,10 +60,10 @@
                  
                     [(ngModel)]="detail['category']" name="EditCategory"
                     #EditCategory="ngModel">
-                <div *ngIf="detail['category']" 
+            <div *ngIf="detail['category']" 
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('category')">
                   <i class="fas fa-times-circle" title="Clear"></i>
-                </div>
+            </div>
           </div>
 
           <div [hidden]="EditCategory.valid || EditCategory.pristine || EditCategory.errors.minlength"

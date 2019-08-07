@@ -54,6 +54,7 @@ export class MmoduleEditComponent extends MmoduleComponent implements OnInit {
           this.arrayFields = [['resources', 'SchemaString'],];
 
 
+
           
           let detail = {};
           this.detail = this.formatDetail(detail);

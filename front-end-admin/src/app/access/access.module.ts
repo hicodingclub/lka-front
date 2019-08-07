@@ -24,6 +24,7 @@ import { MusergroupListComponent } from './musergroup/musergroup-list/musergroup
 
 
 import { MusergroupDetailComponent } from './musergroup/musergroup-detail/musergroup-detail.component';
+import { MusergroupDetailFieldComponent } from './musergroup/musergroup-detail/musergroup-detail-field.component';
 import { MusergroupEditComponent } from './musergroup/musergroup-edit/musergroup-edit.component';
 
 import { MusergroupService } from './musergroup/musergroup.service';
@@ -33,6 +34,7 @@ import { MpubmoduleListComponent } from './mpubmodule/mpubmodule-list/mpubmodule
 
 
 import { MpubmoduleDetailComponent } from './mpubmodule/mpubmodule-detail/mpubmodule-detail.component';
+import { MpubmoduleDetailFieldComponent } from './mpubmodule/mpubmodule-detail/mpubmodule-detail-field.component';
 import { MpubmoduleEditComponent } from './mpubmodule/mpubmodule-edit/mpubmodule-edit.component';
 
 import { MpubmoduleService } from './mpubmodule/mpubmodule.service';
@@ -42,6 +44,7 @@ import { MpubaccessListComponent } from './mpubaccess/mpubaccess-list/mpubaccess
 
 
 import { MpubaccessDetailComponent } from './mpubaccess/mpubaccess-detail/mpubaccess-detail.component';
+import { MpubaccessDetailFieldComponent } from './mpubaccess/mpubaccess-detail/mpubaccess-detail-field.component';
 import { MpubaccessEditComponent } from './mpubaccess/mpubaccess-edit/mpubaccess-edit.component';
 
 import { MpubaccessService } from './mpubaccess/mpubaccess.service';
@@ -76,6 +79,7 @@ import { MpubaccessDetailSubComponent } from './mpubaccess/mpubaccess-detail/mpu
     
     
     MusergroupDetailComponent,
+MusergroupDetailFieldComponent,
     MusergroupEditComponent,
 
     MpubmoduleListComponent,
@@ -83,6 +87,7 @@ import { MpubaccessDetailSubComponent } from './mpubaccess/mpubaccess-detail/mpu
     
     
     MpubmoduleDetailComponent,
+MpubmoduleDetailFieldComponent,
     MpubmoduleEditComponent,
 
     MpubaccessListComponent,
@@ -90,6 +95,7 @@ import { MpubaccessDetailSubComponent } from './mpubaccess/mpubaccess-detail/mpu
     
     
     MpubaccessDetailComponent,
+MpubaccessDetailFieldComponent,
     MpubaccessEditComponent,
 
 
@@ -115,6 +121,7 @@ import { MpubaccessDetailSubComponent } from './mpubaccess/mpubaccess-detail/mpu
     
     
     MusergroupDetailComponent,
+MusergroupDetailFieldComponent,
     MusergroupEditComponent,
 
     MpubmoduleListComponent,
@@ -122,6 +129,7 @@ import { MpubaccessDetailSubComponent } from './mpubaccess/mpubaccess-detail/mpu
     
     
     MpubmoduleDetailComponent,
+MpubmoduleDetailFieldComponent,
     MpubmoduleEditComponent,
 
     MpubaccessListComponent,
@@ -129,6 +137,7 @@ import { MpubaccessDetailSubComponent } from './mpubaccess/mpubaccess-detail/mpu
     
     
     MpubaccessDetailComponent,
+MpubaccessDetailFieldComponent,
     MpubaccessEditComponent,
 
 

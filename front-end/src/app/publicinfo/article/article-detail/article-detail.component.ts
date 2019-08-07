@@ -51,6 +51,7 @@ export class ArticleDetailComponent extends ArticleComponent implements OnInit, 
 
 
 
+
   }
 
   ngOnInit() {

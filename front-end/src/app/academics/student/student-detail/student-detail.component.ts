@@ -55,6 +55,7 @@ export class StudentDetailComponent extends StudentComponent implements OnInit, 
 
 
 
+
   }
 
   ngOnInit() {

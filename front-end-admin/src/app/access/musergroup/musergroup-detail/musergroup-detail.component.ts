@@ -45,6 +45,7 @@ export class MusergroupDetailComponent extends MusergroupComponent implements On
 
 
 
+
   }
 
   ngOnInit() {

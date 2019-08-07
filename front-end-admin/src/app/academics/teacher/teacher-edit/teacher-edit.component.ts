@@ -62,6 +62,7 @@ export class TeacherEditComponent extends TeacherComponent implements OnInit {
 
 
 
+
           
           let detail = {};
           this.detail = this.formatDetail(detail);

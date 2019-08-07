@@ -50,6 +50,7 @@ export class MaccountListComponent extends MaccountComponent implements OnInit {
 
 
 
+
           this.listViewFilter = 'list';
 
   }

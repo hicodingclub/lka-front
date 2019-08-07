@@ -53,6 +53,7 @@ export class PipelineEditComponent extends PipelineComponent implements OnInit {
 
 
 
+
           
           let detail = {};
           this.detail = this.formatDetail(detail);

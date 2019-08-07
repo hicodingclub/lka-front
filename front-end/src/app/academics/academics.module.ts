@@ -28,6 +28,7 @@ import { StudentListComponent } from './student/student-list/student-list.compon
 import { StudentListActSelComponent } from './student/student-list/student-list-act-sel.component';
 
 import { StudentDetailComponent } from './student/student-detail/student-detail.component';
+import { StudentDetailFieldComponent } from './student/student-detail/student-detail-field.component';
 import { StudentEditComponent } from './student/student-edit/student-edit.component';
 
 import { StudentService } from './student/student.service';
@@ -37,6 +38,7 @@ import { TeacherListComponent } from './teacher/teacher-list/teacher-list.compon
 
 
 import { TeacherDetailComponent } from './teacher/teacher-detail/teacher-detail.component';
+import { TeacherDetailFieldComponent } from './teacher/teacher-detail/teacher-detail-field.component';
 
 
 import { TeacherService } from './teacher/teacher.service';
@@ -46,6 +48,7 @@ import { CourseListHomeComponent } from './course/course-list/course-list-home.c
 
 
 import { CourseDetailComponent } from './course/course-detail/course-detail.component';
+import { CourseDetailFieldComponent } from './course/course-detail/course-detail-field.component';
 
 
 import { CourseService } from './course/course.service';
@@ -55,6 +58,7 @@ import { ClassListHomeComponent } from './class/class-list/class-list-home.compo
 import { ClassListActSelComponent } from './class/class-list/class-list-act-sel.component';
 
 import { ClassDetailComponent } from './class/class-detail/class-detail.component';
+import { ClassDetailFieldComponent } from './class/class-detail/class-detail-field.component';
 
 
 import { ClassService } from './class/class.service';
@@ -64,6 +68,7 @@ import { StudentclassListComponent } from './studentclass/studentclass-list/stud
 
 
 
+import { StudentclassDetailFieldComponent } from './studentclass/studentclass-detail/studentclass-detail-field.component';
 
 
 import { StudentclassService } from './studentclass/studentclass.service';
@@ -73,6 +78,7 @@ import { ClassenrollListComponent } from './classenroll/classenroll-list/classen
 
 
 import { ClassenrollDetailComponent } from './classenroll/classenroll-detail/classenroll-detail.component';
+import { ClassenrollDetailFieldComponent } from './classenroll/classenroll-detail/classenroll-detail-field.component';
 import { ClassenrollEditComponent } from './classenroll/classenroll-edit/classenroll-edit.component';
 
 import { ClassenrollService } from './classenroll/classenroll.service';
@@ -82,6 +88,7 @@ import { TermsListComponent } from './terms/terms-list/terms-list.component';
 
 
 import { TermsDetailComponent } from './terms/terms-detail/terms-detail.component';
+import { TermsDetailFieldComponent } from './terms/terms-detail/terms-detail-field.component';
 
 
 import { TermsService } from './terms/terms.service';
@@ -139,6 +146,7 @@ import { StudentDirectiveGuardianTwoEmail } from './student/student-edit/student
     StudentListActSelComponent,
     
     StudentDetailComponent,
+StudentDetailFieldComponent,
     StudentEditComponent,
 
     TeacherListComponent,
@@ -146,6 +154,7 @@ import { StudentDirectiveGuardianTwoEmail } from './student/student-edit/student
     
     
     TeacherDetailComponent,
+TeacherDetailFieldComponent,
     
 
     CourseListComponent,
@@ -153,6 +162,7 @@ import { StudentDirectiveGuardianTwoEmail } from './student/student-edit/student
     
     
     CourseDetailComponent,
+CourseDetailFieldComponent,
     
 
     ClassListComponent,
@@ -160,6 +170,7 @@ import { StudentDirectiveGuardianTwoEmail } from './student/student-edit/student
     ClassListActSelComponent,
     
     ClassDetailComponent,
+ClassDetailFieldComponent,
     
 
     StudentclassListComponent,
@@ -167,6 +178,7 @@ import { StudentDirectiveGuardianTwoEmail } from './student/student-edit/student
     
     
     
+StudentclassDetailFieldComponent,
     
 
     ClassenrollListComponent,
@@ -174,6 +186,7 @@ import { StudentDirectiveGuardianTwoEmail } from './student/student-edit/student
     
     
     ClassenrollDetailComponent,
+ClassenrollDetailFieldComponent,
     ClassenrollEditComponent,
 
     TermsListComponent,
@@ -181,6 +194,7 @@ import { StudentDirectiveGuardianTwoEmail } from './student/student-edit/student
     
     
     TermsDetailComponent,
+TermsDetailFieldComponent,
     
 
 
@@ -228,6 +242,7 @@ import { StudentDirectiveGuardianTwoEmail } from './student/student-edit/student
     StudentListActSelComponent,
     
     StudentDetailComponent,
+StudentDetailFieldComponent,
     StudentEditComponent,
 
     TeacherListComponent,
@@ -235,6 +250,7 @@ import { StudentDirectiveGuardianTwoEmail } from './student/student-edit/student
     
     
     TeacherDetailComponent,
+TeacherDetailFieldComponent,
     
 
     CourseListComponent,
@@ -242,6 +258,7 @@ import { StudentDirectiveGuardianTwoEmail } from './student/student-edit/student
     
     
     CourseDetailComponent,
+CourseDetailFieldComponent,
     
 
     ClassListComponent,
@@ -249,6 +266,7 @@ import { StudentDirectiveGuardianTwoEmail } from './student/student-edit/student
     ClassListActSelComponent,
     
     ClassDetailComponent,
+ClassDetailFieldComponent,
     
 
     StudentclassListComponent,
@@ -256,6 +274,7 @@ import { StudentDirectiveGuardianTwoEmail } from './student/student-edit/student
     
     
     
+StudentclassDetailFieldComponent,
     
 
     ClassenrollListComponent,
@@ -263,6 +282,7 @@ import { StudentDirectiveGuardianTwoEmail } from './student/student-edit/student
     
     
     ClassenrollDetailComponent,
+ClassenrollDetailFieldComponent,
     ClassenrollEditComponent,
 
     TermsListComponent,
@@ -270,6 +290,7 @@ import { StudentDirectiveGuardianTwoEmail } from './student/student-edit/student
     
     
     TermsDetailComponent,
+TermsDetailFieldComponent,
     
 
 

@@ -63,6 +63,7 @@ export class ArticleEditComponent extends ArticleComponent implements OnInit {
 
 
 
+
           this.textEditorMap['EditContent'] = {
             required: true ,
             

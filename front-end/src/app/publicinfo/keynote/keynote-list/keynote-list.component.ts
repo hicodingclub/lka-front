@@ -48,6 +48,7 @@ export class KeynoteListComponent extends KeynoteComponent implements OnInit {
 
 
 
+
           this.listViewFilter = 'list';
           this.setListSort('title', 'Title', 'asc');
 

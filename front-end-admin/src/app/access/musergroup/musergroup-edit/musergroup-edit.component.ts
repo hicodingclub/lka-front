@@ -54,6 +54,7 @@ export class MusergroupEditComponent extends MusergroupComponent implements OnIn
 
 
 
+
           
           let detail = {};
           this.detail = this.formatDetail(detail);

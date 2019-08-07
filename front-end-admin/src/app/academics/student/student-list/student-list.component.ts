@@ -50,6 +50,7 @@ export class StudentListComponent extends StudentComponent implements OnInit {
 
 
 
+
           this.listViewFilter = 'list';
 
   }

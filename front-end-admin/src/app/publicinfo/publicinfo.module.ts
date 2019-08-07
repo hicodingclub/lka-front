@@ -27,6 +27,7 @@ import { EventListComponent } from './event/event-list/event-list.component';
 
 
 import { EventDetailComponent } from './event/event-detail/event-detail.component';
+import { EventDetailFieldComponent } from './event/event-detail/event-detail-field.component';
 import { EventEditComponent } from './event/event-edit/event-edit.component';
 
 import { EventService } from './event/event.service';
@@ -36,6 +37,7 @@ import { ArticleListComponent } from './article/article-list/article-list.compon
 
 
 import { ArticleDetailComponent } from './article/article-detail/article-detail.component';
+import { ArticleDetailFieldComponent } from './article/article-detail/article-detail-field.component';
 import { ArticleEditComponent } from './article/article-edit/article-edit.component';
 
 import { ArticleService } from './article/article.service';
@@ -45,6 +47,7 @@ import { FaqListComponent } from './faq/faq-list/faq-list.component';
 
 
 import { FaqDetailComponent } from './faq/faq-detail/faq-detail.component';
+import { FaqDetailFieldComponent } from './faq/faq-detail/faq-detail-field.component';
 import { FaqEditComponent } from './faq/faq-edit/faq-edit.component';
 
 import { FaqService } from './faq/faq.service';
@@ -54,6 +57,7 @@ import { GeneralinfoListComponent } from './generalinfo/generalinfo-list/general
 
 
 import { GeneralinfoDetailComponent } from './generalinfo/generalinfo-detail/generalinfo-detail.component';
+import { GeneralinfoDetailFieldComponent } from './generalinfo/generalinfo-detail/generalinfo-detail-field.component';
 import { GeneralinfoEditComponent } from './generalinfo/generalinfo-edit/generalinfo-edit.component';
 
 import { GeneralinfoService } from './generalinfo/generalinfo.service';
@@ -63,6 +67,7 @@ import { KeynoteListComponent } from './keynote/keynote-list/keynote-list.compon
 
 
 import { KeynoteDetailComponent } from './keynote/keynote-detail/keynote-detail.component';
+import { KeynoteDetailFieldComponent } from './keynote/keynote-detail/keynote-detail-field.component';
 import { KeynoteEditComponent } from './keynote/keynote-edit/keynote-edit.component';
 
 import { KeynoteService } from './keynote/keynote.service';
@@ -91,6 +96,7 @@ import { KeynoteService } from './keynote/keynote.service';
     
     
     EventDetailComponent,
+EventDetailFieldComponent,
     EventEditComponent,
 
     ArticleListComponent,
@@ -98,6 +104,7 @@ import { KeynoteService } from './keynote/keynote.service';
     
     
     ArticleDetailComponent,
+ArticleDetailFieldComponent,
     ArticleEditComponent,
 
     FaqListComponent,
@@ -105,6 +112,7 @@ import { KeynoteService } from './keynote/keynote.service';
     
     
     FaqDetailComponent,
+FaqDetailFieldComponent,
     FaqEditComponent,
 
     GeneralinfoListComponent,
@@ -112,6 +120,7 @@ import { KeynoteService } from './keynote/keynote.service';
     
     
     GeneralinfoDetailComponent,
+GeneralinfoDetailFieldComponent,
     GeneralinfoEditComponent,
 
     KeynoteListComponent,
@@ -119,6 +128,7 @@ import { KeynoteService } from './keynote/keynote.service';
     
     
     KeynoteDetailComponent,
+KeynoteDetailFieldComponent,
     KeynoteEditComponent,
 
 
@@ -136,6 +146,7 @@ import { KeynoteService } from './keynote/keynote.service';
     
     
     EventDetailComponent,
+EventDetailFieldComponent,
     EventEditComponent,
 
     ArticleListComponent,
@@ -143,6 +154,7 @@ import { KeynoteService } from './keynote/keynote.service';
     
     
     ArticleDetailComponent,
+ArticleDetailFieldComponent,
     ArticleEditComponent,
 
     FaqListComponent,
@@ -150,6 +162,7 @@ import { KeynoteService } from './keynote/keynote.service';
     
     
     FaqDetailComponent,
+FaqDetailFieldComponent,
     FaqEditComponent,
 
     GeneralinfoListComponent,
@@ -157,6 +170,7 @@ import { KeynoteService } from './keynote/keynote.service';
     
     
     GeneralinfoDetailComponent,
+GeneralinfoDetailFieldComponent,
     GeneralinfoEditComponent,
 
     KeynoteListComponent,
@@ -164,6 +178,7 @@ import { KeynoteService } from './keynote/keynote.service';
     
     
     KeynoteDetailComponent,
+KeynoteDetailFieldComponent,
     KeynoteEditComponent,
 
 

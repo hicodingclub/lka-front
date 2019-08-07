@@ -49,6 +49,7 @@ export class FaqListComponent extends FaqComponent implements OnInit {
 
           this.viewHiddenFields = ['order', ];
 
+
           this.listViewFilter = 'list';
           this.setListSort('order', 'Order', 'asc');
 
