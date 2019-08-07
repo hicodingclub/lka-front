@@ -48,6 +48,7 @@ export class StudentDetailComponent extends StudentComponent implements OnInit, 
           this.stringFields.push('GuardianTwoName');
           this.stringFields.push('GuardianTwoPhone');
           this.stringFields.push('GuardianTwoEmail');
+          this.stringFields.push('notes');
           this.stringFields.push('muser_id');
 
 
@@ -57,6 +58,7 @@ export class StudentDetailComponent extends StudentComponent implements OnInit, 
 
 
 
+          this.textareaFields = ['notes', ];
   }
 
   ngOnInit() {

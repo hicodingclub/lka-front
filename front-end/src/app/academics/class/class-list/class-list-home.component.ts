@@ -19,7 +19,7 @@ export class ClassListHomeComponent extends ClassListComponent implements OnInit
       public route: ActivatedRoute,
       public location: Location) {
         super(null, classService, injector, router, route, location);
-        this.per_page = 4;
+        this.per_page = 6;
         this.categoryBy = undefined; // no do query based on category for home view;
   }
 

@@ -281,6 +281,7 @@ export class StudentEditComponent extends StudentComponent implements OnInit {
           this.stringFields.push('GuardianTwoName');
           this.stringFields.push('GuardianTwoPhone');
           this.stringFields.push('GuardianTwoEmail');
+          this.stringFields.push('notes');
           this.stringFields.push('muser_id');
 
 
@@ -290,6 +291,7 @@ export class StudentEditComponent extends StudentComponent implements OnInit {
 
 
 
+          this.textareaFields = ['notes', ];
 
           
           let detail = {};

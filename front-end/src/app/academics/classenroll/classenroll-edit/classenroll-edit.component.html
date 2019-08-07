@@ -110,11 +110,11 @@
               <input type="radio" name="EditStatus" 
                 class="form-check-input"
                 required
-                id="EditStatuspayed" [value]="'payed'"
+                id="EditStatuspaid" [value]="'paid'"
                  
                 [(ngModel)]="detail['status']"
                 #EditStatus="ngModel">
-              <label class="form-check-label">payed</label>
+              <label class="form-check-label">paid</label>
             </div>
 
             <div class="form-check-inline">
@@ -157,61 +157,33 @@
 </div>
 <div *ngIf="!hiddenFields.includes('notes')">
 
-          <fieldset class="form-group">
+        <fieldset class="form-group">
           <label for="EditNotes">Notes</label>
           
 
-            <div class="form-check"
-                ngModelGroup="EditNotes"
-                
-                #EditNotes="ngModelGroup" 
-            >
-                <ng-template [ngIf]="detail['notes'] && detail['notes']['selection']">
-                     <div class="badge badge-pill badge-secondary" *ngFor="let element of detail['notes']['selection']; let i = index;">
-                        {{element}}
-              <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromArrayField('notes', i)" title="Remove"></i>
-          </div>
-                </ng-template>
-
-          <span *ngIf="arraySelected('notes')" 
-                class="icon-clear" (click)="clearValueFromDetail('notes')">
-                <i class="fas fa-times-circle" title="Clear"></i></span>
-
-                <div class="input-group input-group-sm w-50 mt-3">
-                <input type="search" class="form-control border"
-                    id="EditNotesNew" #EditNotesNew="ngModel"
-            [(ngModel)]="detail['notes']['new']" [ngModelOptions]="{standalone: true}"
+          <div class="input-group">
+            <textarea rows="8" class="form-control rounded" id="EditNotes"
+                    
                     
                     
                  
-            (keydown.enter)="$event.target.blur();onAddArrayItem('notes');false"
-              > 
-          <div class="input-group-append">
-            <button type="button" class="btn btn-outline-secondary" (click)="onAddArrayItem('notes')"><i class="fas fa-plus"></i></button>
-          </div>
-        </div>
-            <div [hidden]="EditNotesNew.valid
-                           || EditNotesNew.pristine 
-                           || EditNotesNew.errors.minlength"
-             class="alert alert-danger small p-1">
- 
-
+                    [(ngModel)]="detail['notes']" name="EditNotes"
+                    #EditNotes="ngModel"></textarea>
+            <div *ngIf="detail['notes']" 
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('notes')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
             </div>
-        
+          </div>
 
-                <!-- fake hidden input ngModel for directive to check the values-->
-            <input type="checkbox" name="EditNotesSelection" 
-               style="display:none"
-               id="EditNotesSelection"
-                 [(ngModel)]="detail['notes']['selection'].length" 
-                 #EditNotesSelection="ngModel">
-        </div>
-
-          <div [hidden]="EditNotes.valid || EditNotes.pristine"
+          <div [hidden]="EditNotes.valid || EditNotes.pristine || EditNotes.errors.minlength"
            class="alert alert-danger">
 
+ 
+
           </div>
+        
         </fieldset>
+
     
 </div>
 
@@ -292,61 +264,33 @@
 </div>
 <div *ngIf="!hiddenFields.includes('notes')">
 
-          <fieldset class="form-group">
+        <fieldset class="form-group">
           <label for="EditNotes">Notes</label>
           
 
-            <div class="form-check"
-                ngModelGroup="EditNotes"
-                
-                #EditNotes="ngModelGroup" 
-            >
-                <ng-template [ngIf]="detail['notes'] && detail['notes']['selection']">
-                     <div class="badge badge-pill badge-secondary" *ngFor="let element of detail['notes']['selection']; let i = index;">
-                        {{element}}
-              <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromArrayField('notes', i)" title="Remove"></i>
-          </div>
-                </ng-template>
-
-          <span *ngIf="arraySelected('notes')" 
-                class="icon-clear" (click)="clearValueFromDetail('notes')">
-                <i class="fas fa-times-circle" title="Clear"></i></span>
-
-                <div class="input-group input-group-sm w-50 mt-3">
-                <input type="search" class="form-control border"
-                    id="EditNotesNew" #EditNotesNew="ngModel"
-            [(ngModel)]="detail['notes']['new']" [ngModelOptions]="{standalone: true}"
+          <div class="input-group">
+            <textarea rows="8" class="form-control rounded" id="EditNotes"
+                    
                     
                     
                  
-            (keydown.enter)="$event.target.blur();onAddArrayItem('notes');false"
-              > 
-          <div class="input-group-append">
-            <button type="button" class="btn btn-outline-secondary" (click)="onAddArrayItem('notes')"><i class="fas fa-plus"></i></button>
-          </div>
-        </div>
-            <div [hidden]="EditNotesNew.valid
-                           || EditNotesNew.pristine 
-                           || EditNotesNew.errors.minlength"
-             class="alert alert-danger small p-1">
- 
-
+                    [(ngModel)]="detail['notes']" name="EditNotes"
+                    #EditNotes="ngModel"></textarea>
+            <div *ngIf="detail['notes']" 
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('notes')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
             </div>
-        
+          </div>
 
-                <!-- fake hidden input ngModel for directive to check the values-->
-            <input type="checkbox" name="EditNotesSelection" 
-               style="display:none"
-               id="EditNotesSelection"
-                 [(ngModel)]="detail['notes']['selection'].length" 
-                 #EditNotesSelection="ngModel">
-        </div>
-
-          <div [hidden]="EditNotes.valid || EditNotes.pristine"
+          <div [hidden]="EditNotes.valid || EditNotes.pristine || EditNotes.errors.minlength"
            class="alert alert-danger">
 
+ 
+
           </div>
+        
         </fieldset>
+
     
 </div>
 

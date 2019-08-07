@@ -46,6 +46,7 @@ export class ClassenrollEditComponent extends ClassenrollComponent implements On
                  classenrollService, injector, router, route, location, ViewType.EDIT);
 
 
+          this.stringFields.push('notes');
 
           this.referenceFields = ['class', ];
           this.referenceFieldsMap = {'class': 'class',};
@@ -54,10 +55,11 @@ export class ClassenrollEditComponent extends ClassenrollComponent implements On
 
 
 
-          this.arrayFields = [['student', 'ObjectId'],['notes', 'SchemaString'],];
+          this.arrayFields = [['student', 'ObjectId'],];
           this.referenceFieldsMap['student'] = 'student';
 
 
+          this.textareaFields = ['notes', ];
 
           
           let detail = {};

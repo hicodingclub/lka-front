@@ -18,6 +18,12 @@
     max-width:60px;
 }
 
+.navbar-light .navbar-toggler {
+  background-color: white;
+  color: rgba(0,0,0,.5);
+  border-color: rgba(0,0,0,.1);
+}
+
 .logo-text {
   margin-left: 70px; /*logo max-width + 10 */
   color: white;

@@ -27,9 +27,10 @@ export class ClassenrollDetailFieldComponent extends ClassenrollComponent
           super(null,
                 classenrollService, injector, router, route, location, ViewType.DETAIL);
           
-          this.enums['status'] = ['processing', 'payed', 'confirmed', 'cancelled', ];
+          this.enums['status'] = ['processing', 'paid', 'confirmed', 'cancelled', ];
 
           this.stringFields.push('status');
+          this.stringFields.push('notes');
           this.stringFields.push('muser_id');
 
           this.referenceFields = ['class', ];
@@ -40,10 +41,11 @@ export class ClassenrollDetailFieldComponent extends ClassenrollComponent
 
 
 
-          this.arrayFields = [['student', 'ObjectId'],['notes', 'SchemaString'],];
+          this.arrayFields = [['student', 'ObjectId'],];
           this.referenceFieldsMap['student'] = 'student';
 
 
+          this.textareaFields = ['notes', ];
     }
 
     ngOnInit() {

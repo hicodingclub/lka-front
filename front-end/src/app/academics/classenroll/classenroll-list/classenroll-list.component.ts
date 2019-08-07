@@ -37,7 +37,7 @@ public componentFactoryResolver: ComponentFactoryResolver,
           super(componentFactoryResolver,
                 classenrollService, injector, router, route, location, ViewType.LIST);
 
-          this.enums['status'] = ['processing', 'payed', 'confirmed', 'cancelled', ];
+          this.enums['status'] = ['processing', 'paid', 'confirmed', 'cancelled', ];
 
           this.stringFields.push('status');
 

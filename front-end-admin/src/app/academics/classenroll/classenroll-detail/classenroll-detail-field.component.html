@@ -19,13 +19,8 @@
                     {{detail['status']}}
 </div>
 		<div *ngIf="detail && showFields.includes('notes')">                
-                    <div *ngIf="detail['notes'] && detail['notes']['selection']">
-                        <ng-template ngFor let-element [ngForOf]="detail['notes']['selection']" let-idx="index">
-                            <div class="badge badge-pill badge-secondary">
-                                {{element}}
-                            </div>
-                        </ng-template>
-                    </div>
+                    <div [innerHTML]="detail['notes']"></div>
+                        
 </div>
 		<div *ngIf="detail && showFields.includes('createdAt')">                  {{detail['createdAt']?detail['createdAt']['value']:""}}
 </div>

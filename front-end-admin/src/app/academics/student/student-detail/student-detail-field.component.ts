@@ -39,6 +39,7 @@ export class StudentDetailFieldComponent extends StudentComponent
           this.stringFields.push('GuardianTwoName');
           this.stringFields.push('GuardianTwoPhone');
           this.stringFields.push('GuardianTwoEmail');
+          this.stringFields.push('notes');
           this.stringFields.push('muser_id');
 
 
@@ -48,6 +49,7 @@ export class StudentDetailFieldComponent extends StudentComponent
 
 
 
+          this.textareaFields = ['notes', ];
     }
 
     ngOnInit() {
