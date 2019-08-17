@@ -7,5 +7,6 @@
                     {{detail['title']}}
 </div>
 		<div *ngIf="detail && showFields.includes('description')">                
-                    {{detail['description']}}
+                    <div [innerHTML]="detail['description']"></div>
+                        
 </div>

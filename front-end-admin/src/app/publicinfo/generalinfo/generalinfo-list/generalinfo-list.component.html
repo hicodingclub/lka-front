@@ -156,7 +156,8 @@
         <div *ngIf="detail['description']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Description:</label></div>
           <div class="ml-3">                
-                    {{detail['description']}}
+                    <div [innerHTML]="detail['description']"></div>
+                        
 
           </div>
         </div>
@@ -209,7 +210,8 @@
           <div *ngIf="detail['description']" class="d-flex flex-wrap">
             <div class=""><label>Description:</label></div>
             <div class="ml-3">                
-                    {{detail['description']}}
+                    <div [innerHTML]="detail['description']"></div>
+                        
 </div>
           </div>
           <div *ngIf="detail['tag']" class="d-flex flex-wrap">
@@ -281,7 +283,8 @@
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
 	            	                
-                    {{detail['description']}}
+                    <div [innerHTML]="detail['description']"></div>
+                        
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">

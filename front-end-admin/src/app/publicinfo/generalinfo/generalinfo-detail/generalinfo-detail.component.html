@@ -7,16 +7,16 @@
     <a routerLink="." class="btn btn-outline-primary" (click)="onDelete(detail['_id'], null)">Delete</a>
 </div>
 
-	<div class="card text-left transparent-border " [ngStyle]="style">
+	<div class="card text-left transparent-border " [ngStyle]="style['card']">
 	  <div class="grid-fields">
-		<div class="card-header grid-head">
+		<div class="card-header grid-head" [ngStyle]="style['card-header']">
 		  <div *ngIf="detail['signaturePicture']" class="grid-head-picture mr-5">                
                     <file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="true"></file-display>
 
 		  </div>
 		  <div class="ml-1 d-inline-block">
 			<h2>
-			  <div class="mr-1 ml-2 mt-3 d-inline-block">
+			  <div class="mr-1 ml-2 mt-3 d-inline-block" [ngStyle]="style['header-field']">
 				                
                     {{detail['title']}}
 
@@ -24,10 +24,11 @@
 			</h2>
 		  </div>
 		</div>
-		<div class="card-body">
+		<div class="card-body" [ngStyle]="style['card-body']">
 			<div>
-			  <h4 class="info-description-text">                
-                    {{detail['description']}}
+			  <h4 class="info-description-text" [ngStyle]="style['body-field']">                
+                    <div [innerHTML]="detail['description']"></div>
+                        
 
 			  </h4>
 			</div>

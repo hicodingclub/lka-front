@@ -44,10 +44,20 @@
         <app-keynote-list-act-sld [searchObj]="{'tag': 'slides'}" [inputData]="['title', 'subtitle', 'description', 'signaturePicture']"></app-keynote-list-act-sld>
     </div>
 
+    <div>
+      <app-generalinfo-detail [searchObj]="{'tag': 'lka'}" [disableActionButtions]="true"
+      [style]="{
+        'card': {'background-color': 'white', 'color': '#00274c'},
+        'body-field': {'font-size': '1rem', 'font-weight': '400'}
+      }"
+      >
+      </app-generalinfo-detail>
+    </div>
+
     <section class="row align-items-baseline row-border">
       <div class="col-small d-flex flex-column">
           <div><app-generalinfo-detail [searchObj]="{'tag': 'events'}" [disableActionButtions]="true"
-            [style]="{'background-color': 'white', 'color': '#00274c'}"
+            [style]="{'card': {'background-color': 'white', 'color': '#00274c'}}"
             >
           </app-generalinfo-detail></div>
           <div class="align-self-center internal_link" routerLink="/publicinfo/event">Read all posts</div>
@@ -57,15 +67,14 @@
 
     <div class="d-flex flex-column">
       <div><app-generalinfo-detail [searchObj]="{'tag': 'classes'}" [disableActionButtions]="true"
-        [style]="{'background-color': 'white', 'color': '#00274c'}"
+        [style]="{'card': {'background-color': 'white', 'color': '#00274c'}}"
         >
       </app-generalinfo-detail></div>
       <div class="align-self-center internal_link" routerLink="/academics/class/list">Check all classes</div>
     </div>
     <div style=""><app-class-list-ex-h [searchObj]="{'hot': true}"></app-class-list-ex-h></div>
-    <section class="row align-items-baseline" style="flex-direction: row-reverse;">
 
-    </section>
+
 
     <!--
     <section class="row align-items-baseline row-border">

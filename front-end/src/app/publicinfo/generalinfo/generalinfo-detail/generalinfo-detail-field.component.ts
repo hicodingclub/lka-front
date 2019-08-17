@@ -38,6 +38,7 @@ export class GeneralinfoDetailFieldComponent extends GeneralinfoComponent
 
 
 
+          this.textareaFields = ['description', ];
     }
 
     ngOnInit() {
