@@ -1,0 +1,60 @@
+.slides-session {
+	padding-top: 80px;
+	width: 100%;
+}
+
+.internal_link {
+    margin-top: 1rem;
+    color: #307bff;
+    cursor: pointer;
+}
+
+.carousel-caption {
+	bottom: 300px;
+}
+
+.new-carousel-subcaption {
+	font-size: 2rem;
+}
+
+.carousel-inner img {
+	width: 100%;
+}
+
+.horizontal {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+section {
+	padding: 20px 0 20px 0;
+	margin: 50px 0 50px 0;
+}
+
+
+.container {
+	background-color: white;
+}
+
+.card {
+	background-color: lightblue;
+}
+
+.col-large{
+	flex-grow: 1;
+	padding-right: 15px;
+	padding-left: 15px;
+	max-width: 740px;
+}
+
+.col-small {
+	width: 370px;
+	padding-right: 15px;
+    padding-left: 15px;
+}
+
+.row-border {
+    border-left: solid 1px #00274C90;	
+    border-right: solid 1px #00274C90;	
+}

@@ -18,12 +18,14 @@ import { authentication_login_page_uri, authentication_server_root_uri,
 import { FILE_UPLOAD_URI, FILE_DOWNLOAD_URI } from 'mdds-angular-file';
 import { file_upload_uri, file_download_uri } from './file-upload.config';
 import { HomepageComponent } from './homepage/homepage.component';
+import { ContactComponent } from './contact/contact.component';
 import { EnrollComponent } from './actions';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomepageComponent,
+    ContactComponent,
     EnrollComponent,
 
   ],
