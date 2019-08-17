@@ -42,6 +42,7 @@ export class ClassenrollDetailFieldComponent extends ClassenrollComponent
 
           this.arrayFields = [['student', 'ObjectId'],];
           this.referenceFieldsMap['student'] = 'student';
+          this.referenceFieldsReverseMap['student'] = 'student';
 
 
           this.textareaFields = ['notes', ];

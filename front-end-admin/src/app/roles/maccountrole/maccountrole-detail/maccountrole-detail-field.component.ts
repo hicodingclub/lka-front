@@ -38,6 +38,7 @@ export class MaccountroleDetailFieldComponent extends MaccountroleComponent
 
           this.arrayFields = [['role', 'ObjectId'],];
           this.referenceFieldsMap['role'] = 'mrole';
+          this.referenceFieldsReverseMap['mrole'] = 'role';
 
 
     }

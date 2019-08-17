@@ -57,6 +57,7 @@ export class ClassenrollEditComponent extends ClassenrollComponent implements On
 
           this.arrayFields = [['student', 'ObjectId'],];
           this.referenceFieldsMap['student'] = 'student';
+          this.referenceFieldsReverseMap['student'] = 'student';
 
 
           this.textareaFields = ['notes', ];

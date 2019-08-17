@@ -51,6 +51,7 @@ public componentFactoryResolver: ComponentFactoryResolver,
 
           this.arrayFields = [['student', 'ObjectId'],];
           this.referenceFieldsMap['student'] = 'student';
+          this.referenceFieldsReverseMap['student'] = 'student';
 
 
 

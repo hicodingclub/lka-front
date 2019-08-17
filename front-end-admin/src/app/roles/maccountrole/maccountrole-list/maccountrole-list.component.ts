@@ -47,6 +47,7 @@ public componentFactoryResolver: ComponentFactoryResolver,
 
           this.arrayFields = [['role', 'ObjectId'],];
           this.referenceFieldsMap['role'] = 'mrole';
+          this.referenceFieldsReverseMap['mrole'] = 'role';
 
 
 

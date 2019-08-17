@@ -56,6 +56,7 @@ export class MaccountroleEditComponent extends MaccountroleComponent implements 
 
           this.arrayFields = [['role', 'ObjectId'],];
           this.referenceFieldsMap['role'] = 'mrole';
+          this.referenceFieldsReverseMap['mrole'] = 'role';
 
 
 
