@@ -19,6 +19,10 @@ export class AppComponent {
         } else {
           this.currentUrl = event.url;
         }
+
+        if ((<any>window).gtag) {
+          (<any>window).gtag('config', 'UA-145853353-1', {'page_path': this.currentUrl});
+        }
       }
     });
   }
