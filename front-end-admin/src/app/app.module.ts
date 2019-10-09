@@ -10,12 +10,13 @@ import { AcademicsModule } from './academics/academics.module';
 import { PublicinfoModule } from './publicinfo/publicinfo.module';
 import { AccessModule } from './access/access.module';
 import { FilesModule } from './files/files.module';
+import { EmailtemplateModule } from './emailtemplate/emailtemplate.module';
 import { PipelineModule } from './pipeline/pipeline.module';
 
 import { AuthenticationModule, AUTHENTICATION_DROPDOWN_ITEMS, AUTHENTICATION_LOGIN_PIPELINE } from 'mdds-angular-auth';
 
-import { AUTHENTICATION_LOGIN_PAGE_URI, AUTHENTICATION_SERVER_ROOT_URI, AUTHENTICATION_INTERFACES } from 'mdds-angular-auth';
-import { authentication_login_page_uri, authentication_server_root_uri, authentication_interfaces, authentication_dropdown_items, authentication_login_pipeline } from './auth.conf';
+import { AUTHENTICATION_AUTH_PAGE_ROOT_URI, AUTHENTICATION_SERVER_ROOT_URI, AUTHENTICATION_INTERFACES } from 'mdds-angular-auth';
+import { authentication_page_root_uri, authentication_server_root_uri, authentication_interfaces, authentication_dropdown_items, authentication_login_pipeline } from './auth.conf';
 import { FILE_UPLOAD_URI, FILE_DOWNLOAD_URI } from 'mdds-angular-file';
 import { file_upload_uri, file_download_uri } from './file-upload.config';
 
@@ -35,10 +36,11 @@ import { file_upload_uri, file_download_uri } from './file-upload.config';
     PublicinfoModule,
     AccessModule,
     FilesModule,
+    EmailtemplateModule,
     PipelineModule,
   ],
   providers: [
-    { provide: AUTHENTICATION_LOGIN_PAGE_URI, useValue: authentication_login_page_uri },
+    { provide: AUTHENTICATION_AUTH_PAGE_ROOT_URI, useValue: authentication_page_root_uri },
     { provide: AUTHENTICATION_SERVER_ROOT_URI, useValue: authentication_server_root_uri },
     { provide: AUTHENTICATION_INTERFACES, useValue: authentication_interfaces },
     { provide: AUTHENTICATION_DROPDOWN_ITEMS, useValue: authentication_dropdown_items },
