@@ -8,6 +8,7 @@ import { MfilelabelsService } from '../mfilelabels.service';
 
 
 
+  
 @Component({
   selector: 'app-mfilelabels-list',
   templateUrl: './mfilelabels-list.component.html',
@@ -17,7 +18,12 @@ export class MfilelabelsListComponent extends MfilelabelsComponent implements On
 
 
   @Input()
+  public inputData:any;
+  @Input()
   public searchObj:any;
+  @Input()
+  public categoryBy:string; //field name whose value is used as category
+  
 
   constructor(
 
@@ -38,13 +44,26 @@ export class MfilelabelsListComponent extends MfilelabelsComponent implements On
 
 
 
+
           this.listViewFilter = 'list';
-          // this is to initialize the detail that will be used for search condition selection
-          const detail = this.searchObj || {};
-          this.detail = this.formatDetail(detail);
+
+          const listCategories = [];
+          this.listCategory1 = listCategories[0] || {};
+          this.listCategory2 = listCategories[1] || {};
   }
 
   ngOnInit() {
+      this.adjustListViewForWindowSize();
+
+      // this is to initialize the detail that will be used for search condition selection
+      const detail = this.searchObj || {};
+      this.detail = this.formatDetail(detail);
       this.populateList();
   }
+
+  static getInstance() {
+    //used by others to call some common functions
+    return new MfilelabelsListComponent(null, null, null, null, null);
+  }
 }
+

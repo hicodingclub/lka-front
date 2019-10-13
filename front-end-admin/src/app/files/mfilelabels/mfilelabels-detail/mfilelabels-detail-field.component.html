@@ -1,0 +1,7 @@
+
+
+		<div *ngIf="detail && showFields.includes('label')">                
+                    {{detail['label']}}
+</div>
+		<div *ngIf="detail && showFields.includes('created')">                  {{detail['created']?detail['created']['value']:""}}
+</div>

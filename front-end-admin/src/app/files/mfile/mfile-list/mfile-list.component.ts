@@ -8,6 +8,7 @@ import { MfileService } from '../mfile.service';
 
 
 
+  
 @Component({
   selector: 'app-mfile-list',
   templateUrl: './mfile-list.component.html',
@@ -18,7 +19,12 @@ export class MfileListComponent extends MfileComponent implements OnInit {
   public minDate = {year: (new Date()).getFullYear() - 100, month: 1, day: 1};
 
   @Input()
+  public inputData:any;
+  @Input()
   public searchObj:any;
+  @Input()
+  public categoryBy:string; //field name whose value is used as category
+  
 
   constructor(
 
@@ -43,13 +49,26 @@ export class MfileListComponent extends MfileComponent implements OnInit {
           this.arrayFields = [['labels', 'SchemaString'],];
 
 
+
           this.listViewFilter = 'list';
-          // this is to initialize the detail that will be used for search condition selection
-          const detail = this.searchObj || {};
-          this.detail = this.formatDetail(detail);
+
+          const listCategories = [];
+          this.listCategory1 = listCategories[0] || {};
+          this.listCategory2 = listCategories[1] || {};
   }
 
   ngOnInit() {
+      this.adjustListViewForWindowSize();
+
+      // this is to initialize the detail that will be used for search condition selection
+      const detail = this.searchObj || {};
+      this.detail = this.formatDetail(detail);
       this.populateList();
   }
+
+  static getInstance() {
+    //used by others to call some common functions
+    return new MfileListComponent(null, null, null, null, null);
+  }
 }
+

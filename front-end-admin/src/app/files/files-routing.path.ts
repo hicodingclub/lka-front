@@ -21,11 +21,13 @@ export const mfileRoutingPath = [
     
     {path: 'edit/:id', component: MfileEditComponent, canActivate: [AuthGuard]},
     
+    
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];
 
 export const mfilelabelsRoutingPath = [
     {path: 'list', component: MfilelabelsListComponent, canActivate: [AuthGuard]},
+    
     
     
     

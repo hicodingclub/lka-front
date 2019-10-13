@@ -24,11 +24,13 @@ export class MfileEditComponent extends MfileComponent implements OnInit {
     public cid: string;//copy id
     @Input()
     public initData: any; //some fields has data already. eg: {a: b}. Used for add
-    @Output() done = new EventEmitter<boolean>();
+    @Output()
+    public done = new EventEmitter<boolean>();
     @Input()
     public embeddedView: boolean;
 
     public action:string;
+    public minDate = {year: (new Date()).getFullYear() - 100, month: 1, day: 1};
 
 
         
@@ -50,6 +52,7 @@ export class MfileEditComponent extends MfileComponent implements OnInit {
 
 
           this.arrayFields = [['labels', 'SchemaString'],];
+
 
 
           

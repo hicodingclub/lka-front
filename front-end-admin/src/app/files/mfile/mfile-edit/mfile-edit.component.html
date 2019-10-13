@@ -1,11 +1,11 @@
 <div class="edit" *ngIf="detail">
-	<div *ngIf="!subEdit" class="action-buttons">
+	<div *ngIf="!embeddedView" class="action-buttons">
         <!-- <a href="javascript:void(0)" (click)="goBack()" ><i class="fas fa-angle-double-left" title="Back"></i></a> -->
 	</div>
 	
 	<div class="card" style="text-align: left;">
 	  <div class="card-body">
-	    <h4 class="card-title" *ngIf="!subEdit">{{action}} Mfile</h4>    
+	    <h4 class="card-title" *ngIf="!embeddedView">{{action}} Mfile</h4>
 	    <form (ngSubmit)="onSubmit()" #editForm="ngForm">
 	    
 	     <div *ngIf="action == 'Edit'">
@@ -23,10 +23,10 @@
                  
                     [(ngModel)]="detail['name']" name="EditName"
                     #EditName="ngModel">
-                <div *ngIf="detail['name']" 
+            <div *ngIf="detail['name']" 
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('name')">
                   <i class="fas fa-times-circle" title="Clear"></i>
-                </div>
+            </div>
           </div>
 
           <div [hidden]="EditName.valid || EditName.pristine || EditName.errors.minlength"
@@ -39,7 +39,8 @@
         </fieldset>
 
     
-</div><div *ngIf="!hiddenFields.includes('labels')">
+</div>
+<div *ngIf="!hiddenFields.includes('labels')">
 
           <fieldset class="form-group">
           <label for="EditLabels">Labels</label>
@@ -98,6 +99,7 @@
         </fieldset>
     
 </div>
+
          </div>	
 	     <div *ngIf="action == 'Create' || action == 'Add' ">
 <div *ngIf="!hiddenFields.includes('name')">
@@ -114,10 +116,10 @@
                  
                     [(ngModel)]="detail['name']" name="EditName"
                     #EditName="ngModel">
-                <div *ngIf="detail['name']" 
+            <div *ngIf="detail['name']" 
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('name')">
                   <i class="fas fa-times-circle" title="Clear"></i>
-                </div>
+            </div>
           </div>
 
           <div [hidden]="EditName.valid || EditName.pristine || EditName.errors.minlength"
@@ -130,7 +132,8 @@
         </fieldset>
 
     
-</div><div *ngIf="!hiddenFields.includes('labels')">
+</div>
+<div *ngIf="!hiddenFields.includes('labels')">
 
           <fieldset class="form-group">
           <label for="EditLabels">Labels</label>
@@ -189,6 +192,7 @@
         </fieldset>
     
 </div>
+
          </div>	
          
 		<div class="action-buttons-center">

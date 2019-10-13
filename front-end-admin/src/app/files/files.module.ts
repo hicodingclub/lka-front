@@ -25,17 +25,27 @@ import { files_server_root_uri } from '../files.conf';
 import { MfileListComponent } from './mfile/mfile-list/mfile-list.component';
 
 
+
+
+import { MfileDetailFieldComponent } from './mfile/mfile-detail/mfile-detail-field.component';
 import { MfileEditComponent } from './mfile/mfile-edit/mfile-edit.component';
+
 import { MfileService } from './mfile/mfile.service';
 
 import { MfilelabelsListComponent } from './mfilelabels/mfilelabels-list/mfilelabels-list.component';
 
 
 
+
+import { MfilelabelsDetailFieldComponent } from './mfilelabels/mfilelabels-detail/mfilelabels-detail-field.component';
+
+
 import { MfilelabelsService } from './mfilelabels/mfilelabels.service';
 
 import { MddsUploadComponent } from './mddsupload.component';
 import { MddsUploadService } from './mddsupload.service';
+
+
 
 @NgModule({
   imports: [
@@ -55,11 +65,19 @@ import { MddsUploadService } from './mddsupload.service';
     MfileListComponent,
     
     
+    
+    
+    MfileDetailFieldComponent,
     MfileEditComponent,
+
     MfilelabelsListComponent,
-    
-    
     MddsUploadComponent,
+    
+    
+    
+    MfilelabelsDetailFieldComponent,
+    
+
 
 
 
@@ -73,11 +91,19 @@ import { MddsUploadService } from './mddsupload.service';
     MfileListComponent,
     
     
-    MfileEditComponent,
-    MfilelabelsListComponent,
     
+    
+    MfileDetailFieldComponent,
+    MfileEditComponent,
+
+    MfilelabelsListComponent,
     MddsUploadComponent,
     
+    
+    
+    MfilelabelsDetailFieldComponent,
+    
+
 
 
   ],
@@ -91,6 +117,7 @@ import { MddsUploadService } from './mddsupload.service';
 
     MddsUploadService,
   ],
-
+  entryComponents: [
+  ]
 })
 export class FilesModule { }

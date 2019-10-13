@@ -61,9 +61,17 @@ tr th:first-child{
   background-color: rgba(0, 0, 0, 0.04);
 }
 .grid-head-picture, .list-head-picture {
-  width: 6rem;
-  height: 6rem;
+  width: 3rem;
+  height: 3rem;
   background-color: #f1f1f1;
+}
+
+@media screen and (min-width: 500px) {
+  .grid-head-picture, .list-head-picture {
+    width: 6rem;
+    height: 6rem;
+    background-color: #f1f1f1;
+  }
 }
 
 .listview {
@@ -85,13 +93,17 @@ tr th:first-child{
 
 .list-card {
   display: flex;
+  flex-flow: wrap;
   align-items: center;
   padding: 0.5rem;
 }
 
 .list-fields {
   display: inline-flex;
-  align-items: center;
+  align-items: flex-start;
+
+  min-width: 300px;
+  max-width: 85%;
 }
 
 .list-body-fields {
@@ -119,6 +131,9 @@ tr th:first-child{
   text-align: right;
   bottom: 0px;
   right: 0.5rem;
+
+  width: 100px;
+  margin-left: auto;
 }
 
 td input, .card-action-icons input {
@@ -288,6 +303,7 @@ margin-left: 1rem;
     
 .add-area {
     margin-left: 0.75rem;
+    margin-top: 1rem;
 }
 
 .badge-click {
@@ -321,6 +337,10 @@ div.badge-click:hover {
   display: none;
 }
 
+.list-title {
+  font-size: 1.5rem;
+}
+
 .sort-selection {
   min-width: 200px;
   position: relative;
@@ -329,6 +349,13 @@ div.badge-click:hover {
 .sort-dropdown {
   width: 100%;
   text-align: left;
+}
+
+.category2-dropdown {
+  width: 250px;
+  text-align: left;
+  font-size: 1.1rem;
+  color: #007bff;
 }
 
 .sort-selection i {
@@ -343,10 +370,17 @@ div.badge-click:hover {
 }
 
 .read-more {
-  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  /*font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;*/
   margin-top: 1rem;
   color: #307bff;
   cursor: pointer;
+}
+.read-more-in-table {
+  /*font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;*/
+  margin-top: 1rem;
+  color: #307bff;
+  cursor: pointer;
+  font-size: 0.75rem;
 }
 
 .no-records {
@@ -354,4 +388,51 @@ div.badge-click:hover {
 
     width: 20rem;
     font-size: 1.25rem;
+}
+
+.list-selection {
+  max-width: 500px;
+  width: 90%;
+}
+
+.modal-back {
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+  height: 100%;
+  min-height: 100vh;
+
+  z-index: 9;
+  background-color:rgba(0,0,0,0.4);
+}
+
+.modal-front {
+  position: relative;
+
+  min-width: 500px;
+  width: 50%;
+
+  left: 50%;
+  transform: translate(-50%, 0);
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.category-nav {
+  background: linear-gradient(180deg, rgba(233,236,239,1) 0%, rgba(233,236,239,0.2) 80%);
+  padding: 1rem 20px 1rem 20px;
+  margin-bottom: 1rem;
+}
+
+.slide-image {
+  left: 50%;
+  transform: translate(-50%, 0);
+  position: relative;
+}
+
+.asso-link {
+  font-style: italic;
+  font-size: 0.8rem;
 }

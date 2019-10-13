@@ -1,0 +1,26 @@
+
+
+		<div *ngIf="detail && showFields.includes('name')">                
+                    {{detail['name']}}
+</div>
+		<div *ngIf="detail && showFields.includes('type')">                
+                    {{detail['type']}}
+</div>
+		<div *ngIf="detail && showFields.includes('labels')">                
+                    <div *ngIf="detail['labels'] && detail['labels']['selection']">
+                        <ng-template ngFor let-element [ngForOf]="detail['labels']['selection']" let-idx="index">
+                            <div class="badge badge-pill badge-secondary">
+                                {{element}}
+                            </div>
+                        </ng-template>
+                    </div>
+</div>
+		<div *ngIf="detail && showFields.includes('size')">                  {{detail['size']}} 
+</div>
+		<div *ngIf="detail && showFields.includes('link')">                
+                    <file-display [downloadUrl]="detail['link']" [isLarge]="false"></file-display>
+</div>
+		<div *ngIf="detail && showFields.includes('uploaded')">                  {{detail['uploaded']?detail['uploaded']['value']:""}}
+</div>
+		<div *ngIf="detail && showFields.includes('hasThumbnail')">                  {{detail['hasThumbnail']}} 
+</div>
