@@ -42,6 +42,7 @@ export class ClassAssoComponent extends ClassComponent implements OnInit {
           this.stringFields.push('title');
           this.stringFields.push('description');
           this.stringFields.push('price');
+          this.stringFields.push('season');
           this.stringFields.push('duration');
           this.stringFields.push('timeSlot');
 

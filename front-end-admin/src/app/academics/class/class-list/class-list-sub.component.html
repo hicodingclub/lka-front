@@ -80,6 +80,9 @@
 		        	Hot
 		        </th>
 		        <th scope="col">
+		        	Season
+		        </th>
+		        <th scope="col">
 		        	Start Time
 		        </th>
 		        <th scope="col">
@@ -125,6 +128,11 @@
 
                 </td>
 	            <td >
+	            	                
+                    {{detail['season']}}
+
+                </td>
+	            <td >
 	            	                  {{detail['startTime']?detail['startTime']['value']:""}}
 
                 </td>
@@ -161,7 +169,7 @@
 	        </tr>
 
 	        <tr *ngIf="checkedItem[i]" >
-	        	<td colspan="8"><app-class-detail-sub [inputData]="detail['_id']"></app-class-detail-sub></td>
+	        	<td colspan="9"><app-class-detail-sub [inputData]="detail['_id']"></app-class-detail-sub></td>
 	        </tr>
 	      </ng-template>
 	    </tbody>

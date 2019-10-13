@@ -163,6 +163,37 @@
 
     
 </div>
+<div *ngIf="!hiddenFields.includes('season')">
+
+        <fieldset class="form-group">
+          <label for="EditSeason">Season</label>
+          
+
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditSeason" 
+                    
+                    
+                    
+                 
+                    [(ngModel)]="detail['season']" name="EditSeason"
+                    #EditSeason="ngModel">
+            <div *ngIf="detail['season']" 
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('season')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+            </div>
+          </div>
+
+          <div [hidden]="EditSeason.valid || EditSeason.pristine || EditSeason.errors.minlength"
+           class="alert alert-danger">
+
+ 
+
+          </div>
+        
+        </fieldset>
+
+    
+</div>
 <div *ngIf="!hiddenFields.includes('startTime')">
 
         <fieldset class="form-group">
@@ -601,6 +632,37 @@
             <div *ngIf="EditPrice.errors && EditPrice.errors.required">
               Price is required.
               </div>
+ 
+
+          </div>
+        
+        </fieldset>
+
+    
+</div>
+<div *ngIf="!hiddenFields.includes('season')">
+
+        <fieldset class="form-group">
+          <label for="EditSeason">Season</label>
+          
+
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditSeason" 
+                    
+                    
+                    
+                 
+                    [(ngModel)]="detail['season']" name="EditSeason"
+                    #EditSeason="ngModel">
+            <div *ngIf="detail['season']" 
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('season')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+            </div>
+          </div>
+
+          <div [hidden]="EditSeason.valid || EditSeason.pristine || EditSeason.errors.minlength"
+           class="alert alert-danger">
+
  
 
           </div>

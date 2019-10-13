@@ -20,7 +20,7 @@
 	              <input type="search" class="form-control border border-secondary" id="classTextSearch" 
 						#classTextSearch [(ngModel)]="searchText"
 						(keyup.enter)="$event.target.blur();searchList();false"
-					    placeholder="Search for title, timeSlot"> 
+					    placeholder="Search for title, season, timeSlot"> 
 				  <div *ngIf="searchText" class="input-group-append icon-clear-inside">
 					<span >
 					    <i class="fas fa-times-circle" (click)="onSearchTextClear()" title="Clear"></i>

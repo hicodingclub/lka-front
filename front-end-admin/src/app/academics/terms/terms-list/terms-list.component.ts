@@ -50,6 +50,9 @@ export class TermsListComponent extends TermsComponent implements OnInit {
 
           this.listViewFilter = 'list';
 
+          const listCategories = [];
+          this.listCategory1 = listCategories[0] || {};
+          this.listCategory2 = listCategories[1] || {};
   }
 
   ngOnInit() {

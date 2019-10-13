@@ -1,6 +1,7 @@
 
 
-<ul *ngIf="categoryBy" class="nav nav-pills category-nav">
+
+<ul *ngIf="listCategory1.listCategoryField" class="nav nav-pills category-nav">
 	<li *ngFor="let ele of categoryDisplays; let idx = index;" class="nav-item" >
 		<a class="nav-link" [ngClass]="{'active': idx === selectedCategory }" [routerLink]="['.']" [queryParamsHandling]="preserve" (click)="categorySelected(idx)">{{ele}}</a>
 	</li>
@@ -17,7 +18,7 @@
 	              <input type="search" class="form-control border border-secondary" id="classTextSearch" 
 						#classTextSearch [(ngModel)]="searchText"
 						(keyup.enter)="$event.target.blur();searchList();false"
-					    placeholder="Search for title, timeSlot"> 
+					    placeholder="Search for title, season, timeSlot"> 
 				  <div *ngIf="searchText" class="input-group-append icon-clear-inside">
 					<span >
 					    <i class="fas fa-times-circle" (click)="onSearchTextClear()" title="Clear"></i>
@@ -356,6 +357,8 @@
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('teacher', 'Instructor', 'desc')">Teacher<i class="fas fa-arrow-down"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('hot', 'Hot', 'asc')">Hot<i class="fas fa-arrow-up"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('hot', 'Hot', 'desc')">Hot<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('season', 'Season', 'asc')">Season<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('season', 'Season', 'desc')">Season<i class="fas fa-arrow-down"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('startTime', 'Start Time', 'asc')">StartTime<i class="fas fa-arrow-up"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('startTime', 'Start Time', 'desc')">StartTime<i class="fas fa-arrow-down"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('endTime', 'End Time', 'asc')">EndTime<i class="fas fa-arrow-up"></i></a>
@@ -467,6 +470,13 @@
 						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
 					</span>
 				</th>
+				<th class="pointer" scope="col" (click)="toggleListSort('season', 'Season')">
+					Season
+					<span *ngIf="listSortField === 'season'">
+						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+					</span>
+				</th>
 				<th class="pointer" scope="col" (click)="toggleListSort('startTime', 'Start Time')">
 					Start Time
 					<span *ngIf="listSortField === 'startTime'">
@@ -519,6 +529,11 @@
 	            </td>
 	            <td >
 	            	                  {{detail['hot']}} 
+
+	            </td>
+	            <td >
+	            	                
+                    {{detail['season']}}
 
 	            </td>
 	            <td >
@@ -590,6 +605,13 @@
         <div *ngIf="detail['hot']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Hot:</label></div>
           <div class="ml-3">                  {{detail['hot']}} 
+
+          </div>
+        </div>
+        <div *ngIf="detail['season']" class="mr-3 d-inline-flex flex-wrap">
+          <div><label>Season:</label></div>
+          <div class="ml-3">                
+                    {{detail['season']}}
 
           </div>
         </div>
@@ -678,6 +700,12 @@
           <div *ngIf="detail['hot']" class="d-flex flex-wrap">
             <div class=""><label>Hot:</label></div>
             <div class="ml-3">                  {{detail['hot']}} 
+</div>
+          </div>
+          <div *ngIf="detail['season']" class="d-flex flex-wrap">
+            <div class=""><label>Season:</label></div>
+            <div class="ml-3">                
+                    {{detail['season']}}
 </div>
           </div>
           <div *ngIf="detail['startTime']" class="d-flex flex-wrap">

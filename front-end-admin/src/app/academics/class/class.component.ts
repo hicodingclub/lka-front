@@ -68,6 +68,7 @@ export class ClassComponent extends BaseComponent {
   this.briefFieldsInfo.push(['course', 'Program']);
   this.briefFieldsInfo.push(['teacher', 'Instructor']);
   this.briefFieldsInfo.push(['hot', 'Hot']);
+  this.briefFieldsInfo.push(['season', 'Season']);
   this.briefFieldsInfo.push(['startTime', 'Start Time']);
   this.briefFieldsInfo.push(['endTime', 'End Time']);
   this.briefFieldsInfo.push(['dayOfWeek', 'Day of Week']);

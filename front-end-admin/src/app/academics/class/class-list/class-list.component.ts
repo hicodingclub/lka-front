@@ -43,6 +43,7 @@ public componentFactoryResolver: ComponentFactoryResolver,
           this.enums['dayOfWeek'] = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun', ];
 
           this.stringFields.push('title');
+          this.stringFields.push('season');
           this.stringFields.push('timeSlot');
 
           this.referenceFields = ['course', 'teacher', ];
@@ -59,6 +60,9 @@ public componentFactoryResolver: ComponentFactoryResolver,
 
           this.listViewFilter = 'table';
 
+          const listCategories = [];
+          this.listCategory1 = listCategories[0] || {};
+          this.listCategory2 = listCategories[1] || {};
   }
 
   ngOnInit() {
