@@ -47,11 +47,13 @@ export class GeneralinfoListComponent extends GeneralinfoComponent implements On
 
 
 
-          this.textareaFields = ['description', ];
 
           this.listViewFilter = 'list';
           this.setListSort('title', 'Title', 'asc');
 
+          const listCategories = [];
+          this.listCategory1 = listCategories[0] || {};
+          this.listCategory2 = listCategories[1] || {};
   }
 
   ngOnInit() {

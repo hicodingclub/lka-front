@@ -302,8 +302,8 @@
 
 		        <th scope="col">Title</th>
 		        <th scope="col">Course</th>
+		        <th scope="col">Season</th>
 		        <th scope="col">Start Time</th>
-		        <th scope="col">End Time</th>
 
 		        <th></th>      
 	        </tr>
@@ -323,10 +323,11 @@
 	              
 
 	            </td>
-	            <td (click)="selectItemSelected(i)"  class="pointer">                  {{detail['startTime']?detail['startTime']['value']:""}}
+	            <td (click)="selectItemSelected(i)"  class="pointer">                
+                    {{detail['season']}}
 
 	            </td>
-	            <td (click)="selectItemSelected(i)"  class="pointer">                  {{detail['endTime']?detail['endTime']['value']:""}}
+	            <td (click)="selectItemSelected(i)"  class="pointer">                  {{detail['startTime']?detail['startTime']['value']:""}}
 
 	            </td>
 

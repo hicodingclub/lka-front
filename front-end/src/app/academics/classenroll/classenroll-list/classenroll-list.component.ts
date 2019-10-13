@@ -58,6 +58,9 @@ public componentFactoryResolver: ComponentFactoryResolver,
           this.listViewFilter = 'table';
           this.setListSort('createdAt', 'Created Time', 'desc');
 
+          const listCategories = [];
+          this.listCategory1 = listCategories[0] || {};
+          this.listCategory2 = listCategories[1] || {};
   }
 
   ngOnInit() {
