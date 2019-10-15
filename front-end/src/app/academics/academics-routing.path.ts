@@ -103,8 +103,8 @@ export const studentRoutingPath = [
 ];
 
 export const teacherRoutingPath = [
-    {path: 'list', component: TeacherListComponent, canActivate: [AuthGuard]},
-    {path: 'detail/:id', component: TeacherDetailComponent, children: teacherDetailPath, canActivate: [AuthGuard]},
+    {path: 'list', component: TeacherListComponent},
+    {path: 'detail/:id', component: TeacherDetailComponent, children: teacherDetailPath},
     
     
     
@@ -112,8 +112,8 @@ export const teacherRoutingPath = [
 ];
 
 export const courseRoutingPath = [
-    {path: 'list', component: CourseListComponent, canActivate: [AuthGuard]},
-    {path: 'detail/:id', component: CourseDetailComponent, children: courseDetailPath, canActivate: [AuthGuard]},
+    {path: 'list', component: CourseListComponent},
+    {path: 'detail/:id', component: CourseDetailComponent, children: courseDetailPath},
     
     
     

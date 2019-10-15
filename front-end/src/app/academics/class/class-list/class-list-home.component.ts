@@ -20,7 +20,8 @@ export class ClassListHomeComponent extends ClassListComponent implements OnInit
       public location: Location) {
         super(null, classService, injector, router, route, location);
         this.per_page = 6;
-        this.categoryBy = undefined; // no do query based on category for home view;
+        this.listCategory1 = {}; // no do query based on category for home view;
+        this.listCategory2 = {}; // no do query based on category for home view;
   }
 
   ngOnInit() {

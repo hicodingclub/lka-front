@@ -20,7 +20,8 @@ export class CourseListHomeComponent extends CourseListComponent implements OnIn
       public location: Location) {
         super( courseService, injector, router, route, location);
         this.per_page = 4;
-        this.categoryBy = undefined; // no do query based on category for home view;
+        this.listCategory1 = {}; // no do query based on category for home view;
+        this.listCategory2 = {}; // no do query based on category for home view;
   }
 
   ngOnInit() {

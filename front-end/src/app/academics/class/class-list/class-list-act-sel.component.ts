@@ -23,7 +23,8 @@ export class ClassListActSelComponent extends ClassListComponent implements OnIn
         this.isDropdownList =  true;
         this.actionType = 'selection';
         this.listViewFilter = 'dropdown';
-        this.categoryBy = undefined; // no do query based on category for select view;
+        this.listCategory1 = {}; // no do query based on category for select view;
+        this.listCategory2 = {}; // no do query based on category for select view;
   }
 
   ngOnInit() {

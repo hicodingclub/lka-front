@@ -23,7 +23,8 @@ export class TeacherListSubComponent extends TeacherListComponent implements OnI
       public location: Location) {
         super(null, teacherService, injector, router, route, location);
 
-        this.categoryBy = undefined; // no do query based on category for sub view;
+        this.listCategory1 = {}; // no do query based on category for sub view;
+        this.listCategory2 = {}; // no do query based on category for sub view;
   }
 
   ngOnInit() {

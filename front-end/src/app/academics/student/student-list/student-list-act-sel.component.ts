@@ -23,7 +23,8 @@ export class StudentListActSelComponent extends StudentListComponent implements 
         
         this.actionType = 'selection';
         this.listViewFilter = 'grid';
-        this.categoryBy = undefined; // no do query based on category for select view;
+        this.listCategory1 = {}; // no do query based on category for select view;
+        this.listCategory2 = {}; // no do query based on category for select view;
   }
 
   ngOnInit() {
