@@ -56,6 +56,7 @@ export class GeneralinfoEditComponent extends GeneralinfoComponent implements On
 
 
 
+          this.textareaFields = ['description', ];
 
           
           let detail = {};

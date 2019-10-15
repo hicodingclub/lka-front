@@ -27,7 +27,8 @@
 		<div class="card-body" [ngStyle]="style['card-body']">
 			<div>
 			  <h4 class="info-description-text" [ngStyle]="style['body-field']">                
-                    {{detail['description']}}
+                    <div [innerHTML]="detail['description']"></div>
+                        
 
 			  </h4>
 			</div>
