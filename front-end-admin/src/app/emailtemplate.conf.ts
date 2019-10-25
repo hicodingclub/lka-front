@@ -20,7 +20,7 @@ export const EmailtemplateRoutes: Routes = [
 ];
 
 export const emailtemplate_server_root_uri:string = "/api/emailtemplate";/*>>> Please check this recent updates and merge with existing ones***
-**Date: Mon Oct 14 2019 22:54:20 GMT-0700 (Pacific Daylight Time)
+**Date: Tue Oct 15 2019 09:24:55 GMT-0700 (Pacific Daylight Time)
 
 import { Routes } from '@angular/router';
 
