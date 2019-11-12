@@ -37,6 +37,8 @@ packages=(
   "mean-rest-angular"
   "mean-rest-angular-cli"
   "mdds-angular-composite"
+  "mdds-angular-action-base",
+  "mdds-angular-action-email",
   "mdds-angular-auth"
   "mdds-angular-file"
   "mdds-express-auth-app"
