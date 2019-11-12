@@ -50,8 +50,6 @@ export class ClassDetailComponent extends ClassComponent implements OnInit, Afte
           this.stringFields.push('timeSlot');
 
           this.referenceFields = ['course', 'teacher', ];
-          this.referenceFieldsMap = {'course': 'course','teacher': 'teacher',};
-          this.referenceFieldsReverseMap = {'course': 'course','teacher': 'teacher',};
 
           this.dateFields = ['startTime', 'endTime', ];
 

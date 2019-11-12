@@ -30,8 +30,6 @@ export class StudentclassDetailFieldComponent extends StudentclassComponent
 
 
           this.referenceFields = ['student', 'class', ];
-          this.referenceFieldsMap = {'student': 'student','class': 'class',};
-          this.referenceFieldsReverseMap = {'student': 'student','class': 'class',};
 
 
 

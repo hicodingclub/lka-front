@@ -47,13 +47,13 @@ export class TeacherComponent extends BaseComponent {
         super(teacherService, injector, router, route, location, view, itemCamelName);
 
         
-  this.briefFieldsInfo = [];
-  this.briefFieldsInfo.push(['firstName', 'First Name']);
-  this.briefFieldsInfo.push(['lastName', 'Last Name']);
-  this.briefFieldsInfo.push(['courses', 'Program']);
-  this.briefFieldsInfo.push(['introduction', 'Introduction']);
-  this.briefFieldsInfo.push(['photo', 'Photo']);
-  
+        this.briefFieldsInfo = [];
+        this.briefFieldsInfo.push(['firstName', 'First Name']);this.briefFieldsInfo.push(['lastName', 'Last Name']);this.briefFieldsInfo.push(['courses', 'Program']);this.briefFieldsInfo.push(['introduction', 'Introduction']);this.briefFieldsInfo.push(['photo', 'Photo']);
+
+
+
+        this.referenceFieldsMap = {'courses': 'course',};
+        this.referenceFieldsReverseMap = {'course': 'courses',};
 
         this.schemaName = 'teacher';
         

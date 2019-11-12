@@ -53,11 +53,13 @@ export class MpermissionComponent extends BaseComponent {
         super(mpermissionService, injector, router, route, location, view, itemCamelName);
 
         
-  this.briefFieldsInfo = [];
-  this.briefFieldsInfo.push(['role', 'Role']);
-  this.briefFieldsInfo.push(['module', 'Module']);
-  this.briefFieldsInfo.push(['modulePermission', 'Module Permission']);
-  
+        this.briefFieldsInfo = [];
+        this.briefFieldsInfo.push(['role', 'Role']);this.briefFieldsInfo.push(['module', 'Module']);this.briefFieldsInfo.push(['modulePermission', 'Module Permission']);
+
+
+
+        this.referenceFieldsMap = {'role': 'mrole','module': 'mmodule',};
+        this.referenceFieldsReverseMap = {'mrole': 'role','mmodule': 'module',};
 
         this.schemaName = 'mpermission';
         

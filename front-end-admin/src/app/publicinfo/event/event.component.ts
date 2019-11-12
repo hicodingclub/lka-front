@@ -27,12 +27,11 @@ export class EventComponent extends BaseComponent {
         super(eventService, injector, router, route, location, view, itemCamelName);
 
         
-  this.briefFieldsInfo = [];
-  this.briefFieldsInfo.push(['signaturePicture', 'Signature Picture']);
-  this.briefFieldsInfo.push(['title', 'Title']);
-  this.briefFieldsInfo.push(['author', 'Author']);
-  this.briefFieldsInfo.push(['publishDate', 'Publish Date']);
-  
+        this.briefFieldsInfo = [];
+        this.briefFieldsInfo.push(['signaturePicture', 'Signature Picture']);this.briefFieldsInfo.push(['title', 'Title']);this.briefFieldsInfo.push(['author', 'Author']);this.briefFieldsInfo.push(['publishDate', 'Publish Date']);
+
+
+
 
         this.schemaName = 'event';
         this.dateFormat = 'MM-DD-YYYY';

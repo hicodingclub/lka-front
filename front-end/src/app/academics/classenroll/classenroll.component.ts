@@ -53,12 +53,13 @@ export class ClassenrollComponent extends BaseComponent {
         super(classenrollService, injector, router, route, location, view, itemCamelName);
 
         
-  this.briefFieldsInfo = [];
-  this.briefFieldsInfo.push(['student', 'Student']);
-  this.briefFieldsInfo.push(['class', 'Class']);
-  this.briefFieldsInfo.push(['status', 'Status']);
-  this.briefFieldsInfo.push(['createdAt', 'Created Time']);
-  
+        this.briefFieldsInfo = [];
+        this.briefFieldsInfo.push(['student', 'Student']);this.briefFieldsInfo.push(['class', 'Class']);this.briefFieldsInfo.push(['status', 'Status']);this.briefFieldsInfo.push(['createdAt', 'Created Time']);
+
+
+
+        this.referenceFieldsMap = {'class': 'class',};
+        this.referenceFieldsReverseMap = {'class': 'class',};
 
         this.schemaName = 'classenroll';
         this.dateFormat = 'MM-DD-YYYY';

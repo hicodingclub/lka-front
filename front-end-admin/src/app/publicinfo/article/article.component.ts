@@ -27,13 +27,11 @@ export class ArticleComponent extends BaseComponent {
         super(articleService, injector, router, route, location, view, itemCamelName);
 
         
-  this.briefFieldsInfo = [];
-  this.briefFieldsInfo.push(['signaturePicture', 'Signature Picture']);
-  this.briefFieldsInfo.push(['title', 'Title']);
-  this.briefFieldsInfo.push(['author', 'Author']);
-  this.briefFieldsInfo.push(['publishDate', 'Publish Date']);
-  this.briefFieldsInfo.push(['category', 'Category']);
-  
+        this.briefFieldsInfo = [];
+        this.briefFieldsInfo.push(['signaturePicture', 'Signature Picture']);this.briefFieldsInfo.push(['title', 'Title']);this.briefFieldsInfo.push(['author', 'Author']);this.briefFieldsInfo.push(['publishDate', 'Publish Date']);this.briefFieldsInfo.push(['category', 'Category']);
+
+
+
 
         this.schemaName = 'article';
         this.dateFormat = 'MM-DD-YYYY';

@@ -53,10 +53,13 @@ export class StudentclassComponent extends BaseComponent {
         super(studentclassService, injector, router, route, location, view, itemCamelName);
 
         
-  this.briefFieldsInfo = [];
-  this.briefFieldsInfo.push(['student', 'Student']);
-  this.briefFieldsInfo.push(['class', 'Class']);
-  
+        this.briefFieldsInfo = [];
+        this.briefFieldsInfo.push(['student', 'Student']);this.briefFieldsInfo.push(['class', 'Class']);
+
+
+
+        this.referenceFieldsMap = {'student': 'student','class': 'class',};
+        this.referenceFieldsReverseMap = {'student': 'student','class': 'class',};
 
         this.schemaName = 'studentclass';
         

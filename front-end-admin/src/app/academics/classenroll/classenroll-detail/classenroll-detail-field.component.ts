@@ -34,8 +34,6 @@ export class ClassenrollDetailFieldComponent extends ClassenrollComponent
           this.stringFields.push('muser_id');
 
           this.referenceFields = ['class', ];
-          this.referenceFieldsMap = {'class': 'class',};
-          this.referenceFieldsReverseMap = {'class': 'class',};
 
           this.dateFields = ['createdAt', 'updatedAt', ];
 

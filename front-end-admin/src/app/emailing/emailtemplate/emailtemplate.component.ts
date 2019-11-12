@@ -27,12 +27,11 @@ export class EmailtemplateComponent extends BaseComponent {
         super(emailtemplateService, injector, router, route, location, view, itemCamelName);
 
         
-  this.briefFieldsInfo = [];
-  this.briefFieldsInfo.push(['templateName', 'Template Name']);
-  this.briefFieldsInfo.push(['fromEmail', 'From Email']);
-  this.briefFieldsInfo.push(['subject', 'Subject']);
-  this.briefFieldsInfo.push(['tag', 'Tag']);
-  
+        this.briefFieldsInfo = [];
+        this.briefFieldsInfo.push(['templateName', 'Template Name']);this.briefFieldsInfo.push(['fromEmail', 'From Email']);this.briefFieldsInfo.push(['subject', 'Subject']);this.briefFieldsInfo.push(['tag', 'Tag']);
+
+
+
 
         this.schemaName = 'emailtemplate';
         

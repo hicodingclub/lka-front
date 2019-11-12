@@ -63,16 +63,13 @@ export class ClassComponent extends BaseComponent {
         super(classService, injector, router, route, location, view, itemCamelName);
 
         
-  this.briefFieldsInfo = [];
-  this.briefFieldsInfo.push(['title', 'Title']);
-  this.briefFieldsInfo.push(['course', 'Course']);
-  this.briefFieldsInfo.push(['season', 'Season']);
-  this.briefFieldsInfo.push(['startTime', 'Start Time']);
-  this.briefFieldsInfo.push(['endTime', 'End Time']);
-  this.briefFieldsInfo.push(['dayOfWeek', 'Day of Week']);
-  this.briefFieldsInfo.push(['timeSlot', 'Time Slot']);
-  this.briefFieldsInfo.push(['enrollTerm', 'Enroll Term']);
-  
+        this.briefFieldsInfo = [];
+        this.briefFieldsInfo.push(['title', 'Title']);this.briefFieldsInfo.push(['course', 'Course']);this.briefFieldsInfo.push(['season', 'Season']);this.briefFieldsInfo.push(['startTime', 'Start Time']);this.briefFieldsInfo.push(['endTime', 'End Time']);this.briefFieldsInfo.push(['dayOfWeek', 'Day of Week']);this.briefFieldsInfo.push(['timeSlot', 'Time Slot']);this.briefFieldsInfo.push(['enrollTerm', 'Enroll Term']);
+
+
+
+        this.referenceFieldsMap = {'course': 'course','enrollTerm': 'terms','teacher': 'teacher',};
+        this.referenceFieldsReverseMap = {'course': 'course','terms': 'enrollTerm','teacher': 'teacher',};
 
         this.schemaName = 'class';
         this.dateFormat = 'MM-DD-YYYY';

@@ -47,8 +47,6 @@ public componentFactoryResolver: ComponentFactoryResolver,
           this.stringFields.push('timeSlot');
 
           this.referenceFields = ['course', 'enrollTerm', ];
-          this.referenceFieldsMap = {'course': 'course','enrollTerm': 'terms',};
-          this.referenceFieldsReverseMap = {'course': 'course','terms': 'enrollTerm',};
 
           this.dateFields = ['startTime', 'endTime', ];
 

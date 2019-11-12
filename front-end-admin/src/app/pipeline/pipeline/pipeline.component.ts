@@ -27,11 +27,11 @@ export class PipelineComponent extends BaseComponent {
         super(pipelineService, injector, router, route, location, view, itemCamelName);
 
         
-  this.briefFieldsInfo = [];
-  this.briefFieldsInfo.push(['category', 'Category']);
-  this.briefFieldsInfo.push(['createdAt', 'Created at']);
-  this.briefFieldsInfo.push(['muser_id', 'Muser Id']);
-  
+        this.briefFieldsInfo = [];
+        this.briefFieldsInfo.push(['category', 'Category']);this.briefFieldsInfo.push(['createdAt', 'Created at']);this.briefFieldsInfo.push(['muser_id', 'Muser Id']);
+
+
+
 
         this.schemaName = 'pipeline';
         this.dateFormat = 'MM-DD-YYYY';

@@ -30,10 +30,11 @@ export class MmoduleComponent extends BaseComponent {
         super(mmoduleService, injector, router, route, location, view, itemCamelName);
 
         
-  this.briefFieldsInfo = [];
-  this.briefFieldsInfo.push(['module', 'Module']);
-  this.briefFieldsInfo.push(['resources', 'Resources']);
-  
+        this.briefFieldsInfo = [];
+        this.briefFieldsInfo.push(['module', 'Module']);this.briefFieldsInfo.push(['resources', 'Resources']);
+
+
+
 
         this.schemaName = 'mmodule';
         

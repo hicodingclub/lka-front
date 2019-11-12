@@ -27,13 +27,11 @@ export class KeynoteComponent extends BaseComponent {
         super(keynoteService, injector, router, route, location, view, itemCamelName);
 
         
-  this.briefFieldsInfo = [];
-  this.briefFieldsInfo.push(['signaturePicture', 'Signature Picture']);
-  this.briefFieldsInfo.push(['title', 'Title']);
-  this.briefFieldsInfo.push(['subtitle', 'Subtitle']);
-  this.briefFieldsInfo.push(['description', 'Description']);
-  this.briefFieldsInfo.push(['tag', 'Tag']);
-  
+        this.briefFieldsInfo = [];
+        this.briefFieldsInfo.push(['signaturePicture', 'Signature Picture']);this.briefFieldsInfo.push(['title', 'Title']);this.briefFieldsInfo.push(['subtitle', 'Subtitle']);this.briefFieldsInfo.push(['description', 'Description']);this.briefFieldsInfo.push(['tag', 'Tag']);
+
+
+
 
         this.schemaName = 'keynote';
         

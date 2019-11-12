@@ -30,9 +30,11 @@ export class TermsComponent extends BaseComponent {
         super(termsService, injector, router, route, location, view, itemCamelName);
 
         
-  this.briefFieldsInfo = [];
-  this.briefFieldsInfo.push(['name', 'Name']);
-  
+        this.briefFieldsInfo = [];
+        this.briefFieldsInfo.push(['name', 'Name']);
+
+
+
 
         this.schemaName = 'terms';
         

@@ -42,8 +42,6 @@ public componentFactoryResolver: ComponentFactoryResolver,
           this.stringFields.push('status');
 
           this.referenceFields = ['class', ];
-          this.referenceFieldsMap = {'class': 'class',};
-          this.referenceFieldsReverseMap = {'class': 'class',};
 
           this.dateFields = ['createdAt', ];
 

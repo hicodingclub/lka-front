@@ -30,10 +30,11 @@ export class MpubmoduleComponent extends BaseComponent {
         super(mpubmoduleService, injector, router, route, location, view, itemCamelName);
 
         
-  this.briefFieldsInfo = [];
-  this.briefFieldsInfo.push(['module', 'Module']);
-  this.briefFieldsInfo.push(['resources', 'Resources']);
-  
+        this.briefFieldsInfo = [];
+        this.briefFieldsInfo.push(['module', 'Module']);this.briefFieldsInfo.push(['resources', 'Resources']);
+
+
+
 
         this.schemaName = 'mpubmodule';
         

@@ -48,8 +48,6 @@ export class StudentclassEditComponent extends StudentclassComponent implements 
 
 
           this.referenceFields = ['student', 'class', ];
-          this.referenceFieldsMap = {'student': 'student','class': 'class',};
-          this.referenceFieldsReverseMap = {'student': 'student','class': 'class',};
 
 
 

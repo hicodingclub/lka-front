@@ -39,8 +39,6 @@ public componentFactoryResolver: ComponentFactoryResolver,
 
 
           this.referenceFields = ['account', ];
-          this.referenceFieldsMap = {'account': 'maccount',};
-          this.referenceFieldsReverseMap = {'maccount': 'account',};
 
 
 

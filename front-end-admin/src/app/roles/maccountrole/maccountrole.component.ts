@@ -53,10 +53,13 @@ export class MaccountroleComponent extends BaseComponent {
         super(maccountroleService, injector, router, route, location, view, itemCamelName);
 
         
-  this.briefFieldsInfo = [];
-  this.briefFieldsInfo.push(['account', 'Account']);
-  this.briefFieldsInfo.push(['role', 'Role']);
-  
+        this.briefFieldsInfo = [];
+        this.briefFieldsInfo.push(['account', 'Account']);this.briefFieldsInfo.push(['role', 'Role']);
+
+
+
+        this.referenceFieldsMap = {'account': 'maccount',};
+        this.referenceFieldsReverseMap = {'maccount': 'account',};
 
         this.schemaName = 'maccountrole';
         

@@ -30,10 +30,11 @@ export class MroleComponent extends BaseComponent {
         super(mroleService, injector, router, route, location, view, itemCamelName);
 
         
-  this.briefFieldsInfo = [];
-  this.briefFieldsInfo.push(['role', 'Role']);
-  this.briefFieldsInfo.push(['description', 'Description']);
-  
+        this.briefFieldsInfo = [];
+        this.briefFieldsInfo.push(['role', 'Role']);this.briefFieldsInfo.push(['description', 'Description']);
+
+
+
 
         this.schemaName = 'mrole';
         

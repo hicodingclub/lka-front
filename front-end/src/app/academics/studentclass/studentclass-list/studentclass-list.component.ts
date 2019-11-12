@@ -39,8 +39,6 @@ public componentFactoryResolver: ComponentFactoryResolver,
 
 
           this.referenceFields = ['student', 'class', ];
-          this.referenceFieldsMap = {'student': 'student','class': 'class',};
-          this.referenceFieldsReverseMap = {'student': 'student','class': 'class',};
 
 
 

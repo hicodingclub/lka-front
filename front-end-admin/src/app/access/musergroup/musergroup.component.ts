@@ -30,10 +30,11 @@ export class MusergroupComponent extends BaseComponent {
         super(musergroupService, injector, router, route, location, view, itemCamelName);
 
         
-  this.briefFieldsInfo = [];
-  this.briefFieldsInfo.push(['group', 'Group']);
-  this.briefFieldsInfo.push(['description', 'Description']);
-  
+        this.briefFieldsInfo = [];
+        this.briefFieldsInfo.push(['group', 'Group']);this.briefFieldsInfo.push(['description', 'Description']);
+
+
+
 
         this.schemaName = 'musergroup';
         

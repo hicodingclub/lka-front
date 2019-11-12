@@ -53,11 +53,13 @@ export class MpubaccessComponent extends BaseComponent {
         super(mpubaccessService, injector, router, route, location, view, itemCamelName);
 
         
-  this.briefFieldsInfo = [];
-  this.briefFieldsInfo.push(['group', 'Group']);
-  this.briefFieldsInfo.push(['module', 'Module']);
-  this.briefFieldsInfo.push(['modulePermission', 'Module Permission']);
-  
+        this.briefFieldsInfo = [];
+        this.briefFieldsInfo.push(['group', 'Group']);this.briefFieldsInfo.push(['module', 'Module']);this.briefFieldsInfo.push(['modulePermission', 'Module Permission']);
+
+
+
+        this.referenceFieldsMap = {'group': 'musergroup','module': 'mpubmodule',};
+        this.referenceFieldsReverseMap = {'musergroup': 'group','mpubmodule': 'module',};
 
         this.schemaName = 'mpubaccess';
         

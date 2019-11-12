@@ -43,8 +43,6 @@ export class ClassenrollDetailComponent extends ClassenrollComponent implements 
           this.stringFields.push('notes');
 
           this.referenceFields = ['class', ];
-          this.referenceFieldsMap = {'class': 'class',};
-          this.referenceFieldsReverseMap = {'class': 'class',};
 
           this.dateFields = ['createdAt', ];
 

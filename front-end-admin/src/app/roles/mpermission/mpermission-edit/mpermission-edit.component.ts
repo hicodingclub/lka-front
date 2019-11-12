@@ -49,8 +49,6 @@ export class MpermissionEditComponent extends MpermissionComponent implements On
           this.stringFields.push('modulePermission');
 
           this.referenceFields = ['role', 'module', ];
-          this.referenceFieldsMap = {'role': 'mrole','module': 'mmodule',};
-          this.referenceFieldsReverseMap = {'mrole': 'role','mmodule': 'module',};
 
 
           this.mapFields = [

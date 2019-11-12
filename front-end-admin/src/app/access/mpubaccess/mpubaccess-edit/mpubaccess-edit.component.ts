@@ -49,8 +49,6 @@ export class MpubaccessEditComponent extends MpubaccessComponent implements OnIn
           this.stringFields.push('modulePermission');
 
           this.referenceFields = ['group', 'module', ];
-          this.referenceFieldsMap = {'group': 'musergroup','module': 'mpubmodule',};
-          this.referenceFieldsReverseMap = {'musergroup': 'group','mpubmodule': 'module',};
 
 
           this.mapFields = [

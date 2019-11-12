@@ -30,13 +30,11 @@ export class MaccountComponent extends BaseComponent {
         super(maccountService, injector, router, route, location, view, itemCamelName);
 
         
-  this.briefFieldsInfo = [];
-  this.briefFieldsInfo.push(['username', 'Username']);
-  this.briefFieldsInfo.push(['email', 'Email']);
-  this.briefFieldsInfo.push(['phone', 'Phone']);
-  this.briefFieldsInfo.push(['since', 'Since']);
-  this.briefFieldsInfo.push(['status', 'Status']);
-  
+        this.briefFieldsInfo = [];
+        this.briefFieldsInfo.push(['username', 'Username']);this.briefFieldsInfo.push(['email', 'Email']);this.briefFieldsInfo.push(['phone', 'Phone']);this.briefFieldsInfo.push(['since', 'Since']);this.briefFieldsInfo.push(['status', 'Status']);
+
+
+
 
         this.schemaName = 'maccount';
         this.dateFormat = 'MM-DD-YYYY';

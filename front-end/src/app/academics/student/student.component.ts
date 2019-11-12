@@ -30,13 +30,11 @@ export class StudentComponent extends BaseComponent {
         super(studentService, injector, router, route, location, view, itemCamelName);
 
         
-  this.briefFieldsInfo = [];
-  this.briefFieldsInfo.push(['first_name', 'First Name']);
-  this.briefFieldsInfo.push(['last_name', 'Last Name']);
-  this.briefFieldsInfo.push(['email', 'Email']);
-  this.briefFieldsInfo.push(['phoneNumber', 'Phone Number']);
-  this.briefFieldsInfo.push(['grade', 'Grade']);
-  
+        this.briefFieldsInfo = [];
+        this.briefFieldsInfo.push(['first_name', 'First Name']);this.briefFieldsInfo.push(['last_name', 'Last Name']);this.briefFieldsInfo.push(['email', 'Email']);this.briefFieldsInfo.push(['phoneNumber', 'Phone Number']);this.briefFieldsInfo.push(['grade', 'Grade']);
+
+
+
 
         this.schemaName = 'student';
         this.dateFormat = 'MM-DD-YYYY';

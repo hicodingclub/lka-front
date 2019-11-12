@@ -40,8 +40,6 @@ public componentFactoryResolver: ComponentFactoryResolver,
           this.stringFields.push('modulePermission');
 
           this.referenceFields = ['group', 'module', ];
-          this.referenceFieldsMap = {'group': 'musergroup','module': 'mpubmodule',};
-          this.referenceFieldsReverseMap = {'musergroup': 'group','mpubmodule': 'module',};
 
 
 

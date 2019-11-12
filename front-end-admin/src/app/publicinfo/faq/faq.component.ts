@@ -27,12 +27,11 @@ export class FaqComponent extends BaseComponent {
         super(faqService, injector, router, route, location, view, itemCamelName);
 
         
-  this.briefFieldsInfo = [];
-  this.briefFieldsInfo.push(['question', 'Question']);
-  this.briefFieldsInfo.push(['answer', 'Answer']);
-  this.briefFieldsInfo.push(['order', 'Order']);
-  this.briefFieldsInfo.push(['enable', 'Enable']);
-  
+        this.briefFieldsInfo = [];
+        this.briefFieldsInfo.push(['question', 'Question']);this.briefFieldsInfo.push(['answer', 'Answer']);this.briefFieldsInfo.push(['order', 'Order']);this.briefFieldsInfo.push(['enable', 'Enable']);
+
+
+
 
         this.schemaName = 'faq';
         

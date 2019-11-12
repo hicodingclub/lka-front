@@ -49,8 +49,6 @@ export class ClassenrollEditComponent extends ClassenrollComponent implements On
           this.stringFields.push('notes');
 
           this.referenceFields = ['class', ];
-          this.referenceFieldsMap = {'class': 'class',};
-          this.referenceFieldsReverseMap = {'class': 'class',};
 
 
 

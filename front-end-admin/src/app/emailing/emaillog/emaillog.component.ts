@@ -27,14 +27,11 @@ export class EmaillogComponent extends BaseComponent {
         super(emaillogService, injector, router, route, location, view, itemCamelName);
 
         
-  this.briefFieldsInfo = [];
-  this.briefFieldsInfo.push(['to', 'To']);
-  this.briefFieldsInfo.push(['module', 'Module']);
-  this.briefFieldsInfo.push(['reason', 'Reason']);
-  this.briefFieldsInfo.push(['result', 'Result']);
-  this.briefFieldsInfo.push(['userId', 'User Id']);
-  this.briefFieldsInfo.push(['createdAt', 'Created at']);
-  
+        this.briefFieldsInfo = [];
+        this.briefFieldsInfo.push(['to', 'To']);this.briefFieldsInfo.push(['module', 'Module']);this.briefFieldsInfo.push(['reason', 'Reason']);this.briefFieldsInfo.push(['result', 'Result']);this.briefFieldsInfo.push(['userId', 'User Id']);this.briefFieldsInfo.push(['createdAt', 'Created at']);
+
+
+
 
         this.schemaName = 'emaillog';
         this.dateFormat = 'MM-DD-YYYY';

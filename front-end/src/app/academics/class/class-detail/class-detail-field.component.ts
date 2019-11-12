@@ -37,8 +37,6 @@ export class ClassDetailFieldComponent extends ClassComponent
           this.stringFields.push('timeSlot');
 
           this.referenceFields = ['course', 'teacher', ];
-          this.referenceFieldsMap = {'course': 'course','teacher': 'teacher',};
-          this.referenceFieldsReverseMap = {'course': 'course','teacher': 'teacher',};
 
           this.dateFields = ['startTime', 'endTime', ];
 

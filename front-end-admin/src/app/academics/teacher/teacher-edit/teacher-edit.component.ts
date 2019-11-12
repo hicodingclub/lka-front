@@ -54,8 +54,6 @@ export class TeacherEditComponent extends TeacherComponent implements OnInit {
           this.stringFields.push('photo');
 
           this.referenceFields = ['courses', ];
-          this.referenceFieldsMap = {'courses': 'course',};
-          this.referenceFieldsReverseMap = {'course': 'courses',};
 
 
 

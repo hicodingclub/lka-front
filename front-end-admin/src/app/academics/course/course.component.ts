@@ -30,10 +30,11 @@ export class CourseComponent extends BaseComponent {
         super(courseService, injector, router, route, location, view, itemCamelName);
 
         
-  this.briefFieldsInfo = [];
-  this.briefFieldsInfo.push(['title', 'Title']);
-  this.briefFieldsInfo.push(['description', 'Description']);
-  
+        this.briefFieldsInfo = [];
+        this.briefFieldsInfo.push(['title', 'Title']);this.briefFieldsInfo.push(['description', 'Description']);
+
+
+
 
         this.schemaName = 'course';
         

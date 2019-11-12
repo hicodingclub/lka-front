@@ -36,8 +36,6 @@ export class TeacherDetailFieldComponent extends TeacherComponent
           this.stringFields.push('photo');
 
           this.referenceFields = ['courses', ];
-          this.referenceFieldsMap = {'courses': 'course',};
-          this.referenceFieldsReverseMap = {'course': 'courses',};
 
 
 
