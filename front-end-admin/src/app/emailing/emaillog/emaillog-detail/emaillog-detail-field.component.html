@@ -1,0 +1,31 @@
+
+
+		<div *ngIf="detail && showFields.includes('from')">                
+                    {{detail['from']}}
+</div>
+		<div *ngIf="detail && showFields.includes('to')">                
+                    {{detail['to']}}
+</div>
+		<div *ngIf="detail && showFields.includes('subject')">                
+                    {{detail['subject']}}
+</div>
+		<div *ngIf="detail && showFields.includes('content')">                 
+                    <div mra-richtext-show="emaillogDetailContent" [content]="detail['content']"></div>
+</div>
+		<div *ngIf="detail && showFields.includes('template')">                
+                    {{detail['template']}}
+</div>
+		<div *ngIf="detail && showFields.includes('module')">                
+                    {{detail['module']}}
+</div>
+		<div *ngIf="detail && showFields.includes('reason')">                
+                    {{detail['reason']}}
+</div>
+		<div *ngIf="detail && showFields.includes('result')">                
+                    {{detail['result']}}
+</div>
+		<div *ngIf="detail && showFields.includes('userId')">                
+                    {{detail['userId']}}
+</div>
+		<div *ngIf="detail && showFields.includes('createdAt')">                  {{detail['createdAt']?detail['createdAt']['value']:""}}
+</div>

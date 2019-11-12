@@ -10,7 +10,7 @@ import { AcademicsModule } from './academics/academics.module';
 import { PublicinfoModule } from './publicinfo/publicinfo.module';
 import { AccessModule } from './access/access.module';
 import { FilesModule } from './files/files.module';
-import { EmailtemplateModule } from './emailtemplate/emailtemplate.module';
+import { EmailingModule } from './emailing/emailing.module';
 import { PipelineModule } from './pipeline/pipeline.module';
 
 import { AuthenticationModule, AUTHENTICATION_DROPDOWN_ITEMS, AUTHENTICATION_LOGIN_PIPELINE } from 'mdds-angular-auth';
@@ -36,7 +36,7 @@ import { file_upload_uri, file_download_uri } from './file-upload.config';
     PublicinfoModule,
     AccessModule,
     FilesModule,
-    EmailtemplateModule,
+    EmailingModule,
     PipelineModule,
   ],
   providers: [

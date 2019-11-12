@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
+import { NgbModule, NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
+import { MraNgbDateFormatterService } from './emailing.directive';
 
 
 
@@ -10,12 +12,12 @@ import { FormsModule } from '@angular/forms';
 
 import { MraModule } from 'mean-rest-angular';
 
-import { EmailtemplateRoutingModule } from './emailtemplate-routing.module';
-import { EmailtemplateComponent } from './emailtemplate.component';
+import { EmailingRoutingModule } from './emailing-routing.module';
+import { EmailingComponent } from './emailing.component';
 
 
-import { Emailtemplate_SERVER_ROOT_URI } from './emailtemplate.tokens';
-import { emailtemplate_server_root_uri } from '../emailtemplate.conf';
+import { Emailing_SERVER_ROOT_URI } from './emailing.tokens';
+import { emailing_server_root_uri } from '../emailing.conf';
 
 // Import components for each schema
 
@@ -29,6 +31,16 @@ import { EmailtemplateEditComponent } from './emailtemplate/emailtemplate-edit/e
 
 import { EmailtemplateService } from './emailtemplate/emailtemplate.service';
 
+import { EmaillogListComponent } from './emaillog/emaillog-list/emaillog-list.component';
+
+
+
+import { EmaillogDetailComponent } from './emaillog/emaillog-detail/emaillog-detail.component';
+import { EmaillogDetailFieldComponent } from './emaillog/emaillog-detail/emaillog-detail-field.component';
+
+
+import { EmaillogService } from './emaillog/emaillog.service';
+
 
 
 
@@ -38,12 +50,13 @@ import { EmailtemplateService } from './emailtemplate/emailtemplate.service';
     CommonModule,
     HttpClientModule,
     FormsModule,
+    NgbModule,
     MraModule,
 
-    EmailtemplateRoutingModule
+    EmailingRoutingModule
   ],
   declarations: [
-    EmailtemplateComponent,
+    EmailingComponent,
     
 
     EmailtemplateListComponent,
@@ -53,6 +66,14 @@ import { EmailtemplateService } from './emailtemplate/emailtemplate.service';
     EmailtemplateDetailComponent,
 EmailtemplateDetailFieldComponent,
     EmailtemplateEditComponent,
+
+    EmaillogListComponent,
+    
+    
+    
+    EmaillogDetailComponent,
+EmaillogDetailFieldComponent,
+    
 
 
 
@@ -62,7 +83,7 @@ EmailtemplateDetailFieldComponent,
 
   ],
   exports: [
-    EmailtemplateComponent,
+    EmailingComponent,
 
     EmailtemplateListComponent,
     
@@ -72,16 +93,26 @@ EmailtemplateDetailFieldComponent,
 EmailtemplateDetailFieldComponent,
     EmailtemplateEditComponent,
 
+    EmaillogListComponent,
+    
+    
+    
+    EmaillogDetailComponent,
+EmaillogDetailFieldComponent,
+    
+
 
 
   ],
   providers: [
-    { provide: Emailtemplate_SERVER_ROOT_URI, useValue: emailtemplate_server_root_uri },
+    { provide: Emailing_SERVER_ROOT_URI, useValue: emailing_server_root_uri },
 
+    {provide: NgbDateParserFormatter, useClass: MraNgbDateFormatterService},
 
     EmailtemplateService,
+    EmaillogService,
   ],
   entryComponents: [EmailtemplateEditComponent,
   ]
 })
-export class EmailtemplateModule { }
+export class EmailingModule { }

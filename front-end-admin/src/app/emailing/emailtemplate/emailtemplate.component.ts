@@ -36,7 +36,7 @@ export class EmailtemplateComponent extends BaseComponent {
 
         this.schemaName = 'emailtemplate';
         
-        this.modulePath = 'emailtemplate';
+        this.modulePath = 'emailing';
         this.indexFields = ['templateName', ];
     }
 }
