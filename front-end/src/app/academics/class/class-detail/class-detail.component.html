@@ -1,16 +1,16 @@
 
-<div class="mt-4 mb-4">
+<div class="mt-4 mb-4" *ngIf="!options['disableTitle']">
 	<h3>Class</h3>
 </div>
 <div class="detail" *ngIf="detail">
-<div *ngIf="!disableActionButtions" class="action-buttons">
+	<div *ngIf="!options['disableActionButtions']"><div *ngIf="!disableActionButtions" class="action-buttons">
     <!--<a href="javascript:void(0)" (click)="goBack()"><i class="fas fa-angle-double-left" title="Back"></i></a>-->
     <a [routerLink]="['../../list' ]"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
     
     
     
 </div>
-
+</div>
 	<div class="card text-left transparent-border ">
 		<div class="grid-fields">
 
@@ -102,18 +102,18 @@
 
 		</div>
 	</div>
-
+	<div *ngIf="!options['disablePipeline']">
     <br/>
     <div class="row justify-content-center">
         <button type="button" class="btn btn-primary" routerLink="/actions/enroll" [queryParams]="{class: detail['_id']}">Enroll</button>
     </div>
-
-
+</div>
+	<div *ngIf="!options['disableRefLink']">
     <br/>
     <ul class="nav nav-tabs">
         
     </ul>
     <router-outlet></router-outlet>
-
+</div>
 </div>
 

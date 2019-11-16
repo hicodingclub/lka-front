@@ -25,6 +25,8 @@ export class CourseDetailComponent extends CourseComponent implements OnInit, Af
   public disableActionButtions:boolean;
   @Input()
   public style: any; // {}
+  @Input()
+  public options: any; // {} uiOptions
 
 
   @ViewChildren(MraRichTextShowDirective) textEditors: QueryList<MraRichTextShowDirective>;
@@ -53,6 +55,7 @@ export class CourseDetailComponent extends CourseComponent implements OnInit, Af
 
   ngOnInit() {
       this.style = this.style || {};
+      this.options = this.options || {};
       if (!this.id) this.id = this.route.snapshot.paramMap.get('id');
       if (this.id) {
         this.populateDetail(this.id);

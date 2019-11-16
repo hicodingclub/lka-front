@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { compositeStep, compositeStepConfig, submitComponent } from 'mdds-angular-composite';
 
+import { ClassDetailComponent } from '../academics/class/class-detail/class-detail.component';
 import { ClassListActSelComponent } from '../academics/class/class-list/class-list-act-sel.component';
 import { StudentListActSelComponent } from '../academics/student/student-list/student-list-act-sel.component';
 import { TermsDetailComponent } from '../academics/terms/terms-detail/terms-detail.component';
@@ -45,7 +46,7 @@ export class EnrollComponent implements OnInit {
     this.title = 'Class Enrollment';
     this.compositeSteps = [
       {
-        stepName: "Select class",
+        stepName: "Selected class",
         errorMessage: 'Please select a class.',
       },
       {
@@ -59,14 +60,19 @@ export class EnrollComponent implements OnInit {
     ];
     this.compositeStepConfigs = [
       {
-        stepTitle: 'Please select a class to enroll',
+        stepTitle: 'This is the selected class to enroll',
 
-        stepComponent: ClassListActSelComponent,
+        stepComponent: ClassDetailComponent,
         mandatory: true,
         preSelectedId: classId,
         multiSelect: false,
 
-        disableActionButtions: true,
+        options: {
+          disableActionButtions: true,
+          disablePipeline: true,
+          disableTitle: true,
+        },
+        id: classId,
         searchObj: {},
         submitFieldName: 'class',
       },
@@ -78,7 +84,8 @@ export class EnrollComponent implements OnInit {
         preSelectedId: undefined,
         multiSelect: true,
 
-        disableActionButtions: true,
+        options: {disableActionButtions: true},
+        id: undefined,
         searchObj: {},
         submitFieldName: 'student',
       },
@@ -89,7 +96,8 @@ export class EnrollComponent implements OnInit {
         mandatory: true,
         preSelectedId: undefined,
         multiSelect: false,
-        disableActionButtions: true,
+        options: {disableActionButtions: true},
+        id: undefined,
         searchObj: {'tag': 'class-enroll'},
         submitFieldName: 'ack',
       },
@@ -100,21 +108,26 @@ export class EnrollComponent implements OnInit {
   onComponentEvents(message: any) {
     let classDetails;
     let reloadTerm: boolean = false;
-    if (message.stepIndex === 0 && message.message.type === 'selection') {
-      classDetails = message.message.result[0];
-      reloadTerm = true;
-    } else if (message.stepIndex === 0 && message.message.type === 'list') {
-      if (this.intialClassId) {
-        const classLists = message.message.result.filter(x => x._id === this.intialClassId);
-        classDetails = classLists[0]
+    if (message.stepIndex === 0) {
+      if (message.message.type === 'selection') {
+        classDetails = message.message.result[0];
+        reloadTerm = true;
+      } else if (message.message.type === 'list') {
+        if (this.intialClassId) {
+          const classLists = message.message.result.filter(x => x._id === this.intialClassId);
+          classDetails = classLists[0]
+          reloadTerm = true;
+        }
+      } else if (message.message.type === 'detail') {
+        classDetails = message.message.result;
         reloadTerm = true;
       }
     }
 
     if (reloadTerm) {
-      let searchObj;
+      let id, searchObj;
       if (classDetails && classDetails.enrollTerm) {
-        searchObj = {'_id': classDetails.enrollTerm._id};
+        id = classDetails.enrollTerm._id;
       } else {
         searchObj = {'tag': 'class-enroll'};
       }
@@ -125,8 +138,9 @@ export class EnrollComponent implements OnInit {
         mandatory: true,
         preSelectedId: undefined,
         multiSelect: false,
-        disableActionButtions: true,
+        options: {disableActionButtions: true},
         //searchObj: {'_id': classId},
+        id,
         searchObj,
         submitFieldName: 'ack',
       };

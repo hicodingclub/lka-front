@@ -1,16 +1,16 @@
 
-<div class="mt-4 mb-4">
+<div class="mt-4 mb-4" *ngIf="!options['disableTitle']">
 	<h3>Program</h3>
 </div>
 <div class="detail" *ngIf="detail">
-<div *ngIf="!disableActionButtions" class="action-buttons">
+	<div *ngIf="!options['disableActionButtions']"><div *ngIf="!disableActionButtions" class="action-buttons">
     <!--<a href="javascript:void(0)" (click)="goBack()"><i class="fas fa-angle-double-left" title="Back"></i></a>-->
     <a [routerLink]="['../../list' ]"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
     
     
     
 </div>
-
+</div>
 	<div class="card text-left transparent-border ">
 		<div class="grid-fields">
 
@@ -38,9 +38,9 @@
 
 		</div>
 	</div>
-
-
-
+	<div *ngIf="!options['disablePipeline']">
+</div>
+	<div *ngIf="!options['disableRefLink']">
     <br/>
     <ul class="nav nav-tabs">
         <li class="nav-item">
@@ -49,6 +49,6 @@
         </li>
     </ul>
     <router-outlet></router-outlet>
-
+</div>
 </div>
 

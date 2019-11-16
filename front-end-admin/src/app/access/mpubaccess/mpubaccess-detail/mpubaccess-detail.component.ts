@@ -24,6 +24,8 @@ export class MpubaccessDetailComponent extends MpubaccessComponent implements On
   public disableActionButtions:boolean;
   @Input()
   public style: any; // {}
+  @Input()
+  public options: any; // {} uiOptions
 
 
 
@@ -54,6 +56,7 @@ export class MpubaccessDetailComponent extends MpubaccessComponent implements On
 
   ngOnInit() {
       this.style = this.style || {};
+      this.options = this.options || {};
       if (!this.id) this.id = this.route.snapshot.paramMap.get('id');
       if (this.id) {
         this.populateDetail(this.id);
