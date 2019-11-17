@@ -12,7 +12,7 @@ import { EventService } from '../event.service';
 
 
 import { QueryList, ViewChildren } from '@angular/core';
-import { MraRichTextSelectDirective } from 'mean-rest-angular';
+import { MraRichTextSelectDirective } from '@hicoder/angular-core';
 
 @Component({
   selector: 'app-event-edit',
@@ -55,6 +55,7 @@ export class EventEditComponent extends EventComponent implements OnInit {
           this.stringFields.push('author');
           this.stringFields.push('content');
           this.stringFields.push('signaturePicture');
+
 
 
 

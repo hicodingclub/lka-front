@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
-import { BaseComponent, ViewType } from 'mean-rest-angular';
+import { BaseComponent, ViewType } from '@hicoder/angular-core';
 import { Injector } from '@angular/core';
 import { EmaillogService } from './emaillog.service';
 
@@ -29,6 +29,7 @@ export class EmaillogComponent extends BaseComponent {
         
         this.briefFieldsInfo = [];
         this.briefFieldsInfo.push(['to', 'To']);this.briefFieldsInfo.push(['module', 'Module']);this.briefFieldsInfo.push(['reason', 'Reason']);this.briefFieldsInfo.push(['result', 'Result']);this.briefFieldsInfo.push(['userId', 'User Id']);this.briefFieldsInfo.push(['createdAt', 'Created at']);
+
 
 
 

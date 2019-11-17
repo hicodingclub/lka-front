@@ -13,7 +13,7 @@ import { ClassService } from '../class.service';
 import { ComponentFactoryResolver } from '@angular/core';
 
 import { QueryList, ViewChildren } from '@angular/core';
-import { MraRichTextSelectDirective } from 'mean-rest-angular';
+import { MraRichTextSelectDirective } from '@hicoder/angular-core';
 
 @Component({
   selector: 'app-class-edit',
@@ -66,6 +66,7 @@ export class ClassEditComponent extends ClassComponent implements OnInit {
 
 
           this.multiSelectionFields = ['dayOfWeek', ];
+
 
 
 

@@ -40,6 +40,7 @@ export class EventDetailFieldComponent extends EventComponent
 
 
 
+
     }
 
     ngOnInit() {

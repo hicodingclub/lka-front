@@ -55,6 +55,7 @@ export class MmoduleEditComponent extends MmoduleComponent implements OnInit {
 
 
 
+
           
           let detail = {};
           this.detail = this.formatDetail(detail);

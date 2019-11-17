@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { compositeStep, compositeStepConfig, submitComponent } from 'mdds-angular-composite';
+import { compositeStep, compositeStepConfig, submitComponent } from '@hicoder/angular-composite';
 
 import { ClassDetailComponent } from '../academics/class/class-detail/class-detail.component';
 import { ClassListActSelComponent } from '../academics/class/class-list/class-list-act-sel.component';
@@ -9,7 +9,7 @@ import { StudentListActSelComponent } from '../academics/student/student-list/st
 import { TermsDetailComponent } from '../academics/terms/terms-detail/terms-detail.component';
 
 import { ClassenrollEditComponent } from '../academics/classenroll/classenroll-edit/classenroll-edit.component'
-import { CompositeComponent } from 'mdds-angular-composite'
+import { CompositeComponent } from '@hicoder/angular-composite'
 @Component({
   selector: 'app-enroll',
   templateUrl: './enroll.component.html',

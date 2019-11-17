@@ -39,6 +39,7 @@ export class MaccountroleDetailFieldComponent extends MaccountroleComponent
           this.referenceFieldsReverseMap['mrole'] = 'role';
 
 
+
     }
 
     ngOnInit() {

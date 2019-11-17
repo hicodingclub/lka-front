@@ -49,6 +49,7 @@ export class GeneralinfoListComponent extends GeneralinfoComponent implements On
 
           this.textareaFields = ['description', ];
 
+
           this.listViewFilter = 'list';
           this.setListSort('title', 'Title', 'asc');
 

@@ -9,9 +9,9 @@ import { MraNgbDateFormatterService } from './files.directive';
 
 
 
-import { FileUploadModule } from 'mdds-angular-file';
+import { FileUploadModule } from '@hicoder/angular-file';
 
-import { MraModule } from 'mean-rest-angular';
+import { MraModule } from '@hicoder/angular-core';
 
 import { FilesRoutingModule } from './files-routing.module';
 import { FilesComponent } from './files.component';

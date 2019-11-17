@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
-import { BaseComponent, ViewType } from 'mean-rest-angular';
+import { BaseComponent, ViewType } from '@hicoder/angular-core';
 import { Injector } from '@angular/core';
 import { ClassenrollService } from './classenroll.service';
 
@@ -60,6 +60,7 @@ export class ClassenrollComponent extends BaseComponent {
 
         this.referenceFieldsMap = {'class': 'class',};
         this.referenceFieldsReverseMap = {'class': 'class',};
+
 
         this.schemaName = 'classenroll';
         this.dateFormat = 'MM-DD-YYYY';

@@ -16,7 +16,7 @@ import { MpubaccessEditComponent } from './mpubaccess/mpubaccess-edit/mpubaccess
 import { MpubaccessListSubComponent } from './mpubaccess/mpubaccess-list/mpubaccess-list-sub.component';
 
 
-import { AuthGuard } from 'mdds-angular-auth';
+import { AuthGuard } from '@hicoder/angular-auth';
 
 
 const mpubaccessSubPath = [
@@ -63,3 +63,4 @@ export const mpubaccessRoutingPath = [
     
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];
+

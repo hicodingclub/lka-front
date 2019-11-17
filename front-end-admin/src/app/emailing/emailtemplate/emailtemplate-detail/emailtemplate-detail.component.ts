@@ -9,7 +9,7 @@ import { EmailtemplateService } from '../emailtemplate.service';
 
 
 import { QueryList, ViewChildren } from '@angular/core';
-import { MraRichTextShowDirective } from 'mean-rest-angular';
+import { MraRichTextShowDirective } from '@hicoder/angular-core';
 
 @Component({
   selector: 'app-emailtemplate-detail',
@@ -47,6 +47,7 @@ export class EmailtemplateDetailComponent extends EmailtemplateComponent impleme
           this.stringFields.push('subject');
           this.stringFields.push('content');
           this.stringFields.push('tag');
+
 
 
 

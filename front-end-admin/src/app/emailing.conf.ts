@@ -24,7 +24,7 @@ export const EmailingRoutes: Routes = [
 ];
 
 export const emailing_server_root_uri:string = "/api/emailing";/*>>> Please check this recent updates and merge with existing ones***
-**Date: Tue Nov 12 2019 17:07:45 GMT-0800 (Pacific Standard Time)
+**Date: Sat Nov 16 2019 14:50:45 GMT-0800 (Pacific Standard Time)
 
 import { Routes } from '@angular/router';
 
@@ -51,4 +51,5 @@ export const EmailingRoutes: Routes = [
   }
 ];
 
-export const emailing_server_root_uri:string = "/api/emailing";**** End of recent updates.<<<*/
+export const emailing_server_root_uri:string = "/api/emailing";
+**** End of recent updates.<<<*/

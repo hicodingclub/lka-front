@@ -12,7 +12,7 @@ import { ArticleService } from '../article.service';
 
 
 import { QueryList, ViewChildren } from '@angular/core';
-import { MraRichTextSelectDirective } from 'mean-rest-angular';
+import { MraRichTextSelectDirective } from '@hicoder/angular-core';
 
 @Component({
   selector: 'app-article-edit',
@@ -56,6 +56,7 @@ export class ArticleEditComponent extends ArticleComponent implements OnInit {
           this.stringFields.push('author');
           this.stringFields.push('content');
           this.stringFields.push('signaturePicture');
+
 
 
 

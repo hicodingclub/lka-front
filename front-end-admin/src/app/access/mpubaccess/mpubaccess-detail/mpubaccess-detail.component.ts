@@ -52,6 +52,7 @@ export class MpubaccessDetailComponent extends MpubaccessComponent implements On
 
 
 
+
   }
 
   ngOnInit() {

@@ -60,6 +60,7 @@ export class ClassenrollEditComponent extends ClassenrollComponent implements On
 
           this.textareaFields = ['notes', ];
 
+
           
           let detail = {};
           this.detail = this.formatDetail(detail);

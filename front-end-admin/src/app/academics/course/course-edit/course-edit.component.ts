@@ -12,7 +12,7 @@ import { CourseService } from '../course.service';
 
 
 import { QueryList, ViewChildren } from '@angular/core';
-import { MraRichTextSelectDirective } from 'mean-rest-angular';
+import { MraRichTextSelectDirective } from '@hicoder/angular-core';
 
 @Component({
   selector: 'app-course-edit',
@@ -53,6 +53,7 @@ export class CourseEditComponent extends CourseComponent implements OnInit {
 
           this.stringFields.push('title');
           this.stringFields.push('description');
+
 
 
 

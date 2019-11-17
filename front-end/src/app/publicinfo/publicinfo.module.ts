@@ -9,9 +9,9 @@ import { MraNgbDateFormatterService } from './publicinfo.directive';
 
 
 
-import { FileUploadModule } from 'mdds-angular-file';
+import { FileUploadModule } from '@hicoder/angular-file';
 
-import { MraModule } from 'mean-rest-angular';
+import { MraModule } from '@hicoder/angular-core';
 
 import { PublicinfoRoutingModule } from './publicinfo-routing.module';
 import { PublicinfoComponent } from './publicinfo.component';

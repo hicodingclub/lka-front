@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
-import { BaseComponent, ViewType } from 'mean-rest-angular';
+import { BaseComponent, ViewType } from '@hicoder/angular-core';
 import { Injector } from '@angular/core';
 import { MpubaccessService } from './mpubaccess.service';
 
@@ -60,6 +60,7 @@ export class MpubaccessComponent extends BaseComponent {
 
         this.referenceFieldsMap = {'group': 'musergroup','module': 'mpubmodule',};
         this.referenceFieldsReverseMap = {'musergroup': 'group','mpubmodule': 'module',};
+
 
         this.schemaName = 'mpubaccess';
         

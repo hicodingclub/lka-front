@@ -37,6 +37,7 @@ export class MmoduleDetailFieldComponent extends MmoduleComponent
           this.arrayFields = [['resources', 'SchemaString'],];
 
 
+
     }
 
     ngOnInit() {

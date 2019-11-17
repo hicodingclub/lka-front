@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
-import { MraModule } from 'mean-rest-angular';
+import { MraModule } from '@hicoder/angular-core';
 
 import { UsersRoutingModule } from './users-routing.module';
 import { UsersComponent } from './users.component';

@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
-import { BaseComponent, ViewType } from 'mean-rest-angular';
+import { BaseComponent, ViewType } from '@hicoder/angular-core';
 import { Injector } from '@angular/core';
 import { FaqService } from './faq.service';
 
@@ -29,6 +29,7 @@ export class FaqComponent extends BaseComponent {
         
         this.briefFieldsInfo = [];
         this.briefFieldsInfo.push(['question', 'Question']);this.briefFieldsInfo.push(['answer', 'Answer']);this.briefFieldsInfo.push(['order', 'Order']);this.briefFieldsInfo.push(['enable', 'Enable']);
+
 
 
 

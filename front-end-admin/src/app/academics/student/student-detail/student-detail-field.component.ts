@@ -50,6 +50,7 @@ export class StudentDetailFieldComponent extends StudentComponent
 
 
           this.textareaFields = ['notes', ];
+
     }
 
     ngOnInit() {

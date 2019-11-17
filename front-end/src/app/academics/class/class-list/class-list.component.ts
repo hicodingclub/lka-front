@@ -10,7 +10,7 @@ import { ClassService } from '../class.service';
 import { ComponentFactoryResolver } from '@angular/core';
 
 import { QueryList, ViewChildren } from '@angular/core';
-import { MraRichTextShowDirective } from 'mean-rest-angular';
+import { MraRichTextShowDirective } from '@hicoder/angular-core';
   
 @Component({
   selector: 'app-class-list',
@@ -55,6 +55,7 @@ public componentFactoryResolver: ComponentFactoryResolver,
 
 
           this.viewHiddenFields = ['course', 'season', 'enrollTerm', ];
+
 
 
           this.listViewFilter = 'table';

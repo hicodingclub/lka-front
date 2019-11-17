@@ -47,6 +47,7 @@ export class StudentDetailFieldComponent extends StudentComponent
 
 
 
+
     }
 
     ngOnInit() {

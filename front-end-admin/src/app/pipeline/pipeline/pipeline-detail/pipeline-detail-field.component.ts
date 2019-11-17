@@ -38,6 +38,7 @@ export class PipelineDetailFieldComponent extends PipelineComponent
 
 
 
+
     }
 
     ngOnInit() {

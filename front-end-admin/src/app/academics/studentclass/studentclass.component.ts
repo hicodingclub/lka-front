@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
-import { BaseComponent, ViewType } from 'mean-rest-angular';
+import { BaseComponent, ViewType } from '@hicoder/angular-core';
 import { Injector } from '@angular/core';
 import { StudentclassService } from './studentclass.service';
 
@@ -60,6 +60,7 @@ export class StudentclassComponent extends BaseComponent {
 
         this.referenceFieldsMap = {'student': 'student','class': 'class',};
         this.referenceFieldsReverseMap = {'student': 'student','class': 'class',};
+
 
         this.schemaName = 'studentclass';
         

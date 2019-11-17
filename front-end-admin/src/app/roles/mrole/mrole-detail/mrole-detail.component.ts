@@ -48,6 +48,7 @@ export class MroleDetailComponent extends MroleComponent implements OnInit, Afte
 
 
 
+
   }
 
   ngOnInit() {

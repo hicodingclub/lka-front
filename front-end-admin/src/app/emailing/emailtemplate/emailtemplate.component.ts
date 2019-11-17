@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
-import { BaseComponent, ViewType } from 'mean-rest-angular';
+import { BaseComponent, ViewType } from '@hicoder/angular-core';
 import { Injector } from '@angular/core';
 import { EmailtemplateService } from './emailtemplate.service';
 
@@ -29,6 +29,7 @@ export class EmailtemplateComponent extends BaseComponent {
         
         this.briefFieldsInfo = [];
         this.briefFieldsInfo.push(['templateName', 'Template Name']);this.briefFieldsInfo.push(['fromEmail', 'From Email']);this.briefFieldsInfo.push(['subject', 'Subject']);this.briefFieldsInfo.push(['tag', 'Tag']);
+
 
 
 

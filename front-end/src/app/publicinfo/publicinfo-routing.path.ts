@@ -26,7 +26,7 @@ import { ArticleDetailComponent } from './article/article-detail/article-detail.
 
 
 
-import { AuthGuard } from 'mdds-angular-auth';
+import { AuthGuard } from '@hicoder/angular-auth';
 
 
 
@@ -75,3 +75,4 @@ export const articleRoutingPath = [
     
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];
+

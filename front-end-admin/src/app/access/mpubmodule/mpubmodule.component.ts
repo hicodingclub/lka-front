@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
-import { BaseComponent, ViewType } from 'mean-rest-angular';
+import { BaseComponent, ViewType } from '@hicoder/angular-core';
 import { Injector } from '@angular/core';
 import { MpubmoduleService } from './mpubmodule.service';
 
@@ -32,6 +32,7 @@ export class MpubmoduleComponent extends BaseComponent {
         
         this.briefFieldsInfo = [];
         this.briefFieldsInfo.push(['module', 'Module']);this.briefFieldsInfo.push(['resources', 'Resources']);
+
 
 
 

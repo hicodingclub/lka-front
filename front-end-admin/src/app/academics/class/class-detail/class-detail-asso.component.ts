@@ -10,7 +10,7 @@ import { ClassService } from '../class.service';
 import { ComponentFactoryResolver } from '@angular/core';
 
 import { QueryList, ViewChildren } from '@angular/core';
-import { MraRichTextShowDirective } from 'mean-rest-angular';
+import { MraRichTextShowDirective } from '@hicoder/angular-core';
 
 @Component({
   selector: 'app-class-detail-asso',
@@ -52,6 +52,7 @@ export class ClassAssoComponent extends ClassComponent implements OnInit {
 
 
           this.multiSelectionFields = ['dayOfWeek', ];
+
 
 
 

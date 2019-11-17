@@ -10,9 +10,9 @@ import { MraNgbDateFormatterService } from './academics.directive';
 import { DirectiveArrayRequired } from './academics.directive';
 
 
-import { FileUploadModule } from 'mdds-angular-file';
+import { FileUploadModule } from '@hicoder/angular-file';
 
-import { MraModule } from 'mean-rest-angular';
+import { MraModule } from '@hicoder/angular-core';
 
 import { AcademicsRoutingModule } from './academics-routing.module';
 import { AcademicsComponent } from './academics.component';

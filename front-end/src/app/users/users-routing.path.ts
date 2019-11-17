@@ -7,7 +7,7 @@ import { MuserPassComponent } from './muser/muser-edit/muser-pass.component';
 
 
 
-import { AuthGuard } from 'mdds-angular-auth';
+import { AuthGuard } from '@hicoder/angular-auth';
 
 
 

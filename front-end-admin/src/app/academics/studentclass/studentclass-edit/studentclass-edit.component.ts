@@ -55,6 +55,7 @@ export class StudentclassEditComponent extends StudentclassComponent implements 
 
 
 
+
           
           let detail = {};
           this.detail = this.formatDetail(detail);

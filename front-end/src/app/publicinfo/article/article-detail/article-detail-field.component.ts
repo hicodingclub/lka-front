@@ -40,6 +40,7 @@ export class ArticleDetailFieldComponent extends ArticleComponent
 
 
 
+
     }
 
     ngOnInit() {

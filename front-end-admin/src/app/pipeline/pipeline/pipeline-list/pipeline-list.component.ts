@@ -48,6 +48,7 @@ export class PipelineListComponent extends PipelineComponent implements OnInit {
 
 
 
+
           this.listViewFilter = 'list';
 
           const listCategories = [];

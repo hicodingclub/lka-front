@@ -55,6 +55,7 @@ export class MpubmoduleEditComponent extends MpubmoduleComponent implements OnIn
 
 
 
+
           
           let detail = {};
           this.detail = this.formatDetail(detail);

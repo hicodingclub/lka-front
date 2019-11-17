@@ -36,7 +36,7 @@ import { TermsDetailComponent } from './terms/terms-detail/terms-detail.componen
 
 
 
-import { AuthGuard } from 'mdds-angular-auth';
+import { AuthGuard } from '@hicoder/angular-auth';
 
 
 const teacherSubPath = [
@@ -155,3 +155,4 @@ export const termsRoutingPath = [
     
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];
+

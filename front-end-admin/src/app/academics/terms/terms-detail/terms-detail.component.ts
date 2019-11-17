@@ -9,7 +9,7 @@ import { TermsService } from '../terms.service';
 
 
 import { QueryList, ViewChildren } from '@angular/core';
-import { MraRichTextShowDirective } from 'mean-rest-angular';
+import { MraRichTextShowDirective } from '@hicoder/angular-core';
 
 @Component({
   selector: 'app-terms-detail',
@@ -46,6 +46,7 @@ export class TermsDetailComponent extends TermsComponent implements OnInit, Afte
           this.stringFields.push('content');
           this.stringFields.push('acknowledge');
           this.stringFields.push('tag');
+
 
 
 

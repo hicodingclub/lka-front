@@ -40,6 +40,7 @@ export class MpubaccessDetailFieldComponent extends MpubaccessComponent
 
 
 
+
     }
 
     ngOnInit() {

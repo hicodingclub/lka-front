@@ -1,7 +1,7 @@
 
 
 import { NgbDateParserFormatter, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
-import { dateStructureToString, stringToDateStructure } from 'mean-rest-angular';
+import { dateStructureToString, stringToDateStructure } from '@hicoder/angular-core';
 
 export class MraNgbDateFormatterService extends NgbDateParserFormatter {
     private dateFormat = 'MM-DD-YYYY';

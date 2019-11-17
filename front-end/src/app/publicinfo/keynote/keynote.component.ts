@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
-import { BaseComponent, ViewType } from 'mean-rest-angular';
+import { BaseComponent, ViewType } from '@hicoder/angular-core';
 import { Injector } from '@angular/core';
 import { KeynoteService } from './keynote.service';
 
@@ -29,6 +29,7 @@ export class KeynoteComponent extends BaseComponent {
         
         this.briefFieldsInfo = [];
         this.briefFieldsInfo.push(['signaturePicture', 'Signature Picture']);this.briefFieldsInfo.push(['title', 'Title']);this.briefFieldsInfo.push(['subtitle', 'Subtitle']);this.briefFieldsInfo.push(['description', 'Description']);this.briefFieldsInfo.push(['tag', 'Tag']);
+
 
 
 

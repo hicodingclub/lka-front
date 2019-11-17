@@ -58,6 +58,7 @@ export class MaccountroleEditComponent extends MaccountroleComponent implements 
 
 
 
+
           
           let detail = {};
           this.detail = this.formatDetail(detail);

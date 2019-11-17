@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
-import { BaseComponent, ViewType } from 'mean-rest-angular';
+import { BaseComponent, ViewType } from '@hicoder/angular-core';
 import { Injector } from '@angular/core';
 import { PipelineService } from './pipeline.service';
 
@@ -29,6 +29,7 @@ export class PipelineComponent extends BaseComponent {
         
         this.briefFieldsInfo = [];
         this.briefFieldsInfo.push(['category', 'Category']);this.briefFieldsInfo.push(['createdAt', 'Created at']);this.briefFieldsInfo.push(['muser_id', 'Muser Id']);
+
 
 
 

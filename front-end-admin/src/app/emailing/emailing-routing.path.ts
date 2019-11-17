@@ -11,7 +11,7 @@ import { EmaillogDetailComponent } from './emaillog/emaillog-detail/emaillog-det
 
 
 
-import { AuthGuard } from 'mdds-angular-auth';
+import { AuthGuard } from '@hicoder/angular-auth';
 
 
 
@@ -33,3 +33,4 @@ export const emaillogRoutingPath = [
     
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];
+

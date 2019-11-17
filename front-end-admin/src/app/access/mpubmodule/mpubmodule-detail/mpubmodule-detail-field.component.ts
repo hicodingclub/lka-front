@@ -37,6 +37,7 @@ export class MpubmoduleDetailFieldComponent extends MpubmoduleComponent
           this.arrayFields = [['resources', 'SchemaString'],];
 
 
+
     }
 
     ngOnInit() {

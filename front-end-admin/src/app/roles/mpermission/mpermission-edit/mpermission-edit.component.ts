@@ -59,6 +59,7 @@ export class MpermissionEditComponent extends MpermissionComponent implements On
 
 
 
+
           
           let detail = {};
           this.detail = this.formatDetail(detail);

@@ -40,6 +40,7 @@ export class EmailtemplateDetailFieldComponent extends EmailtemplateComponent
 
 
 
+
     }
 
     ngOnInit() {

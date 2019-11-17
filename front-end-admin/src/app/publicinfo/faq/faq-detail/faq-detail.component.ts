@@ -9,7 +9,7 @@ import { FaqService } from '../faq.service';
 
 
 import { QueryList, ViewChildren } from '@angular/core';
-import { MraRichTextShowDirective } from 'mean-rest-angular';
+import { MraRichTextShowDirective } from '@hicoder/angular-core';
 
 @Component({
   selector: 'app-faq-detail',
@@ -44,6 +44,7 @@ export class FaqDetailComponent extends FaqComponent implements OnInit, AfterVie
 
           this.stringFields.push('question');
           this.stringFields.push('answer');
+
 
 
 

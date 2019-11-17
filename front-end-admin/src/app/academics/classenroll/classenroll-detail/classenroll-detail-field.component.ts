@@ -45,6 +45,7 @@ export class ClassenrollDetailFieldComponent extends ClassenrollComponent
 
 
           this.textareaFields = ['notes', ];
+
     }
 
     ngOnInit() {

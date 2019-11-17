@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
-import { BaseComponent, ViewType } from 'mean-rest-angular';
+import { BaseComponent, ViewType } from '@hicoder/angular-core';
 import { Injector } from '@angular/core';
 import { MaccountroleService } from './maccountrole.service';
 
@@ -60,6 +60,7 @@ export class MaccountroleComponent extends BaseComponent {
 
         this.referenceFieldsMap = {'account': 'maccount',};
         this.referenceFieldsReverseMap = {'maccount': 'account',};
+
 
         this.schemaName = 'maccountrole';
         

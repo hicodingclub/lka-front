@@ -41,6 +41,7 @@ export class MaccountDetailFieldComponent extends MaccountComponent
 
 
 
+
     }
 
     ngOnInit() {

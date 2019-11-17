@@ -39,6 +39,7 @@ export class KeynoteDetailFieldComponent extends KeynoteComponent
 
 
 
+
     }
 
     ngOnInit() {

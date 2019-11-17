@@ -40,6 +40,7 @@ export class MpermissionDetailFieldComponent extends MpermissionComponent
 
 
 
+
     }
 
     ngOnInit() {

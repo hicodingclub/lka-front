@@ -9,7 +9,7 @@ import { ArticleService } from '../article.service';
 
 
 import { QueryList, ViewChildren } from '@angular/core';
-import { MraRichTextShowDirective } from 'mean-rest-angular';
+import { MraRichTextShowDirective } from '@hicoder/angular-core';
   
 @Component({
   selector: 'app-article-list',
@@ -47,6 +47,7 @@ export class ArticleListComponent extends ArticleComponent implements OnInit {
 
 
           this.dateFields = ['publishDate', ];
+
 
 
 

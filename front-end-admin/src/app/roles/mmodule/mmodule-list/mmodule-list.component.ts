@@ -46,6 +46,7 @@ export class MmoduleListComponent extends MmoduleComponent implements OnInit {
 
 
 
+
           this.listViewFilter = 'list';
 
           const listCategories = [];

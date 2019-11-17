@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
-import { BaseComponent, ViewType } from 'mean-rest-angular';
+import { BaseComponent, ViewType } from '@hicoder/angular-core';
 import { Injector } from '@angular/core';
 import { ClassService } from './class.service';
 
@@ -70,6 +70,7 @@ export class ClassComponent extends BaseComponent {
 
         this.referenceFieldsMap = {'course': 'course','teacher': 'teacher','enrollTerm': 'terms',};
         this.referenceFieldsReverseMap = {'course': 'course','teacher': 'teacher','terms': 'enrollTerm',};
+
 
         this.schemaName = 'class';
         this.dateFormat = 'MM-DD-YYYY';

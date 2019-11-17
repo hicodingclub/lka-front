@@ -51,6 +51,7 @@ public componentFactoryResolver: ComponentFactoryResolver,
 
           this.textareaFields = ['introduction', ];
 
+
           this.listViewFilter = 'grid';
 
           const listCategories = [];

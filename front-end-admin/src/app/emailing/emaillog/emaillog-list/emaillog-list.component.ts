@@ -9,7 +9,7 @@ import { EmaillogService } from '../emaillog.service';
 
 
 import { QueryList, ViewChildren } from '@angular/core';
-import { MraRichTextShowDirective } from 'mean-rest-angular';
+import { MraRichTextShowDirective } from '@hicoder/angular-core';
   
 @Component({
   selector: 'app-emaillog-list',
@@ -48,6 +48,7 @@ export class EmaillogListComponent extends EmaillogComponent implements OnInit {
 
 
           this.dateFields = ['createdAt', ];
+
 
 
 

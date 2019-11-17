@@ -12,7 +12,7 @@ import { FaqService } from '../faq.service';
 
 
 import { QueryList, ViewChildren } from '@angular/core';
-import { MraRichTextSelectDirective } from 'mean-rest-angular';
+import { MraRichTextSelectDirective } from '@hicoder/angular-core';
 
 @Component({
   selector: 'app-faq-edit',
@@ -53,6 +53,7 @@ export class FaqEditComponent extends FaqComponent implements OnInit {
 
           this.stringFields.push('question');
           this.stringFields.push('answer');
+
 
 
 

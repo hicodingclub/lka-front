@@ -20,7 +20,7 @@ export const PipelineRoutes: Routes = [
 ];
 
 export const pipeline_server_root_uri:string = "/api/pipeline";/*>>> Please check this recent updates and merge with existing ones***
-**Date: Tue Nov 12 2019 17:07:49 GMT-0800 (Pacific Standard Time)
+**Date: Sat Nov 16 2019 14:50:51 GMT-0800 (Pacific Standard Time)
 
 import { Routes } from '@angular/router';
 
@@ -43,4 +43,5 @@ export const PipelineRoutes: Routes = [
   }
 ];
 
-export const pipeline_server_root_uri:string = "/api/pipeline";**** End of recent updates.<<<*/
+export const pipeline_server_root_uri:string = "/api/pipeline";
+**** End of recent updates.<<<*/

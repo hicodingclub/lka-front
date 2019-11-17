@@ -37,6 +37,7 @@ export class FaqDetailFieldComponent extends FaqComponent
 
 
 
+
     }
 
     ngOnInit() {

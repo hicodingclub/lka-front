@@ -45,6 +45,7 @@ export class EmaillogDetailFieldComponent extends EmaillogComponent
 
 
 
+
     }
 
     ngOnInit() {

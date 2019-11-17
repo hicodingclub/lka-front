@@ -61,6 +61,7 @@ export class StudentDetailComponent extends StudentComponent implements OnInit, 
 
 
           this.textareaFields = ['notes', ];
+
   }
 
   ngOnInit() {

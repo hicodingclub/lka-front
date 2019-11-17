@@ -10,7 +10,7 @@ import { MraNgbDateFormatterService } from './pipeline.directive';
 
 
 
-import { MraModule } from 'mean-rest-angular';
+import { MraModule } from '@hicoder/angular-core';
 
 import { PipelineRoutingModule } from './pipeline-routing.module';
 import { PipelineComponent } from './pipeline.component';

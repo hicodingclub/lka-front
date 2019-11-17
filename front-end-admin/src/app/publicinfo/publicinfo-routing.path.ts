@@ -26,7 +26,7 @@ import { KeynoteEditComponent } from './keynote/keynote-edit/keynote-edit.compon
 
 
 
-import { AuthGuard } from 'mdds-angular-auth';
+import { AuthGuard } from '@hicoder/angular-auth';
 
 
 
@@ -75,3 +75,4 @@ export const keynoteRoutingPath = [
     
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];
+

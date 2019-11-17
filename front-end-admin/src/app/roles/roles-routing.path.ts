@@ -26,7 +26,7 @@ import { MaccountroleEditComponent } from './maccountrole/maccountrole-edit/macc
 import { MaccountroleListSubComponent } from './maccountrole/maccountrole-list/maccountrole-list-sub.component';
 
 
-import { AuthGuard } from 'mdds-angular-auth';
+import { AuthGuard } from '@hicoder/angular-auth';
 
 
 const mpermissionSubPath = [
@@ -103,3 +103,4 @@ export const maccountroleRoutingPath = [
     
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];
+

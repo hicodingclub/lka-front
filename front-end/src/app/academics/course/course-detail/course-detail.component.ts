@@ -9,7 +9,7 @@ import { CourseService } from '../course.service';
 
 
 import { QueryList, ViewChildren } from '@angular/core';
-import { MraRichTextShowDirective } from 'mean-rest-angular';
+import { MraRichTextShowDirective } from '@hicoder/angular-core';
 
 @Component({
   selector: 'app-course-detail',
@@ -44,6 +44,7 @@ export class CourseDetailComponent extends CourseComponent implements OnInit, Af
 
           this.stringFields.push('title');
           this.stringFields.push('description');
+
 
 
 

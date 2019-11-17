@@ -37,6 +37,7 @@ export class CourseDetailFieldComponent extends CourseComponent
 
 
 
+
     }
 
     ngOnInit() {

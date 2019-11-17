@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
-import { BaseComponent, ViewType } from 'mean-rest-angular';
+import { BaseComponent, ViewType } from '@hicoder/angular-core';
 import { Injector } from '@angular/core';
 import { MusergroupService } from './musergroup.service';
 
@@ -32,6 +32,7 @@ export class MusergroupComponent extends BaseComponent {
         
         this.briefFieldsInfo = [];
         this.briefFieldsInfo.push(['group', 'Group']);this.briefFieldsInfo.push(['description', 'Description']);
+
 
 
 

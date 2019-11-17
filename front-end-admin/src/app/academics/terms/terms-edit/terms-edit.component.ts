@@ -12,7 +12,7 @@ import { TermsService } from '../terms.service';
 
 
 import { QueryList, ViewChildren } from '@angular/core';
-import { MraRichTextSelectDirective } from 'mean-rest-angular';
+import { MraRichTextSelectDirective } from '@hicoder/angular-core';
 
 @Component({
   selector: 'app-terms-edit',
@@ -55,6 +55,7 @@ export class TermsEditComponent extends TermsComponent implements OnInit {
           this.stringFields.push('content');
           this.stringFields.push('acknowledge');
           this.stringFields.push('tag');
+
 
 
 

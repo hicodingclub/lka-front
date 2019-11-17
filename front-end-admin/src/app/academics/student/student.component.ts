@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
-import { BaseComponent, ViewType } from 'mean-rest-angular';
+import { BaseComponent, ViewType } from '@hicoder/angular-core';
 import { Injector } from '@angular/core';
 import { StudentService } from './student.service';
 
@@ -32,6 +32,7 @@ export class StudentComponent extends BaseComponent {
         
         this.briefFieldsInfo = [];
         this.briefFieldsInfo.push(['first_name', 'First Name']);this.briefFieldsInfo.push(['last_name', 'Last Name']);this.briefFieldsInfo.push(['email', 'Email']);this.briefFieldsInfo.push(['grade', 'Grade']);this.briefFieldsInfo.push(['school', 'School']);this.briefFieldsInfo.push(['GuardianOnePhone', 'Guardian One Phone']);this.briefFieldsInfo.push(['muser_id', 'Muser Id']);
+
 
 
 

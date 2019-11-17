@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
-import { BaseComponent, ViewType } from 'mean-rest-angular';
+import { BaseComponent, ViewType } from '@hicoder/angular-core';
 import { Injector } from '@angular/core';
 import { ArticleService } from './article.service';
 
@@ -29,6 +29,7 @@ export class ArticleComponent extends BaseComponent {
         
         this.briefFieldsInfo = [];
         this.briefFieldsInfo.push(['signaturePicture', 'Signature Picture']);this.briefFieldsInfo.push(['title', 'Title']);this.briefFieldsInfo.push(['author', 'Author']);this.briefFieldsInfo.push(['publishDate', 'Publish Date']);this.briefFieldsInfo.push(['category', 'Category']);
+
 
 
 

@@ -1,4 +1,4 @@
-import { DropdownItem } from 'mdds-angular-auth';
+import { DropdownItem } from '@hicoder/angular-auth';
 
 export const authentication_page_root_uri: string = '/auth';
 export const authentication_server_root_uri: string = '/api/auth';

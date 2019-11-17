@@ -37,7 +37,7 @@ import { TermsEditComponent } from './terms/terms-edit/terms-edit.component';
 
 
 
-import { AuthGuard } from 'mdds-angular-auth';
+import { AuthGuard } from '@hicoder/angular-auth';
 
 
 const classenrollSubPath = [
@@ -158,3 +158,4 @@ export const termsRoutingPath = [
     
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];
+

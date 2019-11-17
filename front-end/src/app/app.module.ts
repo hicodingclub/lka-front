@@ -4,18 +4,18 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { AuthenticationModule } from 'mdds-angular-auth';
-import { CompositeModule} from 'mdds-angular-composite';
+import { AuthenticationModule } from '@hicoder/angular-auth';
+import { CompositeModule} from '@hicoder/angular-composite';
 
 import { UsersModule } from './users/users.module';
 import { AcademicsModule } from './academics/academics.module';
 import { PublicinfoModule } from './publicinfo/publicinfo.module';
 
 import { AUTHENTICATION_AUTH_PAGE_ROOT_URI, AUTHENTICATION_SERVER_ROOT_URI, 
-  AUTHENTICATION_INTERFACES, AUTHENTICATION_DROPDOWN_ITEMS, AUTHENTICATION_LOGIN_PIPELINE } from 'mdds-angular-auth';
+  AUTHENTICATION_INTERFACES, AUTHENTICATION_DROPDOWN_ITEMS, AUTHENTICATION_LOGIN_PIPELINE } from '@hicoder/angular-auth';
 import { authentication_page_root_uri, authentication_server_root_uri, 
   authentication_interfaces, authentication_dropdown_items, authentication_login_pipeline } from './auth.conf';
-import { FILE_UPLOAD_URI, FILE_DOWNLOAD_URI } from 'mdds-angular-file';
+import { FILE_UPLOAD_URI, FILE_DOWNLOAD_URI } from '@hicoder/angular-file';
 import { file_upload_uri, file_download_uri } from './file-upload.config';
 import { HomepageComponent } from './homepage/homepage.component';
 import { ContactComponent } from './contact/contact.component';

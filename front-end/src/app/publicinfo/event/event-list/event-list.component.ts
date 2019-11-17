@@ -9,7 +9,7 @@ import { EventService } from '../event.service';
 
 
 import { QueryList, ViewChildren } from '@angular/core';
-import { MraRichTextShowDirective } from 'mean-rest-angular';
+import { MraRichTextShowDirective } from '@hicoder/angular-core';
   
 @Component({
   selector: 'app-event-list',
@@ -46,6 +46,7 @@ export class EventListComponent extends EventComponent implements OnInit {
 
 
           this.dateFields = ['publishDate', ];
+
 
 
 

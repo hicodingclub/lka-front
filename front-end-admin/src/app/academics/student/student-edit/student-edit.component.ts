@@ -293,6 +293,7 @@ export class StudentEditComponent extends StudentComponent implements OnInit {
 
           this.textareaFields = ['notes', ];
 
+
           
           let detail = {};
           this.detail = this.formatDetail(detail);

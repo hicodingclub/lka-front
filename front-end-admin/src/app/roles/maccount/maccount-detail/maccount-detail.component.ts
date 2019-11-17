@@ -52,6 +52,7 @@ export class MaccountDetailComponent extends MaccountComponent implements OnInit
 
 
 
+
   }
 
   ngOnInit() {

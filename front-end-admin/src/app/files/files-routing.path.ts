@@ -11,7 +11,7 @@ import { MfilelabelsListComponent } from './mfilelabels/mfilelabels-list/mfilela
 
 
 
-import { AuthGuard } from 'mdds-angular-auth';
+import { AuthGuard } from '@hicoder/angular-auth';
 
 
 

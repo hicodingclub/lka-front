@@ -10,7 +10,7 @@ import { MraNgbDateFormatterService } from './emailing.directive';
 
 
 
-import { MraModule } from 'mean-rest-angular';
+import { MraModule } from '@hicoder/angular-core';
 
 import { EmailingRoutingModule } from './emailing-routing.module';
 import { EmailingComponent } from './emailing.component';

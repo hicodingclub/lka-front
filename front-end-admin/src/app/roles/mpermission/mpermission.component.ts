@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
-import { BaseComponent, ViewType } from 'mean-rest-angular';
+import { BaseComponent, ViewType } from '@hicoder/angular-core';
 import { Injector } from '@angular/core';
 import { MpermissionService } from './mpermission.service';
 
@@ -60,6 +60,7 @@ export class MpermissionComponent extends BaseComponent {
 
         this.referenceFieldsMap = {'role': 'mrole','module': 'mmodule',};
         this.referenceFieldsReverseMap = {'mrole': 'role','mmodule': 'module',};
+
 
         this.schemaName = 'mpermission';
         

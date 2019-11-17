@@ -6,7 +6,7 @@ import { PipelineEditComponent } from './pipeline/pipeline-edit/pipeline-edit.co
 
 
 
-import { AuthGuard } from 'mdds-angular-auth';
+import { AuthGuard } from '@hicoder/angular-auth';
 
 
 
@@ -19,3 +19,4 @@ export const pipelineRoutingPath = [
     
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];
+

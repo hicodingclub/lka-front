@@ -10,7 +10,7 @@ import { MraNgbDateFormatterService } from './roles.directive';
 
 
 
-import { MraModule } from 'mean-rest-angular';
+import { MraModule } from '@hicoder/angular-core';
 
 import { RolesRoutingModule } from './roles-routing.module';
 import { RolesComponent } from './roles.component';
