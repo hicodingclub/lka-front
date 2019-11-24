@@ -12,6 +12,8 @@ import { DirectiveArrayRequired } from './academics.directive';
 
 import { FileUploadModule } from '@hicoder/angular-file';
 
+import { ActionEmailModule } from '@hicoder/angular-action-email';
+
 import { MraModule } from '@hicoder/angular-core';
 
 import { AcademicsRoutingModule } from './academics-routing.module';
@@ -134,6 +136,7 @@ import { StudentDirectiveGuardianTwoEmail } from './student/student-edit/student
     NgbModule,
     MraModule,
     FileUploadModule,
+    ActionEmailModule,
 
     AcademicsRoutingModule
   ],

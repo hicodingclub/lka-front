@@ -11,6 +11,7 @@ import { MraNgbDateFormatterService } from './publicinfo.directive';
 
 import { FileUploadModule } from '@hicoder/angular-file';
 
+
 import { MraModule } from '@hicoder/angular-core';
 
 import { PublicinfoRoutingModule } from './publicinfo-routing.module';

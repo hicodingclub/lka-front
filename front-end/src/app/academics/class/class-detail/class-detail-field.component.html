@@ -37,3 +37,8 @@
 		<div *ngIf="detail && showFields.includes('timeSlot')">                
                     {{detail['timeSlot']}}
 </div>
+		<div *ngIf="detail && showFields.includes('enrollTerm')">                
+               	  <a routerLink="."  (click)="onDisplayRefClicked('enrollTerm', detail['enrollTerm'], $event)">
+	            	{{detail['enrollTerm']?detail['enrollTerm']['value']:""}}
+	              </a>
+</div>

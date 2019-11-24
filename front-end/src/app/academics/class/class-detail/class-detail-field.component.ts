@@ -36,7 +36,7 @@ export class ClassDetailFieldComponent extends ClassComponent
           this.stringFields.push('duration');
           this.stringFields.push('timeSlot');
 
-          this.referenceFields = ['course', 'teacher', ];
+          this.referenceFields = ['course', 'teacher', 'enrollTerm', ];
 
           this.dateFields = ['startTime', 'endTime', ];
 
@@ -44,6 +44,7 @@ export class ClassDetailFieldComponent extends ClassComponent
           this.multiSelectionFields = ['dayOfWeek', ];
 
 
+          this.viewHiddenFields = ['enrollTerm', ];
 
 
     }

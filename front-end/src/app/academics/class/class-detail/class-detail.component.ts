@@ -51,7 +51,7 @@ export class ClassDetailComponent extends ClassComponent implements OnInit, Afte
           this.stringFields.push('duration');
           this.stringFields.push('timeSlot');
 
-          this.referenceFields = ['course', 'teacher', ];
+          this.referenceFields = ['course', 'teacher', 'enrollTerm', ];
 
           this.dateFields = ['startTime', 'endTime', ];
 
@@ -59,6 +59,7 @@ export class ClassDetailComponent extends ClassComponent implements OnInit, Afte
           this.multiSelectionFields = ['dayOfWeek', ];
 
 
+          this.viewHiddenFields = ['enrollTerm', ];
 
 
   }

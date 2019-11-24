@@ -35,6 +35,7 @@ export class StudentComponent extends BaseComponent {
 
 
 
+        this.emailFields = [['Email','email'],['Guardian One Email','GuardianOneEmail'],['Guardian Two Email','GuardianTwoEmail'],];
 
 
         this.schemaName = 'student';
