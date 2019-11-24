@@ -41,7 +41,7 @@ packages=(
   "@hicoder\/angular-action-email"
   "@hicoder\/angular-auth"
   "@hicoder\/angular-file"
-  "@hicoder\/angular-summernote"
+  "@hicoder\/angular-richtext"
   "@hicoder\/express-emailing"
   "@hicoder\/express-auth-app"
   "@hicoder\/express-auth-server"
