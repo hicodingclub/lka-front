@@ -18,5 +18,7 @@ export const muserRoutingPath = [
     {path: 'edit/:id', component: MuserEditComponent, canActivate: [AuthGuard]},
     {path: 'password/:id', component: MuserPassComponent, canActivate: [AuthGuard]},
     {path: 'new', component: MuserEditComponent, canActivate: [AuthGuard]},
+    
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];
+

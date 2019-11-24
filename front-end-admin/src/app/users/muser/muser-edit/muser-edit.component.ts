@@ -10,6 +10,8 @@ import { MuserService } from '../muser.service';
 
 
 
+
+
 @Component({
   selector: 'app-muser-edit',
   templateUrl: './muser-edit.component.html',
@@ -22,12 +24,15 @@ export class MuserEditComponent extends MuserComponent implements OnInit {
     public cid: string;//copy id
     @Input()
     public initData: any; //some fields has data already. eg: {a: b}. Used for add
-    @Output() done = new EventEmitter<boolean>();
+    @Output()
+    public done = new EventEmitter<boolean>();
     @Input()
     public embeddedView: boolean;
 
     public action:string;
-    public confirmPassword;
+    public minDate = {year: (new Date()).getFullYear() - 100, month: 1, day: 1};
+
+
         
     constructor(
       
@@ -46,6 +51,11 @@ export class MuserEditComponent extends MuserComponent implements OnInit {
           this.stringFields.push('phone');
           this.stringFields.push('status');
           this.stringFields.push('password');
+
+
+
+
+
 
 
 
@@ -69,7 +79,7 @@ export class MuserEditComponent extends MuserComponent implements OnInit {
             } else if (this.initData) {
                 this.action="Add";
                 let detail = {
-                    
+                    status: "Enabled",
                 };
                 for (let prop in this.initData) {
                     detail[prop] = this.initData[prop];
@@ -78,7 +88,7 @@ export class MuserEditComponent extends MuserComponent implements OnInit {
                 this.detail = this.formatDetail(detail);
             } else {
                 let detail = {
-                    
+                    status: "Enabled",
                 };
                 this.detail = this.formatDetail(detail);
             }

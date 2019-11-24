@@ -7,7 +7,6 @@ fieldset > .form-control, .input-group, .form-check, .alert {
 	width: 90%
 }
 
-
 .action-buttons {
 	width: 100%;
 	float:right; 
@@ -45,7 +44,7 @@ fieldset > .form-control, .input-group, .form-check, .alert {
 	margin-left: 1rem;
 }
 
-.form-group > label, .field-label {
+.form-group > label {
     font-weight: bold;
 	font-size: 1rem;
 }
@@ -94,11 +93,28 @@ margin-left: 0.5rem;
 }
 
 .icon-clear-inside {
-    z-index: 5;
+    z-index: 3;
     vertical-align: middle;
     padding: 0.75rem 0.5rem 0rem 0.5rem;
     cursor: pointer;
     position: relative;
     margin-left: -2rem;   /* text 1 + left 0.5 + right 0.5 = 2 rem*/
     border: 0;
+    height: 2rem;
+}
+
+.icon-clear-inside-sm {
+    z-index: 3;
+    cursor: pointer;
+    position: absolute;
+    margin: auto;
+    bottom: 0;
+    top: 0;
+    right: 1.5rem;
+    height: 1.5rem;
+}
+
+.icon-clear-badge {
+	cursor: pointer;
+	margin-left: 1rem;
 }
