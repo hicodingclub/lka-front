@@ -330,6 +330,8 @@
 		<div class="row">
 			<div class="col">
 		        <div class="action-buttons">
+					
+
 					<a [routerLink]="['../new' ]" [skipLocationChange]="false" class="btn btn-outline-primary">Create</a>
 					<a *ngIf="list.length > 1" routerLink="." class="btn btn-outline-primary" (click)="onDeleteSelected()"
 						[ngClass]="{'disabled': !isItemSelected()}">Delete</a>
@@ -561,7 +563,7 @@
 						<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
 					
 	            	<a routerLink="." (click)="onDelete(detail['_id'], i)"><i class="fas fa-trash-alt" title="Delete"></i></a>
-					<input *ngIf="list.length > 1" type="checkbox" [(ngModel)]="checkedItem[i]"/>
+					<input class="list-check-box"  *ngIf="list.length > 1" type="checkbox" [(ngModel)]="checkedItem[i]"/>
 					<span class="read-more-in-table" (click)="onDetailLinkClicked(detail['_id'])">Detail <i class="fas fa-arrow-right" ></i></span>
 	            </td>
 	        </tr>
@@ -654,7 +656,7 @@
 						<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
 					
 					<a routerLink="." (click)="onDelete(detail['_id'], i)"><i class="fas fa-trash-alt" title="Delete"></i></a>
-					<input *ngIf="list.length > 1" type="checkbox" [(ngModel)]="checkedItem[i]"/>
+					<input class="list-check-box" *ngIf="list.length > 1" type="checkbox" [(ngModel)]="checkedItem[i]"/>
 				</div>
 			</div>
 			<hr class="list-diverder">
@@ -743,7 +745,7 @@
 						<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
 					
 					<a routerLink="." (click)="onDelete(detail['_id'], i)"><i class="fas fa-trash-alt" title="Delete"></i></a>
-					<input *ngIf="list.length > 1" type="checkbox" [(ngModel)]="checkedItem[i]"/>
+					<input class="list-check-box" *ngIf="list.length > 1" type="checkbox" [(ngModel)]="checkedItem[i]"/>
 				</div>
 			</div>
 		</div>

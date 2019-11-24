@@ -54,6 +54,7 @@ export class TeacherComponent extends BaseComponent {
 
         this.referenceFieldsMap = {'courses': 'course',};
         this.referenceFieldsReverseMap = {'course': 'courses',};
+        this.emailFields = [['Email','email'],];
 
 
         this.schemaName = 'teacher';

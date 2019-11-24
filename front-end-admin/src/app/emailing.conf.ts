@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 import { EmailingComponent } from './emailing/emailing.component';
 
 //Import routing paths
-import { emailtemplateRoutingPath, emaillogRoutingPath,  } from './emailing/emailing-routing.path';
+import { emailtemplateRoutingPath, emailsettingsRoutingPath, emaillogRoutingPath,  } from './emailing/emailing-routing.path';
 
 export const EmailingRoutes: Routes = [
   { path: 'emailing',
@@ -14,6 +14,10 @@ export const EmailingRoutes: Routes = [
       { path: "emailtemplate",
         children: emailtemplateRoutingPath,
         data: {"mraLevel": 1, "item": "emailtemplate"}
+      },
+      { path: "emailsettings",
+        children: emailsettingsRoutingPath,
+        data: {"mraLevel": 1, "item": "emailsettings"}
       },
       { path: "emaillog",
         children: emaillogRoutingPath,
@@ -23,15 +27,16 @@ export const EmailingRoutes: Routes = [
   }
 ];
 
-export const emailing_server_root_uri:string = "/api/emailing";/*>>> Please check this recent updates and merge with existing ones***
-**Date: Sat Nov 16 2019 14:50:45 GMT-0800 (Pacific Standard Time)
+export const emailing_server_root_uri:string = "/api/emailing";
+/*>>> Please check this recent updates and merge with existing ones***
+**Date: Sat Nov 23 2019 20:53:34 GMT-0800 (Pacific Standard Time)
 
 import { Routes } from '@angular/router';
 
 import { EmailingComponent } from './emailing/emailing.component';
 
 //Import routing paths
-import { emailtemplateRoutingPath, emaillogRoutingPath,  } from './emailing/emailing-routing.path';
+import { emailtemplateRoutingPath, emailsettingsRoutingPath, emaillogRoutingPath,  } from './emailing/emailing-routing.path';
 
 export const EmailingRoutes: Routes = [
   { path: 'emailing',
@@ -42,6 +47,10 @@ export const EmailingRoutes: Routes = [
       { path: "emailtemplate",
         children: emailtemplateRoutingPath,
         data: {"mraLevel": 1, "item": "emailtemplate"}
+      },
+      { path: "emailsettings",
+        children: emailsettingsRoutingPath,
+        data: {"mraLevel": 1, "item": "emailsettings"}
       },
       { path: "emaillog",
         children: emaillogRoutingPath,

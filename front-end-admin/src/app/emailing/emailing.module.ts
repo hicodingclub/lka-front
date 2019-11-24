@@ -10,6 +10,7 @@ import { MraNgbDateFormatterService } from './emailing.directive';
 
 
 
+
 import { MraModule } from '@hicoder/angular-core';
 
 import { EmailingRoutingModule } from './emailing-routing.module';
@@ -30,6 +31,16 @@ import { EmailtemplateDetailFieldComponent } from './emailtemplate/emailtemplate
 import { EmailtemplateEditComponent } from './emailtemplate/emailtemplate-edit/emailtemplate-edit.component';
 
 import { EmailtemplateService } from './emailtemplate/emailtemplate.service';
+
+import { EmailsettingsListComponent } from './emailsettings/emailsettings-list/emailsettings-list.component';
+
+
+
+import { EmailsettingsDetailComponent } from './emailsettings/emailsettings-detail/emailsettings-detail.component';
+import { EmailsettingsDetailFieldComponent } from './emailsettings/emailsettings-detail/emailsettings-detail-field.component';
+import { EmailsettingsEditComponent } from './emailsettings/emailsettings-edit/emailsettings-edit.component';
+
+import { EmailsettingsService } from './emailsettings/emailsettings.service';
 
 import { EmaillogListComponent } from './emaillog/emaillog-list/emaillog-list.component';
 
@@ -67,6 +78,14 @@ import { EmaillogService } from './emaillog/emaillog.service';
 EmailtemplateDetailFieldComponent,
     EmailtemplateEditComponent,
 
+    EmailsettingsListComponent,
+    
+    
+    
+    EmailsettingsDetailComponent,
+EmailsettingsDetailFieldComponent,
+    EmailsettingsEditComponent,
+
     EmaillogListComponent,
     
     
@@ -93,6 +112,14 @@ EmaillogDetailFieldComponent,
 EmailtemplateDetailFieldComponent,
     EmailtemplateEditComponent,
 
+    EmailsettingsListComponent,
+    
+    
+    
+    EmailsettingsDetailComponent,
+EmailsettingsDetailFieldComponent,
+    EmailsettingsEditComponent,
+
     EmaillogListComponent,
     
     
@@ -110,6 +137,7 @@ EmaillogDetailFieldComponent,
     {provide: NgbDateParserFormatter, useClass: MraNgbDateFormatterService},
 
     EmailtemplateService,
+    EmailsettingsService,
     EmaillogService,
   ],
   entryComponents: [EmailtemplateEditComponent,
