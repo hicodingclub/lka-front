@@ -35,6 +35,7 @@ export class MaccountComponent extends BaseComponent {
 
 
 
+        this.emailFields = [['Email','email'],];
 
 
         this.schemaName = 'maccount';
