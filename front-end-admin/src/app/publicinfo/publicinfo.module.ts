@@ -25,8 +25,6 @@ import { publicinfo_server_root_uri } from '../publicinfo.conf';
 
 import { EventListComponent } from './event/event-list/event-list.component';
 
-
-
 import { EventDetailComponent } from './event/event-detail/event-detail.component';
 import { EventDetailFieldComponent } from './event/event-detail/event-detail-field.component';
 import { EventEditComponent } from './event/event-edit/event-edit.component';
@@ -34,8 +32,6 @@ import { EventEditComponent } from './event/event-edit/event-edit.component';
 import { EventService } from './event/event.service';
 
 import { ArticleListComponent } from './article/article-list/article-list.component';
-
-
 
 import { ArticleDetailComponent } from './article/article-detail/article-detail.component';
 import { ArticleDetailFieldComponent } from './article/article-detail/article-detail-field.component';
@@ -45,8 +41,6 @@ import { ArticleService } from './article/article.service';
 
 import { FaqListComponent } from './faq/faq-list/faq-list.component';
 
-
-
 import { FaqDetailComponent } from './faq/faq-detail/faq-detail.component';
 import { FaqDetailFieldComponent } from './faq/faq-detail/faq-detail-field.component';
 import { FaqEditComponent } from './faq/faq-edit/faq-edit.component';
@@ -55,8 +49,6 @@ import { FaqService } from './faq/faq.service';
 
 import { GeneralinfoListComponent } from './generalinfo/generalinfo-list/generalinfo-list.component';
 
-
-
 import { GeneralinfoDetailComponent } from './generalinfo/generalinfo-detail/generalinfo-detail.component';
 import { GeneralinfoDetailFieldComponent } from './generalinfo/generalinfo-detail/generalinfo-detail-field.component';
 import { GeneralinfoEditComponent } from './generalinfo/generalinfo-edit/generalinfo-edit.component';
@@ -64,8 +56,6 @@ import { GeneralinfoEditComponent } from './generalinfo/generalinfo-edit/general
 import { GeneralinfoService } from './generalinfo/generalinfo.service';
 
 import { KeynoteListComponent } from './keynote/keynote-list/keynote-list.component';
-
-
 
 import { KeynoteDetailComponent } from './keynote/keynote-detail/keynote-detail.component';
 import { KeynoteDetailFieldComponent } from './keynote/keynote-detail/keynote-detail-field.component';
@@ -93,43 +83,33 @@ import { KeynoteService } from './keynote/keynote.service';
     
 
     EventListComponent,
-    
-    
-    
+
     EventDetailComponent,
-EventDetailFieldComponent,
+    EventDetailFieldComponent,
     EventEditComponent,
 
     ArticleListComponent,
-    
-    
-    
+
     ArticleDetailComponent,
-ArticleDetailFieldComponent,
+    ArticleDetailFieldComponent,
     ArticleEditComponent,
 
     FaqListComponent,
-    
-    
-    
+
     FaqDetailComponent,
-FaqDetailFieldComponent,
+    FaqDetailFieldComponent,
     FaqEditComponent,
 
     GeneralinfoListComponent,
-    
-    
-    
+
     GeneralinfoDetailComponent,
-GeneralinfoDetailFieldComponent,
+    GeneralinfoDetailFieldComponent,
     GeneralinfoEditComponent,
 
     KeynoteListComponent,
-    
-    
-    
+
     KeynoteDetailComponent,
-KeynoteDetailFieldComponent,
+    KeynoteDetailFieldComponent,
     KeynoteEditComponent,
 
 
@@ -143,43 +123,33 @@ KeynoteDetailFieldComponent,
     PublicinfoComponent,
 
     EventListComponent,
-    
-    
-    
+
     EventDetailComponent,
-EventDetailFieldComponent,
+    EventDetailFieldComponent,
     EventEditComponent,
 
     ArticleListComponent,
-    
-    
-    
+
     ArticleDetailComponent,
-ArticleDetailFieldComponent,
+    ArticleDetailFieldComponent,
     ArticleEditComponent,
 
     FaqListComponent,
-    
-    
-    
+
     FaqDetailComponent,
-FaqDetailFieldComponent,
+    FaqDetailFieldComponent,
     FaqEditComponent,
 
     GeneralinfoListComponent,
-    
-    
-    
+
     GeneralinfoDetailComponent,
-GeneralinfoDetailFieldComponent,
+    GeneralinfoDetailFieldComponent,
     GeneralinfoEditComponent,
 
     KeynoteListComponent,
-    
-    
-    
+
     KeynoteDetailComponent,
-KeynoteDetailFieldComponent,
+    KeynoteDetailFieldComponent,
     KeynoteEditComponent,
 
 
@@ -196,7 +166,12 @@ KeynoteDetailFieldComponent,
     GeneralinfoService,
     KeynoteService,
   ],
-  entryComponents: [EventEditComponent,ArticleEditComponent,FaqEditComponent,GeneralinfoEditComponent,KeynoteEditComponent,
+  entryComponents: [
+    EventEditComponent,
+    ArticleEditComponent,
+    FaqEditComponent,
+    GeneralinfoEditComponent,
+    KeynoteEditComponent,
   ]
 })
 export class PublicinfoModule { }

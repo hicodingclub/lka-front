@@ -7,11 +7,11 @@ import { ClassListComponent } from './class-list.component';
 import { ClassService } from '../class.service';
 
 @Component({
-  selector: 'app-class-list-ex-h',
-  templateUrl: './class-list-home.component.html',
+  selector: 'app-class-list-widget-clean',
+  templateUrl: './class-list-widget-clean.component.html',
   styleUrls: ['./class-list.component.css']
 })
-export class ClassListHomeComponent extends ClassListComponent implements OnInit {
+export class ClassListWidgetCleanComponent extends ClassListComponent implements OnInit {
   constructor(
       public classService: ClassService,
       public injector: Injector,

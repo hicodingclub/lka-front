@@ -3,23 +3,23 @@ import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
 
-import { CourseListComponent } from './course-list.component';
-import { CourseService } from '../course.service';
+import { ArticleListComponent } from './article-list.component';
+import { ArticleService } from '../article.service';
 
 @Component({
-  selector: 'app-course-list-ex-h',
-  templateUrl: './course-list-home.component.html',
-  styleUrls: ['./course-list.component.css']
+  selector: 'app-article-list-widget-clean',
+  templateUrl: './article-list-widget-clean.component.html',
+  styleUrls: ['./article-list.component.css']
 })
-export class CourseListHomeComponent extends CourseListComponent implements OnInit {
+export class ArticleListWidgetCleanComponent extends ArticleListComponent implements OnInit {
   constructor(
-      public courseService: CourseService,
+      public articleService: ArticleService,
       public injector: Injector,
       public router: Router,
       public route: ActivatedRoute,
       public location: Location) {
-        super( courseService, injector, router, route, location);
-        this.per_page = 4;
+        super( articleService, injector, router, route, location);
+        this.per_page = 3;
         this.listCategory1 = {}; // no do query based on category for home view;
         this.listCategory2 = {}; // no do query based on category for home view;
   }

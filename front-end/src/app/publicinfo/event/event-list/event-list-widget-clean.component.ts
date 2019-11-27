@@ -7,11 +7,11 @@ import { EventListComponent } from './event-list.component';
 import { EventService } from '../event.service';
 
 @Component({
-  selector: 'app-event-list-ex-h',
-  templateUrl: './event-list-home.component.html',
+  selector: 'app-event-list-widget-clean',
+  templateUrl: './event-list-widget-clean.component.html',
   styleUrls: ['./event-list.component.css']
 })
-export class EventListHomeComponent extends EventListComponent implements OnInit {
+export class EventListWidgetCleanComponent extends EventListComponent implements OnInit {
   constructor(
       public eventService: EventService,
       public injector: Injector,

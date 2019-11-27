@@ -8,11 +8,11 @@ import { KeynoteService } from '../keynote.service';
 import { NgbCarousel } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-keynote-list-act-sld',
-  templateUrl: './keynote-list-act-sld.component.html',
+  selector: 'app-keynote-list-widget-sld',
+  templateUrl: './keynote-list-widget-sld.component.html',
   styleUrls: ['./keynote-list.component.css'],
 })
-export class KeynoteListActSldComponent extends KeynoteListComponent implements OnInit, OnChanges {
+export class KeynoteListWidgetSldComponent extends KeynoteListComponent implements OnInit, OnChanges {
   public titleFn: string;
   public subtitleFn: string;
   public descriptionFn: string;

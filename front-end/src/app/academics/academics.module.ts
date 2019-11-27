@@ -27,8 +27,7 @@ import { academics_server_root_uri } from '../academics.conf';
 
 import { StudentListComponent } from './student/student-list/student-list.component';
 
-import { StudentListActSelComponent } from './student/student-list/student-list-act-sel.component';
-
+import { StudentListWidgetSelComponent } from './student/student-list/student-list-widget-sel.component';
 import { StudentDetailComponent } from './student/student-detail/student-detail.component';
 import { StudentDetailFieldComponent } from './student/student-detail/student-detail-field.component';
 import { StudentEditComponent } from './student/student-edit/student-edit.component';
@@ -37,8 +36,6 @@ import { StudentService } from './student/student.service';
 
 import { TeacherListComponent } from './teacher/teacher-list/teacher-list.component';
 
-
-
 import { TeacherDetailComponent } from './teacher/teacher-detail/teacher-detail.component';
 import { TeacherDetailFieldComponent } from './teacher/teacher-detail/teacher-detail-field.component';
 
@@ -46,9 +43,8 @@ import { TeacherDetailFieldComponent } from './teacher/teacher-detail/teacher-de
 import { TeacherService } from './teacher/teacher.service';
 
 import { CourseListComponent } from './course/course-list/course-list.component';
-import { CourseListHomeComponent } from './course/course-list/course-list-home.component';
 
-
+import { CourseListWidgetCleanComponent } from './course/course-list/course-list-widget-clean.component';
 import { CourseDetailComponent } from './course/course-detail/course-detail.component';
 import { CourseDetailFieldComponent } from './course/course-detail/course-detail-field.component';
 
@@ -56,9 +52,9 @@ import { CourseDetailFieldComponent } from './course/course-detail/course-detail
 import { CourseService } from './course/course.service';
 
 import { ClassListComponent } from './class/class-list/class-list.component';
-import { ClassListHomeComponent } from './class/class-list/class-list-home.component';
-import { ClassListActSelComponent } from './class/class-list/class-list-act-sel.component';
 
+import { ClassListWidgetCleanComponent } from './class/class-list/class-list-widget-clean.component';
+import { ClassListWidgetSelComponent } from './class/class-list/class-list-widget-sel.component';
 import { ClassDetailComponent } from './class/class-detail/class-detail.component';
 import { ClassDetailFieldComponent } from './class/class-detail/class-detail-field.component';
 
@@ -68,16 +64,12 @@ import { ClassService } from './class/class.service';
 import { StudentclassListComponent } from './studentclass/studentclass-list/studentclass-list.component';
 
 
-
-
 import { StudentclassDetailFieldComponent } from './studentclass/studentclass-detail/studentclass-detail-field.component';
 
 
 import { StudentclassService } from './studentclass/studentclass.service';
 
 import { ClassenrollListComponent } from './classenroll/classenroll-list/classenroll-list.component';
-
-
 
 import { ClassenrollDetailComponent } from './classenroll/classenroll-detail/classenroll-detail.component';
 import { ClassenrollDetailFieldComponent } from './classenroll/classenroll-detail/classenroll-detail-field.component';
@@ -86,8 +78,6 @@ import { ClassenrollEditComponent } from './classenroll/classenroll-edit/classen
 import { ClassenrollService } from './classenroll/classenroll.service';
 
 import { TermsListComponent } from './terms/terms-list/terms-list.component';
-
-
 
 import { TermsDetailComponent } from './terms/terms-detail/terms-detail.component';
 import { TermsDetailFieldComponent } from './terms/terms-detail/terms-detail-field.component';
@@ -145,59 +135,49 @@ import { StudentDirectiveGuardianTwoEmail } from './student/student-edit/student
     AcademicsRefSelectDirective,
 
     StudentListComponent,
-    
-    StudentListActSelComponent,
-    
+
+    StudentListWidgetSelComponent,
     StudentDetailComponent,
-StudentDetailFieldComponent,
+    StudentDetailFieldComponent,
     StudentEditComponent,
 
     TeacherListComponent,
-    
-    
-    
+
     TeacherDetailComponent,
-TeacherDetailFieldComponent,
+    TeacherDetailFieldComponent,
     
 
     CourseListComponent,
-    CourseListHomeComponent,
-    
-    
+
+    CourseListWidgetCleanComponent,
     CourseDetailComponent,
-CourseDetailFieldComponent,
+    CourseDetailFieldComponent,
     
 
     ClassListComponent,
-    ClassListHomeComponent,
-    ClassListActSelComponent,
-    
+
+    ClassListWidgetCleanComponent,
+    ClassListWidgetSelComponent,
     ClassDetailComponent,
-ClassDetailFieldComponent,
+    ClassDetailFieldComponent,
     
 
     StudentclassListComponent,
+
     
-    
-    
-    
-StudentclassDetailFieldComponent,
+    StudentclassDetailFieldComponent,
     
 
     ClassenrollListComponent,
-    
-    
-    
+
     ClassenrollDetailComponent,
-ClassenrollDetailFieldComponent,
+    ClassenrollDetailFieldComponent,
     ClassenrollEditComponent,
 
     TermsListComponent,
-    
-    
-    
+
     TermsDetailComponent,
-TermsDetailFieldComponent,
+    TermsDetailFieldComponent,
     
 
 
@@ -241,59 +221,49 @@ TermsDetailFieldComponent,
     AcademicsComponent,
 
     StudentListComponent,
-    
-    StudentListActSelComponent,
-    
+
+    StudentListWidgetSelComponent,
     StudentDetailComponent,
-StudentDetailFieldComponent,
+    StudentDetailFieldComponent,
     StudentEditComponent,
 
     TeacherListComponent,
-    
-    
-    
+
     TeacherDetailComponent,
-TeacherDetailFieldComponent,
+    TeacherDetailFieldComponent,
     
 
     CourseListComponent,
-    CourseListHomeComponent,
-    
-    
+
+    CourseListWidgetCleanComponent,
     CourseDetailComponent,
-CourseDetailFieldComponent,
+    CourseDetailFieldComponent,
     
 
     ClassListComponent,
-    ClassListHomeComponent,
-    ClassListActSelComponent,
-    
+
+    ClassListWidgetCleanComponent,
+    ClassListWidgetSelComponent,
     ClassDetailComponent,
-ClassDetailFieldComponent,
+    ClassDetailFieldComponent,
     
 
     StudentclassListComponent,
+
     
-    
-    
-    
-StudentclassDetailFieldComponent,
+    StudentclassDetailFieldComponent,
     
 
     ClassenrollListComponent,
-    
-    
-    
+
     ClassenrollDetailComponent,
-ClassenrollDetailFieldComponent,
+    ClassenrollDetailFieldComponent,
     ClassenrollEditComponent,
 
     TermsListComponent,
-    
-    
-    
+
     TermsDetailComponent,
-TermsDetailFieldComponent,
+    TermsDetailFieldComponent,
     
 
 
@@ -335,7 +305,29 @@ TermsDetailFieldComponent,
     ClassenrollService,
     TermsService,
   ],
-  entryComponents: [CourseSelectComponent,CourseDetailPopComponent,CourseDetailSelComponent,TermsSelectComponent,TermsDetailPopComponent,TermsDetailSelComponent,TeacherSelectComponent,TeacherDetailPopComponent,TeacherDetailSelComponent,StudentSelectComponent,StudentDetailPopComponent,StudentDetailSelComponent,ClassSelectComponent,ClassDetailPopComponent,ClassDetailSelComponent,StudentListActSelComponent,StudentEditComponent,ClassListActSelComponent,ClassenrollEditComponent,TermsDetailComponent,
+  entryComponents: [
+    CourseSelectComponent,
+    CourseDetailPopComponent,
+    CourseDetailSelComponent,
+    TermsSelectComponent,
+    TermsDetailPopComponent,
+    TermsDetailSelComponent,
+    TeacherSelectComponent,
+    TeacherDetailPopComponent,
+    TeacherDetailSelComponent,
+    StudentSelectComponent,
+    StudentDetailPopComponent,
+    StudentDetailSelComponent,
+    ClassSelectComponent,
+    ClassDetailPopComponent,
+    ClassDetailSelComponent,
+    StudentListWidgetSelComponent,
+    StudentEditComponent,
+    CourseListWidgetCleanComponent,
+    ClassListWidgetCleanComponent,
+    ClassListWidgetSelComponent,
+    ClassenrollEditComponent,
+    TermsDetailComponent,
   ]
 })
 export class AcademicsModule { }

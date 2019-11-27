@@ -3,26 +3,26 @@ import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
 
-import { ClassListComponent } from './class-list.component';
-import { ClassService } from '../class.service';
+import { StudentListComponent } from './student-list.component';
+import { StudentService } from '../student.service';
 
 @Component({
-  selector: 'app-class-list-act-sel',
-  templateUrl: './class-list-act-sel.component.html',
-  styleUrls: ['./class-list.component.css']
+  selector: 'app-student-list-widget-sel',
+  templateUrl: './student-list-widget-sel.component.html',
+  styleUrls: ['./student-list.component.css']
 })
-export class ClassListActSelComponent extends ClassListComponent implements OnInit {
+export class StudentListWidgetSelComponent extends StudentListComponent implements OnInit {
   constructor(
-      public classService: ClassService,
+      public studentService: StudentService,
       public injector: Injector,
       public router: Router,
       public route: ActivatedRoute,
       public location: Location) {
-        super(null, classService, injector, router, route, location);
+        super( studentService, injector, router, route, location);
 
-        this.isDropdownList =  true;
+        
         this.actionType = 'selection';
-        this.listViewFilter = 'dropdown';
+        this.listViewFilter = 'grid';
         this.listCategory1 = {}; // no do query based on category for select view;
         this.listCategory2 = {}; // no do query based on category for select view;
   }

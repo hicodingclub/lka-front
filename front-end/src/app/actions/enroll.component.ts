@@ -4,8 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { compositeStep, compositeStepConfig, submitComponent } from '@hicoder/angular-composite';
 
 import { ClassDetailComponent } from '../academics/class/class-detail/class-detail.component';
-import { ClassListActSelComponent } from '../academics/class/class-list/class-list-act-sel.component';
-import { StudentListActSelComponent } from '../academics/student/student-list/student-list-act-sel.component';
+import { ClassListWidgetSelComponent } from '../academics/class/class-list/class-list-widget-sel.component';
+import { StudentListWidgetSelComponent } from '../academics/student/student-list/student-list-widget-sel.component';
 import { TermsDetailComponent } from '../academics/terms/terms-detail/terms-detail.component';
 
 import { ClassenrollEditComponent } from '../academics/classenroll/classenroll-edit/classenroll-edit.component'
@@ -79,7 +79,7 @@ export class EnrollComponent implements OnInit {
       {
         stepTitle: 'Please select a registered student to enroll to the class',
 
-        stepComponent: StudentListActSelComponent,
+        stepComponent: StudentListWidgetSelComponent,
         mandatory: true,
         preSelectedId: undefined,
         multiSelect: true,
