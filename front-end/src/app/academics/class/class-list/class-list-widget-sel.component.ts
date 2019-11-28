@@ -9,7 +9,7 @@ import { ClassService } from '../class.service';
 @Component({
   selector: 'app-class-list-widget-sel',
   templateUrl: './class-list-widget-sel.component.html',
-  styleUrls: ['./class-list.component.css']
+  styleUrls: ['./class-list.component.css', './class-list-widget-sel.component.css']
 })
 export class ClassListWidgetSelComponent extends ClassListComponent implements OnInit {
   constructor(
@@ -31,8 +31,6 @@ export class ClassListWidgetSelComponent extends ClassListComponent implements O
     this.inputData == this.inputData || {} // expect stepTitle, preSelectedId
     this.selectedId = this.inputData.preSelectedId;
 
-    const detail = this.searchObj || {};
-    this.detail = this.formatDetail(detail);
-    this.searchList();
+    super.ngOnInit();
   }
 }

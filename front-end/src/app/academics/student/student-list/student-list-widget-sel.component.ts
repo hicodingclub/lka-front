@@ -9,7 +9,7 @@ import { StudentService } from '../student.service';
 @Component({
   selector: 'app-student-list-widget-sel',
   templateUrl: './student-list-widget-sel.component.html',
-  styleUrls: ['./student-list.component.css']
+  styleUrls: ['./student-list.component.css', './student-list-widget-sel.component.css']
 })
 export class StudentListWidgetSelComponent extends StudentListComponent implements OnInit {
   constructor(
@@ -31,8 +31,6 @@ export class StudentListWidgetSelComponent extends StudentListComponent implemen
     this.inputData == this.inputData || {} // expect stepTitle, preSelectedId
     this.selectedId = this.inputData.preSelectedId;
 
-    const detail = this.searchObj || {};
-    this.detail = this.formatDetail(detail);
-    this.searchList();
+    super.ngOnInit();
   }
 }

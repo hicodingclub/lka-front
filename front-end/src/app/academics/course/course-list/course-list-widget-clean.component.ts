@@ -9,7 +9,7 @@ import { CourseService } from '../course.service';
 @Component({
   selector: 'app-course-list-widget-clean',
   templateUrl: './course-list-widget-clean.component.html',
-  styleUrls: ['./course-list.component.css']
+  styleUrls: ['./course-list.component.css', './course-list-widget-clean.component.css']
 })
 export class CourseListWidgetCleanComponent extends CourseListComponent implements OnInit {
   constructor(
@@ -25,10 +25,6 @@ export class CourseListWidgetCleanComponent extends CourseListComponent implemen
   }
 
   ngOnInit() {
-    this.adjustListViewForWindowSize();
-
-    const detail = this.searchObj || {};
-    this.detail = this.formatDetail(detail);
-    this.searchList();
+      super.ngOnInit();
   }
 }

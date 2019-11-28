@@ -1,3 +1,4 @@
+
 <div class="detail" *ngIf="detail">
 	<div *ngIf="!options['disableActionButtions']"><div *ngIf="!disableActionButtions" class="action-buttons">
     <!--<a href="javascript:void(0)" (click)="goBack()"><i class="fas fa-angle-double-left" title="Back"></i></a>-->
@@ -7,33 +8,55 @@
     <a routerLink="." class="btn btn-outline-primary" (click)="onDelete(detail['_id'], null)">Delete</a>
 </div>
 </div>
-	<div class="card transparent-border">
-		<div class="post-head-picture" *ngIf="detail['signaturePicture']">
-			                
-                    <file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="true"></file-display>
+	<div class="card text-left transparent-border ">
+		<div class="grid-fields">
 
-		</div>
-		<div class="card-body">
-			<h3 class="card-title">                
+      <div class="card-header grid-head">
+        <div class="grid-head-picture mr-1">                
+                    <file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false"></file-display>
+
+        </div>
+        <div class="ml-1 d-inline-block">
+          <h5>
+            <div class="mr-1 d-inline-block">
+                              
                     {{detail['title']}}
-</h3>
-			<h6 class="card-subtitle mb-2 text-muted">
-				                
+
+            </div>
+          </h5>
+        </div>
+      </div>
+      <div class="card-body">
+          <div>
+            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
+                <div><label>Author:</label></div>
+                <div class="ml-3">                
                     {{detail['author']}}
- &nbsp;&nbsp;
-				                  {{detail['publishDate']?detail['publishDate']['value']:""}}
-
-			</h6>
-
-			<div class="card-text">
-					                 
+</div>
+            </div>
+          </div>
+          <div>
+            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
+                <div><label>Publish Date:</label></div>
+                <div class="ml-3">                  {{detail['publishDate']?detail['publishDate']['value']:""}}
+</div>
+            </div>
+          </div>
+          <div>
+            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
+                <div><label>Content:</label></div>
+                <div class="ml-3">                 
                     <div mra-richtext-show="eventDetailContent" [content]="detail['content']"></div>
+</div>
+            </div>
+          </div>
+      </div>
 
-			</div>
 		</div>
 	</div>
-
-
-
-
+	<div *ngIf="!options['disablePipeline']">
 </div>
+	<div *ngIf="!options['disableRefLink']">
+</div>
+</div>
+

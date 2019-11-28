@@ -25,6 +25,7 @@ import { pipeline_server_root_uri } from '../pipeline.conf';
 import { PipelineListComponent } from './pipeline/pipeline-list/pipeline-list.component';
 
 import { PipelineDetailComponent } from './pipeline/pipeline-detail/pipeline-detail.component';
+
 import { PipelineDetailFieldComponent } from './pipeline/pipeline-detail/pipeline-detail-field.component';
 import { PipelineEditComponent } from './pipeline/pipeline-edit/pipeline-edit.component';
 
@@ -51,6 +52,7 @@ import { PipelineService } from './pipeline/pipeline.service';
     PipelineListComponent,
 
     PipelineDetailComponent,
+
     PipelineDetailFieldComponent,
     PipelineEditComponent,
 
@@ -67,6 +69,7 @@ import { PipelineService } from './pipeline/pipeline.service';
     PipelineListComponent,
 
     PipelineDetailComponent,
+
     PipelineDetailFieldComponent,
     PipelineEditComponent,
 

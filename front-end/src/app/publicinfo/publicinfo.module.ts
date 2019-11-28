@@ -26,12 +26,15 @@ import { publicinfo_server_root_uri } from '../publicinfo.conf';
 import { GeneralinfoListComponent } from './generalinfo/generalinfo-list/generalinfo-list.component';
 
 import { GeneralinfoDetailComponent } from './generalinfo/generalinfo-detail/generalinfo-detail.component';
+
+    import { GeneralinfoDetailWidgetInfoComponent } from './generalinfo/generalinfo-detail/generalinfo-detail-widget-info.component';
 import { GeneralinfoDetailFieldComponent } from './generalinfo/generalinfo-detail/generalinfo-detail-field.component';
 
 
 import { GeneralinfoService } from './generalinfo/generalinfo.service';
 
 import { FaqListComponent } from './faq/faq-list/faq-list.component';
+
 
 
 import { FaqDetailFieldComponent } from './faq/faq-detail/faq-detail-field.component';
@@ -43,6 +46,8 @@ import { EventListComponent } from './event/event-list/event-list.component';
 
 import { EventListWidgetCleanComponent } from './event/event-list/event-list-widget-clean.component';
 import { EventDetailComponent } from './event/event-detail/event-detail.component';
+
+    import { EventDetailWidgetPostComponent } from './event/event-detail/event-detail-widget-post.component';
 import { EventDetailFieldComponent } from './event/event-detail/event-detail-field.component';
 
 
@@ -52,6 +57,8 @@ import { KeynoteListComponent } from './keynote/keynote-list/keynote-list.compon
 
 import { KeynoteListWidgetSldComponent } from './keynote/keynote-list/keynote-list-widget-sld.component';
 import { KeynoteDetailComponent } from './keynote/keynote-detail/keynote-detail.component';
+
+    import { KeynoteDetailWidgetSlideComponent } from './keynote/keynote-detail/keynote-detail-widget-slide.component';
 import { KeynoteDetailFieldComponent } from './keynote/keynote-detail/keynote-detail-field.component';
 
 
@@ -61,6 +68,8 @@ import { ArticleListComponent } from './article/article-list/article-list.compon
 
 import { ArticleListWidgetCleanComponent } from './article/article-list/article-list-widget-clean.component';
 import { ArticleDetailComponent } from './article/article-detail/article-detail.component';
+
+    import { ArticleDetailWidgetPostComponent } from './article/article-detail/article-detail-widget-post.component';
 import { ArticleDetailFieldComponent } from './article/article-detail/article-detail-field.component';
 
 
@@ -88,12 +97,15 @@ import { ArticleService } from './article/article.service';
     GeneralinfoListComponent,
 
     GeneralinfoDetailComponent,
+
+    GeneralinfoDetailWidgetInfoComponent,
     GeneralinfoDetailFieldComponent,
     
 
     FaqListComponent,
 
     
+
     FaqDetailFieldComponent,
     
 
@@ -101,6 +113,8 @@ import { ArticleService } from './article/article.service';
 
     EventListWidgetCleanComponent,
     EventDetailComponent,
+
+    EventDetailWidgetPostComponent,
     EventDetailFieldComponent,
     
 
@@ -108,6 +122,8 @@ import { ArticleService } from './article/article.service';
 
     KeynoteListWidgetSldComponent,
     KeynoteDetailComponent,
+
+    KeynoteDetailWidgetSlideComponent,
     KeynoteDetailFieldComponent,
     
 
@@ -115,6 +131,8 @@ import { ArticleService } from './article/article.service';
 
     ArticleListWidgetCleanComponent,
     ArticleDetailComponent,
+
+    ArticleDetailWidgetPostComponent,
     ArticleDetailFieldComponent,
     
 
@@ -131,12 +149,15 @@ import { ArticleService } from './article/article.service';
     GeneralinfoListComponent,
 
     GeneralinfoDetailComponent,
+
+      GeneralinfoDetailWidgetInfoComponent,
     GeneralinfoDetailFieldComponent,
     
 
     FaqListComponent,
 
     
+
     FaqDetailFieldComponent,
     
 
@@ -144,6 +165,8 @@ import { ArticleService } from './article/article.service';
 
     EventListWidgetCleanComponent,
     EventDetailComponent,
+
+      EventDetailWidgetPostComponent,
     EventDetailFieldComponent,
     
 
@@ -151,6 +174,8 @@ import { ArticleService } from './article/article.service';
 
     KeynoteListWidgetSldComponent,
     KeynoteDetailComponent,
+
+      KeynoteDetailWidgetSlideComponent,
     KeynoteDetailFieldComponent,
     
 
@@ -158,6 +183,8 @@ import { ArticleService } from './article/article.service';
 
     ArticleListWidgetCleanComponent,
     ArticleDetailComponent,
+
+      ArticleDetailWidgetPostComponent,
     ArticleDetailFieldComponent,
     
 
@@ -176,9 +203,13 @@ import { ArticleService } from './article/article.service';
     ArticleService,
   ],
   entryComponents: [
+    GeneralinfoDetailWidgetInfoComponent,
     EventListWidgetCleanComponent,
+    EventDetailWidgetPostComponent,
     KeynoteListWidgetSldComponent,
+    KeynoteDetailWidgetSlideComponent,
     ArticleListWidgetCleanComponent,
+    ArticleDetailWidgetPostComponent,
   ]
 })
 export class PublicinfoModule { }

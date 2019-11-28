@@ -46,22 +46,22 @@
 
     <section>
       <div>
-        <app-generalinfo-detail [searchObj]="{'tag': 'lka'}" [disableActionButtions]="true"
+        <app-generalinfo-detail-widget-info [searchObj]="{'tag': 'lka'}" [disableActionButtions]="true"
         [style]="{
           'card': {'background-color': 'white', 'color': '#00274c'},
           'body-field': {'font-size': '1.2rem', 'font-weight': '400'}
         }"
         >
-        </app-generalinfo-detail>
+        </app-generalinfo-detail-widget-info>
       </div>
     </section>
 
     <section class="row align-items-baseline row-border">
       <div class="col d-flex flex-column">
-          <div><app-generalinfo-detail [searchObj]="{'tag': 'events'}" [disableActionButtions]="true"
+          <div><app-generalinfo-detail-widget-info [searchObj]="{'tag': 'events'}" [disableActionButtions]="true"
             [style]="{'card': {'background-color': 'white', 'color': '#00274c'}}"
             >
-          </app-generalinfo-detail></div>
+          </app-generalinfo-detail-widget-info></div>
           <div class="align-self-center internal_link" routerLink="/publicinfo/event">Read all posts</div>
       </div>
       <div class="col-large"><app-event-list-widget-clean></app-event-list-widget-clean></div>
@@ -69,10 +69,10 @@
 
     <section>
       <div class="d-flex flex-column">
-        <div><app-generalinfo-detail [searchObj]="{'tag': 'classes'}" [disableActionButtions]="true"
+        <div><app-generalinfo-detail-widget-info [searchObj]="{'tag': 'classes'}" [disableActionButtions]="true"
           [style]="{'card': {'background-color': 'white', 'color': '#00274c'}}"
           >
-        </app-generalinfo-detail></div>
+        </app-generalinfo-detail-widget-info></div>
         <div class="align-self-center internal_link" routerLink="/academics/class/list">Check all classes</div>
       </div>
       <div style=""><app-class-list-widget-clean [searchObj]="{'hot': true}"></app-class-list-widget-clean></div>  
@@ -93,6 +93,8 @@
     </section>
     -->
     <section>
-      <div><app-keynote-detail [searchObj]="{'tag': 'mission'}" [disableActionButtions]="true"></app-keynote-detail></div>
+      <div>
+        <app-keynote-detail-widget-slide [searchObj]="{'tag': 'mission'}" [disableActionButtions]="true"></app-keynote-detail-widget-slide>
+      </div>
     </section>
 </div>

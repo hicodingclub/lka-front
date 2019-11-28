@@ -1,7 +1,8 @@
 // Import components for each schema
 
 import { GeneralinfoListComponent } from './generalinfo/generalinfo-list/generalinfo-list.component';
-import { GeneralinfoDetailComponent } from './generalinfo/generalinfo-detail/generalinfo-detail.component';
+
+import { GeneralinfoDetailWidgetInfoComponent } from './generalinfo/generalinfo-detail/generalinfo-detail-widget-info.component';
 
 
 
@@ -10,18 +11,22 @@ import { FaqListComponent } from './faq/faq-list/faq-list.component';
 
 
 
+
 import { EventListComponent } from './event/event-list/event-list.component';
-import { EventDetailComponent } from './event/event-detail/event-detail.component';
+
+import { EventDetailWidgetPostComponent } from './event/event-detail/event-detail-widget-post.component';
 
 
 
 import { KeynoteListComponent } from './keynote/keynote-list/keynote-list.component';
-import { KeynoteDetailComponent } from './keynote/keynote-detail/keynote-detail.component';
+
+import { KeynoteDetailWidgetSlideComponent } from './keynote/keynote-detail/keynote-detail-widget-slide.component';
 
 
 
 import { ArticleListComponent } from './article/article-list/article-list.component';
-import { ArticleDetailComponent } from './article/article-detail/article-detail.component';
+
+import { ArticleDetailWidgetPostComponent } from './article/article-detail/article-detail-widget-post.component';
 
 
 
@@ -33,7 +38,7 @@ import { AuthGuard } from '@hicoder/angular-auth';
 
 export const generalinfoRoutingPath = [
     {path: 'list', component: GeneralinfoListComponent},
-    {path: 'detail/:id', component: GeneralinfoDetailComponent},
+     {path: 'detail/:id', component: GeneralinfoDetailWidgetInfoComponent},
     
     
     
@@ -42,7 +47,7 @@ export const generalinfoRoutingPath = [
 
 export const faqRoutingPath = [
     {path: 'list', component: FaqListComponent},
-    
+     
     
     
     
@@ -51,7 +56,7 @@ export const faqRoutingPath = [
 
 export const eventRoutingPath = [
     {path: 'list', component: EventListComponent},
-    {path: 'detail/:id', component: EventDetailComponent},
+     {path: 'detail/:id', component: EventDetailWidgetPostComponent},
     
     
     
@@ -60,7 +65,7 @@ export const eventRoutingPath = [
 
 export const keynoteRoutingPath = [
     {path: 'list', component: KeynoteListComponent},
-    {path: 'detail/:id', component: KeynoteDetailComponent},
+     {path: 'detail/:id', component: KeynoteDetailWidgetSlideComponent},
     
     
     
@@ -69,7 +74,7 @@ export const keynoteRoutingPath = [
 
 export const articleRoutingPath = [
     {path: 'list', component: ArticleListComponent},
-    {path: 'detail/:id', component: ArticleDetailComponent},
+     {path: 'detail/:id', component: ArticleDetailWidgetPostComponent},
     
     
     

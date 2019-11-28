@@ -1,30 +1,55 @@
-		
+
 <div class="detail" *ngIf="detail">
-<div *ngIf="!disableActionButtions" class="action-buttons">
+	<div *ngIf="!options['disableActionButtions']"><div *ngIf="!disableActionButtions" class="action-buttons">
     <!--<a href="javascript:void(0)" (click)="goBack()"><i class="fas fa-angle-double-left" title="Back"></i></a>-->
     <a [routerLink]="['../../list' ]"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
     
     
     
 </div>
+</div>
+	<div class="card text-left transparent-border ">
+		<div class="grid-fields">
 
-	<div id="slides" class="carousel slide">
-		<!-- The slideshow -->
-		<div class="carousel-inner">
-			<div class="carousel-item  active">
-				<img src="{{detail['signaturePicture']}}" alt="" class="slide-image">
+      <div class="card-header grid-head">
+        <div class="grid-head-picture mr-1">                
+                    <file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false"></file-display>
 
-				<div class="carousel-caption d-none d-md-block">
-					<h3 class="mb-5">{{detail['title']}}</h3>
+        </div>
+        <div class="ml-1 d-inline-block">
+          <h5>
+            <div class="mr-1 d-inline-block">
+                              
+                    {{detail['title']}}
 
-					<h5>{{detail['subtitle']}}</h5>
-					<p>{{detail['description']}}</p>
-				</div>
-			</div>
+            </div>
+          </h5>
+        </div>
+      </div>
+      <div class="card-body">
+          <div>
+            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
+                <div><label>Subtitle:</label></div>
+                <div class="ml-3">                
+                    {{detail['subtitle']}}
+</div>
+            </div>
+          </div>
+          <div>
+            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
+                <div><label>Description:</label></div>
+                <div class="ml-3">                
+                    {{detail['description']}}
+</div>
+            </div>
+          </div>
+      </div>
+
 		</div>
 	</div>
-
-
-
-
+	<div *ngIf="!options['disablePipeline']">
 </div>
+	<div *ngIf="!options['disableRefLink']">
+</div>
+</div>
+

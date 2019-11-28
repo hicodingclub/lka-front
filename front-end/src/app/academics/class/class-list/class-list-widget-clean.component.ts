@@ -9,7 +9,7 @@ import { ClassService } from '../class.service';
 @Component({
   selector: 'app-class-list-widget-clean',
   templateUrl: './class-list-widget-clean.component.html',
-  styleUrls: ['./class-list.component.css']
+  styleUrls: ['./class-list.component.css', './class-list-widget-clean.component.css']
 })
 export class ClassListWidgetCleanComponent extends ClassListComponent implements OnInit {
   constructor(
@@ -25,10 +25,6 @@ export class ClassListWidgetCleanComponent extends ClassListComponent implements
   }
 
   ngOnInit() {
-    this.adjustListViewForWindowSize();
-
-    const detail = this.searchObj || {};
-    this.detail = this.formatDetail(detail);
-    this.searchList();
+      super.ngOnInit();
   }
 }

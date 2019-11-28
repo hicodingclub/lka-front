@@ -1,27 +1,32 @@
 // Import components for each schema
 
 import { EventListComponent } from './event/event-list/event-list.component';
-import { EventDetailComponent } from './event/event-detail/event-detail.component';
+
+import { EventDetailWidgetPostComponent } from './event/event-detail/event-detail-widget-post.component';
 import { EventEditComponent } from './event/event-edit/event-edit.component';
 
 
 import { ArticleListComponent } from './article/article-list/article-list.component';
-import { ArticleDetailComponent } from './article/article-detail/article-detail.component';
+
+import { ArticleDetailWidgetPostComponent } from './article/article-detail/article-detail-widget-post.component';
 import { ArticleEditComponent } from './article/article-edit/article-edit.component';
 
 
 import { FaqListComponent } from './faq/faq-list/faq-list.component';
 import { FaqDetailComponent } from './faq/faq-detail/faq-detail.component';
+
 import { FaqEditComponent } from './faq/faq-edit/faq-edit.component';
 
 
 import { GeneralinfoListComponent } from './generalinfo/generalinfo-list/generalinfo-list.component';
-import { GeneralinfoDetailComponent } from './generalinfo/generalinfo-detail/generalinfo-detail.component';
+
+import { GeneralinfoDetailWidgetInfoComponent } from './generalinfo/generalinfo-detail/generalinfo-detail-widget-info.component';
 import { GeneralinfoEditComponent } from './generalinfo/generalinfo-edit/generalinfo-edit.component';
 
 
 import { KeynoteListComponent } from './keynote/keynote-list/keynote-list.component';
-import { KeynoteDetailComponent } from './keynote/keynote-detail/keynote-detail.component';
+
+import { KeynoteDetailWidgetSlideComponent } from './keynote/keynote-detail/keynote-detail-widget-slide.component';
 import { KeynoteEditComponent } from './keynote/keynote-edit/keynote-edit.component';
 
 
@@ -33,7 +38,7 @@ import { AuthGuard } from '@hicoder/angular-auth';
 
 export const eventRoutingPath = [
     {path: 'list', component: EventListComponent, canActivate: [AuthGuard]},
-    {path: 'detail/:id', component: EventDetailComponent, canActivate: [AuthGuard]},
+     {path: 'detail/:id', component: EventDetailWidgetPostComponent, canActivate: [AuthGuard]},
     {path: 'edit/:id', component: EventEditComponent, canActivate: [AuthGuard]},
     {path: 'new', component: EventEditComponent, canActivate: [AuthGuard]},
     
@@ -42,7 +47,7 @@ export const eventRoutingPath = [
 
 export const articleRoutingPath = [
     {path: 'list', component: ArticleListComponent, canActivate: [AuthGuard]},
-    {path: 'detail/:id', component: ArticleDetailComponent, canActivate: [AuthGuard]},
+     {path: 'detail/:id', component: ArticleDetailWidgetPostComponent, canActivate: [AuthGuard]},
     {path: 'edit/:id', component: ArticleEditComponent, canActivate: [AuthGuard]},
     {path: 'new', component: ArticleEditComponent, canActivate: [AuthGuard]},
     
@@ -51,7 +56,7 @@ export const articleRoutingPath = [
 
 export const faqRoutingPath = [
     {path: 'list', component: FaqListComponent, canActivate: [AuthGuard]},
-    {path: 'detail/:id', component: FaqDetailComponent, canActivate: [AuthGuard]},
+     {path: 'detail/:id', component: FaqDetailComponent, canActivate: [AuthGuard]},
     {path: 'edit/:id', component: FaqEditComponent, canActivate: [AuthGuard]},
     {path: 'new', component: FaqEditComponent, canActivate: [AuthGuard]},
     
@@ -60,7 +65,7 @@ export const faqRoutingPath = [
 
 export const generalinfoRoutingPath = [
     {path: 'list', component: GeneralinfoListComponent, canActivate: [AuthGuard]},
-    {path: 'detail/:id', component: GeneralinfoDetailComponent, canActivate: [AuthGuard]},
+     {path: 'detail/:id', component: GeneralinfoDetailWidgetInfoComponent, canActivate: [AuthGuard]},
     {path: 'edit/:id', component: GeneralinfoEditComponent, canActivate: [AuthGuard]},
     {path: 'new', component: GeneralinfoEditComponent, canActivate: [AuthGuard]},
     
@@ -69,7 +74,7 @@ export const generalinfoRoutingPath = [
 
 export const keynoteRoutingPath = [
     {path: 'list', component: KeynoteListComponent, canActivate: [AuthGuard]},
-    {path: 'detail/:id', component: KeynoteDetailComponent, canActivate: [AuthGuard]},
+     {path: 'detail/:id', component: KeynoteDetailWidgetSlideComponent, canActivate: [AuthGuard]},
     {path: 'edit/:id', component: KeynoteEditComponent, canActivate: [AuthGuard]},
     {path: 'new', component: KeynoteEditComponent, canActivate: [AuthGuard]},
     

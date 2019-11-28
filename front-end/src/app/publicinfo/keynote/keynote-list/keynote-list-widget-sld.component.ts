@@ -10,7 +10,7 @@ import { NgbCarousel } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-keynote-list-widget-sld',
   templateUrl: './keynote-list-widget-sld.component.html',
-  styleUrls: ['./keynote-list.component.css'],
+  styleUrls: ['./keynote-list.component.css', './keynote-list-widget-sld.component.css'],
 })
 export class KeynoteListWidgetSldComponent extends KeynoteListComponent implements OnInit, OnChanges {
   public titleFn: string;
@@ -42,11 +42,9 @@ export class KeynoteListWidgetSldComponent extends KeynoteListComponent implemen
     this.subtitleFn = this.inputData[1];
     this.descriptionFn = this.inputData[2];
     this.picturelinkFn = this.inputData[3];
-
-    const detail = this.searchObj || {};
-    this.detail = this.formatDetail(detail);
     this.searchDetailReady = true;
-    this.searchList();
+
+    super.ngOnInit();
   }
 
   ngOnChanges() {

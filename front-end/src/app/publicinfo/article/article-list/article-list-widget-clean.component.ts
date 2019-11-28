@@ -9,7 +9,7 @@ import { ArticleService } from '../article.service';
 @Component({
   selector: 'app-article-list-widget-clean',
   templateUrl: './article-list-widget-clean.component.html',
-  styleUrls: ['./article-list.component.css']
+  styleUrls: ['./article-list.component.css', './article-list-widget-clean.component.css']
 })
 export class ArticleListWidgetCleanComponent extends ArticleListComponent implements OnInit {
   constructor(
@@ -25,10 +25,6 @@ export class ArticleListWidgetCleanComponent extends ArticleListComponent implem
   }
 
   ngOnInit() {
-    this.adjustListViewForWindowSize();
-
-    const detail = this.searchObj || {};
-    this.detail = this.formatDetail(detail);
-    this.searchList();
+      super.ngOnInit();
   }
 }

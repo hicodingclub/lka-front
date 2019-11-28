@@ -6,7 +6,7 @@ import { compositeStep, compositeStepConfig, submitComponent } from '@hicoder/an
 import { ClassDetailComponent } from '../academics/class/class-detail/class-detail.component';
 import { ClassListWidgetSelComponent } from '../academics/class/class-list/class-list-widget-sel.component';
 import { StudentListWidgetSelComponent } from '../academics/student/student-list/student-list-widget-sel.component';
-import { TermsDetailComponent } from '../academics/terms/terms-detail/terms-detail.component';
+import { TermsDetailWidgetTermComponent } from '../academics/terms/terms-detail/terms-detail-widget-term.component';
 
 import { ClassenrollEditComponent } from '../academics/classenroll/classenroll-edit/classenroll-edit.component'
 import { CompositeComponent } from '@hicoder/angular-composite'
@@ -134,7 +134,7 @@ export class EnrollComponent implements OnInit {
       const config: compositeStepConfig = {
         stepTitle: '',
 
-        stepComponent: TermsDetailComponent, //define the component at this time
+        stepComponent: TermsDetailWidgetTermComponent, //define the component at this time
         mandatory: true,
         preSelectedId: undefined,
         multiSelect: false,

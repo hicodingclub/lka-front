@@ -9,7 +9,7 @@ import { EventService } from '../event.service';
 @Component({
   selector: 'app-event-list-widget-clean',
   templateUrl: './event-list-widget-clean.component.html',
-  styleUrls: ['./event-list.component.css']
+  styleUrls: ['./event-list.component.css', './event-list-widget-clean.component.css']
 })
 export class EventListWidgetCleanComponent extends EventListComponent implements OnInit {
   constructor(
@@ -25,10 +25,6 @@ export class EventListWidgetCleanComponent extends EventListComponent implements
   }
 
   ngOnInit() {
-    this.adjustListViewForWindowSize();
-
-    const detail = this.searchObj || {};
-    this.detail = this.formatDetail(detail);
-    this.searchList();
+      super.ngOnInit();
   }
 }
