@@ -7,6 +7,7 @@ import { MfileComponent, ViewType } from '../mfile.component';
 import { MfileService } from '../mfile.service';
 
 
+import { ComponentFactoryResolver } from '@angular/core';
 
   
 @Component({
@@ -27,13 +28,13 @@ export class MfileListComponent extends MfileComponent implements OnInit {
   
 
   constructor(
-
+public componentFactoryResolver: ComponentFactoryResolver,
       public mfileService: MfileService,
       public injector: Injector,
       public router: Router,
       public route: ActivatedRoute,
       public location: Location) {
-          super(
+          super(componentFactoryResolver,
                 mfileService, injector, router, route, location, ViewType.LIST);
 
 
@@ -41,12 +42,14 @@ export class MfileListComponent extends MfileComponent implements OnInit {
           this.stringFields.push('type');
           this.stringFields.push('link');
 
+          this.referenceFields = ['group', ];
 
-          this.dateFields = ['uploaded', ];
+          this.dateFields = ['createdAt', ];
 
 
 
           this.arrayFields = [['labels', 'SchemaString'],];
+
 
 
 
@@ -68,7 +71,7 @@ export class MfileListComponent extends MfileComponent implements OnInit {
 
   static getInstance() {
     //used by others to call some common functions
-    return new MfileListComponent(null, null, null, null, null);
+    return new MfileListComponent(null, null, null, null, null, null);
   }
 }
 

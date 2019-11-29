@@ -3,19 +3,20 @@ import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Injector } from '@angular/core';
 
-import { MfilelabelsComponent, ViewType } from '../mfilelabels.component';
-import { MfilelabelsService } from '../mfilelabels.service';
+import { MfilegroupComponent, ViewType } from '../mfilegroup.component';
+import { MfilegroupService } from '../mfilegroup.service';
 
 
 
   
 @Component({
-  selector: 'app-mfilelabels-list',
-  templateUrl: './mfilelabels-list.component.html',
-  styleUrls: ['./mfilelabels-list.component.css']
+  selector: 'app-mfilegroup-list',
+  templateUrl: './mfilegroup-list.component.html',
+  styleUrls: ['./mfilegroup-list.component.css']
 })
-export class MfilelabelsListComponent extends MfilelabelsComponent implements OnInit {
+export class MfilegroupListComponent extends MfilegroupComponent implements OnInit {
 
+  public minDate = {year: (new Date()).getFullYear() - 100, month: 1, day: 1};
 
   @Input()
   public inputData:any;
@@ -27,16 +28,17 @@ export class MfilelabelsListComponent extends MfilelabelsComponent implements On
 
   constructor(
 
-      public mfilelabelsService: MfilelabelsService,
+      public mfilegroupService: MfilegroupService,
       public injector: Injector,
       public router: Router,
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                mfilelabelsService, injector, router, route, location, ViewType.LIST);
+                mfilegroupService, injector, router, route, location, ViewType.LIST);
 
 
-          this.stringFields.push('label');
+          this.stringFields.push('name');
+
 
 
 
@@ -63,7 +65,7 @@ export class MfilelabelsListComponent extends MfilelabelsComponent implements On
 
   static getInstance() {
     //used by others to call some common functions
-    return new MfilelabelsListComponent(null, null, null, null, null);
+    return new MfilegroupListComponent(null, null, null, null, null);
   }
 }
 

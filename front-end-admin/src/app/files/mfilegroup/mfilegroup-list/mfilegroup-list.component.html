@@ -3,7 +3,7 @@
 
 <ul *ngIf="listCategory1.listCategoryField" class="nav nav-pills category-nav">
 	<li *ngFor="let ele of categoryDisplays; let idx = index;" class="nav-item" >
-		<a class="nav-link" [ngClass]="{'active': idx === selectedCategory }" [routerLink]="['.']" [queryParamsHandling]="preserve" (click)="categorySelected(idx)">{{ele}}</a>
+		<a class="nav-link" [ngClass]="{'active': idx === selectedCategory }" [routerLink]="['.']" queryParamsHandling="preserve" (click)="categorySelected(idx)">{{ele}}</a>
 	</li>
 </ul>
 
@@ -15,10 +15,10 @@
 
 
 			    <div class="input-group">
-	              <input type="search" class="form-control border border-secondary" id="mfilelabelsTextSearch" 
-						#mfilelabelsTextSearch [(ngModel)]="searchText"
+	              <input type="search" class="form-control border border-secondary" id="mfilegroupTextSearch" 
+						#mfilegroupTextSearch [(ngModel)]="searchText"
 						(keyup.enter)="$event.target.blur();searchList();false"
-					    placeholder="Search for label"> 
+					    placeholder="Search for name"> 
 				  <div *ngIf="searchText" class="input-group-append icon-clear-inside">
 					<span >
 					    <i class="fas fa-times-circle" (click)="onSearchTextClear()" title="Clear"></i>
@@ -38,6 +38,8 @@
 			<div class="col">
 		        <div class="action-buttons">
 					
+
+					<a [routerLink]="['../new' ]" [skipLocationChange]="false" class="btn btn-outline-primary">Create</a>
 					
 				</div>
 			</div>
@@ -55,8 +57,8 @@
 							</span>
 						</button>
 						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('label', 'Label', 'asc')">Label<i class="fas fa-arrow-up"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('label', 'Label', 'desc')">Label<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('name', 'Name', 'asc')">Name<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('name', 'Name', 'desc')">Name<i class="fas fa-arrow-down"></i></a>
 						</div>
 					</div>
 			</div>
@@ -131,20 +133,27 @@
 	<div class="listview" *ngIf="isShowListView('list')">
 		<div class="list-block" *ngFor="let detail of list;  let i = index; let list_index = index;">
 			<hr *ngIf="i==0" class="list-diverder">
-			<div class="list-card text-left  "
+			<div class="list-card text-left clickable-card "
 				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
-				<div class="list-fields "  >
+				<div class="list-fields pointer" (click)="onDetailLinkClicked(detail['_id'])" >
 
       <div class="list-body-fields ml-1 d-inline-block">
         <h5>
           <div class="mr-1 d-inline-block">
                             
-                    {{detail['label']}}
+                    {{detail['name']}}
 
           </div>
         </h5>
       </div>
 
+				</div>
+				<div class="card-action-icons d-inline-block">
+					
+						<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
+					
+					
+					
 				</div>
 			</div>
 			<hr class="list-diverder">
@@ -155,16 +164,16 @@
 
 	<div class="gridview" *ngIf="isShowListView('grid')">
 		<div class="grid-block" *ngFor="let detail of list;  let i = index; let list_index = index;">
-			<div class="card text-left h-100  "
+			<div class="card text-left h-100 clickable-card "
 				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
-				<div class="grid-fields "  >
+				<div class="grid-fields pointer" (click)="onDetailLinkClicked(detail['_id'])" >
 
       <div class="card-header grid-head">
         <div class="ml-1 d-inline-block">
           <h5>
             <div class="mr-1 d-inline-block">
                               
-                    {{detail['label']}}
+                    {{detail['name']}}
 
             </div>
           </h5>
@@ -173,6 +182,13 @@
       <div class="card-body">
       </div>
 
+				</div>
+				<div class="card-action-icons">
+					
+						<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
+					
+					
+					
 				</div>
 			</div>
 		</div>
@@ -184,25 +200,33 @@
 	    	<tr>
 		        <th scope="col">#</th>
 
-				<th class="pointer" scope="col" (click)="toggleListSort('label', 'Label')">
-					Label
-					<span *ngIf="listSortField === 'label'">
+				<th class="pointer" scope="col" (click)="toggleListSort('name', 'Name')">
+					Name
+					<span *ngIf="listSortField === 'name'">
 						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
 						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
 					</span>
-				</th>
+				</th><th scope="col" style="width:3.8rem;"></th>
 	    	</tr>
 	    </thead>
 	    <tbody>
 	        <tr *ngFor="let detail of list;  let i = index; let list_index = index;" [ngClass]="{'clicked-row': clickedId==detail['_id']}">
-	            <td scope="row" >
+	            <td scope="row" (click)="onDetailLinkClicked(detail['_id'])"  class="pointer read-more">
 	            	{{(page-1)*per_page+i+1}}
 	            </td>
 
-	            <td >
+	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
 	            	                
-                    {{detail['label']}}
+                    {{detail['name']}}
 
+	            </td>
+	            <td>
+					
+						<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
+					
+	            	
+					
+					
 	            </td>
 	        </tr>
 	    </tbody>

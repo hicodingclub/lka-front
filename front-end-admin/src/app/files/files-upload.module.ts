@@ -50,7 +50,8 @@ import { MfilegroupDetailSelComponent } from './mfilegroup/mfilegroup-detail/mfi
 
 import { MfileListSubComponent } from './mfile/mfile-list/mfile-list-sub.component';
 
-
+import { MddsUploadComponent } from './mddsupload.component';
+import { MddsUploadService } from './mddsupload.service';
 
 @NgModule({
   imports: [
@@ -90,7 +91,7 @@ import { MfileListSubComponent } from './mfile/mfile-list/mfile-list-sub.compone
 
     MfileListSubComponent,
     
-
+    MddsUploadComponent,
 
 
 
@@ -129,6 +130,7 @@ import { MfileListSubComponent } from './mfile/mfile-list/mfile-list-sub.compone
 
     MfileService,
     MfilegroupService,
+    MddsUploadService,
   ],
   entryComponents: [
     MfilegroupListSelectComponent,

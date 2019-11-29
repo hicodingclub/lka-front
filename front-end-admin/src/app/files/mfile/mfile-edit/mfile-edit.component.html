@@ -5,7 +5,7 @@
 	
 	<div class="card" style="text-align: left;">
 	  <div class="card-body">
-	    <h4 class="card-title" *ngIf="!embeddedView">{{action}} Mfile</h4>
+	    <h4 class="card-title" *ngIf="!embeddedView">{{action}} Picture</h4>
 	    <form (ngSubmit)="onSubmit()" #editForm="ngForm">
 	    
 	     <div *ngIf="action == 'Edit'">
@@ -38,6 +38,34 @@
         
         </fieldset>
 
+    
+</div>
+<div *ngIf="!hiddenFields.includes('group')">
+
+        <fieldset class="form-group">
+          <label for="EditGroup">Group </label>
+          
+          <!-- <a class="icon-search" [routerLink]="['.']" (click)="onRefSelect('group')"><i class="fas fa-list" title="Search"></i></a>  -->
+          <div class="input-group">
+            <!--  [attr.disabled]="true" -->
+              <input class="form-control rounded" id="EditGroup" 
+                  [ngClass]="{'pointer ref-badge': detail['group']['_id']}"
+                  (focus)="onRefSelect('group')"
+                    
+                 
+                  [ngModel]="detail['group']['value']" name="EditGroup"
+                  #EditGroup="ngModel"> 
+              <div *ngIf="detail['group']['value']" 
+                class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('group')">
+                <i class="fas fa-times-circle" title="Clear"></i>
+              </div>
+          </div>
+          <div [hidden]="EditGroup.valid || EditGroup.pristine"
+               class="alert alert-danger">
+
+ 
+          </div>
+        </fieldset>
     
 </div>
 <div *ngIf="!hiddenFields.includes('labels')">
@@ -133,6 +161,34 @@
 
     
 </div>
+<div *ngIf="!hiddenFields.includes('group')">
+
+        <fieldset class="form-group">
+          <label for="EditGroup">Group </label>
+          
+          <!-- <a class="icon-search" [routerLink]="['.']" (click)="onRefSelect('group')"><i class="fas fa-list" title="Search"></i></a>  -->
+          <div class="input-group">
+            <!--  [attr.disabled]="true" -->
+              <input class="form-control rounded" id="EditGroup" 
+                  [ngClass]="{'pointer ref-badge': detail['group']['_id']}"
+                  (focus)="onRefSelect('group')"
+                    
+                 
+                  [ngModel]="detail['group']['value']" name="EditGroup"
+                  #EditGroup="ngModel"> 
+              <div *ngIf="detail['group']['value']" 
+                class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('group')">
+                <i class="fas fa-times-circle" title="Clear"></i>
+              </div>
+          </div>
+          <div [hidden]="EditGroup.valid || EditGroup.pristine"
+               class="alert alert-danger">
+
+ 
+          </div>
+        </fieldset>
+    
+</div>
 <div *ngIf="!hiddenFields.includes('labels')">
 
           <fieldset class="form-group">
@@ -206,3 +262,4 @@
 	</div>
 </div>
 
+<ng-template files-ref-select></ng-template>

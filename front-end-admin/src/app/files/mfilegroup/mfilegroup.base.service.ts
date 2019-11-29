@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { BaseService } from '@hicoder/angular-core';
 
-const servicePath = '/mfilelabels/';
+const servicePath = '/mfilegroup/';
 
-export class MfilelabelsBaseService extends BaseService {
+export class MfilegroupBaseService extends BaseService {
     constructor(http: HttpClient, serverRootUrl: string) {
         const serviceUrl = serverRootUrl + servicePath;
         super(http, serviceUrl);

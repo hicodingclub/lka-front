@@ -427,12 +427,32 @@ div.badge-click:hover {
 }
 
 .slide-image {
+  /*
   left: 50%;
   transform: translate(-50%, 0);
   position: relative;
+  */
+  width: 100%;
 }
 
 .asso-link {
   font-style: italic;
   font-size: 0.8rem;
+}
+
+.nohref-link {
+  color: #007bff !important;
+  cursor: pointer;
+}
+.nohref-link:hover {
+  color: #0056b3 !important;
+}
+
+.nohref-link.active, .nohref-link.active:hover {
+  color: #fff !important;
+} 
+
+
+.list-check-box {
+  zoom: 1.35;
 }

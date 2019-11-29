@@ -3,22 +3,21 @@ import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
 
-import { MfileComponent, ViewType } from '../mfile.component';
-import { MfileService } from '../mfile.service';
+import { MfilegroupComponent, ViewType } from '../mfilegroup.component';
+import { MfilegroupService } from '../mfilegroup.service';
 
 
 
 
 
-import { ComponentFactoryResolver } from '@angular/core';
 
 
 @Component({
-  selector: 'app-mfile-edit',
-  templateUrl: './mfile-edit.component.html',
-  styleUrls: ['./mfile-edit.component.css']
+  selector: 'app-mfilegroup-edit',
+  templateUrl: './mfilegroup-edit.component.html',
+  styleUrls: ['./mfilegroup-edit.component.css']
 })
-export class MfileEditComponent extends MfileComponent implements OnInit {        
+export class MfilegroupEditComponent extends MfilegroupComponent implements OnInit {        
     @Input() 
     public id: string;
     @Input()
@@ -36,24 +35,22 @@ export class MfileEditComponent extends MfileComponent implements OnInit {
 
         
     constructor(
-      public componentFactoryResolver: ComponentFactoryResolver,
-      public mfileService: MfileService,
+      
+      public mfilegroupService: MfilegroupService,
       public injector: Injector,
       public router: Router,
       public route: ActivatedRoute,
       public location: Location) {
-          super( componentFactoryResolver,
-                 mfileService, injector, router, route, location, ViewType.EDIT);
+          super( 
+                 mfilegroupService, injector, router, route, location, ViewType.EDIT);
 
 
           this.stringFields.push('name');
 
-          this.referenceFields = ['group', ];
 
 
 
 
-          this.arrayFields = [['labels', 'SchemaString'],];
 
 
 

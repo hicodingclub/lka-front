@@ -6,6 +6,11 @@
 		<div *ngIf="detail && showFields.includes('type')">                
                     {{detail['type']}}
 </div>
+		<div *ngIf="detail && showFields.includes('group')">                
+               	  <a routerLink="."  (click)="onDisplayRefClicked('group', detail['group'], $event)">
+	            	{{detail['group']?detail['group']['value']:""}}
+	              </a>
+</div>
 		<div *ngIf="detail && showFields.includes('labels')">                
                     <div *ngIf="detail['labels'] && detail['labels']['selection']">
                         <ng-template ngFor let-element [ngForOf]="detail['labels']['selection']" let-idx="index">
@@ -20,7 +25,7 @@
 		<div *ngIf="detail && showFields.includes('link')">                
                     <file-display [downloadUrl]="detail['link']" [isLarge]="false"></file-display>
 </div>
-		<div *ngIf="detail && showFields.includes('uploaded')">                  {{detail['uploaded']?detail['uploaded']['value']:""}}
+		<div *ngIf="detail && showFields.includes('createdAt')">                  {{detail['createdAt']?detail['createdAt']['value']:""}}
 </div>
 		<div *ngIf="detail && showFields.includes('hasThumbnail')">                  {{detail['hasThumbnail']}} 
 </div>

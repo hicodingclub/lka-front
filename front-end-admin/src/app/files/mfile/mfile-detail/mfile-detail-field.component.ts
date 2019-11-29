@@ -24,7 +24,7 @@ export class MfileDetailFieldComponent extends MfileComponent
         public router: Router,
         public route: ActivatedRoute,
         public location: Location) {
-          super(
+          super(null,
                 mfileService, injector, router, route, location, ViewType.DETAIL);
           
 
@@ -32,12 +32,14 @@ export class MfileDetailFieldComponent extends MfileComponent
           this.stringFields.push('type');
           this.stringFields.push('link');
 
+          this.referenceFields = ['group', ];
 
-          this.dateFields = ['uploaded', ];
+          this.dateFields = ['createdAt', ];
 
 
 
           this.arrayFields = [['labels', 'SchemaString'],];
+
 
 
     }

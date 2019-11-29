@@ -17,8 +17,8 @@ import { AuthenticationModule, AUTHENTICATION_DROPDOWN_ITEMS, AUTHENTICATION_LOG
 
 import { AUTHENTICATION_AUTH_PAGE_ROOT_URI, AUTHENTICATION_SERVER_ROOT_URI, AUTHENTICATION_INTERFACES } from '@hicoder/angular-auth';
 import { authentication_page_root_uri, authentication_server_root_uri, authentication_interfaces, authentication_dropdown_items, authentication_login_pipeline } from './auth.conf';
-import { FILE_UPLOAD_URI, FILE_DOWNLOAD_URI } from '@hicoder/angular-file';
-import { file_upload_uri, file_download_uri } from './file-upload.config';
+import { FILE_UPLOAD_URI, FILE_DOWNLOAD_URI, FILE_MANAGE_ROOT_URI } from '@hicoder/angular-file';
+import { file_upload_uri, file_download_uri, file_manage_root_uri } from './file-upload.config';
 
 @NgModule({
   declarations: [
@@ -47,6 +47,7 @@ import { file_upload_uri, file_download_uri } from './file-upload.config';
     { provide: AUTHENTICATION_LOGIN_PIPELINE, useValue: authentication_login_pipeline },
     { provide: FILE_UPLOAD_URI, useValue: file_upload_uri },
     { provide: FILE_DOWNLOAD_URI, useValue: file_download_uri },
+    { provide: FILE_MANAGE_ROOT_URI, useValue: file_manage_root_uri },
   ],
   bootstrap: [AppComponent]
 })

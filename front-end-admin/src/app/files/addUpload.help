@@ -1,0 +1,13 @@
+1. Add a new nav tab in files.component.html
+
+<a class="nav-item nav-link" routerLink="./upload" 
+    routerLinkActive="active">Upload</a>
+
+
+2. Add router in files.conf.ts
+
+      { path: "upload",
+        component: MddsUploadComponent,
+      }
+
+3. add MddsUploadComponent, MddsUploadComponent in files.module.ts

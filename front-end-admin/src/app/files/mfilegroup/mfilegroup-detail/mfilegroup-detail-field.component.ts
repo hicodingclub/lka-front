@@ -3,15 +3,15 @@ import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
 
-import { MfilelabelsComponent, ViewType } from '../mfilelabels.component';
-import { MfilelabelsService } from '../mfilelabels.service';
+import { MfilegroupComponent, ViewType } from '../mfilegroup.component';
+import { MfilegroupService } from '../mfilegroup.service';
 
 @Component({
-  selector: 'app-mfilelabels-detail-field',
-  templateUrl: './mfilelabels-detail-field.component.html',
-  styleUrls: ['./mfilelabels-detail.component.css']
+  selector: 'app-mfilegroup-detail-field',
+  templateUrl: './mfilegroup-detail-field.component.html',
+  styleUrls: ['./mfilegroup-detail.component.css']
 })
-export class MfilelabelsDetailFieldComponent extends MfilelabelsComponent
+export class MfilegroupDetailFieldComponent extends MfilegroupComponent
         implements OnInit {
     @Input() id: string;
     @Input() detailObj: any;
@@ -19,19 +19,20 @@ export class MfilelabelsDetailFieldComponent extends MfilelabelsComponent
     showFields: string[];
     
     constructor(
-        public mfilelabelsService: MfilelabelsService,
+        public mfilegroupService: MfilegroupService,
         public injector: Injector,
         public router: Router,
         public route: ActivatedRoute,
         public location: Location) {
           super(
-                mfilelabelsService, injector, router, route, location, ViewType.DETAIL);
+                mfilegroupService, injector, router, route, location, ViewType.DETAIL);
           
 
-          this.stringFields.push('label');
+          this.stringFields.push('name');
 
 
-          this.dateFields = ['created', ];
+          this.dateFields = ['createdAt', ];
+
 
 
 
