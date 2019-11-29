@@ -16,10 +16,10 @@ import { AccessRefSelectDirective } from '../access.component';
 
 import { MusergroupDetailSelComponent } from '../musergroup/musergroup-detail/musergroup-detail-sel.component';
 import { MusergroupDetailPopComponent } from '../musergroup/musergroup-detail/musergroup-detail-pop.component';
-import { MusergroupSelectComponent } from '../musergroup/musergroup-list/musergroup-select.component';
+import { MusergroupListSelectComponent } from '../musergroup/musergroup-list/musergroup-list-select.component';
 import { MpubmoduleDetailSelComponent } from '../mpubmodule/mpubmodule-detail/mpubmodule-detail-sel.component';
 import { MpubmoduleDetailPopComponent } from '../mpubmodule/mpubmodule-detail/mpubmodule-detail-pop.component';
-import { MpubmoduleSelectComponent } from '../mpubmodule/mpubmodule-list/mpubmodule-select.component';
+import { MpubmoduleListSelectComponent } from '../mpubmodule/mpubmodule-list/mpubmodule-list-select.component';
 
 
 export class MpubaccessComponent extends BaseComponent {
@@ -27,12 +27,12 @@ export class MpubaccessComponent extends BaseComponent {
     public selectComponents = {
 
       'group': {
-          'select-type':MusergroupSelectComponent,
+          'select-type': MusergroupListSelectComponent,
           'select-detail-type': MusergroupDetailSelComponent,
           'pop-detail-type': MusergroupDetailPopComponent,
           'componentRef': null},
       'module': {
-          'select-type':MpubmoduleSelectComponent,
+          'select-type': MpubmoduleListSelectComponent,
           'select-detail-type': MpubmoduleDetailSelComponent,
           'pop-detail-type': MpubmoduleDetailPopComponent,
           'componentRef': null},

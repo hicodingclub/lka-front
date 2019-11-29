@@ -47,7 +47,7 @@
 				</div>
 				<div class="card-action-icons">
 					
-						<a [routerLink]="['.']" [queryParamsHandling]="preserve" (click)="onEdit(detail._id)"><i class="fas fa-edit" title="Edit"></i></a>
+						<a [routerLink]="['.']" queryParamsHandling="preserve" (click)="onEdit(detail._id)"><i class="fas fa-edit" title="Edit"></i></a>
 					
 					
 					<input class="list-check-box"  type="checkbox" [(ngModel)]="checkedItem[i]"/>

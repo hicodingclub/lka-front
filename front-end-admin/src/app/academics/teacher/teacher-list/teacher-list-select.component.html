@@ -53,11 +53,11 @@
 		    <div class="input-group">
 		        <input class="form-control rounded" id="teacherEditCourses" 
 		             [ngClass]="{'pointer ref-badge': detail['courses']['_id']}"
-		             (focus)="detail['courses']['_id']?onRefShow('courses', 'select', detail['courses']['_id']):onRefSelect('courses')"
+		             (focus)="onRefSelect('courses')"
 		        	  
 		             [ngModel]="detail['courses']['value']" name="teacherEditCourses"
 		             #teacherEditCourses="ngModel"> 
-			</div>
+			</div><!-- (focus)="detail['courses']['_id']?onRefShow('courses', 'select', detail['courses']['_id']):onRefSelect('courses')" -->
 
 	      </div>
 	      

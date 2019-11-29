@@ -3,7 +3,7 @@
 
 <ul *ngIf="listCategory1.listCategoryField" class="nav nav-pills category-nav">
 	<li *ngFor="let ele of categoryDisplays; let idx = index;" class="nav-item" >
-		<a class="nav-link" [ngClass]="{'active': idx === selectedCategory }" [routerLink]="['.']" [queryParamsHandling]="preserve" (click)="categorySelected(idx)">{{ele}}</a>
+		<a class="nav-link" [ngClass]="{'active': idx === selectedCategory }" [routerLink]="['.']" queryParamsHandling="preserve" (click)="categorySelected(idx)">{{ele}}</a>
 	</li>
 </ul>
 
@@ -51,11 +51,11 @@
 		    <div class="input-group">
 		        <input class="form-control rounded" id="mpermissionEditRole" 
 		             [ngClass]="{'pointer ref-badge': detail['role']['_id']}"
-		             (focus)="detail['role']['_id']?onRefShow('role', 'select', detail['role']['_id']):onRefSelect('role')"
+		             (focus)="onRefSelect('role')"
 		        	  
 		             [ngModel]="detail['role']['value']" name="mpermissionEditRole"
 		             #mpermissionEditRole="ngModel"> 
-			</div>
+			</div><!-- (focus)="detail['role']['_id']?onRefShow('role', 'select', detail['role']['_id']):onRefSelect('role')" -->
 
 	      </div>
 	      
@@ -77,11 +77,11 @@
 		    <div class="input-group">
 		        <input class="form-control rounded" id="mpermissionEditModule" 
 		             [ngClass]="{'pointer ref-badge': detail['module']['_id']}"
-		             (focus)="detail['module']['_id']?onRefShow('module', 'select', detail['module']['_id']):onRefSelect('module')"
+		             (focus)="onRefSelect('module')"
 		        	  
 		             [ngModel]="detail['module']['value']" name="mpermissionEditModule"
 		             #mpermissionEditModule="ngModel"> 
-			</div>
+			</div><!-- (focus)="detail['module']['_id']?onRefShow('module', 'select', detail['module']['_id']):onRefSelect('module')" -->
 
 	      </div>
 	      

@@ -144,7 +144,7 @@ import { KeynoteService } from './keynote/keynote.service';
 
     EventDetailComponent,
 
-      EventDetailWidgetPostComponent,
+    EventDetailWidgetPostComponent,
     EventDetailFieldComponent,
     EventEditComponent,
 
@@ -152,7 +152,7 @@ import { KeynoteService } from './keynote/keynote.service';
 
     ArticleDetailComponent,
 
-      ArticleDetailWidgetPostComponent,
+    ArticleDetailWidgetPostComponent,
     ArticleDetailFieldComponent,
     ArticleEditComponent,
 
@@ -167,7 +167,7 @@ import { KeynoteService } from './keynote/keynote.service';
 
     GeneralinfoDetailComponent,
 
-      GeneralinfoDetailWidgetInfoComponent,
+    GeneralinfoDetailWidgetInfoComponent,
     GeneralinfoDetailFieldComponent,
     GeneralinfoEditComponent,
 
@@ -175,7 +175,7 @@ import { KeynoteService } from './keynote/keynote.service';
 
     KeynoteDetailComponent,
 
-      KeynoteDetailWidgetSlideComponent,
+    KeynoteDetailWidgetSlideComponent,
     KeynoteDetailFieldComponent,
     KeynoteEditComponent,
 

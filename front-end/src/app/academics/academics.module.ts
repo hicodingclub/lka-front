@@ -94,19 +94,24 @@ import { TermsDetailFieldComponent } from './terms/terms-detail/terms-detail-fie
 import { TermsService } from './terms/terms.service';
 
 
-import { CourseSelectComponent } from './course/course-list/course-select.component';
+import { CourseListSelectComponent } from './course/course-list/course-list-select.component';
+
 import { CourseDetailPopComponent } from './course/course-detail/course-detail-pop.component';
 import { CourseDetailSelComponent } from './course/course-detail/course-detail-sel.component';
-import { TermsSelectComponent } from './terms/terms-list/terms-select.component';
+import { TermsListSelectComponent } from './terms/terms-list/terms-list-select.component';
+
 import { TermsDetailPopComponent } from './terms/terms-detail/terms-detail-pop.component';
 import { TermsDetailSelComponent } from './terms/terms-detail/terms-detail-sel.component';
-import { TeacherSelectComponent } from './teacher/teacher-list/teacher-select.component';
+import { TeacherListSelectComponent } from './teacher/teacher-list/teacher-list-select.component';
+
 import { TeacherDetailPopComponent } from './teacher/teacher-detail/teacher-detail-pop.component';
 import { TeacherDetailSelComponent } from './teacher/teacher-detail/teacher-detail-sel.component';
-import { StudentSelectComponent } from './student/student-list/student-select.component';
+import { StudentListSelectComponent } from './student/student-list/student-list-select.component';
+
 import { StudentDetailPopComponent } from './student/student-detail/student-detail-pop.component';
 import { StudentDetailSelComponent } from './student/student-detail/student-detail-sel.component';
-import { ClassSelectComponent } from './class/class-list/class-select.component';
+import { ClassListSelectComponent } from './class/class-list/class-list-select.component';
+
 import { ClassDetailPopComponent } from './class/class-detail/class-detail-pop.component';
 import { ClassDetailSelComponent } from './class/class-detail/class-detail-sel.component';
 
@@ -197,19 +202,24 @@ import { StudentDirectiveGuardianTwoEmail } from './student/student-edit/student
     
 
 
-    CourseSelectComponent,
+    CourseListSelectComponent,
+    
     CourseDetailPopComponent,
     CourseDetailSelComponent,
-    TermsSelectComponent,
+    TermsListSelectComponent,
+    
     TermsDetailPopComponent,
     TermsDetailSelComponent,
-    TeacherSelectComponent,
+    TeacherListSelectComponent,
+    
     TeacherDetailPopComponent,
     TeacherDetailSelComponent,
-    StudentSelectComponent,
+    StudentListSelectComponent,
+    
     StudentDetailPopComponent,
     StudentDetailSelComponent,
-    ClassSelectComponent,
+    ClassListSelectComponent,
+    
     ClassDetailPopComponent,
     ClassDetailSelComponent,
 
@@ -286,24 +296,29 @@ import { StudentDirectiveGuardianTwoEmail } from './student/student-edit/student
 
     TermsDetailComponent,
 
-      TermsDetailWidgetTermComponent,
+    TermsDetailWidgetTermComponent,
     TermsDetailFieldComponent,
     
 
 
-    CourseSelectComponent,
+    CourseListSelectComponent,
+    
     CourseDetailPopComponent,
     CourseDetailSelComponent,
-    TermsSelectComponent,
+    TermsListSelectComponent,
+    
     TermsDetailPopComponent,
     TermsDetailSelComponent,
-    TeacherSelectComponent,
+    TeacherListSelectComponent,
+    
     TeacherDetailPopComponent,
     TeacherDetailSelComponent,
-    StudentSelectComponent,
+    StudentListSelectComponent,
+    
     StudentDetailPopComponent,
     StudentDetailSelComponent,
-    ClassSelectComponent,
+    ClassListSelectComponent,
+    
     ClassDetailPopComponent,
     ClassDetailSelComponent,
 
@@ -330,19 +345,19 @@ import { StudentDirectiveGuardianTwoEmail } from './student/student-edit/student
     TermsService,
   ],
   entryComponents: [
-    CourseSelectComponent,
+    CourseListSelectComponent,
     CourseDetailPopComponent,
     CourseDetailSelComponent,
-    TermsSelectComponent,
+    TermsListSelectComponent,
     TermsDetailPopComponent,
     TermsDetailSelComponent,
-    TeacherSelectComponent,
+    TeacherListSelectComponent,
     TeacherDetailPopComponent,
     TeacherDetailSelComponent,
-    StudentSelectComponent,
+    StudentListSelectComponent,
     StudentDetailPopComponent,
     StudentDetailSelComponent,
-    ClassSelectComponent,
+    ClassListSelectComponent,
     ClassDetailPopComponent,
     ClassDetailSelComponent,
     StudentListWidgetSelComponent,

@@ -16,10 +16,10 @@ import { RolesRefSelectDirective } from '../roles.component';
 
 import { MroleDetailSelComponent } from '../mrole/mrole-detail/mrole-detail-sel.component';
 import { MroleDetailPopComponent } from '../mrole/mrole-detail/mrole-detail-pop.component';
-import { MroleSelectComponent } from '../mrole/mrole-list/mrole-select.component';
+import { MroleListSelectComponent } from '../mrole/mrole-list/mrole-list-select.component';
 import { MmoduleDetailSelComponent } from '../mmodule/mmodule-detail/mmodule-detail-sel.component';
 import { MmoduleDetailPopComponent } from '../mmodule/mmodule-detail/mmodule-detail-pop.component';
-import { MmoduleSelectComponent } from '../mmodule/mmodule-list/mmodule-select.component';
+import { MmoduleListSelectComponent } from '../mmodule/mmodule-list/mmodule-list-select.component';
 
 
 export class MpermissionComponent extends BaseComponent {
@@ -27,12 +27,12 @@ export class MpermissionComponent extends BaseComponent {
     public selectComponents = {
 
       'role': {
-          'select-type':MroleSelectComponent,
+          'select-type': MroleListSelectComponent,
           'select-detail-type': MroleDetailSelComponent,
           'pop-detail-type': MroleDetailPopComponent,
           'componentRef': null},
       'module': {
-          'select-type':MmoduleSelectComponent,
+          'select-type': MmoduleListSelectComponent,
           'select-detail-type': MmoduleDetailSelComponent,
           'pop-detail-type': MmoduleDetailPopComponent,
           'componentRef': null},

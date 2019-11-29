@@ -16,10 +16,10 @@ import { RolesRefSelectDirective } from '../roles.component';
 
 import { MaccountDetailSelComponent } from '../maccount/maccount-detail/maccount-detail-sel.component';
 import { MaccountDetailPopComponent } from '../maccount/maccount-detail/maccount-detail-pop.component';
-import { MaccountSelectComponent } from '../maccount/maccount-list/maccount-select.component';
+import { MaccountListSelectComponent } from '../maccount/maccount-list/maccount-list-select.component';
 import { MroleDetailSelComponent } from '../mrole/mrole-detail/mrole-detail-sel.component';
 import { MroleDetailPopComponent } from '../mrole/mrole-detail/mrole-detail-pop.component';
-import { MroleSelectComponent } from '../mrole/mrole-list/mrole-select.component';
+import { MroleListSelectComponent } from '../mrole/mrole-list/mrole-list-select.component';
 
 
 export class MaccountroleComponent extends BaseComponent {
@@ -27,12 +27,12 @@ export class MaccountroleComponent extends BaseComponent {
     public selectComponents = {
 
       'account': {
-          'select-type':MaccountSelectComponent,
+          'select-type': MaccountListSelectComponent,
           'select-detail-type': MaccountDetailSelComponent,
           'pop-detail-type': MaccountDetailPopComponent,
           'componentRef': null},
       'role': {
-          'select-type':MroleSelectComponent,
+          'select-type': MroleListSelectComponent,
           'select-detail-type': MroleDetailSelComponent,
           'pop-detail-type': MroleDetailPopComponent,
           'componentRef': null},

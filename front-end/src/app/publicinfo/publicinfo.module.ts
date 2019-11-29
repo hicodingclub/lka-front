@@ -150,7 +150,7 @@ import { ArticleService } from './article/article.service';
 
     GeneralinfoDetailComponent,
 
-      GeneralinfoDetailWidgetInfoComponent,
+    GeneralinfoDetailWidgetInfoComponent,
     GeneralinfoDetailFieldComponent,
     
 
@@ -166,7 +166,7 @@ import { ArticleService } from './article/article.service';
     EventListWidgetCleanComponent,
     EventDetailComponent,
 
-      EventDetailWidgetPostComponent,
+    EventDetailWidgetPostComponent,
     EventDetailFieldComponent,
     
 
@@ -175,7 +175,7 @@ import { ArticleService } from './article/article.service';
     KeynoteListWidgetSldComponent,
     KeynoteDetailComponent,
 
-      KeynoteDetailWidgetSlideComponent,
+    KeynoteDetailWidgetSlideComponent,
     KeynoteDetailFieldComponent,
     
 
@@ -184,7 +184,7 @@ import { ArticleService } from './article/article.service';
     ArticleListWidgetCleanComponent,
     ArticleDetailComponent,
 
-      ArticleDetailWidgetPostComponent,
+    ArticleDetailWidgetPostComponent,
     ArticleDetailFieldComponent,
     
 

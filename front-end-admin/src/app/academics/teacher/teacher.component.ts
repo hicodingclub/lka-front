@@ -17,7 +17,7 @@ import { AcademicsRefSelectDirective } from '../academics.component';
 
 import { CourseDetailSelComponent } from '../course/course-detail/course-detail-sel.component';
 import { CourseDetailPopComponent } from '../course/course-detail/course-detail-pop.component';
-import { CourseSelectComponent } from '../course/course-list/course-select.component';
+import { CourseListSelectIndexComponent } from '../course/course-list/course-list-select-index.component';
 
 
 export class TeacherComponent extends BaseComponent {
@@ -25,7 +25,7 @@ export class TeacherComponent extends BaseComponent {
     public selectComponents = {
 
       'courses': {
-          'select-type':CourseSelectComponent,
+          'select-type': CourseListSelectIndexComponent,
           'select-detail-type': CourseDetailSelComponent,
           'pop-detail-type': CourseDetailPopComponent,
           'componentRef': null},

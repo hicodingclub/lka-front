@@ -1,0 +1,42 @@
+<div class="detail" *ngIf="detail">
+	<div *ngIf="!options['disableActionButtions']"><div *ngIf="!disableActionButtions" class="action-buttons">
+    <!--<a href="javascript:void(0)" (click)="goBack()"><i class="fas fa-angle-double-left" title="Back"></i></a>-->
+    <a [routerLink]="['../../list' ]"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
+    
+    
+    
+</div>
+</div>
+	<div class="card text-left transparent-border " [ngStyle]="style['card']">
+	  <div class="grid-fields">
+		<div class="card-header grid-head" [ngStyle]="style['card-header']">
+		  <div *ngIf="detail['signaturePicture']" class="grid-head-picture mr-5">                
+                    <file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="true"></file-display>
+
+		  </div>
+		  <div class="ml-1 d-inline-block">
+			<h2>
+			  <div class="mr-1 ml-2 mt-3 d-inline-block" [ngStyle]="style['header-field']">
+				                
+                    {{detail['title']}}
+
+			  </div>
+			</h2>
+		  </div>
+		</div>
+		<div class="card-body" [ngStyle]="style['card-body']">
+			<div>
+			  <h4 class="info-description-text" [ngStyle]="style['body-field']">                
+                    <div [innerHTML]="detail['description']"></div>
+                        
+
+			  </h4>
+			</div>
+		</div>
+	  </div>
+	</div>
+
+
+
+
+</div>

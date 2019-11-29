@@ -16,10 +16,10 @@ import { AcademicsRefSelectDirective } from '../academics.component';
 
 import { StudentDetailSelComponent } from '../student/student-detail/student-detail-sel.component';
 import { StudentDetailPopComponent } from '../student/student-detail/student-detail-pop.component';
-import { StudentSelectComponent } from '../student/student-list/student-select.component';
+import { StudentListSelectComponent } from '../student/student-list/student-list-select.component';
 import { ClassDetailSelComponent } from '../class/class-detail/class-detail-sel.component';
 import { ClassDetailPopComponent } from '../class/class-detail/class-detail-pop.component';
-import { ClassSelectComponent } from '../class/class-list/class-select.component';
+import { ClassListSelectComponent } from '../class/class-list/class-list-select.component';
 
 
 export class StudentclassComponent extends BaseComponent {
@@ -27,12 +27,12 @@ export class StudentclassComponent extends BaseComponent {
     public selectComponents = {
 
       'student': {
-          'select-type':StudentSelectComponent,
+          'select-type': StudentListSelectComponent,
           'select-detail-type': StudentDetailSelComponent,
           'pop-detail-type': StudentDetailPopComponent,
           'componentRef': null},
       'class': {
-          'select-type':ClassSelectComponent,
+          'select-type': ClassListSelectComponent,
           'select-detail-type': ClassDetailSelComponent,
           'pop-detail-type': ClassDetailPopComponent,
           'componentRef': null},

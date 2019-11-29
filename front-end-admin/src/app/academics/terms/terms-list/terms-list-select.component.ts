@@ -3,28 +3,28 @@ import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Injector } from '@angular/core';
 
-import { MusergroupListComponent } from './musergroup-list.component';
-import { MusergroupService } from '../musergroup.service';
+import { TermsListComponent } from './terms-list.component';
+import { TermsService } from '../terms.service';
 
 @Component({
-  selector: 'app-musergroup-select',
-  templateUrl: './musergroup-select.component.html',
-  styleUrls: ['./musergroup-list.component.css']
+  selector: 'app-terms-list-select',
+  templateUrl: './terms-list-select.component.html',
+  styleUrls: ['./terms-list.component.css']
 })
-export class MusergroupSelectComponent extends MusergroupListComponent
+export class TermsListSelectComponent extends TermsListComponent
         implements OnInit {
     @Input() inputData;
     @Output() outputData;
     done = new EventEmitter<boolean>();
 
     constructor(
-        public musergroupService: MusergroupService,
+        public termsService: TermsService,
         public injector: Injector,
         public router: Router,
         public route: ActivatedRoute,
         public location: Location
         ) {
-            super(musergroupService, injector, router, route, location);
+            super(termsService, injector, router, route, location);
             this.majorUi = false;
     }
 

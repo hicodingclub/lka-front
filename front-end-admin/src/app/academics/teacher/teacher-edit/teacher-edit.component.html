@@ -223,7 +223,7 @@
                   [(ngModel)]="detail['photo']" name="EditPhoto"
                   #EditPhoto="ngModel">
               <div style="display: inline-block; width: 80%;" >
-                  <file-upload [(downloadUrl)]="detail['photo']"></file-upload>
+                  <file-select [(downloadUrl)]="detail['photo']"></file-select>
               </div>
               <span *ngIf="detail['photo']" 
                 class="icon-clear" (click)="clearValueFromDetail('photo')">
@@ -458,7 +458,7 @@
                   [(ngModel)]="detail['photo']" name="EditPhoto"
                   #EditPhoto="ngModel">
               <div style="display: inline-block; width: 80%;" >
-                  <file-upload [(downloadUrl)]="detail['photo']"></file-upload>
+                  <file-select [(downloadUrl)]="detail['photo']"></file-select>
               </div>
               <span *ngIf="detail['photo']" 
                 class="icon-clear" (click)="clearValueFromDetail('photo')">

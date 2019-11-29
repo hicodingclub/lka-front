@@ -3,28 +3,28 @@ import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Injector } from '@angular/core';
 
-import { ClassListComponent } from './class-list.component';
-import { ClassService } from '../class.service';
+import { MmoduleListComponent } from './mmodule-list.component';
+import { MmoduleService } from '../mmodule.service';
 
 @Component({
-  selector: 'app-class-select',
-  templateUrl: './class-select.component.html',
-  styleUrls: ['./class-list.component.css']
+  selector: 'app-mmodule-list-select',
+  templateUrl: './mmodule-list-select.component.html',
+  styleUrls: ['./mmodule-list.component.css']
 })
-export class ClassSelectComponent extends ClassListComponent
+export class MmoduleListSelectComponent extends MmoduleListComponent
         implements OnInit {
     @Input() inputData;
     @Output() outputData;
     done = new EventEmitter<boolean>();
 
     constructor(
-        public classService: ClassService,
+        public mmoduleService: MmoduleService,
         public injector: Injector,
         public router: Router,
         public route: ActivatedRoute,
         public location: Location
         ) {
-            super(null,classService, injector, router, route, location);
+            super(mmoduleService, injector, router, route, location);
             this.majorUi = false;
     }
 

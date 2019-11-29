@@ -69,13 +69,16 @@ import { MaccountroleEditComponent } from './maccountrole/maccountrole-edit/macc
 import { MaccountroleService } from './maccountrole/maccountrole.service';
 
 
-import { MroleSelectComponent } from './mrole/mrole-list/mrole-select.component';
+import { MroleListSelectComponent } from './mrole/mrole-list/mrole-list-select.component';
+
 import { MroleDetailPopComponent } from './mrole/mrole-detail/mrole-detail-pop.component';
 import { MroleDetailSelComponent } from './mrole/mrole-detail/mrole-detail-sel.component';
-import { MmoduleSelectComponent } from './mmodule/mmodule-list/mmodule-select.component';
+import { MmoduleListSelectComponent } from './mmodule/mmodule-list/mmodule-list-select.component';
+
 import { MmoduleDetailPopComponent } from './mmodule/mmodule-detail/mmodule-detail-pop.component';
 import { MmoduleDetailSelComponent } from './mmodule/mmodule-detail/mmodule-detail-sel.component';
-import { MaccountSelectComponent } from './maccount/maccount-list/maccount-select.component';
+import { MaccountListSelectComponent } from './maccount/maccount-list/maccount-list-select.component';
+
 import { MaccountDetailPopComponent } from './maccount/maccount-detail/maccount-detail-pop.component';
 import { MaccountDetailSelComponent } from './maccount/maccount-detail/maccount-detail-sel.component';
 
@@ -136,13 +139,16 @@ import { MaccountroleDetailSubComponent } from './maccountrole/maccountrole-deta
     MaccountroleEditComponent,
 
 
-    MroleSelectComponent,
+    MroleListSelectComponent,
+    
     MroleDetailPopComponent,
     MroleDetailSelComponent,
-    MmoduleSelectComponent,
+    MmoduleListSelectComponent,
+    
     MmoduleDetailPopComponent,
     MmoduleDetailSelComponent,
-    MaccountSelectComponent,
+    MaccountListSelectComponent,
+    
     MaccountDetailPopComponent,
     MaccountDetailSelComponent,
 
@@ -194,13 +200,16 @@ import { MaccountroleDetailSubComponent } from './maccountrole/maccountrole-deta
     MaccountroleEditComponent,
 
 
-    MroleSelectComponent,
+    MroleListSelectComponent,
+    
     MroleDetailPopComponent,
     MroleDetailSelComponent,
-    MmoduleSelectComponent,
+    MmoduleListSelectComponent,
+    
     MmoduleDetailPopComponent,
     MmoduleDetailSelComponent,
-    MaccountSelectComponent,
+    MaccountListSelectComponent,
+    
     MaccountDetailPopComponent,
     MaccountDetailSelComponent,
 
@@ -221,13 +230,13 @@ import { MaccountroleDetailSubComponent } from './maccountrole/maccountrole-deta
     MaccountroleService,
   ],
   entryComponents: [
-    MroleSelectComponent,
+    MroleListSelectComponent,
     MroleDetailPopComponent,
     MroleDetailSelComponent,
-    MmoduleSelectComponent,
+    MmoduleListSelectComponent,
     MmoduleDetailPopComponent,
     MmoduleDetailSelComponent,
-    MaccountSelectComponent,
+    MaccountListSelectComponent,
     MaccountDetailPopComponent,
     MaccountDetailSelComponent,
     MroleEditComponent,

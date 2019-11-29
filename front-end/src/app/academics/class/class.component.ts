@@ -17,13 +17,13 @@ import { AcademicsRefSelectDirective } from '../academics.component';
 
 import { CourseDetailSelComponent } from '../course/course-detail/course-detail-sel.component';
 import { CourseDetailPopComponent } from '../course/course-detail/course-detail-pop.component';
-import { CourseSelectComponent } from '../course/course-list/course-select.component';
+import { CourseListSelectComponent } from '../course/course-list/course-list-select.component';
 import { TermsDetailSelComponent } from '../terms/terms-detail/terms-detail-sel.component';
 import { TermsDetailPopComponent } from '../terms/terms-detail/terms-detail-pop.component';
-import { TermsSelectComponent } from '../terms/terms-list/terms-select.component';
+import { TermsListSelectComponent } from '../terms/terms-list/terms-list-select.component';
 import { TeacherDetailSelComponent } from '../teacher/teacher-detail/teacher-detail-sel.component';
 import { TeacherDetailPopComponent } from '../teacher/teacher-detail/teacher-detail-pop.component';
-import { TeacherSelectComponent } from '../teacher/teacher-list/teacher-select.component';
+import { TeacherListSelectComponent } from '../teacher/teacher-list/teacher-list-select.component';
 
 
 export class ClassComponent extends BaseComponent {
@@ -31,17 +31,17 @@ export class ClassComponent extends BaseComponent {
     public selectComponents = {
 
       'course': {
-          'select-type':CourseSelectComponent,
+          'select-type': CourseListSelectComponent,
           'select-detail-type': CourseDetailSelComponent,
           'pop-detail-type': CourseDetailPopComponent,
           'componentRef': null},
       'enrollTerm': {
-          'select-type':TermsSelectComponent,
+          'select-type': TermsListSelectComponent,
           'select-detail-type': TermsDetailSelComponent,
           'pop-detail-type': TermsDetailPopComponent,
           'componentRef': null},
       'teacher': {
-          'select-type':TeacherSelectComponent,
+          'select-type': TeacherListSelectComponent,
           'select-detail-type': TeacherDetailSelComponent,
           'pop-detail-type': TeacherDetailPopComponent,
           'componentRef': null},

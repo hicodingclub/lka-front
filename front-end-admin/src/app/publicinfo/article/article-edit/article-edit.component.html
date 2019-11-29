@@ -148,7 +148,7 @@
                   [(ngModel)]="detail['signaturePicture']" name="EditSignaturePicture"
                   #EditSignaturePicture="ngModel">
               <div style="display: inline-block; width: 80%;" >
-                  <file-upload [(downloadUrl)]="detail['signaturePicture']"></file-upload>
+                  <file-select [(downloadUrl)]="detail['signaturePicture']"></file-select>
               </div>
               <span *ngIf="detail['signaturePicture']" 
                 class="icon-clear" (click)="clearValueFromDetail('signaturePicture')">
@@ -308,7 +308,7 @@
                   [(ngModel)]="detail['signaturePicture']" name="EditSignaturePicture"
                   #EditSignaturePicture="ngModel">
               <div style="display: inline-block; width: 80%;" >
-                  <file-upload [(downloadUrl)]="detail['signaturePicture']"></file-upload>
+                  <file-select [(downloadUrl)]="detail['signaturePicture']"></file-select>
               </div>
               <span *ngIf="detail['signaturePicture']" 
                 class="icon-clear" (click)="clearValueFromDetail('signaturePicture')">

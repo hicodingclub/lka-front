@@ -3,28 +3,28 @@ import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Injector } from '@angular/core';
 
-import { TeacherListComponent } from './teacher-list.component';
-import { TeacherService } from '../teacher.service';
+import { CourseListComponent } from './course-list.component';
+import { CourseService } from '../course.service';
 
 @Component({
-  selector: 'app-teacher-select',
-  templateUrl: './teacher-select.component.html',
-  styleUrls: ['./teacher-list.component.css']
+  selector: 'app-course-list-select',
+  templateUrl: './course-list-select.component.html',
+  styleUrls: ['./course-list.component.css']
 })
-export class TeacherSelectComponent extends TeacherListComponent
+export class CourseListSelectComponent extends CourseListComponent
         implements OnInit {
     @Input() inputData;
     @Output() outputData;
     done = new EventEmitter<boolean>();
 
     constructor(
-        public teacherService: TeacherService,
+        public courseService: CourseService,
         public injector: Injector,
         public router: Router,
         public route: ActivatedRoute,
         public location: Location
         ) {
-            super(null,teacherService, injector, router, route, location);
+            super(courseService, injector, router, route, location);
             this.majorUi = false;
     }
 

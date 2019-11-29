@@ -3,28 +3,28 @@ import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Injector } from '@angular/core';
 
-import { MpubmoduleListComponent } from './mpubmodule-list.component';
-import { MpubmoduleService } from '../mpubmodule.service';
+import { StudentListComponent } from './student-list.component';
+import { StudentService } from '../student.service';
 
 @Component({
-  selector: 'app-mpubmodule-select',
-  templateUrl: './mpubmodule-select.component.html',
-  styleUrls: ['./mpubmodule-list.component.css']
+  selector: 'app-student-list-select',
+  templateUrl: './student-list-select.component.html',
+  styleUrls: ['./student-list.component.css']
 })
-export class MpubmoduleSelectComponent extends MpubmoduleListComponent
+export class StudentListSelectComponent extends StudentListComponent
         implements OnInit {
     @Input() inputData;
     @Output() outputData;
     done = new EventEmitter<boolean>();
 
     constructor(
-        public mpubmoduleService: MpubmoduleService,
+        public studentService: StudentService,
         public injector: Injector,
         public router: Router,
         public route: ActivatedRoute,
         public location: Location
         ) {
-            super(mpubmoduleService, injector, router, route, location);
+            super(studentService, injector, router, route, location);
             this.majorUi = false;
     }
 

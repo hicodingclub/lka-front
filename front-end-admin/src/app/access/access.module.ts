@@ -48,10 +48,12 @@ import { MpubaccessEditComponent } from './mpubaccess/mpubaccess-edit/mpubaccess
 import { MpubaccessService } from './mpubaccess/mpubaccess.service';
 
 
-import { MusergroupSelectComponent } from './musergroup/musergroup-list/musergroup-select.component';
+import { MusergroupListSelectComponent } from './musergroup/musergroup-list/musergroup-list-select.component';
+
 import { MusergroupDetailPopComponent } from './musergroup/musergroup-detail/musergroup-detail-pop.component';
 import { MusergroupDetailSelComponent } from './musergroup/musergroup-detail/musergroup-detail-sel.component';
-import { MpubmoduleSelectComponent } from './mpubmodule/mpubmodule-list/mpubmodule-select.component';
+import { MpubmoduleListSelectComponent } from './mpubmodule/mpubmodule-list/mpubmodule-list-select.component';
+
 import { MpubmoduleDetailPopComponent } from './mpubmodule/mpubmodule-detail/mpubmodule-detail-pop.component';
 import { MpubmoduleDetailSelComponent } from './mpubmodule/mpubmodule-detail/mpubmodule-detail-sel.component';
 
@@ -94,10 +96,12 @@ import { MpubaccessDetailSubComponent } from './mpubaccess/mpubaccess-detail/mpu
     MpubaccessEditComponent,
 
 
-    MusergroupSelectComponent,
+    MusergroupListSelectComponent,
+    
     MusergroupDetailPopComponent,
     MusergroupDetailSelComponent,
-    MpubmoduleSelectComponent,
+    MpubmoduleListSelectComponent,
+    
     MpubmoduleDetailPopComponent,
     MpubmoduleDetailSelComponent,
 
@@ -133,10 +137,12 @@ import { MpubaccessDetailSubComponent } from './mpubaccess/mpubaccess-detail/mpu
     MpubaccessEditComponent,
 
 
-    MusergroupSelectComponent,
+    MusergroupListSelectComponent,
+    
     MusergroupDetailPopComponent,
     MusergroupDetailSelComponent,
-    MpubmoduleSelectComponent,
+    MpubmoduleListSelectComponent,
+    
     MpubmoduleDetailPopComponent,
     MpubmoduleDetailSelComponent,
 
@@ -152,10 +158,10 @@ import { MpubaccessDetailSubComponent } from './mpubaccess/mpubaccess-detail/mpu
     MpubaccessService,
   ],
   entryComponents: [
-    MusergroupSelectComponent,
+    MusergroupListSelectComponent,
     MusergroupDetailPopComponent,
     MusergroupDetailSelComponent,
-    MpubmoduleSelectComponent,
+    MpubmoduleListSelectComponent,
     MpubmoduleDetailPopComponent,
     MpubmoduleDetailSelComponent,
     MusergroupEditComponent,

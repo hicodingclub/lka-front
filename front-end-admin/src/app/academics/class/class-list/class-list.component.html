@@ -3,7 +3,7 @@
 
 <ul *ngIf="listCategory1.listCategoryField" class="nav nav-pills category-nav">
 	<li *ngFor="let ele of categoryDisplays; let idx = index;" class="nav-item" >
-		<a class="nav-link" [ngClass]="{'active': idx === selectedCategory }" [routerLink]="['.']" [queryParamsHandling]="preserve" (click)="categorySelected(idx)">{{ele}}</a>
+		<a class="nav-link" [ngClass]="{'active': idx === selectedCategory }" [routerLink]="['.']" queryParamsHandling="preserve" (click)="categorySelected(idx)">{{ele}}</a>
 	</li>
 </ul>
 
@@ -51,11 +51,11 @@
 		    <div class="input-group">
 		        <input class="form-control rounded" id="classEditCourse" 
 		             [ngClass]="{'pointer ref-badge': detail['course']['_id']}"
-		             (focus)="detail['course']['_id']?onRefShow('course', 'select', detail['course']['_id']):onRefSelect('course')"
+		             (focus)="onRefSelect('course')"
 		        	  
 		             [ngModel]="detail['course']['value']" name="classEditCourse"
 		             #classEditCourse="ngModel"> 
-			</div>
+			</div><!-- (focus)="detail['course']['_id']?onRefShow('course', 'select', detail['course']['_id']):onRefSelect('course')" -->
 
 	      </div>
 	      
@@ -77,11 +77,11 @@
 		    <div class="input-group">
 		        <input class="form-control rounded" id="classEditTeacher" 
 		             [ngClass]="{'pointer ref-badge': detail['teacher']['_id']}"
-		             (focus)="detail['teacher']['_id']?onRefShow('teacher', 'select', detail['teacher']['_id']):onRefSelect('teacher')"
+		             (focus)="onRefSelect('teacher')"
 		        	  
 		             [ngModel]="detail['teacher']['value']" name="classEditTeacher"
 		             #classEditTeacher="ngModel"> 
-			</div>
+			</div><!-- (focus)="detail['teacher']['_id']?onRefShow('teacher', 'select', detail['teacher']['_id']):onRefSelect('teacher')" -->
 
 	      </div>
 	      
