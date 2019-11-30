@@ -35,6 +35,7 @@ export class MfilegroupComponent extends BaseComponent {
 
 
 
+        this.requiredFields = ['name',];
 
 
         this.schemaName = 'mfilegroup';

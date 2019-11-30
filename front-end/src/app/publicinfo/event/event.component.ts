@@ -32,6 +32,7 @@ export class EventComponent extends BaseComponent {
 
 
 
+        this.requiredFields = ['signaturePicture','title','author','content',];
 
 
         this.schemaName = 'event';

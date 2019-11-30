@@ -70,6 +70,7 @@ export class ClassComponent extends BaseComponent {
 
         this.referenceFieldsMap = {'course': 'course','teacher': 'teacher','enrollTerm': 'terms',};
         this.referenceFieldsReverseMap = {'course': 'course','teacher': 'teacher','terms': 'enrollTerm',};
+        this.requiredFields = ['title','course','description','teacher','price','startTime','endTime','enrollTerm',];
 
 
         this.schemaName = 'class';

@@ -32,6 +32,7 @@ export class EmailsettingsComponent extends BaseComponent {
 
 
 
+        this.requiredFields = ['defaultSender','settingName',];
 
 
         this.schemaName = 'emailsettings';

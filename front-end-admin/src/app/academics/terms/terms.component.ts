@@ -35,6 +35,7 @@ export class TermsComponent extends BaseComponent {
 
 
 
+        this.requiredFields = ['name','content',];
 
 
         this.schemaName = 'terms';

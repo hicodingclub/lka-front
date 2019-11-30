@@ -60,6 +60,7 @@ export class MaccountroleComponent extends BaseComponent {
 
         this.referenceFieldsMap = {'account': 'maccount',};
         this.referenceFieldsReverseMap = {'maccount': 'account',};
+        this.requiredFields = ['account',];
 
 
         this.schemaName = 'maccountrole';

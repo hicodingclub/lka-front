@@ -32,6 +32,7 @@ export class PipelineComponent extends BaseComponent {
 
 
 
+        this.requiredFields = ['category',];
 
 
         this.schemaName = 'pipeline';

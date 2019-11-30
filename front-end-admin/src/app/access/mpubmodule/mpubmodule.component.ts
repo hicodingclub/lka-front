@@ -35,6 +35,7 @@ export class MpubmoduleComponent extends BaseComponent {
 
 
 
+        this.requiredFields = ['module',];
 
 
         this.schemaName = 'mpubmodule';

@@ -60,6 +60,7 @@ export class MpubaccessComponent extends BaseComponent {
 
         this.referenceFieldsMap = {'group': 'musergroup','module': 'mpubmodule',};
         this.referenceFieldsReverseMap = {'musergroup': 'group','mpubmodule': 'module',};
+        this.requiredFields = ['group','module',];
 
 
         this.schemaName = 'mpubaccess';

@@ -32,6 +32,7 @@ export class EmailtemplateComponent extends BaseComponent {
 
 
 
+        this.requiredFields = ['templateName','subject','content','tag',];
 
 
         this.schemaName = 'emailtemplate';

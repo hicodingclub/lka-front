@@ -32,6 +32,7 @@ export class GeneralinfoComponent extends BaseComponent {
 
 
 
+        this.requiredFields = ['title','description',];
 
 
         this.schemaName = 'generalinfo';

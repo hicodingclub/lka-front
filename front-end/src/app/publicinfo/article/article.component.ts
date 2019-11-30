@@ -32,6 +32,7 @@ export class ArticleComponent extends BaseComponent {
 
 
 
+        this.requiredFields = ['signaturePicture','title','category','content',];
 
 
         this.schemaName = 'article';

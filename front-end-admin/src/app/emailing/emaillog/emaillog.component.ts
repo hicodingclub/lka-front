@@ -32,6 +32,7 @@ export class EmaillogComponent extends BaseComponent {
 
 
 
+        this.requiredFields = ['module','reason','result',];
 
 
         this.schemaName = 'emaillog';

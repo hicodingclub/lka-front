@@ -60,6 +60,7 @@ export class MpermissionComponent extends BaseComponent {
 
         this.referenceFieldsMap = {'role': 'mrole','module': 'mmodule',};
         this.referenceFieldsReverseMap = {'mrole': 'role','mmodule': 'module',};
+        this.requiredFields = ['role','module',];
 
 
         this.schemaName = 'mpermission';

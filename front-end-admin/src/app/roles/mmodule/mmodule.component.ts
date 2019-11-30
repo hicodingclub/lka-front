@@ -35,6 +35,7 @@ export class MmoduleComponent extends BaseComponent {
 
 
 
+        this.requiredFields = ['module',];
 
 
         this.schemaName = 'mmodule';

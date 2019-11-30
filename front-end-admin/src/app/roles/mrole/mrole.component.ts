@@ -35,6 +35,7 @@ export class MroleComponent extends BaseComponent {
 
 
 
+        this.requiredFields = ['role',];
 
 
         this.schemaName = 'mrole';

@@ -60,6 +60,7 @@ export class ClassenrollComponent extends BaseComponent {
 
         this.referenceFieldsMap = {'class': 'class',};
         this.referenceFieldsReverseMap = {'class': 'class',};
+        this.requiredFields = ['student','class','status',];
 
 
         this.schemaName = 'classenroll';

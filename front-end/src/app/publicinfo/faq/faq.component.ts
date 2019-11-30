@@ -32,6 +32,7 @@ export class FaqComponent extends BaseComponent {
 
 
 
+        this.requiredFields = ['question','answer','order',];
 
 
         this.schemaName = 'faq';

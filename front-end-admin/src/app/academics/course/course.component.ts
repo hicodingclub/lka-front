@@ -35,6 +35,7 @@ export class CourseComponent extends BaseComponent {
 
 
 
+        this.requiredFields = ['title','description',];
 
 
         this.schemaName = 'course';

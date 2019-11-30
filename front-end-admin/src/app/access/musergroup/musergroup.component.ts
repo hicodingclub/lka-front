@@ -35,6 +35,7 @@ export class MusergroupComponent extends BaseComponent {
 
 
 
+        this.requiredFields = ['group',];
 
 
         this.schemaName = 'musergroup';
