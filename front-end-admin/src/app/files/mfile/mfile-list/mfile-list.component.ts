@@ -55,7 +55,7 @@ public componentFactoryResolver: ComponentFactoryResolver,
 
           this.listViewFilter = 'list';
 
-          const listCategories = [{"listCategoryField":"group","listCategoryRef":"mfilegroup"}];
+          const listCategories = [{"listCategoryField":"group","showCategoryCounts":true,"showEmptyCategory":false,"listCategoryRef":"mfilegroup"}];
           this.listCategory1 = listCategories[0] || {};
           this.listCategory2 = listCategories[1] || {};
   }
