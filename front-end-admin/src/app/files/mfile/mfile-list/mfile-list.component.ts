@@ -28,7 +28,7 @@ export class MfileListComponent extends MfileComponent implements OnInit {
   
 
   constructor(
-public componentFactoryResolver: ComponentFactoryResolver,
+      public componentFactoryResolver: ComponentFactoryResolver,
       public mfileService: MfileService,
       public injector: Injector,
       public router: Router,

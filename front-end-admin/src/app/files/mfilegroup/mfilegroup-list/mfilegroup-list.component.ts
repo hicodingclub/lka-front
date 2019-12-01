@@ -27,7 +27,7 @@ export class MfilegroupListComponent extends MfilegroupComponent implements OnIn
   
 
   constructor(
-
+      
       public mfilegroupService: MfilegroupService,
       public injector: Injector,
       public router: Router,
