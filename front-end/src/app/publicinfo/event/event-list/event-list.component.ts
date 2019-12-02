@@ -30,7 +30,7 @@ export class EventListComponent extends EventComponent implements OnInit {
   @ViewChildren(MraRichTextShowDirective) textEditors: QueryList<MraRichTextShowDirective>;
 
   constructor(
-
+      
       public eventService: EventService,
       public injector: Injector,
       public router: Router,

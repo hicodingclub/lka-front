@@ -27,7 +27,7 @@ export class PipelineListComponent extends PipelineComponent implements OnInit {
   
 
   constructor(
-
+      
       public pipelineService: PipelineService,
       public injector: Injector,
       public router: Router,

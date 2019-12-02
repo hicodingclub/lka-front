@@ -27,7 +27,7 @@ export class MaccountListComponent extends MaccountComponent implements OnInit {
   
 
   constructor(
-
+      
       public maccountService: MaccountService,
       public injector: Injector,
       public router: Router,

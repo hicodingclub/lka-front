@@ -29,7 +29,7 @@ export class EmailtemplateListComponent extends EmailtemplateComponent implement
   @ViewChildren(MraRichTextShowDirective) textEditors: QueryList<MraRichTextShowDirective>;
 
   constructor(
-
+      
       public emailtemplateService: EmailtemplateService,
       public injector: Injector,
       public router: Router,

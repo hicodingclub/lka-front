@@ -25,7 +25,7 @@ export const FilesRoutes: Routes = [
 
 export const files_server_root_uri:string = "/api/files";
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Sun Dec 01 2019 11:51:23 GMT-0800 (Pacific Standard Time)
+**Date: Sun Dec 01 2019 16:26:47 GMT-0800 (Pacific Standard Time)
 
 import { Routes } from '@angular/router';
 

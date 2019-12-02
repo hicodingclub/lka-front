@@ -28,7 +28,7 @@ export class ClassenrollListComponent extends ClassenrollComponent implements On
   
 
   constructor(
-public componentFactoryResolver: ComponentFactoryResolver,
+      public componentFactoryResolver: ComponentFactoryResolver,
       public classenrollService: ClassenrollService,
       public injector: Injector,
       public router: Router,

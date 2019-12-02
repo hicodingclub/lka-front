@@ -26,7 +26,7 @@ export class MpubmoduleListComponent extends MpubmoduleComponent implements OnIn
   
 
   constructor(
-
+      
       public mpubmoduleService: MpubmoduleService,
       public injector: Injector,
       public router: Router,

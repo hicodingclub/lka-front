@@ -19,7 +19,7 @@
 			    <div class="input-group">
 	              <input type="search" class="form-control border border-secondary" id="mpubmoduleTextSearch" 
 						#mpubmoduleTextSearch [(ngModel)]="searchText"
-						(keyup.enter)="$event.target.blur();searchList();false"
+						(keydown.enter)="$event.target.blur();searchList();false"
 					    placeholder="Search for module"> 
 				  <div *ngIf="searchText" class="input-group-append icon-clear-inside">
 					<span >

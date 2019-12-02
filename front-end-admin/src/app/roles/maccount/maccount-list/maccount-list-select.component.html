@@ -19,7 +19,7 @@
 			    <div class="input-group">
 	              <input type="search" class="form-control border border-secondary" id="maccountTextSearch" 
 						#maccountTextSearch [(ngModel)]="searchText"
-						(keyup.enter)="$event.target.blur();searchList();false"
+						(keydown.enter)="$event.target.blur();searchList();false"
 					    placeholder="Search for username, email, phone, status"> 
 				  <div *ngIf="searchText" class="input-group-append icon-clear-inside">
 					<span >

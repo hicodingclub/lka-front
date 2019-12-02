@@ -26,7 +26,7 @@ export class MmoduleListComponent extends MmoduleComponent implements OnInit {
   
 
   constructor(
-
+      
       public mmoduleService: MmoduleService,
       public injector: Injector,
       public router: Router,

@@ -27,7 +27,7 @@ export class MaccountroleListComponent extends MaccountroleComponent implements 
   
 
   constructor(
-public componentFactoryResolver: ComponentFactoryResolver,
+      public componentFactoryResolver: ComponentFactoryResolver,
       public maccountroleService: MaccountroleService,
       public injector: Injector,
       public router: Router,

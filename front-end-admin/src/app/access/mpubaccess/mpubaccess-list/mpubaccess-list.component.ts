@@ -27,7 +27,7 @@ export class MpubaccessListComponent extends MpubaccessComponent implements OnIn
   
 
   constructor(
-public componentFactoryResolver: ComponentFactoryResolver,
+      public componentFactoryResolver: ComponentFactoryResolver,
       public mpubaccessService: MpubaccessService,
       public injector: Injector,
       public router: Router,

@@ -30,7 +30,7 @@ export class EmaillogListComponent extends EmaillogComponent implements OnInit {
   @ViewChildren(MraRichTextShowDirective) textEditors: QueryList<MraRichTextShowDirective>;
 
   constructor(
-
+      
       public emaillogService: EmaillogService,
       public injector: Injector,
       public router: Router,

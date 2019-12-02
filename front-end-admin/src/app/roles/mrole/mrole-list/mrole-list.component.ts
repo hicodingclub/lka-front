@@ -26,7 +26,7 @@ export class MroleListComponent extends MroleComponent implements OnInit {
   
 
   constructor(
-
+      
       public mroleService: MroleService,
       public injector: Injector,
       public router: Router,

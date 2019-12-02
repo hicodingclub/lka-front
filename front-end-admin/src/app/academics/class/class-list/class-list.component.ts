@@ -31,7 +31,7 @@ export class ClassListComponent extends ClassComponent implements OnInit {
   @ViewChildren(MraRichTextShowDirective) textEditors: QueryList<MraRichTextShowDirective>;
 
   constructor(
-public componentFactoryResolver: ComponentFactoryResolver,
+      public componentFactoryResolver: ComponentFactoryResolver,
       public classService: ClassService,
       public injector: Injector,
       public router: Router,

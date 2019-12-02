@@ -29,7 +29,7 @@ export class FaqListComponent extends FaqComponent implements OnInit {
   @ViewChildren(MraRichTextShowDirective) textEditors: QueryList<MraRichTextShowDirective>;
 
   constructor(
-
+      
       public faqService: FaqService,
       public injector: Injector,
       public router: Router,

@@ -27,7 +27,7 @@ export class MpermissionListComponent extends MpermissionComponent implements On
   
 
   constructor(
-public componentFactoryResolver: ComponentFactoryResolver,
+      public componentFactoryResolver: ComponentFactoryResolver,
       public mpermissionService: MpermissionService,
       public injector: Injector,
       public router: Router,

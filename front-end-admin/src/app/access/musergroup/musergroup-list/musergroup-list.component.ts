@@ -26,7 +26,7 @@ export class MusergroupListComponent extends MusergroupComponent implements OnIn
   
 
   constructor(
-
+      
       public musergroupService: MusergroupService,
       public injector: Injector,
       public router: Router,

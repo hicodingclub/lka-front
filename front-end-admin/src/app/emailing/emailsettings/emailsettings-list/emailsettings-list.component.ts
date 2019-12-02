@@ -26,7 +26,7 @@ export class EmailsettingsListComponent extends EmailsettingsComponent implement
   
 
   constructor(
-
+      
       public emailsettingsService: EmailsettingsService,
       public injector: Injector,
       public router: Router,

@@ -26,7 +26,7 @@ export class KeynoteListComponent extends KeynoteComponent implements OnInit {
   
 
   constructor(
-
+      
       public keynoteService: KeynoteService,
       public injector: Injector,
       public router: Router,

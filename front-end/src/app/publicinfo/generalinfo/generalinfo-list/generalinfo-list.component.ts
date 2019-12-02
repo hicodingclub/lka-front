@@ -26,7 +26,7 @@ export class GeneralinfoListComponent extends GeneralinfoComponent implements On
   
 
   constructor(
-
+      
       public generalinfoService: GeneralinfoService,
       public injector: Injector,
       public router: Router,

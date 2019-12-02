@@ -29,7 +29,7 @@ export class CourseListComponent extends CourseComponent implements OnInit {
   @ViewChildren(MraRichTextShowDirective) textEditors: QueryList<MraRichTextShowDirective>;
 
   constructor(
-
+      
       public courseService: CourseService,
       public injector: Injector,
       public router: Router,

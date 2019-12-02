@@ -27,7 +27,7 @@ export class TeacherListComponent extends TeacherComponent implements OnInit {
   
 
   constructor(
-public componentFactoryResolver: ComponentFactoryResolver,
+      public componentFactoryResolver: ComponentFactoryResolver,
       public teacherService: TeacherService,
       public injector: Injector,
       public router: Router,

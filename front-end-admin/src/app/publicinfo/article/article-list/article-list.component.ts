@@ -30,7 +30,7 @@ export class ArticleListComponent extends ArticleComponent implements OnInit {
   @ViewChildren(MraRichTextShowDirective) textEditors: QueryList<MraRichTextShowDirective>;
 
   constructor(
-
+      
       public articleService: ArticleService,
       public injector: Injector,
       public router: Router,

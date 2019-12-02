@@ -27,7 +27,7 @@ export class StudentclassListComponent extends StudentclassComponent implements 
   
 
   constructor(
-public componentFactoryResolver: ComponentFactoryResolver,
+      public componentFactoryResolver: ComponentFactoryResolver,
       public studentclassService: StudentclassService,
       public injector: Injector,
       public router: Router,

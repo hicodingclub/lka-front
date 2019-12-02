@@ -29,7 +29,7 @@ export class TermsListComponent extends TermsComponent implements OnInit {
   @ViewChildren(MraRichTextShowDirective) textEditors: QueryList<MraRichTextShowDirective>;
 
   constructor(
-
+      
       public termsService: TermsService,
       public injector: Injector,
       public router: Router,

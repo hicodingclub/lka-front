@@ -27,7 +27,7 @@ export class StudentListComponent extends StudentComponent implements OnInit {
   
 
   constructor(
-
+      
       public studentService: StudentService,
       public injector: Injector,
       public router: Router,
