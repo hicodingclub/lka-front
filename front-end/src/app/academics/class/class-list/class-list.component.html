@@ -3,6 +3,17 @@
 
 	<div class="list-title">Programs and Classes</div>
 
+	<div *ngIf="categoryDisplays2.length > 0" class="sort-selection ml-3">
+			<div class="dropdown" style="width: 100%;">
+				<button class="category2-dropdown btn btn-light btn-sm dropdown-toggle"
+					type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					{{categoryDisplays2[selectedCategory2 || 0]}}
+				</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					<a *ngFor="let ele of categoryDisplays2; let idx = index;"  class="dropdown-item pointer" (click)="categorySelected2(idx)">{{ele}}</a>
+				</div>
+			</div>
+	</div>
 </div>
 
 

@@ -71,7 +71,7 @@ export class ClassListComponent extends ClassComponent implements OnInit {
       // this is to initialize the detail that will be used for search condition selection
       const detail = this.searchObj || {};
       this.detail = this.formatDetail(detail);
-      this.populateList();
+      this.searchList();
   }
 
   static getInstance() {

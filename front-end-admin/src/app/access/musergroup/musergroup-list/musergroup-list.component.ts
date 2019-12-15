@@ -60,7 +60,7 @@ export class MusergroupListComponent extends MusergroupComponent implements OnIn
       // this is to initialize the detail that will be used for search condition selection
       const detail = this.searchObj || {};
       this.detail = this.formatDetail(detail);
-      this.populateList();
+      this.searchList();
   }
 
   static getInstance() {
