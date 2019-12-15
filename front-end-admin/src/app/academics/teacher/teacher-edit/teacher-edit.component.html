@@ -14,6 +14,7 @@
         <fieldset class="form-group">
           <label for="EditFirstName">First Name</label>
           
+          
 
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditFirstName" 
@@ -47,6 +48,7 @@
 
         <fieldset class="form-group">
           <label for="EditLastName">Last Name</label>
+          
           
 
           <div class="input-group">
@@ -82,6 +84,7 @@
         <fieldset class="form-group">
           <label for="EditCourses">Program </label>
           
+          
           <!-- <a class="icon-search" [routerLink]="['.']" (click)="onRefSelect('courses')"><i class="fas fa-list" title="Search"></i></a>  -->
           <div class="input-group">
             <!--  [attr.disabled]="true" -->
@@ -112,6 +115,7 @@
 
         <fieldset class="form-group">
           <label for="EditIntroduction">Introduction</label>
+          
           
 
           <div class="input-group">
@@ -147,6 +151,7 @@
         <fieldset class="form-group">
           <label for="EditEmail">Email</label>
           
+          
 
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditEmail" 
@@ -181,6 +186,7 @@
         <fieldset class="form-group">
           <label for="EditPhoneNumber">Phone Number</label>
           
+          
 
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditPhoneNumber" 
@@ -212,6 +218,7 @@
         <fieldset class="form-group">
           <label for="EditPhoto">Photo</label>
           
+          
           <div class="form-check"
 
                 [ngClass]="{'ng-valid': detail['photo'],
@@ -223,7 +230,7 @@
                   [(ngModel)]="detail['photo']" name="EditPhoto"
                   #EditPhoto="ngModel">
               <div style="display: inline-block; width: 80%;" >
-                  <file-select [(downloadUrl)]="detail['photo']"></file-select>
+                  <file-select [(downloadUrl)]="detail['photo']" [aspectRatio]=""></file-select>
               </div>
               <span *ngIf="detail['photo']" 
                 class="icon-clear" (click)="clearValueFromDetail('photo')">
@@ -249,6 +256,7 @@
         <fieldset class="form-group">
           <label for="EditFirstName">First Name</label>
           
+          
 
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditFirstName" 
@@ -282,6 +290,7 @@
 
         <fieldset class="form-group">
           <label for="EditLastName">Last Name</label>
+          
           
 
           <div class="input-group">
@@ -317,6 +326,7 @@
         <fieldset class="form-group">
           <label for="EditCourses">Program </label>
           
+          
           <!-- <a class="icon-search" [routerLink]="['.']" (click)="onRefSelect('courses')"><i class="fas fa-list" title="Search"></i></a>  -->
           <div class="input-group">
             <!--  [attr.disabled]="true" -->
@@ -347,6 +357,7 @@
 
         <fieldset class="form-group">
           <label for="EditIntroduction">Introduction</label>
+          
           
 
           <div class="input-group">
@@ -382,6 +393,7 @@
         <fieldset class="form-group">
           <label for="EditEmail">Email</label>
           
+          
 
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditEmail" 
@@ -416,6 +428,7 @@
         <fieldset class="form-group">
           <label for="EditPhoneNumber">Phone Number</label>
           
+          
 
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditPhoneNumber" 
@@ -447,6 +460,7 @@
         <fieldset class="form-group">
           <label for="EditPhoto">Photo</label>
           
+          
           <div class="form-check"
 
                 [ngClass]="{'ng-valid': detail['photo'],
@@ -458,7 +472,7 @@
                   [(ngModel)]="detail['photo']" name="EditPhoto"
                   #EditPhoto="ngModel">
               <div style="display: inline-block; width: 80%;" >
-                  <file-select [(downloadUrl)]="detail['photo']"></file-select>
+                  <file-select [(downloadUrl)]="detail['photo']" [aspectRatio]=""></file-select>
               </div>
               <span *ngIf="detail['photo']" 
                 class="icon-clear" (click)="clearValueFromDetail('photo')">

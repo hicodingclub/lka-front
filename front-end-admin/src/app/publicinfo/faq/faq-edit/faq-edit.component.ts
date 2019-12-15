@@ -1,7 +1,9 @@
-import { Component, OnInit, Input, Output, Directive, EventEmitter } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, Output, Directive, EventEmitter } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
+
+declare const $: any;
 
 import { FaqComponent, ViewType } from '../faq.component';
 import { FaqService } from '../faq.service';
@@ -19,7 +21,7 @@ import { MraRichTextSelectDirective } from '@hicoder/angular-core';
   templateUrl: './faq-edit.component.html',
   styleUrls: ['./faq-edit.component.css']
 })
-export class FaqEditComponent extends FaqComponent implements OnInit {        
+export class FaqEditComponent extends FaqComponent implements OnInit, AfterViewInit {        
     @Input() 
     public id: string;
     @Input()
@@ -99,6 +101,11 @@ export class FaqEditComponent extends FaqComponent implements OnInit {
             }
         }
       }
+    }
+
+    ngAfterViewInit() {
+      // Initialize all tooltips
+      $('[data-toggle="tooltip"]').tooltip();
     }
 
     getDetailData() {

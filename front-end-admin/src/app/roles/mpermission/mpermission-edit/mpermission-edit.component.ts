@@ -1,7 +1,9 @@
-import { Component, OnInit, Input, Output, Directive, EventEmitter } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, Output, Directive, EventEmitter } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
+
+declare const $: any;
 
 import { MpermissionComponent, ViewType } from '../mpermission.component';
 import { MpermissionService } from '../mpermission.service';
@@ -18,7 +20,7 @@ import { ComponentFactoryResolver } from '@angular/core';
   templateUrl: './mpermission-edit.component.html',
   styleUrls: ['./mpermission-edit.component.css']
 })
-export class MpermissionEditComponent extends MpermissionComponent implements OnInit {        
+export class MpermissionEditComponent extends MpermissionComponent implements OnInit, AfterViewInit {        
     @Input() 
     public id: string;
     @Input()
@@ -89,6 +91,11 @@ export class MpermissionEditComponent extends MpermissionComponent implements On
             }
         }
       }
+    }
+
+    ngAfterViewInit() {
+      // Initialize all tooltips
+      $('[data-toggle="tooltip"]').tooltip();
     }
 
     getDetailData() {

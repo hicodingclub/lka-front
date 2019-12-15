@@ -1,7 +1,9 @@
-import { Component, OnInit, Input, Output, Directive, EventEmitter } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, Output, Directive, EventEmitter } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
+
+declare const $: any;
 
 import { CourseComponent, ViewType } from '../course.component';
 import { CourseService } from '../course.service';
@@ -19,7 +21,7 @@ import { MraRichTextSelectDirective } from '@hicoder/angular-core';
   templateUrl: './course-edit.component.html',
   styleUrls: ['./course-edit.component.css']
 })
-export class CourseEditComponent extends CourseComponent implements OnInit {        
+export class CourseEditComponent extends CourseComponent implements OnInit, AfterViewInit {        
     @Input() 
     public id: string;
     @Input()
@@ -99,6 +101,11 @@ export class CourseEditComponent extends CourseComponent implements OnInit {
             }
         }
       }
+    }
+
+    ngAfterViewInit() {
+      // Initialize all tooltips
+      $('[data-toggle="tooltip"]').tooltip();
     }
 
     getDetailData() {

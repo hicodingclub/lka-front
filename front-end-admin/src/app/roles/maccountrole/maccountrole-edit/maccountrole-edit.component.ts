@@ -1,7 +1,9 @@
-import { Component, OnInit, Input, Output, Directive, EventEmitter } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, Output, Directive, EventEmitter } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
+
+declare const $: any;
 
 import { MaccountroleComponent, ViewType } from '../maccountrole.component';
 import { MaccountroleService } from '../maccountrole.service';
@@ -18,7 +20,7 @@ import { ComponentFactoryResolver } from '@angular/core';
   templateUrl: './maccountrole-edit.component.html',
   styleUrls: ['./maccountrole-edit.component.css']
 })
-export class MaccountroleEditComponent extends MaccountroleComponent implements OnInit {        
+export class MaccountroleEditComponent extends MaccountroleComponent implements OnInit, AfterViewInit {        
     @Input() 
     public id: string;
     @Input()
@@ -88,6 +90,11 @@ export class MaccountroleEditComponent extends MaccountroleComponent implements 
             }
         }
       }
+    }
+
+    ngAfterViewInit() {
+      // Initialize all tooltips
+      $('[data-toggle="tooltip"]').tooltip();
     }
 
     getDetailData() {

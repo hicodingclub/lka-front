@@ -1,7 +1,9 @@
-import { Component, OnInit, Input, Output, Directive, EventEmitter } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, Output, Directive, EventEmitter } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
+
+declare const $: any;
 
 import { TeacherComponent, ViewType } from '../teacher.component';
 import { TeacherService } from '../teacher.service';
@@ -18,7 +20,7 @@ import { ComponentFactoryResolver } from '@angular/core';
   templateUrl: './teacher-edit.component.html',
   styleUrls: ['./teacher-edit.component.css']
 })
-export class TeacherEditComponent extends TeacherComponent implements OnInit {        
+export class TeacherEditComponent extends TeacherComponent implements OnInit, AfterViewInit {        
     @Input() 
     public id: string;
     @Input()
@@ -92,6 +94,11 @@ export class TeacherEditComponent extends TeacherComponent implements OnInit {
             }
         }
       }
+    }
+
+    ngAfterViewInit() {
+      // Initialize all tooltips
+      $('[data-toggle="tooltip"]').tooltip();
     }
 
     getDetailData() {

@@ -1,7 +1,9 @@
-import { Component, OnInit, Input, Output, Directive, EventEmitter } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, Output, Directive, EventEmitter } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
+
+declare const $: any;
 
 import { MmoduleComponent, ViewType } from '../mmodule.component';
 import { MmoduleService } from '../mmodule.service';
@@ -17,7 +19,7 @@ import { MmoduleService } from '../mmodule.service';
   templateUrl: './mmodule-edit.component.html',
   styleUrls: ['./mmodule-edit.component.css']
 })
-export class MmoduleEditComponent extends MmoduleComponent implements OnInit {        
+export class MmoduleEditComponent extends MmoduleComponent implements OnInit, AfterViewInit {        
     @Input() 
     public id: string;
     @Input()
@@ -85,6 +87,11 @@ export class MmoduleEditComponent extends MmoduleComponent implements OnInit {
             }
         }
       }
+    }
+
+    ngAfterViewInit() {
+      // Initialize all tooltips
+      $('[data-toggle="tooltip"]').tooltip();
     }
 
     getDetailData() {

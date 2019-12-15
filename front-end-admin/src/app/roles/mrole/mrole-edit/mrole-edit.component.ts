@@ -1,7 +1,9 @@
-import { Component, OnInit, Input, Output, Directive, EventEmitter } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, Output, Directive, EventEmitter } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
+
+declare const $: any;
 
 import { MroleComponent, ViewType } from '../mrole.component';
 import { MroleService } from '../mrole.service';
@@ -17,7 +19,7 @@ import { MroleService } from '../mrole.service';
   templateUrl: './mrole-edit.component.html',
   styleUrls: ['./mrole-edit.component.css']
 })
-export class MroleEditComponent extends MroleComponent implements OnInit {        
+export class MroleEditComponent extends MroleComponent implements OnInit, AfterViewInit {        
     @Input() 
     public id: string;
     @Input()
@@ -85,6 +87,11 @@ export class MroleEditComponent extends MroleComponent implements OnInit {
             }
         }
       }
+    }
+
+    ngAfterViewInit() {
+      // Initialize all tooltips
+      $('[data-toggle="tooltip"]').tooltip();
     }
 
     getDetailData() {

@@ -1,7 +1,9 @@
-import { Component, OnInit, Input, Output, Directive, EventEmitter } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, Output, Directive, EventEmitter } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
+
+declare const $: any;
 
 import { MusergroupComponent, ViewType } from '../musergroup.component';
 import { MusergroupService } from '../musergroup.service';
@@ -17,7 +19,7 @@ import { MusergroupService } from '../musergroup.service';
   templateUrl: './musergroup-edit.component.html',
   styleUrls: ['./musergroup-edit.component.css']
 })
-export class MusergroupEditComponent extends MusergroupComponent implements OnInit {        
+export class MusergroupEditComponent extends MusergroupComponent implements OnInit, AfterViewInit {        
     @Input() 
     public id: string;
     @Input()
@@ -85,6 +87,11 @@ export class MusergroupEditComponent extends MusergroupComponent implements OnIn
             }
         }
       }
+    }
+
+    ngAfterViewInit() {
+      // Initialize all tooltips
+      $('[data-toggle="tooltip"]').tooltip();
     }
 
     getDetailData() {

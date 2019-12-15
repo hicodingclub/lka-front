@@ -10,11 +10,11 @@
 	<div class="card text-left transparent-border " [ngStyle]="style['card']">
 	  <div class="grid-fields">
 		<div class="card-header grid-head" [ngStyle]="style['card-header']">
-		  <div *ngIf="detail['signaturePicture']" class="grid-head-picture mr-5">                
-                    <file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="true"></file-display>
+		  <div *ngIf="detail['signaturePicture']" class="grid-head-picture">                
+                    <file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="true" [aspectRatio]="1.3333333333333333"></file-display>
 
 		  </div>
-		  <div class="ml-1 d-inline-block">
+		  <div class="ml-1">
 			<h2>
 			  <div class="mr-1 ml-2 mt-3 d-inline-block" [ngStyle]="style['header-field']">
 				                

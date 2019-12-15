@@ -1,7 +1,7 @@
 
 
 		<div *ngIf="detail && showFields.includes('signaturePicture')">                
-                    <file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false"></file-display>
+                    <file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false" [aspectRatio]="1.7777777777777777"></file-display>
 </div>
 		<div *ngIf="detail && showFields.includes('title')">                
                     {{detail['title']}}

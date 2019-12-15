@@ -1,7 +1,9 @@
-import { Component, OnInit, Input, Output, Directive, EventEmitter } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, Output, Directive, EventEmitter } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
+
+declare const $: any;
 
 import { KeynoteComponent, ViewType } from '../keynote.component';
 import { KeynoteService } from '../keynote.service';
@@ -17,7 +19,7 @@ import { KeynoteService } from '../keynote.service';
   templateUrl: './keynote-edit.component.html',
   styleUrls: ['./keynote-edit.component.css']
 })
-export class KeynoteEditComponent extends KeynoteComponent implements OnInit {        
+export class KeynoteEditComponent extends KeynoteComponent implements OnInit, AfterViewInit {        
     @Input() 
     public id: string;
     @Input()
@@ -88,6 +90,11 @@ export class KeynoteEditComponent extends KeynoteComponent implements OnInit {
             }
         }
       }
+    }
+
+    ngAfterViewInit() {
+      // Initialize all tooltips
+      $('[data-toggle="tooltip"]').tooltip();
     }
 
     getDetailData() {

@@ -1,7 +1,9 @@
-import { Component, OnInit, Input, Output, Directive, EventEmitter } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, Output, Directive, EventEmitter } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
+
+declare const $: any;
 
 import { ClassenrollComponent, ViewType } from '../classenroll.component';
 import { ClassenrollService } from '../classenroll.service';
@@ -18,7 +20,7 @@ import { ComponentFactoryResolver } from '@angular/core';
   templateUrl: './classenroll-edit.component.html',
   styleUrls: ['./classenroll-edit.component.css']
 })
-export class ClassenrollEditComponent extends ClassenrollComponent implements OnInit {        
+export class ClassenrollEditComponent extends ClassenrollComponent implements OnInit, AfterViewInit {        
     @Input() 
     public id: string;
     @Input()
@@ -90,6 +92,11 @@ export class ClassenrollEditComponent extends ClassenrollComponent implements On
             }
         }
       }
+    }
+
+    ngAfterViewInit() {
+      // Initialize all tooltips
+      $('[data-toggle="tooltip"]').tooltip();
     }
 
     getDetailData() {

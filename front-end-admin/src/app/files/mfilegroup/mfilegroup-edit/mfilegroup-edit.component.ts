@@ -1,7 +1,9 @@
-import { Component, OnInit, Input, Output, Directive, EventEmitter } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, Output, Directive, EventEmitter } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
+
+declare const $: any;
 
 import { MfilegroupComponent, ViewType } from '../mfilegroup.component';
 import { MfilegroupService } from '../mfilegroup.service';
@@ -17,7 +19,7 @@ import { MfilegroupService } from '../mfilegroup.service';
   templateUrl: './mfilegroup-edit.component.html',
   styleUrls: ['./mfilegroup-edit.component.css']
 })
-export class MfilegroupEditComponent extends MfilegroupComponent implements OnInit {        
+export class MfilegroupEditComponent extends MfilegroupComponent implements OnInit, AfterViewInit {        
     @Input() 
     public id: string;
     @Input()
@@ -84,6 +86,11 @@ export class MfilegroupEditComponent extends MfilegroupComponent implements OnIn
             }
         }
       }
+    }
+
+    ngAfterViewInit() {
+      // Initialize all tooltips
+      $('[data-toggle="tooltip"]').tooltip();
     }
 
     getDetailData() {

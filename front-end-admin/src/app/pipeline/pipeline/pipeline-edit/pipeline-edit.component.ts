@@ -1,7 +1,9 @@
-import { Component, OnInit, Input, Output, Directive, EventEmitter } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, Output, Directive, EventEmitter } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
+
+declare const $: any;
 
 import { PipelineComponent, ViewType } from '../pipeline.component';
 import { PipelineService } from '../pipeline.service';
@@ -17,7 +19,7 @@ import { PipelineService } from '../pipeline.service';
   templateUrl: './pipeline-edit.component.html',
   styleUrls: ['./pipeline-edit.component.css']
 })
-export class PipelineEditComponent extends PipelineComponent implements OnInit {        
+export class PipelineEditComponent extends PipelineComponent implements OnInit, AfterViewInit {        
     @Input() 
     public id: string;
     @Input()
@@ -84,6 +86,11 @@ export class PipelineEditComponent extends PipelineComponent implements OnInit {
             }
         }
       }
+    }
+
+    ngAfterViewInit() {
+      // Initialize all tooltips
+      $('[data-toggle="tooltip"]').tooltip();
     }
 
     getDetailData() {

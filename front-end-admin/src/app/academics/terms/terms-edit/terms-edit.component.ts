@@ -1,7 +1,9 @@
-import { Component, OnInit, Input, Output, Directive, EventEmitter } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, Output, Directive, EventEmitter } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
+
+declare const $: any;
 
 import { TermsComponent, ViewType } from '../terms.component';
 import { TermsService } from '../terms.service';
@@ -19,7 +21,7 @@ import { MraRichTextSelectDirective } from '@hicoder/angular-core';
   templateUrl: './terms-edit.component.html',
   styleUrls: ['./terms-edit.component.css']
 })
-export class TermsEditComponent extends TermsComponent implements OnInit {        
+export class TermsEditComponent extends TermsComponent implements OnInit, AfterViewInit {        
     @Input() 
     public id: string;
     @Input()
@@ -101,6 +103,11 @@ export class TermsEditComponent extends TermsComponent implements OnInit {
             }
         }
       }
+    }
+
+    ngAfterViewInit() {
+      // Initialize all tooltips
+      $('[data-toggle="tooltip"]').tooltip();
     }
 
     getDetailData() {

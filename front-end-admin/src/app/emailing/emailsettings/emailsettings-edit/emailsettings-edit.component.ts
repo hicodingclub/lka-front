@@ -1,7 +1,9 @@
-import { Component, OnInit, Input, Output, Directive, EventEmitter } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, Output, Directive, EventEmitter } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
+
+declare const $: any;
 
 import { EmailsettingsComponent, ViewType } from '../emailsettings.component';
 import { EmailsettingsService } from '../emailsettings.service';
@@ -17,7 +19,7 @@ import { EmailsettingsService } from '../emailsettings.service';
   templateUrl: './emailsettings-edit.component.html',
   styleUrls: ['./emailsettings-edit.component.css']
 })
-export class EmailsettingsEditComponent extends EmailsettingsComponent implements OnInit {        
+export class EmailsettingsEditComponent extends EmailsettingsComponent implements OnInit, AfterViewInit {        
     @Input() 
     public id: string;
     @Input()
@@ -84,6 +86,11 @@ export class EmailsettingsEditComponent extends EmailsettingsComponent implement
             }
         }
       }
+    }
+
+    ngAfterViewInit() {
+      // Initialize all tooltips
+      $('[data-toggle="tooltip"]').tooltip();
     }
 
     getDetailData() {

@@ -1,7 +1,9 @@
-import { Component, OnInit, Input, Output, Directive, EventEmitter } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, Output, Directive, EventEmitter } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
+
+declare const $: any;
 
 import { MfileComponent, ViewType } from '../mfile.component';
 import { MfileService } from '../mfile.service';
@@ -18,7 +20,7 @@ import { ComponentFactoryResolver } from '@angular/core';
   templateUrl: './mfile-edit.component.html',
   styleUrls: ['./mfile-edit.component.css']
 })
-export class MfileEditComponent extends MfileComponent implements OnInit {        
+export class MfileEditComponent extends MfileComponent implements OnInit, AfterViewInit {        
     @Input() 
     public id: string;
     @Input()
@@ -87,6 +89,11 @@ export class MfileEditComponent extends MfileComponent implements OnInit {
             }
         }
       }
+    }
+
+    ngAfterViewInit() {
+      // Initialize all tooltips
+      $('[data-toggle="tooltip"]').tooltip();
     }
 
     getDetailData() {

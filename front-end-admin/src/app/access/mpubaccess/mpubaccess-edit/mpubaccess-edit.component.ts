@@ -1,7 +1,9 @@
-import { Component, OnInit, Input, Output, Directive, EventEmitter } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, Output, Directive, EventEmitter } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
+
+declare const $: any;
 
 import { MpubaccessComponent, ViewType } from '../mpubaccess.component';
 import { MpubaccessService } from '../mpubaccess.service';
@@ -18,7 +20,7 @@ import { ComponentFactoryResolver } from '@angular/core';
   templateUrl: './mpubaccess-edit.component.html',
   styleUrls: ['./mpubaccess-edit.component.css']
 })
-export class MpubaccessEditComponent extends MpubaccessComponent implements OnInit {        
+export class MpubaccessEditComponent extends MpubaccessComponent implements OnInit, AfterViewInit {        
     @Input() 
     public id: string;
     @Input()
@@ -89,6 +91,11 @@ export class MpubaccessEditComponent extends MpubaccessComponent implements OnIn
             }
         }
       }
+    }
+
+    ngAfterViewInit() {
+      // Initialize all tooltips
+      $('[data-toggle="tooltip"]').tooltip();
     }
 
     getDetailData() {

@@ -1,7 +1,9 @@
-import { Component, OnInit, Input, Output, Directive, EventEmitter } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, Output, Directive, EventEmitter } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
+
+declare const $: any;
 
 import { GeneralinfoComponent, ViewType } from '../generalinfo.component';
 import { GeneralinfoService } from '../generalinfo.service';
@@ -17,7 +19,7 @@ import { GeneralinfoService } from '../generalinfo.service';
   templateUrl: './generalinfo-edit.component.html',
   styleUrls: ['./generalinfo-edit.component.css']
 })
-export class GeneralinfoEditComponent extends GeneralinfoComponent implements OnInit {        
+export class GeneralinfoEditComponent extends GeneralinfoComponent implements OnInit, AfterViewInit {        
     @Input() 
     public id: string;
     @Input()
@@ -88,6 +90,11 @@ export class GeneralinfoEditComponent extends GeneralinfoComponent implements On
             }
         }
       }
+    }
+
+    ngAfterViewInit() {
+      // Initialize all tooltips
+      $('[data-toggle="tooltip"]').tooltip();
     }
 
     getDetailData() {

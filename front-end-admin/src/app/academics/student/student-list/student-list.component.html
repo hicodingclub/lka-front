@@ -206,7 +206,7 @@
 				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
 				<div class="list-fields pointer" (click)="onDetailLinkClicked(detail['_id'])" >
 
-      <div class="list-body-fields ml-1 d-inline-block">
+      <div class="list-body-fields">
         <h5>
           <div class="mr-1 d-inline-block">
                             
@@ -256,7 +256,7 @@
       </div>
 
 				</div>
-				<div class="card-action-icons d-inline-block">
+				<div class="card-action-icons">
 					
 						<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
 					
@@ -277,7 +277,7 @@
 				<div class="grid-fields pointer" (click)="onDetailLinkClicked(detail['_id'])" >
 
       <div class="card-header grid-head">
-        <div class="ml-1 d-inline-block">
+        <div>
           <h5>
             <div class="mr-1 d-inline-block">
                               

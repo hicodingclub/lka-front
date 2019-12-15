@@ -1,7 +1,9 @@
-import { Component, OnInit, Input, Output, Directive, EventEmitter } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, Output, Directive, EventEmitter } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
+
+declare const $: any;
 
 import { StudentclassComponent, ViewType } from '../studentclass.component';
 import { StudentclassService } from '../studentclass.service';
@@ -18,7 +20,7 @@ import { ComponentFactoryResolver } from '@angular/core';
   templateUrl: './studentclass-edit.component.html',
   styleUrls: ['./studentclass-edit.component.css']
 })
-export class StudentclassEditComponent extends StudentclassComponent implements OnInit {        
+export class StudentclassEditComponent extends StudentclassComponent implements OnInit, AfterViewInit {        
     @Input() 
     public id: string;
     @Input()
@@ -85,6 +87,11 @@ export class StudentclassEditComponent extends StudentclassComponent implements 
             }
         }
       }
+    }
+
+    ngAfterViewInit() {
+      // Initialize all tooltips
+      $('[data-toggle="tooltip"]').tooltip();
     }
 
     getDetailData() {

@@ -1,7 +1,9 @@
-import { Component, OnInit, Input, Output, Directive, EventEmitter } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, Output, Directive, EventEmitter } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
+
+declare const $: any;
 
 import { StudentComponent, ViewType } from '../student.component';
 import { StudentService } from '../student.service';
@@ -242,7 +244,7 @@ export class StudentDirectiveGuardianTwoEmail implements Validator {
   templateUrl: './student-edit.component.html',
   styleUrls: ['./student-edit.component.css']
 })
-export class StudentEditComponent extends StudentComponent implements OnInit {        
+export class StudentEditComponent extends StudentComponent implements OnInit, AfterViewInit {        
     @Input() 
     public id: string;
     @Input()
@@ -323,6 +325,11 @@ export class StudentEditComponent extends StudentComponent implements OnInit {
             }
         }
       }
+    }
+
+    ngAfterViewInit() {
+      // Initialize all tooltips
+      $('[data-toggle="tooltip"]').tooltip();
     }
 
     getDetailData() {

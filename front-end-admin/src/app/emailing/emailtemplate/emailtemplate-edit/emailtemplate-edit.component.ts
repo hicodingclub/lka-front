@@ -1,7 +1,9 @@
-import { Component, OnInit, Input, Output, Directive, EventEmitter } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, Output, Directive, EventEmitter } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
+
+declare const $: any;
 
 import { EmailtemplateComponent, ViewType } from '../emailtemplate.component';
 import { EmailtemplateService } from '../emailtemplate.service';
@@ -19,7 +21,7 @@ import { MraRichTextSelectDirective } from '@hicoder/angular-core';
   templateUrl: './emailtemplate-edit.component.html',
   styleUrls: ['./emailtemplate-edit.component.css']
 })
-export class EmailtemplateEditComponent extends EmailtemplateComponent implements OnInit {        
+export class EmailtemplateEditComponent extends EmailtemplateComponent implements OnInit, AfterViewInit {        
     @Input() 
     public id: string;
     @Input()
@@ -102,6 +104,11 @@ export class EmailtemplateEditComponent extends EmailtemplateComponent implement
             }
         }
       }
+    }
+
+    ngAfterViewInit() {
+      // Initialize all tooltips
+      $('[data-toggle="tooltip"]').tooltip();
     }
 
     getDetailData() {

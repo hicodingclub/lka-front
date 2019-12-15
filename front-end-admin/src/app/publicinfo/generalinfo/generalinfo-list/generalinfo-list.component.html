@@ -150,12 +150,12 @@
 				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
 				<div class="list-fields pointer" (click)="onDetailLinkClicked(detail['_id'])" >
 
-      <div class="list-head-picture mr-1 d-inline-block">                
-                    <file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false"></file-display>
+      <div class="list-head-picture">                
+                    <file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false" [aspectRatio]="1.3333333333333333"></file-display>
 
       </div>
     
-      <div class="list-body-fields ml-1 d-inline-block">
+      <div class="list-body-fields">
         <h5>
           <div class="mr-1 d-inline-block">
                             
@@ -181,7 +181,7 @@
       </div>
 
 				</div>
-				<div class="card-action-icons d-inline-block">
+				<div class="card-action-icons">
 					
 						<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
 					
@@ -202,11 +202,11 @@
 				<div class="grid-fields pointer" (click)="onDetailLinkClicked(detail['_id'])" >
 
       <div class="card-header grid-head">
-        <div class="grid-head-picture mr-1">                
-                    <file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false"></file-display>
+        <div class="grid-head-picture">                
+                    <file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false" [aspectRatio]="1.3333333333333333"></file-display>
 
         </div>
-        <div class="ml-1 d-inline-block">
+        <div>
           <h5>
             <div class="mr-1 d-inline-block">
                               
@@ -283,7 +283,7 @@
 
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
 	            	                
-                    <file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false"></file-display>
+                    <file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false" [aspectRatio]="1.3333333333333333"></file-display>
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">

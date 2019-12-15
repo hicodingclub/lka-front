@@ -14,6 +14,7 @@
         <fieldset class="form-group">
           <label for="EditTitle">Title</label>
           
+          
 
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditTitle" 
@@ -47,6 +48,7 @@
 
         <fieldset class="form-group">
           <label for="EditDescription">Description</label>
+          
           
 
           <div class="input-group">
@@ -82,6 +84,7 @@
         <fieldset class="form-group">
           <label for="EditSignaturePicture">Signature Picture</label>
           
+          
           <div class="form-check"
 
                 [ngClass]="{'ng-valid': true} "
@@ -91,7 +94,7 @@
                   [(ngModel)]="detail['signaturePicture']" name="EditSignaturePicture"
                   #EditSignaturePicture="ngModel">
               <div style="display: inline-block; width: 80%;" >
-                  <file-select [(downloadUrl)]="detail['signaturePicture']"></file-select>
+                  <file-select [(downloadUrl)]="detail['signaturePicture']" [aspectRatio]="1.3333333333333333"></file-select>
               </div>
               <span *ngIf="detail['signaturePicture']" 
                 class="icon-clear" (click)="clearValueFromDetail('signaturePicture')">
@@ -110,6 +113,7 @@
 
         <fieldset class="form-group">
           <label for="EditTag">Tag</label>
+          
           
 
           <div class="input-group">
@@ -145,6 +149,7 @@
         <fieldset class="form-group">
           <label for="EditTitle">Title</label>
           
+          
 
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditTitle" 
@@ -178,6 +183,7 @@
 
         <fieldset class="form-group">
           <label for="EditDescription">Description</label>
+          
           
 
           <div class="input-group">
@@ -213,6 +219,7 @@
         <fieldset class="form-group">
           <label for="EditSignaturePicture">Signature Picture</label>
           
+          
           <div class="form-check"
 
                 [ngClass]="{'ng-valid': true} "
@@ -222,7 +229,7 @@
                   [(ngModel)]="detail['signaturePicture']" name="EditSignaturePicture"
                   #EditSignaturePicture="ngModel">
               <div style="display: inline-block; width: 80%;" >
-                  <file-select [(downloadUrl)]="detail['signaturePicture']"></file-select>
+                  <file-select [(downloadUrl)]="detail['signaturePicture']" [aspectRatio]="1.3333333333333333"></file-select>
               </div>
               <span *ngIf="detail['signaturePicture']" 
                 class="icon-clear" (click)="clearValueFromDetail('signaturePicture')">
@@ -241,6 +248,7 @@
 
         <fieldset class="form-group">
           <label for="EditTag">Tag</label>
+          
           
 
           <div class="input-group">
