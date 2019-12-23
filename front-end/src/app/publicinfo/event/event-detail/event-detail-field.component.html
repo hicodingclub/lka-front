@@ -1,7 +1,7 @@
 
 
 		<div *ngIf="detail && showFields.includes('signaturePicture')">                
-                    <file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false" [aspectRatio]=""></file-display>
+                    <lib-mdds-file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false" [aspectRatio]=""></lib-mdds-file-display>
 </div>
 		<div *ngIf="detail && showFields.includes('title')">                
                     {{detail['title']}}
@@ -12,5 +12,5 @@
 		<div *ngIf="detail && showFields.includes('publishDate')">                  {{detail['publishDate']?detail['publishDate']['value']:""}}
 </div>
 		<div *ngIf="detail && showFields.includes('content')">                 
-                    <div mra-richtext-show="eventDetailContent" [content]="detail['content']"></div>
+                    <div libMddsRichtextShow="eventDetailContent" [content]="detail['content']"></div>
 </div>

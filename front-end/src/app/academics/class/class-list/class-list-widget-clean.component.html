@@ -39,7 +39,7 @@
 	    <tbody>
 	        <tr *ngFor="let detail of list;  let i = index; let list_index = index;" [ngClass]="{'clicked-row': clickedId==detail['_id']}">
 	            <td scope="row" >
-	            	{{(page-1)*per_page+i+1}}
+	            	{{(page-1)*perPage+i+1}}
 	            </td>
 
 	            <td >
@@ -69,6 +69,7 @@
 	            </td>
 	            <td>
 					
+	            	
 	            	
 					
 					<span class="read-more-in-table" (click)="onDetailLinkClicked(detail['_id'])">Detail <i class="fas fa-arrow-right" ></i></span>

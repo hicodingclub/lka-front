@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
-import { BaseComponent, ViewType } from '@hicoder/angular-core';
+import { MddsBaseComponent, ViewType } from '@hicoder/angular-core';
 import { Injector } from '@angular/core';
 import { ArticleService } from './article.service';
 
@@ -11,7 +11,7 @@ export { ViewType };
 
 
 
-export class ArticleComponent extends BaseComponent {
+export class ArticleComponent extends MddsBaseComponent {
 
 
 

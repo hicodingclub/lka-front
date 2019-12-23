@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { AuthenticationModule } from '@hicoder/angular-auth';
 import { CompositeModule} from '@hicoder/angular-composite';
 
-import { UsersModule } from './users/users.module';
 import { AcademicsModule } from './academics/academics.module';
 import { PublicinfoModule } from './publicinfo/publicinfo.module';
 
@@ -37,7 +36,6 @@ import { EnrollComponent } from './actions';
     CompositeModule,
 
     AcademicsModule,
-    UsersModule,
     PublicinfoModule
   ],
   providers: [

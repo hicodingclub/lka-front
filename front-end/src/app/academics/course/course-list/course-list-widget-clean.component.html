@@ -17,7 +17,7 @@
         <div *ngIf="detail['description']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Description:</label></div>
           <div class="ml-3">                 
-                    <div mra-richtext-show="courseDetailDescription" [content]="detail['description']"></div>
+                    <div libMddsRichtextShow="courseDetailDescription" [content]="detail['description']"></div>
 
           </div>
         </div>
@@ -51,7 +51,7 @@
           <div *ngIf="detail['description']" class="d-flex flex-wrap">
             <div class=""><label>Description:</label></div>
             <div class="ml-3">                 
-                    <div mra-richtext-show="courseDetailDescription" [content]="detail['description']"></div>
+                    <div libMddsRichtextShow="courseDetailDescription" [content]="detail['description']"></div>
 </div>
           </div>
       </div>
@@ -80,7 +80,7 @@
 	    <tbody>
 	        <tr *ngFor="let detail of list;  let i = index; let list_index = index;" [ngClass]="{'clicked-row': clickedId==detail['_id']}">
 	            <td scope="row" (click)="onDetailLinkClicked(detail['_id'])"  class="pointer read-more">
-	            	{{(page-1)*per_page+i+1}}
+	            	{{(page-1)*perPage+i+1}}
 	            </td>
 
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
@@ -90,7 +90,7 @@
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
 	            	                 
-                    <div mra-richtext-show="courseDetailDescription" [content]="detail['description']"></div>
+                    <div libMddsRichtextShow="courseDetailDescription" [content]="detail['description']"></div>
 
 	            </td>
 	        </tr>

@@ -20,7 +20,7 @@ export class KeynoteListWidgetSldComponent extends KeynoteListComponent implemen
 
   public slidesId: string = Date.now().toString();
 
-  @ViewChild('carousel') carousel: NgbCarousel;
+  @ViewChild('carousel', {static: true}) carousel: NgbCarousel;
 
   constructor(
       public keynoteService: KeynoteService,

@@ -10,7 +10,7 @@ import { ClassService } from '../class.service';
 import { ComponentFactoryResolver } from '@angular/core';
 
 import { QueryList, ViewChildren } from '@angular/core';
-import { MraRichTextShowDirective } from '@hicoder/angular-core';
+import { MddsRichTextShowDirective } from '@hicoder/angular-core';
 
 @Component({
   selector: 'app-class-detail',
@@ -30,7 +30,7 @@ export class ClassDetailComponent extends ClassComponent implements OnInit, Afte
   public options: any; // {} uiOptions
 
 
-  @ViewChildren(MraRichTextShowDirective) textEditors: QueryList<MraRichTextShowDirective>;
+  @ViewChildren(MddsRichTextShowDirective) textEditors: QueryList<MddsRichTextShowDirective>;
 
   constructor(
       public componentFactoryResolver: ComponentFactoryResolver,

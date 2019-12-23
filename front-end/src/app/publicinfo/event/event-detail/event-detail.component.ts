@@ -9,7 +9,7 @@ import { EventService } from '../event.service';
 
 
 import { QueryList, ViewChildren } from '@angular/core';
-import { MraRichTextShowDirective } from '@hicoder/angular-core';
+import { MddsRichTextShowDirective } from '@hicoder/angular-core';
 
 @Component({
   selector: 'app-event-detail',
@@ -29,7 +29,7 @@ export class EventDetailComponent extends EventComponent implements OnInit, Afte
   public options: any; // {} uiOptions
 
 
-  @ViewChildren(MraRichTextShowDirective) textEditors: QueryList<MraRichTextShowDirective>;
+  @ViewChildren(MddsRichTextShowDirective) textEditors: QueryList<MddsRichTextShowDirective>;
 
   constructor(
       

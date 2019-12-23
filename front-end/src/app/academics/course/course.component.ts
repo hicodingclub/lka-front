@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
-import { BaseComponent, ViewType } from '@hicoder/angular-core';
+import { MddsBaseComponent, ViewType } from '@hicoder/angular-core';
 import { Injector } from '@angular/core';
 import { CourseService } from './course.service';
 
@@ -13,10 +13,10 @@ import { ViewChild } from '@angular/core';
 import { ElementRef } from '@angular/core';
 
 
-export class CourseComponent extends BaseComponent {
+export class CourseComponent extends MddsBaseComponent {
 
 
-    @ViewChild('AcademicsModal') public focusEl: ElementRef;
+    @ViewChild('AcademicsModal', {static: true}) public focusEl: ElementRef;
 
     constructor(
       

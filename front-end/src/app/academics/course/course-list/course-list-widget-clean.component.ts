@@ -19,7 +19,7 @@ export class CourseListWidgetCleanComponent extends CourseListComponent implemen
       public route: ActivatedRoute,
       public location: Location) {
         super( courseService, injector, router, route, location);
-        this.per_page = 4;
+        this.perPage = 4;
         this.listCategory1 = {}; // no do query based on category for home view;
         this.listCategory2 = {}; // no do query based on category for home view;
   }

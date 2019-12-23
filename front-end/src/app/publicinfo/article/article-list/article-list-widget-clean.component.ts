@@ -19,7 +19,7 @@ export class ArticleListWidgetCleanComponent extends ArticleListComponent implem
       public route: ActivatedRoute,
       public location: Location) {
         super( articleService, injector, router, route, location);
-        this.per_page = 3;
+        this.perPage = 3;
         this.listCategory1 = {}; // no do query based on category for home view;
         this.listCategory2 = {}; // no do query based on category for home view;
   }

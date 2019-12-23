@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
-import { BaseComponent, ViewType } from '@hicoder/angular-core';
+import { MddsBaseComponent, ViewType } from '@hicoder/angular-core';
 import { Injector } from '@angular/core';
 import { KeynoteService } from './keynote.service';
 
@@ -11,7 +11,7 @@ export { ViewType };
 
 
 
-export class KeynoteComponent extends BaseComponent {
+export class KeynoteComponent extends MddsBaseComponent {
 
 
 

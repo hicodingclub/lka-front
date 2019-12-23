@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { compositeStep, compositeStepConfig, submitComponent } from '@hicoder/angular-composite';
+import { CompositeStep, CompositeStepConfig, SubmitComponent } from '@hicoder/angular-composite';
 
 import { ClassDetailComponent } from '../academics/class/class-detail/class-detail.component';
 import { ClassListWidgetSelComponent } from '../academics/class/class-list/class-list-widget-sel.component';
@@ -17,13 +17,13 @@ import { CompositeComponent } from '@hicoder/angular-composite'
 })
 export class EnrollComponent implements OnInit {
 
-  public compositeSteps: compositeStep[];
-  public compositeStepConfigs: compositeStepConfig[];
-  public submitComp: submitComponent;
+  public compositeSteps: CompositeStep[];
+  public compositeStepConfigs: CompositeStepConfig[];
+  public submitComp: SubmitComponent;
   public title: string;
   public intialClassId: string;
 
-  @ViewChild(CompositeComponent) public compositeInstance: CompositeComponent;
+  @ViewChild(CompositeComponent, {static: true}) public compositeInstance: CompositeComponent;
 
   constructor(private route: ActivatedRoute) {
     this.route.params.subscribe(params => {
@@ -131,7 +131,7 @@ export class EnrollComponent implements OnInit {
       } else {
         searchObj = {'tag': 'class-enroll'};
       }
-      const config: compositeStepConfig = {
+      const config: CompositeStepConfig = {
         stepTitle: '',
 
         stepComponent: TermsDetailWidgetTermComponent, //define the component at this time

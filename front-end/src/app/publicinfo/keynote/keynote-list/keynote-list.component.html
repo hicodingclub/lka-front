@@ -20,7 +20,6 @@
 		<div class="row">
 			<div class="col-9">
 
-
 			    <div class="input-group">
 	              <input type="search" class="form-control border border-secondary" id="keynoteTextSearch" 
 						#keynoteTextSearch [(ngModel)]="searchText"
@@ -37,15 +36,14 @@
 				</div>
 			
 
-			
-
-		    </div>
+			</div>
 		</div>
 		<div class="row">
 			<div class="col">
 		        <div class="action-buttons">
 					
 
+					
 					
 					
 				</div>
@@ -99,14 +97,14 @@
 
 			<div>
 				<div class="total_counts">
-					<span *ngIf="list.length > 2">Total: <b>{{total_count}}</b></span>
+					<span *ngIf="list.length > 2">Total: <b>{{totalCount}}</b></span>
 					<a class="ml-3" routerLink="." (click)="onRefresh()"><i class="fa fa-sync-alt"></i></a>
 				</div>
 			</div>
 		</div>
 
 		<div class="d-flex justify-content-center mt-2">
-				<div *ngIf="total_pages > 1">
+				<div *ngIf="totalPages > 1">
 					<ul class="pagination justify-content-center">
 						<li class="page-item"
 								[ngClass]="{'disabled': page<=1}">
@@ -117,16 +115,16 @@
 						</a>
 						</li>
 
-						<li *ngIf="left_more" class="page-item"><a class="page-link">...</a></li>
+						<li *ngIf="leftMore" class="page-item"><a class="page-link">...</a></li>
 
 						<li *ngFor="let p of pages;  let i = index" class="page-item"
 								[ngClass]="{'active': p==page}">
 							<a class="page-link" routerLink="." (click)="onGotoPage(p)">{{p}}</a>
 						</li>
 
-						<li *ngIf="right_more" class="page-item"><a class="page-link">...</a></li>
+						<li *ngIf="rightMore" class="page-item"><a class="page-link">...</a></li>
 						<li class="page-item"
-								[ngClass]="{'disabled': page>=total_pages}">
+								[ngClass]="{'disabled': page>=totalPages}">
 						<a class="page-link" routerLink="." (click)="onNextPage()"
 							aria-label="Next">
 							<span aria-hidden="true">&raquo;</span>
@@ -151,7 +149,7 @@
 				<div class="list-fields pointer" (click)="onDetailLinkClicked(detail['_id'])" >
 
       <div class="list-head-picture">                
-                    <file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false" [aspectRatio]="1.7777777777777777"></file-display>
+                    <lib-mdds-file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false" [aspectRatio]="1.7777777777777777"></lib-mdds-file-display>
 
       </div>
     
@@ -202,7 +200,7 @@
 
       <div class="card-header grid-head">
         <div class="grid-head-picture">                
-                    <file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false" [aspectRatio]="1.7777777777777777"></file-display>
+                    <lib-mdds-file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false" [aspectRatio]="1.7777777777777777"></lib-mdds-file-display>
 
         </div>
         <div>
@@ -282,12 +280,12 @@
 	    <tbody>
 	        <tr *ngFor="let detail of list;  let i = index; let list_index = index;" [ngClass]="{'clicked-row': clickedId==detail['_id']}">
 	            <td scope="row" (click)="onDetailLinkClicked(detail['_id'])"  class="pointer read-more">
-	            	{{(page-1)*per_page+i+1}}
+	            	{{(page-1)*perPage+i+1}}
 	            </td>
 
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
 	            	                
-                    <file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false" [aspectRatio]="1.7777777777777777"></file-display>
+                    <lib-mdds-file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false" [aspectRatio]="1.7777777777777777"></lib-mdds-file-display>
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
@@ -327,13 +325,13 @@
 
 			<div>
 				<div class="total_counts">
-					<span *ngIf="list.length > 2">Total: <b>{{total_count}}</b></span>
+					<span *ngIf="list.length > 2">Total: <b>{{totalCount}}</b></span>
 				</div>
 			</div>
 		</div>
 
 		<div class="d-flex justify-content-center mt-2">
-				<div *ngIf="total_pages > 1">
+				<div *ngIf="totalPages > 1">
 					<ul class="pagination justify-content-center">
 						<li class="page-item"
 								[ngClass]="{'disabled': page<=1}">
@@ -344,16 +342,16 @@
 						</a>
 						</li>
 
-						<li *ngIf="left_more" class="page-item"><a class="page-link">...</a></li>
+						<li *ngIf="leftMore" class="page-item"><a class="page-link">...</a></li>
 
 						<li *ngFor="let p of pages;  let i = index" class="page-item"
 								[ngClass]="{'active': p==page}">
 							<a class="page-link" routerLink="." (click)="onGotoPage(p)">{{p}}</a>
 						</li>
 
-						<li *ngIf="right_more" class="page-item"><a class="page-link">...</a></li>
+						<li *ngIf="rightMore" class="page-item"><a class="page-link">...</a></li>
 						<li class="page-item"
-								[ngClass]="{'disabled': page>=total_pages}">
+								[ngClass]="{'disabled': page>=totalPages}">
 						<a class="page-link" routerLink="." (click)="onNextPage()"
 							aria-label="Next">
 							<span aria-hidden="true">&raquo;</span>

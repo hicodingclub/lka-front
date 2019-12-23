@@ -12,7 +12,7 @@ import { MraNgbDateFormatterService } from './publicinfo.directive';
 import { FileUploadModule } from '@hicoder/angular-file';
 
 
-import { MraModule } from '@hicoder/angular-core';
+import { MddsCoreModule } from '@hicoder/angular-core';
 
 import { PublicinfoRoutingModule } from './publicinfo-routing.module';
 import { PublicinfoComponent } from './publicinfo.component';
@@ -85,7 +85,7 @@ import { ArticleService } from './article/article.service';
     HttpClientModule,
     FormsModule,
     NgbModule,
-    MraModule,
+    MddsCoreModule,
     FileUploadModule,
 
     PublicinfoRoutingModule

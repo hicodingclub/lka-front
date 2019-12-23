@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
-import { BaseComponent, ViewType } from '@hicoder/angular-core';
+import { MddsBaseComponent, ViewType } from '@hicoder/angular-core';
 import { Injector } from '@angular/core';
 import { ClassenrollService } from './classenroll.service';
 
@@ -22,7 +22,7 @@ import { ClassDetailPopComponent } from '../class/class-detail/class-detail-pop.
 import { ClassListSelectComponent } from '../class/class-list/class-list-select.component';
 
 
-export class ClassenrollComponent extends BaseComponent {
+export class ClassenrollComponent extends MddsBaseComponent {
 
     public selectComponents = {
 
@@ -37,7 +37,7 @@ export class ClassenrollComponent extends BaseComponent {
           'pop-detail-type': ClassDetailPopComponent,
           'componentRef': null},
     }
-    @ViewChild(AcademicsRefSelectDirective) refSelectDirective: AcademicsRefSelectDirective;
+    @ViewChild(AcademicsRefSelectDirective, {static: true}) refSelectDirective: AcademicsRefSelectDirective;
 
 
 

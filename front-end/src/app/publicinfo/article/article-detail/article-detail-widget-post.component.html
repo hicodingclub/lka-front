@@ -5,12 +5,13 @@
     
     
     
+    
 </div>
 </div>
 	<div class="card transparent-border">
 		<div class="post-head-picture" *ngIf="detail['signaturePicture']">
 			                
-                    <file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="true" [aspectRatio]=""></file-display>
+                    <lib-mdds-file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="true" [aspectRatio]=""></lib-mdds-file-display>
 
 		</div>
 		<div class="card-body">
@@ -27,7 +28,7 @@
 
 			<div class="card-text">
 					                 
-                    <div mra-richtext-show="articleDetailContent" [content]="detail['content']"></div>
+                    <div libMddsRichtextShow="articleDetailContent" [content]="detail['content']"></div>
 
 			</div>
 		</div>

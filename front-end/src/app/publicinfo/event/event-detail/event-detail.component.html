@@ -6,6 +6,7 @@
     
     
     
+    
 </div>
 </div>
 	<div class="card text-left transparent-border ">
@@ -13,7 +14,7 @@
 
       <div class="card-header grid-head">
         <div class="grid-head-picture">                
-                    <file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false" [aspectRatio]=""></file-display>
+                    <lib-mdds-file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false" [aspectRatio]=""></lib-mdds-file-display>
 
         </div>
         <div class="ml-1">
@@ -46,7 +47,7 @@
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
                 <div><label>Content:</label></div>
                 <div class="ml-3">                 
-                    <div mra-richtext-show="eventDetailContent" [content]="detail['content']"></div>
+                    <div libMddsRichtextShow="eventDetailContent" [content]="detail['content']"></div>
 </div>
             </div>
           </div>
