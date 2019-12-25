@@ -10,6 +10,5 @@ export class EmailingComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 }

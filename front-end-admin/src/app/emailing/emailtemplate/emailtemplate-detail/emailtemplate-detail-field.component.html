@@ -10,7 +10,7 @@
                     {{detail['subject']}}
 </div>
 		<div *ngIf="detail && showFields.includes('content')">                 
-                    <div mra-richtext-show="emailtemplateDetailContent" [content]="detail['content']"></div>
+                    <div libMddsRichtextShow="emailtemplateDetailContent" [content]="detail['content']"></div>
 </div>
 		<div *ngIf="detail && showFields.includes('tag')">                
                     {{detail['tag']}}

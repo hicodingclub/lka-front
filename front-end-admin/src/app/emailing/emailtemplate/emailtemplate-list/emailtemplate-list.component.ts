@@ -9,7 +9,7 @@ import { EmailtemplateService } from '../emailtemplate.service';
 
 
 import { QueryList, ViewChildren } from '@angular/core';
-import { MraRichTextShowDirective } from '@hicoder/angular-core';
+import { MddsRichTextShowDirective } from '@hicoder/angular-core';
   
 @Component({
   selector: 'app-emailtemplate-list',
@@ -26,7 +26,7 @@ export class EmailtemplateListComponent extends EmailtemplateComponent implement
   @Input()
   public categoryBy:string; //field name whose value is used as category
   
-  @ViewChildren(MraRichTextShowDirective) textEditors: QueryList<MraRichTextShowDirective>;
+  @ViewChildren(MddsRichTextShowDirective) textEditors: QueryList<MddsRichTextShowDirective>;
 
   constructor(
       

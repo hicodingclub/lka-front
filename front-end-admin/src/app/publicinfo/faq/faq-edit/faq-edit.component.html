@@ -50,7 +50,7 @@
           <label for="EditAnswer">Answer</label>
           
           
-          <div mra-richtext-select="EditAnswer" [content]="detail['answer']"></div>
+          <div libMddsRichtext="EditAnswer" [content]="detail['answer']"></div>
           <div class="action-buttons" style="margin-top: 10px;">
             <button type="button" class="btn btn-outline-success" (click)="onEdtiorPreview('EditAnswer')">Preview</button>
           </div>
@@ -82,7 +82,7 @@
                
                   [(ngModel)]="detail['order']" name="EditOrder"
                   #EditOrder="ngModel">
-          <div [hidden]="EditOrder.valid || EditOrder.pristine || EditOrder.errors.minnumber"
+          <div [hidden]="EditOrder.valid || EditOrder.pristine || EditOrder.errors.libMddsMinNumber"
            class="alert alert-danger">
 
             <div *ngIf="EditOrder.errors && EditOrder.errors.required">
@@ -182,7 +182,7 @@
           <label for="EditAnswer">Answer</label>
           
           
-          <div mra-richtext-select="EditAnswer" [content]="detail['answer']"></div>
+          <div libMddsRichtext="EditAnswer" [content]="detail['answer']"></div>
           <div class="action-buttons" style="margin-top: 10px;">
             <button type="button" class="btn btn-outline-success" (click)="onEdtiorPreview('EditAnswer')">Preview</button>
           </div>
@@ -214,7 +214,7 @@
                
                   [(ngModel)]="detail['order']" name="EditOrder"
                   #EditOrder="ngModel">
-          <div [hidden]="EditOrder.valid || EditOrder.pristine || EditOrder.errors.minnumber"
+          <div [hidden]="EditOrder.valid || EditOrder.pristine || EditOrder.errors.libMddsMinNumber"
            class="alert alert-danger">
 
             <div *ngIf="EditOrder.errors && EditOrder.errors.required">

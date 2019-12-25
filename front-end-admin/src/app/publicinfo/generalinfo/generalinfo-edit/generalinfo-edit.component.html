@@ -55,7 +55,7 @@
             <textarea rows="8" class="form-control rounded" id="EditDescription"
                     required
                     
-                    
+                    maxlength="1000"
                  
                     [(ngModel)]="detail['description']" name="EditDescription"
                     #EditDescription="ngModel"></textarea>
@@ -73,6 +73,9 @@
               </div>
  
 
+            <div *ngIf="EditDescription.errors && EditDescription.errors.maxlength">
+                Description must be at most 1000 characters long.
+              </div>
           </div>
         
         </fieldset>
@@ -94,7 +97,7 @@
                   [(ngModel)]="detail['signaturePicture']" name="EditSignaturePicture"
                   #EditSignaturePicture="ngModel">
               <div style="display: inline-block; width: 80%;" >
-                  <file-select [(downloadUrl)]="detail['signaturePicture']" [aspectRatio]="1.3333333333333333"></file-select>
+                  <lib-mdds-file-select [(downloadUrl)]="detail['signaturePicture']" [aspectRatio]="1.3333333333333333"></lib-mdds-file-select>
               </div>
               <span *ngIf="detail['signaturePicture']" 
                 class="icon-clear" (click)="clearValueFromDetail('signaturePicture')">
@@ -120,7 +123,7 @@
             <input type="text" class="form-control rounded" id="EditTag" 
                     
                     
-                    
+                    maxlength="50"
                  
                     [(ngModel)]="detail['tag']" name="EditTag"
                     #EditTag="ngModel">
@@ -135,6 +138,9 @@
 
  
 
+            <div *ngIf="EditTag.errors && EditTag.errors.maxlength">
+                Tag must be at most 50 characters long.
+              </div>
           </div>
         
         </fieldset>
@@ -190,7 +196,7 @@
             <textarea rows="8" class="form-control rounded" id="EditDescription"
                     required
                     
-                    
+                    maxlength="1000"
                  
                     [(ngModel)]="detail['description']" name="EditDescription"
                     #EditDescription="ngModel"></textarea>
@@ -208,6 +214,9 @@
               </div>
  
 
+            <div *ngIf="EditDescription.errors && EditDescription.errors.maxlength">
+                Description must be at most 1000 characters long.
+              </div>
           </div>
         
         </fieldset>
@@ -229,7 +238,7 @@
                   [(ngModel)]="detail['signaturePicture']" name="EditSignaturePicture"
                   #EditSignaturePicture="ngModel">
               <div style="display: inline-block; width: 80%;" >
-                  <file-select [(downloadUrl)]="detail['signaturePicture']" [aspectRatio]="1.3333333333333333"></file-select>
+                  <lib-mdds-file-select [(downloadUrl)]="detail['signaturePicture']" [aspectRatio]="1.3333333333333333"></lib-mdds-file-select>
               </div>
               <span *ngIf="detail['signaturePicture']" 
                 class="icon-clear" (click)="clearValueFromDetail('signaturePicture')">
@@ -255,7 +264,7 @@
             <input type="text" class="form-control rounded" id="EditTag" 
                     
                     
-                    
+                    maxlength="50"
                  
                     [(ngModel)]="detail['tag']" name="EditTag"
                     #EditTag="ngModel">
@@ -270,6 +279,9 @@
 
  
 
+            <div *ngIf="EditTag.errors && EditTag.errors.maxlength">
+                Tag must be at most 50 characters long.
+              </div>
           </div>
         
         </fieldset>

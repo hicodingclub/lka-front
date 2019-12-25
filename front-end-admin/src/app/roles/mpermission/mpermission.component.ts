@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
-import { BaseComponent, ViewType } from '@hicoder/angular-core';
+import { MddsBaseComponent, ViewType } from '@hicoder/angular-core';
 import { Injector } from '@angular/core';
 import { MpermissionService } from './mpermission.service';
 
@@ -22,7 +22,7 @@ import { MmoduleDetailPopComponent } from '../mmodule/mmodule-detail/mmodule-det
 import { MmoduleListSelectComponent } from '../mmodule/mmodule-list/mmodule-list-select.component';
 
 
-export class MpermissionComponent extends BaseComponent {
+export class MpermissionComponent extends MddsBaseComponent {
 
     public selectComponents = {
 
@@ -37,7 +37,7 @@ export class MpermissionComponent extends BaseComponent {
           'pop-detail-type': MmoduleDetailPopComponent,
           'componentRef': null},
     }
-    @ViewChild(RolesRefSelectDirective) refSelectDirective: RolesRefSelectDirective;
+    @ViewChild(RolesRefSelectDirective, {static: true}) refSelectDirective: RolesRefSelectDirective;
 
 
 

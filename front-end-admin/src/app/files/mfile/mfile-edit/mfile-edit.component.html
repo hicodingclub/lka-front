@@ -20,7 +20,7 @@
             <input type="text" class="form-control rounded" id="EditName" 
                     
                     
-                    
+                    maxlength="128"
                  
                     [(ngModel)]="detail['name']" name="EditName"
                     #EditName="ngModel">
@@ -35,6 +35,9 @@
 
  
 
+            <div *ngIf="EditName.errors && EditName.errors.maxlength">
+                Name must be at most 128 characters long.
+              </div>
           </div>
         
         </fieldset>
@@ -144,7 +147,7 @@
             <input type="text" class="form-control rounded" id="EditName" 
                     
                     
-                    
+                    maxlength="128"
                  
                     [(ngModel)]="detail['name']" name="EditName"
                     #EditName="ngModel">
@@ -159,6 +162,9 @@
 
  
 
+            <div *ngIf="EditName.errors && EditName.errors.maxlength">
+                Name must be at most 128 characters long.
+              </div>
           </div>
         
         </fieldset>

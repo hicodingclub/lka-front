@@ -50,7 +50,7 @@
           <label for="EditContent">Content</label>
           
           
-          <div mra-richtext-select="EditContent" [content]="detail['content']"></div>
+          <div libMddsRichtext="EditContent" [content]="detail['content']"></div>
           <div class="action-buttons" style="margin-top: 10px;">
             <button type="button" class="btn btn-outline-success" (click)="onEdtiorPreview('EditContent')">Preview</button>
           </div>
@@ -80,7 +80,7 @@
             <input type="text" class="form-control rounded" id="EditAcknowledge" 
                     
                     
-                    
+                    maxlength="1000"
                  
                     [(ngModel)]="detail['acknowledge']" name="EditAcknowledge"
                     #EditAcknowledge="ngModel">
@@ -95,6 +95,9 @@
 
  
 
+            <div *ngIf="EditAcknowledge.errors && EditAcknowledge.errors.maxlength">
+                Acknowledge must be at most 1000 characters long.
+              </div>
           </div>
         
         </fieldset>
@@ -112,7 +115,7 @@
             <input type="text" class="form-control rounded" id="EditTag" 
                     
                     
-                    
+                    maxlength="50"
                  
                     [(ngModel)]="detail['tag']" name="EditTag"
                     #EditTag="ngModel">
@@ -127,6 +130,9 @@
 
  
 
+            <div *ngIf="EditTag.errors && EditTag.errors.maxlength">
+                Tag must be at most 50 characters long.
+              </div>
           </div>
         
         </fieldset>
@@ -177,7 +183,7 @@
           <label for="EditContent">Content</label>
           
           
-          <div mra-richtext-select="EditContent" [content]="detail['content']"></div>
+          <div libMddsRichtext="EditContent" [content]="detail['content']"></div>
           <div class="action-buttons" style="margin-top: 10px;">
             <button type="button" class="btn btn-outline-success" (click)="onEdtiorPreview('EditContent')">Preview</button>
           </div>
@@ -207,7 +213,7 @@
             <input type="text" class="form-control rounded" id="EditAcknowledge" 
                     
                     
-                    
+                    maxlength="1000"
                  
                     [(ngModel)]="detail['acknowledge']" name="EditAcknowledge"
                     #EditAcknowledge="ngModel">
@@ -222,6 +228,9 @@
 
  
 
+            <div *ngIf="EditAcknowledge.errors && EditAcknowledge.errors.maxlength">
+                Acknowledge must be at most 1000 characters long.
+              </div>
           </div>
         
         </fieldset>
@@ -239,7 +248,7 @@
             <input type="text" class="form-control rounded" id="EditTag" 
                     
                     
-                    
+                    maxlength="50"
                  
                     [(ngModel)]="detail['tag']" name="EditTag"
                     #EditTag="ngModel">
@@ -254,6 +263,9 @@
 
  
 
+            <div *ngIf="EditTag.errors && EditTag.errors.maxlength">
+                Tag must be at most 50 characters long.
+              </div>
           </div>
         
         </fieldset>

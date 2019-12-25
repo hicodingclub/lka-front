@@ -4,7 +4,7 @@
                     {{detail['name']}}
 </div>
 		<div *ngIf="detail && showFields.includes('content')">                 
-                    <div mra-richtext-show="termsDetailContent" [content]="detail['content']"></div>
+                    <div libMddsRichtextShow="termsDetailContent" [content]="detail['content']"></div>
 </div>
 		<div *ngIf="detail && showFields.includes('acknowledge')">                
                     {{detail['acknowledge']}}

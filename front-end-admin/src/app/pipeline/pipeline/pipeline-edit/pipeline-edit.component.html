@@ -20,7 +20,7 @@
             <input type="text" class="form-control rounded" id="EditCategory" 
                     required
                     
-                    
+                    maxlength="100"
                  
                     [(ngModel)]="detail['category']" name="EditCategory"
                     #EditCategory="ngModel">
@@ -38,6 +38,9 @@
               </div>
  
 
+            <div *ngIf="EditCategory.errors && EditCategory.errors.maxlength">
+                Category must be at most 100 characters long.
+              </div>
           </div>
         
         </fieldset>
@@ -58,7 +61,7 @@
             <input type="text" class="form-control rounded" id="EditCategory" 
                     required
                     
-                    
+                    maxlength="100"
                  
                     [(ngModel)]="detail['category']" name="EditCategory"
                     #EditCategory="ngModel">
@@ -76,6 +79,9 @@
               </div>
  
 
+            <div *ngIf="EditCategory.errors && EditCategory.errors.maxlength">
+                Category must be at most 100 characters long.
+              </div>
           </div>
         
         </fieldset>

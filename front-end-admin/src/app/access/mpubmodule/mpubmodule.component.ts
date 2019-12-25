@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
-import { BaseComponent, ViewType } from '@hicoder/angular-core';
+import { MddsBaseComponent, ViewType } from '@hicoder/angular-core';
 import { Injector } from '@angular/core';
 import { MpubmoduleService } from './mpubmodule.service';
 
@@ -13,10 +13,10 @@ import { ViewChild } from '@angular/core';
 import { ElementRef } from '@angular/core';
 
 
-export class MpubmoduleComponent extends BaseComponent {
+export class MpubmoduleComponent extends MddsBaseComponent {
 
 
-    @ViewChild('AccessModal') public focusEl: ElementRef;
+    @ViewChild('AccessModal', {static: true}) public focusEl: ElementRef;
 
     constructor(
       

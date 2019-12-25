@@ -20,7 +20,7 @@
             <input type="text" class="form-control rounded" id="EditTitle" 
                     required
                     
-                    
+                    maxlength="100"
                  
                     [(ngModel)]="detail['title']" name="EditTitle"
                     #EditTitle="ngModel">
@@ -38,6 +38,9 @@
               </div>
  
 
+            <div *ngIf="EditTitle.errors && EditTitle.errors.maxlength">
+                Title must be at most 100 characters long.
+              </div>
           </div>
         
         </fieldset>
@@ -55,7 +58,7 @@
             <input type="text" class="form-control rounded" id="EditAuthor" 
                     required
                     
-                    
+                    maxlength="50"
                  
                     [(ngModel)]="detail['author']" name="EditAuthor"
                     #EditAuthor="ngModel">
@@ -73,6 +76,9 @@
               </div>
  
 
+            <div *ngIf="EditAuthor.errors && EditAuthor.errors.maxlength">
+                Author must be at most 50 characters long.
+              </div>
           </div>
         
         </fieldset>
@@ -85,7 +91,7 @@
           <label for="EditContent">Content</label>
           
           
-          <div mra-richtext-select="EditContent" [content]="detail['content']"></div>
+          <div libMddsRichtext="EditContent" [content]="detail['content']"></div>
           <div class="action-buttons" style="margin-top: 10px;">
             <button type="button" class="btn btn-outline-success" (click)="onEdtiorPreview('EditContent')">Preview</button>
           </div>
@@ -121,7 +127,7 @@
                   [(ngModel)]="detail['signaturePicture']" name="EditSignaturePicture"
                   #EditSignaturePicture="ngModel">
               <div style="display: inline-block; width: 80%;" >
-                  <file-select [(downloadUrl)]="detail['signaturePicture']" [aspectRatio]=""></file-select>
+                  <lib-mdds-file-select [(downloadUrl)]="detail['signaturePicture']" [aspectRatio]=""></lib-mdds-file-select>
               </div>
               <span *ngIf="detail['signaturePicture']" 
                 class="icon-clear" (click)="clearValueFromDetail('signaturePicture')">
@@ -153,7 +159,7 @@
             <input type="text" class="form-control rounded" id="EditTitle" 
                     required
                     
-                    
+                    maxlength="100"
                  
                     [(ngModel)]="detail['title']" name="EditTitle"
                     #EditTitle="ngModel">
@@ -171,6 +177,9 @@
               </div>
  
 
+            <div *ngIf="EditTitle.errors && EditTitle.errors.maxlength">
+                Title must be at most 100 characters long.
+              </div>
           </div>
         
         </fieldset>
@@ -188,7 +197,7 @@
             <input type="text" class="form-control rounded" id="EditAuthor" 
                     required
                     
-                    
+                    maxlength="50"
                  
                     [(ngModel)]="detail['author']" name="EditAuthor"
                     #EditAuthor="ngModel">
@@ -206,6 +215,9 @@
               </div>
  
 
+            <div *ngIf="EditAuthor.errors && EditAuthor.errors.maxlength">
+                Author must be at most 50 characters long.
+              </div>
           </div>
         
         </fieldset>
@@ -218,7 +230,7 @@
           <label for="EditContent">Content</label>
           
           
-          <div mra-richtext-select="EditContent" [content]="detail['content']"></div>
+          <div libMddsRichtext="EditContent" [content]="detail['content']"></div>
           <div class="action-buttons" style="margin-top: 10px;">
             <button type="button" class="btn btn-outline-success" (click)="onEdtiorPreview('EditContent')">Preview</button>
           </div>
@@ -254,7 +266,7 @@
                   [(ngModel)]="detail['signaturePicture']" name="EditSignaturePicture"
                   #EditSignaturePicture="ngModel">
               <div style="display: inline-block; width: 80%;" >
-                  <file-select [(downloadUrl)]="detail['signaturePicture']" [aspectRatio]=""></file-select>
+                  <lib-mdds-file-select [(downloadUrl)]="detail['signaturePicture']" [aspectRatio]=""></lib-mdds-file-select>
               </div>
               <span *ngIf="detail['signaturePicture']" 
                 class="icon-clear" (click)="clearValueFromDetail('signaturePicture')">

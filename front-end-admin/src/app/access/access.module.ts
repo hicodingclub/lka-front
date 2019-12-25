@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
 
 
 
-import { MraModule } from '@hicoder/angular-core';
+import { MddsCoreModule } from '@hicoder/angular-core';
 
 import { AccessRoutingModule } from './access-routing.module';
 import { AccessComponent } from './access.component';
@@ -66,7 +66,7 @@ import { MpubaccessDetailSubComponent } from './mpubaccess/mpubaccess-detail/mpu
     CommonModule,
     HttpClientModule,
     FormsModule,
-    MraModule,
+    MddsCoreModule,
 
     AccessRoutingModule
   ],

@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
-import { BaseComponent, ViewType } from '@hicoder/angular-core';
+import { MddsBaseComponent, ViewType } from '@hicoder/angular-core';
 import { Injector } from '@angular/core';
 import { MmoduleService } from './mmodule.service';
 
@@ -13,10 +13,10 @@ import { ViewChild } from '@angular/core';
 import { ElementRef } from '@angular/core';
 
 
-export class MmoduleComponent extends BaseComponent {
+export class MmoduleComponent extends MddsBaseComponent {
 
 
-    @ViewChild('RolesModal') public focusEl: ElementRef;
+    @ViewChild('RolesModal', {static: true}) public focusEl: ElementRef;
 
     constructor(
       

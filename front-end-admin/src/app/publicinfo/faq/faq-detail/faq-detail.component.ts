@@ -9,7 +9,7 @@ import { FaqService } from '../faq.service';
 
 
 import { QueryList, ViewChildren } from '@angular/core';
-import { MraRichTextShowDirective } from '@hicoder/angular-core';
+import { MddsRichTextShowDirective } from '@hicoder/angular-core';
 
 @Component({
   selector: 'app-faq-detail',
@@ -29,7 +29,7 @@ export class FaqDetailComponent extends FaqComponent implements OnInit, AfterVie
   public options: any; // {} uiOptions
 
 
-  @ViewChildren(MraRichTextShowDirective) textEditors: QueryList<MraRichTextShowDirective>;
+  @ViewChildren(MddsRichTextShowDirective) textEditors: QueryList<MddsRichTextShowDirective>;
 
   constructor(
       

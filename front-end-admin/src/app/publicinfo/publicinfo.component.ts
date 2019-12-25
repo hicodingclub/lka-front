@@ -10,6 +10,5 @@ export class PublicinfoComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 }

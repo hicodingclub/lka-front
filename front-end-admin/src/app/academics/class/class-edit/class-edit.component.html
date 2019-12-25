@@ -82,7 +82,7 @@
           <label for="EditDescription">Description</label>
           
           
-          <div mra-richtext-select="EditDescription" [content]="detail['description']"></div>
+          <div libMddsRichtext="EditDescription" [content]="detail['description']"></div>
           <div class="action-buttons" style="margin-top: 10px;">
             <button type="button" class="btn btn-outline-success" (click)="onEdtiorPreview('EditDescription')">Preview</button>
           </div>
@@ -179,7 +179,7 @@
             <input type="text" class="form-control rounded" id="EditSeason" 
                     
                     
-                    
+                    maxlength="50"
                  
                     [(ngModel)]="detail['season']" name="EditSeason"
                     #EditSeason="ngModel">
@@ -194,6 +194,9 @@
 
  
 
+            <div *ngIf="EditSeason.errors && EditSeason.errors.maxlength">
+                Season must be at most 50 characters long.
+              </div>
           </div>
         
         </fieldset>
@@ -572,7 +575,7 @@
           <label for="EditDescription">Description</label>
           
           
-          <div mra-richtext-select="EditDescription" [content]="detail['description']"></div>
+          <div libMddsRichtext="EditDescription" [content]="detail['description']"></div>
           <div class="action-buttons" style="margin-top: 10px;">
             <button type="button" class="btn btn-outline-success" (click)="onEdtiorPreview('EditDescription')">Preview</button>
           </div>
@@ -669,7 +672,7 @@
             <input type="text" class="form-control rounded" id="EditSeason" 
                     
                     
-                    
+                    maxlength="50"
                  
                     [(ngModel)]="detail['season']" name="EditSeason"
                     #EditSeason="ngModel">
@@ -684,6 +687,9 @@
 
  
 
+            <div *ngIf="EditSeason.errors && EditSeason.errors.maxlength">
+                Season must be at most 50 characters long.
+              </div>
           </div>
         
         </fieldset>

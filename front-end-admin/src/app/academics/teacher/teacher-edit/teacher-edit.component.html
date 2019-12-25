@@ -230,7 +230,7 @@
                   [(ngModel)]="detail['photo']" name="EditPhoto"
                   #EditPhoto="ngModel">
               <div style="display: inline-block; width: 80%;" >
-                  <file-select [(downloadUrl)]="detail['photo']" [aspectRatio]=""></file-select>
+                  <lib-mdds-file-select [(downloadUrl)]="detail['photo']" [aspectRatio]=""></lib-mdds-file-select>
               </div>
               <span *ngIf="detail['photo']" 
                 class="icon-clear" (click)="clearValueFromDetail('photo')">
@@ -472,7 +472,7 @@
                   [(ngModel)]="detail['photo']" name="EditPhoto"
                   #EditPhoto="ngModel">
               <div style="display: inline-block; width: 80%;" >
-                  <file-select [(downloadUrl)]="detail['photo']" [aspectRatio]=""></file-select>
+                  <lib-mdds-file-select [(downloadUrl)]="detail['photo']" [aspectRatio]=""></lib-mdds-file-select>
               </div>
               <span *ngIf="detail['photo']" 
                 class="icon-clear" (click)="clearValueFromDetail('photo')">

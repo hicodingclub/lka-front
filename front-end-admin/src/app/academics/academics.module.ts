@@ -14,7 +14,7 @@ import { FileUploadModule } from '@hicoder/angular-file';
 
 import { ActionEmailModule } from '@hicoder/angular-action-email';
 
-import { MraModule } from '@hicoder/angular-core';
+import { MddsCoreModule } from '@hicoder/angular-core';
 
 import { AcademicsRoutingModule } from './academics-routing.module';
 import { AcademicsComponent } from './academics.component';
@@ -135,7 +135,7 @@ import { StudentDirectiveGuardianTwoEmail } from './student/student-edit/student
     HttpClientModule,
     FormsModule,
     NgbModule,
-    MraModule,
+    MddsCoreModule,
     FileUploadModule,
     ActionEmailModule,
 

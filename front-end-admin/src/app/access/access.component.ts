@@ -18,6 +18,5 @@ export class AccessComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 }

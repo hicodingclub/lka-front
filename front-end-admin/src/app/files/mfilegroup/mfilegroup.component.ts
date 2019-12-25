@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
-import { BaseComponent, ViewType } from '@hicoder/angular-core';
+import { MddsBaseComponent, ViewType } from '@hicoder/angular-core';
 import { Injector } from '@angular/core';
 import { MfilegroupService } from './mfilegroup.service';
 
@@ -13,10 +13,10 @@ import { ViewChild } from '@angular/core';
 import { ElementRef } from '@angular/core';
 
 
-export class MfilegroupComponent extends BaseComponent {
+export class MfilegroupComponent extends MddsBaseComponent {
 
 
-    @ViewChild('FilesModal') public focusEl: ElementRef;
+    @ViewChild('FilesModal', {static: true}) public focusEl: ElementRef;
 
     constructor(
       

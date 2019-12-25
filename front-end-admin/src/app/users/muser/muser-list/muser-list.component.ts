@@ -25,7 +25,6 @@ export class MuserListComponent extends MuserComponent implements OnInit {
   @Input()
   public categoryBy:string; //field name whose value is used as category
   
-
   constructor(
 
       public muserService: MuserService,

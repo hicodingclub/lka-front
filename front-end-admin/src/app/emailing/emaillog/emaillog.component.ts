@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
-import { BaseComponent, ViewType } from '@hicoder/angular-core';
+import { MddsBaseComponent, ViewType } from '@hicoder/angular-core';
 import { Injector } from '@angular/core';
 import { EmaillogService } from './emaillog.service';
 
@@ -11,7 +11,7 @@ export { ViewType };
 
 
 
-export class EmaillogComponent extends BaseComponent {
+export class EmaillogComponent extends MddsBaseComponent {
 
 
 

@@ -20,7 +20,6 @@
 		<div class="row">
 			<div class="col-9">
 
-
 			    <div class="input-group">
 	              <input type="search" class="form-control border border-secondary" id="emaillogTextSearch" 
 						#emaillogTextSearch [(ngModel)]="searchText"
@@ -36,7 +35,6 @@
 				  </div>
 				</div>
 			
-
 				<div class="text-center">
                     <span  class="pointer" (click)="toggleMoreSearch()">
                         <span class="refine-search-text">Refine Search &nbsp;</span>
@@ -97,10 +95,12 @@
       
  
 
-						  <div class="action-buttons" style="margin-top: 10px;">
-								<button type="button" class="btn btn-outline-success" (click)="onSearchClear()">Reset</button>
-								<button type="button" class="btn btn-success" (click)="searchList()">Search</button>
-						  </div>
+
+
+							<div class="action-buttons" style="margin-top: 10px;">
+									<button type="button" class="btn btn-outline-success" (click)="onSearchClear()">Reset</button>
+									<button type="button" class="btn btn-success" (click)="searchList()">Search</button>
+							</div>
 						</div>
 					</div>
 		        </div>
@@ -111,15 +111,15 @@
 					</span>
 				</div>
 		    
-			
 
-		    </div>
+			</div>
 		</div>
 		<div class="row">
 			<div class="col">
 		        <div class="action-buttons">
 					
 
+					
 					
 					
 				</div>
@@ -177,14 +177,14 @@
 
 			<div>
 				<div class="total_counts">
-					<span *ngIf="list.length > 2">Total: <b>{{total_count}}</b></span>
+					<span *ngIf="list.length > 2">Total: <b>{{totalCount}}</b></span>
 					<a class="ml-3" routerLink="." (click)="onRefresh()"><i class="fa fa-sync-alt"></i></a>
 				</div>
 			</div>
 		</div>
 
 		<div class="d-flex justify-content-center mt-2">
-				<div *ngIf="total_pages > 1">
+				<div *ngIf="totalPages > 1">
 					<ul class="pagination justify-content-center">
 						<li class="page-item"
 								[ngClass]="{'disabled': page<=1}">
@@ -195,16 +195,16 @@
 						</a>
 						</li>
 
-						<li *ngIf="left_more" class="page-item"><a class="page-link">...</a></li>
+						<li *ngIf="leftMore" class="page-item"><a class="page-link">...</a></li>
 
 						<li *ngFor="let p of pages;  let i = index" class="page-item"
 								[ngClass]="{'active': p==page}">
 							<a class="page-link" routerLink="." (click)="onGotoPage(p)">{{p}}</a>
 						</li>
 
-						<li *ngIf="right_more" class="page-item"><a class="page-link">...</a></li>
+						<li *ngIf="rightMore" class="page-item"><a class="page-link">...</a></li>
 						<li class="page-item"
-								[ngClass]="{'disabled': page>=total_pages}">
+								[ngClass]="{'disabled': page>=totalPages}">
 						<a class="page-link" routerLink="." (click)="onNextPage()"
 							aria-label="Next">
 							<span aria-hidden="true">&raquo;</span>
@@ -387,7 +387,7 @@
 	    <tbody>
 	        <tr *ngFor="let detail of list;  let i = index; let list_index = index;" [ngClass]="{'clicked-row': clickedId==detail['_id']}">
 	            <td scope="row" (click)="onDetailLinkClicked(detail['_id'])"  class="pointer read-more">
-	            	{{(page-1)*per_page+i+1}}
+	            	{{(page-1)*perPage+i+1}}
 	            </td>
 
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
@@ -436,13 +436,13 @@
 
 			<div>
 				<div class="total_counts">
-					<span *ngIf="list.length > 2">Total: <b>{{total_count}}</b></span>
+					<span *ngIf="list.length > 2">Total: <b>{{totalCount}}</b></span>
 				</div>
 			</div>
 		</div>
 
 		<div class="d-flex justify-content-center mt-2">
-				<div *ngIf="total_pages > 1">
+				<div *ngIf="totalPages > 1">
 					<ul class="pagination justify-content-center">
 						<li class="page-item"
 								[ngClass]="{'disabled': page<=1}">
@@ -453,16 +453,16 @@
 						</a>
 						</li>
 
-						<li *ngIf="left_more" class="page-item"><a class="page-link">...</a></li>
+						<li *ngIf="leftMore" class="page-item"><a class="page-link">...</a></li>
 
 						<li *ngFor="let p of pages;  let i = index" class="page-item"
 								[ngClass]="{'active': p==page}">
 							<a class="page-link" routerLink="." (click)="onGotoPage(p)">{{p}}</a>
 						</li>
 
-						<li *ngIf="right_more" class="page-item"><a class="page-link">...</a></li>
+						<li *ngIf="rightMore" class="page-item"><a class="page-link">...</a></li>
 						<li class="page-item"
-								[ngClass]="{'disabled': page>=total_pages}">
+								[ngClass]="{'disabled': page>=totalPages}">
 						<a class="page-link" routerLink="." (click)="onNextPage()"
 							aria-label="Next">
 							<span aria-hidden="true">&raquo;</span>

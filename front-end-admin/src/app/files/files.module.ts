@@ -12,7 +12,7 @@ import { MraNgbDateFormatterService } from './files.directive';
 import { FileUploadModule } from '@hicoder/angular-file';
 
 
-import { MraModule } from '@hicoder/angular-core';
+import { MddsCoreModule } from '@hicoder/angular-core';
 
 import { FilesRoutingModule } from './files-routing.module';
 import { FilesComponent } from './files.component';
@@ -58,7 +58,7 @@ import { MfileListSubComponent } from './mfile/mfile-list/mfile-list-sub.compone
     HttpClientModule,
     FormsModule,
     NgbModule,
-    MraModule,
+    MddsCoreModule,
     FileUploadModule,
 
     FilesRoutingModule

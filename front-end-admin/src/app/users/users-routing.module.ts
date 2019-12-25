@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { RouteReuseStrategy } from '@angular/router';
 
-import { MraRouteReuseStrategy } from '@hicoder/angular-core';
+import { MddsRouteReuseStrategy } from '@hicoder/angular-core';
 
 import { UsersComponent } from './users.component';
 import { UsersRoutes } from '../users.conf';
@@ -11,7 +11,7 @@ import { UsersRoutes } from '../users.conf';
   imports: [RouterModule.forChild(UsersRoutes)],
   exports: [RouterModule],
   providers: [// only use these providers in component scope
-    { provide: RouteReuseStrategy, useClass: MraRouteReuseStrategy },
+    { provide: RouteReuseStrategy, useClass: MddsRouteReuseStrategy },
   ],
 
 })

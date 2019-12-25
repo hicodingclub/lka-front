@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
-import { BaseComponent, ViewType } from '@hicoder/angular-core';
+import { MddsBaseComponent, ViewType } from '@hicoder/angular-core';
 import { Injector } from '@angular/core';
 import { MaccountroleService } from './maccountrole.service';
 
@@ -22,7 +22,7 @@ import { MroleDetailPopComponent } from '../mrole/mrole-detail/mrole-detail-pop.
 import { MroleListSelectComponent } from '../mrole/mrole-list/mrole-list-select.component';
 
 
-export class MaccountroleComponent extends BaseComponent {
+export class MaccountroleComponent extends MddsBaseComponent {
 
     public selectComponents = {
 
@@ -37,7 +37,7 @@ export class MaccountroleComponent extends BaseComponent {
           'pop-detail-type': MroleDetailPopComponent,
           'componentRef': null},
     }
-    @ViewChild(RolesRefSelectDirective) refSelectDirective: RolesRefSelectDirective;
+    @ViewChild(RolesRefSelectDirective, {static: true}) refSelectDirective: RolesRefSelectDirective;
 
 
 

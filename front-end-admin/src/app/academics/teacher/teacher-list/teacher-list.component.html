@@ -20,7 +20,6 @@
 		<div class="row">
 			<div class="col-9">
 
-
 			    <div class="input-group">
 	              <input type="search" class="form-control border border-secondary" id="teacherTextSearch" 
 						#teacherTextSearch [(ngModel)]="searchText"
@@ -36,7 +35,6 @@
 				  </div>
 				</div>
 			
-
 				<div class="text-center">
                     <span  class="pointer" (click)="toggleMoreSearch()">
                         <span class="refine-search-text">Refine Search &nbsp;</span>
@@ -76,10 +74,12 @@
       
  
 
-						  <div class="action-buttons" style="margin-top: 10px;">
-								<button type="button" class="btn btn-outline-success" (click)="onSearchClear()">Reset</button>
-								<button type="button" class="btn btn-success" (click)="searchList()">Search</button>
-						  </div>
+
+
+							<div class="action-buttons" style="margin-top: 10px;">
+									<button type="button" class="btn btn-outline-success" (click)="onSearchClear()">Reset</button>
+									<button type="button" class="btn btn-success" (click)="searchList()">Search</button>
+							</div>
 						</div>
 					</div>
 		        </div>
@@ -90,18 +90,18 @@
 					</span>
 				</div>
 		    
-			
 
-		    </div>
+			</div>
 		</div>
 		<div class="row">
 			<div class="col">
 		        <div class="action-buttons">
-					<mdds-action-email *ngIf="emailFields.length > 0" [emailFields]="emailFields" (componentEvents)="onActionBaseEvent($event)"></mdds-action-email>
+					<lib-mdds-action-email *ngIf="emailFields.length > 0" [emailFields]="emailFields" (componentEvents)="onActionBaseEvent($event)"></lib-mdds-action-email>
 
 					<a [routerLink]="['../new' ]" [skipLocationChange]="false" class="btn btn-outline-primary">Create</a>
-					<a *ngIf="list.length > 1" routerLink="." class="btn btn-outline-primary" (click)="onDeleteSelected()"
+					<a routerLink="." class="btn btn-outline-primary" (click)="onDeleteSelected()"
 						[ngClass]="{'disabled': !isItemSelected()}">Delete</a>
+					
 				</div>
 			</div>
 		</div>
@@ -153,7 +153,7 @@
 
 			<div>
 				<div class="total_counts">
-					<span *ngIf="list.length > 2">Total: <b>{{total_count}}</b></span>
+					<span *ngIf="list.length > 2">Total: <b>{{totalCount}}</b></span>
 					<span *ngIf="list.length > 1"><input type="checkbox" class="ml-3 mr-1" [(ngModel)]="checkAll" (change)="onCheckAllChange()">All</span>
 					<a class="ml-3" routerLink="." (click)="onRefresh()"><i class="fa fa-sync-alt"></i></a>
 				</div>
@@ -161,7 +161,7 @@
 		</div>
 
 		<div class="d-flex justify-content-center mt-2">
-				<div *ngIf="total_pages > 1">
+				<div *ngIf="totalPages > 1">
 					<ul class="pagination justify-content-center">
 						<li class="page-item"
 								[ngClass]="{'disabled': page<=1}">
@@ -172,16 +172,16 @@
 						</a>
 						</li>
 
-						<li *ngIf="left_more" class="page-item"><a class="page-link">...</a></li>
+						<li *ngIf="leftMore" class="page-item"><a class="page-link">...</a></li>
 
 						<li *ngFor="let p of pages;  let i = index" class="page-item"
 								[ngClass]="{'active': p==page}">
 							<a class="page-link" routerLink="." (click)="onGotoPage(p)">{{p}}</a>
 						</li>
 
-						<li *ngIf="right_more" class="page-item"><a class="page-link">...</a></li>
+						<li *ngIf="rightMore" class="page-item"><a class="page-link">...</a></li>
 						<li class="page-item"
-								[ngClass]="{'disabled': page>=total_pages}">
+								[ngClass]="{'disabled': page>=totalPages}">
 						<a class="page-link" routerLink="." (click)="onNextPage()"
 							aria-label="Next">
 							<span aria-hidden="true">&raquo;</span>
@@ -207,7 +207,7 @@
 
       <div class="card-header grid-head">
         <div class="grid-head-picture">                
-                    <file-display [downloadUrl]="detail['photo']" [isLarge]="false" [aspectRatio]=""></file-display>
+                    <lib-mdds-file-display [downloadUrl]="detail['photo']" [isLarge]="false" [aspectRatio]=""></lib-mdds-file-display>
 
         </div>
         <div>
@@ -249,7 +249,8 @@
 						<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
 					
 					<a routerLink="." (click)="onDelete(detail['_id'], i)"><i class="fas fa-trash-alt" title="Delete"></i></a>
-					<input class="list-check-box" *ngIf="list.length > 1" type="checkbox" [(ngModel)]="checkedItem[i]"/>
+					
+					<input class="list-check-box" type="checkbox" [(ngModel)]="checkedItem[i]"/>
 				</div>
 			</div>
 		</div>
@@ -264,7 +265,7 @@
 				<div class="list-fields pointer" (click)="onDetailLinkClicked(detail['_id'])" >
 
       <div class="list-head-picture">                
-                    <file-display [downloadUrl]="detail['photo']" [isLarge]="false" [aspectRatio]=""></file-display>
+                    <lib-mdds-file-display [downloadUrl]="detail['photo']" [isLarge]="false" [aspectRatio]=""></lib-mdds-file-display>
 
       </div>
     
@@ -305,8 +306,9 @@
 					
 						<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
 					
-					<a routerLink="." (click)="onDelete(detail['_id'], i)"><i class="fas fa-trash-alt" title="Delete"></i></a>
-					<input class="list-check-box" *ngIf="list.length > 1" type="checkbox" [(ngModel)]="checkedItem[i]"/>
+					<a [routerLink]="['.']" (click)="onDelete(detail['_id'], i)"><i class="fas fa-trash-alt" title="Delete"></i></a>
+					
+					<input class="list-check-box" type="checkbox" [(ngModel)]="checkedItem[i]"/>
 				</div>
 			</div>
 			<hr class="list-diverder">
@@ -354,7 +356,7 @@
 	    <tbody>
 	        <tr *ngFor="let detail of list;  let i = index; let list_index = index;" [ngClass]="{'clicked-row': clickedId==detail['_id']}">
 	            <td scope="row" (click)="onDetailLinkClicked(detail['_id'])"  class="pointer read-more">
-	            	{{(page-1)*per_page+i+1}}
+	            	{{(page-1)*perPage+i+1}}
 	            </td>
 
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
@@ -382,7 +384,7 @@
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
 	            	                
-                    <file-display [downloadUrl]="detail['photo']" [isLarge]="false" [aspectRatio]=""></file-display>
+                    <lib-mdds-file-display [downloadUrl]="detail['photo']" [isLarge]="false" [aspectRatio]=""></lib-mdds-file-display>
 
 	            </td>
 	            <td>
@@ -390,7 +392,8 @@
 						<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
 					
 	            	<a routerLink="." (click)="onDelete(detail['_id'], i)"><i class="fas fa-trash-alt" title="Delete"></i></a>
-					<input class="list-check-box"  *ngIf="list.length > 1" type="checkbox" [(ngModel)]="checkedItem[i]"/>
+	            	
+					<input class="list-check-box" type="checkbox" [(ngModel)]="checkedItem[i]"/>
 					
 	            </td>
 	        </tr>
@@ -410,13 +413,13 @@
 
 			<div>
 				<div class="total_counts">
-					<span *ngIf="list.length > 2">Total: <b>{{total_count}}</b></span>
+					<span *ngIf="list.length > 2">Total: <b>{{totalCount}}</b></span>
 				</div>
 			</div>
 		</div>
 
 		<div class="d-flex justify-content-center mt-2">
-				<div *ngIf="total_pages > 1">
+				<div *ngIf="totalPages > 1">
 					<ul class="pagination justify-content-center">
 						<li class="page-item"
 								[ngClass]="{'disabled': page<=1}">
@@ -427,16 +430,16 @@
 						</a>
 						</li>
 
-						<li *ngIf="left_more" class="page-item"><a class="page-link">...</a></li>
+						<li *ngIf="leftMore" class="page-item"><a class="page-link">...</a></li>
 
 						<li *ngFor="let p of pages;  let i = index" class="page-item"
 								[ngClass]="{'active': p==page}">
 							<a class="page-link" routerLink="." (click)="onGotoPage(p)">{{p}}</a>
 						</li>
 
-						<li *ngIf="right_more" class="page-item"><a class="page-link">...</a></li>
+						<li *ngIf="rightMore" class="page-item"><a class="page-link">...</a></li>
 						<li class="page-item"
-								[ngClass]="{'disabled': page>=total_pages}">
+								[ngClass]="{'disabled': page>=totalPages}">
 						<a class="page-link" routerLink="." (click)="onNextPage()"
 							aria-label="Next">
 							<span aria-hidden="true">&raquo;</span>

@@ -12,7 +12,7 @@ import { MraNgbDateFormatterService } from './roles.directive';
 
 import { ActionEmailModule } from '@hicoder/angular-action-email';
 
-import { MraModule } from '@hicoder/angular-core';
+import { MddsCoreModule } from '@hicoder/angular-core';
 
 import { RolesRoutingModule } from './roles-routing.module';
 import { RolesComponent } from './roles.component';
@@ -94,7 +94,7 @@ import { MaccountroleDetailSubComponent } from './maccountrole/maccountrole-deta
     HttpClientModule,
     FormsModule,
     NgbModule,
-    MraModule,
+    MddsCoreModule,
     ActionEmailModule,
 
     RolesRoutingModule

@@ -11,7 +11,7 @@ import { MraNgbDateFormatterService } from './emailing.directive';
 
 
 
-import { MraModule } from '@hicoder/angular-core';
+import { MddsCoreModule } from '@hicoder/angular-core';
 
 import { EmailingRoutingModule } from './emailing-routing.module';
 import { EmailingComponent } from './emailing.component';
@@ -59,7 +59,7 @@ import { EmaillogService } from './emaillog/emaillog.service';
     HttpClientModule,
     FormsModule,
     NgbModule,
-    MraModule,
+    MddsCoreModule,
 
     EmailingRoutingModule
   ],

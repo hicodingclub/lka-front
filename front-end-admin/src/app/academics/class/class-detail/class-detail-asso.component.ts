@@ -10,7 +10,7 @@ import { ClassService } from '../class.service';
 import { ComponentFactoryResolver } from '@angular/core';
 
 import { QueryList, ViewChildren } from '@angular/core';
-import { MraRichTextShowDirective } from '@hicoder/angular-core';
+import { MddsRichTextShowDirective } from '@hicoder/angular-core';
 
 @Component({
   selector: 'app-class-detail-asso',
@@ -25,7 +25,7 @@ export class ClassAssoComponent extends ClassComponent implements OnInit {
   public associationField: string;
 
 
-  @ViewChildren(MraRichTextShowDirective) textEditors: QueryList<MraRichTextShowDirective>;
+  @ViewChildren(MddsRichTextShowDirective) textEditors: QueryList<MddsRichTextShowDirective>;
 
   constructor(
       public componentFactoryResolver: ComponentFactoryResolver,

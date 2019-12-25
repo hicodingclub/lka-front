@@ -12,7 +12,7 @@ import { MraNgbDateFormatterService } from './users.directive';
 
 import { ActionEmailModule } from '@hicoder/angular-action-email';
 
-import { MraModule } from '@hicoder/angular-core';
+import { MddsCoreModule } from '@hicoder/angular-core';
 
 import { UsersRoutingModule } from './users-routing.module';
 import { UsersComponent } from './users.component';
@@ -43,7 +43,7 @@ import { PassswordEqualValidator } from './muser/muser-edit/muser-pass.component
     HttpClientModule,
     FormsModule,
     NgbModule,
-    MraModule,
+    MddsCoreModule,
     ActionEmailModule,
 
     UsersRoutingModule

@@ -6,6 +6,10 @@
     <a [routerLink]="['../../edit', detail['_id'] ]" [skipLocationChange]="false" class="btn btn-outline-primary">Edit</a>
     <a [routerLink]="['../../new']" [queryParams]="{cid: detail['_id']}" [skipLocationChange]="false" class="btn btn-outline-primary">New</a>
     <a routerLink="." class="btn btn-outline-primary" (click)="onDelete(detail['_id'], null)">Delete</a>
+    <a routerLink="." class="btn btn-outline-primary" (click)="onArchive(detail['_id'], null, detail['archived'])">
+        <ng-template [ngIf]="!detail['archived']">Archive</ng-template>
+        <ng-template [ngIf]="detail['archived']">Unarchive</ng-template>
+    </a>
 </div>
 </div>
 	<div class="card text-left transparent-border ">
@@ -27,7 +31,7 @@
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
                 <div><label>Description:</label></div>
                 <div class="ml-3">                 
-                    <div mra-richtext-show="classDetailDescription" [content]="detail['description']"></div>
+                    <div libMddsRichtextShow="classDetailDescription" [content]="detail['description']"></div>
 </div>
             </div>
           </div>

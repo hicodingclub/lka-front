@@ -20,7 +20,7 @@
             <input type="text" class="form-control rounded" id="EditTitle" 
                     required
                     
-                    
+                    maxlength="100"
                  
                     [(ngModel)]="detail['title']" name="EditTitle"
                     #EditTitle="ngModel">
@@ -38,6 +38,9 @@
               </div>
  
 
+            <div *ngIf="EditTitle.errors && EditTitle.errors.maxlength">
+                Title must be at most 100 characters long.
+              </div>
           </div>
         
         </fieldset>
@@ -50,7 +53,7 @@
           <label for="EditDescription">Description</label>
           
           
-          <div mra-richtext-select="EditDescription" [content]="detail['description']"></div>
+          <div libMddsRichtext="EditDescription" [content]="detail['description']"></div>
           <div class="action-buttons" style="margin-top: 10px;">
             <button type="button" class="btn btn-outline-success" (click)="onEdtiorPreview('EditDescription')">Preview</button>
           </div>
@@ -83,7 +86,7 @@
             <input type="text" class="form-control rounded" id="EditTitle" 
                     required
                     
-                    
+                    maxlength="100"
                  
                     [(ngModel)]="detail['title']" name="EditTitle"
                     #EditTitle="ngModel">
@@ -101,6 +104,9 @@
               </div>
  
 
+            <div *ngIf="EditTitle.errors && EditTitle.errors.maxlength">
+                Title must be at most 100 characters long.
+              </div>
           </div>
         
         </fieldset>
@@ -113,7 +119,7 @@
           <label for="EditDescription">Description</label>
           
           
-          <div mra-richtext-select="EditDescription" [content]="detail['description']"></div>
+          <div libMddsRichtext="EditDescription" [content]="detail['description']"></div>
           <div class="action-buttons" style="margin-top: 10px;">
             <button type="button" class="btn btn-outline-success" (click)="onEdtiorPreview('EditDescription')">Preview</button>
           </div>

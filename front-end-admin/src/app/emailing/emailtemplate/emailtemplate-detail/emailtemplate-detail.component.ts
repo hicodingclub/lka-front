@@ -9,7 +9,7 @@ import { EmailtemplateService } from '../emailtemplate.service';
 
 
 import { QueryList, ViewChildren } from '@angular/core';
-import { MraRichTextShowDirective } from '@hicoder/angular-core';
+import { MddsRichTextShowDirective } from '@hicoder/angular-core';
 
 @Component({
   selector: 'app-emailtemplate-detail',
@@ -29,7 +29,7 @@ export class EmailtemplateDetailComponent extends EmailtemplateComponent impleme
   public options: any; // {} uiOptions
 
 
-  @ViewChildren(MraRichTextShowDirective) textEditors: QueryList<MraRichTextShowDirective>;
+  @ViewChildren(MddsRichTextShowDirective) textEditors: QueryList<MddsRichTextShowDirective>;
 
   constructor(
       

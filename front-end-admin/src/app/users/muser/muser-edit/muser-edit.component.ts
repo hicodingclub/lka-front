@@ -33,7 +33,7 @@ export class MuserEditComponent extends MuserComponent implements OnInit {
     public minDate = {year: (new Date()).getFullYear() - 100, month: 1, day: 1};
 
 
-        
+    public confirmPassword: string;        
     constructor(
       
       public muserService: MuserService,

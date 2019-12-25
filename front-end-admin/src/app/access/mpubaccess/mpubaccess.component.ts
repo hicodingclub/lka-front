@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
-import { BaseComponent, ViewType } from '@hicoder/angular-core';
+import { MddsBaseComponent, ViewType } from '@hicoder/angular-core';
 import { Injector } from '@angular/core';
 import { MpubaccessService } from './mpubaccess.service';
 
@@ -22,7 +22,7 @@ import { MpubmoduleDetailPopComponent } from '../mpubmodule/mpubmodule-detail/mp
 import { MpubmoduleListSelectComponent } from '../mpubmodule/mpubmodule-list/mpubmodule-list-select.component';
 
 
-export class MpubaccessComponent extends BaseComponent {
+export class MpubaccessComponent extends MddsBaseComponent {
 
     public selectComponents = {
 
@@ -37,7 +37,7 @@ export class MpubaccessComponent extends BaseComponent {
           'pop-detail-type': MpubmoduleDetailPopComponent,
           'componentRef': null},
     }
-    @ViewChild(AccessRefSelectDirective) refSelectDirective: AccessRefSelectDirective;
+    @ViewChild(AccessRefSelectDirective, {static: true}) refSelectDirective: AccessRefSelectDirective;
 
 
 

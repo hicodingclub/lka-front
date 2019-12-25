@@ -11,7 +11,7 @@ import { MraNgbDateFormatterService } from './pipeline.directive';
 
 
 
-import { MraModule } from '@hicoder/angular-core';
+import { MddsCoreModule } from '@hicoder/angular-core';
 
 import { PipelineRoutingModule } from './pipeline-routing.module';
 import { PipelineComponent } from './pipeline.component';
@@ -41,7 +41,7 @@ import { PipelineService } from './pipeline/pipeline.service';
     HttpClientModule,
     FormsModule,
     NgbModule,
-    MraModule,
+    MddsCoreModule,
 
     PipelineRoutingModule
   ],

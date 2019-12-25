@@ -20,7 +20,7 @@
             <input type="text" class="form-control rounded" id="EditFirst_name" 
                     required
                     
-                    
+                    maxlength="100"
                  
                     [(ngModel)]="detail['first_name']" name="EditFirst_name"
                     #EditFirst_name="ngModel">
@@ -38,6 +38,9 @@
               </div>
  
 
+            <div *ngIf="EditFirst_name.errors && EditFirst_name.errors.maxlength">
+                First_name must be at most 100 characters long.
+              </div>
           </div>
         
         </fieldset>
@@ -55,7 +58,7 @@
             <input type="text" class="form-control rounded" id="EditLast_name" 
                     required
                     
-                    
+                    maxlength="100"
                  
                     [(ngModel)]="detail['last_name']" name="EditLast_name"
                     #EditLast_name="ngModel">
@@ -73,6 +76,9 @@
               </div>
  
 
+            <div *ngIf="EditLast_name.errors && EditLast_name.errors.maxlength">
+                Last_name must be at most 100 characters long.
+              </div>
           </div>
         
         </fieldset>
@@ -124,7 +130,7 @@
                
                   [(ngModel)]="detail['grade']" name="EditGrade"
                   #EditGrade="ngModel">
-          <div [hidden]="EditGrade.valid || EditGrade.pristine || EditGrade.errors.minnumber"
+          <div [hidden]="EditGrade.valid || EditGrade.pristine || EditGrade.errors.libMddsMinNumber"
            class="alert alert-danger">
 
             <div *ngIf="EditGrade.errors && EditGrade.errors.required">
@@ -148,7 +154,7 @@
             <input type="text" class="form-control rounded" id="EditEmail" 
                     required
                     
-                    
+                    maxlength="100"
                 studentDirectiveEmail="" 
                     [(ngModel)]="detail['email']" name="EditEmail"
                     #EditEmail="ngModel">
@@ -169,6 +175,9 @@
                 {{EditEmail.errors.studentDirectiveEmail}}
               </div> 
 
+            <div *ngIf="EditEmail.errors && EditEmail.errors.maxlength">
+                Email must be at most 100 characters long.
+              </div>
           </div>
         
         </fieldset>
@@ -186,7 +195,7 @@
             <input type="text" class="form-control rounded" id="EditPhoneNumber" 
                     required
                     
-                    
+                    maxlength="20"
                 studentDirectivePhoneNumber="" 
                     [(ngModel)]="detail['phoneNumber']" name="EditPhoneNumber"
                     #EditPhoneNumber="ngModel">
@@ -207,6 +216,9 @@
                 {{EditPhoneNumber.errors.studentDirectivePhoneNumber}}
               </div> 
 
+            <div *ngIf="EditPhoneNumber.errors && EditPhoneNumber.errors.maxlength">
+                PhoneNumber must be at most 20 characters long.
+              </div>
           </div>
         
         </fieldset>
@@ -224,7 +236,7 @@
             <input type="text" class="form-control rounded" id="EditSchool" 
                     required
                     
-                    
+                    maxlength="100"
                  
                     [(ngModel)]="detail['school']" name="EditSchool"
                     #EditSchool="ngModel">
@@ -242,6 +254,9 @@
               </div>
  
 
+            <div *ngIf="EditSchool.errors && EditSchool.errors.maxlength">
+                School must be at most 100 characters long.
+              </div>
           </div>
         
         </fieldset>
@@ -259,7 +274,7 @@
             <input type="text" class="form-control rounded" id="EditGuardianOneName" 
                     
                     
-                    
+                    maxlength="100"
                  
                     [(ngModel)]="detail['GuardianOneName']" name="EditGuardianOneName"
                     #EditGuardianOneName="ngModel">
@@ -274,6 +289,9 @@
 
  
 
+            <div *ngIf="EditGuardianOneName.errors && EditGuardianOneName.errors.maxlength">
+                GuardianOneName must be at most 100 characters long.
+              </div>
           </div>
         
         </fieldset>
@@ -291,7 +309,7 @@
             <input type="text" class="form-control rounded" id="EditGuardianOnePhone" 
                     required
                     
-                    
+                    maxlength="20"
                 studentDirectiveGuardianOnePhone="" 
                     [(ngModel)]="detail['GuardianOnePhone']" name="EditGuardianOnePhone"
                     #EditGuardianOnePhone="ngModel">
@@ -312,6 +330,9 @@
                 {{EditGuardianOnePhone.errors.studentDirectiveGuardianOnePhone}}
               </div> 
 
+            <div *ngIf="EditGuardianOnePhone.errors && EditGuardianOnePhone.errors.maxlength">
+                GuardianOnePhone must be at most 20 characters long.
+              </div>
           </div>
         
         </fieldset>
@@ -329,7 +350,7 @@
             <input type="text" class="form-control rounded" id="EditGuardianOneEmail" 
                     
                     
-                    
+                    maxlength="100"
                 studentDirectiveGuardianOneEmail="" 
                     [(ngModel)]="detail['GuardianOneEmail']" name="EditGuardianOneEmail"
                     #EditGuardianOneEmail="ngModel">
@@ -347,6 +368,9 @@
                 {{EditGuardianOneEmail.errors.studentDirectiveGuardianOneEmail}}
               </div> 
 
+            <div *ngIf="EditGuardianOneEmail.errors && EditGuardianOneEmail.errors.maxlength">
+                GuardianOneEmail must be at most 100 characters long.
+              </div>
           </div>
         
         </fieldset>
@@ -364,7 +388,7 @@
             <input type="text" class="form-control rounded" id="EditGuardianTwoName" 
                     
                     
-                    
+                    maxlength="100"
                  
                     [(ngModel)]="detail['GuardianTwoName']" name="EditGuardianTwoName"
                     #EditGuardianTwoName="ngModel">
@@ -379,6 +403,9 @@
 
  
 
+            <div *ngIf="EditGuardianTwoName.errors && EditGuardianTwoName.errors.maxlength">
+                GuardianTwoName must be at most 100 characters long.
+              </div>
           </div>
         
         </fieldset>
@@ -396,7 +423,7 @@
             <input type="text" class="form-control rounded" id="EditGuardianTwoPhone" 
                     
                     
-                    
+                    maxlength="20"
                 studentDirectiveGuardianTwoPhone="" 
                     [(ngModel)]="detail['GuardianTwoPhone']" name="EditGuardianTwoPhone"
                     #EditGuardianTwoPhone="ngModel">
@@ -414,6 +441,9 @@
                 {{EditGuardianTwoPhone.errors.studentDirectiveGuardianTwoPhone}}
               </div> 
 
+            <div *ngIf="EditGuardianTwoPhone.errors && EditGuardianTwoPhone.errors.maxlength">
+                GuardianTwoPhone must be at most 20 characters long.
+              </div>
           </div>
         
         </fieldset>
@@ -431,7 +461,7 @@
             <input type="text" class="form-control rounded" id="EditGuardianTwoEmail" 
                     
                     
-                    
+                    maxlength="100"
                 studentDirectiveGuardianTwoEmail="" 
                     [(ngModel)]="detail['GuardianTwoEmail']" name="EditGuardianTwoEmail"
                     #EditGuardianTwoEmail="ngModel">
@@ -449,6 +479,9 @@
                 {{EditGuardianTwoEmail.errors.studentDirectiveGuardianTwoEmail}}
               </div> 
 
+            <div *ngIf="EditGuardianTwoEmail.errors && EditGuardianTwoEmail.errors.maxlength">
+                GuardianTwoEmail must be at most 100 characters long.
+              </div>
           </div>
         
         </fieldset>
@@ -533,7 +566,7 @@
             <input type="text" class="form-control rounded" id="EditFirst_name" 
                     required
                     
-                    
+                    maxlength="100"
                  
                     [(ngModel)]="detail['first_name']" name="EditFirst_name"
                     #EditFirst_name="ngModel">
@@ -551,6 +584,9 @@
               </div>
  
 
+            <div *ngIf="EditFirst_name.errors && EditFirst_name.errors.maxlength">
+                First_name must be at most 100 characters long.
+              </div>
           </div>
         
         </fieldset>
@@ -568,7 +604,7 @@
             <input type="text" class="form-control rounded" id="EditLast_name" 
                     required
                     
-                    
+                    maxlength="100"
                  
                     [(ngModel)]="detail['last_name']" name="EditLast_name"
                     #EditLast_name="ngModel">
@@ -586,6 +622,9 @@
               </div>
  
 
+            <div *ngIf="EditLast_name.errors && EditLast_name.errors.maxlength">
+                Last_name must be at most 100 characters long.
+              </div>
           </div>
         
         </fieldset>
@@ -637,7 +676,7 @@
                
                   [(ngModel)]="detail['grade']" name="EditGrade"
                   #EditGrade="ngModel">
-          <div [hidden]="EditGrade.valid || EditGrade.pristine || EditGrade.errors.minnumber"
+          <div [hidden]="EditGrade.valid || EditGrade.pristine || EditGrade.errors.libMddsMinNumber"
            class="alert alert-danger">
 
             <div *ngIf="EditGrade.errors && EditGrade.errors.required">
@@ -661,7 +700,7 @@
             <input type="text" class="form-control rounded" id="EditEmail" 
                     required
                     
-                    
+                    maxlength="100"
                 studentDirectiveEmail="" 
                     [(ngModel)]="detail['email']" name="EditEmail"
                     #EditEmail="ngModel">
@@ -682,6 +721,9 @@
                 {{EditEmail.errors.studentDirectiveEmail}}
               </div> 
 
+            <div *ngIf="EditEmail.errors && EditEmail.errors.maxlength">
+                Email must be at most 100 characters long.
+              </div>
           </div>
         
         </fieldset>
@@ -699,7 +741,7 @@
             <input type="text" class="form-control rounded" id="EditPhoneNumber" 
                     required
                     
-                    
+                    maxlength="20"
                 studentDirectivePhoneNumber="" 
                     [(ngModel)]="detail['phoneNumber']" name="EditPhoneNumber"
                     #EditPhoneNumber="ngModel">
@@ -720,6 +762,9 @@
                 {{EditPhoneNumber.errors.studentDirectivePhoneNumber}}
               </div> 
 
+            <div *ngIf="EditPhoneNumber.errors && EditPhoneNumber.errors.maxlength">
+                PhoneNumber must be at most 20 characters long.
+              </div>
           </div>
         
         </fieldset>
@@ -737,7 +782,7 @@
             <input type="text" class="form-control rounded" id="EditSchool" 
                     required
                     
-                    
+                    maxlength="100"
                  
                     [(ngModel)]="detail['school']" name="EditSchool"
                     #EditSchool="ngModel">
@@ -755,6 +800,9 @@
               </div>
  
 
+            <div *ngIf="EditSchool.errors && EditSchool.errors.maxlength">
+                School must be at most 100 characters long.
+              </div>
           </div>
         
         </fieldset>
@@ -772,7 +820,7 @@
             <input type="text" class="form-control rounded" id="EditGuardianOneName" 
                     
                     
-                    
+                    maxlength="100"
                  
                     [(ngModel)]="detail['GuardianOneName']" name="EditGuardianOneName"
                     #EditGuardianOneName="ngModel">
@@ -787,6 +835,9 @@
 
  
 
+            <div *ngIf="EditGuardianOneName.errors && EditGuardianOneName.errors.maxlength">
+                GuardianOneName must be at most 100 characters long.
+              </div>
           </div>
         
         </fieldset>
@@ -804,7 +855,7 @@
             <input type="text" class="form-control rounded" id="EditGuardianOnePhone" 
                     required
                     
-                    
+                    maxlength="20"
                 studentDirectiveGuardianOnePhone="" 
                     [(ngModel)]="detail['GuardianOnePhone']" name="EditGuardianOnePhone"
                     #EditGuardianOnePhone="ngModel">
@@ -825,6 +876,9 @@
                 {{EditGuardianOnePhone.errors.studentDirectiveGuardianOnePhone}}
               </div> 
 
+            <div *ngIf="EditGuardianOnePhone.errors && EditGuardianOnePhone.errors.maxlength">
+                GuardianOnePhone must be at most 20 characters long.
+              </div>
           </div>
         
         </fieldset>
@@ -842,7 +896,7 @@
             <input type="text" class="form-control rounded" id="EditGuardianOneEmail" 
                     
                     
-                    
+                    maxlength="100"
                 studentDirectiveGuardianOneEmail="" 
                     [(ngModel)]="detail['GuardianOneEmail']" name="EditGuardianOneEmail"
                     #EditGuardianOneEmail="ngModel">
@@ -860,6 +914,9 @@
                 {{EditGuardianOneEmail.errors.studentDirectiveGuardianOneEmail}}
               </div> 
 
+            <div *ngIf="EditGuardianOneEmail.errors && EditGuardianOneEmail.errors.maxlength">
+                GuardianOneEmail must be at most 100 characters long.
+              </div>
           </div>
         
         </fieldset>
@@ -877,7 +934,7 @@
             <input type="text" class="form-control rounded" id="EditGuardianTwoName" 
                     
                     
-                    
+                    maxlength="100"
                  
                     [(ngModel)]="detail['GuardianTwoName']" name="EditGuardianTwoName"
                     #EditGuardianTwoName="ngModel">
@@ -892,6 +949,9 @@
 
  
 
+            <div *ngIf="EditGuardianTwoName.errors && EditGuardianTwoName.errors.maxlength">
+                GuardianTwoName must be at most 100 characters long.
+              </div>
           </div>
         
         </fieldset>
@@ -909,7 +969,7 @@
             <input type="text" class="form-control rounded" id="EditGuardianTwoPhone" 
                     
                     
-                    
+                    maxlength="20"
                 studentDirectiveGuardianTwoPhone="" 
                     [(ngModel)]="detail['GuardianTwoPhone']" name="EditGuardianTwoPhone"
                     #EditGuardianTwoPhone="ngModel">
@@ -927,6 +987,9 @@
                 {{EditGuardianTwoPhone.errors.studentDirectiveGuardianTwoPhone}}
               </div> 
 
+            <div *ngIf="EditGuardianTwoPhone.errors && EditGuardianTwoPhone.errors.maxlength">
+                GuardianTwoPhone must be at most 20 characters long.
+              </div>
           </div>
         
         </fieldset>
@@ -944,7 +1007,7 @@
             <input type="text" class="form-control rounded" id="EditGuardianTwoEmail" 
                     
                     
-                    
+                    maxlength="100"
                 studentDirectiveGuardianTwoEmail="" 
                     [(ngModel)]="detail['GuardianTwoEmail']" name="EditGuardianTwoEmail"
                     #EditGuardianTwoEmail="ngModel">
@@ -962,6 +1025,9 @@
                 {{EditGuardianTwoEmail.errors.studentDirectiveGuardianTwoEmail}}
               </div> 
 
+            <div *ngIf="EditGuardianTwoEmail.errors && EditGuardianTwoEmail.errors.maxlength">
+                GuardianTwoEmail must be at most 100 characters long.
+              </div>
           </div>
         
         </fieldset>

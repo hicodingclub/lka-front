@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
-import { BaseComponent, ViewType } from '@hicoder/angular-core';
+import { MddsBaseComponent, ViewType } from '@hicoder/angular-core';
 import { Injector } from '@angular/core';
 import { MusergroupService } from './musergroup.service';
 
@@ -13,10 +13,10 @@ import { ViewChild } from '@angular/core';
 import { ElementRef } from '@angular/core';
 
 
-export class MusergroupComponent extends BaseComponent {
+export class MusergroupComponent extends MddsBaseComponent {
 
 
-    @ViewChild('AccessModal') public focusEl: ElementRef;
+    @ViewChild('AccessModal', {static: true}) public focusEl: ElementRef;
 
     constructor(
       

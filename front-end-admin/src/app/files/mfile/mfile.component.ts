@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
-import { BaseComponent, ViewType } from '@hicoder/angular-core';
+import { MddsBaseComponent, ViewType } from '@hicoder/angular-core';
 import { Injector } from '@angular/core';
 import { MfileService } from './mfile.service';
 
@@ -19,7 +19,7 @@ import { MfilegroupDetailPopComponent } from '../mfilegroup/mfilegroup-detail/mf
 import { MfilegroupListSelectIndexComponent } from '../mfilegroup/mfilegroup-list/mfilegroup-list-select-index.component';
 
 
-export class MfileComponent extends BaseComponent {
+export class MfileComponent extends MddsBaseComponent {
 
     public selectComponents = {
 
@@ -29,7 +29,7 @@ export class MfileComponent extends BaseComponent {
           'pop-detail-type': MfilegroupDetailPopComponent,
           'componentRef': null},
     }
-    @ViewChild(FilesRefSelectDirective) refSelectDirective: FilesRefSelectDirective;
+    @ViewChild(FilesRefSelectDirective, {static: true}) refSelectDirective: FilesRefSelectDirective;
 
 
 

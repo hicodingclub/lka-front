@@ -23,7 +23,7 @@
 		<div *ngIf="detail && showFields.includes('size')">                  {{detail['size']}} 
 </div>
 		<div *ngIf="detail && showFields.includes('link')">                
-                    <file-display [downloadUrl]="detail['link']" [isLarge]="false" [aspectRatio]=""></file-display>
+                    <lib-mdds-file-display [downloadUrl]="detail['link']" [isLarge]="false" [aspectRatio]=""></lib-mdds-file-display>
 </div>
 		<div *ngIf="detail && showFields.includes('createdAt')">                  {{detail['createdAt']?detail['createdAt']['value']:""}}
 </div>

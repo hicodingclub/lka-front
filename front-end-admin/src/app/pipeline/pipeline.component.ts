@@ -10,6 +10,5 @@ export class PipelineComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 }

@@ -18,6 +18,5 @@ export class FilesComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 }
