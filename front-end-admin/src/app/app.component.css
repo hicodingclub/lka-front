@@ -40,6 +40,17 @@
   background-color: #343a40;
   justify-content: flex-end;
 }
+.navbar-collapse.show, .navbar-collapse.collapsing {
+  position: absolute;
+  width: 300px;
+  top: 70px;
+  right: 0;
+  /* left: 0; */
+  z-index: 10;
+}
+.navbar-collapse.show > .navbar-nav, .navbar-collapse.collapsing > .navbar-nav {
+  padding-left: 10px;
+}
 
 .navbar {
   flex-grow: 1;
@@ -51,9 +62,6 @@
   margin-right: 2rem;
   margin-top: 0.5rem;
 }
-
-
-
 
 
 .content {
