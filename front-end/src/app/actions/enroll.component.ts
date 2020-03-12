@@ -102,7 +102,16 @@ export class EnrollComponent implements OnInit {
         submitFieldName: 'ack',
       },
     ];
-    this.submitComp = {compoment: ClassenrollEditComponent, succeedUrl: '/academics/classenroll', cancelUrl: `/academics/class/detail/${classId}`, requireConfirm: false};
+    // submit component will append the enrollment id to the url
+    this.submitComp = {
+      compoment: ClassenrollEditComponent,
+      succeedUrl: {
+        url: '/actions/pay?classenroll=',
+        appendID: true,
+      },
+      cancelUrl: `/academics/class/detail/${classId}`,
+      requireConfirm: false,
+    };
   }
 
   onComponentEvents(message: any) {

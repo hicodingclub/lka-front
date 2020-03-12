@@ -88,6 +88,15 @@ import { TermsEditComponent } from './terms/terms-edit/terms-edit.component';
 
 import { TermsService } from './terms/terms.service';
 
+import { PaymentListComponent } from './payment/payment-list/payment-list.component';
+
+import { PaymentDetailComponent } from './payment/payment-detail/payment-detail.component';
+
+import { PaymentDetailFieldComponent } from './payment/payment-detail/payment-detail-field.component';
+import { PaymentEditComponent } from './payment/payment-edit/payment-edit.component';
+
+import { PaymentService } from './payment/payment.service';
+
 
 import { StudentListSelectComponent } from './student/student-list/student-list-select.component';
 
@@ -194,6 +203,13 @@ ClassAssoComponent,
     TermsDetailFieldComponent,
     TermsEditComponent,
 
+    PaymentListComponent,
+
+    PaymentDetailComponent,
+
+    PaymentDetailFieldComponent,
+    PaymentEditComponent,
+
 
     StudentListSelectComponent,
     
@@ -291,6 +307,13 @@ ClassAssoComponent,
     TermsDetailFieldComponent,
     TermsEditComponent,
 
+    PaymentListComponent,
+
+    PaymentDetailComponent,
+
+    PaymentDetailFieldComponent,
+    PaymentEditComponent,
+
 
     StudentListSelectComponent,
     
@@ -337,6 +360,7 @@ ClassAssoComponent,
     StudentService,
     TeacherService,
     TermsService,
+    PaymentService,
   ],
   entryComponents: [
     StudentListSelectComponent,

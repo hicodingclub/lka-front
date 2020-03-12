@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 import { AcademicsComponent } from './academics/academics.component';
 
 //Import routing paths
-import { studentRoutingPath, teacherRoutingPath, courseRoutingPath, classRoutingPath, studentclassRoutingPath, classenrollRoutingPath, termsRoutingPath,  } from './academics/academics-routing.path';
+import { studentRoutingPath, teacherRoutingPath, courseRoutingPath, classRoutingPath, studentclassRoutingPath, classenrollRoutingPath, termsRoutingPath, paymentRoutingPath,  } from './academics/academics-routing.path';
 
 export const AcademicsRoutes: Routes = [
   { path: 'academics',
@@ -39,19 +39,24 @@ export const AcademicsRoutes: Routes = [
         children: termsRoutingPath,
         data: {"mraLevel": 1, "item": "terms"}
       },
+      { path: "payment",
+        children: paymentRoutingPath,
+        data: {"mraLevel": 1, "item": "payment"}
+      },
     ]
   }
 ];
 
-export const academics_server_root_uri:string = "/api/academics";/*>>> Please check this recent updates and merge with existing ones***
-**Date: Tue Dec 24 2019 21:29:26 GMT-0800 (Pacific Standard Time)
+export const academics_server_root_uri:string = "/api/academics";
+/*>>> Please check this recent updates and merge with existing ones***
+**Date: Wed Mar 11 2020 13:22:45 GMT-0700 (Pacific Daylight Time)
 
 import { Routes } from '@angular/router';
 
 import { AcademicsComponent } from './academics/academics.component';
 
 //Import routing paths
-import { studentRoutingPath, teacherRoutingPath, courseRoutingPath, classRoutingPath, studentclassRoutingPath, classenrollRoutingPath, termsRoutingPath,  } from './academics/academics-routing.path';
+import { studentRoutingPath, teacherRoutingPath, courseRoutingPath, classRoutingPath, studentclassRoutingPath, classenrollRoutingPath, termsRoutingPath, paymentRoutingPath,  } from './academics/academics-routing.path';
 
 export const AcademicsRoutes: Routes = [
   { path: 'academics',
@@ -86,6 +91,10 @@ export const AcademicsRoutes: Routes = [
       { path: "terms",
         children: termsRoutingPath,
         data: {"mraLevel": 1, "item": "terms"}
+      },
+      { path: "payment",
+        children: paymentRoutingPath,
+        data: {"mraLevel": 1, "item": "payment"}
       },
     ]
   }

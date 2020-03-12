@@ -18,7 +18,7 @@ import { FILE_UPLOAD_URI, FILE_DOWNLOAD_URI } from '@hicoder/angular-file';
 import { file_upload_uri, file_download_uri } from './file-upload.config';
 import { HomepageComponent } from './homepage/homepage.component';
 import { ContactComponent } from './contact/contact.component';
-import { EnrollComponent } from './actions';
+import { EnrollComponent, PayComponent } from './actions';
 
 @NgModule({
   declarations: [
@@ -26,6 +26,7 @@ import { EnrollComponent } from './actions';
     HomepageComponent,
     ContactComponent,
     EnrollComponent,
+    PayComponent,
 
   ],
   imports: [

@@ -1,0 +1,51 @@
+<div class="container">
+    <h3 class="mt-5 mb-5" >Enrollment Summary</h3>
+    <div class="card mx-auto" style="width: 75%;">
+        <div class="card-body">
+            <div *ngIf="enrollmentDetail">
+                <h5>Student(s): </h5>
+                <p class="pl-3" *ngFor="let s of enrollmentDetail.student; let if = index">
+                    {{s.first_name}} {{s.last_name}}
+                </p>
+            </div>
+            <div *ngIf="classDetail">
+
+                <h5>Class:</h5>
+                <p class="pl-3">
+                    {{classDetail.title}} (from {{classDetail.startTime}} to {{classDetail.endTime}})
+                </p>
+
+                <h5>Class Price (per student):</h5>
+                <p class="pl-3">
+                    {{classDetail.price}}
+                </p>
+            </div>
+
+            <div *ngIf="totalPrice > 0">
+                <h5>Payment Total:</h5>
+                <p class="pl-3">
+                    ${{totalPrice.toFixed(2)}}
+                </p>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="totalPrice > 0">
+        <h3 class="mt-5 mb-5" >Payment Methods</h3>
+        <div  class="pl-5" >
+            <h5>Method 1. Pay to the following bank account:</h5>
+            <p class="pl-5"> Bank: Chase</p>
+            <p class="pl-5"> Accont number: 12346702938433</p>
+            <p class="pl-5"> Payment total: ${{totalPrice.toFixed(2)}}</p>
+
+            <div class="text-center mb-3 mt-3" >
+                <a class="btn-primary-copy" routerLink="/academics/classenroll/list">Ok, I'll pay to the bank account.</a>
+            </div>
+        
+            <h5>Method 2. Pay online:</h5>
+            <p class="pl-5"><i><b>Note</b>: we charge 2% online transaction fee. Your payment total would be: <b>${{onlinePrice.toFixed(2)}}</b></i></p>
+        </div>
+        <!-- Set up a container element for the button -->
+    </div>
+    <div class="mx-auto w-75" id="paypal-button-container"></div>
+
+</div>

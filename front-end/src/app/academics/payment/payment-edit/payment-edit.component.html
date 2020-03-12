@@ -1,0 +1,340 @@
+<div class="edit" *ngIf="detail">
+	<div *ngIf="!embeddedView" class="action-buttons">
+        <!-- <a href="javascript:void(0)" (click)="goBack()" ><i class="fas fa-angle-double-left" title="Back"></i></a> -->
+	</div>
+	
+	<div class="card" style="text-align: left;">
+	  <div class="card-body">
+	    <h4 class="card-title" *ngIf="!embeddedView">{{action}} Payment</h4>
+	    <form (ngSubmit)="onSubmit()" #editForm="ngForm">
+	    
+	     <div *ngIf="action == 'Edit'">
+<div *ngIf="!hiddenFields.includes('status')">
+
+        <fieldset class="form-group">
+          <label for="EditStatus">Status</label>
+          
+          
+
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditStatus" 
+                    required
+                    
+                    
+                 
+                    [(ngModel)]="detail['status']" name="EditStatus"
+                    #EditStatus="ngModel">
+            <div *ngIf="detail['status']" 
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('status')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+            </div>
+          </div>
+
+          <div [hidden]="EditStatus.valid || EditStatus.pristine || EditStatus.errors.minlength"
+           class="alert alert-danger">
+
+            <div *ngIf="EditStatus.errors && EditStatus.errors.required">
+              Status is required.
+              </div>
+ 
+
+          </div>
+        
+        </fieldset>
+
+    
+</div>
+<div *ngIf="!hiddenFields.includes('notes')">
+
+        <fieldset class="form-group">
+          <label for="EditNotes">Notes</label>
+          
+          
+
+          <div class="input-group">
+            <textarea rows="8" class="form-control rounded" id="EditNotes"
+                    
+                    
+                    
+                 
+                    [(ngModel)]="detail['notes']" name="EditNotes"
+                    #EditNotes="ngModel"></textarea>
+            <div *ngIf="detail['notes']" 
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('notes')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+            </div>
+          </div>
+
+          <div [hidden]="EditNotes.valid || EditNotes.pristine || EditNotes.errors.minlength"
+           class="alert alert-danger">
+
+ 
+
+          </div>
+        
+        </fieldset>
+
+    
+</div>
+
+         </div>	
+	     <div *ngIf="action == 'Create' || action == 'Add' ">
+<div *ngIf="!hiddenFields.includes('product')">
+
+        <fieldset class="form-group">
+          <label for="EditProduct">Product</label>
+          
+          
+
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditProduct" 
+                    required
+                    
+                    
+                 
+                    [(ngModel)]="detail['product']" name="EditProduct"
+                    #EditProduct="ngModel">
+            <div *ngIf="detail['product']" 
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('product')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+            </div>
+          </div>
+
+          <div [hidden]="EditProduct.valid || EditProduct.pristine || EditProduct.errors.minlength"
+           class="alert alert-danger">
+
+            <div *ngIf="EditProduct.errors && EditProduct.errors.required">
+              Product is required.
+              </div>
+ 
+
+          </div>
+        
+        </fieldset>
+
+    
+</div>
+<div *ngIf="!hiddenFields.includes('productID')">
+
+        <fieldset class="form-group">
+          <label for="EditProductID">Product ID</label>
+          
+          
+
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditProductID" 
+                    required
+                    
+                    
+                 
+                    [(ngModel)]="detail['productID']" name="EditProductID"
+                    #EditProductID="ngModel">
+            <div *ngIf="detail['productID']" 
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('productID')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+            </div>
+          </div>
+
+          <div [hidden]="EditProductID.valid || EditProductID.pristine || EditProductID.errors.minlength"
+           class="alert alert-danger">
+
+            <div *ngIf="EditProductID.errors && EditProductID.errors.required">
+              ProductID is required.
+              </div>
+ 
+
+          </div>
+        
+        </fieldset>
+
+    
+</div>
+<div *ngIf="!hiddenFields.includes('orderDescription')">
+
+        <fieldset class="form-group">
+          <label for="EditOrderDescription">Order Description</label>
+          
+          
+
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditOrderDescription" 
+                    required
+                    
+                    
+                 
+                    [(ngModel)]="detail['orderDescription']" name="EditOrderDescription"
+                    #EditOrderDescription="ngModel">
+            <div *ngIf="detail['orderDescription']" 
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('orderDescription')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+            </div>
+          </div>
+
+          <div [hidden]="EditOrderDescription.valid || EditOrderDescription.pristine || EditOrderDescription.errors.minlength"
+           class="alert alert-danger">
+
+            <div *ngIf="EditOrderDescription.errors && EditOrderDescription.errors.required">
+              OrderDescription is required.
+              </div>
+ 
+
+          </div>
+        
+        </fieldset>
+
+    
+</div>
+<div *ngIf="!hiddenFields.includes('price')">
+
+        <fieldset class="form-group">
+          <label for="EditPrice">Price</label>
+          
+          
+
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditPrice" 
+                    required
+                    
+                    
+                 
+                    [(ngModel)]="detail['price']" name="EditPrice"
+                    #EditPrice="ngModel">
+            <div *ngIf="detail['price']" 
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('price')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+            </div>
+          </div>
+
+          <div [hidden]="EditPrice.valid || EditPrice.pristine || EditPrice.errors.minlength"
+           class="alert alert-danger">
+
+            <div *ngIf="EditPrice.errors && EditPrice.errors.required">
+              Price is required.
+              </div>
+ 
+
+          </div>
+        
+        </fieldset>
+
+    
+</div>
+<div *ngIf="!hiddenFields.includes('transLogP')">
+
+        <fieldset class="form-group">
+          <label for="EditTransLogP">Trans Log P</label>
+          
+          
+
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditTransLogP" 
+                    required
+                    
+                    
+                 
+                    [(ngModel)]="detail['transLogP']" name="EditTransLogP"
+                    #EditTransLogP="ngModel">
+            <div *ngIf="detail['transLogP']" 
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('transLogP')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+            </div>
+          </div>
+
+          <div [hidden]="EditTransLogP.valid || EditTransLogP.pristine || EditTransLogP.errors.minlength"
+           class="alert alert-danger">
+
+            <div *ngIf="EditTransLogP.errors && EditTransLogP.errors.required">
+              TransLogP is required.
+              </div>
+ 
+
+          </div>
+        
+        </fieldset>
+
+    
+</div>
+<div *ngIf="!hiddenFields.includes('transLogA')">
+
+        <fieldset class="form-group">
+          <label for="EditTransLogA">Trans Log a</label>
+          
+          
+
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditTransLogA" 
+                    required
+                    
+                    
+                 
+                    [(ngModel)]="detail['transLogA']" name="EditTransLogA"
+                    #EditTransLogA="ngModel">
+            <div *ngIf="detail['transLogA']" 
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('transLogA')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+            </div>
+          </div>
+
+          <div [hidden]="EditTransLogA.valid || EditTransLogA.pristine || EditTransLogA.errors.minlength"
+           class="alert alert-danger">
+
+            <div *ngIf="EditTransLogA.errors && EditTransLogA.errors.required">
+              TransLogA is required.
+              </div>
+ 
+
+          </div>
+        
+        </fieldset>
+
+    
+</div>
+<div *ngIf="!hiddenFields.includes('status')">
+
+        <fieldset class="form-group">
+          <label for="EditStatus">Status</label>
+          
+          
+
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditStatus" 
+                    required
+                    
+                    
+                 
+                    [(ngModel)]="detail['status']" name="EditStatus"
+                    #EditStatus="ngModel">
+            <div *ngIf="detail['status']" 
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('status')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+            </div>
+          </div>
+
+          <div [hidden]="EditStatus.valid || EditStatus.pristine || EditStatus.errors.minlength"
+           class="alert alert-danger">
+
+            <div *ngIf="EditStatus.errors && EditStatus.errors.required">
+              Status is required.
+              </div>
+ 
+
+          </div>
+        
+        </fieldset>
+
+    
+</div>
+
+         </div>	
+         
+		<div class="action-buttons-center">
+	     	<button type="submit" class="btn btn-success" 
+     			[disabled]="!editForm.form.valid">Submit</button>
+	     	<button class="btn btn-outline-success" 
+     			type="button" (click)="editCancel()">Cancel</button>
+		</div>
+	    </form>
+	  </div>
+	</div>
+</div>
+

@@ -42,6 +42,12 @@ import { TermsDetailWidgetTermComponent } from './terms/terms-detail/terms-detai
 
 
 
+import { PaymentListComponent } from './payment/payment-list/payment-list.component';
+import { PaymentDetailComponent } from './payment/payment-detail/payment-detail.component';
+
+import { PaymentEditComponent } from './payment/payment-edit/payment-edit.component';
+
+
 
 import { AuthGuard } from '@hicoder/angular-auth';
 
@@ -159,6 +165,15 @@ export const termsRoutingPath = [
      {path: 'detail/:id', component: TermsDetailWidgetTermComponent, children: termsDetailPath, canActivate: [AuthGuard]},
     
     
+    
+    {path: '**', redirectTo: 'list', pathMatch: 'full'}
+];
+
+export const paymentRoutingPath = [
+    {path: 'list', component: PaymentListComponent, canActivate: [AuthGuard]},
+     {path: 'detail/:id', component: PaymentDetailComponent, canActivate: [AuthGuard]},
+    
+    {path: 'new', component: PaymentEditComponent, canActivate: [AuthGuard]},
     
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];

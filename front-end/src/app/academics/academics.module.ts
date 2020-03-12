@@ -93,6 +93,15 @@ import { TermsDetailFieldComponent } from './terms/terms-detail/terms-detail-fie
 
 import { TermsService } from './terms/terms.service';
 
+import { PaymentListComponent } from './payment/payment-list/payment-list.component';
+
+import { PaymentDetailComponent } from './payment/payment-detail/payment-detail.component';
+
+import { PaymentDetailFieldComponent } from './payment/payment-detail/payment-detail-field.component';
+import { PaymentEditComponent } from './payment/payment-edit/payment-edit.component';
+
+import { PaymentService } from './payment/payment.service';
+
 
 import { CourseListSelectComponent } from './course/course-list/course-list-select.component';
 
@@ -201,6 +210,13 @@ import { StudentDirectiveGuardianTwoEmail } from './student/student-edit/student
     TermsDetailFieldComponent,
     
 
+    PaymentListComponent,
+
+    PaymentDetailComponent,
+
+    PaymentDetailFieldComponent,
+    PaymentEditComponent,
+
 
     CourseListSelectComponent,
     
@@ -300,6 +316,13 @@ import { StudentDirectiveGuardianTwoEmail } from './student/student-edit/student
     TermsDetailFieldComponent,
     
 
+    PaymentListComponent,
+
+    PaymentDetailComponent,
+
+    PaymentDetailFieldComponent,
+    PaymentEditComponent,
+
 
     CourseListSelectComponent,
     
@@ -343,6 +366,7 @@ import { StudentDirectiveGuardianTwoEmail } from './student/student-edit/student
     StudentclassService,
     ClassenrollService,
     TermsService,
+    PaymentService,
   ],
   entryComponents: [
     CourseListSelectComponent,
@@ -367,6 +391,7 @@ import { StudentDirectiveGuardianTwoEmail } from './student/student-edit/student
     ClassListWidgetSelComponent,
     ClassenrollEditComponent,
     TermsDetailWidgetTermComponent,
+    PaymentEditComponent,
   ]
 })
 export class AcademicsModule { }
