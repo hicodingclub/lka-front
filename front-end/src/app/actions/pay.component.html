@@ -1,51 +1,87 @@
 <div class="container">
-    <h3 class="mt-5 mb-5" >Enrollment Summary</h3>
+    <h3 class="mt-5 mb-3 text-center" >Enrollment Summary</h3>
     <div class="card mx-auto" style="width: 75%;">
         <div class="card-body">
             <div *ngIf="enrollmentDetail">
-                <h5>Student(s): </h5>
-                <p class="pl-3" *ngFor="let s of enrollmentDetail.student; let if = index">
-                    {{s.first_name}} {{s.last_name}}
+                <p>
+                    <span class="h5 pr-3">Student(s):</span>
+                    <span *ngFor="let s of enrollmentDetail.student; let if = index" class="pr-3">{{s.first_name}} {{s.last_name}}</span>
                 </p>
             </div>
             <div *ngIf="classDetail">
-
-                <h5>Class:</h5>
-                <p class="pl-3">
-                    {{classDetail.title}} (from {{classDetail.startTime}} to {{classDetail.endTime}})
+                <p>
+                    <span class="h5 pr-3">Class:</span> {{classDetail.title}} (from {{classDetail.startTime}} to {{classDetail.endTime}})
                 </p>
 
-                <h5>Class Price (per student):</h5>
-                <p class="pl-3">
-                    {{classDetail.price}}
+                <p>
+                    <span class="h5 pr-3">Class Price (per student):</span> {{classDetail.price}}
                 </p>
             </div>
 
-            <div *ngIf="totalPrice > 0">
-                <h5>Payment Total:</h5>
-                <p class="pl-3">
-                    ${{totalPrice.toFixed(2)}}
-                </p>
-            </div>
         </div>
     </div>
-    <div *ngIf="totalPrice > 0">
-        <h3 class="mt-5 mb-5" >Payment Methods</h3>
+
+    <div *ngIf="totalPrice > 0 && !showPayment" class="mx-auto mt-5" style="width: 75%;">
+        <h5>Is this the first time the student(s) enrolled in a LKA class?</h5>
+
+        <div class="form-check">
+            <div class="form-check m-3">
+                <input type="radio" name="EditStatus" 
+                    class="form-check-input"
+                    required
+                    id="EditStatusprocessing" [value]="true"
+                    
+                    [(ngModel)]="firstEnroll"
+                    #EditStatus="ngModel">
+                <label class="form-check-label">Yes. Enrollment is for new LKA student(s).</label>
+            </div>
+    
+            <div class="form-check m-3">
+                <input type="radio" name="EditStatus" 
+                    class="form-check-input"
+                    required
+                    id="EditStatuspaid" [value]="false"
+                    
+                    [(ngModel)]="firstEnroll"
+                    #EditStatus="ngModel">
+                <label class="form-check-label">No. Enrollment is for returned LKA student(s).</label>
+            </div>
+        </div>
+        <div class="text-center mb-3 mt-3" >
+            <button type="submit" class="btn btn-primary" (click)="makePayment()">Make Payment</button>
+        </div>
+    </div>
+
+    <div *ngIf="showPayment">
+        <h3 class="mt-5 mb-3 text-center" >Payment Summary</h3>
+
+        <div class="card mx-auto" style="width: 75%;">
+            <div class="card-body">
+                <p>
+                    <span class="h5 pr-3">Payment Total:</span> ${{totalPrice.toFixed(2)}}
+                </p>
+                <p *ngIf="firstEnroll"><i><b>Note:</b> $50 registration fee for each new student is added to class price.</i></p>
+            </div>
+        </div>
+
+        <h3 class="mt-5 mb-3 text-center" >Payment Options</h3>
         <div  class="pl-5" >
-            <h5>Method 1. Pay to the following bank account:</h5>
-            <p class="pl-5"> Bank: Chase</p>
-            <p class="pl-5"> Accont number: 12346702938433</p>
-            <p class="pl-5"> Payment total: ${{totalPrice.toFixed(2)}}</p>
+            <h5>Option 1. Please use online bill pay or mail/drop off the tuition check to the following address before the session/class starts:</h5>
+            <div class="pl-5 pt-3 pb-3"> 
+                <div>Light of knowledge Academy</div>
+                <div>20432 Silverado Ave Suite #6,</div>
+                <div>Cupertino, CA 95014</div>
+            </div>
 
             <div class="text-center mb-3 mt-3" >
-                <a class="btn-primary-copy" routerLink="/academics/classenroll/list">Ok, I'll pay to the bank account.</a>
+                <a class="btn btn-outline-primary" routerLink="/academics/classenroll/list">I'll pay with this option</a>
             </div>
         
-            <h5>Method 2. Pay online:</h5>
-            <p class="pl-5"><i><b>Note</b>: we charge 2% online transaction fee. Your payment total would be: <b>${{onlinePrice.toFixed(2)}}</b></i></p>
+            <h5>Option 2. Pay online:</h5>
+            <p class="pl-5"><i><b>Note:</b> 2.9% additional online transaction fee will incure. Your payment total would be: <b>${{onlinePrice.toFixed(2)}}</b></i></p>
         </div>
-        <!-- Set up a container element for the button -->
     </div>
-    <div class="mx-auto w-75" id="paypal-button-container"></div>
+    <!-- Set up a container element for the button -->
+    <div class="mx-auto w-50" id="paypal-button-container"></div>
 
 </div>

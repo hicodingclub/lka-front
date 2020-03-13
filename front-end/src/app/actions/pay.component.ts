@@ -8,7 +8,8 @@ import { ClassService } from '../academics/class/class.service';
 import { PaymentService } from '../academics/payment/payment.service';
 
 declare var paypal: any;
-
+const ONLINE_TRANS_RATE: number = 1.029;
+const NEW_ENROLLMENT_FEE: number = 50;
 @Component({
   selector: 'app-pay',
   templateUrl: './pay.component.html',
@@ -18,8 +19,11 @@ export class PayComponent implements OnInit {
   public enrollmentID: string;
   public classDetail: any;
   public enrollmentDetail: any;
+  public numberStu: number = 1;
   public totalPrice: number = 0;
   public onlinePrice: number = 0;
+  public firstEnroll: boolean = true;
+  public showPayment: boolean = false;
 
   constructor(private route: ActivatedRoute,
     private router: Router,
@@ -45,13 +49,12 @@ export class PayComponent implements OnInit {
         this.classDetail.startTime = this.classDetail.startTime.slice(0, 10);
         this.classDetail.endTime = this.classDetail.endTime.slice(0, 10);
 
-        const numberStu = this.enrollmentDetail.student.length;
+        this.numberStu = this.enrollmentDetail.student.length;
         const priceStr = this.classDetail.price.replace('$', '').trim();
         const price = parseFloat(priceStr);
         if (price) {
-            this.totalPrice = price * numberStu;
-            this.onlinePrice = this.totalPrice * 1.02;
-            this.paypalButton(this.onlinePrice);
+            this.totalPrice = price * this.numberStu;
+            this.onlinePrice = this.totalPrice * ONLINE_TRANS_RATE;
         }
     } catch (err) {
         console.error(err);
@@ -134,9 +137,9 @@ export class PayComponent implements OnInit {
     }
     const classTitle = `${this.classDetail.title} (from ${this.classDetail.startTime} to ${this.classDetail.endTime})`
     const detail = {
-        product: "ClassEnrollment",
+        product: "Class Enrollment",
         productID: this.enrollmentID,
-        orderDescription: `Student(s): ${students.join(', ')}. Enrollment of class: ${classTitle}.`,
+        orderDescription: `Student(s): ${students.join(', ')}. Enrollment of class: ${classTitle}. New Students: ${this.firstEnroll}`,
         price: this.onlinePrice.toFixed(2),
         transLogP: JSON.stringify(logp),
         transLogA: JSON.stringify(loga),
@@ -149,5 +152,19 @@ export class PayComponent implements OnInit {
       },
       this.onServiceError
     );
+  }
+
+  public makePayment() {
+    console.log('makePayment: first time: ', this.firstEnroll);
+    this.showPayment = true;
+
+    if (this.firstEnroll) {
+      this.totalPrice += this.numberStu * NEW_ENROLLMENT_FEE;
+      this.onlinePrice = this.totalPrice * ONLINE_TRANS_RATE;
+    }
+
+    if (this.totalPrice > 0) {
+      this.paypalButton(this.onlinePrice);
+    }
   }
 }
