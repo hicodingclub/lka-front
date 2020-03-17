@@ -47,7 +47,7 @@
 }
 .navbar-collapse.show, .navbar-collapse.collapsing {
   position: absolute;
-  width: 300px;
+  width: 60%;
   top: 80px;
   right: 0;
   /* left: 0; */
