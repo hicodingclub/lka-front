@@ -13,7 +13,7 @@ import { MpermissionService } from '../mpermission.service';
 })
 export class MpermissionDetailSubComponent extends MpermissionDetailComponent 
         implements OnInit {
-    @Input() inputData;
+    // @Input() inputData;
     
     constructor(
         public mpermissionService: MpermissionService,

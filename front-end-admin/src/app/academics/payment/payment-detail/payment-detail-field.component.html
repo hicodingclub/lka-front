@@ -1,25 +1,33 @@
 
 
-		<div *ngIf="detail && showFields.includes('product')">                
+		<div *ngIf="detail && showFields.includes('product')">
                     {{detail['product']}}
-</div>
-		<div *ngIf="detail && showFields.includes('productID')">                
+
+		</div>
+		<div *ngIf="detail && showFields.includes('productID')">
                     {{detail['productID']}}
-</div>
-		<div *ngIf="detail && showFields.includes('orderDescription')">                
+
+		</div>
+		<div *ngIf="detail && showFields.includes('orderDescription')">
                     {{detail['orderDescription']}}
-</div>
-		<div *ngIf="detail && showFields.includes('price')">                
+
+		</div>
+		<div *ngIf="detail && showFields.includes('price')">
                     {{detail['price']}}
-</div>
-		<div *ngIf="detail && showFields.includes('createdAt')">                  {{detail['createdAt']?detail['createdAt']['value']:""}}
-</div>
-		<div *ngIf="detail && showFields.includes('transLogP')">                
+
+		</div>
+		<div *ngIf="detail && showFields.includes('createdAt')">  {{detail['createdAt']?detail['createdAt']['value']:""}}
+
+		</div>
+		<div *ngIf="detail && showFields.includes('transLogP')">
                     {{detail['transLogP']}}
-</div>
-		<div *ngIf="detail && showFields.includes('transLogA')">                
+
+		</div>
+		<div *ngIf="detail && showFields.includes('transLogA')">
                     {{detail['transLogA']}}
-</div>
-		<div *ngIf="detail && showFields.includes('status')">                
+
+		</div>
+		<div *ngIf="detail && showFields.includes('status')">
                     {{detail['status']}}
-</div>
+
+		</div>

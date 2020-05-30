@@ -5,7 +5,8 @@ import { Injector } from '@angular/core';
 
 declare const $: any;
 
-import { MfileComponent, ViewType } from '../mfile.component';
+import { MfileEditCustComponent } from '../../../files-cust/base/mfile/mfile-edit.cust.component';
+import { ViewType } from '../mfile.component';
 import { MfileService } from '../mfile.service';
 
 
@@ -20,21 +21,21 @@ import { ComponentFactoryResolver } from '@angular/core';
   templateUrl: './mfile-edit.component.html',
   styleUrls: ['./mfile-edit.component.css']
 })
-export class MfileEditComponent extends MfileComponent implements OnInit, AfterViewInit {        
-    @Input() 
-    public id: string;
-    @Input()
-    public cid: string; // copy id
-    @Input()
-    public initData: any; // some fields has data already. eg: {a: b}. Used for add
-    @Output()
-    public doneData = new EventEmitter<boolean>();
-    @Output()
-    public done = new EventEmitter<any>();
-    @Input()
-    public embeddedView: boolean;
-    @Input()
-    public embedMode: string; // parent to tell the action - create
+export class MfileEditComponent extends MfileEditCustComponent implements OnInit, AfterViewInit {        
+    // @Input() 
+    // public id: string;
+    // @Input()
+    // public cid: string; // copy id
+    // @Input()
+    // public initData: any; // some fields has data already. eg: {a: b}. Used for add
+    // @Output()
+    // public doneData = new EventEmitter<boolean>();
+    // @Output()
+    // public done = new EventEmitter<any>();
+    // @Input()
+    // public embeddedView: boolean;
+    // @Input()
+    // public embedMode: string; // parent to tell the action - create
 
     public action: string;
     public minDate = {year: (new Date()).getFullYear() - 100, month: 1, day: 1};
@@ -51,6 +52,12 @@ export class MfileEditComponent extends MfileComponent implements OnInit, AfterV
           super(componentFactoryResolver,
                 mfileService, injector, router, route, location, ViewType.EDIT);
 
+          this.fieldDisplayNames = {
+            'name': 'Name',
+            'group': 'Group',
+            'labels': 'Labels',
+          };
+
 
           this.stringFields.push('name');
 
@@ -59,7 +66,9 @@ export class MfileEditComponent extends MfileComponent implements OnInit, AfterV
 
 
 
+
           this.arrayFields = [['labels', 'SchemaString'],];
+
 
 
 
@@ -70,6 +79,7 @@ export class MfileEditComponent extends MfileComponent implements OnInit, AfterV
     }
 
     ngOnInit() {
+      super.ngOnInit();
       if (this.embedMode == 'create') { // parent ask to create
         this.action='Create';
         this.getDetailData();
@@ -89,6 +99,8 @@ export class MfileEditComponent extends MfileComponent implements OnInit, AfterV
             }
         }
       }
+      // get editHintFields
+      this.searchHintFieldValues();
     }
 
     ngAfterViewInit() {
@@ -100,7 +112,6 @@ export class MfileEditComponent extends MfileComponent implements OnInit, AfterV
       if (this.initData) {
         this.action='Add';
         let detail = {
-            
         };
         for (let prop of Object.keys(this.initData)) {
             detail[prop] = this.initData[prop];
@@ -109,7 +120,6 @@ export class MfileEditComponent extends MfileComponent implements OnInit, AfterV
         this.detail = this.formatDetail(detail);
       } else {
           let detail = {
-              
           };
           this.detail = this.formatDetail(detail);
       }

@@ -13,9 +13,9 @@ import { MpubaccessService } from '../mpubaccess.service';
 })
 export class MpubaccessDetailFieldComponent extends MpubaccessComponent
         implements OnInit {
-    @Input() id: string;
-    @Input() detailObj: any;
-    @Input() showFieldsStr: string;
+    // @Input() id: string;
+    // @Input() detailObj: any;
+    // @Input() showFieldsStr: string;
     showFields: string[];
     
     constructor(
@@ -27,15 +27,24 @@ export class MpubaccessDetailFieldComponent extends MpubaccessComponent
           super(null,
                 mpubaccessService, injector, router, route, location, ViewType.DETAIL);
           
+          this.fieldDisplayNames = {
+            'group': 'Group',
+            'module': 'Module',
+            'modulePermission': 'Module Permission',
+            'resourcePermission': 'Resource Permission',
+          };
+
 
           this.stringFields.push('modulePermission');
 
           this.referenceFields = ['group', 'module', ];
 
 
+
           this.mapFields = [
               ['resourcePermission', 'SchemaString', '', '', , ''],
           ];
+
 
 
 

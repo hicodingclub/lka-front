@@ -4,8 +4,7 @@ import { RouteReuseStrategy } from '@angular/router';
 
 import { MddsRouteReuseStrategy } from '@hicoder/angular-core';
 
-import { RolesComponent } from './roles.component';
-import { RolesRoutes } from '../roles.conf';
+import { RolesRoutes } from '../roles-cust/roles.conf';
 
 @NgModule({
   imports: [RouterModule.forChild(RolesRoutes)],

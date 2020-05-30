@@ -4,8 +4,7 @@ import { RouteReuseStrategy } from '@angular/router';
 
 import { MddsRouteReuseStrategy } from '@hicoder/angular-core';
 
-import { PublicinfoComponent } from './publicinfo.component';
-import { PublicinfoRoutes } from '../publicinfo.conf';
+import { PublicinfoRoutes } from '../publicinfo-cust/publicinfo.conf';
 
 @NgModule({
   imports: [RouterModule.forChild(PublicinfoRoutes)],

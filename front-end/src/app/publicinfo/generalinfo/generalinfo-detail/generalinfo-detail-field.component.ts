@@ -13,9 +13,9 @@ import { GeneralinfoService } from '../generalinfo.service';
 })
 export class GeneralinfoDetailFieldComponent extends GeneralinfoComponent
         implements OnInit {
-    @Input() id: string;
-    @Input() detailObj: any;
-    @Input() showFieldsStr: string;
+    // @Input() id: string;
+    // @Input() detailObj: any;
+    // @Input() showFieldsStr: string;
     showFields: string[];
     
     constructor(
@@ -27,6 +27,12 @@ export class GeneralinfoDetailFieldComponent extends GeneralinfoComponent
           super(
                 generalinfoService, injector, router, route, location, ViewType.DETAIL);
           
+          this.fieldDisplayNames = {
+            'signaturePicture': 'Signature Picture',
+            'title': 'Title',
+            'description': 'Description',
+          };
+
 
           this.stringFields.push('signaturePicture');
           this.stringFields.push('title');
@@ -38,7 +44,9 @@ export class GeneralinfoDetailFieldComponent extends GeneralinfoComponent
 
 
 
+
           this.textareaFields = ['description', ];
+
 
     }
 

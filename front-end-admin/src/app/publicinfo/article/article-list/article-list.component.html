@@ -1,5 +1,6 @@
 
-<div class="mt-4 mb-4 d-flex">
+
+<div class="mt-4 mb-4 d-flex" *ngIf="!options['disableTitleRow']">
 
 
 </div>
@@ -16,9 +17,9 @@
 
 
 <div>
-	<div class="container search">
-		<div class="row">
-			<div class="col-9">
+	<div *ngIf="!options['disableListHead']" class="container search">
+		<div class="row" *ngIf="!options['disableListSearch']">
+			<div class="col">
 
 			    <div class="input-group">
 	              <input type="search" class="form-control border border-secondary" id="articleTextSearch" 
@@ -48,8 +49,12 @@
 					<div class="card">
 						<div class="card-body">
 	    <div class="single-line-edit">
-	      <div class="row">
-	        <div class="col-3"><label for="articleEditPublishDate">Publish Date</label></div>
+	      <div class="row col-gutter">
+			<div class="col-3">
+				<label for="articleEditPublishDate">
+				Publish Date
+				</label>
+			</div>
 	        <div class="col-8">
 
  
@@ -124,14 +129,14 @@
 		        <div *ngIf="!moreSearchOpened" style="text-align: left;">
 					<span class="badge badge-pill badge-info" *ngFor="let value of searchMoreDetail">
 					    <a (click)="toggleMoreSearch()" class="pointer"> {{value[0]}}: {{value[1]}}</a>
-					    <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromDetailAndSearchList(value[0])" title="Clear"></i>
+					    <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromDetailAndSearchList(value[2])" title="Clear"></i>
 					</span>
 				</div>
 		    
 
 			</div>
 		</div>
-		<div class="row">
+		<div class="row" *ngIf="!options['disableActionButtions']">
 			<div class="col">
 		        <div class="action-buttons">
 					
@@ -148,6 +153,7 @@
 			</div>
 		</div>
 		<hr/>
+		<div *ngIf="!options['disablePagination']">
 		<div class="row justify-content-end mt-3">
 		
 			<div *ngIf="list.length > 2" class="sort-selection mr-5">
@@ -164,8 +170,8 @@
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('title', 'Title', 'desc')">Title<i class="fas fa-arrow-down"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('author', 'Author', 'asc')">Author<i class="fas fa-arrow-up"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('author', 'Author', 'desc')">Author<i class="fas fa-arrow-down"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('publishDate', 'Publish Date', 'asc')">PublishDate<i class="fas fa-arrow-up"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('publishDate', 'Publish Date', 'desc')">PublishDate<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('publishDate', 'Publish Date', 'asc')">Publish Date<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('publishDate', 'Publish Date', 'desc')">Publish Date<i class="fas fa-arrow-down"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('category', 'Category', 'asc')">Category<i class="fas fa-arrow-up"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('category', 'Category', 'desc')">Category<i class="fas fa-arrow-down"></i></a>
 						</div>
@@ -234,6 +240,7 @@
 				</div>
 		</div>
 
+		</div>
 	</div>
 	<div class="no-records" *ngIf="list.length === 0">
 		<span *ngIf="loaded">No records found.</span>
@@ -247,7 +254,7 @@
 				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
 				<div class="list-fields pointer" (click)="onDetailLinkClicked(detail['_id'])" >
 
-      <div class="list-head-picture">                
+      <div class="list-head-picture">
                     <lib-mdds-file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false" [aspectRatio]=""></lib-mdds-file-display>
 
       </div>
@@ -255,27 +262,27 @@
       <div class="list-body-fields">
         <h5>
           <div class="mr-1 d-inline-block">
-                            
+            
                     {{detail['title']}}
 
           </div>
         </h5>
         <div *ngIf="detail['author']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Author:</label></div>
-          <div class="ml-3">                
+          <div class="ml-3">
                     {{detail['author']}}
 
           </div>
         </div>
         <div *ngIf="detail['publishDate']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Publish Date:</label></div>
-          <div class="ml-3">                  {{detail['publishDate']?detail['publishDate']['value']:""}}
+          <div class="ml-3">  {{detail['publishDate']?detail['publishDate']['value']:""}}
 
           </div>
         </div>
         <div *ngIf="detail['category']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Category:</label></div>
-          <div class="ml-3">                
+          <div class="ml-3">
                     {{detail['category']}}
 
           </div>
@@ -308,14 +315,14 @@
 				<div class="grid-fields pointer" (click)="onDetailLinkClicked(detail['_id'])" >
 
       <div class="card-header grid-head">
-        <div class="grid-head-picture">                
+        <div class="grid-head-picture">
                     <lib-mdds-file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false" [aspectRatio]=""></lib-mdds-file-display>
 
         </div>
         <div>
           <h5>
             <div class="mr-1 d-inline-block">
-                              
+              
                     {{detail['title']}}
 
             </div>
@@ -325,18 +332,18 @@
       <div class="card-body">
           <div *ngIf="detail['author']" class="d-flex flex-wrap">
             <div class=""><label>Author:</label></div>
-            <div class="ml-3">                
+            <div class="ml-3">
                     {{detail['author']}}
 </div>
           </div>
           <div *ngIf="detail['publishDate']" class="d-flex flex-wrap">
             <div class=""><label>Publish Date:</label></div>
-            <div class="ml-3">                  {{detail['publishDate']?detail['publishDate']['value']:""}}
+            <div class="ml-3">  {{detail['publishDate']?detail['publishDate']['value']:""}}
 </div>
           </div>
           <div *ngIf="detail['category']" class="d-flex flex-wrap">
             <div class=""><label>Category:</label></div>
-            <div class="ml-3">                
+            <div class="ml-3">
                     {{detail['category']}}
 </div>
           </div>
@@ -403,26 +410,26 @@
 	            </td>
 
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
+	            	
                     <lib-mdds-file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false" [aspectRatio]=""></lib-mdds-file-display>
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
+	            	
                     {{detail['title']}}
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
+	            	
                     {{detail['author']}}
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                  {{detail['publishDate']?detail['publishDate']['value']:""}}
+	            	  {{detail['publishDate']?detail['publishDate']['value']:""}}
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
+	            	
                     {{detail['category']}}
 
 	            </td>
@@ -445,6 +452,7 @@
 
 	</div>
 	<div class="container">
+		<div *ngIf="!options['disablePagination']">
 		<div class="row justify-content-end mt-3">
 		
 			
@@ -492,6 +500,7 @@
 				</div>
 		</div>
 
+		</div>
 	</div>
 	
 </div>

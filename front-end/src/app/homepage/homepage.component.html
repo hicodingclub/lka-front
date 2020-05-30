@@ -64,7 +64,13 @@
           </app-generalinfo-detail-widget-info></div>
           <div class="align-self-center internal_link" routerLink="/publicinfo/event">Read all posts</div>
       </div>
-      <div class="col-large"><app-event-list-widget-clean></app-event-list-widget-clean></div>
+      <div class="col-large">
+        <app-event-list [options]="{disableCatetory: true, disablePagination: true,
+          disbleActionButtons: true, disableListSearch: true, disableTitle: true, disableRefs: true,
+          disableListHead: true, disableTitleRow: true}"
+          [queryParams]="{perPage: 3, listSortOrder: 'desc', listSortField: 'publishDate'}">
+        </app-event-list>
+      </div>
     </section>
 
     <section>
@@ -75,7 +81,14 @@
         </app-generalinfo-detail-widget-info></div>
         <div class="align-self-center internal_link" routerLink="/academics/class/list">Check all classes</div>
       </div>
-      <div style=""><app-class-list-widget-clean [searchObj]="{'hot': true}"></app-class-list-widget-clean></div>  
+      <div style="">
+        <app-class-list [options]="{disableCatetory: true, disablePagination: true,
+          disbleActionButtons: true, disableListSearch: true, disableTitle: true, disableRefs: true,
+          disableListHead: true, disableTitleRow: true}"
+          [queryParams]="{perPage: 6, listSortOrder: 'desc', listSortField: 'startTime'}"
+          [searchObj]="{'hot': true}">
+        </app-class-list>
+      </div>  
     </section>
 
 

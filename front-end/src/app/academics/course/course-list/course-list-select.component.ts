@@ -13,8 +13,8 @@ import { CourseService } from '../course.service';
 })
 export class CourseListSelectComponent extends CourseListComponent
         implements OnInit {
-    @Input() inputData;
-    @Output() outputData;
+    // @Input() inputData;
+    // @Output() outputData;
     done = new EventEmitter<boolean>();
 
     constructor(

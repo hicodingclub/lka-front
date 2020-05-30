@@ -1,5 +1,6 @@
 
-<div class="mt-4 mb-4 d-flex">
+
+<div class="mt-4 mb-4 d-flex" *ngIf="!options['disableTitleRow']">
 
 
 </div>
@@ -16,15 +17,15 @@
 
 
 <div>
-	<div class="container search">
-		<div class="row">
-			<div class="col-9">
+	<div *ngIf="!options['disableListHead']" class="container search">
+		<div class="row" *ngIf="!options['disableListSearch']">
+			<div class="col">
 
 			    <div class="input-group">
 	              <input type="search" class="form-control border border-secondary" id="emaillogTextSearch" 
 						#emaillogTextSearch [(ngModel)]="searchText"
 						(keydown.enter)="$event.target.blur();searchList();false"
-					    placeholder="Search for to, module, reason, result, userId"> 
+					    placeholder="Search for to, module, reason, result, user id"> 
 				  <div *ngIf="searchText" class="input-group-append icon-clear-inside">
 					<span >
 					    <i class="fas fa-times-circle" (click)="onSearchTextClear()" title="Clear"></i>
@@ -48,8 +49,12 @@
 					<div class="card">
 						<div class="card-body">
 	    <div class="single-line-edit">
-	      <div class="row">
-	        <div class="col-3"><label for="emaillogEditCreatedAt">Created at</label></div>
+	      <div class="row col-gutter">
+			<div class="col-3">
+				<label for="emaillogEditCreatedAt">
+				Created at
+				</label>
+			</div>
 	        <div class="col-8">
 
  
@@ -107,14 +112,14 @@
 		        <div *ngIf="!moreSearchOpened" style="text-align: left;">
 					<span class="badge badge-pill badge-info" *ngFor="let value of searchMoreDetail">
 					    <a (click)="toggleMoreSearch()" class="pointer"> {{value[0]}}: {{value[1]}}</a>
-					    <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromDetailAndSearchList(value[0])" title="Clear"></i>
+					    <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromDetailAndSearchList(value[2])" title="Clear"></i>
 					</span>
 				</div>
 		    
 
 			</div>
 		</div>
-		<div class="row">
+		<div class="row" *ngIf="!options['disableActionButtions']">
 			<div class="col">
 		        <div class="action-buttons">
 					
@@ -126,6 +131,7 @@
 			</div>
 		</div>
 		<hr/>
+		<div *ngIf="!options['disablePagination']">
 		<div class="row justify-content-end mt-3">
 		
 			<div *ngIf="list.length > 2" class="sort-selection mr-5">
@@ -146,10 +152,10 @@
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('reason', 'Reason', 'desc')">Reason<i class="fas fa-arrow-down"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('result', 'Result', 'asc')">Result<i class="fas fa-arrow-up"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('result', 'Result', 'desc')">Result<i class="fas fa-arrow-down"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('userId', 'User Id', 'asc')">UserId<i class="fas fa-arrow-up"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('userId', 'User Id', 'desc')">UserId<i class="fas fa-arrow-down"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('createdAt', 'Created at', 'asc')">CreatedAt<i class="fas fa-arrow-up"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('createdAt', 'Created at', 'desc')">CreatedAt<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('userId', 'User Id', 'asc')">User Id<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('userId', 'User Id', 'desc')">User Id<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('createdAt', 'Created at', 'asc')">Created at<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('createdAt', 'Created at', 'desc')">Created at<i class="fas fa-arrow-down"></i></a>
 						</div>
 					</div>
 			</div>
@@ -215,6 +221,7 @@
 				</div>
 		</div>
 
+		</div>
 	</div>
 	<div class="no-records" *ngIf="list.length === 0">
 		<span *ngIf="loaded">No records found.</span>
@@ -231,42 +238,42 @@
       <div class="list-body-fields">
         <h5>
           <div class="mr-1 d-inline-block">
-                            
+            
                     {{detail['module']}}
 
           </div>
         </h5>
         <div *ngIf="detail['to']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>To:</label></div>
-          <div class="ml-3">                
+          <div class="ml-3">
                     {{detail['to']}}
 
           </div>
         </div>
         <div *ngIf="detail['reason']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Reason:</label></div>
-          <div class="ml-3">                
+          <div class="ml-3">
                     {{detail['reason']}}
 
           </div>
         </div>
         <div *ngIf="detail['result']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Result:</label></div>
-          <div class="ml-3">                
+          <div class="ml-3">
                     {{detail['result']}}
 
           </div>
         </div>
         <div *ngIf="detail['userId']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>User Id:</label></div>
-          <div class="ml-3">                
+          <div class="ml-3">
                     {{detail['userId']}}
 
           </div>
         </div>
         <div *ngIf="detail['createdAt']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Created at:</label></div>
-          <div class="ml-3">                  {{detail['createdAt']?detail['createdAt']['value']:""}}
+          <div class="ml-3">  {{detail['createdAt']?detail['createdAt']['value']:""}}
 
           </div>
         </div>
@@ -290,7 +297,7 @@
         <div>
           <h5>
             <div class="mr-1 d-inline-block">
-                              
+              
                     {{detail['module']}}
 
             </div>
@@ -300,31 +307,31 @@
       <div class="card-body">
           <div *ngIf="detail['to']" class="d-flex flex-wrap">
             <div class=""><label>To:</label></div>
-            <div class="ml-3">                
+            <div class="ml-3">
                     {{detail['to']}}
 </div>
           </div>
           <div *ngIf="detail['reason']" class="d-flex flex-wrap">
             <div class=""><label>Reason:</label></div>
-            <div class="ml-3">                
+            <div class="ml-3">
                     {{detail['reason']}}
 </div>
           </div>
           <div *ngIf="detail['result']" class="d-flex flex-wrap">
             <div class=""><label>Result:</label></div>
-            <div class="ml-3">                
+            <div class="ml-3">
                     {{detail['result']}}
 </div>
           </div>
           <div *ngIf="detail['userId']" class="d-flex flex-wrap">
             <div class=""><label>User Id:</label></div>
-            <div class="ml-3">                
+            <div class="ml-3">
                     {{detail['userId']}}
 </div>
           </div>
           <div *ngIf="detail['createdAt']" class="d-flex flex-wrap">
             <div class=""><label>Created at:</label></div>
-            <div class="ml-3">                  {{detail['createdAt']?detail['createdAt']['value']:""}}
+            <div class="ml-3">  {{detail['createdAt']?detail['createdAt']['value']:""}}
 </div>
           </div>
       </div>
@@ -391,32 +398,32 @@
 	            </td>
 
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
+	            	
                     {{detail['to']}}
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
+	            	
                     {{detail['module']}}
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
+	            	
                     {{detail['reason']}}
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
+	            	
                     {{detail['result']}}
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
+	            	
                     {{detail['userId']}}
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                  {{detail['createdAt']?detail['createdAt']['value']:""}}
+	            	  {{detail['createdAt']?detail['createdAt']['value']:""}}
 
 	            </td>
 	        </tr>
@@ -426,6 +433,7 @@
 
 	</div>
 	<div class="container">
+		<div *ngIf="!options['disablePagination']">
 		<div class="row justify-content-end mt-3">
 		
 			
@@ -473,6 +481,7 @@
 				</div>
 		</div>
 
+		</div>
 	</div>
 	
 </div>

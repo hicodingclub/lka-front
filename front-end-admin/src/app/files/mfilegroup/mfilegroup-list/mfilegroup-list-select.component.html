@@ -13,7 +13,7 @@
 
 	<div class="container search">
 		<div class="row">
-			<div class="col-9">
+			<div class="col">
 
 			    <div class="input-group">
 	              <input type="search" class="form-control border border-secondary" id="mfilegroupTextSearch" 
@@ -32,11 +32,9 @@
 			
 
 			</div>
-			<div class="col-3">
-			</div>
 		</div>
 		<hr/>
-				<div class="row justify-content-end mt-3">
+		<div class="row justify-content-end mt-3">
 		
 			
 		</div>
@@ -100,7 +98,7 @@
 	        	[ngClass]="{'clicked-row': detail['_id']==clickedId}" >
 	            <td scope="row" (click)="selectItemSelected(i)"  class="pointer">{{(page-1)*perPage+i+1}}</td>
 
-	            <td (click)="selectItemSelected(i)"  class="pointer">                
+	            <td (click)="selectItemSelected(i)"  class="pointer">
                     {{detail['name']}}
 
 	            </td>
@@ -114,7 +112,7 @@
 	</table>
 	
 	<div class="container">
-				<div class="row justify-content-end mt-3">
+		<div class="row justify-content-end mt-3">
 		
 			
 		</div>

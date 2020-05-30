@@ -13,8 +13,8 @@ import { ClassService } from '../class.service';
 })
 export class ClassDetailPopComponent extends ClassDetailComponent 
         implements OnInit {
-    @Input() inputData;
-    @Output() outputData;
+    // @Input() inputData;
+    // @Output() outputData;
     done = new EventEmitter<boolean>();
     
     constructor(

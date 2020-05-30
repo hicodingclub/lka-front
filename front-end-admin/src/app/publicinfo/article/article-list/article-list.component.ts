@@ -3,7 +3,8 @@ import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Injector } from '@angular/core';
 
-import { ArticleComponent, ViewType } from '../article.component';
+import { ArticleListCustComponent } from '../../../publicinfo-cust/base/article/article-list.cust.component';
+import { ViewType } from '../article.component';
 import { ArticleService } from '../article.service';
 
 
@@ -16,16 +17,21 @@ import { MddsRichTextShowDirective } from '@hicoder/angular-core';
   templateUrl: './article-list.component.html',
   styleUrls: ['./article-list.component.css']
 })
-export class ArticleListComponent extends ArticleComponent implements OnInit {
+export class ArticleListComponent extends ArticleListCustComponent implements OnInit {
 
   public minDate = {year: (new Date()).getFullYear() - 100, month: 1, day: 1};
 
-  @Input()
-  public inputData:any;
-  @Input()
-  public searchObj:any;
-  @Input()
-  public categoryBy:string; //field name whose value is used as category
+  // @Input() options: any; {disableCatetory: false, disablePagination: false, disbleActionButtons: false
+  //                        disableListSearch: false, disableTitle: false, disableRefs: false
+  //                        disableListHead: false, disableTitleRow: false}
+  // @Input()
+  // public inputData:any;
+  // @Input()
+  // public searchObj:any;
+  // @Input()
+  // public queryParams: any;  // {listSortField: 'a', listSortOrder: 'asc' / 'desc', perPage: 6}
+  // @Input()
+  // public categoryBy:string; //field name whose value is used as category
   
   @ViewChildren(MddsRichTextShowDirective) textEditors: QueryList<MddsRichTextShowDirective>;
 
@@ -38,6 +44,14 @@ export class ArticleListComponent extends ArticleComponent implements OnInit {
       public location: Location) {
           super(
                 articleService, injector, router, route, location, ViewType.LIST);
+
+          this.fieldDisplayNames = {
+            'signaturePicture': 'Signature Picture',
+            'title': 'Title',
+            'author': 'Author',
+            'publishDate': 'Publish Date',
+            'category': 'Category',
+          };
 
 
           this.stringFields.push('signaturePicture');
@@ -54,6 +68,8 @@ export class ArticleListComponent extends ArticleComponent implements OnInit {
 
 
 
+
+
           this.listViewFilter = 'list';
           this.setListSort('publishDate', 'Publish Date', 'desc');
 
@@ -63,12 +79,37 @@ export class ArticleListComponent extends ArticleComponent implements OnInit {
   }
 
   ngOnInit() {
+      super.ngOnInit();
+
       this.adjustListViewForWindowSize();
 
+      if (!this.options) {
+        this.options = {};
+      }
+  
+      if (this.options.disableCatetory) {
+        this.listCategory1 = {}; // no do query based on category for home view;
+        this.listCategory2 = {}; // no do query based on category for home view;
+      }
+
       // this is to initialize the detail that will be used for search condition selection
-      const detail = this.searchObj || {};
+      let detail = {};
+      if (this.searchObj) {
+        this.searchDetailReady = true; // search provided from "detail", not from search bar.
+        detail = this.searchObj;
+      }
+      if (this.queryParams) {
+        this.listSortField = this.queryParams.listSortField;
+        this.listSortOrder = this.queryParams.listSortOrder;
+        if (this.queryParams.perPage) {
+          this.perPage = this.queryParams.perPage 
+        }
+      }
       this.detail = this.formatDetail(detail);
       this.searchList();
+
+      // get editHintFields
+      this.searchHintFieldValues();
   }
 
   static getInstance() {

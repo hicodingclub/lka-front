@@ -13,8 +13,8 @@ import { MpubmoduleService } from '../mpubmodule.service';
 })
 export class MpubmoduleDetailSelComponent extends MpubmoduleDetailComponent 
         implements OnInit {
-    @Input() inputData;
-    @Output() outputData;
+    // @Input() inputData;
+    // @Output() outputData;
     done = new EventEmitter<boolean>();
     
     constructor(

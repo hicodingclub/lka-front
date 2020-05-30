@@ -13,9 +13,9 @@ import { MusergroupService } from '../musergroup.service';
 })
 export class MusergroupDetailFieldComponent extends MusergroupComponent
         implements OnInit {
-    @Input() id: string;
-    @Input() detailObj: any;
-    @Input() showFieldsStr: string;
+    // @Input() id: string;
+    // @Input() detailObj: any;
+    // @Input() showFieldsStr: string;
     showFields: string[];
     
     constructor(
@@ -27,9 +27,16 @@ export class MusergroupDetailFieldComponent extends MusergroupComponent
           super(
                 musergroupService, injector, router, route, location, ViewType.DETAIL);
           
+          this.fieldDisplayNames = {
+            'group': 'Group',
+            'description': 'Description',
+          };
+
 
           this.stringFields.push('group');
           this.stringFields.push('description');
+
+
 
 
 

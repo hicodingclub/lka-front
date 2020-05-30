@@ -13,7 +13,7 @@ import { ClassService } from '../class.service';
 })
 export class ClassDetailSubComponent extends ClassDetailComponent 
         implements OnInit {
-    @Input() inputData;
+    // @Input() inputData;
     
     constructor(
         public classService: ClassService,

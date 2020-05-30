@@ -13,9 +13,9 @@ import { ClassenrollService } from '../classenroll.service';
 })
 export class ClassenrollDetailFieldComponent extends ClassenrollComponent
         implements OnInit {
-    @Input() id: string;
-    @Input() detailObj: any;
-    @Input() showFieldsStr: string;
+    // @Input() id: string;
+    // @Input() detailObj: any;
+    // @Input() showFieldsStr: string;
     showFields: string[];
     
     constructor(
@@ -27,6 +27,16 @@ export class ClassenrollDetailFieldComponent extends ClassenrollComponent
           super(null,
                 classenrollService, injector, router, route, location, ViewType.DETAIL);
           
+          this.fieldDisplayNames = {
+            'student': 'Student',
+            'class': 'Class',
+            'status': 'Status',
+            'notes': 'Notes',
+            'createdAt': 'Created At',
+            'updatedAt': 'Updated At',
+            'muser_id': 'Muser Id',
+          };
+
           this.enums['status'] = ['processing', 'paid', 'confirmed', 'cancelled', ];
 
           this.stringFields.push('status');
@@ -39,12 +49,14 @@ export class ClassenrollDetailFieldComponent extends ClassenrollComponent
 
 
 
+
           this.arrayFields = [['student', 'ObjectId'],];
           this.referenceFieldsMap['student'] = 'student';
           this.referenceFieldsReverseMap['student'] = 'student';
 
 
           this.textareaFields = ['notes', ];
+
 
     }
 

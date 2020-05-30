@@ -1,4 +1,4 @@
-import { Injectable, Inject, OnDestroy } from '@angular/core';
+import { Injectable, Inject, OnDestroy, SkipSelf } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ArticleBaseService } from './article.base.service';
 import { Publicinfo_SERVER_ROOT_URI } from '../publicinfo.tokens';

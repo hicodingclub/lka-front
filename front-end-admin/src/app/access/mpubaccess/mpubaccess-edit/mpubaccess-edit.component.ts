@@ -5,7 +5,8 @@ import { Injector } from '@angular/core';
 
 declare const $: any;
 
-import { MpubaccessComponent, ViewType } from '../mpubaccess.component';
+import { MpubaccessEditCustComponent } from '../../../access-cust/base/mpubaccess/mpubaccess-edit.cust.component';
+import { ViewType } from '../mpubaccess.component';
 import { MpubaccessService } from '../mpubaccess.service';
 
 
@@ -20,21 +21,21 @@ import { ComponentFactoryResolver } from '@angular/core';
   templateUrl: './mpubaccess-edit.component.html',
   styleUrls: ['./mpubaccess-edit.component.css']
 })
-export class MpubaccessEditComponent extends MpubaccessComponent implements OnInit, AfterViewInit {        
-    @Input() 
-    public id: string;
-    @Input()
-    public cid: string; // copy id
-    @Input()
-    public initData: any; // some fields has data already. eg: {a: b}. Used for add
-    @Output()
-    public doneData = new EventEmitter<boolean>();
-    @Output()
-    public done = new EventEmitter<any>();
-    @Input()
-    public embeddedView: boolean;
-    @Input()
-    public embedMode: string; // parent to tell the action - create
+export class MpubaccessEditComponent extends MpubaccessEditCustComponent implements OnInit, AfterViewInit {        
+    // @Input() 
+    // public id: string;
+    // @Input()
+    // public cid: string; // copy id
+    // @Input()
+    // public initData: any; // some fields has data already. eg: {a: b}. Used for add
+    // @Output()
+    // public doneData = new EventEmitter<boolean>();
+    // @Output()
+    // public done = new EventEmitter<any>();
+    // @Input()
+    // public embeddedView: boolean;
+    // @Input()
+    // public embedMode: string; // parent to tell the action - create
 
     public action: string;
     public minDate = {year: (new Date()).getFullYear() - 100, month: 1, day: 1};
@@ -51,15 +52,24 @@ export class MpubaccessEditComponent extends MpubaccessComponent implements OnIn
           super(componentFactoryResolver,
                 mpubaccessService, injector, router, route, location, ViewType.EDIT);
 
+          this.fieldDisplayNames = {
+            'group': 'Group',
+            'module': 'Module',
+            'modulePermission': 'Module Permission',
+            'resourcePermission': 'Resource Permission',
+          };
+
 
           this.stringFields.push('modulePermission');
 
           this.referenceFields = ['group', 'module', ];
 
 
+
           this.mapFields = [
               ['resourcePermission', 'SchemaString', '', '', , ''],
           ];
+
 
 
 
@@ -72,6 +82,7 @@ export class MpubaccessEditComponent extends MpubaccessComponent implements OnIn
     }
 
     ngOnInit() {
+      super.ngOnInit();
       if (this.embedMode == 'create') { // parent ask to create
         this.action='Create';
         this.getDetailData();
@@ -91,6 +102,8 @@ export class MpubaccessEditComponent extends MpubaccessComponent implements OnIn
             }
         }
       }
+      // get editHintFields
+      this.searchHintFieldValues();
     }
 
     ngAfterViewInit() {
@@ -102,7 +115,6 @@ export class MpubaccessEditComponent extends MpubaccessComponent implements OnIn
       if (this.initData) {
         this.action='Add';
         let detail = {
-            
         };
         for (let prop of Object.keys(this.initData)) {
             detail[prop] = this.initData[prop];
@@ -111,7 +123,6 @@ export class MpubaccessEditComponent extends MpubaccessComponent implements OnIn
         this.detail = this.formatDetail(detail);
       } else {
           let detail = {
-              
           };
           this.detail = this.formatDetail(detail);
       }

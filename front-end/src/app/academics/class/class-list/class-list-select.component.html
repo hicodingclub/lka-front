@@ -13,13 +13,13 @@
 
 	<div class="container search">
 		<div class="row">
-			<div class="col-9">
+			<div class="col">
 
 			    <div class="input-group">
 	              <input type="search" class="form-control border border-secondary" id="classTextSearch" 
 						#classTextSearch [(ngModel)]="searchText"
 						(keydown.enter)="$event.target.blur();searchList();false"
-					    placeholder="Search for title, timeSlot"> 
+					    placeholder="Search for title, time slot"> 
 				  <div *ngIf="searchText" class="input-group-append icon-clear-inside">
 					<span >
 					    <i class="fas fa-times-circle" (click)="onSearchTextClear()" title="Clear"></i>
@@ -43,8 +43,12 @@
 					<div class="card">
 						<div class="card-body">
 	    <div class="single-line-edit">
-	      <div class="row">
-	        <div class="col-3"><label for="classEditStartTime">Start Time</label></div>
+	      <div class="row col-gutter">
+			<div class="col-3">
+				<label for="classEditStartTime">
+				Start Time
+				</label>
+			</div>
 	        <div class="col-8">
 
  
@@ -90,8 +94,12 @@
       
  
 	    <div class="single-line-edit">
-	      <div class="row">
-	        <div class="col-3"><label for="classEditEndTime">End Time</label></div>
+	      <div class="row col-gutter">
+			<div class="col-3">
+				<label for="classEditEndTime">
+				End Time
+				</label>
+			</div>
 	        <div class="col-8">
 
  
@@ -137,8 +145,12 @@
       
  
 	    <div class="single-line-edit">
-	      <div class="row">
-	        <div class="col-3"><label for="classEditDayOfWeek">Day of Week</label></div>
+	      <div class="row col-gutter">
+			<div class="col-3">
+				<label for="classEditDayOfWeek">
+				Day of Week
+				</label>
+			</div>
 	        <div class="col-8">
 
 
@@ -235,17 +247,15 @@
 		        <div *ngIf="!moreSearchOpened" style="text-align: left;">
 					<span class="badge badge-pill badge-info" *ngFor="let value of searchMoreDetail">
 					    <a (click)="toggleMoreSearch()" class="pointer"> {{value[0]}}: {{value[1]}}</a>
-					    <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromDetailAndSearchList(value[0])" title="Clear"></i>
+					    <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromDetailAndSearchList(value[2])" title="Clear"></i>
 					</span>
 				</div>
 		    
 
 			</div>
-			<div class="col-3">
-			</div>
 		</div>
 		<hr/>
-				<div class="row justify-content-end mt-3">
+		<div class="row justify-content-end mt-3">
 		
 			
 		</div>
@@ -312,21 +322,21 @@
 	        	[ngClass]="{'clicked-row': detail['_id']==clickedId}" >
 	            <td scope="row" (click)="selectItemSelected(i)"  class="pointer">{{(page-1)*perPage+i+1}}</td>
 
-	            <td (click)="selectItemSelected(i)"  class="pointer">                
+	            <td (click)="selectItemSelected(i)"  class="pointer">
                     {{detail['title']}}
 
 	            </td>
-	            <td (click)="selectItemSelected(i)"  class="pointer">                
+	            <td (click)="selectItemSelected(i)"  class="pointer">
                	  
 	            	{{detail['course']?detail['course']['value']:""}}
 	              
 
 	            </td>
-	            <td (click)="selectItemSelected(i)"  class="pointer">                
+	            <td (click)="selectItemSelected(i)"  class="pointer">
                     {{detail['season']}}
 
 	            </td>
-	            <td (click)="selectItemSelected(i)"  class="pointer">                  {{detail['startTime']?detail['startTime']['value']:""}}
+	            <td (click)="selectItemSelected(i)"  class="pointer">  {{detail['startTime']?detail['startTime']['value']:""}}
 
 	            </td>
 
@@ -339,7 +349,7 @@
 	</table>
 	
 	<div class="container">
-				<div class="row justify-content-end mt-3">
+		<div class="row justify-content-end mt-3">
 		
 			
 		</div>

@@ -13,9 +13,9 @@ import { MfilegroupService } from '../mfilegroup.service';
 })
 export class MfilegroupDetailFieldComponent extends MfilegroupComponent
         implements OnInit {
-    @Input() id: string;
-    @Input() detailObj: any;
-    @Input() showFieldsStr: string;
+    // @Input() id: string;
+    // @Input() detailObj: any;
+    // @Input() showFieldsStr: string;
     showFields: string[];
     
     constructor(
@@ -27,11 +27,18 @@ export class MfilegroupDetailFieldComponent extends MfilegroupComponent
           super(
                 mfilegroupService, injector, router, route, location, ViewType.DETAIL);
           
+          this.fieldDisplayNames = {
+            'name': 'Name',
+            'createdAt': 'Created at',
+          };
+
 
           this.stringFields.push('name');
 
 
           this.dateFields = ['createdAt', ];
+
+
 
 
 

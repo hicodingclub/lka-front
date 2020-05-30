@@ -5,7 +5,8 @@ import { Injector } from '@angular/core';
 
 declare const $: any;
 
-import { MroleComponent, ViewType } from '../mrole.component';
+import { MroleEditCustComponent } from '../../../roles-cust/base/mrole/mrole-edit.cust.component';
+import { ViewType } from '../mrole.component';
 import { MroleService } from '../mrole.service';
 
 
@@ -19,21 +20,21 @@ import { MroleService } from '../mrole.service';
   templateUrl: './mrole-edit.component.html',
   styleUrls: ['./mrole-edit.component.css']
 })
-export class MroleEditComponent extends MroleComponent implements OnInit, AfterViewInit {        
-    @Input() 
-    public id: string;
-    @Input()
-    public cid: string; // copy id
-    @Input()
-    public initData: any; // some fields has data already. eg: {a: b}. Used for add
-    @Output()
-    public doneData = new EventEmitter<boolean>();
-    @Output()
-    public done = new EventEmitter<any>();
-    @Input()
-    public embeddedView: boolean;
-    @Input()
-    public embedMode: string; // parent to tell the action - create
+export class MroleEditComponent extends MroleEditCustComponent implements OnInit, AfterViewInit {        
+    // @Input() 
+    // public id: string;
+    // @Input()
+    // public cid: string; // copy id
+    // @Input()
+    // public initData: any; // some fields has data already. eg: {a: b}. Used for add
+    // @Output()
+    // public doneData = new EventEmitter<boolean>();
+    // @Output()
+    // public done = new EventEmitter<any>();
+    // @Input()
+    // public embeddedView: boolean;
+    // @Input()
+    // public embedMode: string; // parent to tell the action - create
 
     public action: string;
     public minDate = {year: (new Date()).getFullYear() - 100, month: 1, day: 1};
@@ -49,9 +50,16 @@ export class MroleEditComponent extends MroleComponent implements OnInit, AfterV
           super(
                 mroleService, injector, router, route, location, ViewType.EDIT);
 
+          this.fieldDisplayNames = {
+            'role': 'Role',
+            'description': 'Description',
+          };
+
 
           this.stringFields.push('role');
           this.stringFields.push('description');
+
+
 
 
 
@@ -67,6 +75,7 @@ export class MroleEditComponent extends MroleComponent implements OnInit, AfterV
     }
 
     ngOnInit() {
+      super.ngOnInit();
       if (this.embedMode == 'create') { // parent ask to create
         this.action='Create';
         this.getDetailData();
@@ -86,6 +95,8 @@ export class MroleEditComponent extends MroleComponent implements OnInit, AfterV
             }
         }
       }
+      // get editHintFields
+      this.searchHintFieldValues();
     }
 
     ngAfterViewInit() {
@@ -97,7 +108,6 @@ export class MroleEditComponent extends MroleComponent implements OnInit, AfterV
       if (this.initData) {
         this.action='Add';
         let detail = {
-            
         };
         for (let prop of Object.keys(this.initData)) {
             detail[prop] = this.initData[prop];
@@ -106,7 +116,6 @@ export class MroleEditComponent extends MroleComponent implements OnInit, AfterV
         this.detail = this.formatDetail(detail);
       } else {
           let detail = {
-              
           };
           this.detail = this.formatDetail(detail);
       }

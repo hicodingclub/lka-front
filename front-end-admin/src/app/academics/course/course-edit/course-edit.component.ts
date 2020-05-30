@@ -5,7 +5,8 @@ import { Injector } from '@angular/core';
 
 declare const $: any;
 
-import { CourseComponent, ViewType } from '../course.component';
+import { CourseEditCustComponent } from '../../../academics-cust/base/course/course-edit.cust.component';
+import { ViewType } from '../course.component';
 import { CourseService } from '../course.service';
 
 
@@ -21,21 +22,21 @@ import { MddsRichTextSelectDirective } from '@hicoder/angular-core';
   templateUrl: './course-edit.component.html',
   styleUrls: ['./course-edit.component.css']
 })
-export class CourseEditComponent extends CourseComponent implements OnInit, AfterViewInit {        
-    @Input() 
-    public id: string;
-    @Input()
-    public cid: string; // copy id
-    @Input()
-    public initData: any; // some fields has data already. eg: {a: b}. Used for add
-    @Output()
-    public doneData = new EventEmitter<boolean>();
-    @Output()
-    public done = new EventEmitter<any>();
-    @Input()
-    public embeddedView: boolean;
-    @Input()
-    public embedMode: string; // parent to tell the action - create
+export class CourseEditComponent extends CourseEditCustComponent implements OnInit, AfterViewInit {        
+    // @Input() 
+    // public id: string;
+    // @Input()
+    // public cid: string; // copy id
+    // @Input()
+    // public initData: any; // some fields has data already. eg: {a: b}. Used for add
+    // @Output()
+    // public doneData = new EventEmitter<boolean>();
+    // @Output()
+    // public done = new EventEmitter<any>();
+    // @Input()
+    // public embeddedView: boolean;
+    // @Input()
+    // public embedMode: string; // parent to tell the action - create
 
     public action: string;
     public minDate = {year: (new Date()).getFullYear() - 100, month: 1, day: 1};
@@ -55,9 +56,16 @@ export class CourseEditComponent extends CourseComponent implements OnInit, Afte
           super(
                 courseService, injector, router, route, location, ViewType.EDIT);
 
+          this.fieldDisplayNames = {
+            'title': 'Title',
+            'description': 'Description',
+          };
+
 
           this.stringFields.push('title');
           this.stringFields.push('description');
+
+
 
 
 
@@ -81,6 +89,7 @@ export class CourseEditComponent extends CourseComponent implements OnInit, Afte
     }
 
     ngOnInit() {
+      super.ngOnInit();
       if (this.embedMode == 'create') { // parent ask to create
         this.action='Create';
         this.getDetailData();
@@ -100,6 +109,8 @@ export class CourseEditComponent extends CourseComponent implements OnInit, Afte
             }
         }
       }
+      // get editHintFields
+      this.searchHintFieldValues();
     }
 
     ngAfterViewInit() {
@@ -111,7 +122,6 @@ export class CourseEditComponent extends CourseComponent implements OnInit, Afte
       if (this.initData) {
         this.action='Add';
         let detail = {
-            
         };
         for (let prop of Object.keys(this.initData)) {
             detail[prop] = this.initData[prop];
@@ -120,7 +130,6 @@ export class CourseEditComponent extends CourseComponent implements OnInit, Afte
         this.detail = this.formatDetail(detail);
       } else {
           let detail = {
-              
           };
           this.detail = this.formatDetail(detail);
       }

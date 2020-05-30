@@ -13,9 +13,9 @@ import { EmailtemplateService } from '../emailtemplate.service';
 })
 export class EmailtemplateDetailFieldComponent extends EmailtemplateComponent
         implements OnInit {
-    @Input() id: string;
-    @Input() detailObj: any;
-    @Input() showFieldsStr: string;
+    // @Input() id: string;
+    // @Input() detailObj: any;
+    // @Input() showFieldsStr: string;
     showFields: string[];
     
     constructor(
@@ -27,12 +27,22 @@ export class EmailtemplateDetailFieldComponent extends EmailtemplateComponent
           super(
                 emailtemplateService, injector, router, route, location, ViewType.DETAIL);
           
+          this.fieldDisplayNames = {
+            'templateName': 'Template Name',
+            'fromEmail': 'From Email',
+            'subject': 'Subject',
+            'content': 'Content',
+            'tag': 'Tag',
+          };
+
 
           this.stringFields.push('templateName');
           this.stringFields.push('fromEmail');
           this.stringFields.push('subject');
           this.stringFields.push('content');
           this.stringFields.push('tag');
+
+
 
 
 

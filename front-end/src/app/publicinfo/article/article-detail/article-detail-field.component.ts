@@ -13,9 +13,9 @@ import { ArticleService } from '../article.service';
 })
 export class ArticleDetailFieldComponent extends ArticleComponent
         implements OnInit {
-    @Input() id: string;
-    @Input() detailObj: any;
-    @Input() showFieldsStr: string;
+    // @Input() id: string;
+    // @Input() detailObj: any;
+    // @Input() showFieldsStr: string;
     showFields: string[];
     
     constructor(
@@ -27,6 +27,14 @@ export class ArticleDetailFieldComponent extends ArticleComponent
           super(
                 articleService, injector, router, route, location, ViewType.DETAIL);
           
+          this.fieldDisplayNames = {
+            'signaturePicture': 'Signature Picture',
+            'title': 'Title',
+            'author': 'Author',
+            'publishDate': 'Publish Date',
+            'content': 'Content',
+          };
+
 
           this.stringFields.push('signaturePicture');
           this.stringFields.push('title');
@@ -35,6 +43,8 @@ export class ArticleDetailFieldComponent extends ArticleComponent
 
 
           this.dateFields = ['publishDate', ];
+
+
 
 
 

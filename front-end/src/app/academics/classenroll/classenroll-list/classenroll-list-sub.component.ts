@@ -29,8 +29,8 @@ export class ClassenrollListSubComponent extends ClassenrollListComponent implem
 
   ngOnInit() {
     
-      this.parentSchema = this.getParentRouteRefField();
-      let ref = this.referenceFieldsReverseMap[this.parentSchema];
+      let ref = this.getParentRouteRefField();
+      this.parentSchema = this.referenceFieldsReverseMap[ref];
 
       this.parentItemId = this.getParentRouteItemId();
       let id = this.parentItemId;

@@ -1,9 +1,10 @@
-import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, Output, EventEmitter } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
 
-import { MfilegroupComponent, ViewType } from '../mfilegroup.component';
+import { MfilegroupDetailCustComponent } from '../../../files-cust/base/mfilegroup/mfilegroup-detail.cust.component';
+import { ViewType } from '../mfilegroup.component';
 import { MfilegroupService } from '../mfilegroup.service';
 
 
@@ -14,17 +15,15 @@ import { MfilegroupService } from '../mfilegroup.service';
   templateUrl: './mfilegroup-detail.component.html',
   styleUrls: ['./mfilegroup-detail.component.css']
 })
-export class MfilegroupDetailComponent extends MfilegroupComponent implements OnInit, AfterViewInit {
-  @Input() 
-  public id:string;
-  @Input()
-  public searchObj:any;
-  @Input()
-  public disableActionButtions:boolean;
-  @Input()
-  public style: any; // {}
-  @Input()
-  public options: any; // {} uiOptions
+export class MfilegroupDetailComponent extends MfilegroupDetailCustComponent implements OnInit, AfterViewInit {
+  // @Input() 
+  // public id:string;
+  // @Input()
+  // public searchObj:any;
+  // @Input()
+  // public disableActionButtions:boolean;
+  // @Output()
+  // public eventEmitter: EventEmitter<any> = new EventEmitter();
 
 
 
@@ -38,6 +37,11 @@ export class MfilegroupDetailComponent extends MfilegroupComponent implements On
           super(
                 mfilegroupService, injector, router, route, location, ViewType.DETAIL);
 
+          this.fieldDisplayNames = {
+            'name': 'Name',
+            'createdAt': 'Created at',
+          };
+
 
           this.stringFields.push('name');
 
@@ -49,11 +53,12 @@ export class MfilegroupDetailComponent extends MfilegroupComponent implements On
 
 
 
+
+
   }
 
   ngOnInit() {
-      this.style = this.style || {};
-      this.options = this.options || {};
+      super.ngOnInit();
       if (!this.id) this.id = this.route.snapshot.paramMap.get('id');
       if (this.id) {
         this.populateDetail(this.id);
@@ -69,7 +74,7 @@ export class MfilegroupDetailComponent extends MfilegroupComponent implements On
   ngAfterViewInit() {
 
     //Load first reference, if not others activated
-    if (!this.isChildRouterActivated()) {
+    if (!this.options['disableRefLink'] && !this.isChildRouterActivated()) {
       this.router.navigate(['./mfile/list', {}], {relativeTo: this.route, queryParamsHandling: 'preserve',});
     }
   }

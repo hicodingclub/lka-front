@@ -1,12 +1,16 @@
 
 
-		<div *ngIf="detail && showFields.includes('category')">                
+		<div *ngIf="detail && showFields.includes('category')">
                     {{detail['category']}}
-</div>
-		<div *ngIf="detail && showFields.includes('createdAt')">                  {{detail['createdAt']?detail['createdAt']['value']:""}}
-</div>
-		<div *ngIf="detail && showFields.includes('updatedAt')">                  {{detail['updatedAt']?detail['updatedAt']['value']:""}}
-</div>
-		<div *ngIf="detail && showFields.includes('muser_id')">                
+
+		</div>
+		<div *ngIf="detail && showFields.includes('createdAt')">  {{detail['createdAt']?detail['createdAt']['value']:""}}
+
+		</div>
+		<div *ngIf="detail && showFields.includes('updatedAt')">  {{detail['updatedAt']?detail['updatedAt']['value']:""}}
+
+		</div>
+		<div *ngIf="detail && showFields.includes('muser_id')">
                     {{detail['muser_id']}}
-</div>
+
+		</div>

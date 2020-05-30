@@ -13,9 +13,9 @@ import { EmaillogService } from '../emaillog.service';
 })
 export class EmaillogDetailFieldComponent extends EmaillogComponent
         implements OnInit {
-    @Input() id: string;
-    @Input() detailObj: any;
-    @Input() showFieldsStr: string;
+    // @Input() id: string;
+    // @Input() detailObj: any;
+    // @Input() showFieldsStr: string;
     showFields: string[];
     
     constructor(
@@ -27,6 +27,19 @@ export class EmaillogDetailFieldComponent extends EmaillogComponent
           super(
                 emaillogService, injector, router, route, location, ViewType.DETAIL);
           
+          this.fieldDisplayNames = {
+            'from': 'From',
+            'to': 'To',
+            'subject': 'Subject',
+            'content': 'Content',
+            'template': 'Template',
+            'module': 'Module',
+            'reason': 'Reason',
+            'result': 'Result',
+            'userId': 'User Id',
+            'createdAt': 'Created at',
+          };
+
 
           this.stringFields.push('from');
           this.stringFields.push('to');
@@ -40,6 +53,8 @@ export class EmaillogDetailFieldComponent extends EmaillogComponent
 
 
           this.dateFields = ['createdAt', ];
+
+
 
 
 

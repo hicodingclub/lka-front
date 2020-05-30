@@ -12,7 +12,7 @@
 		<span *ngIf="!loaded">Loading...</span>
 	</div>
 	<div class="container search">
-				<div class="row justify-content-end mt-3">
+		<div class="row justify-content-end mt-3">
 		
 			
 		</div>
@@ -99,24 +99,24 @@
 	            <td scope="row">{{(page-1)*perPage+i+1}}</td>
 
 	            <td >
-	            	                
+	            	
                     {{detail['name']}}
 
                 </td>
 	            <td >
-	            	                
+	            	
                     {{detail['type']}}
 
                 </td>
 	            <td *ngIf="referenceFieldsMap['group'] != parentItem"  >
-	            	                
+	            	
                	  <a routerLink="."  (click)="onDisplayRefClicked('group', detail['group'], $event)">
 	            	{{detail['group']?detail['group']['value']:""}}
 	              </a>
 
                 </td>
 	            <td >
-	            	                
+	            	
                     <div *ngIf="detail['labels'] && detail['labels']['selection']">
                         <ng-template ngFor let-element [ngForOf]="detail['labels']['selection']" let-idx="index">
                             <div class="badge badge-pill badge-secondary">
@@ -127,20 +127,21 @@
 
                 </td>
 	            <td >
-	            	                  {{detail['size']}} 
+	            	
+                    {{detail['size']}}
 
                 </td>
 	            <td >
-	            	                
+	            	
                     <lib-mdds-file-display [downloadUrl]="detail['link']" [isLarge]="false" [aspectRatio]=""></lib-mdds-file-display>
 
                 </td>
 	            <td >
-	            	                  {{detail['createdAt']?detail['createdAt']['value']:""}}
+	            	  {{detail['createdAt']?detail['createdAt']['value']:""}}
 
                 </td>
 	            <td >
-	            	                  {{detail['hasThumbnail']}} 
+	            	{{detail['hasThumbnail']}} 
 
                 </td>
 	            <td>
@@ -154,7 +155,7 @@
 	</table>
 	
 	<div class="container">
-				<div class="row justify-content-end mt-3">
+		<div class="row justify-content-end mt-3">
 		
 			
 		</div>

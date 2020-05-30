@@ -5,7 +5,8 @@ import { Injector } from '@angular/core';
 
 declare const $: any;
 
-import { KeynoteComponent, ViewType } from '../keynote.component';
+import { KeynoteEditCustComponent } from '../../../publicinfo-cust/base/keynote/keynote-edit.cust.component';
+import { ViewType } from '../keynote.component';
 import { KeynoteService } from '../keynote.service';
 
 
@@ -19,21 +20,21 @@ import { KeynoteService } from '../keynote.service';
   templateUrl: './keynote-edit.component.html',
   styleUrls: ['./keynote-edit.component.css']
 })
-export class KeynoteEditComponent extends KeynoteComponent implements OnInit, AfterViewInit {        
-    @Input() 
-    public id: string;
-    @Input()
-    public cid: string; // copy id
-    @Input()
-    public initData: any; // some fields has data already. eg: {a: b}. Used for add
-    @Output()
-    public doneData = new EventEmitter<boolean>();
-    @Output()
-    public done = new EventEmitter<any>();
-    @Input()
-    public embeddedView: boolean;
-    @Input()
-    public embedMode: string; // parent to tell the action - create
+export class KeynoteEditComponent extends KeynoteEditCustComponent implements OnInit, AfterViewInit {        
+    // @Input() 
+    // public id: string;
+    // @Input()
+    // public cid: string; // copy id
+    // @Input()
+    // public initData: any; // some fields has data already. eg: {a: b}. Used for add
+    // @Output()
+    // public doneData = new EventEmitter<boolean>();
+    // @Output()
+    // public done = new EventEmitter<any>();
+    // @Input()
+    // public embeddedView: boolean;
+    // @Input()
+    // public embedMode: string; // parent to tell the action - create
 
     public action: string;
     public minDate = {year: (new Date()).getFullYear() - 100, month: 1, day: 1};
@@ -48,6 +49,14 @@ export class KeynoteEditComponent extends KeynoteComponent implements OnInit, Af
       public location: Location) {
           super(
                 keynoteService, injector, router, route, location, ViewType.EDIT);
+
+          this.fieldDisplayNames = {
+            'title': 'Title',
+            'subtitle': 'Subtitle',
+            'description': 'Description',
+            'signaturePicture': 'Signature Picture',
+            'tag': 'Tag',
+          };
 
 
           this.stringFields.push('title');
@@ -64,12 +73,15 @@ export class KeynoteEditComponent extends KeynoteComponent implements OnInit, Af
 
 
 
+
+
           
           const detail = {};
           this.detail = this.formatDetail(detail);
     }
 
     ngOnInit() {
+      super.ngOnInit();
       if (this.embedMode == 'create') { // parent ask to create
         this.action='Create';
         this.getDetailData();
@@ -89,6 +101,8 @@ export class KeynoteEditComponent extends KeynoteComponent implements OnInit, Af
             }
         }
       }
+      // get editHintFields
+      this.searchHintFieldValues();
     }
 
     ngAfterViewInit() {
@@ -100,7 +114,6 @@ export class KeynoteEditComponent extends KeynoteComponent implements OnInit, Af
       if (this.initData) {
         this.action='Add';
         let detail = {
-            
         };
         for (let prop of Object.keys(this.initData)) {
             detail[prop] = this.initData[prop];
@@ -109,7 +122,6 @@ export class KeynoteEditComponent extends KeynoteComponent implements OnInit, Af
         this.detail = this.formatDetail(detail);
       } else {
           let detail = {
-              
           };
           this.detail = this.formatDetail(detail);
       }

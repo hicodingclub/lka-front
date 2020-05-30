@@ -1,5 +1,6 @@
 
-<div class="mt-4 mb-4 d-flex">
+
+<div class="mt-4 mb-4 d-flex" *ngIf="!options['disableTitleRow']">
 
 
 </div>
@@ -16,15 +17,15 @@
 
 
 <div>
-	<div class="container search">
-		<div class="row">
-			<div class="col-9">
+	<div *ngIf="!options['disableListHead']" class="container search">
+		<div class="row" *ngIf="!options['disableListSearch']">
+			<div class="col">
 
 			    <div class="input-group">
 	              <input type="search" class="form-control border border-secondary" id="mpermissionTextSearch" 
 						#mpermissionTextSearch [(ngModel)]="searchText"
 						(keydown.enter)="$event.target.blur();searchList();false"
-					    placeholder="Search for modulePermission"> 
+					    placeholder="Search for module permission"> 
 				  <div *ngIf="searchText" class="input-group-append icon-clear-inside">
 					<span >
 					    <i class="fas fa-times-circle" (click)="onSearchTextClear()" title="Clear"></i>
@@ -48,8 +49,12 @@
 					<div class="card">
 						<div class="card-body">
 	    <div class="single-line-edit">
-	      <div class="row">
-	        <div class="col-3"><label for="mpermissionEditRole">Role</label></div>
+	      <div class="row col-gutter">
+			<div class="col-3">
+				<label for="mpermissionEditRole">
+				Role
+				</label>
+			</div>
 	        <div class="col-8">
 
 
@@ -74,8 +79,12 @@
       
  
 	    <div class="single-line-edit">
-	      <div class="row">
-	        <div class="col-3"><label for="mpermissionEditModule">Module</label></div>
+	      <div class="row col-gutter">
+			<div class="col-3">
+				<label for="mpermissionEditModule">
+				Module
+				</label>
+			</div>
 	        <div class="col-8">
 
 
@@ -112,14 +121,14 @@
 		        <div *ngIf="!moreSearchOpened" style="text-align: left;">
 					<span class="badge badge-pill badge-info" *ngFor="let value of searchMoreDetail">
 					    <a (click)="toggleMoreSearch()" class="pointer"> {{value[0]}}: {{value[1]}}</a>
-					    <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromDetailAndSearchList(value[0])" title="Clear"></i>
+					    <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromDetailAndSearchList(value[2])" title="Clear"></i>
 					</span>
 				</div>
 		    
 
 			</div>
 		</div>
-		<div class="row">
+		<div class="row" *ngIf="!options['disableActionButtions']">
 			<div class="col">
 		        <div class="action-buttons">
 					
@@ -132,6 +141,7 @@
 			</div>
 		</div>
 		<hr/>
+		<div *ngIf="!options['disablePagination']">
 		<div class="row justify-content-end mt-3">
 		
 			<div *ngIf="list.length > 2" class="sort-selection mr-5">
@@ -148,8 +158,8 @@
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('role', 'Role', 'desc')">Role<i class="fas fa-arrow-down"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('module', 'Module', 'asc')">Module<i class="fas fa-arrow-up"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('module', 'Module', 'desc')">Module<i class="fas fa-arrow-down"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('modulePermission', 'Module Permission', 'asc')">ModulePermission<i class="fas fa-arrow-up"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('modulePermission', 'Module Permission', 'desc')">ModulePermission<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('modulePermission', 'Module Permission', 'asc')">Module Permission<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('modulePermission', 'Module Permission', 'desc')">Module Permission<i class="fas fa-arrow-down"></i></a>
 						</div>
 					</div>
 			</div>
@@ -216,6 +226,7 @@
 				</div>
 		</div>
 
+		</div>
 	</div>
 	<div class="no-records" *ngIf="list.length === 0">
 		<span *ngIf="loaded">No records found.</span>
@@ -232,7 +243,7 @@
       <div class="list-body-fields">
         <h5>
           <div class="mr-1 d-inline-block">
-                            
+            
                	  <a routerLink="."  (click)="onDisplayRefClicked('role', detail['role'], $event)">
 	            	{{detail['role']?detail['role']['value']:""}}
 	              </a>
@@ -241,7 +252,7 @@
         </h5>
         <div *ngIf="detail['module']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Module:</label></div>
-          <div class="ml-3">                
+          <div class="ml-3">
                	  <a routerLink="."  (click)="onDisplayRefClicked('module', detail['module'], $event)">
 	            	{{detail['module']?detail['module']['value']:""}}
 	              </a>
@@ -250,7 +261,7 @@
         </div>
         <div *ngIf="detail['modulePermission']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Module Permission:</label></div>
-          <div class="ml-3">                
+          <div class="ml-3">
                     {{detail['modulePermission']}}
 
           </div>
@@ -283,7 +294,7 @@
         <div>
           <h5>
             <div class="mr-1 d-inline-block">
-                              
+              
                	  <a routerLink="."  (click)="onDisplayRefClicked('role', detail['role'], $event)">
 	            	{{detail['role']?detail['role']['value']:""}}
 	              </a>
@@ -295,7 +306,7 @@
       <div class="card-body">
           <div *ngIf="detail['module']" class="d-flex flex-wrap">
             <div class=""><label>Module:</label></div>
-            <div class="ml-3">                
+            <div class="ml-3">
                	  <a routerLink="."  (click)="onDisplayRefClicked('module', detail['module'], $event)">
 	            	{{detail['module']?detail['module']['value']:""}}
 	              </a>
@@ -303,7 +314,7 @@
           </div>
           <div *ngIf="detail['modulePermission']" class="d-flex flex-wrap">
             <div class=""><label>Module Permission:</label></div>
-            <div class="ml-3">                
+            <div class="ml-3">
                     {{detail['modulePermission']}}
 </div>
           </div>
@@ -358,21 +369,21 @@
 	            </td>
 
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
+	            	
                	  <a routerLink="."  (click)="onDisplayRefClicked('role', detail['role'], $event)">
 	            	{{detail['role']?detail['role']['value']:""}}
 	              </a>
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
+	            	
                	  <a routerLink="."  (click)="onDisplayRefClicked('module', detail['module'], $event)">
 	            	{{detail['module']?detail['module']['value']:""}}
 	              </a>
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
+	            	
                     {{detail['modulePermission']}}
 
 	            </td>
@@ -392,6 +403,7 @@
 
 	</div>
 	<div class="container">
+		<div *ngIf="!options['disablePagination']">
 		<div class="row justify-content-end mt-3">
 		
 			
@@ -439,9 +451,10 @@
 				</div>
 		</div>
 
+		</div>
 	</div>
 	
 </div>
 
 
-<ng-template roles-ref-select></ng-template>
+<ng-template *ngIf="!options['disableRefs']" roles-ref-select></ng-template>

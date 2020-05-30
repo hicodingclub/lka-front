@@ -1,9 +1,10 @@
-import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, Output, EventEmitter } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
 
-import { MpubaccessComponent, ViewType } from '../mpubaccess.component';
+import { MpubaccessDetailCustComponent } from '../../../access-cust/base/mpubaccess/mpubaccess-detail.cust.component';
+import { ViewType } from '../mpubaccess.component';
 import { MpubaccessService } from '../mpubaccess.service';
 
 
@@ -15,17 +16,15 @@ import { ComponentFactoryResolver } from '@angular/core';
   templateUrl: './mpubaccess-detail.component.html',
   styleUrls: ['./mpubaccess-detail.component.css']
 })
-export class MpubaccessDetailComponent extends MpubaccessComponent implements OnInit, AfterViewInit {
-  @Input() 
-  public id:string;
-  @Input()
-  public searchObj:any;
-  @Input()
-  public disableActionButtions:boolean;
-  @Input()
-  public style: any; // {}
-  @Input()
-  public options: any; // {} uiOptions
+export class MpubaccessDetailComponent extends MpubaccessDetailCustComponent implements OnInit, AfterViewInit {
+  // @Input() 
+  // public id:string;
+  // @Input()
+  // public searchObj:any;
+  // @Input()
+  // public disableActionButtions:boolean;
+  // @Output()
+  // public eventEmitter: EventEmitter<any> = new EventEmitter();
 
 
 
@@ -39,10 +38,18 @@ export class MpubaccessDetailComponent extends MpubaccessComponent implements On
           super(componentFactoryResolver,
                 mpubaccessService, injector, router, route, location, ViewType.DETAIL);
 
+          this.fieldDisplayNames = {
+            'group': 'Group',
+            'module': 'Module',
+            'modulePermission': 'Module Permission',
+            'resourcePermission': 'Resource Permission',
+          };
+
 
           this.stringFields.push('modulePermission');
 
           this.referenceFields = ['group', 'module', ];
+
 
 
           this.mapFields = [
@@ -53,11 +60,11 @@ export class MpubaccessDetailComponent extends MpubaccessComponent implements On
 
 
 
+
   }
 
   ngOnInit() {
-      this.style = this.style || {};
-      this.options = this.options || {};
+      super.ngOnInit();
       if (!this.id) this.id = this.route.snapshot.paramMap.get('id');
       if (this.id) {
         this.populateDetail(this.id);

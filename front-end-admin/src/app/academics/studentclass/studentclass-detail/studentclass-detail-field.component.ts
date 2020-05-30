@@ -13,9 +13,9 @@ import { StudentclassService } from '../studentclass.service';
 })
 export class StudentclassDetailFieldComponent extends StudentclassComponent
         implements OnInit {
-    @Input() id: string;
-    @Input() detailObj: any;
-    @Input() showFieldsStr: string;
+    // @Input() id: string;
+    // @Input() detailObj: any;
+    // @Input() showFieldsStr: string;
     showFields: string[];
     
     constructor(
@@ -27,9 +27,16 @@ export class StudentclassDetailFieldComponent extends StudentclassComponent
           super(null,
                 studentclassService, injector, router, route, location, ViewType.DETAIL);
           
+          this.fieldDisplayNames = {
+            'student': 'Student',
+            'class': 'Class',
+          };
+
 
 
           this.referenceFields = ['student', 'class', ];
+
+
 
 
 

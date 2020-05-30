@@ -13,8 +13,8 @@ import { MroleService } from '../mrole.service';
 })
 export class MroleDetailPopComponent extends MroleDetailComponent 
         implements OnInit {
-    @Input() inputData;
-    @Output() outputData;
+    // @Input() inputData;
+    // @Output() outputData;
     done = new EventEmitter<boolean>();
     
     constructor(

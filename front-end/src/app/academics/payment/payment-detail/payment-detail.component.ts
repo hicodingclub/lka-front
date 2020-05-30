@@ -1,9 +1,10 @@
-import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, Output, EventEmitter } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
 
-import { PaymentComponent, ViewType } from '../payment.component';
+import { PaymentDetailCustComponent } from '../../../academics-cust/base/payment/payment-detail.cust.component';
+import { ViewType } from '../payment.component';
 import { PaymentService } from '../payment.service';
 
 
@@ -14,17 +15,15 @@ import { PaymentService } from '../payment.service';
   templateUrl: './payment-detail.component.html',
   styleUrls: ['./payment-detail.component.css']
 })
-export class PaymentDetailComponent extends PaymentComponent implements OnInit, AfterViewInit {
-  @Input() 
-  public id:string;
-  @Input()
-  public searchObj:any;
-  @Input()
-  public disableActionButtions:boolean;
-  @Input()
-  public style: any; // {}
-  @Input()
-  public options: any; // {} uiOptions
+export class PaymentDetailComponent extends PaymentDetailCustComponent implements OnInit, AfterViewInit {
+  // @Input() 
+  // public id:string;
+  // @Input()
+  // public searchObj:any;
+  // @Input()
+  // public disableActionButtions:boolean;
+  // @Output()
+  // public eventEmitter: EventEmitter<any> = new EventEmitter();
 
 
 
@@ -37,6 +36,16 @@ export class PaymentDetailComponent extends PaymentComponent implements OnInit, 
       public location: Location) {
           super(
                 paymentService, injector, router, route, location, ViewType.DETAIL);
+
+          this.fieldDisplayNames = {
+            'product': 'Product',
+            'productID': 'Product ID',
+            'orderDescription': 'Description',
+            'price': 'Price',
+            'createdAt': 'Created At',
+            'transLogP': 'Transaction Log',
+            'status': 'Status',
+          };
 
 
           this.stringFields.push('product');
@@ -54,11 +63,12 @@ export class PaymentDetailComponent extends PaymentComponent implements OnInit, 
 
 
 
+
+
   }
 
   ngOnInit() {
-      this.style = this.style || {};
-      this.options = this.options || {};
+      super.ngOnInit();
       if (!this.id) this.id = this.route.snapshot.paramMap.get('id');
       if (this.id) {
         this.populateDetail(this.id);

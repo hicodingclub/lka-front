@@ -2,7 +2,7 @@
 <div class="detail" *ngIf="detail">
 	<div *ngIf="!options['disableActionButtions']"><div *ngIf="!disableActionButtions" class="action-buttons">
     <!--<a href="javascript:void(0)" (click)="goBack()"><i class="fas fa-angle-double-left" title="Back"></i></a>-->
-    <a [routerLink]="['../../list' ]"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
+    <a routerLink="../../list"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
     
     
     
@@ -16,7 +16,7 @@
         <div class="ml-1">
           <h5>
             <div class="mr-1 d-inline-block">
-                              
+              
                     {{detail['module']}}
 
             </div>
@@ -27,7 +27,7 @@
           <div>
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
                 <div><label>From:</label></div>
-                <div class="ml-3">                
+                <div class="ml-3">
                     {{detail['from']}}
 </div>
             </div>
@@ -35,7 +35,7 @@
           <div>
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
                 <div><label>To:</label></div>
-                <div class="ml-3">                
+                <div class="ml-3">
                     {{detail['to']}}
 </div>
             </div>
@@ -43,7 +43,7 @@
           <div>
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
                 <div><label>Subject:</label></div>
-                <div class="ml-3">                
+                <div class="ml-3">
                     {{detail['subject']}}
 </div>
             </div>
@@ -51,7 +51,7 @@
           <div>
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
                 <div><label>Content:</label></div>
-                <div class="ml-3">                 
+                <div class="ml-3">
                     <div libMddsRichtextShow="emaillogDetailContent" [content]="detail['content']"></div>
 </div>
             </div>
@@ -59,7 +59,7 @@
           <div>
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
                 <div><label>Template:</label></div>
-                <div class="ml-3">                
+                <div class="ml-3">
                     {{detail['template']}}
 </div>
             </div>
@@ -67,7 +67,7 @@
           <div>
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
                 <div><label>Reason:</label></div>
-                <div class="ml-3">                
+                <div class="ml-3">
                     {{detail['reason']}}
 </div>
             </div>
@@ -75,7 +75,7 @@
           <div>
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
                 <div><label>Result:</label></div>
-                <div class="ml-3">                
+                <div class="ml-3">
                     {{detail['result']}}
 </div>
             </div>
@@ -83,7 +83,7 @@
           <div>
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
                 <div><label>User Id:</label></div>
-                <div class="ml-3">                
+                <div class="ml-3">
                     {{detail['userId']}}
 </div>
             </div>
@@ -91,7 +91,7 @@
           <div>
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
                 <div><label>Created at:</label></div>
-                <div class="ml-3">                  {{detail['createdAt']?detail['createdAt']['value']:""}}
+                <div class="ml-3">  {{detail['createdAt']?detail['createdAt']['value']:""}}
 </div>
             </div>
           </div>
@@ -104,4 +104,3 @@
 	<div *ngIf="!options['disableRefLink']">
 </div>
 </div>
-

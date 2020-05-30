@@ -1,9 +1,10 @@
-import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, Output, EventEmitter } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
 
-import { MmoduleComponent, ViewType } from '../mmodule.component';
+import { MmoduleDetailCustComponent } from '../../../roles-cust/base/mmodule/mmodule-detail.cust.component';
+import { ViewType } from '../mmodule.component';
 import { MmoduleService } from '../mmodule.service';
 
 
@@ -14,17 +15,15 @@ import { MmoduleService } from '../mmodule.service';
   templateUrl: './mmodule-detail.component.html',
   styleUrls: ['./mmodule-detail.component.css']
 })
-export class MmoduleDetailComponent extends MmoduleComponent implements OnInit, AfterViewInit {
-  @Input() 
-  public id:string;
-  @Input()
-  public searchObj:any;
-  @Input()
-  public disableActionButtions:boolean;
-  @Input()
-  public style: any; // {}
-  @Input()
-  public options: any; // {} uiOptions
+export class MmoduleDetailComponent extends MmoduleDetailCustComponent implements OnInit, AfterViewInit {
+  // @Input() 
+  // public id:string;
+  // @Input()
+  // public searchObj:any;
+  // @Input()
+  // public disableActionButtions:boolean;
+  // @Output()
+  // public eventEmitter: EventEmitter<any> = new EventEmitter();
 
 
 
@@ -38,8 +37,14 @@ export class MmoduleDetailComponent extends MmoduleComponent implements OnInit, 
           super(
                 mmoduleService, injector, router, route, location, ViewType.DETAIL);
 
+          this.fieldDisplayNames = {
+            'module': 'Module',
+            'resources': 'Resources',
+          };
+
 
           this.stringFields.push('module');
+
 
 
 
@@ -49,11 +54,11 @@ export class MmoduleDetailComponent extends MmoduleComponent implements OnInit, 
 
 
 
+
   }
 
   ngOnInit() {
-      this.style = this.style || {};
-      this.options = this.options || {};
+      super.ngOnInit();
       if (!this.id) this.id = this.route.snapshot.paramMap.get('id');
       if (this.id) {
         this.populateDetail(this.id);
@@ -69,7 +74,7 @@ export class MmoduleDetailComponent extends MmoduleComponent implements OnInit, 
   ngAfterViewInit() {
 
     //Load first reference, if not others activated
-    if (!this.isChildRouterActivated()) {
+    if (!this.options['disableRefLink'] && !this.isChildRouterActivated()) {
       this.router.navigate(['./mpermission/list', {}], {relativeTo: this.route, queryParamsHandling: 'preserve',});
     }
   }

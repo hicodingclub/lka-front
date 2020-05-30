@@ -1,14 +1,20 @@
 <div class="edit" *ngIf="detail">
 	<div *ngIf="!embeddedView" class="action-buttons">
-        <!-- <a href="javascript:void(0)" (click)="goBack()" ><i class="fas fa-angle-double-left" title="Back"></i></a> -->
+		<!-- <a href="javascript:void(0)" (click)="goBack()" ><i class="fas fa-angle-double-left" title="Back"></i></a> -->
 	</div>
-	
+
 	<div class="card" style="text-align: left;">
-	  <div class="card-body">
-	    <h4 class="card-title" *ngIf="!embeddedView">{{action}} Student</h4>
-	    <form (ngSubmit)="onSubmit()" #editForm="ngForm">
-	    
-	     <div *ngIf="action == 'Edit'">
+		<div class="card-body">
+			<h4 class="card-title" *ngIf="!embeddedView && !options['title']">{{action}} Student</h4>
+			<h4 class="card-title" *ngIf="options['title']" [ngStyle]="style['card-title']">
+				{{options['title']}}
+			</h4>
+			<p	*ngIf="options['subtitle']" [ngStyle]="style['card-subtitle']">
+				{{options['subtitle']}}
+			</p>
+			<form (ngSubmit)="onSubmit()" #editForm="ngForm">
+
+				<div *ngIf="action == 'Edit'">
 <div *ngIf="!hiddenFields.includes('first_name')">
 
         <fieldset class="form-group">
@@ -21,10 +27,10 @@
                     required
                     
                     maxlength="100"
-                 
+                
                     [(ngModel)]="detail['first_name']" name="EditFirst_name"
                     #EditFirst_name="ngModel">
-            <div *ngIf="detail['first_name']" 
+            <div *ngIf="detail['first_name']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('first_name')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -59,10 +65,10 @@
                     required
                     
                     maxlength="100"
-                 
+                
                     [(ngModel)]="detail['last_name']" name="EditLast_name"
                     #EditLast_name="ngModel">
-            <div *ngIf="detail['last_name']" 
+            <div *ngIf="detail['last_name']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('last_name')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -123,6 +129,7 @@
           <label for="EditGrade">Grade</label>
           
           
+          
           <input type="number" class="form-control" id="EditGrade" 
                   
                   
@@ -155,10 +162,10 @@
                     required
                     
                     maxlength="100"
-                studentDirectiveEmail="" 
+                academicsStudentDirectiveEmail=""
                     [(ngModel)]="detail['email']" name="EditEmail"
                     #EditEmail="ngModel">
-            <div *ngIf="detail['email']" 
+            <div *ngIf="detail['email']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('email')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -171,8 +178,8 @@
               Email is required.
               </div>
 
-            <div *ngIf="EditEmail.errors && EditEmail.errors.studentDirectiveEmail">
-                {{EditEmail.errors.studentDirectiveEmail}}
+            <div *ngIf="EditEmail.errors && EditEmail.errors.academicsStudentDirectiveEmail">
+                {{EditEmail.errors.academicsStudentDirectiveEmail}}
               </div> 
 
             <div *ngIf="EditEmail.errors && EditEmail.errors.maxlength">
@@ -196,10 +203,10 @@
                     required
                     
                     maxlength="20"
-                studentDirectivePhoneNumber="" 
+                academicsStudentDirectivePhoneNumber=""
                     [(ngModel)]="detail['phoneNumber']" name="EditPhoneNumber"
                     #EditPhoneNumber="ngModel">
-            <div *ngIf="detail['phoneNumber']" 
+            <div *ngIf="detail['phoneNumber']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('phoneNumber')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -212,8 +219,8 @@
               PhoneNumber is required.
               </div>
 
-            <div *ngIf="EditPhoneNumber.errors && EditPhoneNumber.errors.studentDirectivePhoneNumber">
-                {{EditPhoneNumber.errors.studentDirectivePhoneNumber}}
+            <div *ngIf="EditPhoneNumber.errors && EditPhoneNumber.errors.academicsStudentDirectivePhoneNumber">
+                {{EditPhoneNumber.errors.academicsStudentDirectivePhoneNumber}}
               </div> 
 
             <div *ngIf="EditPhoneNumber.errors && EditPhoneNumber.errors.maxlength">
@@ -237,10 +244,10 @@
                     required
                     
                     maxlength="100"
-                 
+                
                     [(ngModel)]="detail['school']" name="EditSchool"
                     #EditSchool="ngModel">
-            <div *ngIf="detail['school']" 
+            <div *ngIf="detail['school']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('school')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -275,10 +282,10 @@
                     
                     
                     maxlength="100"
-                 
+                
                     [(ngModel)]="detail['GuardianOneName']" name="EditGuardianOneName"
                     #EditGuardianOneName="ngModel">
-            <div *ngIf="detail['GuardianOneName']" 
+            <div *ngIf="detail['GuardianOneName']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('GuardianOneName')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -310,10 +317,10 @@
                     required
                     
                     maxlength="20"
-                studentDirectiveGuardianOnePhone="" 
+                academicsStudentDirectiveGuardianOnePhone=""
                     [(ngModel)]="detail['GuardianOnePhone']" name="EditGuardianOnePhone"
                     #EditGuardianOnePhone="ngModel">
-            <div *ngIf="detail['GuardianOnePhone']" 
+            <div *ngIf="detail['GuardianOnePhone']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('GuardianOnePhone')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -326,8 +333,8 @@
               GuardianOnePhone is required.
               </div>
 
-            <div *ngIf="EditGuardianOnePhone.errors && EditGuardianOnePhone.errors.studentDirectiveGuardianOnePhone">
-                {{EditGuardianOnePhone.errors.studentDirectiveGuardianOnePhone}}
+            <div *ngIf="EditGuardianOnePhone.errors && EditGuardianOnePhone.errors.academicsStudentDirectiveGuardianOnePhone">
+                {{EditGuardianOnePhone.errors.academicsStudentDirectiveGuardianOnePhone}}
               </div> 
 
             <div *ngIf="EditGuardianOnePhone.errors && EditGuardianOnePhone.errors.maxlength">
@@ -351,10 +358,10 @@
                     
                     
                     maxlength="100"
-                studentDirectiveGuardianOneEmail="" 
+                academicsStudentDirectiveGuardianOneEmail=""
                     [(ngModel)]="detail['GuardianOneEmail']" name="EditGuardianOneEmail"
                     #EditGuardianOneEmail="ngModel">
-            <div *ngIf="detail['GuardianOneEmail']" 
+            <div *ngIf="detail['GuardianOneEmail']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('GuardianOneEmail')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -364,8 +371,8 @@
            class="alert alert-danger">
 
 
-            <div *ngIf="EditGuardianOneEmail.errors && EditGuardianOneEmail.errors.studentDirectiveGuardianOneEmail">
-                {{EditGuardianOneEmail.errors.studentDirectiveGuardianOneEmail}}
+            <div *ngIf="EditGuardianOneEmail.errors && EditGuardianOneEmail.errors.academicsStudentDirectiveGuardianOneEmail">
+                {{EditGuardianOneEmail.errors.academicsStudentDirectiveGuardianOneEmail}}
               </div> 
 
             <div *ngIf="EditGuardianOneEmail.errors && EditGuardianOneEmail.errors.maxlength">
@@ -389,10 +396,10 @@
                     
                     
                     maxlength="100"
-                 
+                
                     [(ngModel)]="detail['GuardianTwoName']" name="EditGuardianTwoName"
                     #EditGuardianTwoName="ngModel">
-            <div *ngIf="detail['GuardianTwoName']" 
+            <div *ngIf="detail['GuardianTwoName']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('GuardianTwoName')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -424,10 +431,10 @@
                     
                     
                     maxlength="20"
-                studentDirectiveGuardianTwoPhone="" 
+                academicsStudentDirectiveGuardianTwoPhone=""
                     [(ngModel)]="detail['GuardianTwoPhone']" name="EditGuardianTwoPhone"
                     #EditGuardianTwoPhone="ngModel">
-            <div *ngIf="detail['GuardianTwoPhone']" 
+            <div *ngIf="detail['GuardianTwoPhone']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('GuardianTwoPhone')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -437,8 +444,8 @@
            class="alert alert-danger">
 
 
-            <div *ngIf="EditGuardianTwoPhone.errors && EditGuardianTwoPhone.errors.studentDirectiveGuardianTwoPhone">
-                {{EditGuardianTwoPhone.errors.studentDirectiveGuardianTwoPhone}}
+            <div *ngIf="EditGuardianTwoPhone.errors && EditGuardianTwoPhone.errors.academicsStudentDirectiveGuardianTwoPhone">
+                {{EditGuardianTwoPhone.errors.academicsStudentDirectiveGuardianTwoPhone}}
               </div> 
 
             <div *ngIf="EditGuardianTwoPhone.errors && EditGuardianTwoPhone.errors.maxlength">
@@ -462,10 +469,10 @@
                     
                     
                     maxlength="100"
-                studentDirectiveGuardianTwoEmail="" 
+                academicsStudentDirectiveGuardianTwoEmail=""
                     [(ngModel)]="detail['GuardianTwoEmail']" name="EditGuardianTwoEmail"
                     #EditGuardianTwoEmail="ngModel">
-            <div *ngIf="detail['GuardianTwoEmail']" 
+            <div *ngIf="detail['GuardianTwoEmail']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('GuardianTwoEmail')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -475,8 +482,8 @@
            class="alert alert-danger">
 
 
-            <div *ngIf="EditGuardianTwoEmail.errors && EditGuardianTwoEmail.errors.studentDirectiveGuardianTwoEmail">
-                {{EditGuardianTwoEmail.errors.studentDirectiveGuardianTwoEmail}}
+            <div *ngIf="EditGuardianTwoEmail.errors && EditGuardianTwoEmail.errors.academicsStudentDirectiveGuardianTwoEmail">
+                {{EditGuardianTwoEmail.errors.academicsStudentDirectiveGuardianTwoEmail}}
               </div> 
 
             <div *ngIf="EditGuardianTwoEmail.errors && EditGuardianTwoEmail.errors.maxlength">
@@ -489,8 +496,8 @@
     
 </div>
 
-         </div>	
-	     <div *ngIf="action == 'Create' || action == 'Add' ">
+				</div>
+				<div *ngIf="action == 'Create' || action == 'Add' ">
 <div *ngIf="!hiddenFields.includes('first_name')">
 
         <fieldset class="form-group">
@@ -503,10 +510,10 @@
                     required
                     
                     maxlength="100"
-                 
+                
                     [(ngModel)]="detail['first_name']" name="EditFirst_name"
                     #EditFirst_name="ngModel">
-            <div *ngIf="detail['first_name']" 
+            <div *ngIf="detail['first_name']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('first_name')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -541,10 +548,10 @@
                     required
                     
                     maxlength="100"
-                 
+                
                     [(ngModel)]="detail['last_name']" name="EditLast_name"
                     #EditLast_name="ngModel">
-            <div *ngIf="detail['last_name']" 
+            <div *ngIf="detail['last_name']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('last_name')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -605,6 +612,7 @@
           <label for="EditGrade">Grade</label>
           
           
+          
           <input type="number" class="form-control" id="EditGrade" 
                   
                   
@@ -637,10 +645,10 @@
                     required
                     
                     maxlength="100"
-                studentDirectiveEmail="" 
+                academicsStudentDirectiveEmail=""
                     [(ngModel)]="detail['email']" name="EditEmail"
                     #EditEmail="ngModel">
-            <div *ngIf="detail['email']" 
+            <div *ngIf="detail['email']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('email')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -653,8 +661,8 @@
               Email is required.
               </div>
 
-            <div *ngIf="EditEmail.errors && EditEmail.errors.studentDirectiveEmail">
-                {{EditEmail.errors.studentDirectiveEmail}}
+            <div *ngIf="EditEmail.errors && EditEmail.errors.academicsStudentDirectiveEmail">
+                {{EditEmail.errors.academicsStudentDirectiveEmail}}
               </div> 
 
             <div *ngIf="EditEmail.errors && EditEmail.errors.maxlength">
@@ -678,10 +686,10 @@
                     required
                     
                     maxlength="20"
-                studentDirectivePhoneNumber="" 
+                academicsStudentDirectivePhoneNumber=""
                     [(ngModel)]="detail['phoneNumber']" name="EditPhoneNumber"
                     #EditPhoneNumber="ngModel">
-            <div *ngIf="detail['phoneNumber']" 
+            <div *ngIf="detail['phoneNumber']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('phoneNumber')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -694,8 +702,8 @@
               PhoneNumber is required.
               </div>
 
-            <div *ngIf="EditPhoneNumber.errors && EditPhoneNumber.errors.studentDirectivePhoneNumber">
-                {{EditPhoneNumber.errors.studentDirectivePhoneNumber}}
+            <div *ngIf="EditPhoneNumber.errors && EditPhoneNumber.errors.academicsStudentDirectivePhoneNumber">
+                {{EditPhoneNumber.errors.academicsStudentDirectivePhoneNumber}}
               </div> 
 
             <div *ngIf="EditPhoneNumber.errors && EditPhoneNumber.errors.maxlength">
@@ -719,10 +727,10 @@
                     required
                     
                     maxlength="100"
-                 
+                
                     [(ngModel)]="detail['school']" name="EditSchool"
                     #EditSchool="ngModel">
-            <div *ngIf="detail['school']" 
+            <div *ngIf="detail['school']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('school')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -757,10 +765,10 @@
                     
                     
                     maxlength="100"
-                 
+                
                     [(ngModel)]="detail['GuardianOneName']" name="EditGuardianOneName"
                     #EditGuardianOneName="ngModel">
-            <div *ngIf="detail['GuardianOneName']" 
+            <div *ngIf="detail['GuardianOneName']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('GuardianOneName')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -792,10 +800,10 @@
                     required
                     
                     maxlength="20"
-                studentDirectiveGuardianOnePhone="" 
+                academicsStudentDirectiveGuardianOnePhone=""
                     [(ngModel)]="detail['GuardianOnePhone']" name="EditGuardianOnePhone"
                     #EditGuardianOnePhone="ngModel">
-            <div *ngIf="detail['GuardianOnePhone']" 
+            <div *ngIf="detail['GuardianOnePhone']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('GuardianOnePhone')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -808,8 +816,8 @@
               GuardianOnePhone is required.
               </div>
 
-            <div *ngIf="EditGuardianOnePhone.errors && EditGuardianOnePhone.errors.studentDirectiveGuardianOnePhone">
-                {{EditGuardianOnePhone.errors.studentDirectiveGuardianOnePhone}}
+            <div *ngIf="EditGuardianOnePhone.errors && EditGuardianOnePhone.errors.academicsStudentDirectiveGuardianOnePhone">
+                {{EditGuardianOnePhone.errors.academicsStudentDirectiveGuardianOnePhone}}
               </div> 
 
             <div *ngIf="EditGuardianOnePhone.errors && EditGuardianOnePhone.errors.maxlength">
@@ -833,10 +841,10 @@
                     
                     
                     maxlength="100"
-                studentDirectiveGuardianOneEmail="" 
+                academicsStudentDirectiveGuardianOneEmail=""
                     [(ngModel)]="detail['GuardianOneEmail']" name="EditGuardianOneEmail"
                     #EditGuardianOneEmail="ngModel">
-            <div *ngIf="detail['GuardianOneEmail']" 
+            <div *ngIf="detail['GuardianOneEmail']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('GuardianOneEmail')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -846,8 +854,8 @@
            class="alert alert-danger">
 
 
-            <div *ngIf="EditGuardianOneEmail.errors && EditGuardianOneEmail.errors.studentDirectiveGuardianOneEmail">
-                {{EditGuardianOneEmail.errors.studentDirectiveGuardianOneEmail}}
+            <div *ngIf="EditGuardianOneEmail.errors && EditGuardianOneEmail.errors.academicsStudentDirectiveGuardianOneEmail">
+                {{EditGuardianOneEmail.errors.academicsStudentDirectiveGuardianOneEmail}}
               </div> 
 
             <div *ngIf="EditGuardianOneEmail.errors && EditGuardianOneEmail.errors.maxlength">
@@ -871,10 +879,10 @@
                     
                     
                     maxlength="100"
-                 
+                
                     [(ngModel)]="detail['GuardianTwoName']" name="EditGuardianTwoName"
                     #EditGuardianTwoName="ngModel">
-            <div *ngIf="detail['GuardianTwoName']" 
+            <div *ngIf="detail['GuardianTwoName']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('GuardianTwoName')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -906,10 +914,10 @@
                     
                     
                     maxlength="20"
-                studentDirectiveGuardianTwoPhone="" 
+                academicsStudentDirectiveGuardianTwoPhone=""
                     [(ngModel)]="detail['GuardianTwoPhone']" name="EditGuardianTwoPhone"
                     #EditGuardianTwoPhone="ngModel">
-            <div *ngIf="detail['GuardianTwoPhone']" 
+            <div *ngIf="detail['GuardianTwoPhone']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('GuardianTwoPhone')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -919,8 +927,8 @@
            class="alert alert-danger">
 
 
-            <div *ngIf="EditGuardianTwoPhone.errors && EditGuardianTwoPhone.errors.studentDirectiveGuardianTwoPhone">
-                {{EditGuardianTwoPhone.errors.studentDirectiveGuardianTwoPhone}}
+            <div *ngIf="EditGuardianTwoPhone.errors && EditGuardianTwoPhone.errors.academicsStudentDirectiveGuardianTwoPhone">
+                {{EditGuardianTwoPhone.errors.academicsStudentDirectiveGuardianTwoPhone}}
               </div> 
 
             <div *ngIf="EditGuardianTwoPhone.errors && EditGuardianTwoPhone.errors.maxlength">
@@ -944,10 +952,10 @@
                     
                     
                     maxlength="100"
-                studentDirectiveGuardianTwoEmail="" 
+                academicsStudentDirectiveGuardianTwoEmail=""
                     [(ngModel)]="detail['GuardianTwoEmail']" name="EditGuardianTwoEmail"
                     #EditGuardianTwoEmail="ngModel">
-            <div *ngIf="detail['GuardianTwoEmail']" 
+            <div *ngIf="detail['GuardianTwoEmail']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('GuardianTwoEmail')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -957,8 +965,8 @@
            class="alert alert-danger">
 
 
-            <div *ngIf="EditGuardianTwoEmail.errors && EditGuardianTwoEmail.errors.studentDirectiveGuardianTwoEmail">
-                {{EditGuardianTwoEmail.errors.studentDirectiveGuardianTwoEmail}}
+            <div *ngIf="EditGuardianTwoEmail.errors && EditGuardianTwoEmail.errors.academicsStudentDirectiveGuardianTwoEmail">
+                {{EditGuardianTwoEmail.errors.academicsStudentDirectiveGuardianTwoEmail}}
               </div> 
 
             <div *ngIf="EditGuardianTwoEmail.errors && EditGuardianTwoEmail.errors.maxlength">
@@ -971,16 +979,13 @@
     
 </div>
 
-         </div>	
-         
-		<div class="action-buttons-center">
-	     	<button type="submit" class="btn btn-success" 
-     			[disabled]="!editForm.form.valid">Submit</button>
-	     	<button class="btn btn-outline-success" 
-     			type="button" (click)="editCancel()">Cancel</button>
+				</div>
+
+				<div class="action-buttons-center">
+					<button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
+					<button class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>
+				</div>
+			</form>
 		</div>
-	    </form>
-	  </div>
 	</div>
 </div>
-

@@ -5,7 +5,7 @@
 <div class="detail" *ngIf="detail">
 	<div *ngIf="!options['disableActionButtions']"><div *ngIf="!disableActionButtions" class="action-buttons">
     <!--<a href="javascript:void(0)" (click)="goBack()"><i class="fas fa-angle-double-left" title="Back"></i></a>-->
-    <a [routerLink]="['../../list' ]"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
+    <a routerLink="../../list"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
     <a [routerLink]="['../../edit', detail['_id'] ]" [skipLocationChange]="false" class="btn btn-outline-primary">Edit student profile</a>
     
     <a routerLink="." class="btn btn-outline-primary" (click)="onDelete(detail['_id'], null)">Remove this student</a>
@@ -19,12 +19,12 @@
         <div class="ml-1">
           <h5>
             <div class="mr-1 d-inline-block">
-                              
+              
                     {{detail['first_name']}}
 
             </div>
             <div class="mr-1 d-inline-block">
-                              
+              
                     {{detail['last_name']}}
 
             </div>
@@ -35,25 +35,26 @@
           <div>
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
                 <div><label>Date of Birth:</label></div>
-                <div class="ml-3">                  {{detail['date_of_birth']?detail['date_of_birth']['value']:""}}
+                <div class="ml-3">  {{detail['date_of_birth']?detail['date_of_birth']['value']:""}}
 </div>
             </div>
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
                 <div><label>Grade:</label></div>
-                <div class="ml-3">                  {{detail['grade']}} 
+                <div class="ml-3">
+                    {{detail['grade']}}
 </div>
             </div>
           </div>
           <div>
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
                 <div><label>Email:</label></div>
-                <div class="ml-3">                
+                <div class="ml-3">
                     {{detail['email']}}
 </div>
             </div>
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
                 <div><label>Phone Number:</label></div>
-                <div class="ml-3">                
+                <div class="ml-3">
                     {{detail['phoneNumber']}}
 </div>
             </div>
@@ -61,7 +62,7 @@
           <div>
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
                 <div><label>School:</label></div>
-                <div class="ml-3">                
+                <div class="ml-3">
                     {{detail['school']}}
 </div>
             </div>
@@ -69,19 +70,19 @@
           <div>
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
                 <div><label>Guardian One Name:</label></div>
-                <div class="ml-3">                
+                <div class="ml-3">
                     {{detail['GuardianOneName']}}
 </div>
             </div>
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
                 <div><label>Guardian One Phone:</label></div>
-                <div class="ml-3">                
+                <div class="ml-3">
                     {{detail['GuardianOnePhone']}}
 </div>
             </div>
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
                 <div><label>Guardian One Email:</label></div>
-                <div class="ml-3">                
+                <div class="ml-3">
                     {{detail['GuardianOneEmail']}}
 </div>
             </div>
@@ -89,19 +90,19 @@
           <div>
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
                 <div><label>Guardian Two Name:</label></div>
-                <div class="ml-3">                
+                <div class="ml-3">
                     {{detail['GuardianTwoName']}}
 </div>
             </div>
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
                 <div><label>Guardian Two Phone:</label></div>
-                <div class="ml-3">                
+                <div class="ml-3">
                     {{detail['GuardianTwoPhone']}}
 </div>
             </div>
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
                 <div><label>Guardian Two Email:</label></div>
-                <div class="ml-3">                
+                <div class="ml-3">
                     {{detail['GuardianTwoEmail']}}
 </div>
             </div>
@@ -126,4 +127,3 @@
     <router-outlet></router-outlet>
 </div>
 </div>
-

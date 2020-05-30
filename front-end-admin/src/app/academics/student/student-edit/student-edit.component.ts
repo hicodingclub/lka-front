@@ -5,7 +5,8 @@ import { Injector } from '@angular/core';
 
 declare const $: any;
 
-import { StudentComponent, ViewType } from '../student.component';
+import { StudentEditCustComponent } from '../../../academics-cust/base/student/student-edit.cust.component';
+import { ViewType } from '../student.component';
 import { StudentService } from '../student.service';
 
 
@@ -13,10 +14,10 @@ import { StudentService } from '../student.service';
 import { NG_VALIDATORS, Validator, ValidationErrors, AbstractControl, FormGroup } from '@angular/forms';
 
 @Directive({
-  selector: '[studentDirectiveEmail]',
-  providers: [{provide: NG_VALIDATORS, useExisting: StudentDirectiveEmail, multi: true}]
+  selector: '[academicsStudentDirectiveEmail]',
+  providers: [{provide: NG_VALIDATORS, useExisting: AcademicsStudentDirectiveEmail, multi: true}]
 })
-export class StudentDirectiveEmail implements Validator {
+export class AcademicsStudentDirectiveEmail implements Validator {
   validators:any[] = [
       
          {validator: function(email) {
@@ -40,9 +41,9 @@ export class StudentDirectiveEmail implements Validator {
             let obj = this.validators[idx];
             try {
                 result = obj.validator(value)
-                if (result == false ) return { 'studentDirectiveEmail': obj.msg };
+                if (result == false ) return { 'academicsStudentDirectiveEmail': obj.msg };
             } catch (e) {
-                return { 'studentDirectiveEmail': obj.msg };
+                return { 'academicsStudentDirectiveEmail': obj.msg };
             }
         }
     }
@@ -50,10 +51,10 @@ export class StudentDirectiveEmail implements Validator {
   }
 }
 @Directive({
-  selector: '[studentDirectivePhoneNumber]',
-  providers: [{provide: NG_VALIDATORS, useExisting: StudentDirectivePhoneNumber, multi: true}]
+  selector: '[academicsStudentDirectivePhoneNumber]',
+  providers: [{provide: NG_VALIDATORS, useExisting: AcademicsStudentDirectivePhoneNumber, multi: true}]
 })
-export class StudentDirectivePhoneNumber implements Validator {
+export class AcademicsStudentDirectivePhoneNumber implements Validator {
   validators:any[] = [
       
          {validator: function(phone) {
@@ -77,9 +78,9 @@ export class StudentDirectivePhoneNumber implements Validator {
             let obj = this.validators[idx];
             try {
                 result = obj.validator(value)
-                if (result == false ) return { 'studentDirectivePhoneNumber': obj.msg };
+                if (result == false ) return { 'academicsStudentDirectivePhoneNumber': obj.msg };
             } catch (e) {
-                return { 'studentDirectivePhoneNumber': obj.msg };
+                return { 'academicsStudentDirectivePhoneNumber': obj.msg };
             }
         }
     }
@@ -87,10 +88,10 @@ export class StudentDirectivePhoneNumber implements Validator {
   }
 }
 @Directive({
-  selector: '[studentDirectiveGuardianOnePhone]',
-  providers: [{provide: NG_VALIDATORS, useExisting: StudentDirectiveGuardianOnePhone, multi: true}]
+  selector: '[academicsStudentDirectiveGuardianOnePhone]',
+  providers: [{provide: NG_VALIDATORS, useExisting: AcademicsStudentDirectiveGuardianOnePhone, multi: true}]
 })
-export class StudentDirectiveGuardianOnePhone implements Validator {
+export class AcademicsStudentDirectiveGuardianOnePhone implements Validator {
   validators:any[] = [
       
          {validator: function(phone) {
@@ -114,9 +115,9 @@ export class StudentDirectiveGuardianOnePhone implements Validator {
             let obj = this.validators[idx];
             try {
                 result = obj.validator(value)
-                if (result == false ) return { 'studentDirectiveGuardianOnePhone': obj.msg };
+                if (result == false ) return { 'academicsStudentDirectiveGuardianOnePhone': obj.msg };
             } catch (e) {
-                return { 'studentDirectiveGuardianOnePhone': obj.msg };
+                return { 'academicsStudentDirectiveGuardianOnePhone': obj.msg };
             }
         }
     }
@@ -124,10 +125,10 @@ export class StudentDirectiveGuardianOnePhone implements Validator {
   }
 }
 @Directive({
-  selector: '[studentDirectiveGuardianOneEmail]',
-  providers: [{provide: NG_VALIDATORS, useExisting: StudentDirectiveGuardianOneEmail, multi: true}]
+  selector: '[academicsStudentDirectiveGuardianOneEmail]',
+  providers: [{provide: NG_VALIDATORS, useExisting: AcademicsStudentDirectiveGuardianOneEmail, multi: true}]
 })
-export class StudentDirectiveGuardianOneEmail implements Validator {
+export class AcademicsStudentDirectiveGuardianOneEmail implements Validator {
   validators:any[] = [
       
          {validator: function(email) {
@@ -151,9 +152,9 @@ export class StudentDirectiveGuardianOneEmail implements Validator {
             let obj = this.validators[idx];
             try {
                 result = obj.validator(value)
-                if (result == false ) return { 'studentDirectiveGuardianOneEmail': obj.msg };
+                if (result == false ) return { 'academicsStudentDirectiveGuardianOneEmail': obj.msg };
             } catch (e) {
-                return { 'studentDirectiveGuardianOneEmail': obj.msg };
+                return { 'academicsStudentDirectiveGuardianOneEmail': obj.msg };
             }
         }
     }
@@ -161,10 +162,10 @@ export class StudentDirectiveGuardianOneEmail implements Validator {
   }
 }
 @Directive({
-  selector: '[studentDirectiveGuardianTwoPhone]',
-  providers: [{provide: NG_VALIDATORS, useExisting: StudentDirectiveGuardianTwoPhone, multi: true}]
+  selector: '[academicsStudentDirectiveGuardianTwoPhone]',
+  providers: [{provide: NG_VALIDATORS, useExisting: AcademicsStudentDirectiveGuardianTwoPhone, multi: true}]
 })
-export class StudentDirectiveGuardianTwoPhone implements Validator {
+export class AcademicsStudentDirectiveGuardianTwoPhone implements Validator {
   validators:any[] = [
       
          {validator: function(phone) {
@@ -188,9 +189,9 @@ export class StudentDirectiveGuardianTwoPhone implements Validator {
             let obj = this.validators[idx];
             try {
                 result = obj.validator(value)
-                if (result == false ) return { 'studentDirectiveGuardianTwoPhone': obj.msg };
+                if (result == false ) return { 'academicsStudentDirectiveGuardianTwoPhone': obj.msg };
             } catch (e) {
-                return { 'studentDirectiveGuardianTwoPhone': obj.msg };
+                return { 'academicsStudentDirectiveGuardianTwoPhone': obj.msg };
             }
         }
     }
@@ -198,10 +199,10 @@ export class StudentDirectiveGuardianTwoPhone implements Validator {
   }
 }
 @Directive({
-  selector: '[studentDirectiveGuardianTwoEmail]',
-  providers: [{provide: NG_VALIDATORS, useExisting: StudentDirectiveGuardianTwoEmail, multi: true}]
+  selector: '[academicsStudentDirectiveGuardianTwoEmail]',
+  providers: [{provide: NG_VALIDATORS, useExisting: AcademicsStudentDirectiveGuardianTwoEmail, multi: true}]
 })
-export class StudentDirectiveGuardianTwoEmail implements Validator {
+export class AcademicsStudentDirectiveGuardianTwoEmail implements Validator {
   validators:any[] = [
       
          {validator: function(email) {
@@ -225,9 +226,9 @@ export class StudentDirectiveGuardianTwoEmail implements Validator {
             let obj = this.validators[idx];
             try {
                 result = obj.validator(value)
-                if (result == false ) return { 'studentDirectiveGuardianTwoEmail': obj.msg };
+                if (result == false ) return { 'academicsStudentDirectiveGuardianTwoEmail': obj.msg };
             } catch (e) {
-                return { 'studentDirectiveGuardianTwoEmail': obj.msg };
+                return { 'academicsStudentDirectiveGuardianTwoEmail': obj.msg };
             }
         }
     }
@@ -244,21 +245,21 @@ export class StudentDirectiveGuardianTwoEmail implements Validator {
   templateUrl: './student-edit.component.html',
   styleUrls: ['./student-edit.component.css']
 })
-export class StudentEditComponent extends StudentComponent implements OnInit, AfterViewInit {        
-    @Input() 
-    public id: string;
-    @Input()
-    public cid: string; // copy id
-    @Input()
-    public initData: any; // some fields has data already. eg: {a: b}. Used for add
-    @Output()
-    public doneData = new EventEmitter<boolean>();
-    @Output()
-    public done = new EventEmitter<any>();
-    @Input()
-    public embeddedView: boolean;
-    @Input()
-    public embedMode: string; // parent to tell the action - create
+export class StudentEditComponent extends StudentEditCustComponent implements OnInit, AfterViewInit {        
+    // @Input() 
+    // public id: string;
+    // @Input()
+    // public cid: string; // copy id
+    // @Input()
+    // public initData: any; // some fields has data already. eg: {a: b}. Used for add
+    // @Output()
+    // public doneData = new EventEmitter<boolean>();
+    // @Output()
+    // public done = new EventEmitter<any>();
+    // @Input()
+    // public embeddedView: boolean;
+    // @Input()
+    // public embedMode: string; // parent to tell the action - create
 
     public action: string;
     public minDate = {year: (new Date()).getFullYear() - 100, month: 1, day: 1};
@@ -273,6 +274,24 @@ export class StudentEditComponent extends StudentComponent implements OnInit, Af
       public location: Location) {
           super(
                 studentService, injector, router, route, location, ViewType.EDIT);
+
+          this.fieldDisplayNames = {
+            'first_name': 'First Name',
+            'last_name': 'Last Name',
+            'date_of_birth': 'Date of Birth',
+            'grade': 'Grade',
+            'email': 'Email',
+            'phoneNumber': 'Phone Number',
+            'school': 'School',
+            'GuardianOneName': 'Guardian One Name',
+            'GuardianOnePhone': 'Guardian One Phone',
+            'GuardianOneEmail': 'Guardian One Email',
+            'GuardianTwoName': 'Guardian Two Name',
+            'GuardianTwoPhone': 'Guardian Two Phone',
+            'GuardianTwoEmail': 'Guardian Two Email',
+            'notes': 'Notes',
+            'muser_id': 'Muser Id',
+          };
 
 
           this.stringFields.push('first_name');
@@ -292,11 +311,14 @@ export class StudentEditComponent extends StudentComponent implements OnInit, Af
 
           this.dateFields = ['date_of_birth', ];
 
+          this.numberFields = ['grade', ];
+
 
 
 
 
           this.textareaFields = ['notes', ];
+
 
 
           
@@ -305,6 +327,7 @@ export class StudentEditComponent extends StudentComponent implements OnInit, Af
     }
 
     ngOnInit() {
+      super.ngOnInit();
       if (this.embedMode == 'create') { // parent ask to create
         this.action='Create';
         this.getDetailData();
@@ -324,6 +347,8 @@ export class StudentEditComponent extends StudentComponent implements OnInit, Af
             }
         }
       }
+      // get editHintFields
+      this.searchHintFieldValues();
     }
 
     ngAfterViewInit() {
@@ -335,7 +360,6 @@ export class StudentEditComponent extends StudentComponent implements OnInit, Af
       if (this.initData) {
         this.action='Add';
         let detail = {
-            
         };
         for (let prop of Object.keys(this.initData)) {
             detail[prop] = this.initData[prop];
@@ -344,7 +368,6 @@ export class StudentEditComponent extends StudentComponent implements OnInit, Af
         this.detail = this.formatDetail(detail);
       } else {
           let detail = {
-              
           };
           this.detail = this.formatDetail(detail);
       }

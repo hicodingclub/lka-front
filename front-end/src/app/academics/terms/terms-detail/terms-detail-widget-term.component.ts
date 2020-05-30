@@ -24,6 +24,8 @@ export class TermsDetailWidgetTermComponent extends TermsDetailComponent impleme
       public location: Location) {
           super(
                 termsService, injector, router, route, location);
+          
+          this.actionType = 'term';
   }
 
   ngOnInit() {

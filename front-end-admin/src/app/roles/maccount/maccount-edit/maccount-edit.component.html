@@ -1,14 +1,20 @@
 <div class="edit" *ngIf="detail">
 	<div *ngIf="!embeddedView" class="action-buttons">
-        <!-- <a href="javascript:void(0)" (click)="goBack()" ><i class="fas fa-angle-double-left" title="Back"></i></a> -->
+		<!-- <a href="javascript:void(0)" (click)="goBack()" ><i class="fas fa-angle-double-left" title="Back"></i></a> -->
 	</div>
-	
+
 	<div class="card" style="text-align: left;">
-	  <div class="card-body">
-	    <h4 class="card-title" *ngIf="!embeddedView">{{action}} Account</h4>
-	    <form (ngSubmit)="onSubmit()" #editForm="ngForm">
-	    
-	     <div *ngIf="action == 'Edit'">
+		<div class="card-body">
+			<h4 class="card-title" *ngIf="!embeddedView && !options['title']">{{action}} Account</h4>
+			<h4 class="card-title" *ngIf="options['title']" [ngStyle]="style['card-title']">
+				{{options['title']}}
+			</h4>
+			<p	*ngIf="options['subtitle']" [ngStyle]="style['card-subtitle']">
+				{{options['subtitle']}}
+			</p>
+			<form (ngSubmit)="onSubmit()" #editForm="ngForm">
+
+				<div *ngIf="action == 'Edit'">
 <div *ngIf="!hiddenFields.includes('username')">
 
         <fieldset class="form-group">
@@ -21,10 +27,10 @@
                     required
                     
                     
-                 
+                
                     [(ngModel)]="detail['username']" name="EditUsername"
                     #EditUsername="ngModel">
-            <div *ngIf="detail['username']" 
+            <div *ngIf="detail['username']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('username')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -56,10 +62,10 @@
                     
                     
                     
-                 
+                
                     [(ngModel)]="detail['email']" name="EditEmail"
                     #EditEmail="ngModel">
-            <div *ngIf="detail['email']" 
+            <div *ngIf="detail['email']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('email')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -88,10 +94,10 @@
                     
                     
                     
-                 
+                
                     [(ngModel)]="detail['phone']" name="EditPhone"
                     #EditPhone="ngModel">
-            <div *ngIf="detail['phone']" 
+            <div *ngIf="detail['phone']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('phone')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -121,39 +127,39 @@
             >
 
             <div class="form-check-inline">
-              <input type="radio" name="EditStatus" 
+              <input type="radio" name="EditStatus"
                 class="form-check-input"
                 
                 id="EditStatusEnabled" [value]="'Enabled'"
-                 
+                
                 [(ngModel)]="detail['status']"
                 #EditStatus="ngModel">
               <label class="form-check-label">Enabled</label>
             </div>
 
             <div class="form-check-inline">
-              <input type="radio" name="EditStatus" 
+              <input type="radio" name="EditStatus"
                 class="form-check-input"
                 
                 id="EditStatusDisabled" [value]="'Disabled'"
-                 
+                
                 [(ngModel)]="detail['status']"
                 #EditStatus="ngModel">
               <label class="form-check-label">Disabled</label>
             </div>
 
             <div class="form-check-inline">
-              <input type="radio" name="EditStatus" 
+              <input type="radio" name="EditStatus"
                 class="form-check-input"
                 
                 id="EditStatusPending" [value]="'Pending'"
-                 
+                
                 [(ngModel)]="detail['status']"
                 #EditStatus="ngModel">
               <label class="form-check-label">Pending</label>
             </div>
 
-            <span *ngIf="enums['status'].includes(detail['status'])" 
+            <span *ngIf="enums['status'].includes(detail['status'])"
               class="icon-clear" (click)="clearValueFromDetail('status')">
               <i class="fas fa-times-circle" title="Clear"></i>
             </span> 
@@ -171,8 +177,8 @@
     
 </div>
 
-         </div>	
-	     <div *ngIf="action == 'Create' || action == 'Add' ">
+				</div>
+				<div *ngIf="action == 'Create' || action == 'Add' ">
 <div *ngIf="!hiddenFields.includes('username')">
 
         <fieldset class="form-group">
@@ -185,10 +191,10 @@
                     required
                     
                     
-                 
+                
                     [(ngModel)]="detail['username']" name="EditUsername"
                     #EditUsername="ngModel">
-            <div *ngIf="detail['username']" 
+            <div *ngIf="detail['username']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('username')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -220,10 +226,10 @@
                     
                     
                     
-                 
+                
                     [(ngModel)]="detail['email']" name="EditEmail"
                     #EditEmail="ngModel">
-            <div *ngIf="detail['email']" 
+            <div *ngIf="detail['email']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('email')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -252,10 +258,10 @@
                     
                     
                     
-                 
+                
                     [(ngModel)]="detail['phone']" name="EditPhone"
                     #EditPhone="ngModel">
-            <div *ngIf="detail['phone']" 
+            <div *ngIf="detail['phone']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('phone')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -285,39 +291,39 @@
             >
 
             <div class="form-check-inline">
-              <input type="radio" name="EditStatus" 
+              <input type="radio" name="EditStatus"
                 class="form-check-input"
                 
                 id="EditStatusEnabled" [value]="'Enabled'"
-                 
+                
                 [(ngModel)]="detail['status']"
                 #EditStatus="ngModel">
               <label class="form-check-label">Enabled</label>
             </div>
 
             <div class="form-check-inline">
-              <input type="radio" name="EditStatus" 
+              <input type="radio" name="EditStatus"
                 class="form-check-input"
                 
                 id="EditStatusDisabled" [value]="'Disabled'"
-                 
+                
                 [(ngModel)]="detail['status']"
                 #EditStatus="ngModel">
               <label class="form-check-label">Disabled</label>
             </div>
 
             <div class="form-check-inline">
-              <input type="radio" name="EditStatus" 
+              <input type="radio" name="EditStatus"
                 class="form-check-input"
                 
                 id="EditStatusPending" [value]="'Pending'"
-                 
+                
                 [(ngModel)]="detail['status']"
                 #EditStatus="ngModel">
               <label class="form-check-label">Pending</label>
             </div>
 
-            <span *ngIf="enums['status'].includes(detail['status'])" 
+            <span *ngIf="enums['status'].includes(detail['status'])"
               class="icon-clear" (click)="clearValueFromDetail('status')">
               <i class="fas fa-times-circle" title="Clear"></i>
             </span> 
@@ -346,10 +352,10 @@
                     required
                     
                     
-                 
+                
                     [(ngModel)]="detail['password']" name="EditPassword"
                     #EditPassword="ngModel">
-            <div *ngIf="detail['password']" 
+            <div *ngIf="detail['password']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('password')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -370,16 +376,13 @@
     
 </div>
 
-         </div>	
-         
-		<div class="action-buttons-center">
-	     	<button type="submit" class="btn btn-success" 
-     			[disabled]="!editForm.form.valid">Submit</button>
-	     	<button class="btn btn-outline-success" 
-     			type="button" (click)="editCancel()">Cancel</button>
+				</div>
+
+				<div class="action-buttons-center">
+					<button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
+					<button class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>
+				</div>
+			</form>
 		</div>
-	    </form>
-	  </div>
 	</div>
 </div>
-

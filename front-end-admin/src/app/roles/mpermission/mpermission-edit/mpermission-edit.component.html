@@ -1,14 +1,20 @@
 <div class="edit" *ngIf="detail">
 	<div *ngIf="!embeddedView" class="action-buttons">
-        <!-- <a href="javascript:void(0)" (click)="goBack()" ><i class="fas fa-angle-double-left" title="Back"></i></a> -->
+		<!-- <a href="javascript:void(0)" (click)="goBack()" ><i class="fas fa-angle-double-left" title="Back"></i></a> -->
 	</div>
-	
+
 	<div class="card" style="text-align: left;">
-	  <div class="card-body">
-	    <h4 class="card-title" *ngIf="!embeddedView">{{action}} Permission</h4>
-	    <form (ngSubmit)="onSubmit()" #editForm="ngForm">
-	    
-	     <div *ngIf="action == 'Edit'">
+		<div class="card-body">
+			<h4 class="card-title" *ngIf="!embeddedView && !options['title']">{{action}} Permission</h4>
+			<h4 class="card-title" *ngIf="options['title']" [ngStyle]="style['card-title']">
+				{{options['title']}}
+			</h4>
+			<p	*ngIf="options['subtitle']" [ngStyle]="style['card-subtitle']">
+				{{options['subtitle']}}
+			</p>
+			<form (ngSubmit)="onSubmit()" #editForm="ngForm">
+
+				<div *ngIf="action == 'Edit'">
 <div *ngIf="!hiddenFields.includes('role')">
 
         <fieldset class="form-group">
@@ -85,10 +91,10 @@
                     
                     
                     
-                 
+                
                     [(ngModel)]="detail['modulePermission']" name="EditModulePermission"
                     #EditModulePermission="ngModel">
-            <div *ngIf="detail['modulePermission']" 
+            <div *ngIf="detail['modulePermission']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('modulePermission')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -107,68 +113,68 @@
 </div>
 <div *ngIf="!hiddenFields.includes('resourcePermission')">
 
-          <fieldset class="form-group">
+        <fieldset class="form-group">
           <label for="EditResourcePermission">Resource Permission</label>
           
           
 
-            <div class="form-check"
-                ngModelGroup="EditResourcePermission"
-                
-                #EditResourcePermission="ngModelGroup" 
-            >
-              <ng-template [ngIf]="detail['resourcePermission'] && detail['resourcePermission']['selection']">
-              <ng-template ngFor let-key [ngForOf]="objectKeys(detail['resourcePermission']['selection'])" let-idx="index">
+          <div class="form-check"
+              ngModelGroup="EditResourcePermission"
+              
+              #EditResourcePermission="ngModelGroup" 
+          >
+            <ng-template [ngIf]="detail['resourcePermission'] && detail['resourcePermission']['selection']">
+            <ng-template ngFor let-key [ngForOf]="objectKeys(detail['resourcePermission']['selection'])" let-idx="index">
               <div class="row mb-2">
                 <label class="form-check-label small col-3">{{key}}: </label>
                 <div class="col-5">
                   <input type="text" class="form-control form-control-sm" id="ResourcePermissionElement{{idx}}" 
                       
                       
-                   
+                       
                       [(ngModel)]="detail['resourcePermission']['selection'][key]" name="ResourcePermissionElement{{idx}}"
                       #ResourcePermissionElement{{idx}}="ngModel">
-              <span class="icon-clear-inside-sm" *ngIf="detail['resourcePermission']['selection'][key]">
+                  <span class="icon-clear-inside-sm" *ngIf="detail['resourcePermission']['selection'][key]">
                     <i class="fas fa-times" (click)="clearValueFromMapKey('resourcePermission', key)" title="Clear"></i>
-                        </span>
-                    </div>
-            <span>
+                  </span>
+                </div>
+                <span>
                   <i class="fas fa-times-circle" (click)="clearValueFromMapField('resourcePermission', key)" title="Remove"></i>
-                    </span>
-            </div>
-            <div [hidden]="!EditResourcePermission.control.controls || !EditResourcePermission.control.controls['ResourcePermissionElement'+idx]
+                </span>
+              </div>
+              <div [hidden]="!EditResourcePermission.control.controls || !EditResourcePermission.control.controls['ResourcePermissionElement'+idx]
                            ||EditResourcePermission.control.controls['ResourcePermissionElement'+idx].valid
                            || EditResourcePermission.control.controls['ResourcePermissionElement'+idx].pristine 
                            || EditResourcePermission.control.controls['ResourcePermissionElement'+idx].errors.minlength"
-             class="alert alert-danger small p-1">
+                    class="alert alert-danger small p-1">
  
 
-            </div>
+              </div>
         
-              </ng-template>
-              </ng-template>
+            </ng-template>
+            </ng-template>
               
-                <div class="input-group input-group-sm w-25 mt-3">
+            <div class="input-group input-group-sm w-25 mt-3">
                 <input type="search" class="form-control border"
                     id="EditResourcePermissionNew" #EditResourcePermissionNew="ngModel"
             [(ngModel)]="detail['resourcePermission']['new']" [ngModelOptions]="{standalone: true}"
             (keydown.enter)="$event.target.blur();onAddMapItem('resourcePermission');false"
               > 
-          <div class="input-group-append">
-            <button type="button" class="btn btn-outline-secondary" (click)="onAddMapItem('resourcePermission')">
-                <i class="fas fa-plus"  title="Add new key"></i>
-            </button>
+              <div class="input-group-append">
+                <button type="button" class="btn btn-outline-secondary" (click)="onAddMapItem('resourcePermission')">
+                    <i class="fas fa-plus"  title="Add new key"></i>
+                </button>
+              </div>
+            </div>              
           </div>
-        </div>              
-        </div>
 
 
         </fieldset>
     
 </div>
 
-         </div>	
-	     <div *ngIf="action == 'Create' || action == 'Add' ">
+				</div>
+				<div *ngIf="action == 'Create' || action == 'Add' ">
 <div *ngIf="!hiddenFields.includes('role')">
 
         <fieldset class="form-group">
@@ -245,10 +251,10 @@
                     
                     
                     
-                 
+                
                     [(ngModel)]="detail['modulePermission']" name="EditModulePermission"
                     #EditModulePermission="ngModel">
-            <div *ngIf="detail['modulePermission']" 
+            <div *ngIf="detail['modulePermission']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('modulePermission')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -267,76 +273,74 @@
 </div>
 <div *ngIf="!hiddenFields.includes('resourcePermission')">
 
-          <fieldset class="form-group">
+        <fieldset class="form-group">
           <label for="EditResourcePermission">Resource Permission</label>
           
           
 
-            <div class="form-check"
-                ngModelGroup="EditResourcePermission"
-                
-                #EditResourcePermission="ngModelGroup" 
-            >
-              <ng-template [ngIf]="detail['resourcePermission'] && detail['resourcePermission']['selection']">
-              <ng-template ngFor let-key [ngForOf]="objectKeys(detail['resourcePermission']['selection'])" let-idx="index">
+          <div class="form-check"
+              ngModelGroup="EditResourcePermission"
+              
+              #EditResourcePermission="ngModelGroup" 
+          >
+            <ng-template [ngIf]="detail['resourcePermission'] && detail['resourcePermission']['selection']">
+            <ng-template ngFor let-key [ngForOf]="objectKeys(detail['resourcePermission']['selection'])" let-idx="index">
               <div class="row mb-2">
                 <label class="form-check-label small col-3">{{key}}: </label>
                 <div class="col-5">
                   <input type="text" class="form-control form-control-sm" id="ResourcePermissionElement{{idx}}" 
                       
                       
-                   
+                       
                       [(ngModel)]="detail['resourcePermission']['selection'][key]" name="ResourcePermissionElement{{idx}}"
                       #ResourcePermissionElement{{idx}}="ngModel">
-              <span class="icon-clear-inside-sm" *ngIf="detail['resourcePermission']['selection'][key]">
+                  <span class="icon-clear-inside-sm" *ngIf="detail['resourcePermission']['selection'][key]">
                     <i class="fas fa-times" (click)="clearValueFromMapKey('resourcePermission', key)" title="Clear"></i>
-                        </span>
-                    </div>
-            <span>
+                  </span>
+                </div>
+                <span>
                   <i class="fas fa-times-circle" (click)="clearValueFromMapField('resourcePermission', key)" title="Remove"></i>
-                    </span>
-            </div>
-            <div [hidden]="!EditResourcePermission.control.controls || !EditResourcePermission.control.controls['ResourcePermissionElement'+idx]
+                </span>
+              </div>
+              <div [hidden]="!EditResourcePermission.control.controls || !EditResourcePermission.control.controls['ResourcePermissionElement'+idx]
                            ||EditResourcePermission.control.controls['ResourcePermissionElement'+idx].valid
                            || EditResourcePermission.control.controls['ResourcePermissionElement'+idx].pristine 
                            || EditResourcePermission.control.controls['ResourcePermissionElement'+idx].errors.minlength"
-             class="alert alert-danger small p-1">
+                    class="alert alert-danger small p-1">
  
 
-            </div>
+              </div>
         
-              </ng-template>
-              </ng-template>
+            </ng-template>
+            </ng-template>
               
-                <div class="input-group input-group-sm w-25 mt-3">
+            <div class="input-group input-group-sm w-25 mt-3">
                 <input type="search" class="form-control border"
                     id="EditResourcePermissionNew" #EditResourcePermissionNew="ngModel"
             [(ngModel)]="detail['resourcePermission']['new']" [ngModelOptions]="{standalone: true}"
             (keydown.enter)="$event.target.blur();onAddMapItem('resourcePermission');false"
               > 
-          <div class="input-group-append">
-            <button type="button" class="btn btn-outline-secondary" (click)="onAddMapItem('resourcePermission')">
-                <i class="fas fa-plus"  title="Add new key"></i>
-            </button>
+              <div class="input-group-append">
+                <button type="button" class="btn btn-outline-secondary" (click)="onAddMapItem('resourcePermission')">
+                    <i class="fas fa-plus"  title="Add new key"></i>
+                </button>
+              </div>
+            </div>              
           </div>
-        </div>              
-        </div>
 
 
         </fieldset>
     
 </div>
 
-         </div>	
-         
-		<div class="action-buttons-center">
-	     	<button type="submit" class="btn btn-success" 
-     			[disabled]="!editForm.form.valid">Submit</button>
-	     	<button class="btn btn-outline-success" 
-     			type="button" (click)="editCancel()">Cancel</button>
+				</div>
+
+				<div class="action-buttons-center">
+					<button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
+					<button class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>
+				</div>
+			</form>
 		</div>
-	    </form>
-	  </div>
 	</div>
 </div>
 

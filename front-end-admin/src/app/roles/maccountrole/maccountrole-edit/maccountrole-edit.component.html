@@ -1,14 +1,20 @@
 <div class="edit" *ngIf="detail">
 	<div *ngIf="!embeddedView" class="action-buttons">
-        <!-- <a href="javascript:void(0)" (click)="goBack()" ><i class="fas fa-angle-double-left" title="Back"></i></a> -->
+		<!-- <a href="javascript:void(0)" (click)="goBack()" ><i class="fas fa-angle-double-left" title="Back"></i></a> -->
 	</div>
-	
+
 	<div class="card" style="text-align: left;">
-	  <div class="card-body">
-	    <h4 class="card-title" *ngIf="!embeddedView">{{action}} Account Role</h4>
-	    <form (ngSubmit)="onSubmit()" #editForm="ngForm">
-	    
-	     <div *ngIf="action == 'Edit'">
+		<div class="card-body">
+			<h4 class="card-title" *ngIf="!embeddedView && !options['title']">{{action}} Account Role</h4>
+			<h4 class="card-title" *ngIf="options['title']" [ngStyle]="style['card-title']">
+				{{options['title']}}
+			</h4>
+			<p	*ngIf="options['subtitle']" [ngStyle]="style['card-subtitle']">
+				{{options['subtitle']}}
+			</p>
+			<form (ngSubmit)="onSubmit()" #editForm="ngForm">
+
+				<div *ngIf="action == 'Edit'">
 <div *ngIf="!hiddenFields.includes('account')">
 
         <fieldset class="form-group">
@@ -43,36 +49,36 @@
 </div>
 <div *ngIf="!hiddenFields.includes('role')">
 
-          <fieldset class="form-group">
+        <fieldset class="form-group">
           <label for="EditRole">Role</label>
           
           
 
-            <div class="form-check"
-                ngModelGroup="EditRole"
-                
-                #EditRole="ngModelGroup" 
-            >
-                <ng-template [ngIf]="detail['role'] && detail['role']['selection']">
-                     <div class="badge badge-pill badge-secondary" *ngFor="let element of detail['role']['selection']; let i = index;">
-                        {{element.value}}
-                      <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromArrayField('role', i)" title="Remove"></i>
-                    </div>
-                </ng-template>
-                <span *ngIf="arraySelected('role')" 
-                      class="icon-clear" (click)="clearValueFromDetail('role')">
-                      <i class="fas fa-times-circle" title="Clear"></i>
-                </span>
-                <button type="button" class="btn btn-light ml-3" (click)="onRefSelect('role')">
-                    <i class="fas fa-plus"  title="Add"></i>
-                </button>
-                      <!-- fake hidden input ngModel for directive to check the values-->
-                <input type="checkbox" name="EditRoleSelection" 
-                  style="display:none"
-                  id="EditRoleSelection"
-                    [(ngModel)]="detail['role']['selection'].length" 
-                    #EditRoleSelection="ngModel">
-            </div>
+          <div class="form-check"
+            ngModelGroup="EditRole"
+            
+            #EditRole="ngModelGroup" 
+          >
+            <ng-template [ngIf]="detail['role'] && detail['role']['selection']">
+                  <div class="badge badge-pill badge-secondary" *ngFor="let element of detail['role']['selection']; let i = index;">
+                    {{element.value}}
+                  <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromArrayField('role', i)" title="Remove"></i>
+                </div>
+            </ng-template>
+            <span *ngIf="arraySelected('role')" 
+                  class="icon-clear" (click)="clearValueFromDetail('role')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+            </span>
+            <button type="button" class="btn btn-light ml-3" (click)="onRefSelect('role')">
+                <i class="fas fa-plus"  title="Add"></i>
+            </button>
+                  <!-- fake hidden input ngModel for directive to check the values-->
+            <input type="checkbox" name="EditRoleSelection" 
+              style="display:none"
+              id="EditRoleSelection"
+                [(ngModel)]="detail['role']['selection'].length" 
+                #EditRoleSelection="ngModel">
+          </div>
 
           <div [hidden]="EditRole.valid || EditRole.pristine"
            class="alert alert-danger">
@@ -82,8 +88,8 @@
     
 </div>
 
-         </div>	
-	     <div *ngIf="action == 'Create' || action == 'Add' ">
+				</div>
+				<div *ngIf="action == 'Create' || action == 'Add' ">
 <div *ngIf="!hiddenFields.includes('account')">
 
         <fieldset class="form-group">
@@ -118,36 +124,36 @@
 </div>
 <div *ngIf="!hiddenFields.includes('role')">
 
-          <fieldset class="form-group">
+        <fieldset class="form-group">
           <label for="EditRole">Role</label>
           
           
 
-            <div class="form-check"
-                ngModelGroup="EditRole"
-                
-                #EditRole="ngModelGroup" 
-            >
-                <ng-template [ngIf]="detail['role'] && detail['role']['selection']">
-                     <div class="badge badge-pill badge-secondary" *ngFor="let element of detail['role']['selection']; let i = index;">
-                        {{element.value}}
-                      <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromArrayField('role', i)" title="Remove"></i>
-                    </div>
-                </ng-template>
-                <span *ngIf="arraySelected('role')" 
-                      class="icon-clear" (click)="clearValueFromDetail('role')">
-                      <i class="fas fa-times-circle" title="Clear"></i>
-                </span>
-                <button type="button" class="btn btn-light ml-3" (click)="onRefSelect('role')">
-                    <i class="fas fa-plus"  title="Add"></i>
-                </button>
-                      <!-- fake hidden input ngModel for directive to check the values-->
-                <input type="checkbox" name="EditRoleSelection" 
-                  style="display:none"
-                  id="EditRoleSelection"
-                    [(ngModel)]="detail['role']['selection'].length" 
-                    #EditRoleSelection="ngModel">
-            </div>
+          <div class="form-check"
+            ngModelGroup="EditRole"
+            
+            #EditRole="ngModelGroup" 
+          >
+            <ng-template [ngIf]="detail['role'] && detail['role']['selection']">
+                  <div class="badge badge-pill badge-secondary" *ngFor="let element of detail['role']['selection']; let i = index;">
+                    {{element.value}}
+                  <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromArrayField('role', i)" title="Remove"></i>
+                </div>
+            </ng-template>
+            <span *ngIf="arraySelected('role')" 
+                  class="icon-clear" (click)="clearValueFromDetail('role')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+            </span>
+            <button type="button" class="btn btn-light ml-3" (click)="onRefSelect('role')">
+                <i class="fas fa-plus"  title="Add"></i>
+            </button>
+                  <!-- fake hidden input ngModel for directive to check the values-->
+            <input type="checkbox" name="EditRoleSelection" 
+              style="display:none"
+              id="EditRoleSelection"
+                [(ngModel)]="detail['role']['selection'].length" 
+                #EditRoleSelection="ngModel">
+          </div>
 
           <div [hidden]="EditRole.valid || EditRole.pristine"
            class="alert alert-danger">
@@ -157,16 +163,14 @@
     
 </div>
 
-         </div>	
-         
-		<div class="action-buttons-center">
-	     	<button type="submit" class="btn btn-success" 
-     			[disabled]="!editForm.form.valid">Submit</button>
-	     	<button class="btn btn-outline-success" 
-     			type="button" (click)="editCancel()">Cancel</button>
+				</div>
+
+				<div class="action-buttons-center">
+					<button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
+					<button class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>
+				</div>
+			</form>
 		</div>
-	    </form>
-	  </div>
 	</div>
 </div>
 

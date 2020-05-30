@@ -13,8 +13,8 @@ import { MmoduleService } from '../mmodule.service';
 })
 export class MmoduleListSelectComponent extends MmoduleListComponent
         implements OnInit {
-    @Input() inputData;
-    @Output() outputData;
+    // @Input() inputData;
+    // @Output() outputData;
     done = new EventEmitter<boolean>();
 
     constructor(

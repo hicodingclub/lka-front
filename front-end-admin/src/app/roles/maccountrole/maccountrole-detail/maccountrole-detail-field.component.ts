@@ -13,9 +13,9 @@ import { MaccountroleService } from '../maccountrole.service';
 })
 export class MaccountroleDetailFieldComponent extends MaccountroleComponent
         implements OnInit {
-    @Input() id: string;
-    @Input() detailObj: any;
-    @Input() showFieldsStr: string;
+    // @Input() id: string;
+    // @Input() detailObj: any;
+    // @Input() showFieldsStr: string;
     showFields: string[];
     
     constructor(
@@ -27,6 +27,11 @@ export class MaccountroleDetailFieldComponent extends MaccountroleComponent
           super(null,
                 maccountroleService, injector, router, route, location, ViewType.DETAIL);
           
+          this.fieldDisplayNames = {
+            'account': 'Account',
+            'role': 'Role',
+          };
+
 
 
           this.referenceFields = ['account', ];
@@ -34,9 +39,11 @@ export class MaccountroleDetailFieldComponent extends MaccountroleComponent
 
 
 
+
           this.arrayFields = [['role', 'ObjectId'],];
           this.referenceFieldsMap['role'] = 'mrole';
           this.referenceFieldsReverseMap['mrole'] = 'role';
+
 
 
 

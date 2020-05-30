@@ -5,7 +5,8 @@ import { Injector } from '@angular/core';
 
 declare const $: any;
 
-import { EventComponent, ViewType } from '../event.component';
+import { EventEditCustComponent } from '../../../publicinfo-cust/base/event/event-edit.cust.component';
+import { ViewType } from '../event.component';
 import { EventService } from '../event.service';
 
 
@@ -21,21 +22,21 @@ import { MddsRichTextSelectDirective } from '@hicoder/angular-core';
   templateUrl: './event-edit.component.html',
   styleUrls: ['./event-edit.component.css']
 })
-export class EventEditComponent extends EventComponent implements OnInit, AfterViewInit {        
-    @Input() 
-    public id: string;
-    @Input()
-    public cid: string; // copy id
-    @Input()
-    public initData: any; // some fields has data already. eg: {a: b}. Used for add
-    @Output()
-    public doneData = new EventEmitter<boolean>();
-    @Output()
-    public done = new EventEmitter<any>();
-    @Input()
-    public embeddedView: boolean;
-    @Input()
-    public embedMode: string; // parent to tell the action - create
+export class EventEditComponent extends EventEditCustComponent implements OnInit, AfterViewInit {        
+    // @Input() 
+    // public id: string;
+    // @Input()
+    // public cid: string; // copy id
+    // @Input()
+    // public initData: any; // some fields has data already. eg: {a: b}. Used for add
+    // @Output()
+    // public doneData = new EventEmitter<boolean>();
+    // @Output()
+    // public done = new EventEmitter<any>();
+    // @Input()
+    // public embeddedView: boolean;
+    // @Input()
+    // public embedMode: string; // parent to tell the action - create
 
     public action: string;
     public minDate = {year: (new Date()).getFullYear() - 100, month: 1, day: 1};
@@ -55,11 +56,20 @@ export class EventEditComponent extends EventComponent implements OnInit, AfterV
           super(
                 eventService, injector, router, route, location, ViewType.EDIT);
 
+          this.fieldDisplayNames = {
+            'title': 'Title',
+            'author': 'Author',
+            'content': 'Content',
+            'signaturePicture': 'Signature Picture',
+          };
+
 
           this.stringFields.push('title');
           this.stringFields.push('author');
           this.stringFields.push('content');
           this.stringFields.push('signaturePicture');
+
+
 
 
 
@@ -83,6 +93,7 @@ export class EventEditComponent extends EventComponent implements OnInit, AfterV
     }
 
     ngOnInit() {
+      super.ngOnInit();
       if (this.embedMode == 'create') { // parent ask to create
         this.action='Create';
         this.getDetailData();
@@ -102,6 +113,8 @@ export class EventEditComponent extends EventComponent implements OnInit, AfterV
             }
         }
       }
+      // get editHintFields
+      this.searchHintFieldValues();
     }
 
     ngAfterViewInit() {
@@ -113,7 +126,6 @@ export class EventEditComponent extends EventComponent implements OnInit, AfterV
       if (this.initData) {
         this.action='Add';
         let detail = {
-            
         };
         for (let prop of Object.keys(this.initData)) {
             detail[prop] = this.initData[prop];
@@ -122,7 +134,6 @@ export class EventEditComponent extends EventComponent implements OnInit, AfterV
         this.detail = this.formatDetail(detail);
       } else {
           let detail = {
-              
           };
           this.detail = this.formatDetail(detail);
       }

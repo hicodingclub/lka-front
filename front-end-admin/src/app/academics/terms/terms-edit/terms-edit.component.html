@@ -1,14 +1,20 @@
 <div class="edit" *ngIf="detail">
 	<div *ngIf="!embeddedView" class="action-buttons">
-        <!-- <a href="javascript:void(0)" (click)="goBack()" ><i class="fas fa-angle-double-left" title="Back"></i></a> -->
+		<!-- <a href="javascript:void(0)" (click)="goBack()" ><i class="fas fa-angle-double-left" title="Back"></i></a> -->
 	</div>
-	
+
 	<div class="card" style="text-align: left;">
-	  <div class="card-body">
-	    <h4 class="card-title" *ngIf="!embeddedView">{{action}} Terms</h4>
-	    <form (ngSubmit)="onSubmit()" #editForm="ngForm">
-	    
-	     <div *ngIf="action == 'Edit'">
+		<div class="card-body">
+			<h4 class="card-title" *ngIf="!embeddedView && !options['title']">{{action}} Terms</h4>
+			<h4 class="card-title" *ngIf="options['title']" [ngStyle]="style['card-title']">
+				{{options['title']}}
+			</h4>
+			<p	*ngIf="options['subtitle']" [ngStyle]="style['card-subtitle']">
+				{{options['subtitle']}}
+			</p>
+			<form (ngSubmit)="onSubmit()" #editForm="ngForm">
+
+				<div *ngIf="action == 'Edit'">
 <div *ngIf="!hiddenFields.includes('name')">
 
         <fieldset class="form-group">
@@ -21,10 +27,10 @@
                     required
                     
                     
-                 
+                
                     [(ngModel)]="detail['name']" name="EditName"
                     #EditName="ngModel">
-            <div *ngIf="detail['name']" 
+            <div *ngIf="detail['name']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('name')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -81,10 +87,10 @@
                     
                     
                     maxlength="1000"
-                 
+                
                     [(ngModel)]="detail['acknowledge']" name="EditAcknowledge"
                     #EditAcknowledge="ngModel">
-            <div *ngIf="detail['acknowledge']" 
+            <div *ngIf="detail['acknowledge']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('acknowledge')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -116,10 +122,10 @@
                     
                     
                     maxlength="50"
-                 
+                
                     [(ngModel)]="detail['tag']" name="EditTag"
                     #EditTag="ngModel">
-            <div *ngIf="detail['tag']" 
+            <div *ngIf="detail['tag']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('tag')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -140,8 +146,8 @@
     
 </div>
 
-         </div>	
-	     <div *ngIf="action == 'Create' || action == 'Add' ">
+				</div>
+				<div *ngIf="action == 'Create' || action == 'Add' ">
 <div *ngIf="!hiddenFields.includes('name')">
 
         <fieldset class="form-group">
@@ -154,10 +160,10 @@
                     required
                     
                     
-                 
+                
                     [(ngModel)]="detail['name']" name="EditName"
                     #EditName="ngModel">
-            <div *ngIf="detail['name']" 
+            <div *ngIf="detail['name']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('name')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -214,10 +220,10 @@
                     
                     
                     maxlength="1000"
-                 
+                
                     [(ngModel)]="detail['acknowledge']" name="EditAcknowledge"
                     #EditAcknowledge="ngModel">
-            <div *ngIf="detail['acknowledge']" 
+            <div *ngIf="detail['acknowledge']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('acknowledge')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -249,10 +255,10 @@
                     
                     
                     maxlength="50"
-                 
+                
                     [(ngModel)]="detail['tag']" name="EditTag"
                     #EditTag="ngModel">
-            <div *ngIf="detail['tag']" 
+            <div *ngIf="detail['tag']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('tag')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -273,16 +279,13 @@
     
 </div>
 
-         </div>	
-         
-		<div class="action-buttons-center">
-	     	<button type="submit" class="btn btn-success" 
-     			[disabled]="!editForm.form.valid">Submit</button>
-	     	<button class="btn btn-outline-success" 
-     			type="button" (click)="editCancel()">Cancel</button>
+				</div>
+
+				<div class="action-buttons-center">
+					<button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
+					<button class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>
+				</div>
+			</form>
 		</div>
-	    </form>
-	  </div>
 	</div>
 </div>
-

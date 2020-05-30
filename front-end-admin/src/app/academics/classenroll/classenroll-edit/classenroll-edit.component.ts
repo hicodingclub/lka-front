@@ -5,7 +5,8 @@ import { Injector } from '@angular/core';
 
 declare const $: any;
 
-import { ClassenrollComponent, ViewType } from '../classenroll.component';
+import { ClassenrollEditCustComponent } from '../../../academics-cust/base/classenroll/classenroll-edit.cust.component';
+import { ViewType } from '../classenroll.component';
 import { ClassenrollService } from '../classenroll.service';
 
 
@@ -20,21 +21,21 @@ import { ComponentFactoryResolver } from '@angular/core';
   templateUrl: './classenroll-edit.component.html',
   styleUrls: ['./classenroll-edit.component.css']
 })
-export class ClassenrollEditComponent extends ClassenrollComponent implements OnInit, AfterViewInit {        
-    @Input() 
-    public id: string;
-    @Input()
-    public cid: string; // copy id
-    @Input()
-    public initData: any; // some fields has data already. eg: {a: b}. Used for add
-    @Output()
-    public doneData = new EventEmitter<boolean>();
-    @Output()
-    public done = new EventEmitter<any>();
-    @Input()
-    public embeddedView: boolean;
-    @Input()
-    public embedMode: string; // parent to tell the action - create
+export class ClassenrollEditComponent extends ClassenrollEditCustComponent implements OnInit, AfterViewInit {        
+    // @Input() 
+    // public id: string;
+    // @Input()
+    // public cid: string; // copy id
+    // @Input()
+    // public initData: any; // some fields has data already. eg: {a: b}. Used for add
+    // @Output()
+    // public doneData = new EventEmitter<boolean>();
+    // @Output()
+    // public done = new EventEmitter<any>();
+    // @Input()
+    // public embeddedView: boolean;
+    // @Input()
+    // public embedMode: string; // parent to tell the action - create
 
     public action: string;
     public minDate = {year: (new Date()).getFullYear() - 100, month: 1, day: 1};
@@ -51,12 +52,20 @@ export class ClassenrollEditComponent extends ClassenrollComponent implements On
           super(componentFactoryResolver,
                 classenrollService, injector, router, route, location, ViewType.EDIT);
 
+          this.fieldDisplayNames = {
+            'student': 'Student',
+            'class': 'Class',
+            'status': 'Status',
+            'notes': 'Notes',
+          };
+
           this.enums['status'] = ['processing', 'paid', 'confirmed', 'cancelled', ];
 
           this.stringFields.push('status');
           this.stringFields.push('notes');
 
           this.referenceFields = ['class', ];
+
 
 
 
@@ -69,12 +78,14 @@ export class ClassenrollEditComponent extends ClassenrollComponent implements On
           this.textareaFields = ['notes', ];
 
 
+
           
           const detail = {};
           this.detail = this.formatDetail(detail);
     }
 
     ngOnInit() {
+      super.ngOnInit();
       if (this.embedMode == 'create') { // parent ask to create
         this.action='Create';
         this.getDetailData();
@@ -94,6 +105,8 @@ export class ClassenrollEditComponent extends ClassenrollComponent implements On
             }
         }
       }
+      // get editHintFields
+      this.searchHintFieldValues();
     }
 
     ngAfterViewInit() {
@@ -105,7 +118,6 @@ export class ClassenrollEditComponent extends ClassenrollComponent implements On
       if (this.initData) {
         this.action='Add';
         let detail = {
-            
         };
         for (let prop of Object.keys(this.initData)) {
             detail[prop] = this.initData[prop];
@@ -114,7 +126,6 @@ export class ClassenrollEditComponent extends ClassenrollComponent implements On
         this.detail = this.formatDetail(detail);
       } else {
           let detail = {
-              
           };
           this.detail = this.formatDetail(detail);
       }

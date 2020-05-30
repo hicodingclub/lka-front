@@ -14,7 +14,7 @@
 		<span *ngIf="!loaded">Loading...</span>
 	</div>
 	<div class="container search">
-				<div class="row justify-content-end mt-3">
+		<div class="row justify-content-end mt-3">
 		
 			
 		</div>
@@ -90,7 +90,7 @@
 	            <td scope="row">{{(page-1)*perPage+i+1}}</td>
 
 	            <td *ngIf="referenceFieldsMap['student'] != parentItem"  >
-	            	                
+	            	
                     <div *ngIf="detail['student'] && detail['student']['selection']">
                         <ng-template ngFor let-element [ngForOf]="detail['student']['selection']" let-idx="index">
                             <div class="badge-click badge badge-pill badge-secondary" 
@@ -102,19 +102,19 @@
 
                 </td>
 	            <td *ngIf="referenceFieldsMap['class'] != parentItem"  >
-	            	                
+	            	
                	  <a routerLink="."  (click)="onDisplayRefClicked('class', detail['class'], $event)">
 	            	{{detail['class']?detail['class']['value']:""}}
 	              </a>
 
                 </td>
 	            <td >
-	            	                
+	            	
                     {{detail['status']}}
 
                 </td>
 	            <td >
-	            	                  {{detail['createdAt']?detail['createdAt']['value']:""}}
+	            	  {{detail['createdAt']?detail['createdAt']['value']:""}}
 
                 </td>
 	            <td>
@@ -139,7 +139,7 @@
 	</table>
 	
 	<div class="container">
-				<div class="row justify-content-end mt-3">
+		<div class="row justify-content-end mt-3">
 		
 			
 		</div>

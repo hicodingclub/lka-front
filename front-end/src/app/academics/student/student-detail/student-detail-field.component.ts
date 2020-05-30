@@ -13,9 +13,9 @@ import { StudentService } from '../student.service';
 })
 export class StudentDetailFieldComponent extends StudentComponent
         implements OnInit {
-    @Input() id: string;
-    @Input() detailObj: any;
-    @Input() showFieldsStr: string;
+    // @Input() id: string;
+    // @Input() detailObj: any;
+    // @Input() showFieldsStr: string;
     showFields: string[];
     
     constructor(
@@ -27,6 +27,22 @@ export class StudentDetailFieldComponent extends StudentComponent
           super(
                 studentService, injector, router, route, location, ViewType.DETAIL);
           
+          this.fieldDisplayNames = {
+            'first_name': 'First Name',
+            'last_name': 'Last Name',
+            'date_of_birth': 'Date of Birth',
+            'grade': 'Grade',
+            'email': 'Email',
+            'phoneNumber': 'Phone Number',
+            'school': 'School',
+            'GuardianOneName': 'Guardian One Name',
+            'GuardianOnePhone': 'Guardian One Phone',
+            'GuardianOneEmail': 'Guardian One Email',
+            'GuardianTwoName': 'Guardian Two Name',
+            'GuardianTwoPhone': 'Guardian Two Phone',
+            'GuardianTwoEmail': 'Guardian Two Email',
+          };
+
 
           this.stringFields.push('first_name');
           this.stringFields.push('last_name');
@@ -42,6 +58,9 @@ export class StudentDetailFieldComponent extends StudentComponent
 
 
           this.dateFields = ['date_of_birth', ];
+
+          this.numberFields = ['grade', ];
+
 
 
 

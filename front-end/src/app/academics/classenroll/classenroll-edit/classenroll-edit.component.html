@@ -1,46 +1,52 @@
 <div class="edit" *ngIf="detail">
 	<div *ngIf="!embeddedView" class="action-buttons">
-        <!-- <a href="javascript:void(0)" (click)="goBack()" ><i class="fas fa-angle-double-left" title="Back"></i></a> -->
+		<!-- <a href="javascript:void(0)" (click)="goBack()" ><i class="fas fa-angle-double-left" title="Back"></i></a> -->
 	</div>
-	
+
 	<div class="card" style="text-align: left;">
-	  <div class="card-body">
-	    <h4 class="card-title" *ngIf="!embeddedView">{{action}} Class Enrollments</h4>
-	    <form (ngSubmit)="onSubmit()" #editForm="ngForm">
-	    
-	     <div *ngIf="action == 'Edit'">
+		<div class="card-body">
+			<h4 class="card-title" *ngIf="!embeddedView && !options['title']">{{action}} Class Enrollments</h4>
+			<h4 class="card-title" *ngIf="options['title']" [ngStyle]="style['card-title']">
+				{{options['title']}}
+			</h4>
+			<p	*ngIf="options['subtitle']" [ngStyle]="style['card-subtitle']">
+				{{options['subtitle']}}
+			</p>
+			<form (ngSubmit)="onSubmit()" #editForm="ngForm">
+
+				<div *ngIf="action == 'Edit'">
 <div *ngIf="!hiddenFields.includes('student')">
 
-          <fieldset class="form-group">
+        <fieldset class="form-group">
           <label for="EditStudent">Student</label>
           
           
 
-            <div class="form-check"
-                ngModelGroup="EditStudent"
-                directiveArrayRequired
-                #EditStudent="ngModelGroup" 
-            >
-                <ng-template [ngIf]="detail['student'] && detail['student']['selection']">
-                     <div class="badge badge-pill badge-secondary" *ngFor="let element of detail['student']['selection']; let i = index;">
-                        {{element.value}}
-                      <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromArrayField('student', i)" title="Remove"></i>
-                    </div>
-                </ng-template>
-                <span *ngIf="arraySelected('student')" 
-                      class="icon-clear" (click)="clearValueFromDetail('student')">
-                      <i class="fas fa-times-circle" title="Clear"></i>
-                </span>
-                <button type="button" class="btn btn-light ml-3" (click)="onRefSelect('student')">
-                    <i class="fas fa-plus"  title="Add"></i>
-                </button>
-                      <!-- fake hidden input ngModel for directive to check the values-->
-                <input type="checkbox" name="EditStudentSelection" 
-                  style="display:none"
-                  id="EditStudentSelection"
-                    [(ngModel)]="detail['student']['selection'].length" 
-                    #EditStudentSelection="ngModel">
-            </div>
+          <div class="form-check"
+            ngModelGroup="EditStudent"
+            directiveAcademicsArrayRequired
+            #EditStudent="ngModelGroup" 
+          >
+            <ng-template [ngIf]="detail['student'] && detail['student']['selection']">
+                  <div class="badge badge-pill badge-secondary" *ngFor="let element of detail['student']['selection']; let i = index;">
+                    {{element.value}}
+                  <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromArrayField('student', i)" title="Remove"></i>
+                </div>
+            </ng-template>
+            <span *ngIf="arraySelected('student')" 
+                  class="icon-clear" (click)="clearValueFromDetail('student')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+            </span>
+            <button type="button" class="btn btn-light ml-3" (click)="onRefSelect('student')">
+                <i class="fas fa-plus"  title="Add"></i>
+            </button>
+                  <!-- fake hidden input ngModel for directive to check the values-->
+            <input type="checkbox" name="EditStudentSelection" 
+              style="display:none"
+              id="EditStudentSelection"
+                [(ngModel)]="detail['student']['selection'].length" 
+                #EditStudentSelection="ngModel">
+          </div>
 
           <div [hidden]="EditStudent.valid || EditStudent.pristine"
            class="alert alert-danger">
@@ -99,44 +105,44 @@
             >
 
             <div class="form-check-inline">
-              <input type="radio" name="EditStatus" 
+              <input type="radio" name="EditStatus"
                 class="form-check-input"
                 required
                 id="EditStatusprocessing" [value]="'processing'"
-                 
+                
                 [(ngModel)]="detail['status']"
                 #EditStatus="ngModel">
               <label class="form-check-label">processing</label>
             </div>
 
             <div class="form-check-inline">
-              <input type="radio" name="EditStatus" 
+              <input type="radio" name="EditStatus"
                 class="form-check-input"
                 required
                 id="EditStatuspaid" [value]="'paid'"
-                 
+                
                 [(ngModel)]="detail['status']"
                 #EditStatus="ngModel">
               <label class="form-check-label">paid</label>
             </div>
 
             <div class="form-check-inline">
-              <input type="radio" name="EditStatus" 
+              <input type="radio" name="EditStatus"
                 class="form-check-input"
                 required
                 id="EditStatusconfirmed" [value]="'confirmed'"
-                 
+                
                 [(ngModel)]="detail['status']"
                 #EditStatus="ngModel">
               <label class="form-check-label">confirmed</label>
             </div>
 
             <div class="form-check-inline">
-              <input type="radio" name="EditStatus" 
+              <input type="radio" name="EditStatus"
                 class="form-check-input"
                 required
                 id="EditStatuscancelled" [value]="'cancelled'"
-                 
+                
                 [(ngModel)]="detail['status']"
                 #EditStatus="ngModel">
               <label class="form-check-label">cancelled</label>
@@ -170,10 +176,10 @@
                     
                     
                     
-                 
+                
                     [(ngModel)]="detail['notes']" name="EditNotes"
                     #EditNotes="ngModel"></textarea>
-            <div *ngIf="detail['notes']" 
+            <div *ngIf="detail['notes']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('notes')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -191,40 +197,40 @@
     
 </div>
 
-         </div>	
-	     <div *ngIf="action == 'Create' || action == 'Add' ">
+				</div>
+				<div *ngIf="action == 'Create' || action == 'Add' ">
 <div *ngIf="!hiddenFields.includes('student')">
 
-          <fieldset class="form-group">
+        <fieldset class="form-group">
           <label for="EditStudent">Student</label>
           
           
 
-            <div class="form-check"
-                ngModelGroup="EditStudent"
-                directiveArrayRequired
-                #EditStudent="ngModelGroup" 
-            >
-                <ng-template [ngIf]="detail['student'] && detail['student']['selection']">
-                     <div class="badge badge-pill badge-secondary" *ngFor="let element of detail['student']['selection']; let i = index;">
-                        {{element.value}}
-                      <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromArrayField('student', i)" title="Remove"></i>
-                    </div>
-                </ng-template>
-                <span *ngIf="arraySelected('student')" 
-                      class="icon-clear" (click)="clearValueFromDetail('student')">
-                      <i class="fas fa-times-circle" title="Clear"></i>
-                </span>
-                <button type="button" class="btn btn-light ml-3" (click)="onRefSelect('student')">
-                    <i class="fas fa-plus"  title="Add"></i>
-                </button>
-                      <!-- fake hidden input ngModel for directive to check the values-->
-                <input type="checkbox" name="EditStudentSelection" 
-                  style="display:none"
-                  id="EditStudentSelection"
-                    [(ngModel)]="detail['student']['selection'].length" 
-                    #EditStudentSelection="ngModel">
-            </div>
+          <div class="form-check"
+            ngModelGroup="EditStudent"
+            directiveAcademicsArrayRequired
+            #EditStudent="ngModelGroup" 
+          >
+            <ng-template [ngIf]="detail['student'] && detail['student']['selection']">
+                  <div class="badge badge-pill badge-secondary" *ngFor="let element of detail['student']['selection']; let i = index;">
+                    {{element.value}}
+                  <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromArrayField('student', i)" title="Remove"></i>
+                </div>
+            </ng-template>
+            <span *ngIf="arraySelected('student')" 
+                  class="icon-clear" (click)="clearValueFromDetail('student')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+            </span>
+            <button type="button" class="btn btn-light ml-3" (click)="onRefSelect('student')">
+                <i class="fas fa-plus"  title="Add"></i>
+            </button>
+                  <!-- fake hidden input ngModel for directive to check the values-->
+            <input type="checkbox" name="EditStudentSelection" 
+              style="display:none"
+              id="EditStudentSelection"
+                [(ngModel)]="detail['student']['selection'].length" 
+                #EditStudentSelection="ngModel">
+          </div>
 
           <div [hidden]="EditStudent.valid || EditStudent.pristine"
            class="alert alert-danger">
@@ -280,10 +286,10 @@
                     
                     
                     
-                 
+                
                     [(ngModel)]="detail['notes']" name="EditNotes"
                     #EditNotes="ngModel"></textarea>
-            <div *ngIf="detail['notes']" 
+            <div *ngIf="detail['notes']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('notes')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -301,16 +307,14 @@
     
 </div>
 
-         </div>	
-         
-		<div class="action-buttons-center">
-	     	<button type="submit" class="btn btn-success" 
-     			[disabled]="!editForm.form.valid">Submit</button>
-	     	<button class="btn btn-outline-success" 
-     			type="button" (click)="editCancel()">Cancel</button>
+				</div>
+
+				<div class="action-buttons-center">
+					<button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
+					<button class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>
+				</div>
+			</form>
 		</div>
-	    </form>
-	  </div>
 	</div>
 </div>
 

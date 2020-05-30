@@ -1,5 +1,6 @@
 
-<div class="mt-4 mb-4 d-flex">
+
+<div class="mt-4 mb-4 d-flex" *ngIf="!options['disableTitleRow']">
 
 
 </div>
@@ -16,9 +17,9 @@
 
 
 <div>
-	<div class="container search">
-		<div class="row">
-			<div class="col-9">
+	<div *ngIf="!options['disableListHead']" class="container search">
+		<div class="row" *ngIf="!options['disableListSearch']">
+			<div class="col">
 
 			    <div class="input-group">
 	              <input type="search" class="form-control border border-secondary" id="generalinfoTextSearch" 
@@ -38,7 +39,7 @@
 
 			</div>
 		</div>
-		<div class="row">
+		<div class="row" *ngIf="!options['disableActionButtions']">
 			<div class="col">
 		        <div class="action-buttons">
 					
@@ -50,6 +51,7 @@
 			</div>
 		</div>
 		<hr/>
+		<div *ngIf="!options['disablePagination']">
 		<div class="row justify-content-end mt-3">
 		
 			<div *ngIf="list.length > 2" class="sort-selection mr-5">
@@ -133,6 +135,7 @@
 				</div>
 		</div>
 
+		</div>
 	</div>
 	<div class="no-records" *ngIf="list.length === 0">
 		<span *ngIf="loaded">No records found.</span>
@@ -146,7 +149,7 @@
 				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
 				<div class="list-fields pointer" (click)="onDetailLinkClicked(detail['_id'])" >
 
-      <div class="list-head-picture">                
+      <div class="list-head-picture">
                     <lib-mdds-file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false" [aspectRatio]="1.3333333333333333"></lib-mdds-file-display>
 
       </div>
@@ -154,22 +157,21 @@
       <div class="list-body-fields">
         <h5>
           <div class="mr-1 d-inline-block">
-                            
+            
                     {{detail['title']}}
 
           </div>
         </h5>
         <div *ngIf="detail['description']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Description:</label></div>
-          <div class="ml-3">                
+          <div class="ml-3">
                     <div [innerHTML]="detail['description']"></div>
-                        
 
           </div>
         </div>
         <div *ngIf="detail['tag']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Tag:</label></div>
-          <div class="ml-3">                
+          <div class="ml-3">
                     {{detail['tag']}}
 
           </div>
@@ -191,14 +193,14 @@
 				<div class="grid-fields pointer" (click)="onDetailLinkClicked(detail['_id'])" >
 
       <div class="card-header grid-head">
-        <div class="grid-head-picture">                
+        <div class="grid-head-picture">
                     <lib-mdds-file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false" [aspectRatio]="1.3333333333333333"></lib-mdds-file-display>
 
         </div>
         <div>
           <h5>
             <div class="mr-1 d-inline-block">
-                              
+              
                     {{detail['title']}}
 
             </div>
@@ -208,14 +210,13 @@
       <div class="card-body">
           <div *ngIf="detail['description']" class="d-flex flex-wrap">
             <div class=""><label>Description:</label></div>
-            <div class="ml-3">                
+            <div class="ml-3">
                     <div [innerHTML]="detail['description']"></div>
-                        
 </div>
           </div>
           <div *ngIf="detail['tag']" class="d-flex flex-wrap">
             <div class=""><label>Tag:</label></div>
-            <div class="ml-3">                
+            <div class="ml-3">
                     {{detail['tag']}}
 </div>
           </div>
@@ -264,23 +265,22 @@
 	            </td>
 
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
+	            	
                     <lib-mdds-file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false" [aspectRatio]="1.3333333333333333"></lib-mdds-file-display>
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
+	            	
                     {{detail['title']}}
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
+	            	
                     <div [innerHTML]="detail['description']"></div>
-                        
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
+	            	
                     {{detail['tag']}}
 
 	            </td>
@@ -291,6 +291,7 @@
 
 	</div>
 	<div class="container">
+		<div *ngIf="!options['disablePagination']">
 		<div class="row justify-content-end mt-3">
 		
 			
@@ -338,6 +339,7 @@
 				</div>
 		</div>
 
+		</div>
 	</div>
 	
 </div>

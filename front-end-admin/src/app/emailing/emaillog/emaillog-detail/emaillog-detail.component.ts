@@ -1,9 +1,10 @@
-import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, Output, EventEmitter } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
 
-import { EmaillogComponent, ViewType } from '../emaillog.component';
+import { EmaillogDetailCustComponent } from '../../../emailing-cust/base/emaillog/emaillog-detail.cust.component';
+import { ViewType } from '../emaillog.component';
 import { EmaillogService } from '../emaillog.service';
 
 
@@ -16,17 +17,15 @@ import { MddsRichTextShowDirective } from '@hicoder/angular-core';
   templateUrl: './emaillog-detail.component.html',
   styleUrls: ['./emaillog-detail.component.css']
 })
-export class EmaillogDetailComponent extends EmaillogComponent implements OnInit, AfterViewInit {
-  @Input() 
-  public id:string;
-  @Input()
-  public searchObj:any;
-  @Input()
-  public disableActionButtions:boolean;
-  @Input()
-  public style: any; // {}
-  @Input()
-  public options: any; // {} uiOptions
+export class EmaillogDetailComponent extends EmaillogDetailCustComponent implements OnInit, AfterViewInit {
+  // @Input() 
+  // public id:string;
+  // @Input()
+  // public searchObj:any;
+  // @Input()
+  // public disableActionButtions:boolean;
+  // @Output()
+  // public eventEmitter: EventEmitter<any> = new EventEmitter();
 
 
   @ViewChildren(MddsRichTextShowDirective) textEditors: QueryList<MddsRichTextShowDirective>;
@@ -40,6 +39,19 @@ export class EmaillogDetailComponent extends EmaillogComponent implements OnInit
       public location: Location) {
           super(
                 emaillogService, injector, router, route, location, ViewType.DETAIL);
+
+          this.fieldDisplayNames = {
+            'from': 'From',
+            'to': 'To',
+            'subject': 'Subject',
+            'content': 'Content',
+            'template': 'Template',
+            'module': 'Module',
+            'reason': 'Reason',
+            'result': 'Result',
+            'userId': 'User Id',
+            'createdAt': 'Created at',
+          };
 
 
           this.stringFields.push('from');
@@ -60,11 +72,12 @@ export class EmaillogDetailComponent extends EmaillogComponent implements OnInit
 
 
 
+
+
   }
 
   ngOnInit() {
-      this.style = this.style || {};
-      this.options = this.options || {};
+      super.ngOnInit();
       if (!this.id) this.id = this.route.snapshot.paramMap.get('id');
       if (this.id) {
         this.populateDetail(this.id);

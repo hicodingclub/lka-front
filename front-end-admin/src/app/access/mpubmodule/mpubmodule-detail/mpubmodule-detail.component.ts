@@ -1,9 +1,10 @@
-import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, Output, EventEmitter } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
 
-import { MpubmoduleComponent, ViewType } from '../mpubmodule.component';
+import { MpubmoduleDetailCustComponent } from '../../../access-cust/base/mpubmodule/mpubmodule-detail.cust.component';
+import { ViewType } from '../mpubmodule.component';
 import { MpubmoduleService } from '../mpubmodule.service';
 
 
@@ -14,17 +15,15 @@ import { MpubmoduleService } from '../mpubmodule.service';
   templateUrl: './mpubmodule-detail.component.html',
   styleUrls: ['./mpubmodule-detail.component.css']
 })
-export class MpubmoduleDetailComponent extends MpubmoduleComponent implements OnInit, AfterViewInit {
-  @Input() 
-  public id:string;
-  @Input()
-  public searchObj:any;
-  @Input()
-  public disableActionButtions:boolean;
-  @Input()
-  public style: any; // {}
-  @Input()
-  public options: any; // {} uiOptions
+export class MpubmoduleDetailComponent extends MpubmoduleDetailCustComponent implements OnInit, AfterViewInit {
+  // @Input() 
+  // public id:string;
+  // @Input()
+  // public searchObj:any;
+  // @Input()
+  // public disableActionButtions:boolean;
+  // @Output()
+  // public eventEmitter: EventEmitter<any> = new EventEmitter();
 
 
 
@@ -38,8 +37,14 @@ export class MpubmoduleDetailComponent extends MpubmoduleComponent implements On
           super(
                 mpubmoduleService, injector, router, route, location, ViewType.DETAIL);
 
+          this.fieldDisplayNames = {
+            'module': 'Module',
+            'resources': 'Resources',
+          };
+
 
           this.stringFields.push('module');
+
 
 
 
@@ -49,11 +54,11 @@ export class MpubmoduleDetailComponent extends MpubmoduleComponent implements On
 
 
 
+
   }
 
   ngOnInit() {
-      this.style = this.style || {};
-      this.options = this.options || {};
+      super.ngOnInit();
       if (!this.id) this.id = this.route.snapshot.paramMap.get('id');
       if (this.id) {
         this.populateDetail(this.id);
@@ -69,7 +74,7 @@ export class MpubmoduleDetailComponent extends MpubmoduleComponent implements On
   ngAfterViewInit() {
 
     //Load first reference, if not others activated
-    if (!this.isChildRouterActivated()) {
+    if (!this.options['disableRefLink'] && !this.isChildRouterActivated()) {
       this.router.navigate(['./mpubaccess/list', {}], {relativeTo: this.route, queryParamsHandling: 'preserve',});
     }
   }

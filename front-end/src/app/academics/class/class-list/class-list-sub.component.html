@@ -12,7 +12,7 @@
 		<span *ngIf="!loaded">Loading...</span>
 	</div>
 	<div class="container search">
-				<div class="row justify-content-end mt-3">
+		<div class="row justify-content-end mt-3">
 		
 			
 		</div>
@@ -91,27 +91,27 @@
 	            <td scope="row">{{(page-1)*perPage+i+1}}</td>
 
 	            <td >
-	            	                
+	            	
                     {{detail['title']}}
 
                 </td>
 	            <td >
-	            	                  {{detail['startTime']?detail['startTime']['value']:""}}
+	            	  {{detail['startTime']?detail['startTime']['value']:""}}
 
                 </td>
 	            <td >
-	            	                  {{detail['endTime']?detail['endTime']['value']:""}}
+	            	  {{detail['endTime']?detail['endTime']['value']:""}}
 
                 </td>
 	            <td >
-	            	                
+	            	
                     <div class="badge badge-pill badge-secondary" *ngFor="let element of enums['dayOfWeek']">
                          <div *ngIf="detail['dayOfWeek'] && detail['dayOfWeek']['selection'][element]">{{element}}</div>
                     </div>
 
                 </td>
 	            <td >
-	            	                
+	            	
                     {{detail['timeSlot']}}
 
                 </td>
@@ -137,7 +137,7 @@
 	</table>
 	
 	<div class="container">
-				<div class="row justify-content-end mt-3">
+		<div class="row justify-content-end mt-3">
 		
 			
 		</div>

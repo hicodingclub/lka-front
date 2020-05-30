@@ -4,8 +4,7 @@ import { RouteReuseStrategy } from '@angular/router';
 
 import { MddsRouteReuseStrategy } from '@hicoder/angular-core';
 
-import { EmailingComponent } from './emailing.component';
-import { EmailingRoutes } from '../emailing.conf';
+import { EmailingRoutes } from '../emailing-cust/emailing.conf';
 
 @NgModule({
   imports: [RouterModule.forChild(EmailingRoutes)],

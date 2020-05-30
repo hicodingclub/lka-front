@@ -5,7 +5,8 @@ import { Injector } from '@angular/core';
 
 declare const $: any;
 
-import { MaccountComponent, ViewType } from '../maccount.component';
+import { MaccountEditCustComponent } from '../../../roles-cust/base/maccount/maccount-edit.cust.component';
+import { ViewType } from '../maccount.component';
 import { MaccountService } from '../maccount.service';
 
 
@@ -19,21 +20,21 @@ import { MaccountService } from '../maccount.service';
   templateUrl: './maccount-edit.component.html',
   styleUrls: ['./maccount-edit.component.css']
 })
-export class MaccountEditComponent extends MaccountComponent implements OnInit, AfterViewInit {        
-    @Input() 
-    public id: string;
-    @Input()
-    public cid: string; // copy id
-    @Input()
-    public initData: any; // some fields has data already. eg: {a: b}. Used for add
-    @Output()
-    public doneData = new EventEmitter<boolean>();
-    @Output()
-    public done = new EventEmitter<any>();
-    @Input()
-    public embeddedView: boolean;
-    @Input()
-    public embedMode: string; // parent to tell the action - create
+export class MaccountEditComponent extends MaccountEditCustComponent implements OnInit, AfterViewInit {        
+    // @Input() 
+    // public id: string;
+    // @Input()
+    // public cid: string; // copy id
+    // @Input()
+    // public initData: any; // some fields has data already. eg: {a: b}. Used for add
+    // @Output()
+    // public doneData = new EventEmitter<boolean>();
+    // @Output()
+    // public done = new EventEmitter<any>();
+    // @Input()
+    // public embeddedView: boolean;
+    // @Input()
+    // public embedMode: string; // parent to tell the action - create
 
     public action: string;
     public minDate = {year: (new Date()).getFullYear() - 100, month: 1, day: 1};
@@ -48,6 +49,14 @@ export class MaccountEditComponent extends MaccountComponent implements OnInit, 
       public location: Location) {
           super(
                 maccountService, injector, router, route, location, ViewType.EDIT);
+
+          this.fieldDisplayNames = {
+            'username': 'Username',
+            'email': 'Email',
+            'phone': 'Phone',
+            'status': 'Status',
+            'password': 'Password',
+          };
 
           this.enums['status'] = ['Enabled', 'Disabled', 'Pending', ];
 
@@ -65,12 +74,15 @@ export class MaccountEditComponent extends MaccountComponent implements OnInit, 
 
 
 
+
+
           
           const detail = {};
           this.detail = this.formatDetail(detail);
     }
 
     ngOnInit() {
+      super.ngOnInit();
       if (this.embedMode == 'create') { // parent ask to create
         this.action='Create';
         this.getDetailData();
@@ -90,6 +102,8 @@ export class MaccountEditComponent extends MaccountComponent implements OnInit, 
             }
         }
       }
+      // get editHintFields
+      this.searchHintFieldValues();
     }
 
     ngAfterViewInit() {
@@ -101,7 +115,7 @@ export class MaccountEditComponent extends MaccountComponent implements OnInit, 
       if (this.initData) {
         this.action='Add';
         let detail = {
-            status: "Enabled",
+          status: "Enabled",
         };
         for (let prop of Object.keys(this.initData)) {
             detail[prop] = this.initData[prop];
@@ -110,7 +124,7 @@ export class MaccountEditComponent extends MaccountComponent implements OnInit, 
         this.detail = this.formatDetail(detail);
       } else {
           let detail = {
-              status: "Enabled",
+            status: "Enabled",
           };
           this.detail = this.formatDetail(detail);
       }

@@ -8,7 +8,7 @@
           <div>
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
                 <div><label>Description:</label></div>
-                <div class="ml-3">                 
+                <div class="ml-3">
                     <div libMddsRichtextShow="classDetailDescription" [content]="detail['description']"></div>
 </div>
             </div>
@@ -16,7 +16,7 @@
           <div>
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
                 <div><label>Price:</label></div>
-                <div class="ml-3">                
+                <div class="ml-3">
                     {{detail['price']}}
 </div>
             </div>
@@ -24,7 +24,7 @@
           <div>
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
                 <div><label>Duration:</label></div>
-                <div class="ml-3">                
+                <div class="ml-3">
                     {{detail['duration']}}
 </div>
             </div>
@@ -32,7 +32,7 @@
           <div>
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
                 <div><label>Enroll Term:</label></div>
-                <div class="ml-3">                
+                <div class="ml-3">
                	  <a routerLink="."  (click)="onDisplayRefClicked('enrollTerm', detail['enrollTerm'], $event)">
 	            	{{detail['enrollTerm']?detail['enrollTerm']['value']:""}}
 	              </a>

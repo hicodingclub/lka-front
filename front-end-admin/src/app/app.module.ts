@@ -1,17 +1,11 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeModule } from './home/home.module';
 import { UsersModule } from './users/users.module';
-import { RolesModule } from './roles/roles.module';
-import { AcademicsModule } from './academics/academics.module';
-import { PublicinfoModule } from './publicinfo/publicinfo.module';
-import { AccessModule } from './access/access.module';
-import { FilesModule } from './files/files.module';
-import { EmailingModule } from './emailing/emailing.module';
-import { PipelineModule } from './pipeline/pipeline.module';
 
 import { AuthenticationModule, AUTHENTICATION_DROPDOWN_ITEMS, AUTHENTICATION_LOGIN_PIPELINE } from '@hicoder/angular-auth';
 
@@ -26,18 +20,12 @@ import { file_upload_uri, file_download_uri, file_manage_root_uri } from './file
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     
-    AcademicsModule,
     AuthenticationModule,
     HomeModule,
     UsersModule,
-    RolesModule,
-    PublicinfoModule,
-    AccessModule,
-    FilesModule,
-    EmailingModule,
-    PipelineModule,
   ],
   providers: [
     { provide: AUTHENTICATION_AUTH_PAGE_ROOT_URI, useValue: authentication_page_root_uri },

@@ -4,8 +4,7 @@ import { RouteReuseStrategy } from '@angular/router';
 
 import { MddsRouteReuseStrategy } from '@hicoder/angular-core';
 
-import { FilesComponent } from './files.component';
-import { FilesRoutes } from '../files.conf';
+import { FilesRoutes } from '../files-cust/files.conf';
 
 @NgModule({
   imports: [RouterModule.forChild(FilesRoutes)],

@@ -1,5 +1,6 @@
 
-<div class="mt-4 mb-4 d-flex">
+
+<div class="mt-4 mb-4 d-flex" *ngIf="!options['disableTitleRow']">
 
 
 </div>
@@ -16,15 +17,15 @@
 
 
 <div>
-	<div class="container search">
-		<div class="row">
-			<div class="col-9">
+	<div *ngIf="!options['disableListHead']" class="container search">
+		<div class="row" *ngIf="!options['disableListSearch']">
+			<div class="col">
 
 			    <div class="input-group">
 	              <input type="search" class="form-control border border-secondary" id="paymentTextSearch" 
 						#paymentTextSearch [(ngModel)]="searchText"
 						(keydown.enter)="$event.target.blur();searchList();false"
-					    placeholder="Search for product, productID, price, status"> 
+					    placeholder="Search for product, product id, price, status"> 
 				  <div *ngIf="searchText" class="input-group-append icon-clear-inside">
 					<span >
 					    <i class="fas fa-times-circle" (click)="onSearchTextClear()" title="Clear"></i>
@@ -48,8 +49,12 @@
 					<div class="card">
 						<div class="card-body">
 	    <div class="single-line-edit">
-	      <div class="row">
-	        <div class="col-3"><label for="paymentEditCreatedAt">Created At</label></div>
+	      <div class="row col-gutter">
+			<div class="col-3">
+				<label for="paymentEditCreatedAt">
+				Created At
+				</label>
+			</div>
 	        <div class="col-8">
 
  
@@ -107,14 +112,14 @@
 		        <div *ngIf="!moreSearchOpened" style="text-align: left;">
 					<span class="badge badge-pill badge-info" *ngFor="let value of searchMoreDetail">
 					    <a (click)="toggleMoreSearch()" class="pointer"> {{value[0]}}: {{value[1]}}</a>
-					    <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromDetailAndSearchList(value[0])" title="Clear"></i>
+					    <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromDetailAndSearchList(value[2])" title="Clear"></i>
 					</span>
 				</div>
 		    
 
 			</div>
 		</div>
-		<div class="row">
+		<div class="row" *ngIf="!options['disableActionButtions']">
 			<div class="col">
 		        <div class="action-buttons">
 					
@@ -127,6 +132,7 @@
 			</div>
 		</div>
 		<hr/>
+		<div *ngIf="!options['disablePagination']">
 		<div class="row justify-content-end mt-3">
 		
 			<div *ngIf="list.length > 2" class="sort-selection mr-5">
@@ -141,12 +147,12 @@
 						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('product', 'Product', 'asc')">Product<i class="fas fa-arrow-up"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('product', 'Product', 'desc')">Product<i class="fas fa-arrow-down"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('productID', 'Product ID', 'asc')">ProductID<i class="fas fa-arrow-up"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('productID', 'Product ID', 'desc')">ProductID<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('productID', 'Product ID', 'asc')">Product ID<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('productID', 'Product ID', 'desc')">Product ID<i class="fas fa-arrow-down"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('price', 'Price', 'asc')">Price<i class="fas fa-arrow-up"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('price', 'Price', 'desc')">Price<i class="fas fa-arrow-down"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('createdAt', 'Created At', 'asc')">CreatedAt<i class="fas fa-arrow-up"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('createdAt', 'Created At', 'desc')">CreatedAt<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('createdAt', 'Created At', 'asc')">Created At<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('createdAt', 'Created At', 'desc')">Created At<i class="fas fa-arrow-down"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('status', 'Status', 'asc')">Status<i class="fas fa-arrow-up"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('status', 'Status', 'desc')">Status<i class="fas fa-arrow-down"></i></a>
 						</div>
@@ -215,6 +221,7 @@
 				</div>
 		</div>
 
+		</div>
 	</div>
 	<div class="no-records" *ngIf="list.length === 0">
 		<span *ngIf="loaded">No records found.</span>
@@ -231,34 +238,34 @@
       <div class="list-body-fields">
         <h5>
           <div class="mr-1 d-inline-block">
-                            
+            
                     {{detail['product']}}
 
           </div>
         </h5>
         <div *ngIf="detail['productID']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Product ID:</label></div>
-          <div class="ml-3">                
+          <div class="ml-3">
                     {{detail['productID']}}
 
           </div>
         </div>
         <div *ngIf="detail['price']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Price:</label></div>
-          <div class="ml-3">                
+          <div class="ml-3">
                     {{detail['price']}}
 
           </div>
         </div>
         <div *ngIf="detail['createdAt']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Created At:</label></div>
-          <div class="ml-3">                  {{detail['createdAt']?detail['createdAt']['value']:""}}
+          <div class="ml-3">  {{detail['createdAt']?detail['createdAt']['value']:""}}
 
           </div>
         </div>
         <div *ngIf="detail['status']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Status:</label></div>
-          <div class="ml-3">                
+          <div class="ml-3">
                     {{detail['status']}}
 
           </div>
@@ -291,7 +298,7 @@
         <div>
           <h5>
             <div class="mr-1 d-inline-block">
-                              
+              
                     {{detail['product']}}
 
             </div>
@@ -301,24 +308,24 @@
       <div class="card-body">
           <div *ngIf="detail['productID']" class="d-flex flex-wrap">
             <div class=""><label>Product ID:</label></div>
-            <div class="ml-3">                
+            <div class="ml-3">
                     {{detail['productID']}}
 </div>
           </div>
           <div *ngIf="detail['price']" class="d-flex flex-wrap">
             <div class=""><label>Price:</label></div>
-            <div class="ml-3">                
+            <div class="ml-3">
                     {{detail['price']}}
 </div>
           </div>
           <div *ngIf="detail['createdAt']" class="d-flex flex-wrap">
             <div class=""><label>Created At:</label></div>
-            <div class="ml-3">                  {{detail['createdAt']?detail['createdAt']['value']:""}}
+            <div class="ml-3">  {{detail['createdAt']?detail['createdAt']['value']:""}}
 </div>
           </div>
           <div *ngIf="detail['status']" class="d-flex flex-wrap">
             <div class=""><label>Status:</label></div>
-            <div class="ml-3">                
+            <div class="ml-3">
                     {{detail['status']}}
 </div>
           </div>
@@ -387,26 +394,26 @@
 	            </td>
 
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
+	            	
                     {{detail['product']}}
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
+	            	
                     {{detail['productID']}}
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
+	            	
                     {{detail['price']}}
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                  {{detail['createdAt']?detail['createdAt']['value']:""}}
+	            	  {{detail['createdAt']?detail['createdAt']['value']:""}}
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
+	            	
                     {{detail['status']}}
 
 	            </td>
@@ -426,6 +433,7 @@
 
 	</div>
 	<div class="container">
+		<div *ngIf="!options['disablePagination']">
 		<div class="row justify-content-end mt-3">
 		
 			
@@ -473,6 +481,7 @@
 				</div>
 		</div>
 
+		</div>
 	</div>
 	
 </div>

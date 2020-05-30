@@ -1,16 +1,21 @@
 
 
-		<div *ngIf="detail && showFields.includes('username')">                
+		<div *ngIf="detail && showFields.includes('username')">
                     {{detail['username']}}
-</div>
-		<div *ngIf="detail && showFields.includes('email')">                
+
+		</div>
+		<div *ngIf="detail && showFields.includes('email')">
                     {{detail['email']}}
-</div>
-		<div *ngIf="detail && showFields.includes('phone')">                
+
+		</div>
+		<div *ngIf="detail && showFields.includes('phone')">
                     {{detail['phone']}}
-</div>
-		<div *ngIf="detail && showFields.includes('since')">                  {{detail['since']?detail['since']['value']:""}}
-</div>
-		<div *ngIf="detail && showFields.includes('status')">                
+
+		</div>
+		<div *ngIf="detail && showFields.includes('since')">  {{detail['since']?detail['since']['value']:""}}
+
+		</div>
+		<div *ngIf="detail && showFields.includes('status')">
                     {{detail['status']}}
-</div>
+
+		</div>

@@ -1,5 +1,6 @@
 
-<div class="mt-4 mb-4 d-flex">
+
+<div class="mt-4 mb-4 d-flex" *ngIf="!options['disableTitleRow']">
 
 
 </div>
@@ -16,15 +17,15 @@
 
 
 <div>
-	<div class="container search">
-		<div class="row">
-			<div class="col-9">
+	<div *ngIf="!options['disableListHead']" class="container search">
+		<div class="row" *ngIf="!options['disableListSearch']">
+			<div class="col">
 
 			    <div class="input-group">
 	              <input type="search" class="form-control border border-secondary" id="classTextSearch" 
 						#classTextSearch [(ngModel)]="searchText"
 						(keydown.enter)="$event.target.blur();searchList();false"
-					    placeholder="Search for title, season, timeSlot"> 
+					    placeholder="Search for title, season, time slot"> 
 				  <div *ngIf="searchText" class="input-group-append icon-clear-inside">
 					<span >
 					    <i class="fas fa-times-circle" (click)="onSearchTextClear()" title="Clear"></i>
@@ -48,8 +49,12 @@
 					<div class="card">
 						<div class="card-body">
 	    <div class="single-line-edit">
-	      <div class="row">
-	        <div class="col-3"><label for="classEditCourse">Program</label></div>
+	      <div class="row col-gutter">
+			<div class="col-3">
+				<label for="classEditCourse">
+				Program
+				</label>
+			</div>
 	        <div class="col-8">
 
 
@@ -74,8 +79,12 @@
       
  
 	    <div class="single-line-edit">
-	      <div class="row">
-	        <div class="col-3"><label for="classEditTeacher">Instructor</label></div>
+	      <div class="row col-gutter">
+			<div class="col-3">
+				<label for="classEditTeacher">
+				Instructor
+				</label>
+			</div>
 	        <div class="col-8">
 
 
@@ -100,8 +109,12 @@
       
  
 	    <div class="single-line-edit">
-	      <div class="row">
-	        <div class="col-3"><label for="classEditHot">Hot</label></div>
+	      <div class="row col-gutter">
+			<div class="col-3">
+				<label for="classEditHot">
+				Hot
+				</label>
+			</div>
 	        <div class="col-8">
 
 
@@ -134,8 +147,12 @@
       
  
 	    <div class="single-line-edit">
-	      <div class="row">
-	        <div class="col-3"><label for="classEditStartTime">Start Time</label></div>
+	      <div class="row col-gutter">
+			<div class="col-3">
+				<label for="classEditStartTime">
+				Start Time
+				</label>
+			</div>
 	        <div class="col-8">
 
  
@@ -181,8 +198,12 @@
       
  
 	    <div class="single-line-edit">
-	      <div class="row">
-	        <div class="col-3"><label for="classEditEndTime">End Time</label></div>
+	      <div class="row col-gutter">
+			<div class="col-3">
+				<label for="classEditEndTime">
+				End Time
+				</label>
+			</div>
 	        <div class="col-8">
 
  
@@ -228,8 +249,12 @@
       
  
 	    <div class="single-line-edit">
-	      <div class="row">
-	        <div class="col-3"><label for="classEditDayOfWeek">Day of Week</label></div>
+	      <div class="row col-gutter">
+			<div class="col-3">
+				<label for="classEditDayOfWeek">
+				Day of Week
+				</label>
+			</div>
 	        <div class="col-8">
 
 
@@ -343,14 +368,14 @@
 		        <div *ngIf="!moreSearchOpened" style="text-align: left;">
 					<span class="badge badge-pill badge-info" *ngFor="let value of searchMoreDetail">
 					    <a (click)="toggleMoreSearch()" class="pointer"> {{value[0]}}: {{value[1]}}</a>
-					    <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromDetailAndSearchList(value[0])" title="Clear"></i>
+					    <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromDetailAndSearchList(value[2])" title="Clear"></i>
 					</span>
 				</div>
 		    
 
 			</div>
 		</div>
-		<div class="row">
+		<div class="row" *ngIf="!options['disableActionButtions']">
 			<div class="col">
 		        <div class="action-buttons">
 					
@@ -367,6 +392,7 @@
 			</div>
 		</div>
 		<hr/>
+		<div *ngIf="!options['disablePagination']">
 		<div class="row justify-content-end mt-3">
 		
 			<div *ngIf="list.length > 2" class="sort-selection mr-5">
@@ -381,20 +407,20 @@
 						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('title', 'Title', 'asc')">Title<i class="fas fa-arrow-up"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('title', 'Title', 'desc')">Title<i class="fas fa-arrow-down"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('course', 'Program', 'asc')">Course<i class="fas fa-arrow-up"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('course', 'Program', 'desc')">Course<i class="fas fa-arrow-down"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('teacher', 'Instructor', 'asc')">Teacher<i class="fas fa-arrow-up"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('teacher', 'Instructor', 'desc')">Teacher<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('course', 'Program', 'asc')">Program<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('course', 'Program', 'desc')">Program<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('teacher', 'Instructor', 'asc')">Instructor<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('teacher', 'Instructor', 'desc')">Instructor<i class="fas fa-arrow-down"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('hot', 'Hot', 'asc')">Hot<i class="fas fa-arrow-up"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('hot', 'Hot', 'desc')">Hot<i class="fas fa-arrow-down"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('season', 'Season', 'asc')">Season<i class="fas fa-arrow-up"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('season', 'Season', 'desc')">Season<i class="fas fa-arrow-down"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('startTime', 'Start Time', 'asc')">StartTime<i class="fas fa-arrow-up"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('startTime', 'Start Time', 'desc')">StartTime<i class="fas fa-arrow-down"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('endTime', 'End Time', 'asc')">EndTime<i class="fas fa-arrow-up"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('endTime', 'End Time', 'desc')">EndTime<i class="fas fa-arrow-down"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('timeSlot', 'Time Slot', 'asc')">TimeSlot<i class="fas fa-arrow-up"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('timeSlot', 'Time Slot', 'desc')">TimeSlot<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('startTime', 'Start Time', 'asc')">Start Time<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('startTime', 'Start Time', 'desc')">Start Time<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('endTime', 'End Time', 'asc')">End Time<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('endTime', 'End Time', 'desc')">End Time<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('timeSlot', 'Time Slot', 'asc')">Time Slot<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('timeSlot', 'Time Slot', 'desc')">Time Slot<i class="fas fa-arrow-down"></i></a>
 						</div>
 					</div>
 			</div>
@@ -461,6 +487,7 @@
 				</div>
 		</div>
 
+		</div>
 	</div>
 	<div class="no-records" *ngIf="list.length === 0">
 		<span *ngIf="loaded">No records found.</span>
@@ -539,50 +566,50 @@
 	            </td>
 
 	            <td >
-	            	                
+	            	
                     {{detail['title']}}
 
 	            </td>
 	            <td >
-	            	                
+	            	
                	  <a routerLink="."  (click)="onDisplayRefClicked('course', detail['course'], $event)">
 	            	{{detail['course']?detail['course']['value']:""}}
 	              </a>
 
 	            </td>
 	            <td >
-	            	                
+	            	
                	  <a routerLink="."  (click)="onDisplayRefClicked('teacher', detail['teacher'], $event)">
 	            	{{detail['teacher']?detail['teacher']['value']:""}}
 	              </a>
 
 	            </td>
 	            <td >
-	            	                  {{detail['hot']}} 
+	            	{{detail['hot']}} 
 
 	            </td>
 	            <td >
-	            	                
+	            	
                     {{detail['season']}}
 
 	            </td>
 	            <td >
-	            	                  {{detail['startTime']?detail['startTime']['value']:""}}
+	            	  {{detail['startTime']?detail['startTime']['value']:""}}
 
 	            </td>
 	            <td >
-	            	                  {{detail['endTime']?detail['endTime']['value']:""}}
+	            	  {{detail['endTime']?detail['endTime']['value']:""}}
 
 	            </td>
 	            <td >
-	            	                
+	            	
                     <div class="badge badge-pill badge-secondary" *ngFor="let element of enums['dayOfWeek']">
                          <div *ngIf="detail['dayOfWeek'] && detail['dayOfWeek']['selection'][element]">{{element}}</div>
                     </div>
 
 	            </td>
 	            <td >
-	            	                
+	            	
                     {{detail['timeSlot']}}
 
 	            </td>
@@ -613,14 +640,14 @@
       <div class="list-body-fields">
         <h5>
           <div class="mr-1 d-inline-block">
-                            
+            
                     {{detail['title']}}
 
           </div>
         </h5>
         <div *ngIf="detail['course']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Program:</label></div>
-          <div class="ml-3">                
+          <div class="ml-3">
                	  <a routerLink="."  (click)="onDisplayRefClicked('course', detail['course'], $event)">
 	            	{{detail['course']?detail['course']['value']:""}}
 	              </a>
@@ -629,7 +656,7 @@
         </div>
         <div *ngIf="detail['teacher']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Instructor:</label></div>
-          <div class="ml-3">                
+          <div class="ml-3">
                	  <a routerLink="."  (click)="onDisplayRefClicked('teacher', detail['teacher'], $event)">
 	            	{{detail['teacher']?detail['teacher']['value']:""}}
 	              </a>
@@ -638,32 +665,32 @@
         </div>
         <div *ngIf="detail['hot']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Hot:</label></div>
-          <div class="ml-3">                  {{detail['hot']}} 
+          <div class="ml-3">{{detail['hot']}} 
 
           </div>
         </div>
         <div *ngIf="detail['season']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Season:</label></div>
-          <div class="ml-3">                
+          <div class="ml-3">
                     {{detail['season']}}
 
           </div>
         </div>
         <div *ngIf="detail['startTime']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Start Time:</label></div>
-          <div class="ml-3">                  {{detail['startTime']?detail['startTime']['value']:""}}
+          <div class="ml-3">  {{detail['startTime']?detail['startTime']['value']:""}}
 
           </div>
         </div>
         <div *ngIf="detail['endTime']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>End Time:</label></div>
-          <div class="ml-3">                  {{detail['endTime']?detail['endTime']['value']:""}}
+          <div class="ml-3">  {{detail['endTime']?detail['endTime']['value']:""}}
 
           </div>
         </div>
         <div *ngIf="detail['dayOfWeek']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Day of Week:</label></div>
-          <div class="ml-3">                
+          <div class="ml-3">
                     <div class="badge badge-pill badge-secondary" *ngFor="let element of enums['dayOfWeek']">
                          <div *ngIf="detail['dayOfWeek'] && detail['dayOfWeek']['selection'][element]">{{element}}</div>
                     </div>
@@ -672,7 +699,7 @@
         </div>
         <div *ngIf="detail['timeSlot']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Time Slot:</label></div>
-          <div class="ml-3">                
+          <div class="ml-3">
                     {{detail['timeSlot']}}
 
           </div>
@@ -711,7 +738,7 @@
         <div>
           <h5>
             <div class="mr-1 d-inline-block">
-                              
+              
                     {{detail['title']}}
 
             </div>
@@ -721,7 +748,7 @@
       <div class="card-body">
           <div *ngIf="detail['course']" class="d-flex flex-wrap">
             <div class=""><label>Program:</label></div>
-            <div class="ml-3">                
+            <div class="ml-3">
                	  <a routerLink="."  (click)="onDisplayRefClicked('course', detail['course'], $event)">
 	            	{{detail['course']?detail['course']['value']:""}}
 	              </a>
@@ -729,7 +756,7 @@
           </div>
           <div *ngIf="detail['teacher']" class="d-flex flex-wrap">
             <div class=""><label>Instructor:</label></div>
-            <div class="ml-3">                
+            <div class="ml-3">
                	  <a routerLink="."  (click)="onDisplayRefClicked('teacher', detail['teacher'], $event)">
 	            	{{detail['teacher']?detail['teacher']['value']:""}}
 	              </a>
@@ -737,28 +764,28 @@
           </div>
           <div *ngIf="detail['hot']" class="d-flex flex-wrap">
             <div class=""><label>Hot:</label></div>
-            <div class="ml-3">                  {{detail['hot']}} 
+            <div class="ml-3">{{detail['hot']}} 
 </div>
           </div>
           <div *ngIf="detail['season']" class="d-flex flex-wrap">
             <div class=""><label>Season:</label></div>
-            <div class="ml-3">                
+            <div class="ml-3">
                     {{detail['season']}}
 </div>
           </div>
           <div *ngIf="detail['startTime']" class="d-flex flex-wrap">
             <div class=""><label>Start Time:</label></div>
-            <div class="ml-3">                  {{detail['startTime']?detail['startTime']['value']:""}}
+            <div class="ml-3">  {{detail['startTime']?detail['startTime']['value']:""}}
 </div>
           </div>
           <div *ngIf="detail['endTime']" class="d-flex flex-wrap">
             <div class=""><label>End Time:</label></div>
-            <div class="ml-3">                  {{detail['endTime']?detail['endTime']['value']:""}}
+            <div class="ml-3">  {{detail['endTime']?detail['endTime']['value']:""}}
 </div>
           </div>
           <div *ngIf="detail['dayOfWeek']" class="d-flex flex-wrap">
             <div class=""><label>Day of Week:</label></div>
-            <div class="ml-3">                
+            <div class="ml-3">
                     <div class="badge badge-pill badge-secondary" *ngFor="let element of enums['dayOfWeek']">
                          <div *ngIf="detail['dayOfWeek'] && detail['dayOfWeek']['selection'][element]">{{element}}</div>
                     </div>
@@ -766,7 +793,7 @@
           </div>
           <div *ngIf="detail['timeSlot']" class="d-flex flex-wrap">
             <div class=""><label>Time Slot:</label></div>
-            <div class="ml-3">                
+            <div class="ml-3">
                     {{detail['timeSlot']}}
 </div>
           </div>
@@ -794,6 +821,7 @@
 
 	</div>
 	<div class="container">
+		<div *ngIf="!options['disablePagination']">
 		<div class="row justify-content-end mt-3">
 		
 			
@@ -841,9 +869,10 @@
 				</div>
 		</div>
 
+		</div>
 	</div>
 	
 </div>
 
 
-<ng-template academics-ref-select></ng-template>
+<ng-template *ngIf="!options['disableRefs']" academics-ref-select></ng-template>

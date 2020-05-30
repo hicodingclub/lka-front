@@ -29,8 +29,8 @@ export class TeacherListSubComponent extends TeacherListComponent implements OnI
 
   ngOnInit() {
     
-      this.parentSchema = this.getParentRouteRefField();
-      let ref = this.referenceFieldsReverseMap[this.parentSchema];
+      let ref = this.getParentRouteRefField();
+      this.parentSchema = this.referenceFieldsReverseMap[ref];
 
       this.parentItemId = this.getParentRouteItemId();
       let id = this.parentItemId;

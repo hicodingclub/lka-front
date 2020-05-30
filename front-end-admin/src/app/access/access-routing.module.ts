@@ -4,8 +4,7 @@ import { RouteReuseStrategy } from '@angular/router';
 
 import { MddsRouteReuseStrategy } from '@hicoder/angular-core';
 
-import { AccessComponent } from './access.component';
-import { AccessRoutes } from '../access.conf';
+import { AccessRoutes } from '../access-cust/access.conf';
 
 @NgModule({
   imports: [RouterModule.forChild(AccessRoutes)],

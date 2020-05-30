@@ -13,9 +13,9 @@ import { CourseService } from '../course.service';
 })
 export class CourseDetailFieldComponent extends CourseComponent
         implements OnInit {
-    @Input() id: string;
-    @Input() detailObj: any;
-    @Input() showFieldsStr: string;
+    // @Input() id: string;
+    // @Input() detailObj: any;
+    // @Input() showFieldsStr: string;
     showFields: string[];
     
     constructor(
@@ -27,9 +27,16 @@ export class CourseDetailFieldComponent extends CourseComponent
           super(
                 courseService, injector, router, route, location, ViewType.DETAIL);
           
+          this.fieldDisplayNames = {
+            'title': 'Title',
+            'description': 'Description',
+          };
+
 
           this.stringFields.push('title');
           this.stringFields.push('description');
+
+
 
 
 

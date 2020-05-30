@@ -13,7 +13,7 @@ import { MpubaccessService } from '../mpubaccess.service';
 })
 export class MpubaccessDetailSubComponent extends MpubaccessDetailComponent 
         implements OnInit {
-    @Input() inputData;
+    // @Input() inputData;
     
     constructor(
         public mpubaccessService: MpubaccessService,

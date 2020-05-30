@@ -13,9 +13,9 @@ import { TermsService } from '../terms.service';
 })
 export class TermsDetailFieldComponent extends TermsComponent
         implements OnInit {
-    @Input() id: string;
-    @Input() detailObj: any;
-    @Input() showFieldsStr: string;
+    // @Input() id: string;
+    // @Input() detailObj: any;
+    // @Input() showFieldsStr: string;
     showFields: string[];
     
     constructor(
@@ -27,11 +27,20 @@ export class TermsDetailFieldComponent extends TermsComponent
           super(
                 termsService, injector, router, route, location, ViewType.DETAIL);
           
+          this.fieldDisplayNames = {
+            'name': 'Name',
+            'content': 'Content',
+            'acknowledge': 'Acknowledge',
+            'tag': 'Tag',
+          };
+
 
           this.stringFields.push('name');
           this.stringFields.push('content');
           this.stringFields.push('acknowledge');
           this.stringFields.push('tag');
+
+
 
 
 

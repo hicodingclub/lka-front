@@ -1,14 +1,20 @@
 <div class="edit" *ngIf="detail">
 	<div *ngIf="!embeddedView" class="action-buttons">
-        <!-- <a href="javascript:void(0)" (click)="goBack()" ><i class="fas fa-angle-double-left" title="Back"></i></a> -->
+		<!-- <a href="javascript:void(0)" (click)="goBack()" ><i class="fas fa-angle-double-left" title="Back"></i></a> -->
 	</div>
-	
+
 	<div class="card" style="text-align: left;">
-	  <div class="card-body">
-	    <h4 class="card-title" *ngIf="!embeddedView">{{action}} Email Template</h4>
-	    <form (ngSubmit)="onSubmit()" #editForm="ngForm">
-	    
-	     <div *ngIf="action == 'Edit'">
+		<div class="card-body">
+			<h4 class="card-title" *ngIf="!embeddedView && !options['title']">{{action}} Email Template</h4>
+			<h4 class="card-title" *ngIf="options['title']" [ngStyle]="style['card-title']">
+				{{options['title']}}
+			</h4>
+			<p	*ngIf="options['subtitle']" [ngStyle]="style['card-subtitle']">
+				{{options['subtitle']}}
+			</p>
+			<form (ngSubmit)="onSubmit()" #editForm="ngForm">
+
+				<div *ngIf="action == 'Edit'">
 <div *ngIf="!hiddenFields.includes('templateName')">
 
         <fieldset class="form-group">
@@ -21,10 +27,10 @@
                     required
                     
                     
-                 
+                
                     [(ngModel)]="detail['templateName']" name="EditTemplateName"
                     #EditTemplateName="ngModel">
-            <div *ngIf="detail['templateName']" 
+            <div *ngIf="detail['templateName']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('templateName')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -56,10 +62,10 @@
                     
                     
                     
-                 
+                
                     [(ngModel)]="detail['fromEmail']" name="EditFromEmail"
                     #EditFromEmail="ngModel">
-            <div *ngIf="detail['fromEmail']" 
+            <div *ngIf="detail['fromEmail']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('fromEmail')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -88,10 +94,10 @@
                     required
                     
                     
-                 
+                
                     [(ngModel)]="detail['subject']" name="EditSubject"
                     #EditSubject="ngModel">
-            <div *ngIf="detail['subject']" 
+            <div *ngIf="detail['subject']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('subject')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -148,10 +154,10 @@
                     required
                     
                     
-                 
+                
                     [(ngModel)]="detail['tag']" name="EditTag"
                     #EditTag="ngModel">
-            <div *ngIf="detail['tag']" 
+            <div *ngIf="detail['tag']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('tag')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -172,8 +178,8 @@
     
 </div>
 
-         </div>	
-	     <div *ngIf="action == 'Create' || action == 'Add' ">
+				</div>
+				<div *ngIf="action == 'Create' || action == 'Add' ">
 <div *ngIf="!hiddenFields.includes('templateName')">
 
         <fieldset class="form-group">
@@ -186,10 +192,10 @@
                     required
                     
                     
-                 
+                
                     [(ngModel)]="detail['templateName']" name="EditTemplateName"
                     #EditTemplateName="ngModel">
-            <div *ngIf="detail['templateName']" 
+            <div *ngIf="detail['templateName']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('templateName')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -221,10 +227,10 @@
                     
                     
                     
-                 
+                
                     [(ngModel)]="detail['fromEmail']" name="EditFromEmail"
                     #EditFromEmail="ngModel">
-            <div *ngIf="detail['fromEmail']" 
+            <div *ngIf="detail['fromEmail']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('fromEmail')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -253,10 +259,10 @@
                     required
                     
                     
-                 
+                
                     [(ngModel)]="detail['subject']" name="EditSubject"
                     #EditSubject="ngModel">
-            <div *ngIf="detail['subject']" 
+            <div *ngIf="detail['subject']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('subject')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -313,10 +319,10 @@
                     required
                     
                     
-                 
+                
                     [(ngModel)]="detail['tag']" name="EditTag"
                     #EditTag="ngModel">
-            <div *ngIf="detail['tag']" 
+            <div *ngIf="detail['tag']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('tag')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -337,16 +343,13 @@
     
 </div>
 
-         </div>	
-         
-		<div class="action-buttons-center">
-	     	<button type="submit" class="btn btn-success" 
-     			[disabled]="!editForm.form.valid">Submit</button>
-	     	<button class="btn btn-outline-success" 
-     			type="button" (click)="editCancel()">Cancel</button>
+				</div>
+
+				<div class="action-buttons-center">
+					<button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
+					<button class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>
+				</div>
+			</form>
 		</div>
-	    </form>
-	  </div>
 	</div>
 </div>
-

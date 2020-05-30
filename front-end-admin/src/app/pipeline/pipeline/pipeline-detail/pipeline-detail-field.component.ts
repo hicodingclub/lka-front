@@ -13,9 +13,9 @@ import { PipelineService } from '../pipeline.service';
 })
 export class PipelineDetailFieldComponent extends PipelineComponent
         implements OnInit {
-    @Input() id: string;
-    @Input() detailObj: any;
-    @Input() showFieldsStr: string;
+    // @Input() id: string;
+    // @Input() detailObj: any;
+    // @Input() showFieldsStr: string;
     showFields: string[];
     
     constructor(
@@ -27,12 +27,21 @@ export class PipelineDetailFieldComponent extends PipelineComponent
           super(
                 pipelineService, injector, router, route, location, ViewType.DETAIL);
           
+          this.fieldDisplayNames = {
+            'category': 'Category',
+            'createdAt': 'Created at',
+            'updatedAt': 'Updated at',
+            'muser_id': 'Muser Id',
+          };
+
 
           this.stringFields.push('category');
           this.stringFields.push('muser_id');
 
 
           this.dateFields = ['createdAt', 'updatedAt', ];
+
+
 
 
 

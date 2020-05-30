@@ -1,9 +1,10 @@
-import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, Output, EventEmitter } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
 
-import { StudentComponent, ViewType } from '../student.component';
+import { StudentDetailCustComponent } from '../../../academics-cust/base/student/student-detail.cust.component';
+import { ViewType } from '../student.component';
 import { StudentService } from '../student.service';
 
 
@@ -14,17 +15,15 @@ import { StudentService } from '../student.service';
   templateUrl: './student-detail.component.html',
   styleUrls: ['./student-detail.component.css']
 })
-export class StudentDetailComponent extends StudentComponent implements OnInit, AfterViewInit {
-  @Input() 
-  public id:string;
-  @Input()
-  public searchObj:any;
-  @Input()
-  public disableActionButtions:boolean;
-  @Input()
-  public style: any; // {}
-  @Input()
-  public options: any; // {} uiOptions
+export class StudentDetailComponent extends StudentDetailCustComponent implements OnInit, AfterViewInit {
+  // @Input() 
+  // public id:string;
+  // @Input()
+  // public searchObj:any;
+  // @Input()
+  // public disableActionButtions:boolean;
+  // @Output()
+  // public eventEmitter: EventEmitter<any> = new EventEmitter();
 
 
 
@@ -37,6 +36,24 @@ export class StudentDetailComponent extends StudentComponent implements OnInit, 
       public location: Location) {
           super(
                 studentService, injector, router, route, location, ViewType.DETAIL);
+
+          this.fieldDisplayNames = {
+            'first_name': 'First Name',
+            'last_name': 'Last Name',
+            'date_of_birth': 'Date of Birth',
+            'grade': 'Grade',
+            'email': 'Email',
+            'phoneNumber': 'Phone Number',
+            'school': 'School',
+            'GuardianOneName': 'Guardian One Name',
+            'GuardianOnePhone': 'Guardian One Phone',
+            'GuardianOneEmail': 'Guardian One Email',
+            'GuardianTwoName': 'Guardian Two Name',
+            'GuardianTwoPhone': 'Guardian Two Phone',
+            'GuardianTwoEmail': 'Guardian Two Email',
+            'notes': 'Notes',
+            'muser_id': 'Muser Id',
+          };
 
 
           this.stringFields.push('first_name');
@@ -56,17 +73,19 @@ export class StudentDetailComponent extends StudentComponent implements OnInit, 
 
           this.dateFields = ['date_of_birth', ];
 
+          this.numberFields = ['grade', ];
+
 
 
 
 
           this.textareaFields = ['notes', ];
 
+
   }
 
   ngOnInit() {
-      this.style = this.style || {};
-      this.options = this.options || {};
+      super.ngOnInit();
       if (!this.id) this.id = this.route.snapshot.paramMap.get('id');
       if (this.id) {
         this.populateDetail(this.id);
@@ -82,7 +101,7 @@ export class StudentDetailComponent extends StudentComponent implements OnInit, 
   ngAfterViewInit() {
 
     //Load first reference, if not others activated
-    if (!this.isChildRouterActivated()) {
+    if (!this.options['disableRefLink'] && !this.isChildRouterActivated()) {
       this.router.navigate(['./classenroll/list', {}], {relativeTo: this.route, queryParamsHandling: 'preserve',});
     }
   }

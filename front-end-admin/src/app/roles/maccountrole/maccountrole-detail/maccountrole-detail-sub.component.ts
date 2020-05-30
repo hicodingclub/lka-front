@@ -13,7 +13,7 @@ import { MaccountroleService } from '../maccountrole.service';
 })
 export class MaccountroleDetailSubComponent extends MaccountroleDetailComponent 
         implements OnInit {
-    @Input() inputData;
+    // @Input() inputData;
     
     constructor(
         public maccountroleService: MaccountroleService,

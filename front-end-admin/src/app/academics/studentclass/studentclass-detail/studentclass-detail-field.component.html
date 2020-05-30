@@ -1,12 +1,14 @@
 
 
-		<div *ngIf="detail && showFields.includes('student')">                
+		<div *ngIf="detail && showFields.includes('student')">
                	  <a routerLink="."  (click)="onDisplayRefClicked('student', detail['student'], $event)">
 	            	{{detail['student']?detail['student']['value']:""}}
 	              </a>
-</div>
-		<div *ngIf="detail && showFields.includes('class')">                
+
+		</div>
+		<div *ngIf="detail && showFields.includes('class')">
                	  <a routerLink="."  (click)="onDisplayRefClicked('class', detail['class'], $event)">
 	            	{{detail['class']?detail['class']['value']:""}}
 	              </a>
-</div>
+
+		</div>

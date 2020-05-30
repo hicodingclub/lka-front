@@ -1,9 +1,10 @@
-import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, Output, EventEmitter } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
 
-import { CourseComponent, ViewType } from '../course.component';
+import { CourseDetailCustComponent } from '../../../academics-cust/base/course/course-detail.cust.component';
+import { ViewType } from '../course.component';
 import { CourseService } from '../course.service';
 
 
@@ -16,17 +17,15 @@ import { MddsRichTextShowDirective } from '@hicoder/angular-core';
   templateUrl: './course-detail.component.html',
   styleUrls: ['./course-detail.component.css']
 })
-export class CourseDetailComponent extends CourseComponent implements OnInit, AfterViewInit {
-  @Input() 
-  public id:string;
-  @Input()
-  public searchObj:any;
-  @Input()
-  public disableActionButtions:boolean;
-  @Input()
-  public style: any; // {}
-  @Input()
-  public options: any; // {} uiOptions
+export class CourseDetailComponent extends CourseDetailCustComponent implements OnInit, AfterViewInit {
+  // @Input() 
+  // public id:string;
+  // @Input()
+  // public searchObj:any;
+  // @Input()
+  // public disableActionButtions:boolean;
+  // @Output()
+  // public eventEmitter: EventEmitter<any> = new EventEmitter();
 
 
   @ViewChildren(MddsRichTextShowDirective) textEditors: QueryList<MddsRichTextShowDirective>;
@@ -41,6 +40,11 @@ export class CourseDetailComponent extends CourseComponent implements OnInit, Af
           super(
                 courseService, injector, router, route, location, ViewType.DETAIL);
 
+          this.fieldDisplayNames = {
+            'title': 'Title',
+            'description': 'Description',
+          };
+
 
           this.stringFields.push('title');
           this.stringFields.push('description');
@@ -52,11 +56,12 @@ export class CourseDetailComponent extends CourseComponent implements OnInit, Af
 
 
 
+
+
   }
 
   ngOnInit() {
-      this.style = this.style || {};
-      this.options = this.options || {};
+      super.ngOnInit();
       if (!this.id) this.id = this.route.snapshot.paramMap.get('id');
       if (this.id) {
         this.populateDetail(this.id);
@@ -72,7 +77,7 @@ export class CourseDetailComponent extends CourseComponent implements OnInit, Af
   ngAfterViewInit() {
 
     //Load first reference, if not others activated
-    if (!this.isChildRouterActivated()) {
+    if (!this.options['disableRefLink'] && !this.isChildRouterActivated()) {
       this.router.navigate(['./class/list', {}], {relativeTo: this.route, queryParamsHandling: 'preserve',});
     }
   }

@@ -13,9 +13,9 @@ import { MroleService } from '../mrole.service';
 })
 export class MroleDetailFieldComponent extends MroleComponent
         implements OnInit {
-    @Input() id: string;
-    @Input() detailObj: any;
-    @Input() showFieldsStr: string;
+    // @Input() id: string;
+    // @Input() detailObj: any;
+    // @Input() showFieldsStr: string;
     showFields: string[];
     
     constructor(
@@ -27,9 +27,16 @@ export class MroleDetailFieldComponent extends MroleComponent
           super(
                 mroleService, injector, router, route, location, ViewType.DETAIL);
           
+          this.fieldDisplayNames = {
+            'role': 'Role',
+            'description': 'Description',
+          };
+
 
           this.stringFields.push('role');
           this.stringFields.push('description');
+
+
 
 
 

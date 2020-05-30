@@ -3,7 +3,8 @@ import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Injector } from '@angular/core';
 
-import { TermsComponent, ViewType } from '../terms.component';
+import { TermsListCustComponent } from '../../../academics-cust/base/terms/terms-list.cust.component';
+import { ViewType } from '../terms.component';
 import { TermsService } from '../terms.service';
 
 
@@ -16,15 +17,20 @@ import { MddsRichTextShowDirective } from '@hicoder/angular-core';
   templateUrl: './terms-list.component.html',
   styleUrls: ['./terms-list.component.css']
 })
-export class TermsListComponent extends TermsComponent implements OnInit {
+export class TermsListComponent extends TermsListCustComponent implements OnInit {
 
 
-  @Input()
-  public inputData:any;
-  @Input()
-  public searchObj:any;
-  @Input()
-  public categoryBy:string; //field name whose value is used as category
+  // @Input() options: any; {disableCatetory: false, disablePagination: false, disbleActionButtons: false
+  //                        disableListSearch: false, disableTitle: false, disableRefs: false
+  //                        disableListHead: false, disableTitleRow: false}
+  // @Input()
+  // public inputData:any;
+  // @Input()
+  // public searchObj:any;
+  // @Input()
+  // public queryParams: any;  // {listSortField: 'a', listSortOrder: 'asc' / 'desc', perPage: 6}
+  // @Input()
+  // public categoryBy:string; //field name whose value is used as category
   
   @ViewChildren(MddsRichTextShowDirective) textEditors: QueryList<MddsRichTextShowDirective>;
 
@@ -38,8 +44,14 @@ export class TermsListComponent extends TermsComponent implements OnInit {
           super(
                 termsService, injector, router, route, location, ViewType.LIST);
 
+          this.fieldDisplayNames = {
+            'name': 'Name',
+          };
+
 
           this.stringFields.push('name');
+
+
 
 
 
@@ -57,12 +69,37 @@ export class TermsListComponent extends TermsComponent implements OnInit {
   }
 
   ngOnInit() {
+      super.ngOnInit();
+
       this.adjustListViewForWindowSize();
 
+      if (!this.options) {
+        this.options = {};
+      }
+  
+      if (this.options.disableCatetory) {
+        this.listCategory1 = {}; // no do query based on category for home view;
+        this.listCategory2 = {}; // no do query based on category for home view;
+      }
+
       // this is to initialize the detail that will be used for search condition selection
-      const detail = this.searchObj || {};
+      let detail = {};
+      if (this.searchObj) {
+        this.searchDetailReady = true; // search provided from "detail", not from search bar.
+        detail = this.searchObj;
+      }
+      if (this.queryParams) {
+        this.listSortField = this.queryParams.listSortField;
+        this.listSortOrder = this.queryParams.listSortOrder;
+        if (this.queryParams.perPage) {
+          this.perPage = this.queryParams.perPage 
+        }
+      }
       this.detail = this.formatDetail(detail);
       this.searchList();
+
+      // get editHintFields
+      this.searchHintFieldValues();
   }
 
   static getInstance() {

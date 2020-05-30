@@ -13,9 +13,9 @@ import { MpermissionService } from '../mpermission.service';
 })
 export class MpermissionDetailFieldComponent extends MpermissionComponent
         implements OnInit {
-    @Input() id: string;
-    @Input() detailObj: any;
-    @Input() showFieldsStr: string;
+    // @Input() id: string;
+    // @Input() detailObj: any;
+    // @Input() showFieldsStr: string;
     showFields: string[];
     
     constructor(
@@ -27,15 +27,24 @@ export class MpermissionDetailFieldComponent extends MpermissionComponent
           super(null,
                 mpermissionService, injector, router, route, location, ViewType.DETAIL);
           
+          this.fieldDisplayNames = {
+            'role': 'Role',
+            'module': 'Module',
+            'modulePermission': 'Module Permission',
+            'resourcePermission': 'Resource Permission',
+          };
+
 
           this.stringFields.push('modulePermission');
 
           this.referenceFields = ['role', 'module', ];
 
 
+
           this.mapFields = [
               ['resourcePermission', 'SchemaString', '', '', , ''],
           ];
+
 
 
 

@@ -1,9 +1,10 @@
-import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, Output, EventEmitter } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
 
-import { ClassenrollComponent, ViewType } from '../classenroll.component';
+import { ClassenrollDetailCustComponent } from '../../../academics-cust/base/classenroll/classenroll-detail.cust.component';
+import { ViewType } from '../classenroll.component';
 import { ClassenrollService } from '../classenroll.service';
 
 
@@ -15,17 +16,15 @@ import { ComponentFactoryResolver } from '@angular/core';
   templateUrl: './classenroll-detail.component.html',
   styleUrls: ['./classenroll-detail.component.css']
 })
-export class ClassenrollDetailComponent extends ClassenrollComponent implements OnInit, AfterViewInit {
-  @Input() 
-  public id:string;
-  @Input()
-  public searchObj:any;
-  @Input()
-  public disableActionButtions:boolean;
-  @Input()
-  public style: any; // {}
-  @Input()
-  public options: any; // {} uiOptions
+export class ClassenrollDetailComponent extends ClassenrollDetailCustComponent implements OnInit, AfterViewInit {
+  // @Input() 
+  // public id:string;
+  // @Input()
+  // public searchObj:any;
+  // @Input()
+  // public disableActionButtions:boolean;
+  // @Output()
+  // public eventEmitter: EventEmitter<any> = new EventEmitter();
 
 
 
@@ -39,6 +38,14 @@ export class ClassenrollDetailComponent extends ClassenrollComponent implements 
           super(componentFactoryResolver,
                 classenrollService, injector, router, route, location, ViewType.DETAIL);
 
+          this.fieldDisplayNames = {
+            'student': 'Student',
+            'class': 'Class',
+            'status': 'Status',
+            'notes': 'Notes',
+            'createdAt': 'Created Time',
+          };
+
           this.enums['status'] = ['processing', 'paid', 'confirmed', 'cancelled', ];
 
           this.stringFields.push('status');
@@ -50,6 +57,7 @@ export class ClassenrollDetailComponent extends ClassenrollComponent implements 
 
 
 
+
           this.arrayFields = [['student', 'ObjectId'],];
           this.referenceFieldsMap['student'] = 'student';
           this.referenceFieldsReverseMap['student'] = 'student';
@@ -57,11 +65,11 @@ export class ClassenrollDetailComponent extends ClassenrollComponent implements 
 
           this.textareaFields = ['notes', ];
 
+
   }
 
   ngOnInit() {
-      this.style = this.style || {};
-      this.options = this.options || {};
+      super.ngOnInit();
       if (!this.id) this.id = this.route.snapshot.paramMap.get('id');
       if (this.id) {
         this.populateDetail(this.id);

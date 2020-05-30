@@ -1,14 +1,18 @@
 
 
-		<div *ngIf="detail && showFields.includes('name')">                
+		<div *ngIf="detail && showFields.includes('name')">
                     {{detail['name']}}
-</div>
-		<div *ngIf="detail && showFields.includes('content')">                 
+
+		</div>
+		<div *ngIf="detail && showFields.includes('content')">
                     <div libMddsRichtextShow="termsDetailContent" [content]="detail['content']"></div>
-</div>
-		<div *ngIf="detail && showFields.includes('acknowledge')">                
+
+		</div>
+		<div *ngIf="detail && showFields.includes('acknowledge')">
                     {{detail['acknowledge']}}
-</div>
-		<div *ngIf="detail && showFields.includes('tag')">                
+
+		</div>
+		<div *ngIf="detail && showFields.includes('tag')">
                     {{detail['tag']}}
-</div>
+
+		</div>

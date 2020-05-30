@@ -1,9 +1,10 @@
-import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, Output, EventEmitter } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
 
-import { FaqComponent, ViewType } from '../faq.component';
+import { FaqDetailCustComponent } from '../../../publicinfo-cust/base/faq/faq-detail.cust.component';
+import { ViewType } from '../faq.component';
 import { FaqService } from '../faq.service';
 
 
@@ -16,17 +17,15 @@ import { MddsRichTextShowDirective } from '@hicoder/angular-core';
   templateUrl: './faq-detail.component.html',
   styleUrls: ['./faq-detail.component.css']
 })
-export class FaqDetailComponent extends FaqComponent implements OnInit, AfterViewInit {
-  @Input() 
-  public id:string;
-  @Input()
-  public searchObj:any;
-  @Input()
-  public disableActionButtions:boolean;
-  @Input()
-  public style: any; // {}
-  @Input()
-  public options: any; // {} uiOptions
+export class FaqDetailComponent extends FaqDetailCustComponent implements OnInit, AfterViewInit {
+  // @Input() 
+  // public id:string;
+  // @Input()
+  // public searchObj:any;
+  // @Input()
+  // public disableActionButtions:boolean;
+  // @Output()
+  // public eventEmitter: EventEmitter<any> = new EventEmitter();
 
 
   @ViewChildren(MddsRichTextShowDirective) textEditors: QueryList<MddsRichTextShowDirective>;
@@ -41,10 +40,20 @@ export class FaqDetailComponent extends FaqComponent implements OnInit, AfterVie
           super(
                 faqService, injector, router, route, location, ViewType.DETAIL);
 
+          this.fieldDisplayNames = {
+            'question': 'Question',
+            'answer': 'Answer',
+            'order': 'Order',
+            'enable': 'Enable',
+          };
+
 
           this.stringFields.push('question');
           this.stringFields.push('answer');
 
+
+
+          this.numberFields = ['order', ];
 
 
 
@@ -55,8 +64,7 @@ export class FaqDetailComponent extends FaqComponent implements OnInit, AfterVie
   }
 
   ngOnInit() {
-      this.style = this.style || {};
-      this.options = this.options || {};
+      super.ngOnInit();
       if (!this.id) this.id = this.route.snapshot.paramMap.get('id');
       if (this.id) {
         this.populateDetail(this.id);

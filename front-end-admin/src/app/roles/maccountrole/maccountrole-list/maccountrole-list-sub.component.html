@@ -14,7 +14,7 @@
 		<span *ngIf="!loaded">Loading...</span>
 	</div>
 	<div class="container search">
-				<div class="row justify-content-end mt-3">
+		<div class="row justify-content-end mt-3">
 		
 			
 		</div>
@@ -84,14 +84,14 @@
 	            <td scope="row">{{(page-1)*perPage+i+1}}</td>
 
 	            <td *ngIf="referenceFieldsMap['account'] != parentItem"  >
-	            	                
+	            	
                	  <a routerLink="."  (click)="onDisplayRefClicked('account', detail['account'], $event)">
 	            	{{detail['account']?detail['account']['value']:""}}
 	              </a>
 
                 </td>
 	            <td *ngIf="referenceFieldsMap['role'] != parentItem"  >
-	            	                
+	            	
                     <div *ngIf="detail['role'] && detail['role']['selection']">
                         <ng-template ngFor let-element [ngForOf]="detail['role']['selection']" let-idx="index">
                             <div class="badge-click badge badge-pill badge-secondary" 
@@ -119,7 +119,7 @@
 	</table>
 	
 	<div class="container">
-				<div class="row justify-content-end mt-3">
+		<div class="row justify-content-end mt-3">
 		
 			
 		</div>

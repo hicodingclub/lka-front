@@ -13,9 +13,9 @@ import { PaymentService } from '../payment.service';
 })
 export class PaymentDetailFieldComponent extends PaymentComponent
         implements OnInit {
-    @Input() id: string;
-    @Input() detailObj: any;
-    @Input() showFieldsStr: string;
+    // @Input() id: string;
+    // @Input() detailObj: any;
+    // @Input() showFieldsStr: string;
     showFields: string[];
     
     constructor(
@@ -27,6 +27,16 @@ export class PaymentDetailFieldComponent extends PaymentComponent
           super(
                 paymentService, injector, router, route, location, ViewType.DETAIL);
           
+          this.fieldDisplayNames = {
+            'product': 'Product',
+            'productID': 'Product ID',
+            'orderDescription': 'Description',
+            'price': 'Price',
+            'createdAt': 'Created At',
+            'transLogP': 'Transaction Log',
+            'status': 'Status',
+          };
+
 
           this.stringFields.push('product');
           this.stringFields.push('productID');
@@ -37,6 +47,8 @@ export class PaymentDetailFieldComponent extends PaymentComponent
 
 
           this.dateFields = ['createdAt', ];
+
+
 
 
 

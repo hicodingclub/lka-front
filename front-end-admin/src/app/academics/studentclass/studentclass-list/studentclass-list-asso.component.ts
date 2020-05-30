@@ -14,7 +14,7 @@ import { StudentListComponent } from '../../student/student-list/student-list.co
   styleUrls: ['./studentclass-list.component.css']
 })
 export class StudentclassListAssoComponent extends StudentclassListSubComponent implements OnInit {
-  @Input('asso') public associationField: string;
+  // @Input('asso') public associationField: string;
   public parentSchema;
   public parentItemId;
 
@@ -46,8 +46,9 @@ export class StudentclassListAssoComponent extends StudentclassListSubComponent 
       }
       
     
-      this.parentSchema = this.getParentRouteRefField();
-      let ref = this.referenceFieldsReverseMap[this.parentSchema];
+      let ref = this.getParentRouteRefField();
+      this.parentSchema = this.referenceFieldsReverseMap[ref];
+
       this.ignoreField = ref; // used for export (send to server)
 
       this.parentItemId = this.getParentRouteItemId();

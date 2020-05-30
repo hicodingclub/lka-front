@@ -19,10 +19,10 @@ export class MraNgbDateFormatterService extends NgbDateParserFormatter {
     }
 }
 @Directive({
-  selector: '[directiveArrayRequired]',
-  providers: [{provide: NG_VALIDATORS, useExisting: DirectiveArrayRequired, multi: true}]
+  selector: '[directiveAcademicsArrayRequired]',
+  providers: [{provide: NG_VALIDATORS, useExisting: DirectiveAcademicsArrayRequired, multi: true}]
 })
-export class DirectiveArrayRequired implements Validator {
+export class DirectiveAcademicsArrayRequired implements Validator {
   validate(control: AbstractControl): ValidationErrors | null {
     let selected = false;
     let controlGroup = control as FormGroup; //cast to FormGroup

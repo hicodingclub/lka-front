@@ -12,7 +12,7 @@
 		<span *ngIf="!loaded">Loading...</span>
 	</div>
 	<div class="container search">
-				<div class="row justify-content-end mt-3">
+		<div class="row justify-content-end mt-3">
 		
 			
 		</div>
@@ -91,30 +91,29 @@
 	            <td scope="row">{{(page-1)*perPage+i+1}}</td>
 
 	            <td >
-	            	                
+	            	
                     {{detail['firstName']}}
 
                 </td>
 	            <td >
-	            	                
+	            	
                     {{detail['lastName']}}
 
                 </td>
 	            <td *ngIf="referenceFieldsMap['courses'] != parentItem"  >
-	            	                
+	            	
                	  <a routerLink="."  (click)="onDisplayRefClicked('courses', detail['courses'], $event)">
 	            	{{detail['courses']?detail['courses']['value']:""}}
 	              </a>
 
                 </td>
 	            <td >
-	            	                
+	            	
                     <div [innerHTML]="detail['introduction']"></div>
-                        
 
                 </td>
 	            <td >
-	            	                
+	            	
                     <lib-mdds-file-display [downloadUrl]="detail['photo']" [isLarge]="false" [aspectRatio]=""></lib-mdds-file-display>
 
                 </td>
@@ -140,7 +139,7 @@
 	</table>
 	
 	<div class="container">
-				<div class="row justify-content-end mt-3">
+		<div class="row justify-content-end mt-3">
 		
 			
 		</div>

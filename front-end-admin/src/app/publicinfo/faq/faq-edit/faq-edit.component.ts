@@ -5,7 +5,8 @@ import { Injector } from '@angular/core';
 
 declare const $: any;
 
-import { FaqComponent, ViewType } from '../faq.component';
+import { FaqEditCustComponent } from '../../../publicinfo-cust/base/faq/faq-edit.cust.component';
+import { ViewType } from '../faq.component';
 import { FaqService } from '../faq.service';
 
 
@@ -21,21 +22,21 @@ import { MddsRichTextSelectDirective } from '@hicoder/angular-core';
   templateUrl: './faq-edit.component.html',
   styleUrls: ['./faq-edit.component.css']
 })
-export class FaqEditComponent extends FaqComponent implements OnInit, AfterViewInit {        
-    @Input() 
-    public id: string;
-    @Input()
-    public cid: string; // copy id
-    @Input()
-    public initData: any; // some fields has data already. eg: {a: b}. Used for add
-    @Output()
-    public doneData = new EventEmitter<boolean>();
-    @Output()
-    public done = new EventEmitter<any>();
-    @Input()
-    public embeddedView: boolean;
-    @Input()
-    public embedMode: string; // parent to tell the action - create
+export class FaqEditComponent extends FaqEditCustComponent implements OnInit, AfterViewInit {        
+    // @Input() 
+    // public id: string;
+    // @Input()
+    // public cid: string; // copy id
+    // @Input()
+    // public initData: any; // some fields has data already. eg: {a: b}. Used for add
+    // @Output()
+    // public doneData = new EventEmitter<boolean>();
+    // @Output()
+    // public done = new EventEmitter<any>();
+    // @Input()
+    // public embeddedView: boolean;
+    // @Input()
+    // public embedMode: string; // parent to tell the action - create
 
     public action: string;
     public minDate = {year: (new Date()).getFullYear() - 100, month: 1, day: 1};
@@ -55,10 +56,20 @@ export class FaqEditComponent extends FaqComponent implements OnInit, AfterViewI
           super(
                 faqService, injector, router, route, location, ViewType.EDIT);
 
+          this.fieldDisplayNames = {
+            'question': 'Question',
+            'answer': 'Answer',
+            'order': 'Order',
+            'enable': 'Enable',
+          };
+
 
           this.stringFields.push('question');
           this.stringFields.push('answer');
 
+
+
+          this.numberFields = ['order', ];
 
 
 
@@ -81,6 +92,7 @@ export class FaqEditComponent extends FaqComponent implements OnInit, AfterViewI
     }
 
     ngOnInit() {
+      super.ngOnInit();
       if (this.embedMode == 'create') { // parent ask to create
         this.action='Create';
         this.getDetailData();
@@ -100,6 +112,8 @@ export class FaqEditComponent extends FaqComponent implements OnInit, AfterViewI
             }
         }
       }
+      // get editHintFields
+      this.searchHintFieldValues();
     }
 
     ngAfterViewInit() {
@@ -111,7 +125,7 @@ export class FaqEditComponent extends FaqComponent implements OnInit, AfterViewI
       if (this.initData) {
         this.action='Add';
         let detail = {
-            enable: false,
+          enable: false,
         };
         for (let prop of Object.keys(this.initData)) {
             detail[prop] = this.initData[prop];
@@ -120,7 +134,7 @@ export class FaqEditComponent extends FaqComponent implements OnInit, AfterViewI
         this.detail = this.formatDetail(detail);
       } else {
           let detail = {
-              enable: false,
+            enable: false,
           };
           this.detail = this.formatDetail(detail);
       }

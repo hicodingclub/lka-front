@@ -4,8 +4,7 @@ import { RouteReuseStrategy } from '@angular/router';
 
 import { MddsRouteReuseStrategy } from '@hicoder/angular-core';
 
-import { PipelineComponent } from './pipeline.component';
-import { PipelineRoutes } from '../pipeline.conf';
+import { PipelineRoutes } from '../pipeline-cust/pipeline.conf';
 
 @NgModule({
   imports: [RouterModule.forChild(PipelineRoutes)],

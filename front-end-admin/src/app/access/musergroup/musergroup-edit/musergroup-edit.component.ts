@@ -5,7 +5,8 @@ import { Injector } from '@angular/core';
 
 declare const $: any;
 
-import { MusergroupComponent, ViewType } from '../musergroup.component';
+import { MusergroupEditCustComponent } from '../../../access-cust/base/musergroup/musergroup-edit.cust.component';
+import { ViewType } from '../musergroup.component';
 import { MusergroupService } from '../musergroup.service';
 
 
@@ -19,21 +20,21 @@ import { MusergroupService } from '../musergroup.service';
   templateUrl: './musergroup-edit.component.html',
   styleUrls: ['./musergroup-edit.component.css']
 })
-export class MusergroupEditComponent extends MusergroupComponent implements OnInit, AfterViewInit {        
-    @Input() 
-    public id: string;
-    @Input()
-    public cid: string; // copy id
-    @Input()
-    public initData: any; // some fields has data already. eg: {a: b}. Used for add
-    @Output()
-    public doneData = new EventEmitter<boolean>();
-    @Output()
-    public done = new EventEmitter<any>();
-    @Input()
-    public embeddedView: boolean;
-    @Input()
-    public embedMode: string; // parent to tell the action - create
+export class MusergroupEditComponent extends MusergroupEditCustComponent implements OnInit, AfterViewInit {        
+    // @Input() 
+    // public id: string;
+    // @Input()
+    // public cid: string; // copy id
+    // @Input()
+    // public initData: any; // some fields has data already. eg: {a: b}. Used for add
+    // @Output()
+    // public doneData = new EventEmitter<boolean>();
+    // @Output()
+    // public done = new EventEmitter<any>();
+    // @Input()
+    // public embeddedView: boolean;
+    // @Input()
+    // public embedMode: string; // parent to tell the action - create
 
     public action: string;
     public minDate = {year: (new Date()).getFullYear() - 100, month: 1, day: 1};
@@ -49,9 +50,16 @@ export class MusergroupEditComponent extends MusergroupComponent implements OnIn
           super(
                 musergroupService, injector, router, route, location, ViewType.EDIT);
 
+          this.fieldDisplayNames = {
+            'group': 'Group',
+            'description': 'Description',
+          };
+
 
           this.stringFields.push('group');
           this.stringFields.push('description');
+
+
 
 
 
@@ -67,6 +75,7 @@ export class MusergroupEditComponent extends MusergroupComponent implements OnIn
     }
 
     ngOnInit() {
+      super.ngOnInit();
       if (this.embedMode == 'create') { // parent ask to create
         this.action='Create';
         this.getDetailData();
@@ -86,6 +95,8 @@ export class MusergroupEditComponent extends MusergroupComponent implements OnIn
             }
         }
       }
+      // get editHintFields
+      this.searchHintFieldValues();
     }
 
     ngAfterViewInit() {
@@ -97,7 +108,6 @@ export class MusergroupEditComponent extends MusergroupComponent implements OnIn
       if (this.initData) {
         this.action='Add';
         let detail = {
-            
         };
         for (let prop of Object.keys(this.initData)) {
             detail[prop] = this.initData[prop];
@@ -106,7 +116,6 @@ export class MusergroupEditComponent extends MusergroupComponent implements OnIn
         this.detail = this.formatDetail(detail);
       } else {
           let detail = {
-              
           };
           this.detail = this.formatDetail(detail);
       }

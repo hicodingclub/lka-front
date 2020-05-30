@@ -1,9 +1,10 @@
-import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, Output, EventEmitter } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
 
-import { PipelineComponent, ViewType } from '../pipeline.component';
+import { PipelineDetailCustComponent } from '../../../pipeline-cust/base/pipeline/pipeline-detail.cust.component';
+import { ViewType } from '../pipeline.component';
 import { PipelineService } from '../pipeline.service';
 
 
@@ -14,17 +15,15 @@ import { PipelineService } from '../pipeline.service';
   templateUrl: './pipeline-detail.component.html',
   styleUrls: ['./pipeline-detail.component.css']
 })
-export class PipelineDetailComponent extends PipelineComponent implements OnInit, AfterViewInit {
-  @Input() 
-  public id:string;
-  @Input()
-  public searchObj:any;
-  @Input()
-  public disableActionButtions:boolean;
-  @Input()
-  public style: any; // {}
-  @Input()
-  public options: any; // {} uiOptions
+export class PipelineDetailComponent extends PipelineDetailCustComponent implements OnInit, AfterViewInit {
+  // @Input() 
+  // public id:string;
+  // @Input()
+  // public searchObj:any;
+  // @Input()
+  // public disableActionButtions:boolean;
+  // @Output()
+  // public eventEmitter: EventEmitter<any> = new EventEmitter();
 
 
 
@@ -38,6 +37,13 @@ export class PipelineDetailComponent extends PipelineComponent implements OnInit
           super(
                 pipelineService, injector, router, route, location, ViewType.DETAIL);
 
+          this.fieldDisplayNames = {
+            'category': 'Category',
+            'createdAt': 'Created at',
+            'updatedAt': 'Updated at',
+            'muser_id': 'Muser Id',
+          };
+
 
           this.stringFields.push('category');
           this.stringFields.push('muser_id');
@@ -50,11 +56,12 @@ export class PipelineDetailComponent extends PipelineComponent implements OnInit
 
 
 
+
+
   }
 
   ngOnInit() {
-      this.style = this.style || {};
-      this.options = this.options || {};
+      super.ngOnInit();
       if (!this.id) this.id = this.route.snapshot.paramMap.get('id');
       if (this.id) {
         this.populateDetail(this.id);

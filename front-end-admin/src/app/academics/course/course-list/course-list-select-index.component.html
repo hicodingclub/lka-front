@@ -13,7 +13,7 @@
 
 	<div class="container search">
 		<div class="row">
-			<div class="col-9">
+			<div class="col">
 
 			    <div class="input-group">
 	              <input type="search" class="form-control border border-secondary" id="courseTextSearch" 
@@ -72,13 +72,11 @@
 		        <div *ngIf="!moreSearchOpened" style="text-align: left;">
 					<span class="badge badge-pill badge-info" *ngFor="let value of searchMoreDetail">
 					    <a (click)="toggleMoreSearch()" class="pointer"> {{value[0]}}: {{value[1]}}</a>
-					    <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromDetailAndSearchList(value[0])" title="Clear"></i>
+					    <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromDetailAndSearchList(value[2])" title="Clear"></i>
 					</span>
 				</div>
 		    
 
-			</div>
-			<div class="col-3">
 			</div>
 		</div>
 		<hr/>
@@ -89,7 +87,7 @@
 			[ngClass]="{'clicked-row': detail['_id']==clickedId}" (click)="selectItemSelected(i)"  class="m-2 badge badge-secondary pointer">
 
 
-			<span>                
+			<span>
                     {{detail['title']}}
 
 			</span>
@@ -97,7 +95,7 @@
 	</div>
 
 	<div class="container">
-				<div class="row justify-content-end mt-3">
+		<div class="row justify-content-end mt-3">
 		
 			
 		</div>

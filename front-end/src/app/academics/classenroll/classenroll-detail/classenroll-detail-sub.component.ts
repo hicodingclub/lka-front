@@ -13,7 +13,7 @@ import { ClassenrollService } from '../classenroll.service';
 })
 export class ClassenrollDetailSubComponent extends ClassenrollDetailComponent 
         implements OnInit {
-    @Input() inputData;
+    // @Input() inputData;
     
     constructor(
         public classenrollService: ClassenrollService,

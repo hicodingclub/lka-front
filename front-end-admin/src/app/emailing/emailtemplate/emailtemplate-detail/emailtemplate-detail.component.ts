@@ -1,9 +1,10 @@
-import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, Output, EventEmitter } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
 
-import { EmailtemplateComponent, ViewType } from '../emailtemplate.component';
+import { EmailtemplateDetailCustComponent } from '../../../emailing-cust/base/emailtemplate/emailtemplate-detail.cust.component';
+import { ViewType } from '../emailtemplate.component';
 import { EmailtemplateService } from '../emailtemplate.service';
 
 
@@ -16,17 +17,15 @@ import { MddsRichTextShowDirective } from '@hicoder/angular-core';
   templateUrl: './emailtemplate-detail.component.html',
   styleUrls: ['./emailtemplate-detail.component.css']
 })
-export class EmailtemplateDetailComponent extends EmailtemplateComponent implements OnInit, AfterViewInit {
-  @Input() 
-  public id:string;
-  @Input()
-  public searchObj:any;
-  @Input()
-  public disableActionButtions:boolean;
-  @Input()
-  public style: any; // {}
-  @Input()
-  public options: any; // {} uiOptions
+export class EmailtemplateDetailComponent extends EmailtemplateDetailCustComponent implements OnInit, AfterViewInit {
+  // @Input() 
+  // public id:string;
+  // @Input()
+  // public searchObj:any;
+  // @Input()
+  // public disableActionButtions:boolean;
+  // @Output()
+  // public eventEmitter: EventEmitter<any> = new EventEmitter();
 
 
   @ViewChildren(MddsRichTextShowDirective) textEditors: QueryList<MddsRichTextShowDirective>;
@@ -40,6 +39,14 @@ export class EmailtemplateDetailComponent extends EmailtemplateComponent impleme
       public location: Location) {
           super(
                 emailtemplateService, injector, router, route, location, ViewType.DETAIL);
+
+          this.fieldDisplayNames = {
+            'templateName': 'Template Name',
+            'fromEmail': 'From Email',
+            'subject': 'Subject',
+            'content': 'Content',
+            'tag': 'Tag',
+          };
 
 
           this.stringFields.push('templateName');
@@ -55,11 +62,12 @@ export class EmailtemplateDetailComponent extends EmailtemplateComponent impleme
 
 
 
+
+
   }
 
   ngOnInit() {
-      this.style = this.style || {};
-      this.options = this.options || {};
+      super.ngOnInit();
       if (!this.id) this.id = this.route.snapshot.paramMap.get('id');
       if (this.id) {
         this.populateDetail(this.id);

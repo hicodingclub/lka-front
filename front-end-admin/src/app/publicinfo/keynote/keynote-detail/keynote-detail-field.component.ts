@@ -13,9 +13,9 @@ import { KeynoteService } from '../keynote.service';
 })
 export class KeynoteDetailFieldComponent extends KeynoteComponent
         implements OnInit {
-    @Input() id: string;
-    @Input() detailObj: any;
-    @Input() showFieldsStr: string;
+    // @Input() id: string;
+    // @Input() detailObj: any;
+    // @Input() showFieldsStr: string;
     showFields: string[];
     
     constructor(
@@ -27,11 +27,20 @@ export class KeynoteDetailFieldComponent extends KeynoteComponent
           super(
                 keynoteService, injector, router, route, location, ViewType.DETAIL);
           
+          this.fieldDisplayNames = {
+            'signaturePicture': 'Signature Picture',
+            'title': 'Title',
+            'subtitle': 'Subtitle',
+            'description': 'Description',
+          };
+
 
           this.stringFields.push('signaturePicture');
           this.stringFields.push('title');
           this.stringFields.push('subtitle');
           this.stringFields.push('description');
+
+
 
 
 

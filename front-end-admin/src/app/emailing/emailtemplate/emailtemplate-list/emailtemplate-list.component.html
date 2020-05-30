@@ -1,5 +1,6 @@
 
-<div class="mt-4 mb-4 d-flex">
+
+<div class="mt-4 mb-4 d-flex" *ngIf="!options['disableTitleRow']">
 
 
 </div>
@@ -16,15 +17,15 @@
 
 
 <div>
-	<div class="container search">
-		<div class="row">
-			<div class="col-9">
+	<div *ngIf="!options['disableListHead']" class="container search">
+		<div class="row" *ngIf="!options['disableListSearch']">
+			<div class="col">
 
 			    <div class="input-group">
 	              <input type="search" class="form-control border border-secondary" id="emailtemplateTextSearch" 
 						#emailtemplateTextSearch [(ngModel)]="searchText"
 						(keydown.enter)="$event.target.blur();searchList();false"
-					    placeholder="Search for templateName, fromEmail, subject, tag"> 
+					    placeholder="Search for template name, from email, subject, tag"> 
 				  <div *ngIf="searchText" class="input-group-append icon-clear-inside">
 					<span >
 					    <i class="fas fa-times-circle" (click)="onSearchTextClear()" title="Clear"></i>
@@ -38,7 +39,7 @@
 
 			</div>
 		</div>
-		<div class="row">
+		<div class="row" *ngIf="!options['disableActionButtions']">
 			<div class="col">
 		        <div class="action-buttons">
 					
@@ -51,6 +52,7 @@
 			</div>
 		</div>
 		<hr/>
+		<div *ngIf="!options['disablePagination']">
 		<div class="row justify-content-end mt-3">
 		
 			<div *ngIf="list.length > 2" class="sort-selection mr-5">
@@ -63,10 +65,10 @@
 							</span>
 						</button>
 						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('templateName', 'Template Name', 'asc')">TemplateName<i class="fas fa-arrow-up"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('templateName', 'Template Name', 'desc')">TemplateName<i class="fas fa-arrow-down"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('fromEmail', 'From Email', 'asc')">FromEmail<i class="fas fa-arrow-up"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('fromEmail', 'From Email', 'desc')">FromEmail<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('templateName', 'Template Name', 'asc')">Template Name<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('templateName', 'Template Name', 'desc')">Template Name<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('fromEmail', 'From Email', 'asc')">From Email<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('fromEmail', 'From Email', 'desc')">From Email<i class="fas fa-arrow-down"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('subject', 'Subject', 'asc')">Subject<i class="fas fa-arrow-up"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('subject', 'Subject', 'desc')">Subject<i class="fas fa-arrow-down"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('tag', 'Tag', 'asc')">Tag<i class="fas fa-arrow-up"></i></a>
@@ -137,6 +139,7 @@
 				</div>
 		</div>
 
+		</div>
 	</div>
 	<div class="no-records" *ngIf="list.length === 0">
 		<span *ngIf="loaded">No records found.</span>
@@ -153,28 +156,28 @@
       <div class="list-body-fields">
         <h5>
           <div class="mr-1 d-inline-block">
-                            
+            
                     {{detail['templateName']}}
 
           </div>
         </h5>
         <div *ngIf="detail['fromEmail']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>From Email:</label></div>
-          <div class="ml-3">                
+          <div class="ml-3">
                     {{detail['fromEmail']}}
 
           </div>
         </div>
         <div *ngIf="detail['subject']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Subject:</label></div>
-          <div class="ml-3">                
+          <div class="ml-3">
                     {{detail['subject']}}
 
           </div>
         </div>
         <div *ngIf="detail['tag']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Tag:</label></div>
-          <div class="ml-3">                
+          <div class="ml-3">
                     {{detail['tag']}}
 
           </div>
@@ -207,7 +210,7 @@
         <div>
           <h5>
             <div class="mr-1 d-inline-block">
-                              
+              
                     {{detail['templateName']}}
 
             </div>
@@ -217,19 +220,19 @@
       <div class="card-body">
           <div *ngIf="detail['fromEmail']" class="d-flex flex-wrap">
             <div class=""><label>From Email:</label></div>
-            <div class="ml-3">                
+            <div class="ml-3">
                     {{detail['fromEmail']}}
 </div>
           </div>
           <div *ngIf="detail['subject']" class="d-flex flex-wrap">
             <div class=""><label>Subject:</label></div>
-            <div class="ml-3">                
+            <div class="ml-3">
                     {{detail['subject']}}
 </div>
           </div>
           <div *ngIf="detail['tag']" class="d-flex flex-wrap">
             <div class=""><label>Tag:</label></div>
-            <div class="ml-3">                
+            <div class="ml-3">
                     {{detail['tag']}}
 </div>
           </div>
@@ -291,22 +294,22 @@
 	            </td>
 
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
+	            	
                     {{detail['templateName']}}
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
+	            	
                     {{detail['fromEmail']}}
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
+	            	
                     {{detail['subject']}}
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
+	            	
                     {{detail['tag']}}
 
 	            </td>
@@ -326,6 +329,7 @@
 
 	</div>
 	<div class="container">
+		<div *ngIf="!options['disablePagination']">
 		<div class="row justify-content-end mt-3">
 		
 			
@@ -373,6 +377,7 @@
 				</div>
 		</div>
 
+		</div>
 	</div>
 	
 </div>

@@ -5,7 +5,8 @@
 		<span *ngIf="!loaded">Loading...</span>
 	</div>
 	<div class="container search">
-		 		<div class="row justify-content-end mt-3">
+		
+		<div class="row justify-content-end mt-3">
 		
 			
 			<button type="button" class="btn btn-outline-success" (click)="onExport()">Export to excel</button>
@@ -84,7 +85,7 @@
 	            <td scope="row">{{(page-1)*perPage+i+1+idx}}</td>
 
 	            <td *ngIf=" 'student' !== associationField && referenceFieldsMap['student'] != parentItem " >
-	            	                
+	            	
                     <div *ngIf="detail['student'] && detail['student']['selection']">
                         <ng-template ngFor let-element [ngForOf]="detail['student']['selection']" let-idx="index">
                             <div class="badge-click badge badge-pill badge-secondary" 
@@ -96,19 +97,19 @@
 
 				</td>
 	            <td *ngIf=" 'class' !== associationField && referenceFieldsMap['class'] != parentItem " >
-	            	                
+	            	
                	  
 	            	{{detail['class']?detail['class']['value']:""}}
 	              
 
 				</td>
 	            <td *ngIf=" 'status' !== associationField" >
-	            	                
+	            	
                     {{detail['status']}}
 
 				</td>
 	            <td *ngIf=" 'createdAt' !== associationField" >
-	            	                  {{detail['createdAt']?detail['createdAt']['value']:""}}
+	            	  {{detail['createdAt']?detail['createdAt']['value']:""}}
 
 				</td>
 				<td *ngFor = "let af of assoCompFields;" scope="col">
@@ -122,7 +123,8 @@
 	</table>
 	
 	<div class="container">
-		 		<div class="row justify-content-end mt-3">
+		
+		<div class="row justify-content-end mt-3">
 		
 			
 		</div>

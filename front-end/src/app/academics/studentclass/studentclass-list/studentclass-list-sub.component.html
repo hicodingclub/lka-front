@@ -12,7 +12,7 @@
 		<span *ngIf="!loaded">Loading...</span>
 	</div>
 	<div class="container search">
-				<div class="row justify-content-end mt-3">
+		<div class="row justify-content-end mt-3">
 		
 			
 		</div>
@@ -81,14 +81,14 @@
 	            <td scope="row">{{(page-1)*perPage+i+1}}</td>
 
 	            <td *ngIf="referenceFieldsMap['student'] != parentItem"  >
-	            	                
+	            	
                	  <a routerLink="."  (click)="onDisplayRefClicked('student', detail['student'], $event)">
 	            	{{detail['student']?detail['student']['value']:""}}
 	              </a>
 
                 </td>
 	            <td *ngIf="referenceFieldsMap['class'] != parentItem"  >
-	            	                
+	            	
                	  <a routerLink="."  (click)="onDisplayRefClicked('class', detail['class'], $event)">
 	            	{{detail['class']?detail['class']['value']:""}}
 	              </a>
@@ -105,7 +105,7 @@
 	</table>
 	
 	<div class="container">
-				<div class="row justify-content-end mt-3">
+		<div class="row justify-content-end mt-3">
 		
 			
 		</div>

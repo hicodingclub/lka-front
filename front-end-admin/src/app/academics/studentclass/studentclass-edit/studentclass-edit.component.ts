@@ -5,7 +5,8 @@ import { Injector } from '@angular/core';
 
 declare const $: any;
 
-import { StudentclassComponent, ViewType } from '../studentclass.component';
+import { StudentclassEditCustComponent } from '../../../academics-cust/base/studentclass/studentclass-edit.cust.component';
+import { ViewType } from '../studentclass.component';
 import { StudentclassService } from '../studentclass.service';
 
 
@@ -20,21 +21,21 @@ import { ComponentFactoryResolver } from '@angular/core';
   templateUrl: './studentclass-edit.component.html',
   styleUrls: ['./studentclass-edit.component.css']
 })
-export class StudentclassEditComponent extends StudentclassComponent implements OnInit, AfterViewInit {        
-    @Input() 
-    public id: string;
-    @Input()
-    public cid: string; // copy id
-    @Input()
-    public initData: any; // some fields has data already. eg: {a: b}. Used for add
-    @Output()
-    public doneData = new EventEmitter<boolean>();
-    @Output()
-    public done = new EventEmitter<any>();
-    @Input()
-    public embeddedView: boolean;
-    @Input()
-    public embedMode: string; // parent to tell the action - create
+export class StudentclassEditComponent extends StudentclassEditCustComponent implements OnInit, AfterViewInit {        
+    // @Input() 
+    // public id: string;
+    // @Input()
+    // public cid: string; // copy id
+    // @Input()
+    // public initData: any; // some fields has data already. eg: {a: b}. Used for add
+    // @Output()
+    // public doneData = new EventEmitter<boolean>();
+    // @Output()
+    // public done = new EventEmitter<any>();
+    // @Input()
+    // public embeddedView: boolean;
+    // @Input()
+    // public embedMode: string; // parent to tell the action - create
 
     public action: string;
     public minDate = {year: (new Date()).getFullYear() - 100, month: 1, day: 1};
@@ -51,9 +52,16 @@ export class StudentclassEditComponent extends StudentclassComponent implements 
           super(componentFactoryResolver,
                 studentclassService, injector, router, route, location, ViewType.EDIT);
 
+          this.fieldDisplayNames = {
+            'student': 'Student',
+            'class': 'Class',
+          };
+
 
 
           this.referenceFields = ['student', 'class', ];
+
+
 
 
 
@@ -68,6 +76,7 @@ export class StudentclassEditComponent extends StudentclassComponent implements 
     }
 
     ngOnInit() {
+      super.ngOnInit();
       if (this.embedMode == 'create') { // parent ask to create
         this.action='Create';
         this.getDetailData();
@@ -87,6 +96,8 @@ export class StudentclassEditComponent extends StudentclassComponent implements 
             }
         }
       }
+      // get editHintFields
+      this.searchHintFieldValues();
     }
 
     ngAfterViewInit() {
@@ -98,7 +109,6 @@ export class StudentclassEditComponent extends StudentclassComponent implements 
       if (this.initData) {
         this.action='Add';
         let detail = {
-            
         };
         for (let prop of Object.keys(this.initData)) {
             detail[prop] = this.initData[prop];
@@ -107,7 +117,6 @@ export class StudentclassEditComponent extends StudentclassComponent implements 
         this.detail = this.formatDetail(detail);
       } else {
           let detail = {
-              
           };
           this.detail = this.formatDetail(detail);
       }

@@ -1,14 +1,20 @@
 <div class="edit" *ngIf="detail">
 	<div *ngIf="!embeddedView" class="action-buttons">
-        <!-- <a href="javascript:void(0)" (click)="goBack()" ><i class="fas fa-angle-double-left" title="Back"></i></a> -->
+		<!-- <a href="javascript:void(0)" (click)="goBack()" ><i class="fas fa-angle-double-left" title="Back"></i></a> -->
 	</div>
-	
+
 	<div class="card" style="text-align: left;">
-	  <div class="card-body">
-	    <h4 class="card-title" *ngIf="!embeddedView">{{action}} Payment</h4>
-	    <form (ngSubmit)="onSubmit()" #editForm="ngForm">
-	    
-	     <div *ngIf="action == 'Edit'">
+		<div class="card-body">
+			<h4 class="card-title" *ngIf="!embeddedView && !options['title']">{{action}} Payment</h4>
+			<h4 class="card-title" *ngIf="options['title']" [ngStyle]="style['card-title']">
+				{{options['title']}}
+			</h4>
+			<p	*ngIf="options['subtitle']" [ngStyle]="style['card-subtitle']">
+				{{options['subtitle']}}
+			</p>
+			<form (ngSubmit)="onSubmit()" #editForm="ngForm">
+
+				<div *ngIf="action == 'Edit'">
 <div *ngIf="!hiddenFields.includes('status')">
 
         <fieldset class="form-group">
@@ -21,10 +27,10 @@
                     required
                     
                     
-                 
+                
                     [(ngModel)]="detail['status']" name="EditStatus"
                     #EditStatus="ngModel">
-            <div *ngIf="detail['status']" 
+            <div *ngIf="detail['status']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('status')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -56,10 +62,10 @@
                     
                     
                     
-                 
+                
                     [(ngModel)]="detail['notes']" name="EditNotes"
                     #EditNotes="ngModel"></textarea>
-            <div *ngIf="detail['notes']" 
+            <div *ngIf="detail['notes']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('notes')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -77,8 +83,8 @@
     
 </div>
 
-         </div>	
-	     <div *ngIf="action == 'Create' || action == 'Add' ">
+				</div>
+				<div *ngIf="action == 'Create' || action == 'Add' ">
 <div *ngIf="!hiddenFields.includes('product')">
 
         <fieldset class="form-group">
@@ -91,10 +97,10 @@
                     required
                     
                     
-                 
+                
                     [(ngModel)]="detail['product']" name="EditProduct"
                     #EditProduct="ngModel">
-            <div *ngIf="detail['product']" 
+            <div *ngIf="detail['product']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('product')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -126,10 +132,10 @@
                     required
                     
                     
-                 
+                
                     [(ngModel)]="detail['productID']" name="EditProductID"
                     #EditProductID="ngModel">
-            <div *ngIf="detail['productID']" 
+            <div *ngIf="detail['productID']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('productID')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -161,10 +167,10 @@
                     required
                     
                     
-                 
+                
                     [(ngModel)]="detail['orderDescription']" name="EditOrderDescription"
                     #EditOrderDescription="ngModel">
-            <div *ngIf="detail['orderDescription']" 
+            <div *ngIf="detail['orderDescription']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('orderDescription')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -196,10 +202,10 @@
                     required
                     
                     
-                 
+                
                     [(ngModel)]="detail['price']" name="EditPrice"
                     #EditPrice="ngModel">
-            <div *ngIf="detail['price']" 
+            <div *ngIf="detail['price']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('price')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -231,10 +237,10 @@
                     required
                     
                     
-                 
+                
                     [(ngModel)]="detail['transLogP']" name="EditTransLogP"
                     #EditTransLogP="ngModel">
-            <div *ngIf="detail['transLogP']" 
+            <div *ngIf="detail['transLogP']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('transLogP')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -266,10 +272,10 @@
                     required
                     
                     
-                 
+                
                     [(ngModel)]="detail['transLogA']" name="EditTransLogA"
                     #EditTransLogA="ngModel">
-            <div *ngIf="detail['transLogA']" 
+            <div *ngIf="detail['transLogA']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('transLogA')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -301,10 +307,10 @@
                     required
                     
                     
-                 
+                
                     [(ngModel)]="detail['status']" name="EditStatus"
                     #EditStatus="ngModel">
-            <div *ngIf="detail['status']" 
+            <div *ngIf="detail['status']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('status')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
@@ -325,16 +331,13 @@
     
 </div>
 
-         </div>	
-         
-		<div class="action-buttons-center">
-	     	<button type="submit" class="btn btn-success" 
-     			[disabled]="!editForm.form.valid">Submit</button>
-	     	<button class="btn btn-outline-success" 
-     			type="button" (click)="editCancel()">Cancel</button>
+				</div>
+
+				<div class="action-buttons-center">
+					<button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
+					<button class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>
+				</div>
+			</form>
 		</div>
-	    </form>
-	  </div>
 	</div>
 </div>
-

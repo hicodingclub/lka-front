@@ -1,9 +1,10 @@
-import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, Output, EventEmitter } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
 
-import { StudentclassComponent, ViewType } from '../studentclass.component';
+import { StudentclassDetailCustComponent } from '../../../academics-cust/base/studentclass/studentclass-detail.cust.component';
+import { ViewType } from '../studentclass.component';
 import { StudentclassService } from '../studentclass.service';
 
 
@@ -15,17 +16,15 @@ import { ComponentFactoryResolver } from '@angular/core';
   templateUrl: './studentclass-detail.component.html',
   styleUrls: ['./studentclass-detail.component.css']
 })
-export class StudentclassDetailComponent extends StudentclassComponent implements OnInit, AfterViewInit {
-  @Input() 
-  public id:string;
-  @Input()
-  public searchObj:any;
-  @Input()
-  public disableActionButtions:boolean;
-  @Input()
-  public style: any; // {}
-  @Input()
-  public options: any; // {} uiOptions
+export class StudentclassDetailComponent extends StudentclassDetailCustComponent implements OnInit, AfterViewInit {
+  // @Input() 
+  // public id:string;
+  // @Input()
+  // public searchObj:any;
+  // @Input()
+  // public disableActionButtions:boolean;
+  // @Output()
+  // public eventEmitter: EventEmitter<any> = new EventEmitter();
 
 
 
@@ -39,6 +38,11 @@ export class StudentclassDetailComponent extends StudentclassComponent implement
           super(componentFactoryResolver,
                 studentclassService, injector, router, route, location, ViewType.DETAIL);
 
+          this.fieldDisplayNames = {
+            'student': 'Student',
+            'class': 'Class',
+          };
+
 
 
           this.referenceFields = ['student', 'class', ];
@@ -49,11 +53,12 @@ export class StudentclassDetailComponent extends StudentclassComponent implement
 
 
 
+
+
   }
 
   ngOnInit() {
-      this.style = this.style || {};
-      this.options = this.options || {};
+      super.ngOnInit();
       if (!this.id) this.id = this.route.snapshot.paramMap.get('id');
       if (this.id) {
         this.populateDetail(this.id);

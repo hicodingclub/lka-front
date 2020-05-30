@@ -1,5 +1,6 @@
 
-<div class="mt-4 mb-4 d-flex">
+
+<div class="mt-4 mb-4 d-flex" *ngIf="!options['disableTitleRow']">
 
 
 </div>
@@ -16,15 +17,15 @@
 
 
 <div>
-	<div class="container search">
-		<div class="row">
-			<div class="col-9">
+	<div *ngIf="!options['disableListHead']" class="container search">
+		<div class="row" *ngIf="!options['disableListSearch']">
+			<div class="col">
 
 			    <div class="input-group">
 	              <input type="search" class="form-control border border-secondary" id="emailsettingsTextSearch" 
 						#emailsettingsTextSearch [(ngModel)]="searchText"
 						(keydown.enter)="$event.target.blur();searchList();false"
-					    placeholder="Search for settingName, defaultSender"> 
+					    placeholder="Search for setting name, default sender email address"> 
 				  <div *ngIf="searchText" class="input-group-append icon-clear-inside">
 					<span >
 					    <i class="fas fa-times-circle" (click)="onSearchTextClear()" title="Clear"></i>
@@ -38,7 +39,7 @@
 
 			</div>
 		</div>
-		<div class="row">
+		<div class="row" *ngIf="!options['disableActionButtions']">
 			<div class="col">
 		        <div class="action-buttons">
 					
@@ -50,6 +51,7 @@
 			</div>
 		</div>
 		<hr/>
+		<div *ngIf="!options['disablePagination']">
 		<div class="row justify-content-end mt-3">
 		
 			<div *ngIf="list.length > 2" class="sort-selection mr-5">
@@ -62,10 +64,10 @@
 							</span>
 						</button>
 						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('settingName', 'Setting Name', 'asc')">SettingName<i class="fas fa-arrow-up"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('settingName', 'Setting Name', 'desc')">SettingName<i class="fas fa-arrow-down"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('defaultSender', 'Default Sender Email Address', 'asc')">DefaultSender<i class="fas fa-arrow-up"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('defaultSender', 'Default Sender Email Address', 'desc')">DefaultSender<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('settingName', 'Setting Name', 'asc')">Setting Name<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('settingName', 'Setting Name', 'desc')">Setting Name<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('defaultSender', 'Default Sender Email Address', 'asc')">Default Sender Email Address<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('defaultSender', 'Default Sender Email Address', 'desc')">Default Sender Email Address<i class="fas fa-arrow-down"></i></a>
 						</div>
 					</div>
 			</div>
@@ -131,6 +133,7 @@
 				</div>
 		</div>
 
+		</div>
 	</div>
 	<div class="no-records" *ngIf="list.length === 0">
 		<span *ngIf="loaded">No records found.</span>
@@ -147,14 +150,14 @@
       <div class="list-body-fields">
         <h5>
           <div class="mr-1 d-inline-block">
-                            
+            
                     {{detail['settingName']}}
 
           </div>
         </h5>
         <div *ngIf="detail['defaultSender']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Default Sender Email Address:</label></div>
-          <div class="ml-3">                
+          <div class="ml-3">
                     {{detail['defaultSender']}}
 
           </div>
@@ -187,7 +190,7 @@
         <div>
           <h5>
             <div class="mr-1 d-inline-block">
-                              
+              
                     {{detail['settingName']}}
 
             </div>
@@ -197,7 +200,7 @@
       <div class="card-body">
           <div *ngIf="detail['defaultSender']" class="d-flex flex-wrap">
             <div class=""><label>Default Sender Email Address:</label></div>
-            <div class="ml-3">                
+            <div class="ml-3">
                     {{detail['defaultSender']}}
 </div>
           </div>
@@ -245,12 +248,12 @@
 	            </td>
 
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
+	            	
                     {{detail['settingName']}}
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
+	            	
                     {{detail['defaultSender']}}
 
 	            </td>
@@ -270,6 +273,7 @@
 
 	</div>
 	<div class="container">
+		<div *ngIf="!options['disablePagination']">
 		<div class="row justify-content-end mt-3">
 		
 			
@@ -317,6 +321,7 @@
 				</div>
 		</div>
 
+		</div>
 	</div>
 	
 </div>

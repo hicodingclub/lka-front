@@ -13,9 +13,9 @@ import { FaqService } from '../faq.service';
 })
 export class FaqDetailFieldComponent extends FaqComponent
         implements OnInit {
-    @Input() id: string;
-    @Input() detailObj: any;
-    @Input() showFieldsStr: string;
+    // @Input() id: string;
+    // @Input() detailObj: any;
+    // @Input() showFieldsStr: string;
     showFields: string[];
     
     constructor(
@@ -27,9 +27,16 @@ export class FaqDetailFieldComponent extends FaqComponent
           super(
                 faqService, injector, router, route, location, ViewType.DETAIL);
           
+          this.fieldDisplayNames = {
+            'question': 'Question',
+            'answer': 'Answer',
+          };
+
 
           this.stringFields.push('question');
           this.stringFields.push('answer');
+
+
 
 
 

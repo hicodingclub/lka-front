@@ -5,7 +5,8 @@
 		<span *ngIf="!loaded">Loading...</span>
 	</div>
 	<div class="container search">
-		 		<div class="row justify-content-end mt-3">
+		
+		<div class="row justify-content-end mt-3">
 		
 			
 			<button type="button" class="btn btn-outline-success" (click)="onExport()">Export to excel</button>
@@ -78,14 +79,14 @@
 	            <td scope="row">{{(page-1)*perPage+i+1+idx}}</td>
 
 	            <td *ngIf=" 'student' !== associationField && referenceFieldsMap['student'] != parentItem " >
-	            	                
+	            	
                	  
 	            	{{detail['student']?detail['student']['value']:""}}
 	              
 
 				</td>
 	            <td *ngIf=" 'class' !== associationField && referenceFieldsMap['class'] != parentItem " >
-	            	                
+	            	
                	  
 	            	{{detail['class']?detail['class']['value']:""}}
 	              
@@ -102,7 +103,8 @@
 	</table>
 	
 	<div class="container">
-		 		<div class="row justify-content-end mt-3">
+		
+		<div class="row justify-content-end mt-3">
 		
 			
 		</div>

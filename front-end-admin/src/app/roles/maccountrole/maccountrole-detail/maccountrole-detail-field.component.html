@@ -1,11 +1,12 @@
 
 
-		<div *ngIf="detail && showFields.includes('account')">                
+		<div *ngIf="detail && showFields.includes('account')">
                	  <a routerLink="."  (click)="onDisplayRefClicked('account', detail['account'], $event)">
 	            	{{detail['account']?detail['account']['value']:""}}
 	              </a>
-</div>
-		<div *ngIf="detail && showFields.includes('role')">                
+
+		</div>
+		<div *ngIf="detail && showFields.includes('role')">
                     <div *ngIf="detail['role'] && detail['role']['selection']">
                         <ng-template ngFor let-element [ngForOf]="detail['role']['selection']" let-idx="index">
                             <div class="badge-click badge badge-pill badge-secondary" 
@@ -14,4 +15,5 @@
                             </div>
                         </ng-template>
                     </div>
-</div>
+
+		</div>

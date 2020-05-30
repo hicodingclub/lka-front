@@ -5,7 +5,8 @@ import { Injector } from '@angular/core';
 
 declare const $: any;
 
-import { PipelineComponent, ViewType } from '../pipeline.component';
+import { PipelineEditCustComponent } from '../../../pipeline-cust/base/pipeline/pipeline-edit.cust.component';
+import { ViewType } from '../pipeline.component';
 import { PipelineService } from '../pipeline.service';
 
 
@@ -19,21 +20,21 @@ import { PipelineService } from '../pipeline.service';
   templateUrl: './pipeline-edit.component.html',
   styleUrls: ['./pipeline-edit.component.css']
 })
-export class PipelineEditComponent extends PipelineComponent implements OnInit, AfterViewInit {        
-    @Input() 
-    public id: string;
-    @Input()
-    public cid: string; // copy id
-    @Input()
-    public initData: any; // some fields has data already. eg: {a: b}. Used for add
-    @Output()
-    public doneData = new EventEmitter<boolean>();
-    @Output()
-    public done = new EventEmitter<any>();
-    @Input()
-    public embeddedView: boolean;
-    @Input()
-    public embedMode: string; // parent to tell the action - create
+export class PipelineEditComponent extends PipelineEditCustComponent implements OnInit, AfterViewInit {        
+    // @Input() 
+    // public id: string;
+    // @Input()
+    // public cid: string; // copy id
+    // @Input()
+    // public initData: any; // some fields has data already. eg: {a: b}. Used for add
+    // @Output()
+    // public doneData = new EventEmitter<boolean>();
+    // @Output()
+    // public done = new EventEmitter<any>();
+    // @Input()
+    // public embeddedView: boolean;
+    // @Input()
+    // public embedMode: string; // parent to tell the action - create
 
     public action: string;
     public minDate = {year: (new Date()).getFullYear() - 100, month: 1, day: 1};
@@ -49,8 +50,14 @@ export class PipelineEditComponent extends PipelineComponent implements OnInit, 
           super(
                 pipelineService, injector, router, route, location, ViewType.EDIT);
 
+          this.fieldDisplayNames = {
+            'category': 'Category',
+          };
+
 
           this.stringFields.push('category');
+
+
 
 
 
@@ -66,6 +73,7 @@ export class PipelineEditComponent extends PipelineComponent implements OnInit, 
     }
 
     ngOnInit() {
+      super.ngOnInit();
       if (this.embedMode == 'create') { // parent ask to create
         this.action='Create';
         this.getDetailData();
@@ -85,6 +93,8 @@ export class PipelineEditComponent extends PipelineComponent implements OnInit, 
             }
         }
       }
+      // get editHintFields
+      this.searchHintFieldValues();
     }
 
     ngAfterViewInit() {
@@ -96,7 +106,6 @@ export class PipelineEditComponent extends PipelineComponent implements OnInit, 
       if (this.initData) {
         this.action='Add';
         let detail = {
-            
         };
         for (let prop of Object.keys(this.initData)) {
             detail[prop] = this.initData[prop];
@@ -105,7 +114,6 @@ export class PipelineEditComponent extends PipelineComponent implements OnInit, 
         this.detail = this.formatDetail(detail);
       } else {
           let detail = {
-              
           };
           this.detail = this.formatDetail(detail);
       }

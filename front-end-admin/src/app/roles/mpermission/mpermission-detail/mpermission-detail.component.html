@@ -2,7 +2,7 @@
 <div class="detail" *ngIf="detail">
 	<div *ngIf="!options['disableActionButtions']"><div *ngIf="!disableActionButtions" class="action-buttons">
     <!--<a href="javascript:void(0)" (click)="goBack()"><i class="fas fa-angle-double-left" title="Back"></i></a>-->
-    <a [routerLink]="['../../list' ]"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
+    <a routerLink="../../list"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
     <a [routerLink]="['../../edit', detail['_id'] ]" [skipLocationChange]="false" class="btn btn-outline-primary">Edit</a>
     <a [routerLink]="['../../new']" [queryParams]="{cid: detail['_id']}" [skipLocationChange]="false" class="btn btn-outline-primary">New</a>
     <a routerLink="." class="btn btn-outline-primary" (click)="onDelete(detail['_id'], null)">Delete</a>
@@ -16,7 +16,7 @@
         <div class="ml-1">
           <h5>
             <div class="mr-1 d-inline-block">
-                              
+              
                	  <a routerLink="."  (click)="onDisplayRefClicked('role', detail['role'], $event)">
 	            	{{detail['role']?detail['role']['value']:""}}
 	              </a>
@@ -29,7 +29,7 @@
           <div>
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
                 <div><label>Module:</label></div>
-                <div class="ml-3">                
+                <div class="ml-3">
                	  <a routerLink="."  (click)="onDisplayRefClicked('module', detail['module'], $event)">
 	            	{{detail['module']?detail['module']['value']:""}}
 	              </a>
@@ -39,7 +39,7 @@
           <div>
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
                 <div><label>Module Permission:</label></div>
-                <div class="ml-3">                
+                <div class="ml-3">
                     {{detail['modulePermission']}}
 </div>
             </div>
@@ -47,7 +47,7 @@
           <div>
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
                 <div><label>Resource Permission:</label></div>
-                <div class="ml-3">                
+                <div class="ml-3">
                     <div *ngIf="detail['resourcePermission'] && detail['resourcePermission']['selection']">
                         <ng-template ngFor let-element [ngForOf]="objectKeys(detail['resourcePermission']['selection'])" let-idx="index">
                             <div class="d-flex">
@@ -68,4 +68,3 @@
 	<div *ngIf="!options['disableRefLink']">
 </div>
 </div>
-

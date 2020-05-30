@@ -13,9 +13,9 @@ import { EmailsettingsService } from '../emailsettings.service';
 })
 export class EmailsettingsDetailFieldComponent extends EmailsettingsComponent
         implements OnInit {
-    @Input() id: string;
-    @Input() detailObj: any;
-    @Input() showFieldsStr: string;
+    // @Input() id: string;
+    // @Input() detailObj: any;
+    // @Input() showFieldsStr: string;
     showFields: string[];
     
     constructor(
@@ -27,9 +27,16 @@ export class EmailsettingsDetailFieldComponent extends EmailsettingsComponent
           super(
                 emailsettingsService, injector, router, route, location, ViewType.DETAIL);
           
+          this.fieldDisplayNames = {
+            'settingName': 'Setting Name',
+            'defaultSender': 'Default Sender Email Address',
+          };
+
 
           this.stringFields.push('settingName');
           this.stringFields.push('defaultSender');
+
+
 
 
 

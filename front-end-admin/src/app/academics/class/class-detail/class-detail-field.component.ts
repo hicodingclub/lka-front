@@ -13,9 +13,9 @@ import { ClassService } from '../class.service';
 })
 export class ClassDetailFieldComponent extends ClassComponent
         implements OnInit {
-    @Input() id: string;
-    @Input() detailObj: any;
-    @Input() showFieldsStr: string;
+    // @Input() id: string;
+    // @Input() detailObj: any;
+    // @Input() showFieldsStr: string;
     showFields: string[];
     
     constructor(
@@ -27,6 +27,22 @@ export class ClassDetailFieldComponent extends ClassComponent
           super(null,
                 classService, injector, router, route, location, ViewType.DETAIL);
           
+          this.fieldDisplayNames = {
+            'title': 'Title',
+            'description': 'Description',
+            'course': 'Program',
+            'teacher': 'Instructor',
+            'price': 'Price',
+            'season': 'Season',
+            'startTime': 'Start Time',
+            'endTime': 'End Time',
+            'duration': 'Duration',
+            'dayOfWeek': 'Day of Week',
+            'timeSlot': 'Time Slot',
+            'hot': 'Hot',
+            'enrollTerm': 'Enroll Term',
+          };
+
           this.enums['dayOfWeek'] = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun', ];
 
           this.stringFields.push('title');
@@ -41,7 +57,9 @@ export class ClassDetailFieldComponent extends ClassComponent
           this.dateFields = ['startTime', 'endTime', ];
 
 
+
           this.multiSelectionFields = ['dayOfWeek', ];
+
 
 
 

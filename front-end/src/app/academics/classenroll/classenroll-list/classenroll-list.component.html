@@ -1,7 +1,8 @@
 
-<div class="mt-4 mb-4 d-flex">
 
-	<div class="list-title">Your Class Enrollments</div>
+<div class="mt-4 mb-4 d-flex" *ngIf="!options['disableTitleRow']">
+
+	<div class="list-title" *ngIf="!options['disableTitle']">Your Class Enrollments</div>
 
 </div>
 
@@ -17,8 +18,8 @@
 
 
 <div>
-	<div class="container search">
-		<div class="row">
+	<div *ngIf="!options['disableListHead']" class="container search">
+		<div class="row" *ngIf="!options['disableActionButtions']">
 			<div class="col">
 		        <div class="action-buttons">
 					
@@ -30,6 +31,7 @@
 			</div>
 		</div>
 		<hr/>
+		<div *ngIf="!options['disablePagination']">
 		<div class="row justify-content-end mt-3">
 		
 			<div *ngIf="list.length > 2" class="sort-selection mr-5">
@@ -46,8 +48,8 @@
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('class', 'Class', 'desc')">Class<i class="fas fa-arrow-down"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('status', 'Status', 'asc')">Status<i class="fas fa-arrow-up"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('status', 'Status', 'desc')">Status<i class="fas fa-arrow-down"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('createdAt', 'Created Time', 'asc')">CreatedAt<i class="fas fa-arrow-up"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('createdAt', 'Created Time', 'desc')">CreatedAt<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('createdAt', 'Created Time', 'asc')">Created Time<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('createdAt', 'Created Time', 'desc')">Created Time<i class="fas fa-arrow-down"></i></a>
 						</div>
 					</div>
 			</div>
@@ -113,6 +115,7 @@
 				</div>
 		</div>
 
+		</div>
 	</div>
 	<div class="no-records" *ngIf="list.length === 0">
 		<span *ngIf="loaded">No records found.</span>
@@ -156,7 +159,7 @@
 	            </td>
 
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
+	            	
                     <div *ngIf="detail['student'] && detail['student']['selection']">
                         <ng-template ngFor let-element [ngForOf]="detail['student']['selection']" let-idx="index">
                             <div class="badge-click badge badge-pill badge-secondary" 
@@ -168,19 +171,19 @@
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
+	            	
                	  <a routerLink="."  (click)="onDisplayRefClicked('class', detail['class'], $event)">
 	            	{{detail['class']?detail['class']['value']:""}}
 	              </a>
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
+	            	
                     {{detail['status']}}
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                  {{detail['createdAt']?detail['createdAt']['value']:""}}
+	            	  {{detail['createdAt']?detail['createdAt']['value']:""}}
 
 	            </td>
 	        </tr>
@@ -198,7 +201,7 @@
       <div class="list-body-fields">
         <h5>
           <div class="mr-1 d-inline-block">
-                            
+            
                     <div *ngIf="detail['student'] && detail['student']['selection']">
                         <ng-template ngFor let-element [ngForOf]="detail['student']['selection']" let-idx="index">
                             <div class="badge-click badge badge-pill badge-secondary" 
@@ -212,7 +215,7 @@
         </h5>
         <div *ngIf="detail['class']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Class:</label></div>
-          <div class="ml-3">                
+          <div class="ml-3">
                	  <a routerLink="."  (click)="onDisplayRefClicked('class', detail['class'], $event)">
 	            	{{detail['class']?detail['class']['value']:""}}
 	              </a>
@@ -221,14 +224,14 @@
         </div>
         <div *ngIf="detail['status']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Status:</label></div>
-          <div class="ml-3">                
+          <div class="ml-3">
                     {{detail['status']}}
 
           </div>
         </div>
         <div *ngIf="detail['createdAt']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Created Time:</label></div>
-          <div class="ml-3">                  {{detail['createdAt']?detail['createdAt']['value']:""}}
+          <div class="ml-3">  {{detail['createdAt']?detail['createdAt']['value']:""}}
 
           </div>
         </div>
@@ -252,7 +255,7 @@
         <div>
           <h5>
             <div class="mr-1 d-inline-block">
-                              
+              
                     <div *ngIf="detail['student'] && detail['student']['selection']">
                         <ng-template ngFor let-element [ngForOf]="detail['student']['selection']" let-idx="index">
                             <div class="badge-click badge badge-pill badge-secondary" 
@@ -269,7 +272,7 @@
       <div class="card-body">
           <div *ngIf="detail['class']" class="d-flex flex-wrap">
             <div class=""><label>Class:</label></div>
-            <div class="ml-3">                
+            <div class="ml-3">
                	  <a routerLink="."  (click)="onDisplayRefClicked('class', detail['class'], $event)">
 	            	{{detail['class']?detail['class']['value']:""}}
 	              </a>
@@ -277,13 +280,13 @@
           </div>
           <div *ngIf="detail['status']" class="d-flex flex-wrap">
             <div class=""><label>Status:</label></div>
-            <div class="ml-3">                
+            <div class="ml-3">
                     {{detail['status']}}
 </div>
           </div>
           <div *ngIf="detail['createdAt']" class="d-flex flex-wrap">
             <div class=""><label>Created Time:</label></div>
-            <div class="ml-3">                  {{detail['createdAt']?detail['createdAt']['value']:""}}
+            <div class="ml-3">  {{detail['createdAt']?detail['createdAt']['value']:""}}
 </div>
           </div>
       </div>
@@ -296,6 +299,7 @@
 
 	</div>
 	<div class="container">
+		<div *ngIf="!options['disablePagination']">
 		<div class="row justify-content-end mt-3">
 		
 			
@@ -343,9 +347,10 @@
 				</div>
 		</div>
 
+		</div>
 	</div>
 	
 </div>
 
 
-<ng-template academics-ref-select></ng-template>
+<ng-template *ngIf="!options['disableRefs']" academics-ref-select></ng-template>

@@ -4,8 +4,7 @@ import { RouteReuseStrategy } from '@angular/router';
 
 import { MddsRouteReuseStrategy } from '@hicoder/angular-core';
 
-import { AcademicsComponent } from './academics.component';
-import { AcademicsRoutes } from '../academics.conf';
+import { AcademicsRoutes } from '../academics-cust/academics.conf';
 
 @NgModule({
   imports: [RouterModule.forChild(AcademicsRoutes)],
