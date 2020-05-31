@@ -24,7 +24,7 @@
     "@hicoder/angular-action-email": "0.9.6",
     "@hicoder/angular-auth": "0.9.6",
     "@hicoder/angular-composite": "0.9.6",
-    "@hicoder/angular-core": "0.9.6",
+    "@hicoder/angular-core": "0.9.7",
     "@hicoder/angular-file": "0.9.6",
     "@hicoder/angular-richtext": "0.9.6",
     "@ng-bootstrap/ng-bootstrap": "^5.1.4",
