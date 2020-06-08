@@ -1,5 +1,5 @@
 <div class="container">
-    <h3 class="mt-5 mb-3 text-center" >Enrollment Summary</h3>
+    <h3 class="mt-5 mb-3 text-center">Enrollment Summary</h3>
     <div class="card mx-auto" style="width: 75%;">
         <div class="card-body">
             <div *ngIf="enrollmentDetail">
@@ -26,34 +26,22 @@
 
         <div class="form-check">
             <div class="form-check m-3">
-                <input type="radio" name="EditStatus" 
-                    class="form-check-input"
-                    required
-                    id="EditStatusprocessing" [value]="true"
-                    
-                    [(ngModel)]="firstEnroll"
-                    #EditStatus="ngModel">
+                <input type="radio" name="EditStatus" class="form-check-input" required id="EditStatusprocessing" [value]="true" [(ngModel)]="firstEnroll" #EditStatus="ngModel">
                 <label class="form-check-label">Yes. Enrollment is for new LKA student(s).</label>
             </div>
-    
+
             <div class="form-check m-3">
-                <input type="radio" name="EditStatus" 
-                    class="form-check-input"
-                    required
-                    id="EditStatuspaid" [value]="false"
-                    
-                    [(ngModel)]="firstEnroll"
-                    #EditStatus="ngModel">
+                <input type="radio" name="EditStatus" class="form-check-input" required id="EditStatuspaid" [value]="false" [(ngModel)]="firstEnroll" #EditStatus="ngModel">
                 <label class="form-check-label">No. Enrollment is for returned LKA student(s).</label>
             </div>
         </div>
-        <div class="text-center mb-3 mt-3" >
+        <div class="text-center mb-3 mt-3">
             <button type="submit" class="btn btn-primary" (click)="makePayment()">Make Payment</button>
         </div>
     </div>
 
     <div *ngIf="showPayment">
-        <h3 class="mt-5 mb-3 text-center" >Payment Summary</h3>
+        <h3 class="mt-5 mb-3 text-center">Payment Summary</h3>
 
         <div class="card mx-auto" style="width: 75%;">
             <div class="card-body">
@@ -64,20 +52,28 @@
             </div>
         </div>
 
-        <h3 class="mt-5 mb-3 text-center" >Payment Options</h3>
-        <div  class="pl-5" >
-            <h5>Option 1. Please use online bill pay or mail/drop off the tuition check to the following address before the session/class starts:</h5>
-            <div class="pl-5 pt-3 pb-3"> 
+        <h3 class="mt-5 mb-3 text-center">Payment Options</h3>
+        <div class="pl-5">
+            <h5>Option 1. Use Zelle to pay to the following account with zero transaction fee:</h5>
+            <div class="pl-5 pt-3 pb-3">
+                <div>info.lkastaff@gmail.com</div>
+            </div>
+
+            <div class="text-center mb-3 mt-3">
+                <a class="btn btn-outline-primary" routerLink="/academics/classenroll/list">I'll pay with this option</a>
+            </div>
+            <h5>Option 2. Please use other online bill pay or mail/drop off the tuition check to the following address before the session/class starts:</h5>
+            <div class="pl-5 pt-3 pb-3">
                 <div>Light of knowledge Academy</div>
                 <div>20432 Silverado Ave Suite #6,</div>
                 <div>Cupertino, CA 95014</div>
             </div>
 
-            <div class="text-center mb-3 mt-3" >
+            <div class="text-center mb-3 mt-3">
                 <a class="btn btn-outline-primary" routerLink="/academics/classenroll/list">I'll pay with this option</a>
             </div>
-        
-            <h5>Option 2. Pay online:</h5>
+
+            <h5>Option 3. Pay online:</h5>
             <p class="pl-5"><i><b>Note:</b> 2.9% additional online transaction fee will incure. Your payment total would be: <b>${{onlinePrice.toFixed(2)}}</b></i></p>
         </div>
     </div>

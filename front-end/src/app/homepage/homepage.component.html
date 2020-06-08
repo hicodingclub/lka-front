@@ -1,5 +1,5 @@
 <div class="container">
-  <!--    <div id="slides" class="carousel slide carousel-fade" data-ride="carousel" data-pause="false">
+    <!--    <div id="slides" class="carousel slide carousel-fade" data-ride="carousel" data-pause="false">
         <!-- Indicators - ->
         <ul class="carousel-indicators">
           <li data-target="#slides" data-slide-to="0" class="active"></li>
@@ -45,52 +45,46 @@
     </div>
 
     <section>
-      <div>
-        <app-generalinfo-detail-widget-info [searchObj]="{'tag': 'lka'}" [disableActionButtions]="true"
-        [style]="{
-          'card': {'background-color': 'white', 'color': '#00274c'},
-          'body-field': {'font-size': '1.2rem', 'font-weight': '400'}
-        }"
-        >
-        </app-generalinfo-detail-widget-info>
-      </div>
-    </section>
-
-    <section class="row align-items-baseline row-border">
-      <div class="col d-flex flex-column">
-          <div><app-generalinfo-detail-widget-info [searchObj]="{'tag': 'events'}" [disableActionButtions]="true"
-            [style]="{'card': {'background-color': 'white', 'color': '#00274c'}}"
-            >
-          </app-generalinfo-detail-widget-info></div>
-          <div class="align-self-center internal_link" routerLink="/publicinfo/event">Read all posts</div>
-      </div>
-      <div class="col-large">
-        <app-event-list [options]="{disableCatetory: true, disablePagination: true,
+        <div class="d-flex flex-column">
+            <div>
+                <app-generalinfo-detail-widget-info [searchObj]="{'tag': 'classes'}" [disableActionButtions]="true" [style]="{'card': {'background-color': 'white', 'color': '#00274c'}}">
+                </app-generalinfo-detail-widget-info>
+            </div>
+            <div class="align-self-center internal_link" routerLink="/academics/class/list">Check all classes</div>
+        </div>
+        <div style="">
+            <app-class-list [options]="{disableCatetory: true, disablePagination: true,
           disbleActionButtons: true, disableListSearch: true, disableTitle: true, disableRefs: true,
-          disableListHead: true, disableTitleRow: true}"
-          [queryParams]="{perPage: 3, listSortOrder: 'desc', listSortField: 'publishDate'}">
-        </app-event-list>
-      </div>
+          disableListHead: true, disableTitleRow: true}" [queryParams]="{perPage: 6, listSortOrder: 'desc', listSortField: 'startTime'}" [searchObj]="{'hot': true}">
+            </app-class-list>
+        </div>
     </section>
 
     <section>
-      <div class="d-flex flex-column">
-        <div><app-generalinfo-detail-widget-info [searchObj]="{'tag': 'classes'}" [disableActionButtions]="true"
-          [style]="{'card': {'background-color': 'white', 'color': '#00274c'}}"
-          >
-        </app-generalinfo-detail-widget-info></div>
-        <div class="align-self-center internal_link" routerLink="/academics/class/list">Check all classes</div>
-      </div>
-      <div style="">
-        <app-class-list [options]="{disableCatetory: true, disablePagination: true,
-          disbleActionButtons: true, disableListSearch: true, disableTitle: true, disableRefs: true,
-          disableListHead: true, disableTitleRow: true}"
-          [queryParams]="{perPage: 6, listSortOrder: 'desc', listSortField: 'startTime'}"
-          [searchObj]="{'hot': true}">
-        </app-class-list>
-      </div>  
+        <div>
+            <app-generalinfo-detail-widget-info [searchObj]="{'tag': 'lka'}" [disableActionButtions]="true" [style]="{
+          'card': {'background-color': 'white', 'color': '#00274c'},
+          'body-field': {'font-size': '1.2rem', 'font-weight': '400'}
+        }">
+            </app-generalinfo-detail-widget-info>
+        </div>
     </section>
 
+    <section class="row align-items-baseline row-border">
+        <div class="col d-flex flex-column">
+            <div>
+                <app-generalinfo-detail-widget-info [searchObj]="{'tag': 'events'}" [disableActionButtions]="true" [style]="{'card': {'background-color': 'white', 'color': '#00274c'}}">
+                </app-generalinfo-detail-widget-info>
+            </div>
+            <div class="align-self-center internal_link" routerLink="/publicinfo/event">Read all posts</div>
+        </div>
+        <div class="col-large">
+            <app-event-list [options]="{disableCatetory: true, disablePagination: true,
+          disbleActionButtons: true, disableListSearch: true, disableTitle: true, disableRefs: true,
+          disableListHead: true, disableTitleRow: true}" [queryParams]="{perPage: 3, listSortOrder: 'desc', listSortField: 'publishDate'}">
+            </app-event-list>
+        </div>
+    </section>
 
 
     <!--
@@ -106,8 +100,8 @@
     </section>
     -->
     <section>
-      <div>
-        <app-keynote-detail-widget-slide [searchObj]="{'tag': 'mission'}" [disableActionButtions]="true"></app-keynote-detail-widget-slide>
-      </div>
+        <div>
+            <app-keynote-detail-widget-slide [searchObj]="{'tag': 'mission'}" [disableActionButtions]="true"></app-keynote-detail-widget-slide>
+        </div>
     </section>
 </div>
