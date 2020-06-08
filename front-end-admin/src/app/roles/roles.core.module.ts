@@ -17,8 +17,6 @@ import { RolesRoutingCoreModule } from './roles-routing.core.module';
 import { RolesComponent } from './roles.component';
 import { RolesRefSelectDirective } from './roles.component';
 
-import { Roles_SERVER_ROOT_URI } from './roles.tokens';
-import { roles_server_root_uri } from '../roles-cust/roles.conf';
 
 // Import components for each schema
 
@@ -29,7 +27,6 @@ import { MroleDetailComponent } from './mrole/mrole-detail/mrole-detail.componen
 import { MroleDetailFieldComponent } from './mrole/mrole-detail/mrole-detail-field.component';
 import { MroleEditComponent } from './mrole/mrole-edit/mrole-edit.component';
 
-import { MroleService } from './mrole/mrole.service';
 
 import { MmoduleListComponent } from './mmodule/mmodule-list/mmodule-list.component';
 
@@ -38,7 +35,6 @@ import { MmoduleDetailComponent } from './mmodule/mmodule-detail/mmodule-detail.
 import { MmoduleDetailFieldComponent } from './mmodule/mmodule-detail/mmodule-detail-field.component';
 import { MmoduleEditComponent } from './mmodule/mmodule-edit/mmodule-edit.component';
 
-import { MmoduleService } from './mmodule/mmodule.service';
 
 import { MpermissionListComponent } from './mpermission/mpermission-list/mpermission-list.component';
 
@@ -47,7 +43,6 @@ import { MpermissionDetailComponent } from './mpermission/mpermission-detail/mpe
 import { MpermissionDetailFieldComponent } from './mpermission/mpermission-detail/mpermission-detail-field.component';
 import { MpermissionEditComponent } from './mpermission/mpermission-edit/mpermission-edit.component';
 
-import { MpermissionService } from './mpermission/mpermission.service';
 
 import { MaccountListComponent } from './maccount/maccount-list/maccount-list.component';
 
@@ -56,7 +51,6 @@ import { MaccountDetailComponent } from './maccount/maccount-detail/maccount-det
 import { MaccountDetailFieldComponent } from './maccount/maccount-detail/maccount-detail-field.component';
 import { MaccountEditComponent } from './maccount/maccount-edit/maccount-edit.component';
 
-import { MaccountService } from './maccount/maccount.service';
 
 import { MaccountroleListComponent } from './maccountrole/maccountrole-list/maccountrole-list.component';
 
@@ -65,7 +59,6 @@ import { MaccountroleDetailComponent } from './maccountrole/maccountrole-detail/
 import { MaccountroleDetailFieldComponent } from './maccountrole/maccountrole-detail/maccountrole-detail-field.component';
 import { MaccountroleEditComponent } from './maccountrole/maccountrole-edit/maccountrole-edit.component';
 
-import { MaccountroleService } from './maccountrole/maccountrole.service';
 
 
 import { MroleListSelectComponent } from './mrole/mrole-list/mrole-list-select.component';
@@ -94,6 +87,7 @@ import { MaccountroleDetailSubComponent } from './maccountrole/maccountrole-deta
     NgbModule,
     MddsCoreModule,
     ActionEmailModule,
+
 
     RolesRoutingCoreModule,
   ],
@@ -221,15 +215,8 @@ import { MaccountroleDetailSubComponent } from './maccountrole/maccountrole-deta
 
   ],
   providers: [
-    { provide: Roles_SERVER_ROOT_URI, useValue: roles_server_root_uri },
 
-    {provide: NgbDateParserFormatter, useClass: MraNgbDateFormatterService},
-
-    MroleService,
-    MmoduleService,
-    MpermissionService,
-    MaccountService,
-    MaccountroleService,
+    { provide: NgbDateParserFormatter, useClass: MraNgbDateFormatterService },
   ],
   entryComponents: [
     MroleListSelectComponent,

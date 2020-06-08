@@ -25,10 +25,14 @@ export class StudentListWidgetSelComponent extends StudentListComponent implemen
         this.listViewFilter = 'grid';
         this.listCategory1 = {}; // no do query based on category for select view;
         this.listCategory2 = {}; // no do query based on category for select view;
+
+        this.clickItemAction = 'select';
+        
+        this.itemMultiSelect = true;
   }
 
   ngOnInit() {
-    this.inputData == this.inputData || {} // expect stepTitle, preSelectedId
+    this.inputData = this.inputData || {} // expect stepTitle, preSelectedId
     this.selectedId = this.inputData.preSelectedId;
 
     super.ngOnInit();

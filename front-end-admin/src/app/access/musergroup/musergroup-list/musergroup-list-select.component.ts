@@ -26,6 +26,7 @@ export class MusergroupListSelectComponent extends MusergroupListComponent
         ) {
             super(musergroupService, injector, router, route, location);
             this.majorUi = false;
+            this.itemMultiSelect = false;
     }
 
     ngOnInit() {

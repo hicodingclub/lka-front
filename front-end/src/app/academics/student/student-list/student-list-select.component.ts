@@ -26,6 +26,7 @@ export class StudentListSelectComponent extends StudentListComponent
         ) {
             super(studentService, injector, router, route, location);
             this.majorUi = false;
+            this.itemMultiSelect = false;
     }
 
     ngOnInit() {

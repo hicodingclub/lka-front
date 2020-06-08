@@ -17,8 +17,6 @@ import { FilesRoutingCoreModule } from './files-routing.core.module';
 import { FilesComponent } from './files.component';
 import { FilesRefSelectDirective } from './files.component';
 
-import { Files_SERVER_ROOT_URI } from './files.tokens';
-import { files_server_root_uri } from '../files-cust/files.conf';
 
 // Import components for each schema
 
@@ -29,7 +27,6 @@ import { MfileListComponent } from './mfile/mfile-list/mfile-list.component';
 import { MfileDetailFieldComponent } from './mfile/mfile-detail/mfile-detail-field.component';
 import { MfileEditComponent } from './mfile/mfile-edit/mfile-edit.component';
 
-import { MfileService } from './mfile/mfile.service';
 
 import { MfilegroupListComponent } from './mfilegroup/mfilegroup-list/mfilegroup-list.component';
 
@@ -38,7 +35,6 @@ import { MfilegroupDetailComponent } from './mfilegroup/mfilegroup-detail/mfileg
 import { MfilegroupDetailFieldComponent } from './mfilegroup/mfilegroup-detail/mfilegroup-detail-field.component';
 import { MfilegroupEditComponent } from './mfilegroup/mfilegroup-edit/mfilegroup-edit.component';
 
-import { MfilegroupService } from './mfilegroup/mfilegroup.service';
 
 
 import { MfilegroupListSelectComponent } from './mfilegroup/mfilegroup-list/mfilegroup-list-select.component';
@@ -58,6 +54,7 @@ import { MfileListSubComponent } from './mfile/mfile-list/mfile-list-sub.compone
     NgbModule,
     MddsCoreModule,
     FileUploadModule,
+
 
     FilesRoutingCoreModule,
   ],
@@ -125,12 +122,8 @@ import { MfileListSubComponent } from './mfile/mfile-list/mfile-list-sub.compone
 
   ],
   providers: [
-    { provide: Files_SERVER_ROOT_URI, useValue: files_server_root_uri },
 
-    {provide: NgbDateParserFormatter, useClass: MraNgbDateFormatterService},
-
-    MfileService,
-    MfilegroupService,
+    { provide: NgbDateParserFormatter, useClass: MraNgbDateFormatterService },
   ],
   entryComponents: [
     MfilegroupListSelectComponent,

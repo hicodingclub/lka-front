@@ -358,7 +358,7 @@
 							</div>
 							<hr>
 
-							<div class="action-buttons" style="margin-top: 10px;">
+							<div class="action-buttons my-3" style="margin-top: 10px;">
 									<button type="button" class="btn btn-outline-success" (click)="onSearchClear()">Reset</button>
 									<button type="button" class="btn btn-success" (click)="searchList()">Search</button>
 							</div>
@@ -377,7 +377,7 @@
 		</div>
 		<div class="row" *ngIf="!options['disableActionButtions']">
 			<div class="col">
-		        <div class="action-buttons">
+		        <div class="action-buttons my-3">
 					
 
 					<a [routerLink]="['../new' ]" [skipLocationChange]="false" class="btn btn-outline-primary">Create</a>
@@ -560,55 +560,57 @@
 	    	</tr>
 	    </thead>
 	    <tbody>
-	        <tr *ngFor="let detail of list;  let i = index; let list_index = index;" [ngClass]="{'clicked-row': clickedId==detail['_id']}">
-	            <td scope="row" >
+			<tr *ngFor="let detail of list;  let i = index; let list_index = index;"
+				[ngClass]="{'clicked-row': clickedId==detail['_id'],
+							'selected-row': clickItemAction === 'select' && checkedItem[i]}">
+	            <td scope="row" (click)="clickOneItem(i)"  class="pointer read-more mt-3">
 	            	{{(page-1)*perPage+i+1}}
 	            </td>
 
-	            <td >
+	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
 	            	
                     {{detail['title']}}
 
 	            </td>
-	            <td >
+	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
 	            	
                	  <a routerLink="."  (click)="onDisplayRefClicked('course', detail['course'], $event)">
 	            	{{detail['course']?detail['course']['value']:""}}
 	              </a>
 
 	            </td>
-	            <td >
+	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
 	            	
                	  <a routerLink="."  (click)="onDisplayRefClicked('teacher', detail['teacher'], $event)">
 	            	{{detail['teacher']?detail['teacher']['value']:""}}
 	              </a>
 
 	            </td>
-	            <td >
+	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
 	            	{{detail['hot']}} 
 
 	            </td>
-	            <td >
+	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
 	            	
                     {{detail['season']}}
 
 	            </td>
-	            <td >
+	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
 	            	  {{detail['startTime']?detail['startTime']['value']:""}}
 
 	            </td>
-	            <td >
+	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
 	            	  {{detail['endTime']?detail['endTime']['value']:""}}
 
 	            </td>
-	            <td >
+	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
 	            	
                     <div class="badge badge-pill badge-secondary" *ngFor="let element of enums['dayOfWeek']">
                          <div *ngIf="detail['dayOfWeek'] && detail['dayOfWeek']['selection'][element]">{{element}}</div>
                     </div>
 
 	            </td>
-	            <td >
+	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
 	            	
                     {{detail['timeSlot']}}
 
@@ -622,8 +624,8 @@
 						<i *ngIf="!archivedSearch" class="fa fa-archive" title="Archive"></i>
 						<i *ngIf="archivedSearch" class="fas fa-trash-restore" title="Unarchive"></i>	
 					</a>
-					<input class="list-check-box" type="checkbox" [(ngModel)]="checkedItem[i]"/>
-					<span class="read-more-in-table" (click)="onDetailLinkClicked(detail['_id'])">Detail <i class="fas fa-arrow-right" ></i></span>
+					<input class="list-check-box" type="checkbox"  [ngModel]="checkedItem[i]" (click)="selectOneItem(i)"/>
+					<span class="read-more font-size-75 mt-3" (click)="onDetailLinkClicked(detail['_id'])">Detail <i class="fas fa-arrow-right" ></i></span>
 	            </td>
 	        </tr>
 	    </tbody>
@@ -632,10 +634,12 @@
 
 	<div class="listview" *ngIf="isShowListView('list')">
 		<div class="list-block" *ngFor="let detail of list;  let i = index; let list_index = index;">
-			<hr *ngIf="i==0" class="list-diverder">
-			<div class="list-card text-left  "
-				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
-				<div class="list-fields "  >
+			<hr *ngIf="i==0" class="list-devider">
+			<div class="list-card text-left"
+				[ngClass]="{'clicked-row': clickedId==detail['_id'],
+							'selected-row': clickItemAction === 'select' && checkedItem[i],
+							'clickable-card': clickItemAction}" >
+				<div class="list-fields" [ngClass]="{pointer: clickItemAction}" (click)="clickOneItem(i)">
 
       <div class="list-body-fields">
         <h5>
@@ -704,7 +708,7 @@
 
           </div>
         </div>
-        <div class="read-more" (click)="onDetailLinkClicked(detail['_id'])">
+        <div class="read-more mt-3" (click)="onDetailLinkClicked(detail['_id'])">
         Read more ...
         </div>
       </div>
@@ -719,10 +723,10 @@
 						<i *ngIf="!archivedSearch" class="fa fa-archive" title="Archive"></i>
 						<i *ngIf="archivedSearch" class="fas fa-trash-restore" title="Unarchive"></i>	
 					</a>
-					<input class="list-check-box" type="checkbox" [(ngModel)]="checkedItem[i]"/>
+					<input class="list-check-box" type="checkbox" [ngModel]="checkedItem[i]" (click)="selectOneItem(i)"/>
 				</div>
 			</div>
-			<hr class="list-diverder">
+			<hr class="list-devider">
 		</div>
 	</div>
 
@@ -730,9 +734,11 @@
 
 	<div class="gridview" *ngIf="isShowListView('grid')">
 		<div class="grid-block" *ngFor="let detail of list;  let i = index; let list_index = index;">
-			<div class="card text-left h-100  "
-				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
-				<div class="grid-fields "  >
+			<div class="card text-left h-100"
+				[ngClass]="{'clicked-row': clickedId==detail['_id'],
+							'selected-row': clickItemAction === 'select' && checkedItem[i],
+							'clickable-card': clickItemAction}" >
+				<div class="grid-fields" [ngClass]="{pointer: clickItemAction}" (click)="clickOneItem(i)" >
 
       <div class="card-header grid-head">
         <div>
@@ -797,7 +803,7 @@
                     {{detail['timeSlot']}}
 </div>
           </div>
-        <div class="read-more" (click)="onDetailLinkClicked(detail['_id'])">
+        <div class="read-more mt-3" (click)="onDetailLinkClicked(detail['_id'])">
           Read more ...
         </div>
       </div>
@@ -812,7 +818,7 @@
 						<i *ngIf="!archivedSearch" class="fa fa-archive" title="Archive"></i>
 						<i *ngIf="archivedSearch" class="fas fa-trash-restore" title="Unarchive"></i>	
 					</a>
-					<input class="list-check-box" type="checkbox" [(ngModel)]="checkedItem[i]"/>
+					<input class="list-check-box" type="checkbox" [ngModel]="checkedItem[i]" (click)="selectOneItem(i)"/>
 				</div>
 			</div>
 		</div>

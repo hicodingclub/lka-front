@@ -3,7 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { EmailtemplateBaseService } from './emailtemplate.base.service';
 import { Emailing_SERVER_ROOT_URI } from '../emailing.tokens';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root',
+})
 export class EmailtemplateService extends EmailtemplateBaseService implements OnDestroy {
     constructor(
         http: HttpClient,

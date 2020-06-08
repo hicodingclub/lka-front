@@ -103,7 +103,7 @@
 
 
 
-							<div class="action-buttons" style="margin-top: 10px;">
+							<div class="action-buttons my-3" style="margin-top: 10px;">
 									<button type="button" class="btn btn-outline-success" (click)="onSearchClear()">Reset</button>
 									<button type="button" class="btn btn-success" (click)="searchList()">Search</button>
 							</div>
@@ -122,7 +122,7 @@
 		</div>
 		<div class="row" *ngIf="!options['disableActionButtions']">
 			<div class="col">
-		        <div class="action-buttons">
+		        <div class="action-buttons my-3">
 					
 
 					
@@ -225,10 +225,12 @@
 	<div *ngIf="list.length > 0">
 	<div class="listview" *ngIf="isShowListView('list')">
 		<div class="list-block" *ngFor="let detail of list;  let i = index; let list_index = index;">
-			<hr *ngIf="i==0" class="list-diverder">
-			<div class="list-card text-left  "
-				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
-				<div class="list-fields "  >
+			<hr *ngIf="i==0" class="list-devider">
+			<div class="list-card text-left"
+				[ngClass]="{'clicked-row': clickedId==detail['_id'],
+							'selected-row': clickItemAction === 'select' && checkedItem[i],
+							'clickable-card': clickItemAction}" >
+				<div class="list-fields" [ngClass]="{pointer: clickItemAction}" (click)="clickOneItem(i)">
 
       <div class="list-head-picture">
                     <lib-mdds-file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false" [aspectRatio]=""></lib-mdds-file-display>
@@ -256,14 +258,14 @@
 
           </div>
         </div>
-        <div class="read-more" (click)="onDetailLinkClicked(detail['_id'])">
+        <div class="read-more mt-3" (click)="onDetailLinkClicked(detail['_id'])">
         Read more ...
         </div>
       </div>
 
 				</div>
 			</div>
-			<hr class="list-diverder">
+			<hr class="list-devider">
 		</div>
 	</div>
 
@@ -271,9 +273,11 @@
 
 	<div class="gridview" *ngIf="isShowListView('grid')">
 		<div class="grid-block" *ngFor="let detail of list;  let i = index; let list_index = index;">
-			<div class="card text-left h-100  "
-				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
-				<div class="grid-fields "  >
+			<div class="card text-left h-100"
+				[ngClass]="{'clicked-row': clickedId==detail['_id'],
+							'selected-row': clickItemAction === 'select' && checkedItem[i],
+							'clickable-card': clickItemAction}" >
+				<div class="grid-fields" [ngClass]="{pointer: clickItemAction}" (click)="clickOneItem(i)" >
 
       <div class="card-header grid-head">
         <div class="grid-head-picture">
@@ -302,7 +306,7 @@
             <div class="ml-3">  {{detail['publishDate']?detail['publishDate']['value']:""}}
 </div>
           </div>
-        <div class="read-more" (click)="onDetailLinkClicked(detail['_id'])">
+        <div class="read-more mt-3" (click)="onDetailLinkClicked(detail['_id'])">
           Read more ...
         </div>
       </div>
@@ -344,27 +348,29 @@
 	    	</tr>
 	    </thead>
 	    <tbody>
-	        <tr *ngFor="let detail of list;  let i = index; let list_index = index;" [ngClass]="{'clicked-row': clickedId==detail['_id']}">
-	            <td scope="row" >
+			<tr *ngFor="let detail of list;  let i = index; let list_index = index;"
+				[ngClass]="{'clicked-row': clickedId==detail['_id'],
+							'selected-row': clickItemAction === 'select' && checkedItem[i]}">
+	            <td scope="row" (click)="clickOneItem(i)"  class="pointer read-more mt-3">
 	            	{{(page-1)*perPage+i+1}}
 	            </td>
 
-	            <td >
+	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
 	            	
                     <lib-mdds-file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false" [aspectRatio]=""></lib-mdds-file-display>
 
 	            </td>
-	            <td >
+	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
 	            	
                     {{detail['title']}}
 
 	            </td>
-	            <td >
+	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
 	            	
                     {{detail['author']}}
 
 	            </td>
-	            <td >
+	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
 	            	  {{detail['publishDate']?detail['publishDate']['value']:""}}
 
 	            </td>
@@ -373,7 +379,7 @@
 	            	
 	            	
 					
-					<span class="read-more-in-table" (click)="onDetailLinkClicked(detail['_id'])">Detail <i class="fas fa-arrow-right" ></i></span>
+					<span class="read-more font-size-75 mt-3" (click)="onDetailLinkClicked(detail['_id'])">Detail <i class="fas fa-arrow-right" ></i></span>
 	            </td>
 	        </tr>
 	    </tbody>

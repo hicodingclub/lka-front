@@ -26,6 +26,7 @@ export class TermsListSelectComponent extends TermsListComponent
         ) {
             super(termsService, injector, router, route, location);
             this.majorUi = false;
+            this.itemMultiSelect = false;
     }
 
     ngOnInit() {

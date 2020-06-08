@@ -26,6 +26,7 @@ export class MfilegroupListSelectComponent extends MfilegroupListComponent
         ) {
             super(mfilegroupService, injector, router, route, location);
             this.majorUi = false;
+            this.itemMultiSelect = false;
     }
 
     ngOnInit() {

@@ -3,7 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { FaqBaseService } from './faq.base.service';
 import { Publicinfo_SERVER_ROOT_URI } from '../publicinfo.tokens';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root',
+})
 export class FaqService extends FaqBaseService implements OnDestroy {
     constructor(
         http: HttpClient,

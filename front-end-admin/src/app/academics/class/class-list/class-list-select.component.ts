@@ -26,6 +26,7 @@ export class ClassListSelectComponent extends ClassListComponent
         ) {
             super(null,classService, injector, router, route, location);
             this.majorUi = false;
+            this.itemMultiSelect = false;
     }
 
     ngOnInit() {

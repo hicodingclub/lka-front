@@ -26,6 +26,7 @@ export class CourseListSelectComponent extends CourseListComponent
         ) {
             super(courseService, injector, router, route, location);
             this.majorUi = false;
+            this.itemMultiSelect = false;
     }
 
     ngOnInit() {

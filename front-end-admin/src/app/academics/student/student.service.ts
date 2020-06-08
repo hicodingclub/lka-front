@@ -3,7 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { StudentBaseService } from './student.base.service';
 import { Academics_SERVER_ROOT_URI } from '../academics.tokens';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root',
+})
 export class StudentService extends StudentBaseService implements OnDestroy {
     constructor(
         http: HttpClient,

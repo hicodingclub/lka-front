@@ -14,8 +14,6 @@ import { AccessRoutingCoreModule } from './access-routing.core.module';
 import { AccessComponent } from './access.component';
 import { AccessRefSelectDirective } from './access.component';
 
-import { Access_SERVER_ROOT_URI } from './access.tokens';
-import { access_server_root_uri } from '../access-cust/access.conf';
 
 // Import components for each schema
 
@@ -26,7 +24,6 @@ import { MusergroupDetailComponent } from './musergroup/musergroup-detail/muserg
 import { MusergroupDetailFieldComponent } from './musergroup/musergroup-detail/musergroup-detail-field.component';
 import { MusergroupEditComponent } from './musergroup/musergroup-edit/musergroup-edit.component';
 
-import { MusergroupService } from './musergroup/musergroup.service';
 
 import { MpubmoduleListComponent } from './mpubmodule/mpubmodule-list/mpubmodule-list.component';
 
@@ -35,7 +32,6 @@ import { MpubmoduleDetailComponent } from './mpubmodule/mpubmodule-detail/mpubmo
 import { MpubmoduleDetailFieldComponent } from './mpubmodule/mpubmodule-detail/mpubmodule-detail-field.component';
 import { MpubmoduleEditComponent } from './mpubmodule/mpubmodule-edit/mpubmodule-edit.component';
 
-import { MpubmoduleService } from './mpubmodule/mpubmodule.service';
 
 import { MpubaccessListComponent } from './mpubaccess/mpubaccess-list/mpubaccess-list.component';
 
@@ -44,7 +40,6 @@ import { MpubaccessDetailComponent } from './mpubaccess/mpubaccess-detail/mpubac
 import { MpubaccessDetailFieldComponent } from './mpubaccess/mpubaccess-detail/mpubaccess-detail-field.component';
 import { MpubaccessEditComponent } from './mpubaccess/mpubaccess-edit/mpubaccess-edit.component';
 
-import { MpubaccessService } from './mpubaccess/mpubaccess.service';
 
 
 import { MusergroupListSelectComponent } from './musergroup/musergroup-list/musergroup-list-select.component';
@@ -65,6 +60,7 @@ import { MpubaccessDetailSubComponent } from './mpubaccess/mpubaccess-detail/mpu
     CommonModule,
     FormsModule,
     MddsCoreModule,
+
 
     AccessRoutingCoreModule,
   ],
@@ -152,12 +148,7 @@ import { MpubaccessDetailSubComponent } from './mpubaccess/mpubaccess-detail/mpu
 
   ],
   providers: [
-    { provide: Access_SERVER_ROOT_URI, useValue: access_server_root_uri },
 
-
-    MusergroupService,
-    MpubmoduleService,
-    MpubaccessService,
   ],
   entryComponents: [
     MusergroupListSelectComponent,

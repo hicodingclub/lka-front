@@ -78,7 +78,7 @@ export const AcademicsRoutes: Routes = [
 
 export const academics_server_root_uri: string = '/api/academics';
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Sat May 30 2020 12:04:10 GMT-0700 (Pacific Daylight Time)
+**Date: Sun Jun 07 2020 21:11:15 GMT-0700 (Pacific Daylight Time)
 
 import { Routes } from '@angular/router';
 
@@ -86,19 +86,19 @@ import { AcademicsComponent } from '../academics/academics.component';
 
 //Import routing paths
 import { 
-  studentRoutingCorePath, 
-  teacherRoutingCorePath, 
-  courseRoutingCorePath, 
-  classRoutingCorePath, 
-  studentclassRoutingCorePath, 
-  classenrollRoutingCorePath, 
-  termsRoutingCorePath, 
-  paymentRoutingCorePath,  
+  studentRoutingCorePath,
+  teacherRoutingCorePath,
+  courseRoutingCorePath,
+  classRoutingCorePath,
+  studentclassRoutingCorePath,
+  classenrollRoutingCorePath,
+  termsRoutingCorePath,
+  paymentRoutingCorePath,
 } from '../academics/academics-routing.core.path';
 
 export const AcademicsCoreRoutes: Routes = [
   { 
-    // Lazy Load: and add to app routing: 
+    // Lazy Load: and add to app routing:
     //     { path: 'academics', loadChildren: () => import('./academics/academics.module').then(m => m.AcademicsModule) },
     path: '',
     // non lazy load config. Include module in app module.
@@ -148,7 +148,7 @@ import { AcademicsRoutingCustPath } from './academics-routing.cust.path';
 
 export const AcademicsRoutes: Routes = [
   {
-    // Lazy Load: and add to app routing: 
+    // Lazy Load: and add to app routing:
     //     { path: 'academics', loadChildren: () => import('./academics/academics.module').then(m => m.AcademicsModule) },
     path: 'cust',
     // non lazy load config. Include module in app module.
@@ -156,7 +156,4 @@ export const AcademicsRoutes: Routes = [
 
     children: AcademicsRoutingCustPath,
   },
-];
-
-export const academics_server_root_uri: string = '/api/academics';
-**** End of recent updates.<<<*/
+];**** End of recent updates.<<<*/

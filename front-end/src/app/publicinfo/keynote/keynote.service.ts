@@ -3,7 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { KeynoteBaseService } from './keynote.base.service';
 import { Publicinfo_SERVER_ROOT_URI } from '../publicinfo.tokens';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root',
+})
 export class KeynoteService extends KeynoteBaseService implements OnDestroy {
     constructor(
         http: HttpClient,

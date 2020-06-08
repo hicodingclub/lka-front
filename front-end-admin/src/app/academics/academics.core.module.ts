@@ -19,8 +19,6 @@ import { AcademicsRoutingCoreModule } from './academics-routing.core.module';
 import { AcademicsComponent } from './academics.component';
 import { AcademicsRefSelectDirective } from './academics.component';
 
-import { Academics_SERVER_ROOT_URI } from './academics.tokens';
-import { academics_server_root_uri } from '../academics-cust/academics.conf';
 
 // Import components for each schema
 
@@ -31,7 +29,6 @@ import { ClassenrollDetailComponent } from './classenroll/classenroll-detail/cla
 import { ClassenrollDetailFieldComponent } from './classenroll/classenroll-detail/classenroll-detail-field.component';
 import { ClassenrollEditComponent } from './classenroll/classenroll-edit/classenroll-edit.component';
 
-import { ClassenrollService } from './classenroll/classenroll.service';
 
 import { ClassListComponent } from './class/class-list/class-list.component';
 
@@ -40,7 +37,6 @@ import { ClassDetailComponent } from './class/class-detail/class-detail.componen
 import { ClassDetailFieldComponent } from './class/class-detail/class-detail-field.component';
 import { ClassEditComponent } from './class/class-edit/class-edit.component';
 import { ClassAssoComponent } from './class/class-detail/class-detail-asso.component';
-import { ClassService } from './class/class.service';
 
 import { StudentclassListComponent } from './studentclass/studentclass-list/studentclass-list.component';
 
@@ -49,7 +45,6 @@ import { StudentclassDetailComponent } from './studentclass/studentclass-detail/
 import { StudentclassDetailFieldComponent } from './studentclass/studentclass-detail/studentclass-detail-field.component';
 import { StudentclassEditComponent } from './studentclass/studentclass-edit/studentclass-edit.component';
 
-import { StudentclassService } from './studentclass/studentclass.service';
 
 import { CourseListComponent } from './course/course-list/course-list.component';
 
@@ -58,7 +53,6 @@ import { CourseDetailComponent } from './course/course-detail/course-detail.comp
 import { CourseDetailFieldComponent } from './course/course-detail/course-detail-field.component';
 import { CourseEditComponent } from './course/course-edit/course-edit.component';
 
-import { CourseService } from './course/course.service';
 
 import { StudentListComponent } from './student/student-list/student-list.component';
 
@@ -67,7 +61,6 @@ import { StudentDetailComponent } from './student/student-detail/student-detail.
 import { StudentDetailFieldComponent } from './student/student-detail/student-detail-field.component';
 import { StudentEditComponent } from './student/student-edit/student-edit.component';
 
-import { StudentService } from './student/student.service';
 
 import { TeacherListComponent } from './teacher/teacher-list/teacher-list.component';
 
@@ -76,7 +69,6 @@ import { TeacherDetailComponent } from './teacher/teacher-detail/teacher-detail.
 import { TeacherDetailFieldComponent } from './teacher/teacher-detail/teacher-detail-field.component';
 import { TeacherEditComponent } from './teacher/teacher-edit/teacher-edit.component';
 
-import { TeacherService } from './teacher/teacher.service';
 
 import { TermsListComponent } from './terms/terms-list/terms-list.component';
 
@@ -85,7 +77,6 @@ import { TermsDetailComponent } from './terms/terms-detail/terms-detail.componen
 import { TermsDetailFieldComponent } from './terms/terms-detail/terms-detail-field.component';
 import { TermsEditComponent } from './terms/terms-edit/terms-edit.component';
 
-import { TermsService } from './terms/terms.service';
 
 import { PaymentListComponent } from './payment/payment-list/payment-list.component';
 
@@ -94,7 +85,6 @@ import { PaymentDetailComponent } from './payment/payment-detail/payment-detail.
 import { PaymentDetailFieldComponent } from './payment/payment-detail/payment-detail-field.component';
 import { PaymentEditComponent } from './payment/payment-edit/payment-edit.component';
 
-import { PaymentService } from './payment/payment.service';
 
 
 import { StudentListSelectComponent } from './student/student-list/student-list-select.component';
@@ -145,6 +135,7 @@ import { AcademicsStudentDirectiveGuardianTwoEmail } from './student/student-edi
     MddsCoreModule,
     FileUploadModule,
     ActionEmailModule,
+
 
     AcademicsRoutingCoreModule,
   ],
@@ -358,18 +349,8 @@ ClassAssoComponent,
 
   ],
   providers: [
-    { provide: Academics_SERVER_ROOT_URI, useValue: academics_server_root_uri },
 
-    {provide: NgbDateParserFormatter, useClass: MraNgbDateFormatterService},
-
-    ClassenrollService,
-    ClassService,
-    StudentclassService,
-    CourseService,
-    StudentService,
-    TeacherService,
-    TermsService,
-    PaymentService,
+    { provide: NgbDateParserFormatter, useClass: MraNgbDateFormatterService },
   ],
   entryComponents: [
     StudentListSelectComponent,

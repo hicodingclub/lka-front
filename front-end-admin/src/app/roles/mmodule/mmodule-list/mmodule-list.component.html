@@ -113,7 +113,7 @@
 
 
 
-							<div class="action-buttons" style="margin-top: 10px;">
+							<div class="action-buttons my-3" style="margin-top: 10px;">
 									<button type="button" class="btn btn-outline-success" (click)="onSearchClear()">Reset</button>
 									<button type="button" class="btn btn-success" (click)="searchList()">Search</button>
 							</div>
@@ -132,7 +132,7 @@
 		</div>
 		<div class="row" *ngIf="!options['disableActionButtions']">
 			<div class="col">
-		        <div class="action-buttons">
+		        <div class="action-buttons my-3">
 					
 
 					<a [routerLink]="['../new' ]" [skipLocationChange]="false" class="btn btn-outline-primary">Create</a>
@@ -233,10 +233,12 @@
 	<div *ngIf="list.length > 0">
 	<div class="listview" *ngIf="isShowListView('list')">
 		<div class="list-block" *ngFor="let detail of list;  let i = index; let list_index = index;">
-			<hr *ngIf="i==0" class="list-diverder">
-			<div class="list-card text-left clickable-card "
-				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
-				<div class="list-fields pointer" (click)="onDetailLinkClicked(detail['_id'])" >
+			<hr *ngIf="i==0" class="list-devider">
+			<div class="list-card text-left"
+				[ngClass]="{'clicked-row': clickedId==detail['_id'],
+							'selected-row': clickItemAction === 'select' && checkedItem[i],
+							'clickable-card': clickItemAction}" >
+				<div class="list-fields" [ngClass]="{pointer: clickItemAction}" (click)="clickOneItem(i)">
 
       <div class="list-body-fields">
         <h5>
@@ -268,10 +270,10 @@
 					
 					<a [routerLink]="['.']" (click)="onDelete(detail['_id'], i)"><i class="fas fa-trash-alt" title="Delete"></i></a>
 					
-					<input class="list-check-box" type="checkbox" [(ngModel)]="checkedItem[i]"/>
+					<input class="list-check-box" type="checkbox" [ngModel]="checkedItem[i]" (click)="selectOneItem(i)"/>
 				</div>
 			</div>
-			<hr class="list-diverder">
+			<hr class="list-devider">
 		</div>
 	</div>
 
@@ -279,9 +281,11 @@
 
 	<div class="gridview" *ngIf="isShowListView('grid')">
 		<div class="grid-block" *ngFor="let detail of list;  let i = index; let list_index = index;">
-			<div class="card text-left h-100 clickable-card "
-				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
-				<div class="grid-fields pointer" (click)="onDetailLinkClicked(detail['_id'])" >
+			<div class="card text-left h-100"
+				[ngClass]="{'clicked-row': clickedId==detail['_id'],
+							'selected-row': clickItemAction === 'select' && checkedItem[i],
+							'clickable-card': clickItemAction}" >
+				<div class="grid-fields" [ngClass]="{pointer: clickItemAction}" (click)="clickOneItem(i)" >
 
       <div class="card-header grid-head">
         <div>
@@ -316,7 +320,7 @@
 					
 					<a routerLink="." (click)="onDelete(detail['_id'], i)"><i class="fas fa-trash-alt" title="Delete"></i></a>
 					
-					<input class="list-check-box" type="checkbox" [(ngModel)]="checkedItem[i]"/>
+					<input class="list-check-box" type="checkbox" [ngModel]="checkedItem[i]" (click)="selectOneItem(i)"/>
 				</div>
 			</div>
 		</div>
@@ -340,17 +344,19 @@
 	    	</tr>
 	    </thead>
 	    <tbody>
-	        <tr *ngFor="let detail of list;  let i = index; let list_index = index;" [ngClass]="{'clicked-row': clickedId==detail['_id']}">
-	            <td scope="row" (click)="onDetailLinkClicked(detail['_id'])"  class="pointer read-more">
+			<tr *ngFor="let detail of list;  let i = index; let list_index = index;"
+				[ngClass]="{'clicked-row': clickedId==detail['_id'],
+							'selected-row': clickItemAction === 'select' && checkedItem[i]}">
+	            <td scope="row" (click)="clickOneItem(i)"  class="pointer read-more mt-3">
 	            	{{(page-1)*perPage+i+1}}
 	            </td>
 
-	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
 	            	
                     {{detail['module']}}
 
 	            </td>
-	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
 	            	
                     <div *ngIf="detail['resources'] && detail['resources']['selection']">
                         <ng-template ngFor let-element [ngForOf]="detail['resources']['selection']" let-idx="index">
@@ -367,7 +373,7 @@
 					
 	            	<a routerLink="." (click)="onDelete(detail['_id'], i)"><i class="fas fa-trash-alt" title="Delete"></i></a>
 	            	
-					<input class="list-check-box" type="checkbox" [(ngModel)]="checkedItem[i]"/>
+					<input class="list-check-box" type="checkbox"  [ngModel]="checkedItem[i]" (click)="selectOneItem(i)"/>
 					
 	            </td>
 	        </tr>

@@ -3,7 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { ArticleBaseService } from './article.base.service';
 import { Publicinfo_SERVER_ROOT_URI } from '../publicinfo.tokens';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root',
+})
 export class ArticleService extends ArticleBaseService implements OnDestroy {
     constructor(
         http: HttpClient,

@@ -3,7 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { MfileBaseService } from './mfile.base.service';
 import { Files_SERVER_ROOT_URI } from '../files.tokens';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root',
+})
 export class MfileService extends MfileBaseService implements OnDestroy {
     constructor(
         http: HttpClient,

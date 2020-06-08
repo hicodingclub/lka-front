@@ -3,7 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { MroleBaseService } from './mrole.base.service';
 import { Roles_SERVER_ROOT_URI } from '../roles.tokens';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root',
+})
 export class MroleService extends MroleBaseService implements OnDestroy {
     constructor(
         http: HttpClient,

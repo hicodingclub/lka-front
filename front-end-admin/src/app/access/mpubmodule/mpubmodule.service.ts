@@ -3,7 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { MpubmoduleBaseService } from './mpubmodule.base.service';
 import { Access_SERVER_ROOT_URI } from '../access.tokens';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root',
+})
 export class MpubmoduleService extends MpubmoduleBaseService implements OnDestroy {
     constructor(
         http: HttpClient,

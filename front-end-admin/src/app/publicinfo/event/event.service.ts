@@ -3,7 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { EventBaseService } from './event.base.service';
 import { Publicinfo_SERVER_ROOT_URI } from '../publicinfo.tokens';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root',
+})
 export class EventService extends EventBaseService implements OnDestroy {
     constructor(
         http: HttpClient,

@@ -25,10 +25,13 @@ export class ClassListWidgetSelComponent extends ClassListComponent implements O
         this.listViewFilter = 'dropdown';
         this.listCategory1 = {}; // no do query based on category for select view;
         this.listCategory2 = {}; // no do query based on category for select view;
+
+        this.clickItemAction = 'select';
+        this.itemMultiSelect = false;
   }
 
   ngOnInit() {
-    this.inputData == this.inputData || {} // expect stepTitle, preSelectedId
+    this.inputData = this.inputData || {} // expect stepTitle, preSelectedId
     this.selectedId = this.inputData.preSelectedId;
 
     super.ngOnInit();

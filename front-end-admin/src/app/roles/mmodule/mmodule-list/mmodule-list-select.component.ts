@@ -26,6 +26,7 @@ export class MmoduleListSelectComponent extends MmoduleListComponent
         ) {
             super(mmoduleService, injector, router, route, location);
             this.majorUi = false;
+            this.itemMultiSelect = false;
     }
 
     ngOnInit() {

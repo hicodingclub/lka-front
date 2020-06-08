@@ -107,7 +107,7 @@
 
 
 
-							<div class="action-buttons" style="margin-top: 10px;">
+							<div class="action-buttons my-3" style="margin-top: 10px;">
 									<button type="button" class="btn btn-outline-success" (click)="onSearchClear()">Reset</button>
 									<button type="button" class="btn btn-success" (click)="searchList()">Search</button>
 							</div>
@@ -206,7 +206,8 @@
 	            </td>
 
 	            <td><a routerLink="." class="btn" 
-	                 [ngClass]="{'btn-primary': detail['_id']==selectedId, 'btn-outline-primary': detail['_id']!==selectedId}"
+					 [ngClass]="{'btn-primary': detail['_id']==selectedId || checkedItem[i], 
+					 			'btn-outline-primary': detail['_id']!==selectedId && !checkedItem[i]}"
 	            	 (click)="selectViewDetail(i)">View Details</a>
 	            </td>
 	        </tr>
@@ -262,8 +263,6 @@
 		</div>
 
 	</div>
-	
-
 <!--  model body ends -->
 
       </div>

@@ -16,8 +16,6 @@ import { PipelineRoutingCoreModule } from './pipeline-routing.core.module';
 import { PipelineComponent } from './pipeline.component';
 
 
-import { Pipeline_SERVER_ROOT_URI } from './pipeline.tokens';
-import { pipeline_server_root_uri } from '../pipeline-cust/pipeline.conf';
 
 // Import components for each schema
 
@@ -28,7 +26,6 @@ import { PipelineDetailComponent } from './pipeline/pipeline-detail/pipeline-det
 import { PipelineDetailFieldComponent } from './pipeline/pipeline-detail/pipeline-detail-field.component';
 import { PipelineEditComponent } from './pipeline/pipeline-edit/pipeline-edit.component';
 
-import { PipelineService } from './pipeline/pipeline.service';
 
 
 
@@ -40,6 +37,7 @@ import { PipelineService } from './pipeline/pipeline.service';
     FormsModule,
     NgbModule,
     MddsCoreModule,
+
 
     PipelineRoutingCoreModule,
   ],
@@ -79,11 +77,8 @@ import { PipelineService } from './pipeline/pipeline.service';
 
   ],
   providers: [
-    { provide: Pipeline_SERVER_ROOT_URI, useValue: pipeline_server_root_uri },
 
-    {provide: NgbDateParserFormatter, useClass: MraNgbDateFormatterService},
-
-    PipelineService,
+    { provide: NgbDateParserFormatter, useClass: MraNgbDateFormatterService },
   ],
   entryComponents: [
     PipelineEditComponent,
