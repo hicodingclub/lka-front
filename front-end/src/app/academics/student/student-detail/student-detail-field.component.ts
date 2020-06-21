@@ -42,8 +42,6 @@ export class StudentDetailFieldComponent extends StudentComponent
             'GuardianTwoPhone': 'Guardian Two Phone',
             'GuardianTwoEmail': 'Guardian Two Email',
           };
-
-
           this.stringFields.push('first_name');
           this.stringFields.push('last_name');
           this.stringFields.push('email');
@@ -55,18 +53,8 @@ export class StudentDetailFieldComponent extends StudentComponent
           this.stringFields.push('GuardianTwoName');
           this.stringFields.push('GuardianTwoPhone');
           this.stringFields.push('GuardianTwoEmail');
-
-
           this.dateFields = ['date_of_birth', ];
-
           this.numberFields = ['grade', ];
-
-
-
-
-
-
-
     }
 
     ngOnInit() {

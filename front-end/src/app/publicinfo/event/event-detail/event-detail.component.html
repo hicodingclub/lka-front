@@ -1,11 +1,7 @@
 
 <div class="detail" *ngIf="detail">
-	<div *ngIf="!options['disableActionButtions']"><div *ngIf="!disableActionButtions" class="action-buttons my-3">
-    <a routerLink="../../list"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
-    
-    
-    
-    
+	<div *ngIf="!options['disableActionButtions']"><div *ngIf="!disableActionButtions && !options['disableActionButtions']" class="action-buttons my-3">
+    <a *ngIf="!options['disableActionList']" routerLink="../../list"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
 </div>
 </div>
 	<div class="card text-left transparent-border ">
@@ -26,20 +22,20 @@
       </div>
       <div class="card-body">
           <div>
-            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
+            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
                 <div><label>Author:</label></div>
                 <div class="ml-3">
                     {{detail['author']}}</div>
             </div>
           </div>
           <div>
-            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
+            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
                 <div><label>Publish Date:</label></div>
-                <div class="ml-3">  {{detail['publishDate']?detail['publishDate']['value']:""}}</div>
+                <div class="ml-3">  {{detail['publishDate']? (detail['publishDate']['originalValue'] | date:'medium') : ''}}</div>
             </div>
           </div>
           <div>
-            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
+            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
                 <div><label>Content:</label></div>
                 <div class="ml-3">
                     <div libMddsRichtextShow="eventDetailContent" [content]="detail['content']"></div></div>

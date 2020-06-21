@@ -63,79 +63,172 @@
 		</div>
 
 	</div>
-	<table *ngIf="list.length > 0" class="table">
-	    <thead>
+
+	<div *ngIf="list.length > 0">
+
+	<div class="listview" *ngIf="isShowListView('list')">
+		<div class="list-block" *ngFor="let detail of list;  let i = index; let list_index = index;">
+			<hr *ngIf="i==0" class="list-devider">
+			<div class="list-card text-left"
+				[ngClass]="{'clicked-row': clickedId==detail['_id'],
+							'selected-row': clickItemAction === 'select' && checkedItem[i],
+							'clickable-card': clickItemAction}" >
+				<div class="list-fields" [ngClass]="{pointer: clickItemAction}" (click)="clickOneItem(i)">
+
+      <div class="list-head-picture">
+                    <lib-mdds-file-display [downloadUrl]="detail['photo']" [isLarge]="false" [aspectRatio]=""></lib-mdds-file-display>
+      </div>
+    
+      <div class="list-body-fields">
+        <h5>
+          <div class="mr-1 d-inline-block">
+            
+                    {{detail['firstName']}}
+          </div>
+          <div class="mr-1 d-inline-block">
+            
+                    {{detail['lastName']}}
+          </div>
+        </h5>
+        <div>
+          <div *ngIf="referenceFieldsMap['courses'] != parentItem">
+            <div *ngIf="fieldHasValue(detail['courses'])" class="mr-3 d-inline-flex flex-wrap">
+              <div><label>Program:</label></div>
+              <div class="ml-3">
+               	  <a routerLink="."  (click)="onDisplayRefClicked('courses', detail['courses'], $event)">
+	            	{{detail['courses']?detail['courses']['value']:""}}
+	              </a>
+              </div>
+            </div>
+          </div>
+            <div *ngIf="fieldHasValue(detail['introduction'])" class="mr-3 d-inline-flex flex-wrap">
+              <div><label>Introduction:</label></div>
+              <div class="ml-3">
+                    <div [innerHTML]="detail['introduction']"></div>
+              </div>
+            </div>
+        </div>
+        <div class="d-flex flex-row mt-1">
+          <div class="read-more mr-5">
+            <span class="pointer" (click)="toggleShowDetailItem(i)">
+              <i *ngIf="!detail.mddsShowDetail" class="fas fa-caret-down" title="More"></i>
+              <i *ngIf="detail.mddsShowDetail" class="fas fa-caret-up" title="Less"></i>
+            </span>
+          </div>
+            <div class="read-more" (click)="onDetailLinkClicked(detail['_id'])">
+              Detail <i class="fas fa-arrow-right" ></i>
+            </div>
+        </div>
+        <div *ngIf="detail.mddsShowDetail" >
+            <app-teacher-detail-sub [inputData]="detail['_id']"></app-teacher-detail-sub>
+        </div>
+      </div>
+				</div>
+			</div>
+			<hr class="list-devider">
+		</div>
+	</div>
+
+
+	<table *ngIf="isShowListView('table')" class="table table-bordered table-hover">
+	    <thead class="thead-light">
 	    	<tr>
 		        <th scope="col">#</th>
 
-		        <th scope="col">
-		        	First Name
-		        </th>
-		        <th scope="col">
-		        	Last Name
-		        </th>
-		        <th *ngIf="referenceFieldsMap['courses'] != parentItem"  scope="col">
-		        	Program
-		        </th>
-		        <th scope="col">
-		        	Introduction
-		        </th>
-		        <th scope="col">
-		        	Photo
-		        </th>      
-                <th scope="col" style="width:2rem;"></th>
-
-		        <th scope="col" style="width: 5rem;"></th>
-	        </tr>
+				<th class="pointer" scope="col" (click)="toggleListSort('firstName', 'First Name')" >
+					First Name
+					<span *ngIf="listSortField === 'firstName'">
+						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+					</span>
+				</th>
+				<th class="pointer" scope="col" (click)="toggleListSort('lastName', 'Last Name')" >
+					Last Name
+					<span *ngIf="listSortField === 'lastName'">
+						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+					</span>
+				</th>
+				<th class="pointer" scope="col" (click)="toggleListSort('courses', 'Program')"
+					*ngIf="referenceFieldsMap['courses'] != parentItem"  >
+					Program
+					<span *ngIf="listSortField === 'courses'">
+						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+					</span>
+				</th>
+				<th class="pointer" scope="col" (click)="toggleListSort('introduction', 'Introduction')" >
+					Introduction
+					<span *ngIf="listSortField === 'introduction'">
+						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+					</span>
+				</th>
+				<th scope="col" >
+					Photo
+				</th>
+				<th style="width: 2rem;"></th>
+				<th scope="col" style="width:4.8rem;"></th>
+	    	</tr>
 	    </thead>
 	    <tbody>
-	      <ng-template ngFor let-detail [ngForOf]="list" let-i="index">
-	        <tr [ngClass]="{'clicked-row': clickedId==detail['_id']}"> <!-- *ngFor="let detail of list;  let i = index" -->
-	            <td scope="row">{{(page-1)*perPage+i+1}}</td>
-
-	            <td >
+			<ng-template ngFor let-detail [ngForOf]="list" let-i="index">
+			<tr [ngClass]="{'clicked-row': clickedId==detail['_id'],
+							'selected-row': clickItemAction === 'select' && checkedItem[i]}">
+	            <td scope="row" (click)="clickOneItem(i)"  class="pointer read-more mt-3">
+	            	{{(page-1)*perPage+i+1}}
+	            </td>
+				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
+					>
 	            	
                     {{detail['firstName']}}
-                </td>
-	            <td >
+				</td>
+				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
+					>
 	            	
                     {{detail['lastName']}}
-                </td>
-	            <td *ngIf="referenceFieldsMap['courses'] != parentItem"  >
+				</td>
+				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
+					*ngIf="referenceFieldsMap['courses'] != parentItem"
+					>
 	            	
                	  <a routerLink="."  (click)="onDisplayRefClicked('courses', detail['courses'], $event)">
 	            	{{detail['courses']?detail['courses']['value']:""}}
 	              </a>
-                </td>
-	            <td >
+				</td>
+				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
+					>
 	            	
                     <div [innerHTML]="detail['introduction']"></div>
-                </td>
-	            <td >
+				</td>
+				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
+					>
 	            	
                     <lib-mdds-file-display [downloadUrl]="detail['photo']" [isLarge]="false" [aspectRatio]=""></lib-mdds-file-display>
-                </td>
+				</td>
+				<td>
+					<span class="pointer" (click)="toggleShowDetailItem(i)">
+						<i *ngIf="!detail.mddsShowDetail" class="fas fa-caret-down" title="More"></i>
+						<i *ngIf="detail.mddsShowDetail" class="fas fa-caret-up" title="Less"></i>
+					</span>
+				</td>
 	            <td>
-
-                    	
-			        <span class="pointer" (click)="toggleCheckedItem(i)">
-			            <i *ngIf="!checkedItem[i]" class="fas fa-caret-down" title="More"></i>
-			            <i *ngIf="checkedItem[i]" class="fas fa-caret-up" title="Less"></i>
-			        </span>
-                </td>
-
-	            <td>
+					
+	            	
+	            	
+					
 					<span class="read-more font-size-75 mt-3" (click)="onDetailLinkClicked(detail['_id'])">Detail <i class="fas fa-arrow-right" ></i></span>
-                </td>
-	        </tr>
-
-	        <tr *ngIf="checkedItem[i]" >
-	        	<td colspan="5"><app-teacher-detail-sub [inputData]="detail['_id']"></app-teacher-detail-sub></td>
-	        </tr>
-	      </ng-template>
+	            </td>
+			</tr>
+			<tr *ngIf="detail.mddsShowDetail" >
+				<td colspan="6"><app-teacher-detail-sub [inputData]="detail['_id']"></app-teacher-detail-sub></td>
+			</tr>
+			</ng-template>
 	    </tbody>
 	</table>
-	
+
+
+	</div>
 	<div class="container">
 		<div class="row justify-content-end mt-3">
 		

@@ -56,19 +56,7 @@ export class StudentclassEditComponent extends StudentclassEditCustComponent imp
             'student': 'Student',
             'class': 'Class',
           };
-
-
-
           this.referenceFields = ['student', 'class', ];
-
-
-
-
-
-
-
-
-
 
           
           const detail = {};

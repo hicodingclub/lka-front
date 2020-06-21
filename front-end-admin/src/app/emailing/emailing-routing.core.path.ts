@@ -14,11 +14,11 @@ import { EmailsettingsDetailComponent } from './emailsettings/emailsettings-deta
 import { EmailsettingsEditComponent } from './emailsettings/emailsettings-edit/emailsettings-edit.component';
 
 
-import { EmaillogListComponent } from './emaillog/emaillog-list/emaillog-list.component';
+import { EmailqueueListComponent } from './emailqueue/emailqueue-list/emailqueue-list.component';
 
-import { EmaillogDetailComponent } from './emaillog/emaillog-detail/emaillog-detail.component';
+import { EmailqueueDetailComponent } from './emailqueue/emailqueue-detail/emailqueue-detail.component';
 
-
+import { EmailqueueEditComponent } from './emailqueue/emailqueue-edit/emailqueue-edit.component';
 
 
 
@@ -45,10 +45,10 @@ export const emailsettingsRoutingCorePath = [
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];
 
-export const emaillogRoutingCorePath = [
-    {path: 'list', component: EmaillogListComponent, canActivate: [AuthGuard]},
-    {path: 'detail/:id', component: EmaillogDetailComponent, canActivate: [AuthGuard]},
-    
+export const emailqueueRoutingCorePath = [
+    {path: 'list', component: EmailqueueListComponent, canActivate: [AuthGuard]},
+    {path: 'detail/:id', component: EmailqueueDetailComponent, canActivate: [AuthGuard]},
+    {path: 'edit/:id', component: EmailqueueEditComponent, canActivate: [AuthGuard]},
     
     
     {path: '**', redirectTo: 'list', pathMatch: 'full'}

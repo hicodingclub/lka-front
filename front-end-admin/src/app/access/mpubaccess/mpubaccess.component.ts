@@ -119,11 +119,9 @@ export class MpubaccessComponent extends MddsBaseComponent implements OnInit {
         this.briefFieldsInfo.push(['group', 'Group']);this.briefFieldsInfo.push(['module', 'Module']);this.briefFieldsInfo.push(['modulePermission', 'Module Permission']);
 
 
-
         this.referenceFieldsMap = {'group': 'musergroup','module': 'mpubmodule',};
         this.referenceFieldsReverseMap = {'musergroup': 'group','mpubmodule': 'module',};
         this.requiredFields = ['group','module',];
-
 
         this.schemaName = 'mpubaccess';
         

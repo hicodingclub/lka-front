@@ -31,20 +31,8 @@ export class MroleDetailFieldComponent extends MroleComponent
             'role': 'Role',
             'description': 'Description',
           };
-
-
           this.stringFields.push('role');
           this.stringFields.push('description');
-
-
-
-
-
-
-
-
-
-
     }
 
     ngOnInit() {

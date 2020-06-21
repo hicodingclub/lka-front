@@ -65,34 +65,95 @@
 		</div>
 
 	</div>
-	<table *ngIf="list.length > 0" class="table">
-	    <thead>
+
+	<div *ngIf="list.length > 0">
+	<div class="listview" *ngIf="isShowListView('list')">
+		<div class="list-block" *ngFor="let detail of list;  let i = index; let list_index = index;">
+			<hr *ngIf="i==0" class="list-devider">
+			<div class="list-card text-left"
+				[ngClass]="{'clicked-row': clickedId==detail['_id'],
+							'selected-row': clickItemAction === 'select' && checkedItem[i],
+							'clickable-card': clickItemAction}" >
+				<div class="list-fields" [ngClass]="{pointer: clickItemAction}" (click)="clickOneItem(i)">
+
+      <div class="list-body-fields">
+        <h5>
+          <div class="mr-1 d-inline-block">
+            
+               	  <a routerLink="."  (click)="onDisplayRefClicked('account', detail['account'], $event)">
+	            	{{detail['account']?detail['account']['value']:""}}
+	              </a>
+          </div>
+        </h5>
+        <div>
+          <div *ngIf="referenceFieldsMap['role'] != parentItem">
+            <div *ngIf="fieldHasValue(detail['role'])" class="mr-3 d-inline-flex flex-wrap">
+              <div><label>Role:</label></div>
+              <div class="ml-3">
+                    <div *ngIf="detail['role'] && detail['role']['selection']">
+                        <ng-template ngFor let-element [ngForOf]="detail['role']['selection']" let-idx="index">
+                            <div class="badge-click badge badge-pill badge-secondary" 
+                                (click)="onDisplayRefClicked('role', detail['role']['selection'][idx], $event)">
+                                {{element.value}}
+                            </div>
+                        </ng-template>
+                    </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex flex-row mt-1">
+            <div class="read-more" (click)="onDetailLinkClicked(detail['_id'])">
+              Detail <i class="fas fa-arrow-right" ></i>
+            </div>
+        </div>
+      </div>
+				</div>
+			</div>
+			<hr class="list-devider">
+		</div>
+	</div>
+
+
+
+	<table *ngIf="isShowListView('table')" class="table table-bordered table-hover">
+	    <thead class="thead-light">
 	    	<tr>
 		        <th scope="col">#</th>
 
-		        <th *ngIf="referenceFieldsMap['account'] != parentItem"  scope="col">
-		        	Account
-		        </th>
-		        <th *ngIf="referenceFieldsMap['role'] != parentItem"  scope="col">
-		        	Role
-		        </th>      
-                <th scope="col" style="width:2rem;"></th>
-
-		        <th scope="col" style="width: 5rem;"></th>
-	        </tr>
+				<th class="pointer" scope="col" (click)="toggleListSort('account', 'Account')"
+					*ngIf="referenceFieldsMap['account'] != parentItem"  >
+					Account
+					<span *ngIf="listSortField === 'account'">
+						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+					</span>
+				</th>
+				<th scope="col"
+					*ngIf="referenceFieldsMap['role'] != parentItem" >
+					Role
+				</th>
+				<th scope="col" style="width:4.8rem;"></th>
+	    	</tr>
 	    </thead>
 	    <tbody>
-	      <ng-template ngFor let-detail [ngForOf]="list" let-i="index">
-	        <tr [ngClass]="{'clicked-row': clickedId==detail['_id']}"> <!-- *ngFor="let detail of list;  let i = index" -->
-	            <td scope="row">{{(page-1)*perPage+i+1}}</td>
-
-	            <td *ngIf="referenceFieldsMap['account'] != parentItem"  >
+			<ng-template ngFor let-detail [ngForOf]="list" let-i="index">
+			<tr [ngClass]="{'clicked-row': clickedId==detail['_id'],
+							'selected-row': clickItemAction === 'select' && checkedItem[i]}">
+	            <td scope="row" (click)="clickOneItem(i)"  class="pointer read-more mt-3">
+	            	{{(page-1)*perPage+i+1}}
+	            </td>
+				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
+					*ngIf="referenceFieldsMap['account'] != parentItem"
+					>
 	            	
                	  <a routerLink="."  (click)="onDisplayRefClicked('account', detail['account'], $event)">
 	            	{{detail['account']?detail['account']['value']:""}}
 	              </a>
-                </td>
-	            <td *ngIf="referenceFieldsMap['role'] != parentItem"  >
+				</td>
+				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
+					*ngIf="referenceFieldsMap['role'] != parentItem"
+					>
 	            	
                     <div *ngIf="detail['role'] && detail['role']['selection']">
                         <ng-template ngFor let-element [ngForOf]="detail['role']['selection']" let-idx="index">
@@ -102,23 +163,21 @@
                             </div>
                         </ng-template>
                     </div>
-                </td>
+				</td>
 	            <td>
-
-                </td>
-
-	            <td>
+					
+	            	
+	            	
+					
 					<span class="read-more font-size-75 mt-3" (click)="onDetailLinkClicked(detail['_id'])">Detail <i class="fas fa-arrow-right" ></i></span>
-                </td>
-	        </tr>
-
-	        <tr *ngIf="checkedItem[i]" >
-	        	<td colspan="2"><app-maccountrole-detail-sub [inputData]="detail['_id']"></app-maccountrole-detail-sub></td>
-	        </tr>
-	      </ng-template>
+	            </td>
+			</tr>
+			</ng-template>
 	    </tbody>
 	</table>
-	
+
+
+	</div>
 	<div class="container">
 		<div class="row justify-content-end mt-3">
 		

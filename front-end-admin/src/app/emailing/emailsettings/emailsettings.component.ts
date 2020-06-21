@@ -93,9 +93,7 @@ export class EmailsettingsComponent extends MddsBaseComponent implements OnInit 
         this.briefFieldsInfo.push(['settingName', 'Setting Name']);this.briefFieldsInfo.push(['defaultSender', 'Default Sender Email Address']);
 
 
-
         this.requiredFields = ['defaultSender','settingName',];
-
 
         this.schemaName = 'emailsettings';
         

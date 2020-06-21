@@ -336,7 +336,7 @@
 	            <td (click)="selectItemSelected(i)"  class="pointer">
                     {{detail['season']}}
 	            </td>
-	            <td (click)="selectItemSelected(i)"  class="pointer">  {{detail['startTime']?detail['startTime']['value']:""}}
+	            <td (click)="selectItemSelected(i)"  class="pointer">  {{detail['startTime']? (detail['startTime']['originalValue'] | date:'medium') : ''}}
 	            </td>
 
 	            <td><a routerLink="." class="btn" 

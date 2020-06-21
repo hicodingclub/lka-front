@@ -119,11 +119,9 @@ export class MpermissionComponent extends MddsBaseComponent implements OnInit {
         this.briefFieldsInfo.push(['role', 'Role']);this.briefFieldsInfo.push(['module', 'Module']);this.briefFieldsInfo.push(['modulePermission', 'Module Permission']);
 
 
-
         this.referenceFieldsMap = {'role': 'mrole','module': 'mmodule',};
         this.referenceFieldsReverseMap = {'mrole': 'role','mmodule': 'module',};
         this.requiredFields = ['role','module',];
-
 
         this.schemaName = 'mpermission';
         

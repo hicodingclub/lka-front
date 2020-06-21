@@ -129,11 +129,9 @@ export class ClassComponent extends MddsBaseComponent implements OnInit {
         this.briefFieldsInfo.push(['title', 'Title']);this.briefFieldsInfo.push(['course', 'Course']);this.briefFieldsInfo.push(['season', 'Season']);this.briefFieldsInfo.push(['startTime', 'Start Time']);this.briefFieldsInfo.push(['endTime', 'End Time']);this.briefFieldsInfo.push(['dayOfWeek', 'Day of Week']);this.briefFieldsInfo.push(['timeSlot', 'Time Slot']);this.briefFieldsInfo.push(['enrollTerm', 'Enroll Term']);
 
 
-
         this.referenceFieldsMap = {'course': 'course','enrollTerm': 'terms','teacher': 'teacher',};
         this.referenceFieldsReverseMap = {'course': 'course','terms': 'enrollTerm','teacher': 'teacher',};
         this.requiredFields = ['title','course','startTime','endTime','enrollTerm','description','teacher','price',];
-
 
         this.schemaName = 'class';
         this.dateFormat = 'MM-DD-YYYY';

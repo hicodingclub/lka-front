@@ -109,7 +109,7 @@
                     {{detail['status']}}
 				</td>
 	            <td *ngIf=" 'createdAt' !== associationField" >
-	            	  {{detail['createdAt']?detail['createdAt']['value']:""}}
+	            	  {{detail['createdAt']? (detail['createdAt']['originalValue'] | date:'medium') : ''}}
 				</td>
 				<td *ngFor = "let af of assoCompFields;" scope="col">
 					{{assoObj[af[0]]}}

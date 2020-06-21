@@ -43,22 +43,10 @@ export class KeynoteDetailComponent extends KeynoteDetailCustComponent implement
             'subtitle': 'Subtitle',
             'description': 'Description',
           };
-
-
           this.stringFields.push('signaturePicture');
           this.stringFields.push('title');
           this.stringFields.push('subtitle');
           this.stringFields.push('description');
-
-
-
-
-
-
-
-
-
-
   }
 
   ngOnInit() {

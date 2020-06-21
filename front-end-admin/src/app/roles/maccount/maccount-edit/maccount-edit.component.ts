@@ -54,27 +54,19 @@ export class MaccountEditComponent extends MaccountEditCustComponent implements 
             'username': 'Username',
             'email': 'Email',
             'phone': 'Phone',
+            'firstname': 'Firstname',
+            'lastname': 'Lastname',
             'status': 'Status',
             'password': 'Password',
           };
-
           this.enums['status'] = ['Enabled', 'Disabled', 'Pending', ];
-
           this.stringFields.push('username');
           this.stringFields.push('email');
           this.stringFields.push('phone');
+          this.stringFields.push('firstname');
+          this.stringFields.push('lastname');
           this.stringFields.push('status');
           this.stringFields.push('password');
-
-
-
-
-
-
-
-
-
-
 
           
           const detail = {};

@@ -33,23 +33,11 @@ export class MpubaccessDetailFieldComponent extends MpubaccessComponent
             'modulePermission': 'Module Permission',
             'resourcePermission': 'Resource Permission',
           };
-
-
           this.stringFields.push('modulePermission');
-
           this.referenceFields = ['group', 'module', ];
-
-
-
           this.mapFields = [
               ['resourcePermission', 'SchemaString', '', '', , ''],
           ];
-
-
-
-
-
-
     }
 
     ngOnInit() {

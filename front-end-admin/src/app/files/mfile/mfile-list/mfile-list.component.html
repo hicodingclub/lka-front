@@ -254,11 +254,6 @@
 		<div class="row" *ngIf="!options['disableActionButtions']">
 			<div class="col">
 		        <div class="action-buttons my-3">
-					
-
-					
-					
-					
 				</div>
 			</div>
 		</div>
@@ -381,15 +376,16 @@
                     {{detail['name']}}
           </div>
         </h5>
-        <div *ngIf="detail['type']" class="mr-3 d-inline-flex flex-wrap">
-          <div><label>Type:</label></div>
-          <div class="ml-3">
+        <div>
+            <div *ngIf="fieldHasValue(detail['type'])" class="mr-3 d-inline-flex flex-wrap">
+              <div><label>Type:</label></div>
+              <div class="ml-3">
                     {{detail['type']}}
-          </div>
-        </div>
-        <div *ngIf="detail['labels']" class="mr-3 d-inline-flex flex-wrap">
-          <div><label>Labels:</label></div>
-          <div class="ml-3">
+              </div>
+            </div>
+            <div *ngIf="fieldHasValue(detail['labels'])" class="mr-3 d-inline-flex flex-wrap">
+              <div><label>Labels:</label></div>
+              <div class="ml-3">
                     <div *ngIf="detail['labels'] && detail['labels']['selection']">
                         <ng-template ngFor let-element [ngForOf]="detail['labels']['selection']" let-idx="index">
                             <div class="badge badge-pill badge-secondary">
@@ -397,26 +393,28 @@
                             </div>
                         </ng-template>
                     </div>
-          </div>
-        </div>
-        <div *ngIf="detail['size']" class="mr-3 d-inline-flex flex-wrap">
-          <div><label>Size:</label></div>
-          <div class="ml-3">
+              </div>
+            </div>
+            <div *ngIf="fieldHasValue(detail['size'])" class="mr-3 d-inline-flex flex-wrap">
+              <div><label>Size:</label></div>
+              <div class="ml-3">
                     {{detail['size']}}
-          </div>
+              </div>
+            </div>
+            <div *ngIf="fieldHasValue(detail['createdAt'])" class="mr-3 d-inline-flex flex-wrap">
+              <div><label>Created at:</label></div>
+              <div class="ml-3">  {{detail['createdAt']? (detail['createdAt']['originalValue'] | date:'medium') : ''}}
+              </div>
+            </div>
+            <div *ngIf="fieldHasValue(detail['hasThumbnail'])" class="mr-3 d-inline-flex flex-wrap">
+              <div><label>Has Thumbnail:</label></div>
+              <div class="ml-3">{{detail['hasThumbnail']}} 
+              </div>
+            </div>
         </div>
-        <div *ngIf="detail['createdAt']" class="mr-3 d-inline-flex flex-wrap">
-          <div><label>Created at:</label></div>
-          <div class="ml-3">  {{detail['createdAt']?detail['createdAt']['value']:""}}
-          </div>
-        </div>
-        <div *ngIf="detail['hasThumbnail']" class="mr-3 d-inline-flex flex-wrap">
-          <div><label>Has Thumbnail:</label></div>
-          <div class="ml-3">{{detail['hasThumbnail']}} 
-          </div>
+        <div class="d-flex flex-row mt-1">
         </div>
       </div>
-
 				</div>
 				<div class="card-action-icons">
 					
@@ -455,12 +453,12 @@
         </div>
       </div>
       <div class="card-body">
-          <div *ngIf="detail['type']" class="d-flex flex-wrap">
+          <div *ngIf="fieldHasValue(detail['type'])" class="d-flex flex-wrap">
             <div class=""><label>Type:</label></div>
             <div class="ml-3">
                     {{detail['type']}}</div>
           </div>
-          <div *ngIf="detail['labels']" class="d-flex flex-wrap">
+          <div *ngIf="fieldHasValue(detail['labels'])" class="d-flex flex-wrap">
             <div class=""><label>Labels:</label></div>
             <div class="ml-3">
                     <div *ngIf="detail['labels'] && detail['labels']['selection']">
@@ -471,16 +469,16 @@
                         </ng-template>
                     </div></div>
           </div>
-          <div *ngIf="detail['size']" class="d-flex flex-wrap">
+          <div *ngIf="fieldHasValue(detail['size'])" class="d-flex flex-wrap">
             <div class=""><label>Size:</label></div>
             <div class="ml-3">
                     {{detail['size']}}</div>
           </div>
-          <div *ngIf="detail['createdAt']" class="d-flex flex-wrap">
+          <div *ngIf="fieldHasValue(detail['createdAt'])" class="d-flex flex-wrap">
             <div class=""><label>Created at:</label></div>
-            <div class="ml-3">  {{detail['createdAt']?detail['createdAt']['value']:""}}</div>
+            <div class="ml-3">  {{detail['createdAt']? (detail['createdAt']['originalValue'] | date:'medium') : ''}}</div>
           </div>
-          <div *ngIf="detail['hasThumbnail']" class="d-flex flex-wrap">
+          <div *ngIf="fieldHasValue(detail['hasThumbnail'])" class="d-flex flex-wrap">
             <div class=""><label>Has Thumbnail:</label></div>
             <div class="ml-3">{{detail['hasThumbnail']}} </div>
           </div>
@@ -505,70 +503,77 @@
 	    	<tr>
 		        <th scope="col">#</th>
 
-				<th class="pointer" scope="col" (click)="toggleListSort('name', 'Name')">
+				<th class="pointer" scope="col" (click)="toggleListSort('name', 'Name')" >
 					Name
 					<span *ngIf="listSortField === 'name'">
 						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
 						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
 					</span>
 				</th>
-				<th class="pointer" scope="col" (click)="toggleListSort('type', 'Type')">
+				<th class="pointer" scope="col" (click)="toggleListSort('type', 'Type')" >
 					Type
 					<span *ngIf="listSortField === 'type'">
 						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
 						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
 					</span>
 				</th>
-				<th scope="col">Labels</th>
-
-				<th class="pointer" scope="col" (click)="toggleListSort('size', 'Size')">
+				<th scope="col" >
+					Labels
+				</th>
+				<th class="pointer" scope="col" (click)="toggleListSort('size', 'Size')" >
 					Size
 					<span *ngIf="listSortField === 'size'">
 						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
 						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
 					</span>
 				</th>
-				<th scope="col">Link</th>
-
-				<th class="pointer" scope="col" (click)="toggleListSort('createdAt', 'Created at')">
+				<th scope="col" >
+					Link
+				</th>
+				<th class="pointer" scope="col" (click)="toggleListSort('createdAt', 'Created at')" >
 					Created at
 					<span *ngIf="listSortField === 'createdAt'">
 						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
 						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
 					</span>
 				</th>
-				<th class="pointer" scope="col" (click)="toggleListSort('hasThumbnail', 'Has Thumbnail')">
+				<th class="pointer" scope="col" (click)="toggleListSort('hasThumbnail', 'Has Thumbnail')" >
 					Has Thumbnail
 					<span *ngIf="listSortField === 'hasThumbnail'">
 						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
 						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
 					</span>
-				</th><th scope="col" style="width:3.8rem;"></th>
+				</th>
+				<th scope="col" style="width:3.8rem;"></th>
 	    	</tr>
 	    </thead>
 	    <tbody>
-			<tr *ngFor="let detail of list;  let i = index; let list_index = index;"
-				[ngClass]="{'clicked-row': clickedId==detail['_id'],
+			<ng-template ngFor let-detail [ngForOf]="list" let-i="index">
+			<tr [ngClass]="{'clicked-row': clickedId==detail['_id'],
 							'selected-row': clickItemAction === 'select' && checkedItem[i]}">
 	            <td scope="row" (click)="clickOneItem(i)"  class="pointer read-more mt-3">
 	            	{{(page-1)*perPage+i+1}}
 	            </td>
-
-	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
+				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
+					>
 	            	
                     {{detail['name']}}
-	            </td>
-	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
+				</td>
+				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
+					>
 	            	
                     {{detail['type']}}
-	            </td>
-	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
+				</td>
+				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
+					*ngIf="referenceFieldsMap['group'] != parentItem"
+					>
 	            	
                	  <a routerLink="."  (click)="onDisplayRefClicked('group', detail['group'], $event)">
 	            	{{detail['group']?detail['group']['value']:""}}
 	              </a>
-	            </td>
-	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
+				</td>
+				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
+					>
 	            	
                     <div *ngIf="detail['labels'] && detail['labels']['selection']">
                         <ng-template ngFor let-element [ngForOf]="detail['labels']['selection']" let-idx="index">
@@ -577,21 +582,25 @@
                             </div>
                         </ng-template>
                     </div>
-	            </td>
-	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
+				</td>
+				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
+					>
 	            	
                     {{detail['size']}}
-	            </td>
-	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
+				</td>
+				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
+					>
 	            	
                     <lib-mdds-file-display [downloadUrl]="detail['link']" [isLarge]="false" [aspectRatio]=""></lib-mdds-file-display>
-	            </td>
-	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
-	            	  {{detail['createdAt']?detail['createdAt']['value']:""}}
-	            </td>
-	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
+				</td>
+				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
+					>
+	            	  {{detail['createdAt']? (detail['createdAt']['originalValue'] | date:'medium') : ''}}
+				</td>
+				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
+					>
 	            	{{detail['hasThumbnail']}} 
-	            </td>
+				</td>
 	            <td>
 					
 						<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
@@ -601,7 +610,8 @@
 					
 					
 	            </td>
-	        </tr>
+			</tr>
+			</ng-template>
 	    </tbody>
 	</table>
 

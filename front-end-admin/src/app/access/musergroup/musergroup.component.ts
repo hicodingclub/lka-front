@@ -96,9 +96,7 @@ export class MusergroupComponent extends MddsBaseComponent implements OnInit {
         this.briefFieldsInfo.push(['group', 'Group']);this.briefFieldsInfo.push(['description', 'Description']);
 
 
-
         this.requiredFields = ['group',];
-
 
         this.schemaName = 'musergroup';
         

@@ -41,20 +41,8 @@ export class MusergroupDetailComponent extends MusergroupDetailCustComponent imp
             'group': 'Group',
             'description': 'Description',
           };
-
-
           this.stringFields.push('group');
           this.stringFields.push('description');
-
-
-
-
-
-
-
-
-
-
   }
 
   ngOnInit() {

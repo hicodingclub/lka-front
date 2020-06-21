@@ -58,26 +58,14 @@ export class ClassenrollEditComponent extends ClassenrollEditCustComponent imple
             'status': 'Status',
             'notes': 'Notes',
           };
-
           this.enums['status'] = ['processing', 'paid', 'confirmed', 'cancelled', ];
-
           this.stringFields.push('status');
           this.stringFields.push('notes');
-
           this.referenceFields = ['class', ];
-
-
-
-
-
           this.arrayFields = [['student', 'ObjectId'],];
           this.referenceFieldsMap['student'] = 'student';
           this.referenceFieldsReverseMap['student'] = 'student';
-
-
           this.textareaFields = ['notes', ];
-
-
 
           
           const detail = {};

@@ -111,10 +111,8 @@ export class MfileComponent extends MddsBaseComponent implements OnInit {
         this.briefFieldsInfo.push(['name', 'Name']);this.briefFieldsInfo.push(['type', 'Type']);this.briefFieldsInfo.push(['group', 'Group']);this.briefFieldsInfo.push(['labels', 'Labels']);this.briefFieldsInfo.push(['size', 'Size']);this.briefFieldsInfo.push(['link', 'Link']);this.briefFieldsInfo.push(['createdAt', 'Created at']);this.briefFieldsInfo.push(['hasThumbnail', 'Has Thumbnail']);
 
 
-
         this.referenceFieldsMap = {'group': 'mfilegroup',};
         this.referenceFieldsReverseMap = {'mfilegroup': 'group',};
-
 
         this.schemaName = 'mfile';
         this.dateFormat = 'MM/DD/YYYY';

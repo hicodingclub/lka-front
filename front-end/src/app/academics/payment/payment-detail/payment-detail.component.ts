@@ -46,25 +46,13 @@ export class PaymentDetailComponent extends PaymentDetailCustComponent implement
             'transLogP': 'Transaction Log',
             'status': 'Status',
           };
-
-
           this.stringFields.push('product');
           this.stringFields.push('productID');
           this.stringFields.push('orderDescription');
           this.stringFields.push('price');
           this.stringFields.push('transLogP');
           this.stringFields.push('status');
-
-
           this.dateFields = ['createdAt', ];
-
-
-
-
-
-
-
-
   }
 
   ngOnInit() {

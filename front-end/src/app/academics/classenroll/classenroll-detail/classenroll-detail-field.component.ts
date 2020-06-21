@@ -34,27 +34,15 @@ export class ClassenrollDetailFieldComponent extends ClassenrollComponent
             'notes': 'Notes',
             'createdAt': 'Created Time',
           };
-
           this.enums['status'] = ['processing', 'paid', 'confirmed', 'cancelled', ];
-
           this.stringFields.push('status');
           this.stringFields.push('notes');
-
           this.referenceFields = ['class', ];
-
           this.dateFields = ['createdAt', ];
-
-
-
-
           this.arrayFields = [['student', 'ObjectId'],];
           this.referenceFieldsMap['student'] = 'student';
           this.referenceFieldsReverseMap['student'] = 'student';
-
-
           this.textareaFields = ['notes', ];
-
-
     }
 
     ngOnInit() {

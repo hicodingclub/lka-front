@@ -47,23 +47,11 @@ export class GeneralinfoListComponent extends GeneralinfoListCustComponent imple
             'description': 'Description',
             'tag': 'Tag',
           };
-
-
           this.stringFields.push('signaturePicture');
           this.stringFields.push('title');
           this.stringFields.push('description');
           this.stringFields.push('tag');
-
-
-
-
-
-
-
-
           this.textareaFields = ['description', ];
-
-
 
           this.listViewFilter = 'list';
           this.setListSort('title', 'Title', 'asc');

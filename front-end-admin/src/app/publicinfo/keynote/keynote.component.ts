@@ -94,8 +94,6 @@ export class KeynoteComponent extends MddsBaseComponent implements OnInit {
 
 
 
-
-
         this.schemaName = 'keynote';
         
         this.modulePath = 'publicinfo';

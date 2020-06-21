@@ -62,22 +62,10 @@ export class EventEditComponent extends EventEditCustComponent implements OnInit
             'content': 'Content',
             'signaturePicture': 'Signature Picture',
           };
-
-
           this.stringFields.push('title');
           this.stringFields.push('author');
           this.stringFields.push('content');
           this.stringFields.push('signaturePicture');
-
-
-
-
-
-
-
-
-
-
 
           this.textEditorMap['EditContent'] = {
             required: true ,

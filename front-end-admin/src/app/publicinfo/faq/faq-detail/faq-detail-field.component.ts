@@ -33,21 +33,9 @@ export class FaqDetailFieldComponent extends FaqComponent
             'order': 'Order',
             'enable': 'Enable',
           };
-
-
           this.stringFields.push('question');
           this.stringFields.push('answer');
-
-
-
           this.numberFields = ['order', ];
-
-
-
-
-
-
-
     }
 
     ngOnInit() {

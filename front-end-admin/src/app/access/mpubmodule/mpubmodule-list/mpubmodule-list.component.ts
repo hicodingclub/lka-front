@@ -45,20 +45,8 @@ export class MpubmoduleListComponent extends MpubmoduleListCustComponent impleme
             'module': 'Module',
             'resources': 'Resources',
           };
-
-
           this.stringFields.push('module');
-
-
-
-
-
-
           this.arrayFields = [['resources', 'SchemaString'],];
-
-
-
-
 
           this.listViewFilter = 'list';
 

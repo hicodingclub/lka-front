@@ -96,9 +96,7 @@ export class MroleComponent extends MddsBaseComponent implements OnInit {
         this.briefFieldsInfo.push(['role', 'Role']);this.briefFieldsInfo.push(['description', 'Description']);
 
 
-
         this.requiredFields = ['role',];
-
 
         this.schemaName = 'mrole';
         

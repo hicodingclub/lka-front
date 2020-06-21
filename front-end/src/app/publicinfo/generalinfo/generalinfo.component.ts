@@ -93,9 +93,7 @@ export class GeneralinfoComponent extends MddsBaseComponent implements OnInit {
         this.briefFieldsInfo.push(['signaturePicture', 'Signature Picture']);this.briefFieldsInfo.push(['title', 'Title']);this.briefFieldsInfo.push(['description', 'Description']);this.briefFieldsInfo.push(['tag', 'Tag']);
 
 
-
         this.requiredFields = ['title','description',];
-
 
         this.schemaName = 'generalinfo';
         

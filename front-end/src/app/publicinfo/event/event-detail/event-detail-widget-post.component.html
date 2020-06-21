@@ -1,14 +1,10 @@
 <div class="detail" *ngIf="detail">
-	<div *ngIf="!options['disableActionButtions']"><div *ngIf="!disableActionButtions" class="action-buttons my-3">
-    <a routerLink="../../list"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
-    
-    
-    
-    
+	<div *ngIf="!options['disableActionButtions']"><div *ngIf="!disableActionButtions && !options['disableActionButtions']" class="action-buttons my-3">
+    <a *ngIf="!options['disableActionList']" routerLink="../../list"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
 </div>
 </div>
 	<div class="card transparent-border">
-		<div class="post-head-picture" *ngIf="detail['signaturePicture']">
+		<div class="post-head-picture" *ngIf="fieldHasValue(detail['signaturePicture'])">
 			
                     <lib-mdds-file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="true" [aspectRatio]=""></lib-mdds-file-display>
 		</div>
@@ -18,7 +14,7 @@
 			<h6 class="card-subtitle mb-2 text-muted">
 				
                     {{detail['author']}} &nbsp;&nbsp;
-				  {{detail['publishDate']?detail['publishDate']['value']:""}}
+				  {{detail['publishDate']? (detail['publishDate']['originalValue'] | date:'medium') : ''}}
 			</h6>
 
 			<div class="card-text">

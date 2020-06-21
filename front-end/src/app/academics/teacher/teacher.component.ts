@@ -113,12 +113,10 @@ export class TeacherComponent extends MddsBaseComponent implements OnInit {
         this.briefFieldsInfo.push(['firstName', 'First Name']);this.briefFieldsInfo.push(['lastName', 'Last Name']);this.briefFieldsInfo.push(['courses', 'Program']);this.briefFieldsInfo.push(['introduction', 'Introduction']);this.briefFieldsInfo.push(['photo', 'Photo']);
 
 
-
         this.referenceFieldsMap = {'courses': 'course',};
         this.referenceFieldsReverseMap = {'course': 'courses',};
-        this.emailFields = [['Email','email'],];
         this.requiredFields = ['firstName','lastName','courses','introduction','photo','email',];
-
+        this.emailFields = [['Email','email'],];
 
         this.schemaName = 'teacher';
         

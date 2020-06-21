@@ -96,9 +96,7 @@ export class TermsComponent extends MddsBaseComponent implements OnInit {
         this.briefFieldsInfo.push(['name', 'Name']);this.briefFieldsInfo.push(['content', 'Content']);this.briefFieldsInfo.push(['acknowledge', 'Acknowledge']);
 
 
-
         this.requiredFields = ['name','content',];
-
 
         this.schemaName = 'terms';
         

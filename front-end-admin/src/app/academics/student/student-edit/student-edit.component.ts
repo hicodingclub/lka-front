@@ -292,8 +292,6 @@ export class StudentEditComponent extends StudentEditCustComponent implements On
             'notes': 'Notes',
             'muser_id': 'Muser Id',
           };
-
-
           this.stringFields.push('first_name');
           this.stringFields.push('last_name');
           this.stringFields.push('email');
@@ -307,19 +305,9 @@ export class StudentEditComponent extends StudentEditCustComponent implements On
           this.stringFields.push('GuardianTwoEmail');
           this.stringFields.push('notes');
           this.stringFields.push('muser_id');
-
-
           this.dateFields = ['date_of_birth', ];
-
           this.numberFields = ['grade', ];
-
-
-
-
-
           this.textareaFields = ['notes', ];
-
-
 
           
           const detail = {};

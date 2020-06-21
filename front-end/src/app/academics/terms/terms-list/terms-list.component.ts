@@ -49,21 +49,9 @@ export class TermsListComponent extends TermsListCustComponent implements OnInit
             'content': 'Content',
             'acknowledge': 'Acknowledge',
           };
-
-
           this.stringFields.push('name');
           this.stringFields.push('content');
           this.stringFields.push('acknowledge');
-
-
-
-
-
-
-
-
-
-
 
           this.listViewFilter = 'list';
 

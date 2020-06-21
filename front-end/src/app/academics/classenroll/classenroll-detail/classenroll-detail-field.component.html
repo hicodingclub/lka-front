@@ -21,5 +21,5 @@
 		<div *ngIf="detail && showFields.includes('notes')">
                     <div [innerHTML]="detail['notes']"></div>
 		</div>
-		<div *ngIf="detail && showFields.includes('createdAt')">  {{detail['createdAt']?detail['createdAt']['value']:""}}
+		<div *ngIf="detail && showFields.includes('createdAt')">  {{detail['createdAt']? (detail['createdAt']['originalValue'] | date:'medium') : ''}}
 		</div>

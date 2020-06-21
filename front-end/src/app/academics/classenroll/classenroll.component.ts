@@ -119,11 +119,9 @@ export class ClassenrollComponent extends MddsBaseComponent implements OnInit {
         this.briefFieldsInfo.push(['student', 'Student']);this.briefFieldsInfo.push(['class', 'Class']);this.briefFieldsInfo.push(['status', 'Status']);this.briefFieldsInfo.push(['createdAt', 'Created Time']);
 
 
-
         this.referenceFieldsMap = {'class': 'class',};
         this.referenceFieldsReverseMap = {'class': 'class',};
         this.requiredFields = ['student','class','status',];
-
 
         this.schemaName = 'classenroll';
         this.dateFormat = 'MM-DD-YYYY';

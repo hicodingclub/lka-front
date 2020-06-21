@@ -49,23 +49,11 @@ export class PaymentListComponent extends PaymentListCustComponent implements On
             'createdAt': 'Created At',
             'status': 'Status',
           };
-
-
           this.stringFields.push('product');
           this.stringFields.push('productID');
           this.stringFields.push('price');
           this.stringFields.push('status');
-
-
           this.dateFields = ['createdAt', ];
-
-
-
-
-
-
-
-
 
           this.listViewFilter = 'list';
           this.setListSort('createdAt', 'Created At', 'desc');

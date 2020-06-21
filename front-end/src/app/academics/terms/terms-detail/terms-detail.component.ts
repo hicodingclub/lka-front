@@ -44,20 +44,8 @@ export class TermsDetailComponent extends TermsDetailCustComponent implements On
             'content': 'Content',
             'acknowledge': 'Acknowledge',
           };
-
-
           this.stringFields.push('content');
           this.stringFields.push('acknowledge');
-
-
-
-
-
-
-
-
-
-
   }
 
   ngOnInit() {

@@ -56,23 +56,11 @@ export class GeneralinfoEditComponent extends GeneralinfoEditCustComponent imple
             'signaturePicture': 'Signature Picture',
             'tag': 'Tag',
           };
-
-
           this.stringFields.push('title');
           this.stringFields.push('description');
           this.stringFields.push('signaturePicture');
           this.stringFields.push('tag');
-
-
-
-
-
-
-
-
           this.textareaFields = ['description', ];
-
-
 
           
           const detail = {};

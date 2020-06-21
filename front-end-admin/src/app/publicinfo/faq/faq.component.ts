@@ -93,9 +93,7 @@ export class FaqComponent extends MddsBaseComponent implements OnInit {
         this.briefFieldsInfo.push(['question', 'Question']);this.briefFieldsInfo.push(['answer', 'Answer']);this.briefFieldsInfo.push(['order', 'Order']);this.briefFieldsInfo.push(['enable', 'Enable']);
 
 
-
         this.requiredFields = ['question','answer','order','enable',];
-
 
         this.schemaName = 'faq';
         

@@ -96,10 +96,8 @@ export class StudentComponent extends MddsBaseComponent implements OnInit {
         this.briefFieldsInfo.push(['first_name', 'First Name']);this.briefFieldsInfo.push(['last_name', 'Last Name']);this.briefFieldsInfo.push(['email', 'Email']);this.briefFieldsInfo.push(['phoneNumber', 'Phone Number']);this.briefFieldsInfo.push(['grade', 'Grade']);
 
 
-
-        this.emailFields = [['Email','email'],['Guardian One Email','GuardianOneEmail'],['Guardian Two Email','GuardianTwoEmail'],];
         this.requiredFields = ['first_name','last_name','grade','email','phoneNumber','school','GuardianOnePhone',];
-
+        this.emailFields = [['Email','email'],['Guardian One Email','GuardianOneEmail'],['Guardian Two Email','GuardianTwoEmail'],];
 
         this.schemaName = 'student';
         this.dateFormat = 'MM-DD-YYYY';

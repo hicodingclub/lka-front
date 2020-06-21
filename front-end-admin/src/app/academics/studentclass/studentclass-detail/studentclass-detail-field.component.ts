@@ -31,19 +31,7 @@ export class StudentclassDetailFieldComponent extends StudentclassComponent
             'student': 'Student',
             'class': 'Class',
           };
-
-
-
           this.referenceFields = ['student', 'class', ];
-
-
-
-
-
-
-
-
-
     }
 
     ngOnInit() {

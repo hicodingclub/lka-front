@@ -45,20 +45,8 @@ export class EmailsettingsListComponent extends EmailsettingsListCustComponent i
             'settingName': 'Setting Name',
             'defaultSender': 'Default Sender Email Address',
           };
-
-
           this.stringFields.push('settingName');
           this.stringFields.push('defaultSender');
-
-
-
-
-
-
-
-
-
-
 
           this.listViewFilter = 'list';
 

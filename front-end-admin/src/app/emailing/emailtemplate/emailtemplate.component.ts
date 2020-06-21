@@ -93,9 +93,7 @@ export class EmailtemplateComponent extends MddsBaseComponent implements OnInit 
         this.briefFieldsInfo.push(['templateName', 'Template Name']);this.briefFieldsInfo.push(['fromEmail', 'From Email']);this.briefFieldsInfo.push(['subject', 'Subject']);this.briefFieldsInfo.push(['tag', 'Tag']);
 
 
-
         this.requiredFields = ['templateName','subject','content','tag',];
-
 
         this.schemaName = 'emailtemplate';
         

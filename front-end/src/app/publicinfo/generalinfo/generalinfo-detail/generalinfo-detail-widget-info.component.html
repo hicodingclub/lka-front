@@ -1,16 +1,12 @@
 <div class="detail" *ngIf="detail">
-	<div *ngIf="!options['disableActionButtions']"><div *ngIf="!disableActionButtions" class="action-buttons my-3">
-    <a routerLink="../../list"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
-    
-    
-    
-    
+	<div *ngIf="!options['disableActionButtions']"><div *ngIf="!disableActionButtions && !options['disableActionButtions']" class="action-buttons my-3">
+    <a *ngIf="!options['disableActionList']" routerLink="../../list"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
 </div>
 </div>
 	<div class="card text-left transparent-border " [ngStyle]="style['card']">
 	  <div class="grid-fields">
 		<div class="card-header grid-head" [ngStyle]="style['card-header']">
-		  <div *ngIf="detail['signaturePicture']" class="grid-head-picture">
+		  <div *ngIf="fieldHasValue(detail['signaturePicture'])" class="grid-head-picture">
                     <lib-mdds-file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="true" [aspectRatio]="1.3333333333333333"></lib-mdds-file-display>
 		  </div>
 		  <div class="ml-1">

@@ -44,20 +44,8 @@ export class CourseDetailComponent extends CourseDetailCustComponent implements 
             'title': 'Title',
             'description': 'Description',
           };
-
-
           this.stringFields.push('title');
           this.stringFields.push('description');
-
-
-
-
-
-
-
-
-
-
   }
 
   ngOnInit() {

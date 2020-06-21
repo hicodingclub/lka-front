@@ -50,21 +50,9 @@ export class FaqListComponent extends FaqListCustComponent implements OnInit {
             'order': 'Order',
             'enable': 'Enable',
           };
-
-
           this.stringFields.push('question');
           this.stringFields.push('answer');
-
-
-
           this.numberFields = ['order', ];
-
-
-
-
-
-
-
 
           this.listViewFilter = 'list';
           this.setListSort('order', 'Order', 'asc');

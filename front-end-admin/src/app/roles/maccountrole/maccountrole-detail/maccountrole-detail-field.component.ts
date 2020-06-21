@@ -31,22 +31,10 @@ export class MaccountroleDetailFieldComponent extends MaccountroleComponent
             'account': 'Account',
             'role': 'Role',
           };
-
-
-
           this.referenceFields = ['account', ];
-
-
-
-
-
           this.arrayFields = [['role', 'ObjectId'],];
           this.referenceFieldsMap['role'] = 'mrole';
           this.referenceFieldsReverseMap['mrole'] = 'role';
-
-
-
-
     }
 
     ngOnInit() {

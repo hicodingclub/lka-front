@@ -96,9 +96,7 @@ export class MfilegroupComponent extends MddsBaseComponent implements OnInit {
         this.briefFieldsInfo.push(['name', 'Name']);
 
 
-
         this.requiredFields = ['name',];
-
 
         this.schemaName = 'mfilegroup';
         this.dateFormat = 'MM/DD/YYYY';

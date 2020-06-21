@@ -45,20 +45,8 @@ export class MroleListComponent extends MroleListCustComponent implements OnInit
             'role': 'Role',
             'description': 'Description',
           };
-
-
           this.stringFields.push('role');
           this.stringFields.push('description');
-
-
-
-
-
-
-
-
-
-
 
           this.listViewFilter = 'list';
 

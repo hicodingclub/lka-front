@@ -25,17 +25,17 @@
         </div>
       </div>
       <div class="card-body">
-          <div *ngIf="detail['email']" class="d-flex flex-wrap">
+          <div *ngIf="fieldHasValue(detail['email'])" class="d-flex flex-wrap">
             <div class=""><label>Email:</label></div>
             <div class="ml-3">
                     {{detail['email']}}</div>
           </div>
-          <div *ngIf="detail['phoneNumber']" class="d-flex flex-wrap">
+          <div *ngIf="fieldHasValue(detail['phoneNumber'])" class="d-flex flex-wrap">
             <div class=""><label>Phone Number:</label></div>
             <div class="ml-3">
                     {{detail['phoneNumber']}}</div>
           </div>
-          <div *ngIf="detail['grade']" class="d-flex flex-wrap">
+          <div *ngIf="fieldHasValue(detail['grade'])" class="d-flex flex-wrap">
             <div class=""><label>Grade:</label></div>
             <div class="ml-3">
                     {{detail['grade']}}</div>

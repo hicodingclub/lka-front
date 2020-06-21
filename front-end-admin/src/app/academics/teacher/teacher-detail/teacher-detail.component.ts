@@ -47,26 +47,14 @@ export class TeacherDetailComponent extends TeacherDetailCustComponent implement
             'introduction': 'Introduction',
             'photo': 'Photo',
           };
-
-
           this.stringFields.push('firstName');
           this.stringFields.push('lastName');
           this.stringFields.push('email');
           this.stringFields.push('phoneNumber');
           this.stringFields.push('introduction');
           this.stringFields.push('photo');
-
           this.referenceFields = ['courses', ];
-
-
-
-
-
-
-
           this.textareaFields = ['introduction', ];
-
-
   }
 
   ngOnInit() {

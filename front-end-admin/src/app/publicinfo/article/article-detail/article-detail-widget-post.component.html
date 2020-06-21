@@ -1,17 +1,17 @@
 <div class="detail" *ngIf="detail">
-	<div *ngIf="!options['disableActionButtions']"><div *ngIf="!disableActionButtions" class="action-buttons my-3">
-    <a routerLink="../../list"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
-    <a [routerLink]="['../../edit', detail['_id'] ]" [skipLocationChange]="false" class="btn btn-outline-primary">Edit</a>
-    <a [routerLink]="['../../new']" [queryParams]="{cid: detail['_id']}" [skipLocationChange]="false" class="btn btn-outline-primary">New</a>
-    <a routerLink="." class="btn btn-outline-primary" (click)="onDelete(detail['_id'], null)">Delete</a>
-    <a routerLink="." class="btn btn-outline-primary" (click)="onArchive(detail['_id'], null, detail['archived'])">
+	<div *ngIf="!options['disableActionButtions']"><div *ngIf="!disableActionButtions && !options['disableActionButtions']" class="action-buttons my-3">
+    <a *ngIf="!options['disableActionList']" routerLink="../../list"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
+    <a *ngIf="!options['disableActionEdit']" [routerLink]="['../../edit', detail['_id'] ]" [skipLocationChange]="false" class="btn btn-outline-primary">Edit</a>
+    <a *ngIf="!options['disableActionNew']" [routerLink]="['../../new']" [queryParams]="{cid: detail['_id']}" [skipLocationChange]="false" class="btn btn-outline-primary">New</a>
+    <a *ngIf="!options['disableActionDelete']" routerLink="." class="btn btn-outline-primary" (click)="onDelete(detail['_id'], null)">Delete</a>
+    <a *ngIf="!options['disableActionArchive']" routerLink="." class="btn btn-outline-primary" (click)="onArchive(detail['_id'], null, detail['archived'])">
         <ng-template [ngIf]="!detail['archived']">Archive</ng-template>
         <ng-template [ngIf]="detail['archived']">Unarchive</ng-template>
     </a>
 </div>
 </div>
 	<div class="card transparent-border">
-		<div class="post-head-picture" *ngIf="detail['signaturePicture']">
+		<div class="post-head-picture" *ngIf="fieldHasValue(detail['signaturePicture'])">
 			
                     <lib-mdds-file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="true" [aspectRatio]=""></lib-mdds-file-display>
 		</div>
@@ -21,7 +21,7 @@
 			<h6 class="card-subtitle mb-2 text-muted">
 				
                     {{detail['author']}} &nbsp;&nbsp;
-				  {{detail['publishDate']?detail['publishDate']['value']:""}}
+				  {{detail['publishDate']? (detail['publishDate']['originalValue'] | date:'medium') : ''}}
 			</h6>
 
 			<div class="card-text">

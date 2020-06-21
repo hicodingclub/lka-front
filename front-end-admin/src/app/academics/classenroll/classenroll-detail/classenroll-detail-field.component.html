@@ -21,9 +21,9 @@
 		<div *ngIf="detail && showFields.includes('notes')">
                     <div [innerHTML]="detail['notes']"></div>
 		</div>
-		<div *ngIf="detail && showFields.includes('createdAt')">  {{detail['createdAt']?detail['createdAt']['value']:""}}
+		<div *ngIf="detail && showFields.includes('createdAt')">  {{detail['createdAt']? (detail['createdAt']['originalValue'] | date:'medium') : ''}}
 		</div>
-		<div *ngIf="detail && showFields.includes('updatedAt')">  {{detail['updatedAt']?detail['updatedAt']['value']:""}}
+		<div *ngIf="detail && showFields.includes('updatedAt')">  {{detail['updatedAt']? (detail['updatedAt']['originalValue'] | date:'medium') : ''}}
 		</div>
 		<div *ngIf="detail && showFields.includes('muser_id')">
                     {{detail['muser_id']}}

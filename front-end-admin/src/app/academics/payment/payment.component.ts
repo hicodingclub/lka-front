@@ -93,9 +93,7 @@ export class PaymentComponent extends MddsBaseComponent implements OnInit {
         this.briefFieldsInfo.push(['product', 'Product']);this.briefFieldsInfo.push(['productID', 'Product ID']);this.briefFieldsInfo.push(['price', 'Price']);this.briefFieldsInfo.push(['createdAt', 'Created At']);this.briefFieldsInfo.push(['status', 'Status']);
 
 
-
         this.requiredFields = ['status','product','productID','price','orderDescription','transLogP','transLogA',];
-
 
         this.schemaName = 'payment';
         this.dateFormat = 'MM-DD-YYYY';

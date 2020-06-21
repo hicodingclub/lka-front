@@ -47,20 +47,8 @@ export class MpubaccessListComponent extends MpubaccessListCustComponent impleme
             'module': 'Module',
             'modulePermission': 'Module Permission',
           };
-
-
           this.stringFields.push('modulePermission');
-
           this.referenceFields = ['group', 'module', ];
-
-
-
-
-
-
-
-
-
 
           this.listViewFilter = 'list';
 

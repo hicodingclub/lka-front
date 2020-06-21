@@ -33,22 +33,10 @@ export class TermsDetailFieldComponent extends TermsComponent
             'acknowledge': 'Acknowledge',
             'tag': 'Tag',
           };
-
-
           this.stringFields.push('name');
           this.stringFields.push('content');
           this.stringFields.push('acknowledge');
           this.stringFields.push('tag');
-
-
-
-
-
-
-
-
-
-
     }
 
     ngOnInit() {

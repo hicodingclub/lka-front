@@ -19,9 +19,10 @@ import { EmailsettingsListComponent } from './emailsettings/emailsettings-list/e
 import { EmailsettingsDetailComponent } from './emailsettings/emailsettings-detail/emailsettings-detail.component';
 import { EmailsettingsDetailFieldComponent } from './emailsettings/emailsettings-detail/emailsettings-detail-field.component';
 import { EmailsettingsEditComponent } from './emailsettings/emailsettings-edit/emailsettings-edit.component';
-import { EmaillogListComponent } from './emaillog/emaillog-list/emaillog-list.component';
-import { EmaillogDetailComponent } from './emaillog/emaillog-detail/emaillog-detail.component';
-import { EmaillogDetailFieldComponent } from './emaillog/emaillog-detail/emaillog-detail-field.component';
+import { EmailqueueListComponent } from './emailqueue/emailqueue-list/emailqueue-list.component';
+import { EmailqueueDetailComponent } from './emailqueue/emailqueue-detail/emailqueue-detail.component';
+import { EmailqueueDetailFieldComponent } from './emailqueue/emailqueue-detail/emailqueue-detail-field.component';
+import { EmailqueueEditComponent } from './emailqueue/emailqueue-edit/emailqueue-edit.component';
 
 @NgModule({
   imports: [
@@ -41,9 +42,10 @@ import { EmaillogDetailFieldComponent } from './emaillog/emaillog-detail/emaillo
     EmailsettingsDetailComponent,
     EmailsettingsDetailFieldComponent,
     EmailsettingsEditComponent,
-    EmaillogListComponent,
-    EmaillogDetailComponent,
-    EmaillogDetailFieldComponent,
+    EmailqueueListComponent,
+    EmailqueueDetailComponent,
+    EmailqueueDetailFieldComponent,
+    EmailqueueEditComponent,
   ],
   exports: [
     EmailingComponent,
@@ -55,9 +57,10 @@ import { EmaillogDetailFieldComponent } from './emaillog/emaillog-detail/emaillo
     EmailsettingsDetailComponent,
     EmailsettingsDetailFieldComponent,
     EmailsettingsEditComponent,
-    EmaillogListComponent,
-    EmaillogDetailComponent,
-    EmaillogDetailFieldComponent,
+    EmailqueueListComponent,
+    EmailqueueDetailComponent,
+    EmailqueueDetailFieldComponent,
+    EmailqueueEditComponent,
   ],
   providers: [
     { provide: NgbDateParserFormatter, useClass: MraNgbDateFormatterService },

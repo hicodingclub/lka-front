@@ -51,25 +51,13 @@ export class StudentListComponent extends StudentListCustComponent implements On
             'GuardianOnePhone': 'Guardian One Phone',
             'muser_id': 'Muser Id',
           };
-
-
           this.stringFields.push('first_name');
           this.stringFields.push('last_name');
           this.stringFields.push('email');
           this.stringFields.push('school');
           this.stringFields.push('GuardianOnePhone');
           this.stringFields.push('muser_id');
-
-
-
           this.numberFields = ['grade', ];
-
-
-
-
-
-
-
 
           this.listViewFilter = 'list';
 

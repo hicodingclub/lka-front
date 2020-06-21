@@ -52,24 +52,12 @@ export class ArticleListComponent extends ArticleListCustComponent implements On
             'publishDate': 'Publish Date',
             'category': 'Category',
           };
-
-
           this.stringFields.push('signaturePicture');
           this.stringFields.push('title');
           this.stringFields.push('author');
           this.stringFields.push('category');
-
-
           this.dateFields = ['publishDate', ];
-
-
-
-
-
           this.viewHiddenFields = ['category', ];
-
-
-
 
           this.listViewFilter = 'list';
           this.setListSort('publishDate', 'Publish Date', 'desc');

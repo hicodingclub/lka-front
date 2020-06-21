@@ -45,19 +45,7 @@ export class MfilegroupListComponent extends MfilegroupListCustComponent impleme
           this.fieldDisplayNames = {
             'name': 'Name',
           };
-
-
           this.stringFields.push('name');
-
-
-
-
-
-
-
-
-
-
 
           this.listViewFilter = 'list';
 

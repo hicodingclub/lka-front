@@ -1,0 +1,35 @@
+
+
+		<div *ngIf="detail && showFields.includes('subject')">
+                    {{detail['subject']}}
+		</div>
+		<div *ngIf="detail && showFields.includes('from')">
+                    {{detail['from']}}
+		</div>
+		<div *ngIf="detail && showFields.includes('to')">
+                    {{detail['to']}}
+		</div>
+		<div *ngIf="detail && showFields.includes('processed')">{{detail['processed']}} 
+		</div>
+		<div *ngIf="detail && showFields.includes('number')">
+                    {{detail['number']}}
+		</div>
+		<div *ngIf="detail && showFields.includes('sent')">
+                    {{detail['sent']}}
+		</div>
+		<div *ngIf="detail && showFields.includes('result')">
+                    {{detail['result']}}
+		</div>
+		<div *ngIf="detail && showFields.includes('createdAt')">  {{detail['createdAt']? (detail['createdAt']['originalValue'] | date:'medium') : ''}}
+		</div>
+		<div *ngIf="detail && showFields.includes('updatedAt')">  {{detail['updatedAt']? (detail['updatedAt']['originalValue'] | date:'medium') : ''}}
+		</div>
+		<div *ngIf="detail && showFields.includes('content')">
+                    <div libMddsRichtextShow="emailqueueDetailContent" [content]="detail['content']"></div>
+		</div>
+		<div *ngIf="detail && showFields.includes('replacements')">
+                    {{detail['replacements']}}
+		</div>
+		<div *ngIf="detail && showFields.includes('defaultReplacement')">
+                    {{detail['defaultReplacement']}}
+		</div>

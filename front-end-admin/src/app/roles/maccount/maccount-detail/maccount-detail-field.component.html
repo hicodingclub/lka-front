@@ -9,7 +9,13 @@
 		<div *ngIf="detail && showFields.includes('phone')">
                     {{detail['phone']}}
 		</div>
-		<div *ngIf="detail && showFields.includes('since')">  {{detail['since']?detail['since']['value']:""}}
+		<div *ngIf="detail && showFields.includes('firstname')">
+                    {{detail['firstname']}}
+		</div>
+		<div *ngIf="detail && showFields.includes('lastname')">
+                    {{detail['lastname']}}
+		</div>
+		<div *ngIf="detail && showFields.includes('since')">  {{detail['since']? (detail['since']['originalValue'] | date:'medium') : ''}}
 		</div>
 		<div *ngIf="detail && showFields.includes('status')">
                     {{detail['status']}}

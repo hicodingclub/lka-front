@@ -41,20 +41,8 @@ export class EmailsettingsDetailComponent extends EmailsettingsDetailCustCompone
             'settingName': 'Setting Name',
             'defaultSender': 'Default Sender Email Address',
           };
-
-
           this.stringFields.push('settingName');
           this.stringFields.push('defaultSender');
-
-
-
-
-
-
-
-
-
-
   }
 
   ngOnInit() {

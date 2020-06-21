@@ -26,7 +26,7 @@
 		<div *ngIf="detail && showFields.includes('link')">
                     <lib-mdds-file-display [downloadUrl]="detail['link']" [isLarge]="false" [aspectRatio]=""></lib-mdds-file-display>
 		</div>
-		<div *ngIf="detail && showFields.includes('createdAt')">  {{detail['createdAt']?detail['createdAt']['value']:""}}
+		<div *ngIf="detail && showFields.includes('createdAt')">  {{detail['createdAt']? (detail['createdAt']['originalValue'] | date:'medium') : ''}}
 		</div>
 		<div *ngIf="detail && showFields.includes('hasThumbnail')">{{detail['hasThumbnail']}} 
 		</div>

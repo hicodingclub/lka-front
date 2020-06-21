@@ -93,9 +93,7 @@ export class EventComponent extends MddsBaseComponent implements OnInit {
         this.briefFieldsInfo.push(['signaturePicture', 'Signature Picture']);this.briefFieldsInfo.push(['title', 'Title']);this.briefFieldsInfo.push(['author', 'Author']);this.briefFieldsInfo.push(['publishDate', 'Publish Date']);
 
 
-
         this.requiredFields = ['title','author','content','signaturePicture',];
-
 
         this.schemaName = 'event';
         this.dateFormat = 'MM-DD-YYYY';

@@ -59,8 +59,6 @@ export class PaymentEditComponent extends PaymentEditCustComponent implements On
             'transLogA': 'Trans Log a',
             'status': 'Status',
           };
-
-
           this.stringFields.push('product');
           this.stringFields.push('productID');
           this.stringFields.push('orderDescription');
@@ -68,16 +66,6 @@ export class PaymentEditComponent extends PaymentEditCustComponent implements On
           this.stringFields.push('transLogP');
           this.stringFields.push('transLogA');
           this.stringFields.push('status');
-
-
-
-
-
-
-
-
-
-
 
           
           const detail = {};

@@ -46,21 +46,9 @@ export class FaqDetailComponent extends FaqDetailCustComponent implements OnInit
             'order': 'Order',
             'enable': 'Enable',
           };
-
-
           this.stringFields.push('question');
           this.stringFields.push('answer');
-
-
-
           this.numberFields = ['order', ];
-
-
-
-
-
-
-
   }
 
   ngOnInit() {

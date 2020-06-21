@@ -6,20 +6,20 @@
 
       <div class="card-body">
           <div>
-            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
+            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
                 <div><label>Notes:</label></div>
                 <div class="ml-3">
                     <div [innerHTML]="detail['notes']"></div></div>
             </div>
           </div>
           <div>
-            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
+            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
                 <div><label>Updated At:</label></div>
-                <div class="ml-3">  {{detail['updatedAt']?detail['updatedAt']['value']:""}}</div>
+                <div class="ml-3">  {{detail['updatedAt']? (detail['updatedAt']['originalValue'] | date:'medium') : ''}}</div>
             </div>
           </div>
           <div>
-            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
+            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
                 <div><label>Muser Id:</label></div>
                 <div class="ml-3">
                     {{detail['muser_id']}}</div>

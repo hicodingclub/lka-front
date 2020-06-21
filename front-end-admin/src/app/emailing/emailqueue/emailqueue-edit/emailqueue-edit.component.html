@@ -1,0 +1,423 @@
+<div class="edit" *ngIf="detail">
+	<div *ngIf="!embeddedView" class="action-buttons my-3">
+	</div>
+
+	<div class="card" style="text-align: left;">
+		<div class="card-body">
+			<h4 class="card-title" *ngIf="!embeddedView && !options['title']">{{action}} Email Queue</h4>
+			<h4 class="card-title" *ngIf="options['title']" [ngStyle]="style['card-title']">
+				{{options['title']}}
+			</h4>
+			<p	*ngIf="options['subtitle']" [ngStyle]="style['card-subtitle']">
+				{{options['subtitle']}}
+			</p>
+			<form (ngSubmit)="onSubmit()" #editForm="ngForm">
+				<ng-template [ngIf]="action == 'Edit'">
+					<ng-template [ngIf]="!hiddenFields.includes('subject')">
+				<fieldset class="form-group">
+					<label for="EditSubject">Subject</label>
+						
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditSubject" 
+                    [(ngModel)]="detail['subject']" name="EditSubject"
+                    #EditSubject="ngModel">
+            <div *ngIf="detail['subject']"
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('subject')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+            </div>
+          </div>
+          <div [hidden]="EditSubject.valid || EditSubject.pristine || EditSubject.errors.minlength"
+           class="alert alert-danger">
+          </div>
+
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('from')">
+				<fieldset class="form-group">
+					<label for="EditFrom">From</label>
+						
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditFrom" 
+                    [(ngModel)]="detail['from']" name="EditFrom"
+                    #EditFrom="ngModel">
+            <div *ngIf="detail['from']"
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('from')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+            </div>
+          </div>
+          <div [hidden]="EditFrom.valid || EditFrom.pristine || EditFrom.errors.minlength"
+           class="alert alert-danger">
+          </div>
+
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('to')">
+				<fieldset class="form-group">
+					<label for="EditTo">To</label>
+						
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditTo" 
+                    [(ngModel)]="detail['to']" name="EditTo"
+                    #EditTo="ngModel">
+            <div *ngIf="detail['to']"
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('to')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+            </div>
+          </div>
+          <div [hidden]="EditTo.valid || EditTo.pristine || EditTo.errors.minlength"
+           class="alert alert-danger">
+          </div>
+
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('processed')">
+				<fieldset class="form-group">
+					<label for="EditProcessed">Processed</label>
+						
+          <div class="form-check"
+              [ngClass]="{'ng-valid': true} "
+            >
+            <div class="form-check-inline">
+              <input type="radio" name="EditProcessed" 
+                class="form-check-input"
+                id="EditProcessedYes" [value]="true" 
+                [(ngModel)]="detail['processed']"
+                #EditProcessed="ngModel">
+              <label class="form-check-label">Yes</label>
+            </div>
+            <div class="form-check-inline">
+              <input type="radio" name="EditProcessed" 
+                class="form-check-input"
+                id="EditProcessedNo" [value]="false" 
+                [(ngModel)]="detail['processed']"
+                #EditProcessed="ngModel">
+              <label class="form-check-label">No</label>
+            </div>
+            <div *ngIf="detail['processed'] == true || detail['processed'] == false" 
+              class="form-check-inline" (click)="clearValueFromDetail('processed')">
+              <i class="fas fa-times-circle" title="Clear"></i>
+            </div> 
+          </div>
+          <div [hidden]="EditProcessed.valid || EditProcessed.pristine"
+           class="alert alert-danger"> 
+          </div>
+
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('number')">
+				<fieldset class="form-group">
+					<label for="EditNumber">Number</label>
+						
+          <input type="number" class="form-control" id="EditNumber" 
+                  [(ngModel)]="detail['number']" name="EditNumber"
+                  #EditNumber="ngModel">
+          <div [hidden]="EditNumber.valid || EditNumber.pristine || EditNumber.errors.libMddsMinNumber"
+           class="alert alert-danger">
+          </div>
+
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('sent')">
+				<fieldset class="form-group">
+					<label for="EditSent">Sent</label>
+						
+          <input type="number" class="form-control" id="EditSent" 
+                  [(ngModel)]="detail['sent']" name="EditSent"
+                  #EditSent="ngModel">
+          <div [hidden]="EditSent.valid || EditSent.pristine || EditSent.errors.libMddsMinNumber"
+           class="alert alert-danger">
+          </div>
+
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('result')">
+				<fieldset class="form-group">
+					<label for="EditResult">Result</label>
+						
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditResult" 
+                    [(ngModel)]="detail['result']" name="EditResult"
+                    #EditResult="ngModel">
+            <div *ngIf="detail['result']"
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('result')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+            </div>
+          </div>
+          <div [hidden]="EditResult.valid || EditResult.pristine || EditResult.errors.minlength"
+           class="alert alert-danger">
+          </div>
+
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('content')">
+				<fieldset class="form-group">
+					<label for="EditContent">Content</label>
+						
+          <div libMddsRichtext="EditContent" [content]="detail['content']"></div>
+          <div class="action-buttons my-3" style="margin-top: 10px;">
+            <button type="button" class="btn btn-outline-success" (click)="onEdtiorPreview('EditContent')">Preview</button>
+          </div>
+        
+          <div [hidden]="EditContent.valid"
+           class="alert alert-danger">        
+          </div>
+
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('replacements')">
+				<fieldset class="form-group">
+					<label for="EditReplacements">Replacements</label>
+						
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditReplacements" 
+                    [(ngModel)]="detail['replacements']" name="EditReplacements"
+                    #EditReplacements="ngModel">
+            <div *ngIf="detail['replacements']"
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('replacements')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+            </div>
+          </div>
+          <div [hidden]="EditReplacements.valid || EditReplacements.pristine || EditReplacements.errors.minlength"
+           class="alert alert-danger">
+          </div>
+
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('defaultReplacement')">
+				<fieldset class="form-group">
+					<label for="EditDefaultReplacement">Default Replacement</label>
+						
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditDefaultReplacement" 
+                    [(ngModel)]="detail['defaultReplacement']" name="EditDefaultReplacement"
+                    #EditDefaultReplacement="ngModel">
+            <div *ngIf="detail['defaultReplacement']"
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('defaultReplacement')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+            </div>
+          </div>
+          <div [hidden]="EditDefaultReplacement.valid || EditDefaultReplacement.pristine || EditDefaultReplacement.errors.minlength"
+           class="alert alert-danger">
+          </div>
+
+				</fieldset>
+					</ng-template>
+				</ng-template>
+				<ng-template [ngIf]="action == 'Create' || action == 'Add' ">
+					<ng-template [ngIf]="!hiddenFields.includes('subject')">
+				<fieldset class="form-group">
+					<label for="EditSubject">Subject</label>
+						
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditSubject" 
+                    [(ngModel)]="detail['subject']" name="EditSubject"
+                    #EditSubject="ngModel">
+            <div *ngIf="detail['subject']"
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('subject')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+            </div>
+          </div>
+          <div [hidden]="EditSubject.valid || EditSubject.pristine || EditSubject.errors.minlength"
+           class="alert alert-danger">
+          </div>
+
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('from')">
+				<fieldset class="form-group">
+					<label for="EditFrom">From</label>
+						
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditFrom" 
+                    [(ngModel)]="detail['from']" name="EditFrom"
+                    #EditFrom="ngModel">
+            <div *ngIf="detail['from']"
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('from')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+            </div>
+          </div>
+          <div [hidden]="EditFrom.valid || EditFrom.pristine || EditFrom.errors.minlength"
+           class="alert alert-danger">
+          </div>
+
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('to')">
+				<fieldset class="form-group">
+					<label for="EditTo">To</label>
+						
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditTo" 
+                    [(ngModel)]="detail['to']" name="EditTo"
+                    #EditTo="ngModel">
+            <div *ngIf="detail['to']"
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('to')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+            </div>
+          </div>
+          <div [hidden]="EditTo.valid || EditTo.pristine || EditTo.errors.minlength"
+           class="alert alert-danger">
+          </div>
+
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('subject')">
+				<fieldset class="form-group">
+					<label for="EditSubject">Subject</label>
+						
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditSubject" 
+                    [(ngModel)]="detail['subject']" name="EditSubject"
+                    #EditSubject="ngModel">
+            <div *ngIf="detail['subject']"
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('subject')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+            </div>
+          </div>
+          <div [hidden]="EditSubject.valid || EditSubject.pristine || EditSubject.errors.minlength"
+           class="alert alert-danger">
+          </div>
+
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('processed')">
+				<fieldset class="form-group">
+					<label for="EditProcessed">Processed</label>
+						
+          <div class="form-check"
+              [ngClass]="{'ng-valid': true} "
+            >
+            <div class="form-check-inline">
+              <input type="radio" name="EditProcessed" 
+                class="form-check-input"
+                id="EditProcessedYes" [value]="true" 
+                [(ngModel)]="detail['processed']"
+                #EditProcessed="ngModel">
+              <label class="form-check-label">Yes</label>
+            </div>
+            <div class="form-check-inline">
+              <input type="radio" name="EditProcessed" 
+                class="form-check-input"
+                id="EditProcessedNo" [value]="false" 
+                [(ngModel)]="detail['processed']"
+                #EditProcessed="ngModel">
+              <label class="form-check-label">No</label>
+            </div>
+            <div *ngIf="detail['processed'] == true || detail['processed'] == false" 
+              class="form-check-inline" (click)="clearValueFromDetail('processed')">
+              <i class="fas fa-times-circle" title="Clear"></i>
+            </div> 
+          </div>
+          <div [hidden]="EditProcessed.valid || EditProcessed.pristine"
+           class="alert alert-danger"> 
+          </div>
+
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('number')">
+				<fieldset class="form-group">
+					<label for="EditNumber">Number</label>
+						
+          <input type="number" class="form-control" id="EditNumber" 
+                  [(ngModel)]="detail['number']" name="EditNumber"
+                  #EditNumber="ngModel">
+          <div [hidden]="EditNumber.valid || EditNumber.pristine || EditNumber.errors.libMddsMinNumber"
+           class="alert alert-danger">
+          </div>
+
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('sent')">
+				<fieldset class="form-group">
+					<label for="EditSent">Sent</label>
+						
+          <input type="number" class="form-control" id="EditSent" 
+                  [(ngModel)]="detail['sent']" name="EditSent"
+                  #EditSent="ngModel">
+          <div [hidden]="EditSent.valid || EditSent.pristine || EditSent.errors.libMddsMinNumber"
+           class="alert alert-danger">
+          </div>
+
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('result')">
+				<fieldset class="form-group">
+					<label for="EditResult">Result</label>
+						
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditResult" 
+                    [(ngModel)]="detail['result']" name="EditResult"
+                    #EditResult="ngModel">
+            <div *ngIf="detail['result']"
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('result')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+            </div>
+          </div>
+          <div [hidden]="EditResult.valid || EditResult.pristine || EditResult.errors.minlength"
+           class="alert alert-danger">
+          </div>
+
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('content')">
+				<fieldset class="form-group">
+					<label for="EditContent">Content</label>
+						
+          <div libMddsRichtext="EditContent" [content]="detail['content']"></div>
+          <div class="action-buttons my-3" style="margin-top: 10px;">
+            <button type="button" class="btn btn-outline-success" (click)="onEdtiorPreview('EditContent')">Preview</button>
+          </div>
+        
+          <div [hidden]="EditContent.valid"
+           class="alert alert-danger">        
+          </div>
+
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('replacements')">
+				<fieldset class="form-group">
+					<label for="EditReplacements">Replacements</label>
+						
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditReplacements" 
+                    [(ngModel)]="detail['replacements']" name="EditReplacements"
+                    #EditReplacements="ngModel">
+            <div *ngIf="detail['replacements']"
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('replacements')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+            </div>
+          </div>
+          <div [hidden]="EditReplacements.valid || EditReplacements.pristine || EditReplacements.errors.minlength"
+           class="alert alert-danger">
+          </div>
+
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('defaultReplacement')">
+				<fieldset class="form-group">
+					<label for="EditDefaultReplacement">Default Replacement</label>
+						
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditDefaultReplacement" 
+                    [(ngModel)]="detail['defaultReplacement']" name="EditDefaultReplacement"
+                    #EditDefaultReplacement="ngModel">
+            <div *ngIf="detail['defaultReplacement']"
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('defaultReplacement')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+            </div>
+          </div>
+          <div [hidden]="EditDefaultReplacement.valid || EditDefaultReplacement.pristine || EditDefaultReplacement.errors.minlength"
+           class="alert alert-danger">
+          </div>
+
+				</fieldset>
+					</ng-template>
+				</ng-template>
+				<div class="action-buttons-center my-3">
+					<button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
+					<button class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

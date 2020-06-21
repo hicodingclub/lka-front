@@ -22,9 +22,9 @@
 		<div *ngIf="detail && showFields.includes('season')">
                     {{detail['season']}}
 		</div>
-		<div *ngIf="detail && showFields.includes('startTime')">  {{detail['startTime']?detail['startTime']['value']:""}}
+		<div *ngIf="detail && showFields.includes('startTime')">  {{detail['startTime']? (detail['startTime']['originalValue'] | date:'medium') : ''}}
 		</div>
-		<div *ngIf="detail && showFields.includes('endTime')">  {{detail['endTime']?detail['endTime']['value']:""}}
+		<div *ngIf="detail && showFields.includes('endTime')">  {{detail['endTime']? (detail['endTime']['originalValue'] | date:'medium') : ''}}
 		</div>
 		<div *ngIf="detail && showFields.includes('duration')">
                     {{detail['duration']}}

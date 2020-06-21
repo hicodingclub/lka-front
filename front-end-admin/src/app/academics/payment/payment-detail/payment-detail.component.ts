@@ -47,8 +47,6 @@ export class PaymentDetailComponent extends PaymentDetailCustComponent implement
             'transLogA': 'Transaction Log - Admin',
             'status': 'Status',
           };
-
-
           this.stringFields.push('product');
           this.stringFields.push('productID');
           this.stringFields.push('orderDescription');
@@ -56,17 +54,7 @@ export class PaymentDetailComponent extends PaymentDetailCustComponent implement
           this.stringFields.push('transLogP');
           this.stringFields.push('transLogA');
           this.stringFields.push('status');
-
-
           this.dateFields = ['createdAt', ];
-
-
-
-
-
-
-
-
   }
 
   ngOnInit() {

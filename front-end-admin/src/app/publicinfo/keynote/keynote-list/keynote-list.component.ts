@@ -48,23 +48,11 @@ export class KeynoteListComponent extends KeynoteListCustComponent implements On
             'description': 'Description',
             'tag': 'Tag',
           };
-
-
           this.stringFields.push('signaturePicture');
           this.stringFields.push('title');
           this.stringFields.push('subtitle');
           this.stringFields.push('description');
           this.stringFields.push('tag');
-
-
-
-
-
-
-
-
-
-
 
           this.listViewFilter = 'list';
           this.setListSort('title', 'Title', 'asc');

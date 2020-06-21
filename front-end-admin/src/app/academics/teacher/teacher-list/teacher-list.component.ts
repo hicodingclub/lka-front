@@ -49,24 +49,12 @@ export class TeacherListComponent extends TeacherListCustComponent implements On
             'introduction': 'Introduction',
             'photo': 'Photo',
           };
-
-
           this.stringFields.push('firstName');
           this.stringFields.push('lastName');
           this.stringFields.push('introduction');
           this.stringFields.push('photo');
-
           this.referenceFields = ['courses', ];
-
-
-
-
-
-
-
           this.textareaFields = ['introduction', ];
-
-
 
           this.listViewFilter = 'grid';
 

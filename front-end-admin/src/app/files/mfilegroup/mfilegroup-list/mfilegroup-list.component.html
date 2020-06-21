@@ -42,11 +42,7 @@
 		<div class="row" *ngIf="!options['disableActionButtions']">
 			<div class="col">
 		        <div class="action-buttons my-3">
-					
-
 					<a [routerLink]="['../new' ]" [skipLocationChange]="false" class="btn btn-outline-primary">Create</a>
-					
-					
 				</div>
 			</div>
 		</div>
@@ -157,8 +153,9 @@
                     {{detail['name']}}
           </div>
         </h5>
+        <div class="d-flex flex-row mt-1">
+        </div>
       </div>
-
 				</div>
 				<div class="card-action-icons">
 					
@@ -215,27 +212,28 @@
 	    	<tr>
 		        <th scope="col">#</th>
 
-				<th class="pointer" scope="col" (click)="toggleListSort('name', 'Name')">
+				<th class="pointer" scope="col" (click)="toggleListSort('name', 'Name')" >
 					Name
 					<span *ngIf="listSortField === 'name'">
 						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
 						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
 					</span>
-				</th><th scope="col" style="width:3.8rem;"></th>
+				</th>
+				<th scope="col" style="width:3.8rem;"></th>
 	    	</tr>
 	    </thead>
 	    <tbody>
-			<tr *ngFor="let detail of list;  let i = index; let list_index = index;"
-				[ngClass]="{'clicked-row': clickedId==detail['_id'],
+			<ng-template ngFor let-detail [ngForOf]="list" let-i="index">
+			<tr [ngClass]="{'clicked-row': clickedId==detail['_id'],
 							'selected-row': clickItemAction === 'select' && checkedItem[i]}">
 	            <td scope="row" (click)="clickOneItem(i)"  class="pointer read-more mt-3">
 	            	{{(page-1)*perPage+i+1}}
 	            </td>
-
-	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
+				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
+					>
 	            	
                     {{detail['name']}}
-	            </td>
+				</td>
 	            <td>
 					
 						<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
@@ -245,7 +243,8 @@
 					
 					
 	            </td>
-	        </tr>
+			</tr>
+			</ng-template>
 	    </tbody>
 	</table>
 

@@ -28,7 +28,9 @@ export class StudentclassListSubComponent extends StudentclassListComponent impl
   }
 
   ngOnInit() {
-    
+      this.clickItemAction = ''; // don't go to details or select by clicking the card/row.
+      this.adjustListViewForWindowSize();
+
       let ref = this.getParentRouteRefField();
       this.parentSchema = this.referenceFieldsReverseMap[ref];
 

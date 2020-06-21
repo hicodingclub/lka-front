@@ -61,26 +61,14 @@ export class TeacherEditComponent extends TeacherEditCustComponent implements On
             'phoneNumber': 'Phone Number',
             'photo': 'Photo',
           };
-
-
           this.stringFields.push('firstName');
           this.stringFields.push('lastName');
           this.stringFields.push('introduction');
           this.stringFields.push('email');
           this.stringFields.push('phoneNumber');
           this.stringFields.push('photo');
-
           this.referenceFields = ['courses', ];
-
-
-
-
-
-
-
           this.textareaFields = ['introduction', ];
-
-
 
           
           const detail = {};

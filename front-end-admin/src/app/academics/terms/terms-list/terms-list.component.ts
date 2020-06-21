@@ -47,19 +47,7 @@ export class TermsListComponent extends TermsListCustComponent implements OnInit
           this.fieldDisplayNames = {
             'name': 'Name',
           };
-
-
           this.stringFields.push('name');
-
-
-
-
-
-
-
-
-
-
 
           this.listViewFilter = 'list';
 

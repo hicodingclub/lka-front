@@ -31,20 +31,8 @@ export class CourseDetailFieldComponent extends CourseComponent
             'title': 'Title',
             'description': 'Description',
           };
-
-
           this.stringFields.push('title');
           this.stringFields.push('description');
-
-
-
-
-
-
-
-
-
-
     }
 
     ngOnInit() {

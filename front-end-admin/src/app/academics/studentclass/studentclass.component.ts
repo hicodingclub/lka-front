@@ -119,11 +119,9 @@ export class StudentclassComponent extends MddsBaseComponent implements OnInit {
         this.briefFieldsInfo.push(['student', 'Student']);this.briefFieldsInfo.push(['class', 'Class']);
 
 
-
         this.referenceFieldsMap = {'student': 'student','class': 'class',};
         this.referenceFieldsReverseMap = {'student': 'student','class': 'class',};
         this.requiredFields = ['student','class',];
-
 
         this.schemaName = 'studentclass';
         

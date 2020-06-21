@@ -31,27 +31,19 @@ export class MaccountDetailFieldComponent extends MaccountComponent
             'username': 'Username',
             'email': 'Email',
             'phone': 'Phone',
+            'firstname': 'Firstname',
+            'lastname': 'Lastname',
             'since': 'Since',
             'status': 'Status',
           };
-
           this.enums['status'] = ['Enabled', 'Disabled', 'Pending', ];
-
           this.stringFields.push('username');
           this.stringFields.push('email');
           this.stringFields.push('phone');
+          this.stringFields.push('firstname');
+          this.stringFields.push('lastname');
           this.stringFields.push('status');
-
-
           this.dateFields = ['since', ];
-
-
-
-
-
-
-
-
     }
 
     ngOnInit() {

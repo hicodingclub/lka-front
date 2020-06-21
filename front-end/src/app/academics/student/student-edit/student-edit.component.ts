@@ -290,8 +290,6 @@ export class StudentEditComponent extends StudentEditCustComponent implements On
             'GuardianTwoPhone': 'Guardian Two Phone',
             'GuardianTwoEmail': 'Guardian Two Email',
           };
-
-
           this.stringFields.push('first_name');
           this.stringFields.push('last_name');
           this.stringFields.push('email');
@@ -303,18 +301,8 @@ export class StudentEditComponent extends StudentEditCustComponent implements On
           this.stringFields.push('GuardianTwoName');
           this.stringFields.push('GuardianTwoPhone');
           this.stringFields.push('GuardianTwoEmail');
-
-
           this.dateFields = ['date_of_birth', ];
-
           this.numberFields = ['grade', ];
-
-
-
-
-
-
-
 
           
           const detail = {};

@@ -48,20 +48,8 @@ export class CourseListComponent extends CourseListCustComponent implements OnIn
             'title': 'Title',
             'description': 'Description',
           };
-
-
           this.stringFields.push('title');
           this.stringFields.push('description');
-
-
-
-
-
-
-
-
-
-
 
           this.listViewFilter = 'list';
 

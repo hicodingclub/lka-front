@@ -54,20 +54,8 @@ export class MmoduleEditComponent extends MmoduleEditCustComponent implements On
             'module': 'Module',
             'resources': 'Resources',
           };
-
-
           this.stringFields.push('module');
-
-
-
-
-
-
           this.arrayFields = [['resources', 'SchemaString'],];
-
-
-
-
 
           
           const detail = {};

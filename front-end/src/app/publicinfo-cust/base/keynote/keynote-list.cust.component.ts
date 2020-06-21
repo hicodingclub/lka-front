@@ -6,7 +6,7 @@ export class KeynoteListCustComponent extends KeynoteComponent {
 }
 
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Sat Jun 20 2020 16:50:30 GMT-0700 (Pacific Daylight Time)
+**Date: Wed Jun 24 2020 11:50:26 GMT-0700 (Pacific Daylight Time)
 
 import { Input } from '@angular/core';
 

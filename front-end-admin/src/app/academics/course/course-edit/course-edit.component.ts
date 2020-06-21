@@ -60,20 +60,8 @@ export class CourseEditComponent extends CourseEditCustComponent implements OnIn
             'title': 'Title',
             'description': 'Description',
           };
-
-
           this.stringFields.push('title');
           this.stringFields.push('description');
-
-
-
-
-
-
-
-
-
-
 
           this.textEditorMap['EditDescription'] = {
             required: true ,

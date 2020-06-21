@@ -47,23 +47,11 @@ export class ArticleDetailComponent extends ArticleDetailCustComponent implement
             'publishDate': 'Publish Date',
             'content': 'Content',
           };
-
-
           this.stringFields.push('signaturePicture');
           this.stringFields.push('title');
           this.stringFields.push('author');
           this.stringFields.push('content');
-
-
           this.dateFields = ['publishDate', ];
-
-
-
-
-
-
-
-
   }
 
   ngOnInit() {

@@ -41,20 +41,8 @@ export class MroleDetailComponent extends MroleDetailCustComponent implements On
             'role': 'Role',
             'description': 'Description',
           };
-
-
           this.stringFields.push('role');
           this.stringFields.push('description');
-
-
-
-
-
-
-
-
-
-
   }
 
   ngOnInit() {

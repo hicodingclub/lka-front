@@ -88,8 +88,6 @@
 		<div class="row" *ngIf="!options['disableActionButtions']">
 			<div class="col">
 		        <div class="action-buttons my-3">
-					
-
 					<a [routerLink]="['../new' ]" [skipLocationChange]="false" class="btn btn-outline-primary">Create</a>
 					<a routerLink="." class="btn btn-outline-primary" (click)="onDeleteSelected()"
 						[ngClass]="{'disabled': !isItemSelected()}">Delete</a>
@@ -209,14 +207,17 @@
                     {{detail['title']}}
           </div>
         </h5>
-        <div *ngIf="detail['description']" class="mr-3 d-inline-flex flex-wrap">
-          <div><label>Description:</label></div>
-          <div class="ml-3">
+        <div>
+            <div *ngIf="fieldHasValue(detail['description'])" class="mr-3 d-inline-flex flex-wrap">
+              <div><label>Description:</label></div>
+              <div class="ml-3">
                     <div libMddsRichtextShow="courseDetailDescription" [content]="detail['description']"></div>
-          </div>
+              </div>
+            </div>
+        </div>
+        <div class="d-flex flex-row mt-1">
         </div>
       </div>
-
 				</div>
 				<div class="card-action-icons">
 					
@@ -255,7 +256,7 @@
         </div>
       </div>
       <div class="card-body">
-          <div *ngIf="detail['description']" class="d-flex flex-wrap">
+          <div *ngIf="fieldHasValue(detail['description'])" class="d-flex flex-wrap">
             <div class=""><label>Description:</label></div>
             <div class="ml-3">
                     <div libMddsRichtextShow="courseDetailDescription" [content]="detail['description']"></div></div>
@@ -284,33 +285,36 @@
 	    	<tr>
 		        <th scope="col">#</th>
 
-				<th class="pointer" scope="col" (click)="toggleListSort('title', 'Title')">
+				<th class="pointer" scope="col" (click)="toggleListSort('title', 'Title')" >
 					Title
 					<span *ngIf="listSortField === 'title'">
 						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
 						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
 					</span>
 				</th>
-				<th scope="col">Description</th>
-<th scope="col" style="width:9.8rem;"></th>
+				<th scope="col" >
+					Description
+				</th>
+				<th scope="col" style="width:9.8rem;"></th>
 	    	</tr>
 	    </thead>
 	    <tbody>
-			<tr *ngFor="let detail of list;  let i = index; let list_index = index;"
-				[ngClass]="{'clicked-row': clickedId==detail['_id'],
+			<ng-template ngFor let-detail [ngForOf]="list" let-i="index">
+			<tr [ngClass]="{'clicked-row': clickedId==detail['_id'],
 							'selected-row': clickItemAction === 'select' && checkedItem[i]}">
 	            <td scope="row" (click)="clickOneItem(i)"  class="pointer read-more mt-3">
 	            	{{(page-1)*perPage+i+1}}
 	            </td>
-
-	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
+				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
+					>
 	            	
                     {{detail['title']}}
-	            </td>
-	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
+				</td>
+				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
+					>
 	            	
                     <div libMddsRichtextShow="courseDetailDescription" [content]="detail['description']"></div>
-	            </td>
+				</td>
 	            <td>
 					
 						<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
@@ -323,7 +327,8 @@
 					<input class="list-check-box" type="checkbox"  [ngModel]="checkedItem[i]" (click)="selectOneItem(i)"/>
 					
 	            </td>
-	        </tr>
+			</tr>
+			</ng-template>
 	    </tbody>
 	</table>
 

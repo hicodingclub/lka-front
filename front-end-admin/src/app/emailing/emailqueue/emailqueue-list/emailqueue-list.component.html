@@ -1,0 +1,587 @@
+
+
+<div class="mt-4 mb-4 d-flex" *ngIf="!options['disableTitleRow']">
+
+
+</div>
+
+
+<ul *ngIf="listCategory1.listCategoryField" class="nav nav-pills category-nav">
+	<li *ngFor="let ele of categoryDisplays; let idx = index;" class="nav-item" >
+		<a *ngIf=" listCategory1.showEmptyCategory || (!listCategory1.showEmptyCategory && categoriesCounts[idx] > 0)"
+			class="nav-link" [ngClass]="{'active': idx === selectedCategory }" [routerLink]="['.']" queryParamsHandling="preserve" (click)="categorySelected(idx)">
+				{{ele}} <span *ngIf="listCategory1.showCategoryCounts">({{categoriesCounts[idx]}})</span>
+		</a>
+	</li>
+</ul>
+
+
+<div>
+	<div *ngIf="!options['disableListHead']" class="container search">
+		<div class="row" *ngIf="!options['disableListSearch']">
+			<div class="col">
+
+			    <div class="input-group">
+	              <input type="search" class="form-control border border-secondary" id="emailqueueTextSearch" 
+						#emailqueueTextSearch [(ngModel)]="searchText"
+						(keydown.enter)="$event.target.blur();searchList();false"
+					    placeholder="Search for subject"> 
+				  <div *ngIf="searchText" class="input-group-append icon-clear-inside">
+					<span >
+					    <i class="fas fa-times-circle" (click)="onSearchTextClear()" title="Clear"></i>
+				    </span>
+				  </div>
+				  <div class="input-group-append">
+				    <button type="button" class="btn btn-outline-secondary" (click)="searchList()"><i class="fas fa-search"></i></button>
+				  </div>
+				</div>
+			
+				<div class="text-center">
+                    <span  class="pointer" (click)="toggleMoreSearch()">
+                        <span class="refine-search-text">Refine Search &nbsp;</span>
+                        <span>
+                            <i *ngIf="!moreSearchOpened"  class="fas fa-plus-circle" title="More"></i>
+                            <i *ngIf="moreSearchOpened" class="fas fa-minus-circle"  title="Less"></i>
+                        </span>
+                    </span>
+				</div>
+			    <div class="shadow" *ngIf="moreSearchOpened">
+					<div class="card">
+						<div class="card-body">
+	    <div class="single-line-edit">
+	      <div class="row col-gutter">
+			<div class="col-3">
+				<label for="emailqueueEditProcessed">
+				Processed
+				</label>
+			</div>
+	        <div class="col-8">
+
+
+	        <div class="form-check-inline">
+		      	<input type="radio" name="emailqueueEditProcessed" 
+		        	class="form-check-input"
+		        	id="emailqueueEditProcessedYes" [value]="true" 
+		        	[(ngModel)]="detail['processed']"
+		        	#emailqueueEditProcessed="ngModel">
+		      	<span class="form-check-label">Yes</span>
+		      </div>
+	        <div class="form-check-inline">
+		        <input type="radio" name="emailqueueEditProcessed" 
+		        	class="form-check-input"
+		        	id="emailqueueEditProcessedNo" [value]="false"
+		        	[(ngModel)]="detail['processed']"
+		        	#emailqueueEditProcessed="ngModel">
+		      	<span class="form-check-label">No</span>
+		      </div>
+
+	      </div>
+	      
+	      <div class="col-1">
+		    <div class="icon-clear" (click)="clearValueFromDetail('processed')"
+		        *ngIf="checkValueDefinedFromDetail('processed')"
+		        ><i class="fas fa-times-circle" title="Clear"></i></div>
+	      </div>
+	    </div>
+      </div>
+      
+ 
+	    <div class="single-line-edit">
+	      <div class="row col-gutter">
+			<div class="col-3">
+				<label for="emailqueueEditNumber">
+				Number
+				</label>
+			</div>
+	        <div class="col-8">
+
+
+			<div class="input-group">
+			  
+		      <input type="number" class="form-control" id="emailqueueEditNumber"
+		             [(ngModel)]="detail['__mra_number_from']" name="emailqueueEditNumber"
+		             #emailqueueEditNumber="ngModel">
+		      <span>&nbsp; ~ &nbsp;</span>
+		      <input type="number" class="form-control" id="emailqueueEditNumber"
+		             [(ngModel)]="detail['__mra_number_to']" name="emailqueueEditNumber"
+		             #emailqueueEditNumber="ngModel">
+		    </div><!-- input group --> 
+
+	      </div>
+	      
+	      <div class="col-1">
+		    <div class="icon-clear" (click)="clearValueFromDetail('number')"
+		        *ngIf="checkValueDefinedFromDetail('number')"
+		        ><i class="fas fa-times-circle" title="Clear"></i></div>
+	      </div>
+	    </div>
+      </div>
+      
+ 
+	    <div class="single-line-edit">
+	      <div class="row col-gutter">
+			<div class="col-3">
+				<label for="emailqueueEditSent">
+				Sent
+				</label>
+			</div>
+	        <div class="col-8">
+
+
+			<div class="input-group">
+			  
+		      <input type="number" class="form-control" id="emailqueueEditSent"
+		             [(ngModel)]="detail['__mra_sent_from']" name="emailqueueEditSent"
+		             #emailqueueEditSent="ngModel">
+		      <span>&nbsp; ~ &nbsp;</span>
+		      <input type="number" class="form-control" id="emailqueueEditSent"
+		             [(ngModel)]="detail['__mra_sent_to']" name="emailqueueEditSent"
+		             #emailqueueEditSent="ngModel">
+		    </div><!-- input group --> 
+
+	      </div>
+	      
+	      <div class="col-1">
+		    <div class="icon-clear" (click)="clearValueFromDetail('sent')"
+		        *ngIf="checkValueDefinedFromDetail('sent')"
+		        ><i class="fas fa-times-circle" title="Clear"></i></div>
+	      </div>
+	    </div>
+      </div>
+      
+ 
+	    <div class="single-line-edit">
+	      <div class="row col-gutter">
+			<div class="col-3">
+				<label for="emailqueueEditCreatedAt">
+				Created at
+				</label>
+			</div>
+	        <div class="col-8">
+
+ 
+	        <div class="input-group">
+		      <input class="form-control" id="emailqueueEditCreatedAt" placeholder="{{dateFormat}}"
+		             [(ngModel)]="detail['createdAt']['from']" name="emailqueueEditCreatedAt"
+		             ngbDatepicker [minDate]="minDate" #emailqueueEditCreatedAt="ngModel">
+		      <span>&nbsp; ~ &nbsp;</span>
+		      <input class="form-control" id="emailqueueEditCreatedAt" placeholder="{{dateFormat}}"
+		             [(ngModel)]="detail['createdAt']['to']" name="emailqueueEditCreatedAt"
+		             ngbDatepicker [minDate]="minDate" #emailqueueEditCreatedAt="ngModel">
+
+		      <div class="input-group-append">
+		        <button class="btn btn-outline-secondary" (click)="onDateSelectionToggle('createdAt')" type="button">
+		          <i class="fas fa-calendar-alt"></i>
+		        </button>
+		      </div>
+		    </div><!-- input group --> 
+		    <div class="date-selection-pop" *ngIf="detail['createdAt']['pop']">
+			    <ngb-datepicker #dp [minDate]="minDate" (select)="onDateSelection('createdAt', $event)" [displayMonths]="2" [dayTemplate]="emailqueueEditCreatedAtT">
+				</ngb-datepicker>
+				<ng-template #emailqueueEditCreatedAtT let-emailqueueEditCreatedAtDate="date" let-emailqueueEditCreatedAtFocused="focused">
+				  <span class="custom-day"
+				        [class.focused]="emailqueueEditCreatedAtFocused"
+				        [class.range]="isRange('createdAt', emailqueueEditCreatedAtDate)"
+				        [class.faded]="isHovered('createdAt', emailqueueEditCreatedAtDate) || isInside('createdAt', emailqueueEditCreatedAtDate)"
+				        (mouseenter)="hoveredDate = emailqueueEditCreatedAtDate"
+				        (mouseleave)="hoveredDate = null">
+				    {{ emailqueueEditCreatedAtDate.day }}
+				  </span>
+				</ng-template>
+		    </div>      
+
+	      </div>
+	      
+	      <div class="col-1">
+		    <div class="icon-clear" (click)="clearValueFromDetail('createdAt')"
+		        *ngIf="checkValueDefinedFromDetail('createdAt')"
+		        ><i class="fas fa-times-circle" title="Clear"></i></div>
+	      </div>
+	    </div>
+      </div>
+      
+ 
+
+
+
+							<div class="action-buttons my-3" style="margin-top: 10px;">
+									<button type="button" class="btn btn-outline-success" (click)="onSearchClear()">Reset</button>
+									<button type="button" class="btn btn-success" (click)="searchList()">Search</button>
+							</div>
+						</div>
+					</div>
+		        </div>
+		        <div *ngIf="!moreSearchOpened" style="text-align: left;">
+					<span class="badge badge-pill badge-info" *ngFor="let value of searchMoreDetail">
+					    <a (click)="toggleMoreSearch()" class="pointer"> {{value[0]}}: {{value[1]}}</a>
+					    <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromDetailAndSearchList(value[2])" title="Clear"></i>
+					</span>
+				</div>
+		    
+
+			</div>
+		</div>
+		<div class="row" *ngIf="!options['disableActionButtions']">
+			<div class="col">
+		        <div class="action-buttons my-3">
+				</div>
+			</div>
+		</div>
+		<hr/>
+		<div *ngIf="!options['disablePagination']">
+		<div class="row justify-content-end mt-3">
+		
+			<div *ngIf="list.length > 2" class="sort-selection mr-5">
+					<div class="dropdown" style="width: 100%;">
+						<button class="sort-dropdown btn btn-light btn-sm dropdown-toggle"
+							type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Sort: <span *ngIf="listSortField && !viewHiddenFields.includes(listSortField)">{{listSortFieldDisplay}}
+									<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up"></i>
+									<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down"></i>
+							</span>
+						</button>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('subject', 'Subject', 'asc')">Subject<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('subject', 'Subject', 'desc')">Subject<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('processed', 'Processed', 'asc')">Processed<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('processed', 'Processed', 'desc')">Processed<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('number', 'Number', 'asc')">Number<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('number', 'Number', 'desc')">Number<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('sent', 'Sent', 'asc')">Sent<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('sent', 'Sent', 'desc')">Sent<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('createdAt', 'Created at', 'asc')">Created at<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('createdAt', 'Created at', 'desc')">Created at<i class="fas fa-arrow-down"></i></a>
+						</div>
+					</div>
+			</div>
+			
+		</div>
+		<div class="d-flex justify-content-between">
+			<div>
+				<div *ngIf="list.length > 0">
+
+					<input type="radio" name="view-filter" id="list-view" class="view-radio"
+						(click)="setListViewFilter('list')" [checked]="isShowListView('list')">
+					<label for="list-view"><i class="fa fa-th-list"></i></label>
+
+					<input type="radio" name="view-filter" id="grid-view" class="view-radio"
+						(click)="setListViewFilter('grid')" [checked]="isShowListView('grid')">
+						<label for="grid-view"><i class="fa fa-th"></i></label>
+
+					<input type="radio" name="view-filter" id="table-view" class="view-radio"
+						(click)="setListViewFilter('table')" [checked]="isShowListView('table')">
+						<label for="table-view"><i class="fa fa-list-alt"></i></label>
+
+				</div>
+
+			</div>
+
+			<div>
+				<div class="total_counts">
+					<span *ngIf="totalCount > 2">Total: <b>{{totalCount}}</b></span>
+					<a class="ml-3" routerLink="." (click)="onRefresh()"><i class="fa fa-sync-alt"></i></a>
+				</div>
+			</div>
+		</div>
+
+		<div class="d-flex justify-content-center flex-wrap mt-2">
+			<div *ngIf="totalPages > 1">
+				<ul class="pagination justify-content-center">
+					<li class="page-item"
+							[ngClass]="{'disabled': page<=1}">
+					<a class="page-link" routerLink="." (click)="onPreviousPage()"
+						aria-label="Previous">
+						<span aria-hidden="true">&laquo;</span>
+						<span class="sr-only">Previous</span>
+					</a>
+					</li>
+
+					<li *ngIf="leftMore" class="page-item"><a class="page-link">...</a></li>
+
+					<li *ngFor="let p of pages;  let i = index" class="page-item"
+							[ngClass]="{'active': p==page}">
+						<a class="page-link" routerLink="." (click)="onGotoPage(p)">{{p}}</a>
+					</li>
+
+					<li *ngIf="rightMore" class="page-item"><a class="page-link">...</a></li>
+					<li class="page-item"
+							[ngClass]="{'disabled': page>=totalPages}">
+					<a class="page-link" routerLink="." (click)="onNextPage()"
+						aria-label="Next">
+						<span aria-hidden="true">&raquo;</span>
+						<span class="sr-only">Next</span>
+					</a>
+					</li>
+				</ul>
+			</div>
+			<div class="ml-3" *ngIf="totalPages > 1">
+				<small>Page</small>&nbsp;<input type="number" class="page-control form-control" [value]="page" (input)="onGotoPage($event.target.value)" />&nbsp;/&nbsp;{{totalPages}}
+			</div>
+		</div>
+
+		</div>
+	</div>
+	<div class="no-records" *ngIf="list.length === 0">
+		<span *ngIf="loaded">No records found.</span>
+		<span *ngIf="!loaded">Loading...</span>
+	</div>
+	<div *ngIf="list.length > 0">
+	<div class="listview" *ngIf="isShowListView('list')">
+		<div class="list-block" *ngFor="let detail of list;  let i = index; let list_index = index;">
+			<hr *ngIf="i==0" class="list-devider">
+			<div class="list-card text-left"
+				[ngClass]="{'clicked-row': clickedId==detail['_id'],
+							'selected-row': clickItemAction === 'select' && checkedItem[i],
+							'clickable-card': clickItemAction}" >
+				<div class="list-fields" [ngClass]="{pointer: clickItemAction}" (click)="clickOneItem(i)">
+
+      <div class="list-body-fields">
+        <h5>
+          <div class="mr-1 d-inline-block">
+            
+                    {{detail['subject']}}
+          </div>
+        </h5>
+        <div>
+            <div *ngIf="fieldHasValue(detail['processed'])" class="mr-3 d-inline-flex flex-wrap">
+              <div><label>Processed:</label></div>
+              <div class="ml-3">{{detail['processed']}} 
+              </div>
+            </div>
+            <div *ngIf="fieldHasValue(detail['number'])" class="mr-3 d-inline-flex flex-wrap">
+              <div><label>Number:</label></div>
+              <div class="ml-3">
+                    {{detail['number']}}
+              </div>
+            </div>
+            <div *ngIf="fieldHasValue(detail['sent'])" class="mr-3 d-inline-flex flex-wrap">
+              <div><label>Sent:</label></div>
+              <div class="ml-3">
+                    {{detail['sent']}}
+              </div>
+            </div>
+            <div *ngIf="fieldHasValue(detail['createdAt'])" class="mr-3 d-inline-flex flex-wrap">
+              <div><label>Created at:</label></div>
+              <div class="ml-3">  {{detail['createdAt']? (detail['createdAt']['originalValue'] | date:'medium') : ''}}
+              </div>
+            </div>
+        </div>
+        <div class="d-flex flex-row mt-1">
+        </div>
+      </div>
+				</div>
+				<div class="card-action-icons">
+					
+						<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
+					
+					
+					
+					
+				</div>
+			</div>
+			<hr class="list-devider">
+		</div>
+	</div>
+
+
+
+	<div class="gridview" *ngIf="isShowListView('grid')">
+		<div class="grid-block" *ngFor="let detail of list;  let i = index; let list_index = index;">
+			<div class="card text-left h-100"
+				[ngClass]="{'clicked-row': clickedId==detail['_id'],
+							'selected-row': clickItemAction === 'select' && checkedItem[i],
+							'clickable-card': clickItemAction}" >
+				<div class="grid-fields" [ngClass]="{pointer: clickItemAction}" (click)="clickOneItem(i)" >
+
+      <div class="card-header grid-head">
+        <div>
+          <h5>
+            <div class="mr-1 d-inline-block">
+              
+                    {{detail['subject']}}
+            </div>
+          </h5>
+        </div>
+      </div>
+      <div class="card-body">
+          <div *ngIf="fieldHasValue(detail['processed'])" class="d-flex flex-wrap">
+            <div class=""><label>Processed:</label></div>
+            <div class="ml-3">{{detail['processed']}} </div>
+          </div>
+          <div *ngIf="fieldHasValue(detail['number'])" class="d-flex flex-wrap">
+            <div class=""><label>Number:</label></div>
+            <div class="ml-3">
+                    {{detail['number']}}</div>
+          </div>
+          <div *ngIf="fieldHasValue(detail['sent'])" class="d-flex flex-wrap">
+            <div class=""><label>Sent:</label></div>
+            <div class="ml-3">
+                    {{detail['sent']}}</div>
+          </div>
+          <div *ngIf="fieldHasValue(detail['createdAt'])" class="d-flex flex-wrap">
+            <div class=""><label>Created at:</label></div>
+            <div class="ml-3">  {{detail['createdAt']? (detail['createdAt']['originalValue'] | date:'medium') : ''}}</div>
+          </div>
+      </div>
+
+				</div>
+				<div class="card-action-icons">
+					
+						<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
+					
+					
+					
+					
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<table *ngIf="isShowListView('table')" class="table table-bordered table-hover">
+	    <thead class="thead-light">
+	    	<tr>
+		        <th scope="col">#</th>
+
+				<th class="pointer" scope="col" (click)="toggleListSort('subject', 'Subject')" >
+					Subject
+					<span *ngIf="listSortField === 'subject'">
+						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+					</span>
+				</th>
+				<th class="pointer" scope="col" (click)="toggleListSort('processed', 'Processed')" >
+					Processed
+					<span *ngIf="listSortField === 'processed'">
+						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+					</span>
+				</th>
+				<th class="pointer" scope="col" (click)="toggleListSort('number', 'Number')" >
+					Number
+					<span *ngIf="listSortField === 'number'">
+						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+					</span>
+				</th>
+				<th class="pointer" scope="col" (click)="toggleListSort('sent', 'Sent')" >
+					Sent
+					<span *ngIf="listSortField === 'sent'">
+						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+					</span>
+				</th>
+				<th class="pointer" scope="col" (click)="toggleListSort('createdAt', 'Created at')" >
+					Created at
+					<span *ngIf="listSortField === 'createdAt'">
+						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+					</span>
+				</th>
+				<th scope="col" style="width:3.8rem;"></th>
+	    	</tr>
+	    </thead>
+	    <tbody>
+			<ng-template ngFor let-detail [ngForOf]="list" let-i="index">
+			<tr [ngClass]="{'clicked-row': clickedId==detail['_id'],
+							'selected-row': clickItemAction === 'select' && checkedItem[i]}">
+	            <td scope="row" (click)="clickOneItem(i)"  class="pointer read-more mt-3">
+	            	{{(page-1)*perPage+i+1}}
+	            </td>
+				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
+					>
+	            	
+                    {{detail['subject']}}
+				</td>
+				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
+					>
+	            	{{detail['processed']}} 
+				</td>
+				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
+					>
+	            	
+                    {{detail['number']}}
+				</td>
+				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
+					>
+	            	
+                    {{detail['sent']}}
+				</td>
+				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
+					>
+	            	  {{detail['createdAt']? (detail['createdAt']['originalValue'] | date:'medium') : ''}}
+				</td>
+	            <td>
+					
+						<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
+					
+	            	
+	            	
+					
+					
+	            </td>
+			</tr>
+			</ng-template>
+	    </tbody>
+	</table>
+
+
+	</div>
+	<div class="container">
+		<div *ngIf="!options['disablePagination']">
+		<div class="row justify-content-end mt-3">
+		
+			
+		</div>
+		<div class="d-flex justify-content-between">
+			<div>
+			</div>
+
+			<div>
+				<div class="total_counts">
+					<span *ngIf="totalCount > 2">Total: <b>{{totalCount}}</b></span>
+				</div>
+			</div>
+		</div>
+
+		<div class="d-flex justify-content-center flex-wrap mt-2">
+			<div *ngIf="totalPages > 1">
+				<ul class="pagination justify-content-center">
+					<li class="page-item"
+							[ngClass]="{'disabled': page<=1}">
+					<a class="page-link" routerLink="." (click)="onPreviousPage()"
+						aria-label="Previous">
+						<span aria-hidden="true">&laquo;</span>
+						<span class="sr-only">Previous</span>
+					</a>
+					</li>
+
+					<li *ngIf="leftMore" class="page-item"><a class="page-link">...</a></li>
+
+					<li *ngFor="let p of pages;  let i = index" class="page-item"
+							[ngClass]="{'active': p==page}">
+						<a class="page-link" routerLink="." (click)="onGotoPage(p)">{{p}}</a>
+					</li>
+
+					<li *ngIf="rightMore" class="page-item"><a class="page-link">...</a></li>
+					<li class="page-item"
+							[ngClass]="{'disabled': page>=totalPages}">
+					<a class="page-link" routerLink="." (click)="onNextPage()"
+						aria-label="Next">
+						<span aria-hidden="true">&raquo;</span>
+						<span class="sr-only">Next</span>
+					</a>
+					</li>
+				</ul>
+			</div>
+			<div class="ml-3" *ngIf="totalPages > 1">
+				<small>Page</small>&nbsp;<input type="number" class="page-control form-control" [value]="page" (input)="onGotoPage($event.target.value)" />&nbsp;/&nbsp;{{totalPages}}
+			</div>
+		</div>
+
+		</div>
+	</div>
+	
+</div>
+
+

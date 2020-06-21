@@ -42,22 +42,10 @@ export class GeneralinfoDetailComponent extends GeneralinfoDetailCustComponent i
             'title': 'Title',
             'description': 'Description',
           };
-
-
           this.stringFields.push('signaturePicture');
           this.stringFields.push('title');
           this.stringFields.push('description');
-
-
-
-
-
-
-
-
           this.textareaFields = ['description', ];
-
-
   }
 
   ngOnInit() {

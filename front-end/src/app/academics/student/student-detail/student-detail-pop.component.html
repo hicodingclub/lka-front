@@ -36,64 +36,64 @@
       </div>
       <div class="card-body">
           <div>
-            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
+            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
                 <div><label>Date of Birth:</label></div>
-                <div class="ml-3">  {{detail['date_of_birth']?detail['date_of_birth']['value']:""}}</div>
+                <div class="ml-3">  {{detail['date_of_birth']? (detail['date_of_birth']['originalValue'] | date:'medium') : ''}}</div>
             </div>
-            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
+            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
                 <div><label>Grade:</label></div>
                 <div class="ml-3">
                     {{detail['grade']}}</div>
             </div>
           </div>
           <div>
-            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
+            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
                 <div><label>Email:</label></div>
                 <div class="ml-3">
                     {{detail['email']}}</div>
             </div>
-            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
+            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
                 <div><label>Phone Number:</label></div>
                 <div class="ml-3">
                     {{detail['phoneNumber']}}</div>
             </div>
           </div>
           <div>
-            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
+            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
                 <div><label>School:</label></div>
                 <div class="ml-3">
                     {{detail['school']}}</div>
             </div>
           </div>
           <div>
-            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
+            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
                 <div><label>Guardian One Name:</label></div>
                 <div class="ml-3">
                     {{detail['GuardianOneName']}}</div>
             </div>
-            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
+            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
                 <div><label>Guardian One Phone:</label></div>
                 <div class="ml-3">
                     {{detail['GuardianOnePhone']}}</div>
             </div>
-            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
+            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
                 <div><label>Guardian One Email:</label></div>
                 <div class="ml-3">
                     {{detail['GuardianOneEmail']}}</div>
             </div>
           </div>
           <div>
-            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
+            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
                 <div><label>Guardian Two Name:</label></div>
                 <div class="ml-3">
                     {{detail['GuardianTwoName']}}</div>
             </div>
-            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
+            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
                 <div><label>Guardian Two Phone:</label></div>
                 <div class="ml-3">
                     {{detail['GuardianTwoPhone']}}</div>
             </div>
-            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
+            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
                 <div><label>Guardian Two Email:</label></div>
                 <div class="ml-3">
                     {{detail['GuardianTwoEmail']}}</div>

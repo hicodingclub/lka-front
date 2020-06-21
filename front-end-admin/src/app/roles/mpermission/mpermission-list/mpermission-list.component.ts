@@ -47,20 +47,8 @@ export class MpermissionListComponent extends MpermissionListCustComponent imple
             'module': 'Module',
             'modulePermission': 'Module Permission',
           };
-
-
           this.stringFields.push('modulePermission');
-
           this.referenceFields = ['role', 'module', ];
-
-
-
-
-
-
-
-
-
 
           this.listViewFilter = 'list';
 

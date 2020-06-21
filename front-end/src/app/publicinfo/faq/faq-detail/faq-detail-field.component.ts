@@ -31,20 +31,8 @@ export class FaqDetailFieldComponent extends FaqComponent
             'question': 'Question',
             'answer': 'Answer',
           };
-
-
           this.stringFields.push('question');
           this.stringFields.push('answer');
-
-
-
-
-
-
-
-
-
-
     }
 
     ngOnInit() {

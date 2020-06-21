@@ -1,10 +1,6 @@
 <div class="detail" *ngIf="detail">
-	<div *ngIf="!options['disableActionButtions']"><div *ngIf="!disableActionButtions" class="action-buttons my-3">
-    <a routerLink="../../list"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
-    
-    
-    
-    
+	<div *ngIf="!options['disableActionButtions']"><div *ngIf="!disableActionButtions && !options['disableActionButtions']" class="action-buttons my-3">
+    <a *ngIf="!options['disableActionList']" routerLink="../../list"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
 </div>
 </div>
 	<div class="card text-left transparent-border ">
@@ -13,7 +9,7 @@
                     <div libMddsRichtextShow="termsDetailContent" [content]="detail['content']"></div>
 			</div>
 			<div class="mt-3">
-				<input class="term-check mr-3" *ngIf="detail['acknowledge']" type="checkbox" [(ngModel)]="termChecked" (change)="onTermChecked()"/>				
+				<input class="term-check mr-3" *ngIf="fieldHasValue(detail['acknowledge'])" type="checkbox" [(ngModel)]="termChecked" (change)="onTermChecked()"/>				
 				<label>
                     {{detail['acknowledge']}}
 				</label>

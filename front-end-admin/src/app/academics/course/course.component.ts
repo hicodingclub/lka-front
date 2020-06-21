@@ -96,9 +96,7 @@ export class CourseComponent extends MddsBaseComponent implements OnInit {
         this.briefFieldsInfo.push(['title', 'Title']);this.briefFieldsInfo.push(['description', 'Description']);
 
 
-
         this.requiredFields = ['title','description',];
-
 
         this.schemaName = 'course';
         

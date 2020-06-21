@@ -11,7 +11,6 @@ const routes: Routes = [
 
   { path: 'roles', loadChildren: () => import('./roles/roles.module').then(m => m.RolesModule) },
   { path: 'access', loadChildren: () => import('./access/access.module').then(m => m.AccessModule) },
-  { path: 'pipeline', loadChildren: () => import('./pipeline/pipeline.module').then(m => m.PipelineModule) },
   { path: 'files', loadChildren: () => import('./files/files.module').then(m => m.FilesModule) },
   { path: 'emailing', loadChildren: () => import('./emailing/emailing.module').then(m => m.EmailingModule) },
   { path: 'publicinfo', loadChildren: () => import('./publicinfo/publicinfo.module').then(m => m.PublicinfoModule) },

@@ -33,23 +33,11 @@ export class MpermissionDetailFieldComponent extends MpermissionComponent
             'modulePermission': 'Module Permission',
             'resourcePermission': 'Resource Permission',
           };
-
-
           this.stringFields.push('modulePermission');
-
           this.referenceFields = ['role', 'module', ];
-
-
-
           this.mapFields = [
               ['resourcePermission', 'SchemaString', '', '', , ''],
           ];
-
-
-
-
-
-
     }
 
     ngOnInit() {

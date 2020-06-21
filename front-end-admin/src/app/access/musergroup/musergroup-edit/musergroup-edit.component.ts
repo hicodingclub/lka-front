@@ -54,20 +54,8 @@ export class MusergroupEditComponent extends MusergroupEditCustComponent impleme
             'group': 'Group',
             'description': 'Description',
           };
-
-
           this.stringFields.push('group');
           this.stringFields.push('description');
-
-
-
-
-
-
-
-
-
-
 
           
           const detail = {};

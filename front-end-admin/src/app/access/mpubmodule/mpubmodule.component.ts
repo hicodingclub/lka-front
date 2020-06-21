@@ -96,9 +96,7 @@ export class MpubmoduleComponent extends MddsBaseComponent implements OnInit {
         this.briefFieldsInfo.push(['module', 'Module']);this.briefFieldsInfo.push(['resources', 'Resources']);
 
 
-
         this.requiredFields = ['module',];
-
 
         this.schemaName = 'mpubmodule';
         

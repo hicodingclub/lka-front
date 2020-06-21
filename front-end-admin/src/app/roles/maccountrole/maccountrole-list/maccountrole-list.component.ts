@@ -46,22 +46,10 @@ export class MaccountroleListComponent extends MaccountroleListCustComponent imp
             'account': 'Account',
             'role': 'Role',
           };
-
-
-
           this.referenceFields = ['account', ];
-
-
-
-
-
           this.arrayFields = [['role', 'ObjectId'],];
           this.referenceFieldsMap['role'] = 'mrole';
           this.referenceFieldsReverseMap['mrole'] = 'role';
-
-
-
-
 
           this.listViewFilter = 'list';
 

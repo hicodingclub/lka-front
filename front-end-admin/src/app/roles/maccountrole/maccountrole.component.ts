@@ -119,11 +119,9 @@ export class MaccountroleComponent extends MddsBaseComponent implements OnInit {
         this.briefFieldsInfo.push(['account', 'Account']);this.briefFieldsInfo.push(['role', 'Role']);
 
 
-
         this.referenceFieldsMap = {'account': 'maccount',};
         this.referenceFieldsReverseMap = {'maccount': 'account',};
         this.requiredFields = ['account',];
-
 
         this.schemaName = 'maccountrole';
         
