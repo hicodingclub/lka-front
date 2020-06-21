@@ -12,14 +12,12 @@
 		<div class="card-header grid-head" [ngStyle]="style['card-header']">
 		  <div *ngIf="detail['signaturePicture']" class="grid-head-picture">
                     <lib-mdds-file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="true" [aspectRatio]="1.3333333333333333"></lib-mdds-file-display>
-
 		  </div>
 		  <div class="ml-1">
 			<h2>
 			  <div class="mr-1 ml-2 mt-3 d-inline-block" [ngStyle]="style['header-field']">
 				
                     {{detail['title']}}
-
 			  </div>
 			</h2>
 		  </div>
@@ -28,7 +26,6 @@
 			<div>
 			  <h4 class="info-description-text" [ngStyle]="style['body-field']">
                     <div [innerHTML]="detail['description']"></div>
-
 			  </h4>
 			</div>
 		</div>

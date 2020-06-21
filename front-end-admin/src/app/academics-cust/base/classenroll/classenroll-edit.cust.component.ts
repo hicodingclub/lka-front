@@ -5,7 +5,7 @@ import { ClassenrollComponent } from '../../../academics/classenroll/classenroll
 export class ClassenrollEditCustComponent extends ClassenrollComponent {        
 }
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Sun Jun 07 2020 21:11:23 GMT-0700 (Pacific Daylight Time)
+**Date: Sat Jun 20 2020 16:51:11 GMT-0700 (Pacific Daylight Time)
 
 import { Input } from '@angular/core';
 

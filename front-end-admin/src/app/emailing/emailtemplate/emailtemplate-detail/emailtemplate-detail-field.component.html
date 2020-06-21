@@ -2,21 +2,16 @@
 
 		<div *ngIf="detail && showFields.includes('templateName')">
                     {{detail['templateName']}}
-
 		</div>
 		<div *ngIf="detail && showFields.includes('fromEmail')">
                     {{detail['fromEmail']}}
-
 		</div>
 		<div *ngIf="detail && showFields.includes('subject')">
                     {{detail['subject']}}
-
 		</div>
 		<div *ngIf="detail && showFields.includes('content')">
                     <div libMddsRichtextShow="emailtemplateDetailContent" [content]="detail['content']"></div>
-
 		</div>
 		<div *ngIf="detail && showFields.includes('tag')">
                     {{detail['tag']}}
-
 		</div>

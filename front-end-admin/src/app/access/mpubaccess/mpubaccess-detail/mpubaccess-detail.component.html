@@ -19,7 +19,6 @@
                	  <a routerLink="."  (click)="onDisplayRefClicked('group', detail['group'], $event)">
 	            	{{detail['group']?detail['group']['value']:""}}
 	              </a>
-
             </div>
           </h5>
         </div>
@@ -31,16 +30,14 @@
                 <div class="ml-3">
                	  <a routerLink="."  (click)="onDisplayRefClicked('module', detail['module'], $event)">
 	            	{{detail['module']?detail['module']['value']:""}}
-	              </a>
-</div>
+	              </a></div>
             </div>
           </div>
           <div>
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
                 <div><label>Module Permission:</label></div>
                 <div class="ml-3">
-                    {{detail['modulePermission']}}
-</div>
+                    {{detail['modulePermission']}}</div>
             </div>
           </div>
           <div>
@@ -54,8 +51,7 @@
                                 <div>{{detail['resourcePermission']['selection'][element]}}</div>
                             </div>
                         </ng-template>
-                    </div>
-</div>
+                    </div></div>
             </div>
           </div>
       </div>

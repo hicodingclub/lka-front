@@ -5,7 +5,7 @@ import { GeneralinfoComponent } from '../../../publicinfo/generalinfo/generalinf
 export class GeneralinfoEditCustComponent extends GeneralinfoComponent {        
 }
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Sun Jun 07 2020 21:11:21 GMT-0700 (Pacific Daylight Time)
+**Date: Sat Jun 20 2020 16:51:09 GMT-0700 (Pacific Daylight Time)
 
 import { Input } from '@angular/core';
 

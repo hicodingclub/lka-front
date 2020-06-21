@@ -75,6 +75,9 @@ export class ClassListComponent extends ClassListCustComponent implements OnInit
 
 
 
+          this.editHintFields = {
+            'season': [],
+          };
 
 
           this.listViewFilter = 'table';

@@ -12,22 +12,18 @@
 				{{options['subtitle']}}
 			</p>
 			<form (ngSubmit)="onSubmit()" #editForm="ngForm">
-
-				<div *ngIf="action == 'Edit'">
-<div *ngIf="!hiddenFields.includes('account')">
-
-        <fieldset class="form-group">
-          <label for="EditAccount">Account </label>
-          
-          
+				<ng-template [ngIf]="action == 'Edit'">
+					<ng-template [ngIf]="!hiddenFields.includes('account')">
+				<fieldset class="form-group">
+					<label for="EditAccount">Account</label>
+						
           <!-- <a class="icon-search" [routerLink]="['.']" (click)="onRefSelect('account')"><i class="fas fa-list" title="Search"></i></a>  -->
           <div class="input-group">
             <!--  [attr.disabled]="true" -->
               <input class="form-control rounded" id="EditAccount" 
                   [ngClass]="{'pointer ref-badge': detail['account']['_id']}"
                   (focus)="onRefSelect('account')"
-                    required
-                 
+                  required 
                   [ngModel]="detail['account']['value']" name="EditAccount"
                   #EditAccount="ngModel"> 
               <div *ngIf="detail['account']['value']" 
@@ -37,25 +33,19 @@
           </div>
           <div [hidden]="EditAccount.valid || EditAccount.pristine"
                class="alert alert-danger">
-
             <div *ngIf="EditAccount.errors && EditAccount.errors.required && !(detail['account']?.date)">
               Account is required.
-              </div>
- 
+            </div> 
           </div>
-        </fieldset>
-    
-</div>
-<div *ngIf="!hiddenFields.includes('role')">
 
-        <fieldset class="form-group">
-          <label for="EditRole">Role</label>
-          
-          
-
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('role')">
+				<fieldset class="form-group">
+					<label for="EditRole">Role</label>
+						
           <div class="form-check"
             ngModelGroup="EditRole"
-            
             #EditRole="ngModelGroup" 
           >
             <ng-template [ngIf]="detail['role'] && detail['role']['selection']">
@@ -78,31 +68,25 @@
                 [(ngModel)]="detail['role']['selection'].length" 
                 #EditRoleSelection="ngModel">
           </div>
-
           <div [hidden]="EditRole.valid || EditRole.pristine"
            class="alert alert-danger">
-
           </div>
-        </fieldset>
-    
-</div>
 
-				</div>
-				<div *ngIf="action == 'Create' || action == 'Add' ">
-<div *ngIf="!hiddenFields.includes('account')">
-
-        <fieldset class="form-group">
-          <label for="EditAccount">Account </label>
-          
-          
+				</fieldset>
+					</ng-template>
+				</ng-template>
+				<ng-template [ngIf]="action == 'Create' || action == 'Add' ">
+					<ng-template [ngIf]="!hiddenFields.includes('account')">
+				<fieldset class="form-group">
+					<label for="EditAccount">Account</label>
+						
           <!-- <a class="icon-search" [routerLink]="['.']" (click)="onRefSelect('account')"><i class="fas fa-list" title="Search"></i></a>  -->
           <div class="input-group">
             <!--  [attr.disabled]="true" -->
               <input class="form-control rounded" id="EditAccount" 
                   [ngClass]="{'pointer ref-badge': detail['account']['_id']}"
                   (focus)="onRefSelect('account')"
-                    required
-                 
+                  required 
                   [ngModel]="detail['account']['value']" name="EditAccount"
                   #EditAccount="ngModel"> 
               <div *ngIf="detail['account']['value']" 
@@ -112,25 +96,19 @@
           </div>
           <div [hidden]="EditAccount.valid || EditAccount.pristine"
                class="alert alert-danger">
-
             <div *ngIf="EditAccount.errors && EditAccount.errors.required && !(detail['account']?.date)">
               Account is required.
-              </div>
- 
+            </div> 
           </div>
-        </fieldset>
-    
-</div>
-<div *ngIf="!hiddenFields.includes('role')">
 
-        <fieldset class="form-group">
-          <label for="EditRole">Role</label>
-          
-          
-
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('role')">
+				<fieldset class="form-group">
+					<label for="EditRole">Role</label>
+						
           <div class="form-check"
             ngModelGroup="EditRole"
-            
             #EditRole="ngModelGroup" 
           >
             <ng-template [ngIf]="detail['role'] && detail['role']['selection']">
@@ -153,17 +131,13 @@
                 [(ngModel)]="detail['role']['selection'].length" 
                 #EditRoleSelection="ngModel">
           </div>
-
           <div [hidden]="EditRole.valid || EditRole.pristine"
            class="alert alert-danger">
-
           </div>
-        </fieldset>
-    
-</div>
 
-				</div>
-
+				</fieldset>
+					</ng-template>
+				</ng-template>
 				<div class="action-buttons-center my-3">
 					<button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
 					<button class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>

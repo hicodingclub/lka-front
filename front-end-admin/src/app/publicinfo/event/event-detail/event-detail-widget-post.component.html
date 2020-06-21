@@ -14,24 +14,19 @@
 		<div class="post-head-picture" *ngIf="detail['signaturePicture']">
 			
                     <lib-mdds-file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="true" [aspectRatio]=""></lib-mdds-file-display>
-
 		</div>
 		<div class="card-body">
 			<h3 class="card-title">
-                    {{detail['title']}}
-</h3>
+                    {{detail['title']}}</h3>
 			<h6 class="card-subtitle mb-2 text-muted">
 				
-                    {{detail['author']}}
- &nbsp;&nbsp;
+                    {{detail['author']}} &nbsp;&nbsp;
 				  {{detail['publishDate']?detail['publishDate']['value']:""}}
-
 			</h6>
 
 			<div class="card-text">
 					
                     <div libMddsRichtextShow="eventDetailContent" [content]="detail['content']"></div>
-
 			</div>
 		</div>
 	</div>

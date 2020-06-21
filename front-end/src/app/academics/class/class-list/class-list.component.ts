@@ -75,6 +75,9 @@ export class ClassListComponent extends ClassListCustComponent implements OnInit
           this.viewHiddenFields = ['course', 'season', 'enrollTerm', ];
 
 
+          this.editHintFields = {
+            'season': [],
+          };
 
 
           this.listViewFilter = 'table';

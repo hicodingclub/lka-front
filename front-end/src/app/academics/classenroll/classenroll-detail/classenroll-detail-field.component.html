@@ -9,22 +9,17 @@
                             </div>
                         </ng-template>
                     </div>
-
 		</div>
 		<div *ngIf="detail && showFields.includes('class')">
                	  <a routerLink="."  (click)="onDisplayRefClicked('class', detail['class'], $event)">
 	            	{{detail['class']?detail['class']['value']:""}}
 	              </a>
-
 		</div>
 		<div *ngIf="detail && showFields.includes('status')">
                     {{detail['status']}}
-
 		</div>
 		<div *ngIf="detail && showFields.includes('notes')">
                     <div [innerHTML]="detail['notes']"></div>
-
 		</div>
 		<div *ngIf="detail && showFields.includes('createdAt')">  {{detail['createdAt']?detail['createdAt']['value']:""}}
-
 		</div>

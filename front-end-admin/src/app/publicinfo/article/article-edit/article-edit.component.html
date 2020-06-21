@@ -12,21 +12,15 @@
 				{{options['subtitle']}}
 			</p>
 			<form (ngSubmit)="onSubmit()" #editForm="ngForm">
-
-				<div *ngIf="action == 'Edit'">
-<div *ngIf="!hiddenFields.includes('category')">
-
-        <fieldset class="form-group">
-          <label for="EditCategory">Category</label>
-          
-          
-
+				<ng-template [ngIf]="action == 'Edit'">
+					<ng-template [ngIf]="!hiddenFields.includes('category')">
+				<fieldset class="form-group">
+					<label for="EditCategory">Category</label>
+						
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditCategory" 
                     required
-                    
                     maxlength="50"
-                
                     [(ngModel)]="detail['category']" name="EditCategory"
                     #EditCategory="ngModel">
             <div *ngIf="detail['category']"
@@ -34,37 +28,26 @@
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
-
           <div [hidden]="EditCategory.valid || EditCategory.pristine || EditCategory.errors.minlength"
            class="alert alert-danger">
-
             <div *ngIf="EditCategory.errors && EditCategory.errors.required">
               Category is required.
-              </div>
- 
-
+            </div>
             <div *ngIf="EditCategory.errors && EditCategory.errors.maxlength">
                 Category must be at most 50 characters long.
-              </div>
+            </div>
           </div>
-        
-        </fieldset>
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('title')">
-
-        <fieldset class="form-group">
-          <label for="EditTitle">Title</label>
-          
-          
-
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('title')">
+				<fieldset class="form-group">
+					<label for="EditTitle">Title</label>
+						
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditTitle" 
                     required
-                    
                     maxlength="100"
-                
                     [(ngModel)]="detail['title']" name="EditTitle"
                     #EditTitle="ngModel">
             <div *ngIf="detail['title']"
@@ -72,37 +55,25 @@
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
-
           <div [hidden]="EditTitle.valid || EditTitle.pristine || EditTitle.errors.minlength"
            class="alert alert-danger">
-
             <div *ngIf="EditTitle.errors && EditTitle.errors.required">
               Title is required.
-              </div>
- 
-
+            </div>
             <div *ngIf="EditTitle.errors && EditTitle.errors.maxlength">
                 Title must be at most 100 characters long.
-              </div>
+            </div>
           </div>
-        
-        </fieldset>
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('author')">
-
-        <fieldset class="form-group">
-          <label for="EditAuthor">Author</label>
-          
-          
-
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('author')">
+				<fieldset class="form-group">
+					<label for="EditAuthor">Author</label>
+						
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditAuthor" 
-                    
-                    
                     maxlength="50"
-                
                     [(ngModel)]="detail['author']" name="EditAuthor"
                     #EditAuthor="ngModel">
             <div *ngIf="detail['author']"
@@ -110,27 +81,19 @@
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
-
           <div [hidden]="EditAuthor.valid || EditAuthor.pristine || EditAuthor.errors.minlength"
            class="alert alert-danger">
-
- 
-
             <div *ngIf="EditAuthor.errors && EditAuthor.errors.maxlength">
                 Author must be at most 50 characters long.
-              </div>
+            </div>
           </div>
-        
-        </fieldset>
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('content')">
-
-        <fieldset class="form-group">
-          <label for="EditContent">Content</label>
-          
-          
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('content')">
+				<fieldset class="form-group">
+					<label for="EditContent">Content</label>
+						
           <div libMddsRichtext="EditContent" [content]="detail['content']"></div>
           <div class="action-buttons my-3" style="margin-top: 10px;">
             <button type="button" class="btn btn-outline-success" (click)="onEdtiorPreview('EditContent')">Preview</button>
@@ -138,29 +101,20 @@
         
           <div [hidden]="EditContent.valid"
            class="alert alert-danger">
-
             <div *ngIf="EditContent.errors && EditContent.errors.required">
               Content is required.
-              </div>
- 
-
-        
+            </div>        
           </div>
-        </fieldset>
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('signaturePicture')">
-
-        <fieldset class="form-group">
-          <label for="EditSignaturePicture">Signature Picture</label>
-          
-          
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('signaturePicture')">
+				<fieldset class="form-group">
+					<label for="EditSignaturePicture">Signature Picture</label>
+						
           <div class="form-check"
-
                 [ngClass]="{'ng-valid': detail['signaturePicture'],
                             'ng-invalid': !detail['signaturePicture']}"
-              
               >
               <input type="text" class="form-control rounded" id="EditSignaturePicture" style="display: none;"
                   required
@@ -176,31 +130,23 @@
           </div>
           <div [hidden]="EditSignaturePicture.valid || EditSignaturePicture.pristine"
             class="alert alert-danger">
-
               <div *ngIf="EditSignaturePicture.errors && EditSignaturePicture.errors.required">
                SignaturePicture is required.
               </div>
           </div>
-        </fieldset>				
 
-    
-</div>
-
-				</div>
-				<div *ngIf="action == 'Create' || action == 'Add' ">
-<div *ngIf="!hiddenFields.includes('category')">
-
-        <fieldset class="form-group">
-          <label for="EditCategory">Category</label>
-          
-          
-
+				</fieldset>
+					</ng-template>
+				</ng-template>
+				<ng-template [ngIf]="action == 'Create' || action == 'Add' ">
+					<ng-template [ngIf]="!hiddenFields.includes('category')">
+				<fieldset class="form-group">
+					<label for="EditCategory">Category</label>
+						
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditCategory" 
                     required
-                    
                     maxlength="50"
-                
                     [(ngModel)]="detail['category']" name="EditCategory"
                     #EditCategory="ngModel">
             <div *ngIf="detail['category']"
@@ -208,37 +154,26 @@
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
-
           <div [hidden]="EditCategory.valid || EditCategory.pristine || EditCategory.errors.minlength"
            class="alert alert-danger">
-
             <div *ngIf="EditCategory.errors && EditCategory.errors.required">
               Category is required.
-              </div>
- 
-
+            </div>
             <div *ngIf="EditCategory.errors && EditCategory.errors.maxlength">
                 Category must be at most 50 characters long.
-              </div>
+            </div>
           </div>
-        
-        </fieldset>
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('title')">
-
-        <fieldset class="form-group">
-          <label for="EditTitle">Title</label>
-          
-          
-
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('title')">
+				<fieldset class="form-group">
+					<label for="EditTitle">Title</label>
+						
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditTitle" 
                     required
-                    
                     maxlength="100"
-                
                     [(ngModel)]="detail['title']" name="EditTitle"
                     #EditTitle="ngModel">
             <div *ngIf="detail['title']"
@@ -246,37 +181,25 @@
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
-
           <div [hidden]="EditTitle.valid || EditTitle.pristine || EditTitle.errors.minlength"
            class="alert alert-danger">
-
             <div *ngIf="EditTitle.errors && EditTitle.errors.required">
               Title is required.
-              </div>
- 
-
+            </div>
             <div *ngIf="EditTitle.errors && EditTitle.errors.maxlength">
                 Title must be at most 100 characters long.
-              </div>
+            </div>
           </div>
-        
-        </fieldset>
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('author')">
-
-        <fieldset class="form-group">
-          <label for="EditAuthor">Author</label>
-          
-          
-
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('author')">
+				<fieldset class="form-group">
+					<label for="EditAuthor">Author</label>
+						
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditAuthor" 
-                    
-                    
                     maxlength="50"
-                
                     [(ngModel)]="detail['author']" name="EditAuthor"
                     #EditAuthor="ngModel">
             <div *ngIf="detail['author']"
@@ -284,27 +207,19 @@
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
-
           <div [hidden]="EditAuthor.valid || EditAuthor.pristine || EditAuthor.errors.minlength"
            class="alert alert-danger">
-
- 
-
             <div *ngIf="EditAuthor.errors && EditAuthor.errors.maxlength">
                 Author must be at most 50 characters long.
-              </div>
+            </div>
           </div>
-        
-        </fieldset>
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('content')">
-
-        <fieldset class="form-group">
-          <label for="EditContent">Content</label>
-          
-          
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('content')">
+				<fieldset class="form-group">
+					<label for="EditContent">Content</label>
+						
           <div libMddsRichtext="EditContent" [content]="detail['content']"></div>
           <div class="action-buttons my-3" style="margin-top: 10px;">
             <button type="button" class="btn btn-outline-success" (click)="onEdtiorPreview('EditContent')">Preview</button>
@@ -312,29 +227,20 @@
         
           <div [hidden]="EditContent.valid"
            class="alert alert-danger">
-
             <div *ngIf="EditContent.errors && EditContent.errors.required">
               Content is required.
-              </div>
- 
-
-        
+            </div>        
           </div>
-        </fieldset>
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('signaturePicture')">
-
-        <fieldset class="form-group">
-          <label for="EditSignaturePicture">Signature Picture</label>
-          
-          
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('signaturePicture')">
+				<fieldset class="form-group">
+					<label for="EditSignaturePicture">Signature Picture</label>
+						
           <div class="form-check"
-
                 [ngClass]="{'ng-valid': detail['signaturePicture'],
                             'ng-invalid': !detail['signaturePicture']}"
-              
               >
               <input type="text" class="form-control rounded" id="EditSignaturePicture" style="display: none;"
                   required
@@ -350,18 +256,14 @@
           </div>
           <div [hidden]="EditSignaturePicture.valid || EditSignaturePicture.pristine"
             class="alert alert-danger">
-
               <div *ngIf="EditSignaturePicture.errors && EditSignaturePicture.errors.required">
                SignaturePicture is required.
               </div>
           </div>
-        </fieldset>				
 
-    
-</div>
-
-				</div>
-
+				</fieldset>
+					</ng-template>
+				</ng-template>
 				<div class="action-buttons-center my-3">
 					<button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
 					<button class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>

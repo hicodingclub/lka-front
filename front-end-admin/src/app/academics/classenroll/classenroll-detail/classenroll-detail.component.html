@@ -24,7 +24,6 @@
                             </div>
                         </ng-template>
                     </div>
-
             </div>
           </h5>
         </div>
@@ -36,46 +35,40 @@
                 <div class="ml-3">
                	  <a routerLink="."  (click)="onDisplayRefClicked('class', detail['class'], $event)">
 	            	{{detail['class']?detail['class']['value']:""}}
-	              </a>
-</div>
+	              </a></div>
             </div>
           </div>
           <div>
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
                 <div><label>Status:</label></div>
                 <div class="ml-3">
-                    {{detail['status']}}
-</div>
+                    {{detail['status']}}</div>
             </div>
           </div>
           <div>
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
                 <div><label>Notes:</label></div>
                 <div class="ml-3">
-                    <div [innerHTML]="detail['notes']"></div>
-</div>
+                    <div [innerHTML]="detail['notes']"></div></div>
             </div>
           </div>
           <div>
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
                 <div><label>Created At:</label></div>
-                <div class="ml-3">  {{detail['createdAt']?detail['createdAt']['value']:""}}
-</div>
+                <div class="ml-3">  {{detail['createdAt']?detail['createdAt']['value']:""}}</div>
             </div>
           </div>
           <div>
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
                 <div><label>Updated At:</label></div>
-                <div class="ml-3">  {{detail['updatedAt']?detail['updatedAt']['value']:""}}
-</div>
+                <div class="ml-3">  {{detail['updatedAt']?detail['updatedAt']['value']:""}}</div>
             </div>
           </div>
           <div>
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
                 <div><label>Muser Id:</label></div>
                 <div class="ml-3">
-                    {{detail['muser_id']}}
-</div>
+                    {{detail['muser_id']}}</div>
             </div>
           </div>
       </div>

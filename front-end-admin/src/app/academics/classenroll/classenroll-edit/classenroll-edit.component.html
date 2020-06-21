@@ -12,15 +12,11 @@
 				{{options['subtitle']}}
 			</p>
 			<form (ngSubmit)="onSubmit()" #editForm="ngForm">
-
-				<div *ngIf="action == 'Edit'">
-<div *ngIf="!hiddenFields.includes('student')">
-
-        <fieldset class="form-group">
-          <label for="EditStudent">Student</label>
-          
-          
-
+				<ng-template [ngIf]="action == 'Edit'">
+					<ng-template [ngIf]="!hiddenFields.includes('student')">
+				<fieldset class="form-group">
+					<label for="EditStudent">Student</label>
+						
           <div class="form-check"
             ngModelGroup="EditStudent"
             directiveAcademicsArrayRequired
@@ -46,31 +42,26 @@
                 [(ngModel)]="detail['student']['selection'].length" 
                 #EditStudentSelection="ngModel">
           </div>
-
           <div [hidden]="EditStudent.valid || EditStudent.pristine"
            class="alert alert-danger">
-
             <div *ngIf="EditStudent.errors && EditStudent.errors.required">
               Student is required.
-              </div>
+            </div>
           </div>
-        </fieldset>
-    
-</div>
-<div *ngIf="!hiddenFields.includes('class')">
 
-        <fieldset class="form-group">
-          <label for="EditClass">Class </label>
-          
-          
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('class')">
+				<fieldset class="form-group">
+					<label for="EditClass">Class</label>
+						
           <!-- <a class="icon-search" [routerLink]="['.']" (click)="onRefSelect('class')"><i class="fas fa-list" title="Search"></i></a>  -->
           <div class="input-group">
             <!--  [attr.disabled]="true" -->
               <input class="form-control rounded" id="EditClass" 
                   [ngClass]="{'pointer ref-badge': detail['class']['_id']}"
                   (focus)="onRefSelect('class')"
-                    required
-                 
+                  required 
                   [ngModel]="detail['class']['value']" name="EditClass"
                   #EditClass="ngModel"> 
               <div *ngIf="detail['class']['value']" 
@@ -80,35 +71,26 @@
           </div>
           <div [hidden]="EditClass.valid || EditClass.pristine"
                class="alert alert-danger">
-
             <div *ngIf="EditClass.errors && EditClass.errors.required && !(detail['class']?.date)">
               Class is required.
-              </div>
- 
+            </div> 
           </div>
-        </fieldset>
-    
-</div>
-<div *ngIf="!hiddenFields.includes('status')">
 
-        <fieldset class="form-group">
-          <label for="EditStatus">Status</label>
-          
-          
-
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('status')">
+				<fieldset class="form-group">
+					<label for="EditStatus">Status</label>
+						
           <div class="form-check"
-
               [ngClass]="{'ng-valid': enums['status'].includes(detail['status']),
                           'ng-invalid': !enums['status'].includes(detail['status'])}"
-            
             >
-
             <div class="form-check-inline">
               <input type="radio" name="EditStatus"
                 class="form-check-input"
                 required
                 id="EditStatusprocessing" [value]="'processing'"
-                
                 [(ngModel)]="detail['status']"
                 #EditStatus="ngModel">
               <label class="form-check-label">processing</label>
@@ -119,7 +101,6 @@
                 class="form-check-input"
                 required
                 id="EditStatuspaid" [value]="'paid'"
-                
                 [(ngModel)]="detail['status']"
                 #EditStatus="ngModel">
               <label class="form-check-label">paid</label>
@@ -130,7 +111,6 @@
                 class="form-check-input"
                 required
                 id="EditStatusconfirmed" [value]="'confirmed'"
-                
                 [(ngModel)]="detail['status']"
                 #EditStatus="ngModel">
               <label class="form-check-label">confirmed</label>
@@ -141,70 +121,47 @@
                 class="form-check-input"
                 required
                 id="EditStatuscancelled" [value]="'cancelled'"
-                
                 [(ngModel)]="detail['status']"
                 #EditStatus="ngModel">
               <label class="form-check-label">cancelled</label>
             </div>
 
           </div>
-
           <div [hidden]="EditStatus.valid || EditStatus.pristine || EditStatus.errors.minlength"
            class="alert alert-danger">
-
             <div *ngIf="EditStatus.errors && EditStatus.errors.required">
               Status is required.
-              </div>
- 
-
+            </div>
           </div>
-        
-        </fieldset>
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('notes')">
-
-        <fieldset class="form-group">
-          <label for="EditNotes">Notes</label>
-          
-          
-
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('notes')">
+				<fieldset class="form-group">
+					<label for="EditNotes">Notes</label>
+						
           <div class="input-group">
             <textarea rows="8" class="form-control rounded" id="EditNotes"
-                    
-                    
-                    
-                
                     [(ngModel)]="detail['notes']" name="EditNotes"
-                    #EditNotes="ngModel"></textarea>
+                    #EditNotes="ngModel">
+            </textarea>
             <div *ngIf="detail['notes']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('notes')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
-
           <div [hidden]="EditNotes.valid || EditNotes.pristine || EditNotes.errors.minlength"
            class="alert alert-danger">
-
- 
-
           </div>
-        
-        </fieldset>
 
-    
-</div>
-
-				</div>
-				<div *ngIf="action == 'Create' || action == 'Add' ">
-<div *ngIf="!hiddenFields.includes('student')">
-
-        <fieldset class="form-group">
-          <label for="EditStudent">Student</label>
-          
-          
-
+				</fieldset>
+					</ng-template>
+				</ng-template>
+				<ng-template [ngIf]="action == 'Create' || action == 'Add' ">
+					<ng-template [ngIf]="!hiddenFields.includes('student')">
+				<fieldset class="form-group">
+					<label for="EditStudent">Student</label>
+						
           <div class="form-check"
             ngModelGroup="EditStudent"
             directiveAcademicsArrayRequired
@@ -230,31 +187,26 @@
                 [(ngModel)]="detail['student']['selection'].length" 
                 #EditStudentSelection="ngModel">
           </div>
-
           <div [hidden]="EditStudent.valid || EditStudent.pristine"
            class="alert alert-danger">
-
             <div *ngIf="EditStudent.errors && EditStudent.errors.required">
               Student is required.
-              </div>
+            </div>
           </div>
-        </fieldset>
-    
-</div>
-<div *ngIf="!hiddenFields.includes('class')">
 
-        <fieldset class="form-group">
-          <label for="EditClass">Class </label>
-          
-          
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('class')">
+				<fieldset class="form-group">
+					<label for="EditClass">Class</label>
+						
           <!-- <a class="icon-search" [routerLink]="['.']" (click)="onRefSelect('class')"><i class="fas fa-list" title="Search"></i></a>  -->
           <div class="input-group">
             <!--  [attr.disabled]="true" -->
               <input class="form-control rounded" id="EditClass" 
                   [ngClass]="{'pointer ref-badge': detail['class']['_id']}"
                   (focus)="onRefSelect('class')"
-                    required
-                 
+                  required 
                   [ngModel]="detail['class']['value']" name="EditClass"
                   #EditClass="ngModel"> 
               <div *ngIf="detail['class']['value']" 
@@ -264,50 +216,34 @@
           </div>
           <div [hidden]="EditClass.valid || EditClass.pristine"
                class="alert alert-danger">
-
             <div *ngIf="EditClass.errors && EditClass.errors.required && !(detail['class']?.date)">
               Class is required.
-              </div>
- 
+            </div> 
           </div>
-        </fieldset>
-    
-</div>
-<div *ngIf="!hiddenFields.includes('notes')">
 
-        <fieldset class="form-group">
-          <label for="EditNotes">Notes</label>
-          
-          
-
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('notes')">
+				<fieldset class="form-group">
+					<label for="EditNotes">Notes</label>
+						
           <div class="input-group">
             <textarea rows="8" class="form-control rounded" id="EditNotes"
-                    
-                    
-                    
-                
                     [(ngModel)]="detail['notes']" name="EditNotes"
-                    #EditNotes="ngModel"></textarea>
+                    #EditNotes="ngModel">
+            </textarea>
             <div *ngIf="detail['notes']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('notes')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
-
           <div [hidden]="EditNotes.valid || EditNotes.pristine || EditNotes.errors.minlength"
            class="alert alert-danger">
-
- 
-
           </div>
-        
-        </fieldset>
 
-    
-</div>
-
-				</div>
-
+				</fieldset>
+					</ng-template>
+				</ng-template>
 				<div class="action-buttons-center my-3">
 					<button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
 					<button class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>

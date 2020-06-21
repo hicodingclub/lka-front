@@ -12,21 +12,14 @@
 				{{options['subtitle']}}
 			</p>
 			<form (ngSubmit)="onSubmit()" #editForm="ngForm">
-
-				<div *ngIf="action == 'Edit'">
-<div *ngIf="!hiddenFields.includes('title')">
-
-        <fieldset class="form-group">
-          <label for="EditTitle">Title</label>
-          
-          
-
+				<ng-template [ngIf]="action == 'Edit'">
+					<ng-template [ngIf]="!hiddenFields.includes('title')">
+				<fieldset class="form-group">
+					<label for="EditTitle">Title</label>
+						
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditTitle" 
                     required
-                    
-                    
-                
                     [(ngModel)]="detail['title']" name="EditTitle"
                     #EditTitle="ngModel">
             <div *ngIf="detail['title']"
@@ -34,35 +27,26 @@
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
-
           <div [hidden]="EditTitle.valid || EditTitle.pristine || EditTitle.errors.minlength"
            class="alert alert-danger">
-
             <div *ngIf="EditTitle.errors && EditTitle.errors.required">
               Title is required.
-              </div>
- 
-
+            </div>
           </div>
-        
-        </fieldset>
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('course')">
-
-        <fieldset class="form-group">
-          <label for="EditCourse">Program </label>
-          
-          
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('course')">
+				<fieldset class="form-group">
+					<label for="EditCourse">Program</label>
+						
           <!-- <a class="icon-search" [routerLink]="['.']" (click)="onRefSelect('course')"><i class="fas fa-list" title="Search"></i></a>  -->
           <div class="input-group">
             <!--  [attr.disabled]="true" -->
               <input class="form-control rounded" id="EditCourse" 
                   [ngClass]="{'pointer ref-badge': detail['course']['_id']}"
                   (focus)="onRefSelect('course')"
-                    required
-                 
+                  required 
                   [ngModel]="detail['course']['value']" name="EditCourse"
                   #EditCourse="ngModel"> 
               <div *ngIf="detail['course']['value']" 
@@ -72,21 +56,17 @@
           </div>
           <div [hidden]="EditCourse.valid || EditCourse.pristine"
                class="alert alert-danger">
-
             <div *ngIf="EditCourse.errors && EditCourse.errors.required && !(detail['course']?.date)">
               Course is required.
-              </div>
- 
+            </div> 
           </div>
-        </fieldset>
-    
-</div>
-<div *ngIf="!hiddenFields.includes('description')">
 
-        <fieldset class="form-group">
-          <label for="EditDescription">Description</label>
-          
-          
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('description')">
+				<fieldset class="form-group">
+					<label for="EditDescription">Description</label>
+						
           <div libMddsRichtext="EditDescription" [content]="detail['description']"></div>
           <div class="action-buttons my-3" style="margin-top: 10px;">
             <button type="button" class="btn btn-outline-success" (click)="onEdtiorPreview('EditDescription')">Preview</button>
@@ -94,32 +74,24 @@
         
           <div [hidden]="EditDescription.valid"
            class="alert alert-danger">
-
             <div *ngIf="EditDescription.errors && EditDescription.errors.required">
               Description is required.
-              </div>
- 
-
-        
+            </div>        
           </div>
-        </fieldset>
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('teacher')">
-
-        <fieldset class="form-group">
-          <label for="EditTeacher">Instructor </label>
-          
-          
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('teacher')">
+				<fieldset class="form-group">
+					<label for="EditTeacher">Instructor</label>
+						
           <!-- <a class="icon-search" [routerLink]="['.']" (click)="onRefSelect('teacher')"><i class="fas fa-list" title="Search"></i></a>  -->
           <div class="input-group">
             <!--  [attr.disabled]="true" -->
               <input class="form-control rounded" id="EditTeacher" 
                   [ngClass]="{'pointer ref-badge': detail['teacher']['_id']}"
                   (focus)="onRefSelect('teacher')"
-                    required
-                 
+                  required 
                   [ngModel]="detail['teacher']['value']" name="EditTeacher"
                   #EditTeacher="ngModel"> 
               <div *ngIf="detail['teacher']['value']" 
@@ -129,28 +101,20 @@
           </div>
           <div [hidden]="EditTeacher.valid || EditTeacher.pristine"
                class="alert alert-danger">
-
             <div *ngIf="EditTeacher.errors && EditTeacher.errors.required && !(detail['teacher']?.date)">
               Teacher is required.
-              </div>
- 
+            </div> 
           </div>
-        </fieldset>
-    
-</div>
-<div *ngIf="!hiddenFields.includes('price')">
 
-        <fieldset class="form-group">
-          <label for="EditPrice">Price</label>
-          
-          
-
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('price')">
+				<fieldset class="form-group">
+					<label for="EditPrice">Price</label>
+						
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditPrice" 
                     required
-                    
-                    
-                
                     [(ngModel)]="detail['price']" name="EditPrice"
                     #EditPrice="ngModel">
             <div *ngIf="detail['price']"
@@ -158,34 +122,22 @@
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
-
           <div [hidden]="EditPrice.valid || EditPrice.pristine || EditPrice.errors.minlength"
            class="alert alert-danger">
-
             <div *ngIf="EditPrice.errors && EditPrice.errors.required">
               Price is required.
-              </div>
- 
-
+            </div>
           </div>
-        
-        </fieldset>
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('season')">
-
-        <fieldset class="form-group">
-          <label for="EditSeason">Season</label>
-          
-          
-
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('season')">
+				<fieldset class="form-group">
+					<label for="EditSeason">Season</label>
+						
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditSeason" 
-                    
-                    
                     maxlength="50"
-                
                     [(ngModel)]="detail['season']" name="EditSeason"
                     #EditSeason="ngModel">
             <div *ngIf="detail['season']"
@@ -193,31 +145,33 @@
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
-
           <div [hidden]="EditSeason.valid || EditSeason.pristine || EditSeason.errors.minlength"
            class="alert alert-danger">
-
- 
-
             <div *ngIf="EditSeason.errors && EditSeason.errors.maxlength">
                 Season must be at most 50 characters long.
-              </div>
+            </div>
           </div>
-        
-        </fieldset>
+          <div class="new-area">
+              <div *ngIf="editHintFields['season'].length > 0" style="font-size: 0.9rem;">Type in new value or select from available ones: </div>
+              <ng-template ngFor let-hintEle [ngForOf]="editHintFields['season']" let-i="index">
+                <div class="badge badge-pill badge-primary pointer"
+                  *ngIf="detail['season'] !== hintEle['_id']" 
+                  (click)="detail['season'] = hintEle['_id']">
+                    {{hintEle['_id']}}
+                </div>
+              </ng-template>
+          </div>
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('startTime')">
-
-        <fieldset class="form-group">
-          <label for="EditStartTime">Start Time </label> <span> ({{dateFormat}})</span>
-          
-          
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('startTime')">
+				<fieldset class="form-group">
+					<label for="EditStartTime">Start Time</label>
+						
+          <span> ({{dateFormat}})</span>
           <div class="input-group">
             <input class="form-control" id="EditStartTime" placeholder="{{dateFormat}}"
-                    required
-                 
+                  required 
                   [(ngModel)]="detail['startTime']['date']" name="EditStartTime"
                   ngbDatepicker [minDate]="minDate" #EditStartTimeDate="ngbDatepicker" #EditStartTime="ngModel">
             <div class="input-group-append">
@@ -228,11 +182,9 @@
           </div><!-- input group -->         
           <div [hidden]="EditStartTime.valid || EditStartTime.pristine || (EditStartTime.errors && EditStartTime.errors.ngbDate)"
                class="alert alert-danger">
-
             <div *ngIf="EditStartTime.errors && EditStartTime.errors.required && !(detail['startTime']?.date)">
               StartTime is required.
-              </div>
- 
+            </div> 
           </div>
           <div [hidden]="EditStartTime.valid || EditStartTime.untouched || !(EditStartTime.errors && EditStartTime.errors.ngbDate)"
            class="alert alert-danger">
@@ -240,19 +192,17 @@
               StartTime must be in {{dateFormat}} format.
               </div>
           </div>
-        </fieldset>
-    
-</div>
-<div *ngIf="!hiddenFields.includes('endTime')">
 
-        <fieldset class="form-group">
-          <label for="EditEndTime">End Time </label> <span> ({{dateFormat}})</span>
-          
-          
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('endTime')">
+				<fieldset class="form-group">
+					<label for="EditEndTime">End Time</label>
+						
+          <span> ({{dateFormat}})</span>
           <div class="input-group">
             <input class="form-control" id="EditEndTime" placeholder="{{dateFormat}}"
-                    required
-                 
+                  required 
                   [(ngModel)]="detail['endTime']['date']" name="EditEndTime"
                   ngbDatepicker [minDate]="minDate" #EditEndTimeDate="ngbDatepicker" #EditEndTime="ngModel">
             <div class="input-group-append">
@@ -263,11 +213,9 @@
           </div><!-- input group -->         
           <div [hidden]="EditEndTime.valid || EditEndTime.pristine || (EditEndTime.errors && EditEndTime.errors.ngbDate)"
                class="alert alert-danger">
-
             <div *ngIf="EditEndTime.errors && EditEndTime.errors.required && !(detail['endTime']?.date)">
               EndTime is required.
-              </div>
- 
+            </div> 
           </div>
           <div [hidden]="EditEndTime.valid || EditEndTime.untouched || !(EditEndTime.errors && EditEndTime.errors.ngbDate)"
            class="alert alert-danger">
@@ -275,22 +223,15 @@
               EndTime must be in {{dateFormat}} format.
               </div>
           </div>
-        </fieldset>
-    
-</div>
-<div *ngIf="!hiddenFields.includes('duration')">
 
-        <fieldset class="form-group">
-          <label for="EditDuration">Duration</label>
-          
-          
-
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('duration')">
+				<fieldset class="form-group">
+					<label for="EditDuration">Duration</label>
+						
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditDuration" 
-                    
-                    
-                    
-                
                     [(ngModel)]="detail['duration']" name="EditDuration"
                     #EditDuration="ngModel">
             <div *ngIf="detail['duration']"
@@ -298,31 +239,20 @@
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
-
           <div [hidden]="EditDuration.valid || EditDuration.pristine || EditDuration.errors.minlength"
            class="alert alert-danger">
-
- 
-
           </div>
-        
-        </fieldset>
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('dayOfWeek')">
-
-        <fieldset class="form-group">
-          <label for="EditDayOfWeek">Day of Week</label>
-          
-          
-
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('dayOfWeek')">
+				<fieldset class="form-group">
+					<label for="EditDayOfWeek">Day of Week</label>
+						
           <div class="form-check"
                 ngModelGroup="EditDayOfWeek"
-                
                 #EditDayOfWeek="ngModelGroup" 
             >
-
             <div class="form-check-inline">
               <input type="checkbox" name="EditDayOfWeekMon" 
                 class="form-check-input"
@@ -331,7 +261,6 @@
                 #EditDayOfWeekMon="ngModel">
               <label class="form-check-label">Mon</label>
             </div>
-
             <div class="form-check-inline">
               <input type="checkbox" name="EditDayOfWeekTue" 
                 class="form-check-input"
@@ -340,7 +269,6 @@
                 #EditDayOfWeekTue="ngModel">
               <label class="form-check-label">Tue</label>
             </div>
-
             <div class="form-check-inline">
               <input type="checkbox" name="EditDayOfWeekWed" 
                 class="form-check-input"
@@ -349,7 +277,6 @@
                 #EditDayOfWeekWed="ngModel">
               <label class="form-check-label">Wed</label>
             </div>
-
             <div class="form-check-inline">
               <input type="checkbox" name="EditDayOfWeekThu" 
                 class="form-check-input"
@@ -358,7 +285,6 @@
                 #EditDayOfWeekThu="ngModel">
               <label class="form-check-label">Thu</label>
             </div>
-
             <div class="form-check-inline">
               <input type="checkbox" name="EditDayOfWeekFri" 
                 class="form-check-input"
@@ -367,7 +293,6 @@
                 #EditDayOfWeekFri="ngModel">
               <label class="form-check-label">Fri</label>
             </div>
-
             <div class="form-check-inline">
               <input type="checkbox" name="EditDayOfWeekSat" 
                 class="form-check-input"
@@ -376,7 +301,6 @@
                 #EditDayOfWeekSat="ngModel">
               <label class="form-check-label">Sat</label>
             </div>
-
             <div class="form-check-inline">
               <input type="checkbox" name="EditDayOfWeekSun" 
                 class="form-check-input"
@@ -385,33 +309,23 @@
                 #EditDayOfWeekSun="ngModel">
               <label class="form-check-label">Sun</label>
             </div>
-
             <span *ngIf="multiselectionSelected('dayOfWeek')" 
               class="icon-clear" (click)="clearValueFromDetail('dayOfWeek')">
               <i class="fas fa-times-circle" title="Clear"></i>
             </span>
           </div>
-
           <div [hidden]="EditDayOfWeek.valid || EditDayOfWeek.pristine"
            class="alert alert-danger">
-
           </div>
-        </fieldset>
-    
-</div>
-<div *ngIf="!hiddenFields.includes('timeSlot')">
 
-        <fieldset class="form-group">
-          <label for="EditTimeSlot">Time Slot</label>
-          
-          
-
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('timeSlot')">
+				<fieldset class="form-group">
+					<label for="EditTimeSlot">Time Slot</label>
+						
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditTimeSlot" 
-                    
-                    
-                    
-                
                     [(ngModel)]="detail['timeSlot']" name="EditTimeSlot"
                     #EditTimeSlot="ngModel">
             <div *ngIf="detail['timeSlot']"
@@ -419,34 +333,23 @@
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
-
           <div [hidden]="EditTimeSlot.valid || EditTimeSlot.pristine || EditTimeSlot.errors.minlength"
            class="alert alert-danger">
-
- 
-
           </div>
-        
-        </fieldset>
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('hot')">
-
-        <fieldset class="form-group">
-          <label for="EditHot">Hot</label>
-          
-          
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('hot')">
+				<fieldset class="form-group">
+					<label for="EditHot">Hot</label>
+						
           <div class="form-check"
-
               [ngClass]="{'ng-valid': true} "
             >
             <div class="form-check-inline">
               <input type="radio" name="EditHot" 
                 class="form-check-input"
                 id="EditHotYes" [value]="true" 
-                
-                 
                 [(ngModel)]="detail['hot']"
                 #EditHot="ngModel">
               <label class="form-check-label">Yes</label>
@@ -454,9 +357,7 @@
             <div class="form-check-inline">
               <input type="radio" name="EditHot" 
                 class="form-check-input"
-                id="EditHotNo" [value]="false"
-                
-                 
+                id="EditHotNo" [value]="false" 
                 [(ngModel)]="detail['hot']"
                 #EditHot="ngModel">
               <label class="form-check-label">No</label>
@@ -467,26 +368,22 @@
             </div> 
           </div>
           <div [hidden]="EditHot.valid || EditHot.pristine"
-           class="alert alert-danger">
- 
+           class="alert alert-danger"> 
           </div>
-        </fieldset>
-    
-</div>
-<div *ngIf="!hiddenFields.includes('enrollTerm')">
 
-        <fieldset class="form-group">
-          <label for="EditEnrollTerm">Enroll Term </label>
-          
-          
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('enrollTerm')">
+				<fieldset class="form-group">
+					<label for="EditEnrollTerm">Enroll Term</label>
+						
           <!-- <a class="icon-search" [routerLink]="['.']" (click)="onRefSelect('enrollTerm')"><i class="fas fa-list" title="Search"></i></a>  -->
           <div class="input-group">
             <!--  [attr.disabled]="true" -->
               <input class="form-control rounded" id="EditEnrollTerm" 
                   [ngClass]="{'pointer ref-badge': detail['enrollTerm']['_id']}"
                   (focus)="onRefSelect('enrollTerm')"
-                    required
-                 
+                  required 
                   [ngModel]="detail['enrollTerm']['value']" name="EditEnrollTerm"
                   #EditEnrollTerm="ngModel"> 
               <div *ngIf="detail['enrollTerm']['value']" 
@@ -496,31 +393,22 @@
           </div>
           <div [hidden]="EditEnrollTerm.valid || EditEnrollTerm.pristine"
                class="alert alert-danger">
-
             <div *ngIf="EditEnrollTerm.errors && EditEnrollTerm.errors.required && !(detail['enrollTerm']?.date)">
               EnrollTerm is required.
-              </div>
- 
+            </div> 
           </div>
-        </fieldset>
-    
-</div>
 
-				</div>
-				<div *ngIf="action == 'Create' || action == 'Add' ">
-<div *ngIf="!hiddenFields.includes('title')">
-
-        <fieldset class="form-group">
-          <label for="EditTitle">Title</label>
-          
-          
-
+				</fieldset>
+					</ng-template>
+				</ng-template>
+				<ng-template [ngIf]="action == 'Create' || action == 'Add' ">
+					<ng-template [ngIf]="!hiddenFields.includes('title')">
+				<fieldset class="form-group">
+					<label for="EditTitle">Title</label>
+						
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditTitle" 
                     required
-                    
-                    
-                
                     [(ngModel)]="detail['title']" name="EditTitle"
                     #EditTitle="ngModel">
             <div *ngIf="detail['title']"
@@ -528,35 +416,26 @@
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
-
           <div [hidden]="EditTitle.valid || EditTitle.pristine || EditTitle.errors.minlength"
            class="alert alert-danger">
-
             <div *ngIf="EditTitle.errors && EditTitle.errors.required">
               Title is required.
-              </div>
- 
-
+            </div>
           </div>
-        
-        </fieldset>
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('course')">
-
-        <fieldset class="form-group">
-          <label for="EditCourse">Program </label>
-          
-          
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('course')">
+				<fieldset class="form-group">
+					<label for="EditCourse">Program</label>
+						
           <!-- <a class="icon-search" [routerLink]="['.']" (click)="onRefSelect('course')"><i class="fas fa-list" title="Search"></i></a>  -->
           <div class="input-group">
             <!--  [attr.disabled]="true" -->
               <input class="form-control rounded" id="EditCourse" 
                   [ngClass]="{'pointer ref-badge': detail['course']['_id']}"
                   (focus)="onRefSelect('course')"
-                    required
-                 
+                  required 
                   [ngModel]="detail['course']['value']" name="EditCourse"
                   #EditCourse="ngModel"> 
               <div *ngIf="detail['course']['value']" 
@@ -566,21 +445,17 @@
           </div>
           <div [hidden]="EditCourse.valid || EditCourse.pristine"
                class="alert alert-danger">
-
             <div *ngIf="EditCourse.errors && EditCourse.errors.required && !(detail['course']?.date)">
               Course is required.
-              </div>
- 
+            </div> 
           </div>
-        </fieldset>
-    
-</div>
-<div *ngIf="!hiddenFields.includes('description')">
 
-        <fieldset class="form-group">
-          <label for="EditDescription">Description</label>
-          
-          
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('description')">
+				<fieldset class="form-group">
+					<label for="EditDescription">Description</label>
+						
           <div libMddsRichtext="EditDescription" [content]="detail['description']"></div>
           <div class="action-buttons my-3" style="margin-top: 10px;">
             <button type="button" class="btn btn-outline-success" (click)="onEdtiorPreview('EditDescription')">Preview</button>
@@ -588,32 +463,24 @@
         
           <div [hidden]="EditDescription.valid"
            class="alert alert-danger">
-
             <div *ngIf="EditDescription.errors && EditDescription.errors.required">
               Description is required.
-              </div>
- 
-
-        
+            </div>        
           </div>
-        </fieldset>
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('teacher')">
-
-        <fieldset class="form-group">
-          <label for="EditTeacher">Instructor </label>
-          
-          
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('teacher')">
+				<fieldset class="form-group">
+					<label for="EditTeacher">Instructor</label>
+						
           <!-- <a class="icon-search" [routerLink]="['.']" (click)="onRefSelect('teacher')"><i class="fas fa-list" title="Search"></i></a>  -->
           <div class="input-group">
             <!--  [attr.disabled]="true" -->
               <input class="form-control rounded" id="EditTeacher" 
                   [ngClass]="{'pointer ref-badge': detail['teacher']['_id']}"
                   (focus)="onRefSelect('teacher')"
-                    required
-                 
+                  required 
                   [ngModel]="detail['teacher']['value']" name="EditTeacher"
                   #EditTeacher="ngModel"> 
               <div *ngIf="detail['teacher']['value']" 
@@ -623,28 +490,20 @@
           </div>
           <div [hidden]="EditTeacher.valid || EditTeacher.pristine"
                class="alert alert-danger">
-
             <div *ngIf="EditTeacher.errors && EditTeacher.errors.required && !(detail['teacher']?.date)">
               Teacher is required.
-              </div>
- 
+            </div> 
           </div>
-        </fieldset>
-    
-</div>
-<div *ngIf="!hiddenFields.includes('price')">
 
-        <fieldset class="form-group">
-          <label for="EditPrice">Price</label>
-          
-          
-
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('price')">
+				<fieldset class="form-group">
+					<label for="EditPrice">Price</label>
+						
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditPrice" 
                     required
-                    
-                    
-                
                     [(ngModel)]="detail['price']" name="EditPrice"
                     #EditPrice="ngModel">
             <div *ngIf="detail['price']"
@@ -652,34 +511,22 @@
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
-
           <div [hidden]="EditPrice.valid || EditPrice.pristine || EditPrice.errors.minlength"
            class="alert alert-danger">
-
             <div *ngIf="EditPrice.errors && EditPrice.errors.required">
               Price is required.
-              </div>
- 
-
+            </div>
           </div>
-        
-        </fieldset>
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('season')">
-
-        <fieldset class="form-group">
-          <label for="EditSeason">Season</label>
-          
-          
-
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('season')">
+				<fieldset class="form-group">
+					<label for="EditSeason">Season</label>
+						
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditSeason" 
-                    
-                    
                     maxlength="50"
-                
                     [(ngModel)]="detail['season']" name="EditSeason"
                     #EditSeason="ngModel">
             <div *ngIf="detail['season']"
@@ -687,31 +534,33 @@
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
-
           <div [hidden]="EditSeason.valid || EditSeason.pristine || EditSeason.errors.minlength"
            class="alert alert-danger">
-
- 
-
             <div *ngIf="EditSeason.errors && EditSeason.errors.maxlength">
                 Season must be at most 50 characters long.
-              </div>
+            </div>
           </div>
-        
-        </fieldset>
+          <div class="new-area">
+              <div *ngIf="editHintFields['season'].length > 0" style="font-size: 0.9rem;">Type in new value or select from available ones: </div>
+              <ng-template ngFor let-hintEle [ngForOf]="editHintFields['season']" let-i="index">
+                <div class="badge badge-pill badge-primary pointer"
+                  *ngIf="detail['season'] !== hintEle['_id']" 
+                  (click)="detail['season'] = hintEle['_id']">
+                    {{hintEle['_id']}}
+                </div>
+              </ng-template>
+          </div>
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('startTime')">
-
-        <fieldset class="form-group">
-          <label for="EditStartTime">Start Time </label> <span> ({{dateFormat}})</span>
-          
-          
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('startTime')">
+				<fieldset class="form-group">
+					<label for="EditStartTime">Start Time</label>
+						
+          <span> ({{dateFormat}})</span>
           <div class="input-group">
             <input class="form-control" id="EditStartTime" placeholder="{{dateFormat}}"
-                    required
-                 
+                  required 
                   [(ngModel)]="detail['startTime']['date']" name="EditStartTime"
                   ngbDatepicker [minDate]="minDate" #EditStartTimeDate="ngbDatepicker" #EditStartTime="ngModel">
             <div class="input-group-append">
@@ -722,11 +571,9 @@
           </div><!-- input group -->         
           <div [hidden]="EditStartTime.valid || EditStartTime.pristine || (EditStartTime.errors && EditStartTime.errors.ngbDate)"
                class="alert alert-danger">
-
             <div *ngIf="EditStartTime.errors && EditStartTime.errors.required && !(detail['startTime']?.date)">
               StartTime is required.
-              </div>
- 
+            </div> 
           </div>
           <div [hidden]="EditStartTime.valid || EditStartTime.untouched || !(EditStartTime.errors && EditStartTime.errors.ngbDate)"
            class="alert alert-danger">
@@ -734,19 +581,17 @@
               StartTime must be in {{dateFormat}} format.
               </div>
           </div>
-        </fieldset>
-    
-</div>
-<div *ngIf="!hiddenFields.includes('endTime')">
 
-        <fieldset class="form-group">
-          <label for="EditEndTime">End Time </label> <span> ({{dateFormat}})</span>
-          
-          
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('endTime')">
+				<fieldset class="form-group">
+					<label for="EditEndTime">End Time</label>
+						
+          <span> ({{dateFormat}})</span>
           <div class="input-group">
             <input class="form-control" id="EditEndTime" placeholder="{{dateFormat}}"
-                    required
-                 
+                  required 
                   [(ngModel)]="detail['endTime']['date']" name="EditEndTime"
                   ngbDatepicker [minDate]="minDate" #EditEndTimeDate="ngbDatepicker" #EditEndTime="ngModel">
             <div class="input-group-append">
@@ -757,11 +602,9 @@
           </div><!-- input group -->         
           <div [hidden]="EditEndTime.valid || EditEndTime.pristine || (EditEndTime.errors && EditEndTime.errors.ngbDate)"
                class="alert alert-danger">
-
             <div *ngIf="EditEndTime.errors && EditEndTime.errors.required && !(detail['endTime']?.date)">
               EndTime is required.
-              </div>
- 
+            </div> 
           </div>
           <div [hidden]="EditEndTime.valid || EditEndTime.untouched || !(EditEndTime.errors && EditEndTime.errors.ngbDate)"
            class="alert alert-danger">
@@ -769,22 +612,15 @@
               EndTime must be in {{dateFormat}} format.
               </div>
           </div>
-        </fieldset>
-    
-</div>
-<div *ngIf="!hiddenFields.includes('duration')">
 
-        <fieldset class="form-group">
-          <label for="EditDuration">Duration</label>
-          
-          
-
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('duration')">
+				<fieldset class="form-group">
+					<label for="EditDuration">Duration</label>
+						
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditDuration" 
-                    
-                    
-                    
-                
                     [(ngModel)]="detail['duration']" name="EditDuration"
                     #EditDuration="ngModel">
             <div *ngIf="detail['duration']"
@@ -792,31 +628,20 @@
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
-
           <div [hidden]="EditDuration.valid || EditDuration.pristine || EditDuration.errors.minlength"
            class="alert alert-danger">
-
- 
-
           </div>
-        
-        </fieldset>
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('dayOfWeek')">
-
-        <fieldset class="form-group">
-          <label for="EditDayOfWeek">Day of Week</label>
-          
-          
-
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('dayOfWeek')">
+				<fieldset class="form-group">
+					<label for="EditDayOfWeek">Day of Week</label>
+						
           <div class="form-check"
                 ngModelGroup="EditDayOfWeek"
-                
                 #EditDayOfWeek="ngModelGroup" 
             >
-
             <div class="form-check-inline">
               <input type="checkbox" name="EditDayOfWeekMon" 
                 class="form-check-input"
@@ -825,7 +650,6 @@
                 #EditDayOfWeekMon="ngModel">
               <label class="form-check-label">Mon</label>
             </div>
-
             <div class="form-check-inline">
               <input type="checkbox" name="EditDayOfWeekTue" 
                 class="form-check-input"
@@ -834,7 +658,6 @@
                 #EditDayOfWeekTue="ngModel">
               <label class="form-check-label">Tue</label>
             </div>
-
             <div class="form-check-inline">
               <input type="checkbox" name="EditDayOfWeekWed" 
                 class="form-check-input"
@@ -843,7 +666,6 @@
                 #EditDayOfWeekWed="ngModel">
               <label class="form-check-label">Wed</label>
             </div>
-
             <div class="form-check-inline">
               <input type="checkbox" name="EditDayOfWeekThu" 
                 class="form-check-input"
@@ -852,7 +674,6 @@
                 #EditDayOfWeekThu="ngModel">
               <label class="form-check-label">Thu</label>
             </div>
-
             <div class="form-check-inline">
               <input type="checkbox" name="EditDayOfWeekFri" 
                 class="form-check-input"
@@ -861,7 +682,6 @@
                 #EditDayOfWeekFri="ngModel">
               <label class="form-check-label">Fri</label>
             </div>
-
             <div class="form-check-inline">
               <input type="checkbox" name="EditDayOfWeekSat" 
                 class="form-check-input"
@@ -870,7 +690,6 @@
                 #EditDayOfWeekSat="ngModel">
               <label class="form-check-label">Sat</label>
             </div>
-
             <div class="form-check-inline">
               <input type="checkbox" name="EditDayOfWeekSun" 
                 class="form-check-input"
@@ -879,33 +698,23 @@
                 #EditDayOfWeekSun="ngModel">
               <label class="form-check-label">Sun</label>
             </div>
-
             <span *ngIf="multiselectionSelected('dayOfWeek')" 
               class="icon-clear" (click)="clearValueFromDetail('dayOfWeek')">
               <i class="fas fa-times-circle" title="Clear"></i>
             </span>
           </div>
-
           <div [hidden]="EditDayOfWeek.valid || EditDayOfWeek.pristine"
            class="alert alert-danger">
-
           </div>
-        </fieldset>
-    
-</div>
-<div *ngIf="!hiddenFields.includes('timeSlot')">
 
-        <fieldset class="form-group">
-          <label for="EditTimeSlot">Time Slot</label>
-          
-          
-
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('timeSlot')">
+				<fieldset class="form-group">
+					<label for="EditTimeSlot">Time Slot</label>
+						
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditTimeSlot" 
-                    
-                    
-                    
-                
                     [(ngModel)]="detail['timeSlot']" name="EditTimeSlot"
                     #EditTimeSlot="ngModel">
             <div *ngIf="detail['timeSlot']"
@@ -913,34 +722,23 @@
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
-
           <div [hidden]="EditTimeSlot.valid || EditTimeSlot.pristine || EditTimeSlot.errors.minlength"
            class="alert alert-danger">
-
- 
-
           </div>
-        
-        </fieldset>
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('hot')">
-
-        <fieldset class="form-group">
-          <label for="EditHot">Hot</label>
-          
-          
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('hot')">
+				<fieldset class="form-group">
+					<label for="EditHot">Hot</label>
+						
           <div class="form-check"
-
               [ngClass]="{'ng-valid': true} "
             >
             <div class="form-check-inline">
               <input type="radio" name="EditHot" 
                 class="form-check-input"
                 id="EditHotYes" [value]="true" 
-                
-                 
                 [(ngModel)]="detail['hot']"
                 #EditHot="ngModel">
               <label class="form-check-label">Yes</label>
@@ -948,9 +746,7 @@
             <div class="form-check-inline">
               <input type="radio" name="EditHot" 
                 class="form-check-input"
-                id="EditHotNo" [value]="false"
-                
-                 
+                id="EditHotNo" [value]="false" 
                 [(ngModel)]="detail['hot']"
                 #EditHot="ngModel">
               <label class="form-check-label">No</label>
@@ -961,26 +757,22 @@
             </div> 
           </div>
           <div [hidden]="EditHot.valid || EditHot.pristine"
-           class="alert alert-danger">
- 
+           class="alert alert-danger"> 
           </div>
-        </fieldset>
-    
-</div>
-<div *ngIf="!hiddenFields.includes('enrollTerm')">
 
-        <fieldset class="form-group">
-          <label for="EditEnrollTerm">Enroll Term </label>
-          
-          
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('enrollTerm')">
+				<fieldset class="form-group">
+					<label for="EditEnrollTerm">Enroll Term</label>
+						
           <!-- <a class="icon-search" [routerLink]="['.']" (click)="onRefSelect('enrollTerm')"><i class="fas fa-list" title="Search"></i></a>  -->
           <div class="input-group">
             <!--  [attr.disabled]="true" -->
               <input class="form-control rounded" id="EditEnrollTerm" 
                   [ngClass]="{'pointer ref-badge': detail['enrollTerm']['_id']}"
                   (focus)="onRefSelect('enrollTerm')"
-                    required
-                 
+                  required 
                   [ngModel]="detail['enrollTerm']['value']" name="EditEnrollTerm"
                   #EditEnrollTerm="ngModel"> 
               <div *ngIf="detail['enrollTerm']['value']" 
@@ -990,18 +782,14 @@
           </div>
           <div [hidden]="EditEnrollTerm.valid || EditEnrollTerm.pristine"
                class="alert alert-danger">
-
             <div *ngIf="EditEnrollTerm.errors && EditEnrollTerm.errors.required && !(detail['enrollTerm']?.date)">
               EnrollTerm is required.
-              </div>
- 
+            </div> 
           </div>
-        </fieldset>
-    
-</div>
 
-				</div>
-
+				</fieldset>
+					</ng-template>
+				</ng-template>
 				<div class="action-buttons-center my-3">
 					<button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
 					<button class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>

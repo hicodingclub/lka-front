@@ -12,21 +12,14 @@
 				{{options['subtitle']}}
 			</p>
 			<form (ngSubmit)="onSubmit()" #editForm="ngForm">
-
-				<div *ngIf="action == 'Edit'">
-<div *ngIf="!hiddenFields.includes('name')">
-
-        <fieldset class="form-group">
-          <label for="EditName">Name</label>
-          
-          
-
+				<ng-template [ngIf]="action == 'Edit'">
+					<ng-template [ngIf]="!hiddenFields.includes('name')">
+				<fieldset class="form-group">
+					<label for="EditName">Name</label>
+						
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditName" 
                     required
-                    
-                    
-                
                     [(ngModel)]="detail['name']" name="EditName"
                     #EditName="ngModel">
             <div *ngIf="detail['name']"
@@ -34,37 +27,24 @@
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
-
           <div [hidden]="EditName.valid || EditName.pristine || EditName.errors.minlength"
            class="alert alert-danger">
-
             <div *ngIf="EditName.errors && EditName.errors.required">
               Name is required.
-              </div>
- 
-
+            </div>
           </div>
-        
-        </fieldset>
 
-    
-</div>
-
-				</div>
-				<div *ngIf="action == 'Create' || action == 'Add' ">
-<div *ngIf="!hiddenFields.includes('name')">
-
-        <fieldset class="form-group">
-          <label for="EditName">Name</label>
-          
-          
-
+				</fieldset>
+					</ng-template>
+				</ng-template>
+				<ng-template [ngIf]="action == 'Create' || action == 'Add' ">
+					<ng-template [ngIf]="!hiddenFields.includes('name')">
+				<fieldset class="form-group">
+					<label for="EditName">Name</label>
+						
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditName" 
                     required
-                    
-                    
-                
                     [(ngModel)]="detail['name']" name="EditName"
                     #EditName="ngModel">
             <div *ngIf="detail['name']"
@@ -72,24 +52,16 @@
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
-
           <div [hidden]="EditName.valid || EditName.pristine || EditName.errors.minlength"
            class="alert alert-danger">
-
             <div *ngIf="EditName.errors && EditName.errors.required">
               Name is required.
-              </div>
- 
-
+            </div>
           </div>
-        
-        </fieldset>
 
-    
-</div>
-
-				</div>
-
+				</fieldset>
+					</ng-template>
+				</ng-template>
 				<div class="action-buttons-center my-3">
 					<button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
 					<button class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>

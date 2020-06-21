@@ -14,14 +14,12 @@
       <div class="card-header grid-head">
         <div class="grid-head-picture">
                     <lib-mdds-file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false" [aspectRatio]="1.3333333333333333"></lib-mdds-file-display>
-
         </div>
         <div class="ml-1">
           <h5>
             <div class="mr-1 d-inline-block">
               
                     {{detail['title']}}
-
             </div>
           </h5>
         </div>
@@ -31,8 +29,7 @@
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
                 <div><label>Description:</label></div>
                 <div class="ml-3">
-                    <div [innerHTML]="detail['description']"></div>
-</div>
+                    <div [innerHTML]="detail['description']"></div></div>
             </div>
           </div>
       </div>

@@ -32,7 +32,7 @@ import { files_server_root_uri } from './files.conf';
 })
 export class FilesExtModule { }
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Sun Jun 07 2020 21:11:24 GMT-0700 (Pacific Daylight Time)
+**Date: Sat Jun 20 2020 16:51:12 GMT-0700 (Pacific Daylight Time)
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';

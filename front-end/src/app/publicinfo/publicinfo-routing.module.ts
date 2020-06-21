@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { RouteReuseStrategy } from '@angular/router';
 
 import { PublicinfoRoutes } from '../publicinfo-cust/publicinfo.conf';
 

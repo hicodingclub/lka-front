@@ -167,43 +167,46 @@
 
 			<div>
 				<div class="total_counts">
-					<span *ngIf="list.length > 2">Total: <b>{{totalCount}}</b></span>
+					<span *ngIf="totalCount > 2">Total: <b>{{totalCount}}</b></span>
 					<span *ngIf="list.length > 1"><input type="checkbox" class="ml-3 mr-1" [(ngModel)]="checkAll" (change)="onCheckAllChange()">All</span>
 					<a class="ml-3" routerLink="." (click)="onRefresh()"><i class="fa fa-sync-alt"></i></a>
 				</div>
 			</div>
 		</div>
 
-		<div class="d-flex justify-content-center mt-2">
-				<div *ngIf="totalPages > 1">
-					<ul class="pagination justify-content-center">
-						<li class="page-item"
-								[ngClass]="{'disabled': page<=1}">
-						<a class="page-link" routerLink="." (click)="onPreviousPage()"
-							aria-label="Previous">
-							<span aria-hidden="true">&laquo;</span>
-							<span class="sr-only">Previous</span>
-						</a>
-						</li>
+		<div class="d-flex justify-content-center flex-wrap mt-2">
+			<div *ngIf="totalPages > 1">
+				<ul class="pagination justify-content-center">
+					<li class="page-item"
+							[ngClass]="{'disabled': page<=1}">
+					<a class="page-link" routerLink="." (click)="onPreviousPage()"
+						aria-label="Previous">
+						<span aria-hidden="true">&laquo;</span>
+						<span class="sr-only">Previous</span>
+					</a>
+					</li>
 
-						<li *ngIf="leftMore" class="page-item"><a class="page-link">...</a></li>
+					<li *ngIf="leftMore" class="page-item"><a class="page-link">...</a></li>
 
-						<li *ngFor="let p of pages;  let i = index" class="page-item"
-								[ngClass]="{'active': p==page}">
-							<a class="page-link" routerLink="." (click)="onGotoPage(p)">{{p}}</a>
-						</li>
+					<li *ngFor="let p of pages;  let i = index" class="page-item"
+							[ngClass]="{'active': p==page}">
+						<a class="page-link" routerLink="." (click)="onGotoPage(p)">{{p}}</a>
+					</li>
 
-						<li *ngIf="rightMore" class="page-item"><a class="page-link">...</a></li>
-						<li class="page-item"
-								[ngClass]="{'disabled': page>=totalPages}">
-						<a class="page-link" routerLink="." (click)="onNextPage()"
-							aria-label="Next">
-							<span aria-hidden="true">&raquo;</span>
-							<span class="sr-only">Next</span>
-						</a>
-						</li>
-					</ul>
-				</div>
+					<li *ngIf="rightMore" class="page-item"><a class="page-link">...</a></li>
+					<li class="page-item"
+							[ngClass]="{'disabled': page>=totalPages}">
+					<a class="page-link" routerLink="." (click)="onNextPage()"
+						aria-label="Next">
+						<span aria-hidden="true">&raquo;</span>
+						<span class="sr-only">Next</span>
+					</a>
+					</li>
+				</ul>
+			</div>
+			<div class="ml-3" *ngIf="totalPages > 1">
+				<small>Page</small>&nbsp;<input type="number" class="page-control form-control" [value]="page" (input)="onGotoPage($event.target.value)" />&nbsp;/&nbsp;{{totalPages}}
+			</div>
 		</div>
 
 		</div>
@@ -227,47 +230,40 @@
           <div class="mr-1 d-inline-block">
             
                     {{detail['first_name']}}
-
           </div>
           <div class="mr-1 d-inline-block">
             
                     {{detail['last_name']}}
-
           </div>
         </h5>
         <div *ngIf="detail['email']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Email:</label></div>
           <div class="ml-3">
                     {{detail['email']}}
-
           </div>
         </div>
         <div *ngIf="detail['grade']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Grade:</label></div>
           <div class="ml-3">
                     {{detail['grade']}}
-
           </div>
         </div>
         <div *ngIf="detail['school']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>School:</label></div>
           <div class="ml-3">
                     {{detail['school']}}
-
           </div>
         </div>
         <div *ngIf="detail['GuardianOnePhone']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Guardian One Phone:</label></div>
           <div class="ml-3">
                     {{detail['GuardianOnePhone']}}
-
           </div>
         </div>
         <div *ngIf="detail['muser_id']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Muser Id:</label></div>
           <div class="ml-3">
                     {{detail['muser_id']}}
-
           </div>
         </div>
       </div>
@@ -302,12 +298,10 @@
             <div class="mr-1 d-inline-block">
               
                     {{detail['first_name']}}
-
             </div>
             <div class="mr-1 d-inline-block">
               
                     {{detail['last_name']}}
-
             </div>
           </h5>
         </div>
@@ -316,32 +310,27 @@
           <div *ngIf="detail['email']" class="d-flex flex-wrap">
             <div class=""><label>Email:</label></div>
             <div class="ml-3">
-                    {{detail['email']}}
-</div>
+                    {{detail['email']}}</div>
           </div>
           <div *ngIf="detail['grade']" class="d-flex flex-wrap">
             <div class=""><label>Grade:</label></div>
             <div class="ml-3">
-                    {{detail['grade']}}
-</div>
+                    {{detail['grade']}}</div>
           </div>
           <div *ngIf="detail['school']" class="d-flex flex-wrap">
             <div class=""><label>School:</label></div>
             <div class="ml-3">
-                    {{detail['school']}}
-</div>
+                    {{detail['school']}}</div>
           </div>
           <div *ngIf="detail['GuardianOnePhone']" class="d-flex flex-wrap">
             <div class=""><label>Guardian One Phone:</label></div>
             <div class="ml-3">
-                    {{detail['GuardianOnePhone']}}
-</div>
+                    {{detail['GuardianOnePhone']}}</div>
           </div>
           <div *ngIf="detail['muser_id']" class="d-flex flex-wrap">
             <div class=""><label>Muser Id:</label></div>
             <div class="ml-3">
-                    {{detail['muser_id']}}
-</div>
+                    {{detail['muser_id']}}</div>
           </div>
       </div>
 
@@ -426,37 +415,30 @@
 	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
 	            	
                     {{detail['first_name']}}
-
 	            </td>
 	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
 	            	
                     {{detail['last_name']}}
-
 	            </td>
 	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
 	            	
                     {{detail['email']}}
-
 	            </td>
 	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
 	            	
                     {{detail['grade']}}
-
 	            </td>
 	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
 	            	
                     {{detail['school']}}
-
 	            </td>
 	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
 	            	
                     {{detail['GuardianOnePhone']}}
-
 	            </td>
 	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
 	            	
                     {{detail['muser_id']}}
-
 	            </td>
 	            <td>
 					
@@ -485,41 +467,44 @@
 
 			<div>
 				<div class="total_counts">
-					<span *ngIf="list.length > 2">Total: <b>{{totalCount}}</b></span>
+					<span *ngIf="totalCount > 2">Total: <b>{{totalCount}}</b></span>
 				</div>
 			</div>
 		</div>
 
-		<div class="d-flex justify-content-center mt-2">
-				<div *ngIf="totalPages > 1">
-					<ul class="pagination justify-content-center">
-						<li class="page-item"
-								[ngClass]="{'disabled': page<=1}">
-						<a class="page-link" routerLink="." (click)="onPreviousPage()"
-							aria-label="Previous">
-							<span aria-hidden="true">&laquo;</span>
-							<span class="sr-only">Previous</span>
-						</a>
-						</li>
+		<div class="d-flex justify-content-center flex-wrap mt-2">
+			<div *ngIf="totalPages > 1">
+				<ul class="pagination justify-content-center">
+					<li class="page-item"
+							[ngClass]="{'disabled': page<=1}">
+					<a class="page-link" routerLink="." (click)="onPreviousPage()"
+						aria-label="Previous">
+						<span aria-hidden="true">&laquo;</span>
+						<span class="sr-only">Previous</span>
+					</a>
+					</li>
 
-						<li *ngIf="leftMore" class="page-item"><a class="page-link">...</a></li>
+					<li *ngIf="leftMore" class="page-item"><a class="page-link">...</a></li>
 
-						<li *ngFor="let p of pages;  let i = index" class="page-item"
-								[ngClass]="{'active': p==page}">
-							<a class="page-link" routerLink="." (click)="onGotoPage(p)">{{p}}</a>
-						</li>
+					<li *ngFor="let p of pages;  let i = index" class="page-item"
+							[ngClass]="{'active': p==page}">
+						<a class="page-link" routerLink="." (click)="onGotoPage(p)">{{p}}</a>
+					</li>
 
-						<li *ngIf="rightMore" class="page-item"><a class="page-link">...</a></li>
-						<li class="page-item"
-								[ngClass]="{'disabled': page>=totalPages}">
-						<a class="page-link" routerLink="." (click)="onNextPage()"
-							aria-label="Next">
-							<span aria-hidden="true">&raquo;</span>
-							<span class="sr-only">Next</span>
-						</a>
-						</li>
-					</ul>
-				</div>
+					<li *ngIf="rightMore" class="page-item"><a class="page-link">...</a></li>
+					<li class="page-item"
+							[ngClass]="{'disabled': page>=totalPages}">
+					<a class="page-link" routerLink="." (click)="onNextPage()"
+						aria-label="Next">
+						<span aria-hidden="true">&raquo;</span>
+						<span class="sr-only">Next</span>
+					</a>
+					</li>
+				</ul>
+			</div>
+			<div class="ml-3" *ngIf="totalPages > 1">
+				<small>Page</small>&nbsp;<input type="number" class="page-control form-control" [value]="page" (input)="onGotoPage($event.target.value)" />&nbsp;/&nbsp;{{totalPages}}
+			</div>
 		</div>
 
 		</div>

@@ -94,6 +94,9 @@ export class ClassEditComponent extends ClassEditCustComponent implements OnInit
 
 
 
+          this.editHintFields = {
+            'season': [],
+          };
 
 
           this.textEditorMap['EditDescription'] = {

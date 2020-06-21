@@ -4,17 +4,14 @@
                	  <a routerLink="."  (click)="onDisplayRefClicked('role', detail['role'], $event)">
 	            	{{detail['role']?detail['role']['value']:""}}
 	              </a>
-
 		</div>
 		<div *ngIf="detail && showFields.includes('module')">
                	  <a routerLink="."  (click)="onDisplayRefClicked('module', detail['module'], $event)">
 	            	{{detail['module']?detail['module']['value']:""}}
 	              </a>
-
 		</div>
 		<div *ngIf="detail && showFields.includes('modulePermission')">
                     {{detail['modulePermission']}}
-
 		</div>
 		<div *ngIf="detail && showFields.includes('resourcePermission')">
                     <div *ngIf="detail['resourcePermission'] && detail['resourcePermission']['selection']">
@@ -25,5 +22,4 @@
                             </div>
                         </ng-template>
                     </div>
-
 		</div>

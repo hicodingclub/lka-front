@@ -4,7 +4,6 @@
                	  <a routerLink="."  (click)="onDisplayRefClicked('account', detail['account'], $event)">
 	            	{{detail['account']?detail['account']['value']:""}}
 	              </a>
-
 		</div>
 		<div *ngIf="detail && showFields.includes('role')">
                     <div *ngIf="detail['role'] && detail['role']['selection']">
@@ -15,5 +14,4 @@
                             </div>
                         </ng-template>
                     </div>
-
 		</div>

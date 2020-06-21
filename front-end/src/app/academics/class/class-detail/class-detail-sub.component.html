@@ -9,8 +9,7 @@
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
                 <div><label>Description:</label></div>
                 <div class="ml-3">
-                    <div libMddsRichtextShow="classDetailDescription" [content]="detail['description']"></div>
-</div>
+                    <div libMddsRichtextShow="classDetailDescription" [content]="detail['description']"></div></div>
             </div>
           </div>
           <div>
@@ -19,36 +18,31 @@
                 <div class="ml-3">
                	  <a routerLink="."  (click)="onDisplayRefClicked('course', detail['course'], $event)">
 	            	{{detail['course']?detail['course']['value']:""}}
-	              </a>
-</div>
+	              </a></div>
             </div>
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
                 <div><label>Instructor:</label></div>
                 <div class="ml-3">
                	  <a routerLink="."  (click)="onDisplayRefClicked('teacher', detail['teacher'], $event)">
 	            	{{detail['teacher']?detail['teacher']['value']:""}}
-	              </a>
-</div>
+	              </a></div>
             </div>
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
                 <div><label>Price:</label></div>
                 <div class="ml-3">
-                    {{detail['price']}}
-</div>
+                    {{detail['price']}}</div>
             </div>
           </div>
           <div>
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
                 <div><label>Season:</label></div>
                 <div class="ml-3">
-                    {{detail['season']}}
-</div>
+                    {{detail['season']}}</div>
             </div>
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
                 <div><label>Duration:</label></div>
                 <div class="ml-3">
-                    {{detail['duration']}}
-</div>
+                    {{detail['duration']}}</div>
             </div>
           </div>
       </div>

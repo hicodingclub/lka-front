@@ -11,13 +11,11 @@
 		<div class="info-term-text">
 			<div>
                     <div libMddsRichtextShow="termsDetailContent" [content]="detail['content']"></div>
-
 			</div>
 			<div class="mt-3">
 				<input class="term-check mr-3" *ngIf="detail['acknowledge']" type="checkbox" [(ngModel)]="termChecked" (change)="onTermChecked()"/>				
 				<label>
                     {{detail['acknowledge']}}
-
 				</label>
 			</div>
 		</div>

@@ -12,21 +12,14 @@
 				{{options['subtitle']}}
 			</p>
 			<form (ngSubmit)="onSubmit()" #editForm="ngForm">
-
-				<div *ngIf="action == 'Edit'">
-<div *ngIf="!hiddenFields.includes('firstName')">
-
-        <fieldset class="form-group">
-          <label for="EditFirstName">First Name</label>
-          
-          
-
+				<ng-template [ngIf]="action == 'Edit'">
+					<ng-template [ngIf]="!hiddenFields.includes('firstName')">
+				<fieldset class="form-group">
+					<label for="EditFirstName">First Name</label>
+						
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditFirstName" 
                     required
-                    
-                    
-                
                     [(ngModel)]="detail['firstName']" name="EditFirstName"
                     #EditFirstName="ngModel">
             <div *ngIf="detail['firstName']"
@@ -34,34 +27,22 @@
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
-
           <div [hidden]="EditFirstName.valid || EditFirstName.pristine || EditFirstName.errors.minlength"
            class="alert alert-danger">
-
             <div *ngIf="EditFirstName.errors && EditFirstName.errors.required">
               FirstName is required.
-              </div>
- 
-
+            </div>
           </div>
-        
-        </fieldset>
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('lastName')">
-
-        <fieldset class="form-group">
-          <label for="EditLastName">Last Name</label>
-          
-          
-
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('lastName')">
+				<fieldset class="form-group">
+					<label for="EditLastName">Last Name</label>
+						
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditLastName" 
                     required
-                    
-                    
-                
                     [(ngModel)]="detail['lastName']" name="EditLastName"
                     #EditLastName="ngModel">
             <div *ngIf="detail['lastName']"
@@ -69,35 +50,26 @@
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
-
           <div [hidden]="EditLastName.valid || EditLastName.pristine || EditLastName.errors.minlength"
            class="alert alert-danger">
-
             <div *ngIf="EditLastName.errors && EditLastName.errors.required">
               LastName is required.
-              </div>
- 
-
+            </div>
           </div>
-        
-        </fieldset>
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('courses')">
-
-        <fieldset class="form-group">
-          <label for="EditCourses">Program </label>
-          
-          
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('courses')">
+				<fieldset class="form-group">
+					<label for="EditCourses">Program</label>
+						
           <!-- <a class="icon-search" [routerLink]="['.']" (click)="onRefSelect('courses')"><i class="fas fa-list" title="Search"></i></a>  -->
           <div class="input-group">
             <!--  [attr.disabled]="true" -->
               <input class="form-control rounded" id="EditCourses" 
                   [ngClass]="{'pointer ref-badge': detail['courses']['_id']}"
                   (focus)="onRefSelect('courses')"
-                    required
-                 
+                  required 
                   [ngModel]="detail['courses']['value']" name="EditCourses"
                   #EditCourses="ngModel"> 
               <div *ngIf="detail['courses']['value']" 
@@ -107,63 +79,44 @@
           </div>
           <div [hidden]="EditCourses.valid || EditCourses.pristine"
                class="alert alert-danger">
-
             <div *ngIf="EditCourses.errors && EditCourses.errors.required && !(detail['courses']?.date)">
               Courses is required.
-              </div>
- 
+            </div> 
           </div>
-        </fieldset>
-    
-</div>
-<div *ngIf="!hiddenFields.includes('introduction')">
 
-        <fieldset class="form-group">
-          <label for="EditIntroduction">Introduction</label>
-          
-          
-
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('introduction')">
+				<fieldset class="form-group">
+					<label for="EditIntroduction">Introduction</label>
+						
           <div class="input-group">
             <textarea rows="8" class="form-control rounded" id="EditIntroduction"
                     required
-                    
-                    
-                
                     [(ngModel)]="detail['introduction']" name="EditIntroduction"
-                    #EditIntroduction="ngModel"></textarea>
+                    #EditIntroduction="ngModel">
+            </textarea>
             <div *ngIf="detail['introduction']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('introduction')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
-
           <div [hidden]="EditIntroduction.valid || EditIntroduction.pristine || EditIntroduction.errors.minlength"
            class="alert alert-danger">
-
             <div *ngIf="EditIntroduction.errors && EditIntroduction.errors.required">
               Introduction is required.
-              </div>
- 
-
+            </div>
           </div>
-        
-        </fieldset>
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('email')">
-
-        <fieldset class="form-group">
-          <label for="EditEmail">Email</label>
-          
-          
-
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('email')">
+				<fieldset class="form-group">
+					<label for="EditEmail">Email</label>
+						
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditEmail" 
                     required
-                    
-                    
-                
                     [(ngModel)]="detail['email']" name="EditEmail"
                     #EditEmail="ngModel">
             <div *ngIf="detail['email']"
@@ -171,34 +124,21 @@
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
-
           <div [hidden]="EditEmail.valid || EditEmail.pristine || EditEmail.errors.minlength"
            class="alert alert-danger">
-
             <div *ngIf="EditEmail.errors && EditEmail.errors.required">
               Email is required.
-              </div>
- 
-
+            </div>
           </div>
-        
-        </fieldset>
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('phoneNumber')">
-
-        <fieldset class="form-group">
-          <label for="EditPhoneNumber">Phone Number</label>
-          
-          
-
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('phoneNumber')">
+				<fieldset class="form-group">
+					<label for="EditPhoneNumber">Phone Number</label>
+						
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditPhoneNumber" 
-                    
-                    
-                    
-                
                     [(ngModel)]="detail['phoneNumber']" name="EditPhoneNumber"
                     #EditPhoneNumber="ngModel">
             <div *ngIf="detail['phoneNumber']"
@@ -206,29 +146,19 @@
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
-
           <div [hidden]="EditPhoneNumber.valid || EditPhoneNumber.pristine || EditPhoneNumber.errors.minlength"
            class="alert alert-danger">
-
- 
-
           </div>
-        
-        </fieldset>
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('photo')">
-
-        <fieldset class="form-group">
-          <label for="EditPhoto">Photo</label>
-          
-          
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('photo')">
+				<fieldset class="form-group">
+					<label for="EditPhoto">Photo</label>
+						
           <div class="form-check"
-
                 [ngClass]="{'ng-valid': detail['photo'],
                             'ng-invalid': !detail['photo']}"
-              
               >
               <input type="text" class="form-control rounded" id="EditPhoto" style="display: none;"
                   required
@@ -244,31 +174,22 @@
           </div>
           <div [hidden]="EditPhoto.valid || EditPhoto.pristine"
             class="alert alert-danger">
-
               <div *ngIf="EditPhoto.errors && EditPhoto.errors.required">
                Photo is required.
               </div>
           </div>
-        </fieldset>				
 
-    
-</div>
-
-				</div>
-				<div *ngIf="action == 'Create' || action == 'Add' ">
-<div *ngIf="!hiddenFields.includes('firstName')">
-
-        <fieldset class="form-group">
-          <label for="EditFirstName">First Name</label>
-          
-          
-
+				</fieldset>
+					</ng-template>
+				</ng-template>
+				<ng-template [ngIf]="action == 'Create' || action == 'Add' ">
+					<ng-template [ngIf]="!hiddenFields.includes('firstName')">
+				<fieldset class="form-group">
+					<label for="EditFirstName">First Name</label>
+						
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditFirstName" 
                     required
-                    
-                    
-                
                     [(ngModel)]="detail['firstName']" name="EditFirstName"
                     #EditFirstName="ngModel">
             <div *ngIf="detail['firstName']"
@@ -276,34 +197,22 @@
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
-
           <div [hidden]="EditFirstName.valid || EditFirstName.pristine || EditFirstName.errors.minlength"
            class="alert alert-danger">
-
             <div *ngIf="EditFirstName.errors && EditFirstName.errors.required">
               FirstName is required.
-              </div>
- 
-
+            </div>
           </div>
-        
-        </fieldset>
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('lastName')">
-
-        <fieldset class="form-group">
-          <label for="EditLastName">Last Name</label>
-          
-          
-
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('lastName')">
+				<fieldset class="form-group">
+					<label for="EditLastName">Last Name</label>
+						
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditLastName" 
                     required
-                    
-                    
-                
                     [(ngModel)]="detail['lastName']" name="EditLastName"
                     #EditLastName="ngModel">
             <div *ngIf="detail['lastName']"
@@ -311,35 +220,26 @@
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
-
           <div [hidden]="EditLastName.valid || EditLastName.pristine || EditLastName.errors.minlength"
            class="alert alert-danger">
-
             <div *ngIf="EditLastName.errors && EditLastName.errors.required">
               LastName is required.
-              </div>
- 
-
+            </div>
           </div>
-        
-        </fieldset>
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('courses')">
-
-        <fieldset class="form-group">
-          <label for="EditCourses">Program </label>
-          
-          
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('courses')">
+				<fieldset class="form-group">
+					<label for="EditCourses">Program</label>
+						
           <!-- <a class="icon-search" [routerLink]="['.']" (click)="onRefSelect('courses')"><i class="fas fa-list" title="Search"></i></a>  -->
           <div class="input-group">
             <!--  [attr.disabled]="true" -->
               <input class="form-control rounded" id="EditCourses" 
                   [ngClass]="{'pointer ref-badge': detail['courses']['_id']}"
                   (focus)="onRefSelect('courses')"
-                    required
-                 
+                  required 
                   [ngModel]="detail['courses']['value']" name="EditCourses"
                   #EditCourses="ngModel"> 
               <div *ngIf="detail['courses']['value']" 
@@ -349,63 +249,44 @@
           </div>
           <div [hidden]="EditCourses.valid || EditCourses.pristine"
                class="alert alert-danger">
-
             <div *ngIf="EditCourses.errors && EditCourses.errors.required && !(detail['courses']?.date)">
               Courses is required.
-              </div>
- 
+            </div> 
           </div>
-        </fieldset>
-    
-</div>
-<div *ngIf="!hiddenFields.includes('introduction')">
 
-        <fieldset class="form-group">
-          <label for="EditIntroduction">Introduction</label>
-          
-          
-
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('introduction')">
+				<fieldset class="form-group">
+					<label for="EditIntroduction">Introduction</label>
+						
           <div class="input-group">
             <textarea rows="8" class="form-control rounded" id="EditIntroduction"
                     required
-                    
-                    
-                
                     [(ngModel)]="detail['introduction']" name="EditIntroduction"
-                    #EditIntroduction="ngModel"></textarea>
+                    #EditIntroduction="ngModel">
+            </textarea>
             <div *ngIf="detail['introduction']"
                   class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('introduction')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
-
           <div [hidden]="EditIntroduction.valid || EditIntroduction.pristine || EditIntroduction.errors.minlength"
            class="alert alert-danger">
-
             <div *ngIf="EditIntroduction.errors && EditIntroduction.errors.required">
               Introduction is required.
-              </div>
- 
-
+            </div>
           </div>
-        
-        </fieldset>
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('email')">
-
-        <fieldset class="form-group">
-          <label for="EditEmail">Email</label>
-          
-          
-
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('email')">
+				<fieldset class="form-group">
+					<label for="EditEmail">Email</label>
+						
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditEmail" 
                     required
-                    
-                    
-                
                     [(ngModel)]="detail['email']" name="EditEmail"
                     #EditEmail="ngModel">
             <div *ngIf="detail['email']"
@@ -413,34 +294,21 @@
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
-
           <div [hidden]="EditEmail.valid || EditEmail.pristine || EditEmail.errors.minlength"
            class="alert alert-danger">
-
             <div *ngIf="EditEmail.errors && EditEmail.errors.required">
               Email is required.
-              </div>
- 
-
+            </div>
           </div>
-        
-        </fieldset>
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('phoneNumber')">
-
-        <fieldset class="form-group">
-          <label for="EditPhoneNumber">Phone Number</label>
-          
-          
-
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('phoneNumber')">
+				<fieldset class="form-group">
+					<label for="EditPhoneNumber">Phone Number</label>
+						
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditPhoneNumber" 
-                    
-                    
-                    
-                
                     [(ngModel)]="detail['phoneNumber']" name="EditPhoneNumber"
                     #EditPhoneNumber="ngModel">
             <div *ngIf="detail['phoneNumber']"
@@ -448,29 +316,19 @@
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
-
           <div [hidden]="EditPhoneNumber.valid || EditPhoneNumber.pristine || EditPhoneNumber.errors.minlength"
            class="alert alert-danger">
-
- 
-
           </div>
-        
-        </fieldset>
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('photo')">
-
-        <fieldset class="form-group">
-          <label for="EditPhoto">Photo</label>
-          
-          
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('photo')">
+				<fieldset class="form-group">
+					<label for="EditPhoto">Photo</label>
+						
           <div class="form-check"
-
                 [ngClass]="{'ng-valid': detail['photo'],
                             'ng-invalid': !detail['photo']}"
-              
               >
               <input type="text" class="form-control rounded" id="EditPhoto" style="display: none;"
                   required
@@ -486,18 +344,14 @@
           </div>
           <div [hidden]="EditPhoto.valid || EditPhoto.pristine"
             class="alert alert-danger">
-
               <div *ngIf="EditPhoto.errors && EditPhoto.errors.required">
                Photo is required.
               </div>
           </div>
-        </fieldset>				
 
-    
-</div>
-
-				</div>
-
+				</fieldset>
+					</ng-template>
+				</ng-template>
 				<div class="action-buttons-center my-3">
 					<button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
 					<button class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>
