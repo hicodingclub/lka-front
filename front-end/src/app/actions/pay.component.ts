@@ -9,6 +9,7 @@ import { PaymentService } from '../academics/payment/payment.service';
 
 declare var paypal: any;
 const ONLINE_TRANS_RATE: number = 1.029;
+const PAYPAL_QR_RATE: number = 1.019;
 const NEW_ENROLLMENT_FEE: number = 50;
 @Component({
   selector: 'app-pay',
@@ -22,6 +23,7 @@ export class PayComponent implements OnInit {
   public numberStu: number = 1;
   public totalPrice: number = 0;
   public onlinePrice: number = 0;
+  public paypalQRPrice: number = 0;
   public firstEnroll: boolean = true;
   public showPayment: boolean = false;
 
@@ -55,6 +57,7 @@ export class PayComponent implements OnInit {
         if (price) {
             this.totalPrice = price * this.numberStu;
             this.onlinePrice = this.totalPrice * ONLINE_TRANS_RATE;
+            this.paypalQRPrice = this.totalPrice * PAYPAL_QR_RATE;
         }
     } catch (err) {
         console.error(err);
@@ -161,6 +164,7 @@ export class PayComponent implements OnInit {
     if (this.firstEnroll) {
       this.totalPrice += this.numberStu * NEW_ENROLLMENT_FEE;
       this.onlinePrice = this.totalPrice * ONLINE_TRANS_RATE;
+      this.paypalQRPrice = this.totalPrice * PAYPAL_QR_RATE;
     }
 
     if (this.totalPrice > 0) {

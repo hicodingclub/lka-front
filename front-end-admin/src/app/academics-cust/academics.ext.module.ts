@@ -32,7 +32,7 @@ import { academics_server_root_uri } from './academics.conf';
 })
 export class AcademicsExtModule { }
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Wed Jun 24 2020 11:50:09 GMT-0700 (Pacific Daylight Time)
+**Date: Sat Jun 27 2020 12:21:51 GMT-0700 (Pacific Daylight Time)
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';

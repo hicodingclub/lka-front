@@ -28,7 +28,7 @@ import { access_server_root_uri } from './access.conf';
 })
 export class AccessExtModule { }
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Wed Jun 24 2020 11:50:07 GMT-0700 (Pacific Daylight Time)
+**Date: Sat Jun 27 2020 12:21:49 GMT-0700 (Pacific Daylight Time)
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';

@@ -22,7 +22,7 @@ import { AcademicsCoreModule } from '../academics/academics.core.module';
 })
 export class AcademicsCustModule { }
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Wed Jun 24 2020 11:50:26 GMT-0700 (Pacific Daylight Time)
+**Date: Sat Jun 27 2020 12:17:08 GMT-0700 (Pacific Daylight Time)
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
