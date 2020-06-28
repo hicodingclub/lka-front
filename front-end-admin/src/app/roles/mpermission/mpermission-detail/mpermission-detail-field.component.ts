@@ -34,7 +34,10 @@ export class MpermissionDetailFieldComponent extends MpermissionComponent
             'resourcePermission': 'Resource Permission',
           };
           this.stringFields.push('modulePermission');
-          this.referenceFields = ['role', 'module', ];
+          this.referenceFields = [
+            'role',
+            'module',
+          ];
           this.mapFields = [
               ['resourcePermission', 'SchemaString', '', '', , ''],
           ];

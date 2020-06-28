@@ -48,70 +48,58 @@
 			    <div class="shadow" *ngIf="moreSearchOpened">
 					<div class="card">
 						<div class="card-body">
-	    <div class="single-line-edit">
-	      <div class="row col-gutter">
-			<div class="col-3">
-				<label for="mpubaccessEditGroup">
-				Group
-				</label>
-			</div>
-	        <div class="col-8">
+							<div class="d-flex flex-wrap">
 
+						<div class="container two-column-search">
+							<div class="row col-gutter align-items-center">
+								<div class="col-12 col-sm-3">
+									<label for="mpubaccessEditGroup">
+										Group
+									</label>
+								</div>
+								<div class="col-11 col-sm-8">
+									<div class="input-group">
+										<input class="form-control rounded" id="mpubaccessEditGroup"
+											[ngClass]="{'pointer ref-badge': detail['group']['_id']}" (focus)="onRefSelect('group')"
+											 
+											[ngModel]="detail['group']['value']" name="mpubaccessEditGroup" #mpubaccessEditGroup="ngModel">
+									</div>
+									<!-- (focus)="detail['group']['_id']?onRefShow('group', 'select', detail['group']['_id']):onRefSelect('group')" -->
+								</div>
+								<div class="col-1">
+									<div class="pointer" (click)="clearValueFromDetail('group')"
+										*ngIf="checkValueDefinedFromDetail('group')"><i class="fas fa-times-circle" title="Clear"></i></div>
+								</div>
+							</div>
+						</div> 
 
-		    <div class="input-group">
-		        <input class="form-control rounded" id="mpubaccessEditGroup" 
-		             [ngClass]="{'pointer ref-badge': detail['group']['_id']}"
-		             (focus)="onRefSelect('group')"
-		        	  
-		             [ngModel]="detail['group']['value']" name="mpubaccessEditGroup"
-		             #mpubaccessEditGroup="ngModel"> 
-			</div><!-- (focus)="detail['group']['_id']?onRefShow('group', 'select', detail['group']['_id']):onRefSelect('group')" -->
+						<div class="container two-column-search">
+							<div class="row col-gutter align-items-center">
+								<div class="col-12 col-sm-3">
+									<label for="mpubaccessEditModule">
+										Module
+									</label>
+								</div>
+								<div class="col-11 col-sm-8">
+									<div class="input-group">
+										<input class="form-control rounded" id="mpubaccessEditModule"
+											[ngClass]="{'pointer ref-badge': detail['module']['_id']}" (focus)="onRefSelect('module')"
+											 
+											[ngModel]="detail['module']['value']" name="mpubaccessEditModule" #mpubaccessEditModule="ngModel">
+									</div>
+									<!-- (focus)="detail['module']['_id']?onRefShow('module', 'select', detail['module']['_id']):onRefSelect('module')" -->
+								</div>
+								<div class="col-1">
+									<div class="pointer" (click)="clearValueFromDetail('module')"
+										*ngIf="checkValueDefinedFromDetail('module')"><i class="fas fa-times-circle" title="Clear"></i></div>
+								</div>
+							</div>
+						</div> 
 
-	      </div>
-	      
-	      <div class="col-1">
-		    <div class="icon-clear" (click)="clearValueFromDetail('group')"
-		        *ngIf="checkValueDefinedFromDetail('group')"
-		        ><i class="fas fa-times-circle" title="Clear"></i></div>
-	      </div>
-	    </div>
-      </div>
-      
- 
-	    <div class="single-line-edit">
-	      <div class="row col-gutter">
-			<div class="col-3">
-				<label for="mpubaccessEditModule">
-				Module
-				</label>
-			</div>
-	        <div class="col-8">
-
-
-		    <div class="input-group">
-		        <input class="form-control rounded" id="mpubaccessEditModule" 
-		             [ngClass]="{'pointer ref-badge': detail['module']['_id']}"
-		             (focus)="onRefSelect('module')"
-		        	  
-		             [ngModel]="detail['module']['value']" name="mpubaccessEditModule"
-		             #mpubaccessEditModule="ngModel"> 
-			</div><!-- (focus)="detail['module']['_id']?onRefShow('module', 'select', detail['module']['_id']):onRefSelect('module')" -->
-
-	      </div>
-	      
-	      <div class="col-1">
-		    <div class="icon-clear" (click)="clearValueFromDetail('module')"
-		        *ngIf="checkValueDefinedFromDetail('module')"
-		        ><i class="fas fa-times-circle" title="Clear"></i></div>
-	      </div>
-	    </div>
-      </div>
-      
- 
-
+							</div>
 
 							<hr>
-							<div class="single-line-edit mt-3">
+							<div class="one-column-search mt-3">
 								<div class="row">
 								  	<div class="col-3"><label for="Archived">Archived</label></div>
 								  	<div class="col-8">
@@ -128,7 +116,7 @@
 							</div>
 							<hr>
 
-							<div class="action-buttons my-3" style="margin-top: 10px;">
+							<div class="action-buttons">
 									<button type="button" class="btn btn-outline-success" (click)="onSearchClear()">Reset</button>
 									<button type="button" class="btn btn-success" (click)="searchList()">Search</button>
 							</div>
@@ -147,7 +135,7 @@
 		</div>
 		<div class="row" *ngIf="!options['disableActionButtions']">
 			<div class="col">
-		        <div class="action-buttons my-3">
+		        <div class="action-buttons">
 					<a [routerLink]="['../new' ]" [skipLocationChange]="false" class="btn btn-outline-primary">Create</a>
 					<a routerLink="." class="btn btn-outline-primary" (click)="onDeleteSelected()"
 						[ngClass]="{'disabled': !isItemSelected()}">Delete</a>
@@ -188,6 +176,10 @@
 			<div>
 				<div *ngIf="list.length > 0">
 
+					<input type="radio" name="view-filter" id="table-view" class="view-radio"
+						(click)="setListViewFilter('table')" [checked]="isShowListView('table')">
+						<label for="table-view"><i class="fa fa-list-alt"></i></label>
+
 					<input type="radio" name="view-filter" id="list-view" class="view-radio"
 						(click)="setListViewFilter('list')" [checked]="isShowListView('list')">
 					<label for="list-view"><i class="fa fa-th-list"></i></label>
@@ -195,10 +187,6 @@
 					<input type="radio" name="view-filter" id="grid-view" class="view-radio"
 						(click)="setListViewFilter('grid')" [checked]="isShowListView('grid')">
 						<label for="grid-view"><i class="fa fa-th"></i></label>
-
-					<input type="radio" name="view-filter" id="table-view" class="view-radio"
-						(click)="setListViewFilter('table')" [checked]="isShowListView('table')">
-						<label for="table-view"><i class="fa fa-list-alt"></i></label>
 
 				</div>
 
@@ -255,6 +243,83 @@
 		<span *ngIf="!loaded">Loading...</span>
 	</div>
 	<div *ngIf="list.length > 0">
+	<table *ngIf="isShowListView('table')" class="table table-bordered table-hover">
+	    <thead class="thead-light">
+	    	<tr>
+		        <th scope="col">#</th>
+
+				<th class="pointer" scope="col" (click)="toggleListSort('group', 'Group')"
+					*ngIf="referenceFieldsMap['group'] != parentItem"  >
+					Group
+					<span *ngIf="listSortField === 'group'">
+						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+					</span>
+				</th>
+				<th class="pointer" scope="col" (click)="toggleListSort('module', 'Module')"
+					*ngIf="referenceFieldsMap['module'] != parentItem"  >
+					Module
+					<span *ngIf="listSortField === 'module'">
+						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+					</span>
+				</th>
+				<th class="pointer" scope="col" (click)="toggleListSort('modulePermission', 'Module Permission')" >
+					Module Permission
+					<span *ngIf="listSortField === 'modulePermission'">
+						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+					</span>
+				</th>
+				<th scope="col" style="width:9.8rem;"></th>
+	    	</tr>
+	    </thead>
+	    <tbody>
+			<ng-template ngFor let-detail [ngForOf]="list" let-i="index">
+			<tr [ngClass]="{'clicked-row': clickedId==detail['_id'],
+							'selected-row': clickItemAction === 'select' && checkedItem[i]}">
+	            <td scope="row" (click)="clickOneItem(i)"  class="pointer read-more mt-3">
+	            	{{(page-1)*perPage+i+1}}
+	            </td>
+				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
+					*ngIf="referenceFieldsMap['group'] != parentItem"
+					>
+	            	
+               	  <a routerLink="."  (click)="onDisplayRefClicked('group', detail['group'], $event)">
+	            	{{detail['group']?detail['group']['value']:""}}
+	              </a>
+				</td>
+				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
+					*ngIf="referenceFieldsMap['module'] != parentItem"
+					>
+	            	
+               	  <a routerLink="."  (click)="onDisplayRefClicked('module', detail['module'], $event)">
+	            	{{detail['module']?detail['module']['value']:""}}
+	              </a>
+				</td>
+				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
+					>
+	            	
+                    {{detail['modulePermission']}}
+				</td>
+	            <td>
+					
+						<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
+					
+	            	<a routerLink="." (click)="onDelete(detail['_id'], i)"><i class="fas fa-trash-alt" title="Delete"></i></a>
+	            	<a routerLink="." (click)="onArchive(detail['_id'], i, archivedSearch)">
+						<i *ngIf="!archivedSearch" class="fa fa-archive" title="Archive"></i>
+						<i *ngIf="archivedSearch" class="fas fa-trash-restore" title="Unarchive"></i>	
+					</a>
+					<input class="list-check-box" type="checkbox"  [ngModel]="checkedItem[i]" (click)="selectOneItem(i)"/>
+					
+	            </td>
+			</tr>
+			</ng-template>
+	    </tbody>
+	</table>
+
+
 	<div class="listview" *ngIf="isShowListView('list')">
 		<div class="list-block" *ngFor="let detail of list;  let i = index; let list_index = index;">
 			<hr *ngIf="i==0" class="list-devider">
@@ -365,83 +430,6 @@
 	</div>
 
 
-	<table *ngIf="isShowListView('table')" class="table table-bordered table-hover">
-	    <thead class="thead-light">
-	    	<tr>
-		        <th scope="col">#</th>
-
-				<th class="pointer" scope="col" (click)="toggleListSort('group', 'Group')"
-					*ngIf="referenceFieldsMap['group'] != parentItem"  >
-					Group
-					<span *ngIf="listSortField === 'group'">
-						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
-						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
-					</span>
-				</th>
-				<th class="pointer" scope="col" (click)="toggleListSort('module', 'Module')"
-					*ngIf="referenceFieldsMap['module'] != parentItem"  >
-					Module
-					<span *ngIf="listSortField === 'module'">
-						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
-						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
-					</span>
-				</th>
-				<th class="pointer" scope="col" (click)="toggleListSort('modulePermission', 'Module Permission')" >
-					Module Permission
-					<span *ngIf="listSortField === 'modulePermission'">
-						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
-						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
-					</span>
-				</th>
-				<th scope="col" style="width:9.8rem;"></th>
-	    	</tr>
-	    </thead>
-	    <tbody>
-			<ng-template ngFor let-detail [ngForOf]="list" let-i="index">
-			<tr [ngClass]="{'clicked-row': clickedId==detail['_id'],
-							'selected-row': clickItemAction === 'select' && checkedItem[i]}">
-	            <td scope="row" (click)="clickOneItem(i)"  class="pointer read-more mt-3">
-	            	{{(page-1)*perPage+i+1}}
-	            </td>
-				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
-					*ngIf="referenceFieldsMap['group'] != parentItem"
-					>
-	            	
-               	  <a routerLink="."  (click)="onDisplayRefClicked('group', detail['group'], $event)">
-	            	{{detail['group']?detail['group']['value']:""}}
-	              </a>
-				</td>
-				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
-					*ngIf="referenceFieldsMap['module'] != parentItem"
-					>
-	            	
-               	  <a routerLink="."  (click)="onDisplayRefClicked('module', detail['module'], $event)">
-	            	{{detail['module']?detail['module']['value']:""}}
-	              </a>
-				</td>
-				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
-					>
-	            	
-                    {{detail['modulePermission']}}
-				</td>
-	            <td>
-					
-						<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
-					
-	            	<a routerLink="." (click)="onDelete(detail['_id'], i)"><i class="fas fa-trash-alt" title="Delete"></i></a>
-	            	<a routerLink="." (click)="onArchive(detail['_id'], i, archivedSearch)">
-						<i *ngIf="!archivedSearch" class="fa fa-archive" title="Archive"></i>
-						<i *ngIf="archivedSearch" class="fas fa-trash-restore" title="Unarchive"></i>	
-					</a>
-					<input class="list-check-box" type="checkbox"  [ngModel]="checkedItem[i]" (click)="selectOneItem(i)"/>
-					
-	            </td>
-			</tr>
-			</ng-template>
-	    </tbody>
-	</table>
-
-
 	</div>
 	<div class="container">
 		<div *ngIf="!options['disablePagination']">
@@ -501,4 +489,4 @@
 </div>
 
 
-<ng-template *ngIf="!options['disableRefs']" access-ref-select></ng-template>
+<ng-template access-ref-select></ng-template>

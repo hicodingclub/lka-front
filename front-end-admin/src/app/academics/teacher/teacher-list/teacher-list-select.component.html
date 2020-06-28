@@ -1,5 +1,5 @@
 <div class="select-model show" (keyup.esc)="uiOnEscapeKey()" tabindex="0" #AcademicsModal>
-  <div class="select-model-content">
+  <div class="container select-model-content">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">Select {{ItemCamelName}}</h5>
@@ -42,40 +42,35 @@
 			    <div class="shadow" *ngIf="moreSearchOpened">
 					<div class="card">
 						<div class="card-body">
-	    <div class="single-line-edit">
-	      <div class="row col-gutter">
-			<div class="col-3">
-				<label for="teacherEditCourses">
-				Program
-				</label>
-			</div>
-	        <div class="col-8">
+							<div class="d-flex flex-wrap">
 
+						<div class="container two-column-search">
+							<div class="row col-gutter align-items-center">
+								<div class="col-12 col-sm-3">
+									<label for="teacherEditCourses">
+										Program
+									</label>
+								</div>
+								<div class="col-11 col-sm-8">
+									<div class="input-group">
+										<input class="form-control rounded" id="teacherEditCourses"
+											[ngClass]="{'pointer ref-badge': detail['courses']['_id']}" (focus)="onRefSelect('courses')"
+											 
+											[ngModel]="detail['courses']['value']" name="teacherEditCourses" #teacherEditCourses="ngModel">
+									</div>
+									<!-- (focus)="detail['courses']['_id']?onRefShow('courses', 'select', detail['courses']['_id']):onRefSelect('courses')" -->
+								</div>
+								<div class="col-1">
+									<div class="pointer" (click)="clearValueFromDetail('courses')"
+										*ngIf="checkValueDefinedFromDetail('courses')"><i class="fas fa-times-circle" title="Clear"></i></div>
+								</div>
+							</div>
+						</div> 
 
-		    <div class="input-group">
-		        <input class="form-control rounded" id="teacherEditCourses" 
-		             [ngClass]="{'pointer ref-badge': detail['courses']['_id']}"
-		             (focus)="onRefSelect('courses')"
-		        	  
-		             [ngModel]="detail['courses']['value']" name="teacherEditCourses"
-		             #teacherEditCourses="ngModel"> 
-			</div><!-- (focus)="detail['courses']['_id']?onRefShow('courses', 'select', detail['courses']['_id']):onRefSelect('courses')" -->
-
-	      </div>
-	      
-	      <div class="col-1">
-		    <div class="icon-clear" (click)="clearValueFromDetail('courses')"
-		        *ngIf="checkValueDefinedFromDetail('courses')"
-		        ><i class="fas fa-times-circle" title="Clear"></i></div>
-	      </div>
-	    </div>
-      </div>
-      
- 
-
+							</div>
 
 							<hr>
-							<div class="single-line-edit mt-3">
+							<div class="one-column-search mt-3">
 								<div class="row">
 								  	<div class="col-3"><label for="Archived">Archived</label></div>
 								  	<div class="col-8">
@@ -92,7 +87,7 @@
 							</div>
 							<hr>
 
-							<div class="action-buttons my-3" style="margin-top: 10px;">
+							<div class="action-buttons">
 									<button type="button" class="btn btn-outline-success" (click)="onSearchClear()">Reset</button>
 									<button type="button" class="btn btn-success" (click)="searchList()">Search</button>
 							</div>

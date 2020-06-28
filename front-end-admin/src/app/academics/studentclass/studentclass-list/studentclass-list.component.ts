@@ -46,7 +46,10 @@ export class StudentclassListComponent extends StudentclassListCustComponent imp
             'student': 'Student',
             'class': 'Class',
           };
-          this.referenceFields = ['student', 'class', ];
+          this.referenceFields = [
+            'student',
+            'class',
+          ];
 
           this.listViewFilter = 'list';
 

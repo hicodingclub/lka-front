@@ -35,7 +35,9 @@ export class FaqDetailFieldComponent extends FaqComponent
           };
           this.stringFields.push('question');
           this.stringFields.push('answer');
-          this.numberFields = ['order', ];
+          this.numberFields = [
+            'order',
+          ];
     }
 
     ngOnInit() {

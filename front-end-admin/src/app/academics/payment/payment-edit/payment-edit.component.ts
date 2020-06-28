@@ -56,7 +56,9 @@ export class PaymentEditComponent extends PaymentEditCustComponent implements On
           };
           this.stringFields.push('status');
           this.stringFields.push('notes');
-          this.textareaFields = ['notes', ];
+          this.textareaFields = [
+            'notes',
+          ];
 
           
           const detail = {};

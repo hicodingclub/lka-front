@@ -55,17 +55,36 @@ export class ClassDetailComponent extends ClassDetailCustComponent implements On
             'timeSlot': 'Time Slot',
             'enrollTerm': 'Enroll Term',
           };
-          this.enums['dayOfWeek'] = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun', ];
+          this.enums['dayOfWeek'] = [
+            'Mon',
+            'Tue',
+            'Wed',
+            'Thu',
+            'Fri',
+            'Sat',
+            'Sun',
+          ];
           this.stringFields.push('title');
           this.stringFields.push('description');
           this.stringFields.push('price');
           this.stringFields.push('season');
           this.stringFields.push('duration');
           this.stringFields.push('timeSlot');
-          this.referenceFields = ['course', 'teacher', 'enrollTerm', ];
-          this.dateFields = ['startTime', 'endTime', ];
-          this.multiSelectionFields = ['dayOfWeek', ];
-          this.viewHiddenFields = ['enrollTerm', ];
+          this.referenceFields = [
+            'course',
+            'teacher',
+            'enrollTerm',
+          ];
+          this.dateFields = [
+            'startTime',
+            'endTime',
+          ];
+          this.multiSelectionFields = [
+            'dayOfWeek', 
+          ];
+          this.viewHiddenFields = [
+            'enrollTerm',
+          ];
   }
 
   ngOnInit() {

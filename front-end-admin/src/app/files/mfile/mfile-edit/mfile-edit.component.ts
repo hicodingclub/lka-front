@@ -58,8 +58,12 @@ export class MfileEditComponent extends MfileEditCustComponent implements OnInit
             'labels': 'Labels',
           };
           this.stringFields.push('name');
-          this.referenceFields = ['group', ];
-          this.arrayFields = [['labels', 'SchemaString'],];
+          this.referenceFields = [
+            'group',
+          ];
+          this.arrayFields = [
+            ['labels', 'SchemaString'],
+          ];
 
           
           const detail = {};

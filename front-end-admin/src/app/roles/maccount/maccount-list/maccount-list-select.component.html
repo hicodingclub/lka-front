@@ -1,5 +1,5 @@
 <div class="select-model show" (keyup.esc)="uiOnEscapeKey()" tabindex="0" #RolesModal>
-  <div class="select-model-content">
+  <div class="container select-model-content">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">Select {{ItemCamelName}}</h5>
@@ -42,61 +42,67 @@
 			    <div class="shadow" *ngIf="moreSearchOpened">
 					<div class="card">
 						<div class="card-body">
-	    <div class="single-line-edit">
-	      <div class="row col-gutter">
-			<div class="col-3">
-				<label for="maccountEditSince">
-				Since
-				</label>
-			</div>
-	        <div class="col-8">
+							<div class="d-flex flex-wrap">
 
- 
-	        <div class="input-group">
-		      <input class="form-control" id="maccountEditSince" placeholder="{{dateFormat}}"
-		             [(ngModel)]="detail['since']['from']" name="maccountEditSince"
-		             ngbDatepicker [minDate]="minDate" #maccountEditSince="ngModel">
-		      <span>&nbsp; ~ &nbsp;</span>
-		      <input class="form-control" id="maccountEditSince" placeholder="{{dateFormat}}"
-		             [(ngModel)]="detail['since']['to']" name="maccountEditSince"
-		             ngbDatepicker [minDate]="minDate" #maccountEditSince="ngModel">
+						<div class="container one-column-search">
+							<div class="row col-gutter align-items-center">
+								<div class="col-12 col-lg-3">
+									<label for="maccountEditSince">
+										Since
+									</label>
+								</div>
+								<div class="col-11 col-lg-8">
+									<div class="row">
+										<div class="input-group col-12 col-md-6 align-items-center">
+											<span class="small mx-1" style="width:2rem">From</span>
+											<input class="form-control" id="maccountEditSince" placeholder="{{dateFormat}}"
+												[(ngModel)]="detail['since']['from']" name="maccountEditSince" ngbDatepicker [minDate]="minDate"
+												#maccountEditSince="ngModel">
+											<div class="input-group-append">
+												<button class="btn btn-outline-secondary" (click)="onDateSelectionToggle('since')" type="button">
+													<i class="fas fa-calendar-alt"></i>
+												</button>
+											</div>
+										</div>
+										<div class="input-group col-12 col-md-6 align-items-center">
+											<span class="small mx-1" style="width:2rem">to</span>
+											<input class="form-control" id="maccountEditSince" placeholder="{{dateFormat}}"
+												[(ngModel)]="detail['since']['to']" name="maccountEditSince" ngbDatepicker [minDate]="minDate"
+												#maccountEditSince="ngModel">
+	
+											<div class="input-group-append">
+												<button class="btn btn-outline-secondary" (click)="onDateSelectionToggle('since')" type="button">
+													<i class="fas fa-calendar-alt"></i>
+												</button>
+											</div>
+										</div>
+									</div>
+									<div class="date-selection-pop" *ngIf="detail['since']['pop']">
+										<ngb-datepicker #dp [minDate]="minDate" (select)="onDateSelection('since', $event)"
+											[displayMonths]="datePickerDisplayMonths" [dayTemplate]="maccountEditSinceT">
+										</ngb-datepicker>
+										<ng-template #maccountEditSinceT let-maccountEditSinceDate="date"
+											let-maccountEditSinceFocused="focused">
+											<span class="custom-day" [class.focused]="maccountEditSinceFocused"
+												[class.range]="isRange('since', maccountEditSinceDate)"
+												[class.faded]="isHovered('since', maccountEditSinceDate) || isInside('since', maccountEditSinceDate)"
+												(mouseenter)="hoveredDate = maccountEditSinceDate" (mouseleave)="hoveredDate = null">
+												{{ maccountEditSinceDate.day }}
+											</span>
+										</ng-template>
+									</div>
+								</div>
+								<div class="col-1">
+									<div class="pointer" (click)="clearValueFromDetail('since')"
+										*ngIf="checkValueDefinedFromDetail('since')"><i class="fas fa-times-circle" title="Clear"></i></div>
+								</div>
+							</div>
+						</div> 
 
-		      <div class="input-group-append">
-		        <button class="btn btn-outline-secondary" (click)="onDateSelectionToggle('since')" type="button">
-		          <i class="fas fa-calendar-alt"></i>
-		        </button>
-		      </div>
-		    </div><!-- input group --> 
-		    <div class="date-selection-pop" *ngIf="detail['since']['pop']">
-			    <ngb-datepicker #dp [minDate]="minDate" (select)="onDateSelection('since', $event)" [displayMonths]="2" [dayTemplate]="maccountEditSinceT">
-				</ngb-datepicker>
-				<ng-template #maccountEditSinceT let-maccountEditSinceDate="date" let-maccountEditSinceFocused="focused">
-				  <span class="custom-day"
-				        [class.focused]="maccountEditSinceFocused"
-				        [class.range]="isRange('since', maccountEditSinceDate)"
-				        [class.faded]="isHovered('since', maccountEditSinceDate) || isInside('since', maccountEditSinceDate)"
-				        (mouseenter)="hoveredDate = maccountEditSinceDate"
-				        (mouseleave)="hoveredDate = null">
-				    {{ maccountEditSinceDate.day }}
-				  </span>
-				</ng-template>
-		    </div>      
-
-	      </div>
-	      
-	      <div class="col-1">
-		    <div class="icon-clear" (click)="clearValueFromDetail('since')"
-		        *ngIf="checkValueDefinedFromDetail('since')"
-		        ><i class="fas fa-times-circle" title="Clear"></i></div>
-	      </div>
-	    </div>
-      </div>
-      
- 
+							</div>
 
 
-
-							<div class="action-buttons my-3" style="margin-top: 10px;">
+							<div class="action-buttons">
 									<button type="button" class="btn btn-outline-success" (click)="onSearchClear()">Reset</button>
 									<button type="button" class="btn btn-success" (click)="searchList()">Search</button>
 							</div>

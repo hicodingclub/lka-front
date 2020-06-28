@@ -46,9 +46,11 @@ export class MmoduleListComponent extends MmoduleListCustComponent implements On
             'resources': 'Resources',
           };
           this.stringFields.push('module');
-          this.arrayFields = [['resources', 'SchemaString'],];
+          this.arrayFields = [
+            ['resources', 'SchemaString'],
+          ];
 
-          this.listViewFilter = 'list';
+          this.listViewFilter = 'table';
 
           const listCategories = [];
           this.listCategory1 = listCategories[0] || {};

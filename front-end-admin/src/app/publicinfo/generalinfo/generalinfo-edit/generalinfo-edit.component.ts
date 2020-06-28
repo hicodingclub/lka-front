@@ -60,7 +60,9 @@ export class GeneralinfoEditComponent extends GeneralinfoEditCustComponent imple
           this.stringFields.push('description');
           this.stringFields.push('signaturePicture');
           this.stringFields.push('tag');
-          this.textareaFields = ['description', ];
+          this.textareaFields = [
+            'description',
+          ];
 
           
           const detail = {};

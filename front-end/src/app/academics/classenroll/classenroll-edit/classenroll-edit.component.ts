@@ -58,11 +58,17 @@ export class ClassenrollEditComponent extends ClassenrollEditCustComponent imple
             'notes': 'Notes',
           };
           this.stringFields.push('notes');
-          this.referenceFields = ['class', ];
-          this.arrayFields = [['student', 'ObjectId'],];
+          this.referenceFields = [
+            'class',
+          ];
+          this.arrayFields = [
+            ['student', 'ObjectId'],
+          ];
           this.referenceFieldsMap['student'] = 'student';
           this.referenceFieldsReverseMap['student'] = 'student';
-          this.textareaFields = ['notes', ];
+          this.textareaFields = [
+            'notes',
+          ];
 
           
           const detail = {};

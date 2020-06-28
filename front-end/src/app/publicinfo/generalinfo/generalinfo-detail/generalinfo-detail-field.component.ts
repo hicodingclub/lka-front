@@ -35,7 +35,9 @@ export class GeneralinfoDetailFieldComponent extends GeneralinfoComponent
           this.stringFields.push('signaturePicture');
           this.stringFields.push('title');
           this.stringFields.push('description');
-          this.textareaFields = ['description', ];
+          this.textareaFields = [
+            'description',
+          ];
     }
 
     ngOnInit() {

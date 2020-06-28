@@ -48,7 +48,7 @@ export class MusergroupListComponent extends MusergroupListCustComponent impleme
           this.stringFields.push('group');
           this.stringFields.push('description');
 
-          this.listViewFilter = 'list';
+          this.listViewFilter = 'table';
 
           const listCategories = [];
           this.listCategory1 = listCategories[0] || {};

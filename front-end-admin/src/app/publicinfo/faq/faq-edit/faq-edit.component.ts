@@ -64,7 +64,9 @@ export class FaqEditComponent extends FaqEditCustComponent implements OnInit, Af
           };
           this.stringFields.push('question');
           this.stringFields.push('answer');
-          this.numberFields = ['order', ];
+          this.numberFields = [
+            'order',
+          ];
 
           this.textEditorMap['EditAnswer'] = {
             required: true ,

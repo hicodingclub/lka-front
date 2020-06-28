@@ -67,55 +67,6 @@
 	</div>
 
 	<div *ngIf="list.length > 0">
-	<div class="listview" *ngIf="isShowListView('list')">
-		<div class="list-block" *ngFor="let detail of list;  let i = index; let list_index = index;">
-			<hr *ngIf="i==0" class="list-devider">
-			<div class="list-card text-left"
-				[ngClass]="{'clicked-row': clickedId==detail['_id'],
-							'selected-row': clickItemAction === 'select' && checkedItem[i],
-							'clickable-card': clickItemAction}" >
-				<div class="list-fields" [ngClass]="{pointer: clickItemAction}" (click)="clickOneItem(i)">
-
-      <div class="list-body-fields">
-        <h5>
-          <div class="mr-1 d-inline-block">
-            
-               	  <a routerLink="."  (click)="onDisplayRefClicked('account', detail['account'], $event)">
-	            	{{detail['account']?detail['account']['value']:""}}
-	              </a>
-          </div>
-        </h5>
-        <div>
-          <div *ngIf="referenceFieldsMap['role'] != parentItem">
-            <div *ngIf="fieldHasValue(detail['role'])" class="mr-3 d-inline-flex flex-wrap">
-              <div><label>Role:</label></div>
-              <div class="ml-3">
-                    <div *ngIf="detail['role'] && detail['role']['selection']">
-                        <ng-template ngFor let-element [ngForOf]="detail['role']['selection']" let-idx="index">
-                            <div class="badge-click badge badge-pill badge-secondary" 
-                                (click)="onDisplayRefClicked('role', detail['role']['selection'][idx], $event)">
-                                {{element.value}}
-                            </div>
-                        </ng-template>
-                    </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="d-flex flex-row mt-1">
-            <div class="read-more" (click)="onDetailLinkClicked(detail['_id'])">
-              Detail <i class="fas fa-arrow-right" ></i>
-            </div>
-        </div>
-      </div>
-				</div>
-			</div>
-			<hr class="list-devider">
-		</div>
-	</div>
-
-
-
 	<table *ngIf="isShowListView('table')" class="table table-bordered table-hover">
 	    <thead class="thead-light">
 	    	<tr>
@@ -175,6 +126,55 @@
 			</ng-template>
 	    </tbody>
 	</table>
+
+
+	<div class="listview" *ngIf="isShowListView('list')">
+		<div class="list-block" *ngFor="let detail of list;  let i = index; let list_index = index;">
+			<hr *ngIf="i==0" class="list-devider">
+			<div class="list-card text-left"
+				[ngClass]="{'clicked-row': clickedId==detail['_id'],
+							'selected-row': clickItemAction === 'select' && checkedItem[i],
+							'clickable-card': clickItemAction}" >
+				<div class="list-fields" [ngClass]="{pointer: clickItemAction}" (click)="clickOneItem(i)">
+
+      <div class="list-body-fields">
+        <h5>
+          <div class="mr-1 d-inline-block">
+            
+               	  <a routerLink="."  (click)="onDisplayRefClicked('account', detail['account'], $event)">
+	            	{{detail['account']?detail['account']['value']:""}}
+	              </a>
+          </div>
+        </h5>
+        <div>
+          <div *ngIf="referenceFieldsMap['role'] != parentItem">
+            <div *ngIf="fieldHasValue(detail['role'])" class="mr-3 d-inline-flex flex-wrap">
+              <div><label>Role:</label></div>
+              <div class="ml-3">
+                    <div *ngIf="detail['role'] && detail['role']['selection']">
+                        <ng-template ngFor let-element [ngForOf]="detail['role']['selection']" let-idx="index">
+                            <div class="badge-click badge badge-pill badge-secondary" 
+                                (click)="onDisplayRefClicked('role', detail['role']['selection'][idx], $event)">
+                                {{element.value}}
+                            </div>
+                        </ng-template>
+                    </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex flex-row mt-1">
+            <div class="read-more" (click)="onDetailLinkClicked(detail['_id'])">
+              Detail <i class="fas fa-arrow-right" ></i>
+            </div>
+        </div>
+      </div>
+				</div>
+			</div>
+			<hr class="list-devider">
+		</div>
+	</div>
+
 
 
 	</div>

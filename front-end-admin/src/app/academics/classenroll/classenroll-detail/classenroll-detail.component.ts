@@ -47,16 +47,30 @@ export class ClassenrollDetailComponent extends ClassenrollDetailCustComponent i
             'updatedAt': 'Updated At',
             'muser_id': 'Muser Id',
           };
-          this.enums['status'] = ['processing', 'paid', 'confirmed', 'cancelled', ];
+          this.enums['status'] = [
+            'processing',
+            'paid',
+            'confirmed',
+            'cancelled',
+          ];
           this.stringFields.push('status');
           this.stringFields.push('notes');
           this.stringFields.push('muser_id');
-          this.referenceFields = ['class', ];
-          this.dateFields = ['createdAt', 'updatedAt', ];
-          this.arrayFields = [['student', 'ObjectId'],];
+          this.referenceFields = [
+            'class',
+          ];
+          this.dateFields = [
+            'createdAt',
+            'updatedAt',
+          ];
+          this.arrayFields = [
+            ['student', 'ObjectId'],
+          ];
           this.referenceFieldsMap['student'] = 'student';
           this.referenceFieldsReverseMap['student'] = 'student';
-          this.textareaFields = ['notes', ];
+          this.textareaFields = [
+            'notes',
+          ];
   }
 
   ngOnInit() {

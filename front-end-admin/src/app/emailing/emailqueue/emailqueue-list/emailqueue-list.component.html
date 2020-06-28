@@ -48,163 +48,143 @@
 			    <div class="shadow" *ngIf="moreSearchOpened">
 					<div class="card">
 						<div class="card-body">
-	    <div class="single-line-edit">
-	      <div class="row col-gutter">
-			<div class="col-3">
-				<label for="emailqueueEditProcessed">
-				Processed
-				</label>
-			</div>
-	        <div class="col-8">
+							<div class="d-flex flex-wrap">
+
+						<div class="container two-column-search">
+							<div class="row col-gutter align-items-center">
+								<div class="col-12 col-sm-3">
+									<label for="emailqueueEditProcessed">
+										Processed
+									</label>
+								</div>
+								<div class="col-11 col-sm-8">
+									<div class="form-check-inline">
+										<input type="radio" name="emailqueueEditProcessed" class="form-check-input" id="emailqueueEditProcessedYes"
+											[value]="true" [(ngModel)]="detail['processed']" #emailqueueEditProcessed="ngModel">
+										<span class="form-check-label">Yes</span>
+									</div>
+									<div class="form-check-inline">
+										<input type="radio" name="emailqueueEditProcessed" class="form-check-input" id="emailqueueEditProcessedNo"
+											[value]="false" [(ngModel)]="detail['processed']" #emailqueueEditProcessed="ngModel">
+										<span class="form-check-label">No</span>
+									</div>
+								</div>
+								<div class="col-1">
+									<div class="pointer" (click)="clearValueFromDetail('processed')"
+										*ngIf="checkValueDefinedFromDetail('processed')"><i class="fas fa-times-circle" title="Clear"></i></div>
+								</div>
+							</div>
+						</div> 
+
+						<div class="container two-column-search">
+							<div class="row col-gutter align-items-center">
+								<div class="col-12 col-sm-3">
+									<label for="emailqueueEditNumber">
+										Number
+									</label>
+								</div>
+								<div class="col-11 col-sm-8">
+									<div class="input-group">
+										
+									<input type="number" class="form-control" id="emailqueueEditNumber"
+										[(ngModel)]="detail['__mra_number_from']" name="emailqueueEditNumber"
+										#emailqueueEditNumber="ngModel">
+										<span>&nbsp; ~ &nbsp;</span>
+										<input type="number" class="form-control" id="emailqueueEditNumber"
+											[(ngModel)]="detail['__mra_number_to']" name="emailqueueEditNumber" #emailqueueEditNumber="ngModel">
+									</div>
+								</div>
+								<div class="col-1">
+									<div class="pointer" (click)="clearValueFromDetail('number')"
+										*ngIf="checkValueDefinedFromDetail('number')"><i class="fas fa-times-circle" title="Clear"></i></div>
+								</div>
+							</div>
+						</div> 
+
+						<div class="container two-column-search">
+							<div class="row col-gutter align-items-center">
+								<div class="col-12 col-sm-3">
+									<label for="emailqueueEditSent">
+										Sent
+									</label>
+								</div>
+								<div class="col-11 col-sm-8">
+									<div class="input-group">
+										
+									<input type="number" class="form-control" id="emailqueueEditSent"
+										[(ngModel)]="detail['__mra_sent_from']" name="emailqueueEditSent"
+										#emailqueueEditSent="ngModel">
+										<span>&nbsp; ~ &nbsp;</span>
+										<input type="number" class="form-control" id="emailqueueEditSent"
+											[(ngModel)]="detail['__mra_sent_to']" name="emailqueueEditSent" #emailqueueEditSent="ngModel">
+									</div>
+								</div>
+								<div class="col-1">
+									<div class="pointer" (click)="clearValueFromDetail('sent')"
+										*ngIf="checkValueDefinedFromDetail('sent')"><i class="fas fa-times-circle" title="Clear"></i></div>
+								</div>
+							</div>
+						</div> 
+
+						<div class="container one-column-search">
+							<div class="row col-gutter align-items-center">
+								<div class="col-12 col-lg-3">
+									<label for="emailqueueEditCreatedAt">
+										Created at
+									</label>
+								</div>
+								<div class="col-11 col-lg-8">
+									<div class="row">
+										<div class="input-group col-12 col-md-6 align-items-center">
+											<span class="small mx-1" style="width:2rem">From</span>
+											<input class="form-control" id="emailqueueEditCreatedAt" placeholder="{{dateFormat}}"
+												[(ngModel)]="detail['createdAt']['from']" name="emailqueueEditCreatedAt" ngbDatepicker [minDate]="minDate"
+												#emailqueueEditCreatedAt="ngModel">
+											<div class="input-group-append">
+												<button class="btn btn-outline-secondary" (click)="onDateSelectionToggle('createdAt')" type="button">
+													<i class="fas fa-calendar-alt"></i>
+												</button>
+											</div>
+										</div>
+										<div class="input-group col-12 col-md-6 align-items-center">
+											<span class="small mx-1" style="width:2rem">to</span>
+											<input class="form-control" id="emailqueueEditCreatedAt" placeholder="{{dateFormat}}"
+												[(ngModel)]="detail['createdAt']['to']" name="emailqueueEditCreatedAt" ngbDatepicker [minDate]="minDate"
+												#emailqueueEditCreatedAt="ngModel">
+	
+											<div class="input-group-append">
+												<button class="btn btn-outline-secondary" (click)="onDateSelectionToggle('createdAt')" type="button">
+													<i class="fas fa-calendar-alt"></i>
+												</button>
+											</div>
+										</div>
+									</div>
+									<div class="date-selection-pop" *ngIf="detail['createdAt']['pop']">
+										<ngb-datepicker #dp [minDate]="minDate" (select)="onDateSelection('createdAt', $event)"
+											[displayMonths]="datePickerDisplayMonths" [dayTemplate]="emailqueueEditCreatedAtT">
+										</ngb-datepicker>
+										<ng-template #emailqueueEditCreatedAtT let-emailqueueEditCreatedAtDate="date"
+											let-emailqueueEditCreatedAtFocused="focused">
+											<span class="custom-day" [class.focused]="emailqueueEditCreatedAtFocused"
+												[class.range]="isRange('createdAt', emailqueueEditCreatedAtDate)"
+												[class.faded]="isHovered('createdAt', emailqueueEditCreatedAtDate) || isInside('createdAt', emailqueueEditCreatedAtDate)"
+												(mouseenter)="hoveredDate = emailqueueEditCreatedAtDate" (mouseleave)="hoveredDate = null">
+												{{ emailqueueEditCreatedAtDate.day }}
+											</span>
+										</ng-template>
+									</div>
+								</div>
+								<div class="col-1">
+									<div class="pointer" (click)="clearValueFromDetail('createdAt')"
+										*ngIf="checkValueDefinedFromDetail('createdAt')"><i class="fas fa-times-circle" title="Clear"></i></div>
+								</div>
+							</div>
+						</div> 
+
+							</div>
 
 
-	        <div class="form-check-inline">
-		      	<input type="radio" name="emailqueueEditProcessed" 
-		        	class="form-check-input"
-		        	id="emailqueueEditProcessedYes" [value]="true" 
-		        	[(ngModel)]="detail['processed']"
-		        	#emailqueueEditProcessed="ngModel">
-		      	<span class="form-check-label">Yes</span>
-		      </div>
-	        <div class="form-check-inline">
-		        <input type="radio" name="emailqueueEditProcessed" 
-		        	class="form-check-input"
-		        	id="emailqueueEditProcessedNo" [value]="false"
-		        	[(ngModel)]="detail['processed']"
-		        	#emailqueueEditProcessed="ngModel">
-		      	<span class="form-check-label">No</span>
-		      </div>
-
-	      </div>
-	      
-	      <div class="col-1">
-		    <div class="icon-clear" (click)="clearValueFromDetail('processed')"
-		        *ngIf="checkValueDefinedFromDetail('processed')"
-		        ><i class="fas fa-times-circle" title="Clear"></i></div>
-	      </div>
-	    </div>
-      </div>
-      
- 
-	    <div class="single-line-edit">
-	      <div class="row col-gutter">
-			<div class="col-3">
-				<label for="emailqueueEditNumber">
-				Number
-				</label>
-			</div>
-	        <div class="col-8">
-
-
-			<div class="input-group">
-			  
-		      <input type="number" class="form-control" id="emailqueueEditNumber"
-		             [(ngModel)]="detail['__mra_number_from']" name="emailqueueEditNumber"
-		             #emailqueueEditNumber="ngModel">
-		      <span>&nbsp; ~ &nbsp;</span>
-		      <input type="number" class="form-control" id="emailqueueEditNumber"
-		             [(ngModel)]="detail['__mra_number_to']" name="emailqueueEditNumber"
-		             #emailqueueEditNumber="ngModel">
-		    </div><!-- input group --> 
-
-	      </div>
-	      
-	      <div class="col-1">
-		    <div class="icon-clear" (click)="clearValueFromDetail('number')"
-		        *ngIf="checkValueDefinedFromDetail('number')"
-		        ><i class="fas fa-times-circle" title="Clear"></i></div>
-	      </div>
-	    </div>
-      </div>
-      
- 
-	    <div class="single-line-edit">
-	      <div class="row col-gutter">
-			<div class="col-3">
-				<label for="emailqueueEditSent">
-				Sent
-				</label>
-			</div>
-	        <div class="col-8">
-
-
-			<div class="input-group">
-			  
-		      <input type="number" class="form-control" id="emailqueueEditSent"
-		             [(ngModel)]="detail['__mra_sent_from']" name="emailqueueEditSent"
-		             #emailqueueEditSent="ngModel">
-		      <span>&nbsp; ~ &nbsp;</span>
-		      <input type="number" class="form-control" id="emailqueueEditSent"
-		             [(ngModel)]="detail['__mra_sent_to']" name="emailqueueEditSent"
-		             #emailqueueEditSent="ngModel">
-		    </div><!-- input group --> 
-
-	      </div>
-	      
-	      <div class="col-1">
-		    <div class="icon-clear" (click)="clearValueFromDetail('sent')"
-		        *ngIf="checkValueDefinedFromDetail('sent')"
-		        ><i class="fas fa-times-circle" title="Clear"></i></div>
-	      </div>
-	    </div>
-      </div>
-      
- 
-	    <div class="single-line-edit">
-	      <div class="row col-gutter">
-			<div class="col-3">
-				<label for="emailqueueEditCreatedAt">
-				Created at
-				</label>
-			</div>
-	        <div class="col-8">
-
- 
-	        <div class="input-group">
-		      <input class="form-control" id="emailqueueEditCreatedAt" placeholder="{{dateFormat}}"
-		             [(ngModel)]="detail['createdAt']['from']" name="emailqueueEditCreatedAt"
-		             ngbDatepicker [minDate]="minDate" #emailqueueEditCreatedAt="ngModel">
-		      <span>&nbsp; ~ &nbsp;</span>
-		      <input class="form-control" id="emailqueueEditCreatedAt" placeholder="{{dateFormat}}"
-		             [(ngModel)]="detail['createdAt']['to']" name="emailqueueEditCreatedAt"
-		             ngbDatepicker [minDate]="minDate" #emailqueueEditCreatedAt="ngModel">
-
-		      <div class="input-group-append">
-		        <button class="btn btn-outline-secondary" (click)="onDateSelectionToggle('createdAt')" type="button">
-		          <i class="fas fa-calendar-alt"></i>
-		        </button>
-		      </div>
-		    </div><!-- input group --> 
-		    <div class="date-selection-pop" *ngIf="detail['createdAt']['pop']">
-			    <ngb-datepicker #dp [minDate]="minDate" (select)="onDateSelection('createdAt', $event)" [displayMonths]="2" [dayTemplate]="emailqueueEditCreatedAtT">
-				</ngb-datepicker>
-				<ng-template #emailqueueEditCreatedAtT let-emailqueueEditCreatedAtDate="date" let-emailqueueEditCreatedAtFocused="focused">
-				  <span class="custom-day"
-				        [class.focused]="emailqueueEditCreatedAtFocused"
-				        [class.range]="isRange('createdAt', emailqueueEditCreatedAtDate)"
-				        [class.faded]="isHovered('createdAt', emailqueueEditCreatedAtDate) || isInside('createdAt', emailqueueEditCreatedAtDate)"
-				        (mouseenter)="hoveredDate = emailqueueEditCreatedAtDate"
-				        (mouseleave)="hoveredDate = null">
-				    {{ emailqueueEditCreatedAtDate.day }}
-				  </span>
-				</ng-template>
-		    </div>      
-
-	      </div>
-	      
-	      <div class="col-1">
-		    <div class="icon-clear" (click)="clearValueFromDetail('createdAt')"
-		        *ngIf="checkValueDefinedFromDetail('createdAt')"
-		        ><i class="fas fa-times-circle" title="Clear"></i></div>
-	      </div>
-	    </div>
-      </div>
-      
- 
-
-
-
-							<div class="action-buttons my-3" style="margin-top: 10px;">
+							<div class="action-buttons">
 									<button type="button" class="btn btn-outline-success" (click)="onSearchClear()">Reset</button>
 									<button type="button" class="btn btn-success" (click)="searchList()">Search</button>
 							</div>
@@ -223,7 +203,7 @@
 		</div>
 		<div class="row" *ngIf="!options['disableActionButtions']">
 			<div class="col">
-		        <div class="action-buttons my-3">
+		        <div class="action-buttons">
 				</div>
 			</div>
 		</div>

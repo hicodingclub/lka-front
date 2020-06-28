@@ -38,7 +38,9 @@ export class EventDetailFieldComponent extends EventComponent
           this.stringFields.push('title');
           this.stringFields.push('author');
           this.stringFields.push('content');
-          this.dateFields = ['publishDate', ];
+          this.dateFields = [
+            'publishDate',
+          ];
     }
 
     ngOnInit() {

@@ -67,65 +67,6 @@
 	</div>
 
 	<div *ngIf="list.length > 0">
-	<div class="listview" *ngIf="isShowListView('list')">
-		<div class="list-block" *ngFor="let detail of list;  let i = index; let list_index = index;">
-			<hr *ngIf="i==0" class="list-devider">
-			<div class="list-card text-left"
-				[ngClass]="{'clicked-row': clickedId==detail['_id'],
-							'selected-row': clickItemAction === 'select' && checkedItem[i],
-							'clickable-card': clickItemAction}" >
-				<div class="list-fields" [ngClass]="{pointer: clickItemAction}" (click)="clickOneItem(i)">
-
-      <div class="list-body-fields">
-        <h5>
-          <div class="mr-1 d-inline-block">
-            
-               	  <a routerLink="."  (click)="onDisplayRefClicked('group', detail['group'], $event)">
-	            	{{detail['group']?detail['group']['value']:""}}
-	              </a>
-          </div>
-        </h5>
-        <div>
-          <div *ngIf="referenceFieldsMap['module'] != parentItem">
-            <div *ngIf="fieldHasValue(detail['module'])" class="mr-3 d-inline-flex flex-wrap">
-              <div><label>Module:</label></div>
-              <div class="ml-3">
-               	  <a routerLink="."  (click)="onDisplayRefClicked('module', detail['module'], $event)">
-	            	{{detail['module']?detail['module']['value']:""}}
-	              </a>
-              </div>
-            </div>
-          </div>
-            <div *ngIf="fieldHasValue(detail['modulePermission'])" class="mr-3 d-inline-flex flex-wrap">
-              <div><label>Module Permission:</label></div>
-              <div class="ml-3">
-                    {{detail['modulePermission']}}
-              </div>
-            </div>
-        </div>
-        <div class="d-flex flex-row mt-1">
-          <div class="read-more mr-5">
-            <span class="pointer" (click)="toggleShowDetailItem(i)">
-              <i *ngIf="!detail.mddsShowDetail" class="fas fa-caret-down" title="More"></i>
-              <i *ngIf="detail.mddsShowDetail" class="fas fa-caret-up" title="Less"></i>
-            </span>
-          </div>
-            <div class="read-more" (click)="onDetailLinkClicked(detail['_id'])">
-              Detail <i class="fas fa-arrow-right" ></i>
-            </div>
-        </div>
-        <div *ngIf="detail.mddsShowDetail" >
-            <app-mpubaccess-detail-sub [inputData]="detail['_id']"></app-mpubaccess-detail-sub>
-        </div>
-      </div>
-				</div>
-			</div>
-			<hr class="list-devider">
-		</div>
-	</div>
-
-
-
 	<table *ngIf="isShowListView('table')" class="table table-bordered table-hover">
 	    <thead class="thead-light">
 	    	<tr>
@@ -206,6 +147,65 @@
 			</ng-template>
 	    </tbody>
 	</table>
+
+
+	<div class="listview" *ngIf="isShowListView('list')">
+		<div class="list-block" *ngFor="let detail of list;  let i = index; let list_index = index;">
+			<hr *ngIf="i==0" class="list-devider">
+			<div class="list-card text-left"
+				[ngClass]="{'clicked-row': clickedId==detail['_id'],
+							'selected-row': clickItemAction === 'select' && checkedItem[i],
+							'clickable-card': clickItemAction}" >
+				<div class="list-fields" [ngClass]="{pointer: clickItemAction}" (click)="clickOneItem(i)">
+
+      <div class="list-body-fields">
+        <h5>
+          <div class="mr-1 d-inline-block">
+            
+               	  <a routerLink="."  (click)="onDisplayRefClicked('group', detail['group'], $event)">
+	            	{{detail['group']?detail['group']['value']:""}}
+	              </a>
+          </div>
+        </h5>
+        <div>
+          <div *ngIf="referenceFieldsMap['module'] != parentItem">
+            <div *ngIf="fieldHasValue(detail['module'])" class="mr-3 d-inline-flex flex-wrap">
+              <div><label>Module:</label></div>
+              <div class="ml-3">
+               	  <a routerLink="."  (click)="onDisplayRefClicked('module', detail['module'], $event)">
+	            	{{detail['module']?detail['module']['value']:""}}
+	              </a>
+              </div>
+            </div>
+          </div>
+            <div *ngIf="fieldHasValue(detail['modulePermission'])" class="mr-3 d-inline-flex flex-wrap">
+              <div><label>Module Permission:</label></div>
+              <div class="ml-3">
+                    {{detail['modulePermission']}}
+              </div>
+            </div>
+        </div>
+        <div class="d-flex flex-row mt-1">
+          <div class="read-more mr-5">
+            <span class="pointer" (click)="toggleShowDetailItem(i)">
+              <i *ngIf="!detail.mddsShowDetail" class="fas fa-caret-down" title="More"></i>
+              <i *ngIf="detail.mddsShowDetail" class="fas fa-caret-up" title="Less"></i>
+            </span>
+          </div>
+            <div class="read-more" (click)="onDetailLinkClicked(detail['_id'])">
+              Detail <i class="fas fa-arrow-right" ></i>
+            </div>
+        </div>
+        <div *ngIf="detail.mddsShowDetail" >
+            <app-mpubaccess-detail-sub [inputData]="detail['_id']"></app-mpubaccess-detail-sub>
+        </div>
+      </div>
+				</div>
+			</div>
+			<hr class="list-devider">
+		</div>
+	</div>
+
 
 
 	</div>

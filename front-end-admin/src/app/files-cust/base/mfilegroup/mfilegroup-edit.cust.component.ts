@@ -5,7 +5,7 @@ import { MfilegroupComponent } from '../../../files/mfilegroup/mfilegroup.compon
 export class MfilegroupEditCustComponent extends MfilegroupComponent {        
 }
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Sat Jun 27 2020 12:21:48 GMT-0700 (Pacific Daylight Time)
+**Date: Sun Jun 28 2020 13:27:06 GMT-0700 (Pacific Daylight Time)
 
 import { Input } from '@angular/core';
 

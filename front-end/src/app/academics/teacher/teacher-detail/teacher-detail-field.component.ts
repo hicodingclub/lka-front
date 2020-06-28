@@ -42,8 +42,12 @@ export class TeacherDetailFieldComponent extends TeacherComponent
           this.stringFields.push('phoneNumber');
           this.stringFields.push('introduction');
           this.stringFields.push('photo');
-          this.referenceFields = ['courses', ];
-          this.textareaFields = ['introduction', ];
+          this.referenceFields = [
+            'courses',
+          ];
+          this.textareaFields = [
+            'introduction',
+          ];
     }
 
     ngOnInit() {

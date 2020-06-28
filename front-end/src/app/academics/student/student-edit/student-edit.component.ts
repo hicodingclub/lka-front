@@ -301,8 +301,12 @@ export class StudentEditComponent extends StudentEditCustComponent implements On
           this.stringFields.push('GuardianTwoName');
           this.stringFields.push('GuardianTwoPhone');
           this.stringFields.push('GuardianTwoEmail');
-          this.dateFields = ['date_of_birth', ];
-          this.numberFields = ['grade', ];
+          this.dateFields = [
+            'date_of_birth',
+          ];
+          this.numberFields = [
+            'grade',
+          ];
 
           
           const detail = {};

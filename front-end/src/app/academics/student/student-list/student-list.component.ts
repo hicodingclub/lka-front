@@ -53,7 +53,9 @@ export class StudentListComponent extends StudentListCustComponent implements On
           this.stringFields.push('last_name');
           this.stringFields.push('email');
           this.stringFields.push('phoneNumber');
-          this.numberFields = ['grade', ];
+          this.numberFields = [
+            'grade',
+          ];
 
           this.listViewFilter = 'grid';
 

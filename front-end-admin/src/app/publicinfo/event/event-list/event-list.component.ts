@@ -54,7 +54,9 @@ export class EventListComponent extends EventListCustComponent implements OnInit
           this.stringFields.push('signaturePicture');
           this.stringFields.push('title');
           this.stringFields.push('author');
-          this.dateFields = ['publishDate', ];
+          this.dateFields = [
+            'publishDate',
+          ];
 
           this.listViewFilter = 'list';
           this.setListSort('publishDate', 'Publish Date', 'desc');

@@ -44,7 +44,9 @@ export class PaymentDetailFieldComponent extends PaymentComponent
           this.stringFields.push('transLogP');
           this.stringFields.push('transLogA');
           this.stringFields.push('status');
-          this.dateFields = ['createdAt', ];
+          this.dateFields = [
+            'createdAt',
+          ];
     }
 
     ngOnInit() {

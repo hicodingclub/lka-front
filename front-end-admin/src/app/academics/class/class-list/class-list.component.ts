@@ -57,13 +57,29 @@ export class ClassListComponent extends ClassListCustComponent implements OnInit
             'dayOfWeek': 'Day of Week',
             'timeSlot': 'Time Slot',
           };
-          this.enums['dayOfWeek'] = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun', ];
+          this.enums['dayOfWeek'] = [
+            'Mon',
+            'Tue',
+            'Wed',
+            'Thu',
+            'Fri',
+            'Sat',
+            'Sun',
+          ];
           this.stringFields.push('title');
           this.stringFields.push('season');
           this.stringFields.push('timeSlot');
-          this.referenceFields = ['course', 'teacher', ];
-          this.dateFields = ['startTime', 'endTime', ];
-          this.multiSelectionFields = ['dayOfWeek', ];
+          this.referenceFields = [
+            'course',
+            'teacher',
+          ];
+          this.dateFields = [
+            'startTime',
+            'endTime',
+          ];
+          this.multiSelectionFields = [
+            'dayOfWeek', 
+          ];
           this.editHintFields = {
             'season': [],
           };

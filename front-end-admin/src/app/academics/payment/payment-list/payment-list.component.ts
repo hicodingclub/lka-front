@@ -53,7 +53,9 @@ export class PaymentListComponent extends PaymentListCustComponent implements On
           this.stringFields.push('productID');
           this.stringFields.push('price');
           this.stringFields.push('status');
-          this.dateFields = ['createdAt', ];
+          this.dateFields = [
+            'createdAt',
+          ];
 
           this.listViewFilter = 'list';
 

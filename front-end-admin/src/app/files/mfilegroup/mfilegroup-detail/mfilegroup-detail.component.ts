@@ -42,7 +42,9 @@ export class MfilegroupDetailComponent extends MfilegroupDetailCustComponent imp
             'createdAt': 'Created at',
           };
           this.stringFields.push('name');
-          this.dateFields = ['createdAt', ];
+          this.dateFields = [
+            'createdAt',
+          ];
   }
 
   ngOnInit() {

@@ -56,7 +56,9 @@ export class ArticleListComponent extends ArticleListCustComponent implements On
           this.stringFields.push('title');
           this.stringFields.push('author');
           this.stringFields.push('category');
-          this.dateFields = ['publishDate', ];
+          this.dateFields = [
+            'publishDate',
+          ];
 
           this.listViewFilter = 'list';
           this.setListSort('publishDate', 'Publish Date', 'desc');

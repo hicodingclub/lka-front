@@ -63,8 +63,12 @@ export class StudentDetailComponent extends StudentDetailCustComponent implement
           this.stringFields.push('GuardianTwoName');
           this.stringFields.push('GuardianTwoPhone');
           this.stringFields.push('GuardianTwoEmail');
-          this.dateFields = ['date_of_birth', ];
-          this.numberFields = ['grade', ];
+          this.dateFields = [
+            'date_of_birth',
+          ];
+          this.numberFields = [
+            'grade',
+          ];
   }
 
   ngOnInit() {

@@ -75,7 +75,10 @@ export class EmailqueueEditComponent extends EmailqueueEditCustComponent impleme
           this.stringFields.push('content');
           this.stringFields.push('replacements');
           this.stringFields.push('defaultReplacement');
-          this.numberFields = ['number', 'sent', ];
+          this.numberFields = [
+            'number',
+            'sent',
+          ];
 
           this.textEditorMap['EditContent'] = {
             required:  false ,

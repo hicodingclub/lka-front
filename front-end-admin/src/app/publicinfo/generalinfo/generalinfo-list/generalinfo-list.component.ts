@@ -51,7 +51,9 @@ export class GeneralinfoListComponent extends GeneralinfoListCustComponent imple
           this.stringFields.push('title');
           this.stringFields.push('description');
           this.stringFields.push('tag');
-          this.textareaFields = ['description', ];
+          this.textareaFields = [
+            'description',
+          ];
 
           this.listViewFilter = 'list';
           this.setListSort('title', 'Title', 'asc');

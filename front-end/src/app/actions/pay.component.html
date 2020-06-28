@@ -54,19 +54,9 @@
 
         <h3 class="mt-5 mb-3 text-center">Payment Options</h3>
         <div class="pl-5">
-            <h5>Option 1. PayPal QR Code Pay: (<i style="color: darkgreen">Zero transaction fee through Sep 30, 2020</i>)</h5>
+            <h5>Option 1. Pay with Zelle(<i style="color: darkgreen">Zero transaction fee</i>)</h5>
             <div class="my-3 d-flex flex-column align-items-center">
-                <p class="pl-5"><i>Scan the following QR Code with PayPal app to pay <b style="color: red">${{totalPrice.toFixed(2)}}</b></i></p>
-                <img style="width: 300px;" src="assets/images/LKA-Paypal-QRCode.png">
-            </div>
-            <div class="text-center mb-3 mt-3">
-                <a class="btn btn-outline-primary" routerLink="/academics/classenroll/list">Done with PayPal QR Code Pay</a>
-            </div>
-            <!--p class="pl-5 small"><i><b>Note:</b>Starting Octobor 1, 2020, 1.9% additional transaction fee will incure and you payment total would be <b>${{paypalQRPrice.toFixed(2)}}</b></i></p -->
-
-            <h5>Option 2. Pay with Zelle(<i style="color: darkgreen">Zero transaction fee</i>)</h5>
-            <div class="my-3 d-flex flex-column align-items-center">
-                <div>Zelle® is a fast, safe, easy and contact-free way to send and receive money. Look for Zelle in your banking app. Use Zelle to pay <b style="color: red">${{totalPrice.toFixed(2)}}</b> to the following account:</div>
+                <div>Zelle® is a fast, safe, easy and contact-free way to send and receive money. Look for Zelle in your bank accounts. Use Zelle to pay <b style="color: red">${{totalPrice.toFixed(2)}}</b> to the following account:</div>
                 <div>info.lkastaff@gmail.com</div>
             </div>
 
@@ -75,9 +65,9 @@
             </div>
 
 
-            <h5>Option 3. Check or other payment channels.</h5>
+            <h5>Option 2. By check or other payment channels.</h5>
             <div class="my-3 d-flex flex-column align-items-center">
-                <p> Pay <b style="color: red">${{totalPrice.toFixed(2)}}</b> with other online bill pay channels or mail/drop off the tuition check to the following address before the session/class starts:</p>
+                <p> Pay <b style="color: red">${{totalPrice.toFixed(2)}}</b> with online bill pay or mail/drop off the tuition check to the following address before the session/class starts:</p>
                 <div class="pl-5 pt-3 pb-3">
                     <div>Light of knowledge Academy</div>
                     <div>20432 Silverado Ave Suite #6,</div>
@@ -88,6 +78,17 @@
             <div class="text-center mb-3 mt-3">
                 <a class="btn btn-outline-primary" routerLink="/academics/classenroll/list">I'll mail/drop off or pay with other channels.</a>
             </div>
+
+            <h5>Option 3. PayPal QR Code Pay: (<i style="color: darkgreen">Zero transaction fee through Sep 30, 2020</i>)</h5>
+            <div class="my-3 d-flex flex-column align-items-center">
+                <p class="pl-5"><i>Scan the following QR Code with PayPal app to pay <b style="color: red">${{totalPrice.toFixed(2)}}</b></i></p>
+                <img style="width: 300px;" src="assets/images/LKA-Paypal-QRCode.png">
+            </div>
+            <div class="text-center mb-3 mt-3">
+                <a class="btn btn-outline-primary" routerLink="/academics/classenroll/list">Done with PayPal QR Code Pay</a>
+            </div>
+            <!--p class="pl-5 small"><i><b>Note:</b>Starting Octobor 1, 2020, 1.9% additional transaction fee will incure and you payment total would be <b>${{paypalQRPrice.toFixed(2)}}</b></i></p -->
+
 
             <h5>Option 4. Paypal Pay: (<i style="color: red">2.9% transaction fee</i>)</h5>
             <p class="pl-5"><i><b>Note:</b> 2.9% additional online transaction fee will incure. Your payment total would be: <b style="color: red;">${{onlinePrice.toFixed(2)}}</b></i></p>

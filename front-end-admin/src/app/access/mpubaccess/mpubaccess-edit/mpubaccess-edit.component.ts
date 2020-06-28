@@ -59,7 +59,10 @@ export class MpubaccessEditComponent extends MpubaccessEditCustComponent impleme
             'resourcePermission': 'Resource Permission',
           };
           this.stringFields.push('modulePermission');
-          this.referenceFields = ['group', 'module', ];
+          this.referenceFields = [
+            'group',
+            'module',
+          ];
           this.mapFields = [
               ['resourcePermission', 'SchemaString', '', '', , ''],
           ];

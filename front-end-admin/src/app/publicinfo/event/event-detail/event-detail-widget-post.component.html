@@ -1,6 +1,6 @@
 <div class="detail" *ngIf="detail">
-	<div *ngIf="!options['disableActionButtions']"><div *ngIf="!disableActionButtions && !options['disableActionButtions']" class="action-buttons my-3">
-    <a *ngIf="!options['disableActionList']" routerLink="../../list"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
+	<div *ngIf="!options['disableActionButtions']"><div *ngIf="!disableActionButtions && !options['disableActionButtions']" class="action-buttons">
+    <a *ngIf="!options['disableActionList']" routerLink="../../list" class="action-go-list"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
     <a *ngIf="!options['disableActionEdit']" [routerLink]="['../../edit', detail['_id'] ]" [skipLocationChange]="false" class="btn btn-outline-primary">Edit</a>
     <a *ngIf="!options['disableActionNew']" [routerLink]="['../../new']" [queryParams]="{cid: detail['_id']}" [skipLocationChange]="false" class="btn btn-outline-primary">New</a>
     <a *ngIf="!options['disableActionDelete']" routerLink="." class="btn btn-outline-primary" (click)="onDelete(detail['_id'], null)">Delete</a>

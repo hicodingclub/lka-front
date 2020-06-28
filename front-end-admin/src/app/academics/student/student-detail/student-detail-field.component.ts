@@ -57,9 +57,15 @@ export class StudentDetailFieldComponent extends StudentComponent
           this.stringFields.push('GuardianTwoEmail');
           this.stringFields.push('notes');
           this.stringFields.push('muser_id');
-          this.dateFields = ['date_of_birth', ];
-          this.numberFields = ['grade', ];
-          this.textareaFields = ['notes', ];
+          this.dateFields = [
+            'date_of_birth',
+          ];
+          this.numberFields = [
+            'grade',
+          ];
+          this.textareaFields = [
+            'notes',
+          ];
     }
 
     ngOnInit() {

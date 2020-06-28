@@ -34,7 +34,10 @@ export class MpubaccessDetailFieldComponent extends MpubaccessComponent
             'resourcePermission': 'Resource Permission',
           };
           this.stringFields.push('modulePermission');
-          this.referenceFields = ['group', 'module', ];
+          this.referenceFields = [
+            'group',
+            'module',
+          ];
           this.mapFields = [
               ['resourcePermission', 'SchemaString', '', '', , ''],
           ];

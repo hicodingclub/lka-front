@@ -49,11 +49,22 @@ export class ClassenrollListComponent extends ClassenrollListCustComponent imple
             'status': 'Status',
             'createdAt': 'Created Time',
           };
-          this.enums['status'] = ['processing', 'paid', 'confirmed', 'cancelled', ];
+          this.enums['status'] = [
+            'processing',
+            'paid',
+            'confirmed',
+            'cancelled',
+          ];
           this.stringFields.push('status');
-          this.referenceFields = ['class', ];
-          this.dateFields = ['createdAt', ];
-          this.arrayFields = [['student', 'ObjectId'],];
+          this.referenceFields = [
+            'class',
+          ];
+          this.dateFields = [
+            'createdAt',
+          ];
+          this.arrayFields = [
+            ['student', 'ObjectId'],
+          ];
           this.referenceFieldsMap['student'] = 'student';
           this.referenceFieldsReverseMap['student'] = 'student';
 

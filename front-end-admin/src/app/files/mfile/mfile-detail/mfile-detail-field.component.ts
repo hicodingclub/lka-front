@@ -40,10 +40,18 @@ export class MfileDetailFieldComponent extends MfileComponent
           this.stringFields.push('name');
           this.stringFields.push('type');
           this.stringFields.push('link');
-          this.referenceFields = ['group', ];
-          this.dateFields = ['createdAt', ];
-          this.numberFields = ['size', ];
-          this.arrayFields = [['labels', 'SchemaString'],];
+          this.referenceFields = [
+            'group',
+          ];
+          this.dateFields = [
+            'createdAt',
+          ];
+          this.numberFields = [
+            'size',
+          ];
+          this.arrayFields = [
+            ['labels', 'SchemaString'],
+          ];
     }
 
     ngOnInit() {

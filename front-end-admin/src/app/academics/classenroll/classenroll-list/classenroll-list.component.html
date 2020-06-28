@@ -48,124 +48,117 @@
 			    <div class="shadow" *ngIf="moreSearchOpened">
 					<div class="card">
 						<div class="card-body">
-	    <div class="single-line-edit">
-	      <div class="row col-gutter">
-			<div class="col-3">
-				<label for="classenrollEditStudent">
-				Student
-				</label>
-			</div>
-	        <div class="col-8">
+							<div class="d-flex flex-wrap">
+
+						<div class="container two-column-search">
+							<div class="row col-gutter align-items-center">
+								<div class="col-12 col-sm-3">
+									<label for="classenrollEditStudent">
+										Student
+									</label>
+								</div>
+								<div class="col-11 col-sm-8">
+									<ng-template [ngIf]="detail['student'] && detail['student']['selection']">
+										<div class="badge badge-pill badge-secondary"
+											*ngFor="let element of detail['student']['selection']; let i = index;">
+											{{element.value}}
+											<i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromArrayField('student', i)"
+												title="Remove"></i>
+										</div>
+									</ng-template>
+									<button type="button" class="btn btn-light ml-3" (click)="onRefSelect('student')">
+										<i class="fas fa-plus" title="Add"></i>
+									</button>
+								</div>
+								<div class="col-1">
+									<div class="pointer" (click)="clearValueFromDetail('student')"
+										*ngIf="checkValueDefinedFromDetail('student')"><i class="fas fa-times-circle" title="Clear"></i></div>
+								</div>
+							</div>
+						</div> 
+
+						<div class="container two-column-search">
+							<div class="row col-gutter align-items-center">
+								<div class="col-12 col-sm-3">
+									<label for="classenrollEditClass">
+										Class
+									</label>
+								</div>
+								<div class="col-11 col-sm-8">
+									<div class="input-group">
+										<input class="form-control rounded" id="classenrollEditClass"
+											[ngClass]="{'pointer ref-badge': detail['class']['_id']}" (focus)="onRefSelect('class')"
+											 
+											[ngModel]="detail['class']['value']" name="classenrollEditClass" #classenrollEditClass="ngModel">
+									</div>
+									<!-- (focus)="detail['class']['_id']?onRefShow('class', 'select', detail['class']['_id']):onRefSelect('class')" -->
+								</div>
+								<div class="col-1">
+									<div class="pointer" (click)="clearValueFromDetail('class')"
+										*ngIf="checkValueDefinedFromDetail('class')"><i class="fas fa-times-circle" title="Clear"></i></div>
+								</div>
+							</div>
+						</div> 
+
+						<div class="container one-column-search">
+							<div class="row col-gutter align-items-center">
+								<div class="col-12 col-lg-3">
+									<label for="classenrollEditCreatedAt">
+										Created At
+									</label>
+								</div>
+								<div class="col-11 col-lg-8">
+									<div class="row">
+										<div class="input-group col-12 col-md-6 align-items-center">
+											<span class="small mx-1" style="width:2rem">From</span>
+											<input class="form-control" id="classenrollEditCreatedAt" placeholder="{{dateFormat}}"
+												[(ngModel)]="detail['createdAt']['from']" name="classenrollEditCreatedAt" ngbDatepicker [minDate]="minDate"
+												#classenrollEditCreatedAt="ngModel">
+											<div class="input-group-append">
+												<button class="btn btn-outline-secondary" (click)="onDateSelectionToggle('createdAt')" type="button">
+													<i class="fas fa-calendar-alt"></i>
+												</button>
+											</div>
+										</div>
+										<div class="input-group col-12 col-md-6 align-items-center">
+											<span class="small mx-1" style="width:2rem">to</span>
+											<input class="form-control" id="classenrollEditCreatedAt" placeholder="{{dateFormat}}"
+												[(ngModel)]="detail['createdAt']['to']" name="classenrollEditCreatedAt" ngbDatepicker [minDate]="minDate"
+												#classenrollEditCreatedAt="ngModel">
+	
+											<div class="input-group-append">
+												<button class="btn btn-outline-secondary" (click)="onDateSelectionToggle('createdAt')" type="button">
+													<i class="fas fa-calendar-alt"></i>
+												</button>
+											</div>
+										</div>
+									</div>
+									<div class="date-selection-pop" *ngIf="detail['createdAt']['pop']">
+										<ngb-datepicker #dp [minDate]="minDate" (select)="onDateSelection('createdAt', $event)"
+											[displayMonths]="datePickerDisplayMonths" [dayTemplate]="classenrollEditCreatedAtT">
+										</ngb-datepicker>
+										<ng-template #classenrollEditCreatedAtT let-classenrollEditCreatedAtDate="date"
+											let-classenrollEditCreatedAtFocused="focused">
+											<span class="custom-day" [class.focused]="classenrollEditCreatedAtFocused"
+												[class.range]="isRange('createdAt', classenrollEditCreatedAtDate)"
+												[class.faded]="isHovered('createdAt', classenrollEditCreatedAtDate) || isInside('createdAt', classenrollEditCreatedAtDate)"
+												(mouseenter)="hoveredDate = classenrollEditCreatedAtDate" (mouseleave)="hoveredDate = null">
+												{{ classenrollEditCreatedAtDate.day }}
+											</span>
+										</ng-template>
+									</div>
+								</div>
+								<div class="col-1">
+									<div class="pointer" (click)="clearValueFromDetail('createdAt')"
+										*ngIf="checkValueDefinedFromDetail('createdAt')"><i class="fas fa-times-circle" title="Clear"></i></div>
+								</div>
+							</div>
+						</div> 
+
+							</div>
 
 
-
-            <ng-template [ngIf]="detail['student'] && detail['student']['selection']">
-                <div class="badge badge-pill badge-secondary" *ngFor="let element of detail['student']['selection']; let i = index;">
-                    {{element.value}}
-				    <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromArrayField('student', i)" title="Remove"></i>
-				</div>
-            </ng-template>
-			<button type="button" class="btn btn-light ml-3" (click)="onRefSelect('student')">
-				<i class="fas fa-plus" title="Add"></i>
-			</button>
- 
-
-	      </div>
-	      
-	      <div class="col-1">
-		    <div class="icon-clear" (click)="clearValueFromDetail('student')"
-		        *ngIf="checkValueDefinedFromDetail('student')"
-		        ><i class="fas fa-times-circle" title="Clear"></i></div>
-	      </div>
-	    </div>
-      </div>
-      
- 
-	    <div class="single-line-edit">
-	      <div class="row col-gutter">
-			<div class="col-3">
-				<label for="classenrollEditClass">
-				Class
-				</label>
-			</div>
-	        <div class="col-8">
-
-
-		    <div class="input-group">
-		        <input class="form-control rounded" id="classenrollEditClass" 
-		             [ngClass]="{'pointer ref-badge': detail['class']['_id']}"
-		             (focus)="onRefSelect('class')"
-		        	  
-		             [ngModel]="detail['class']['value']" name="classenrollEditClass"
-		             #classenrollEditClass="ngModel"> 
-			</div><!-- (focus)="detail['class']['_id']?onRefShow('class', 'select', detail['class']['_id']):onRefSelect('class')" -->
-
-	      </div>
-	      
-	      <div class="col-1">
-		    <div class="icon-clear" (click)="clearValueFromDetail('class')"
-		        *ngIf="checkValueDefinedFromDetail('class')"
-		        ><i class="fas fa-times-circle" title="Clear"></i></div>
-	      </div>
-	    </div>
-      </div>
-      
- 
-	    <div class="single-line-edit">
-	      <div class="row col-gutter">
-			<div class="col-3">
-				<label for="classenrollEditCreatedAt">
-				Created At
-				</label>
-			</div>
-	        <div class="col-8">
-
- 
-	        <div class="input-group">
-		      <input class="form-control" id="classenrollEditCreatedAt" placeholder="{{dateFormat}}"
-		             [(ngModel)]="detail['createdAt']['from']" name="classenrollEditCreatedAt"
-		             ngbDatepicker [minDate]="minDate" #classenrollEditCreatedAt="ngModel">
-		      <span>&nbsp; ~ &nbsp;</span>
-		      <input class="form-control" id="classenrollEditCreatedAt" placeholder="{{dateFormat}}"
-		             [(ngModel)]="detail['createdAt']['to']" name="classenrollEditCreatedAt"
-		             ngbDatepicker [minDate]="minDate" #classenrollEditCreatedAt="ngModel">
-
-		      <div class="input-group-append">
-		        <button class="btn btn-outline-secondary" (click)="onDateSelectionToggle('createdAt')" type="button">
-		          <i class="fas fa-calendar-alt"></i>
-		        </button>
-		      </div>
-		    </div><!-- input group --> 
-		    <div class="date-selection-pop" *ngIf="detail['createdAt']['pop']">
-			    <ngb-datepicker #dp [minDate]="minDate" (select)="onDateSelection('createdAt', $event)" [displayMonths]="2" [dayTemplate]="classenrollEditCreatedAtT">
-				</ngb-datepicker>
-				<ng-template #classenrollEditCreatedAtT let-classenrollEditCreatedAtDate="date" let-classenrollEditCreatedAtFocused="focused">
-				  <span class="custom-day"
-				        [class.focused]="classenrollEditCreatedAtFocused"
-				        [class.range]="isRange('createdAt', classenrollEditCreatedAtDate)"
-				        [class.faded]="isHovered('createdAt', classenrollEditCreatedAtDate) || isInside('createdAt', classenrollEditCreatedAtDate)"
-				        (mouseenter)="hoveredDate = classenrollEditCreatedAtDate"
-				        (mouseleave)="hoveredDate = null">
-				    {{ classenrollEditCreatedAtDate.day }}
-				  </span>
-				</ng-template>
-		    </div>      
-
-	      </div>
-	      
-	      <div class="col-1">
-		    <div class="icon-clear" (click)="clearValueFromDetail('createdAt')"
-		        *ngIf="checkValueDefinedFromDetail('createdAt')"
-		        ><i class="fas fa-times-circle" title="Clear"></i></div>
-	      </div>
-	    </div>
-      </div>
-      
- 
-
-
-
-							<div class="action-buttons my-3" style="margin-top: 10px;">
+							<div class="action-buttons">
 									<button type="button" class="btn btn-outline-success" (click)="onSearchClear()">Reset</button>
 									<button type="button" class="btn btn-success" (click)="searchList()">Search</button>
 							</div>
@@ -184,7 +177,7 @@
 		</div>
 		<div class="row" *ngIf="!options['disableActionButtions']">
 			<div class="col">
-		        <div class="action-buttons my-3">
+		        <div class="action-buttons">
 					<a [routerLink]="['../new' ]" [skipLocationChange]="false" class="btn btn-outline-primary">Create</a>
 					<a routerLink="." class="btn btn-outline-primary" (click)="onDeleteSelected()"
 						[ngClass]="{'disabled': !isItemSelected()}">Delete</a>
@@ -555,4 +548,4 @@
 </div>
 
 
-<ng-template *ngIf="!options['disableRefs']" academics-ref-select></ng-template>
+<ng-template academics-ref-select></ng-template>
