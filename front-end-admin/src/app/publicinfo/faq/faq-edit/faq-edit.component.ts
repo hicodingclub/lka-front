@@ -54,7 +54,8 @@ export class FaqEditComponent extends FaqEditCustComponent implements OnInit, Af
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                faqService, injector, router, route, location, ViewType.EDIT);
+                faqService, injector, router, route, location);
+          this.view = ViewType.EDIT;
 
           this.fieldDisplayNames = {
             'question': 'Question',

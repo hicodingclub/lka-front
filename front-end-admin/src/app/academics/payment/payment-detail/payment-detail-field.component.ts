@@ -25,7 +25,8 @@ export class PaymentDetailFieldComponent extends PaymentComponent
         public route: ActivatedRoute,
         public location: Location) {
           super(
-                paymentService, injector, router, route, location, ViewType.DETAIL);
+                paymentService, injector, router, route, location);
+          this.view = ViewType.DETAIL;
           
           this.fieldDisplayNames = {
             'product': 'Product',

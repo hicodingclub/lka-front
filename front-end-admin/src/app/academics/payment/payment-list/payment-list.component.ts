@@ -40,7 +40,8 @@ export class PaymentListComponent extends PaymentListCustComponent implements On
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                paymentService, injector, router, route, location, ViewType.LIST);
+                paymentService, injector, router, route, location);
+          this.view = ViewType.LIST;
 
           this.fieldDisplayNames = {
             'product': 'Product',
@@ -58,6 +59,7 @@ export class PaymentListComponent extends PaymentListCustComponent implements On
           ];
 
           this.listViewFilter = 'list';
+          this.setListSort('createdAt', 'Created At', 'desc');
 
           const listCategories = [];
           this.listCategory1 = listCategories[0] || {};

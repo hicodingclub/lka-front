@@ -25,7 +25,8 @@ export class FaqDetailFieldComponent extends FaqComponent
         public route: ActivatedRoute,
         public location: Location) {
           super(
-                faqService, injector, router, route, location, ViewType.DETAIL);
+                faqService, injector, router, route, location);
+          this.view = ViewType.DETAIL;
           
           this.fieldDisplayNames = {
             'question': 'Question',

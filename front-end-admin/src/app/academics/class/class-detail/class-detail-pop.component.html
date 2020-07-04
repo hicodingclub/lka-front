@@ -10,8 +10,6 @@
       <div class="modal-body">
 
 <!--  model body starts -->
-
-
 <div class="detail" *ngIf="detail">
 	<div class="action-buttons">
 	</div>
@@ -43,14 +41,14 @@
                 <div><label>Program:</label></div>
                 <div class="ml-3">
                	  <a routerLink="."  (click)="onDisplayRefClicked('course', detail['course'], $event)">
-	            	{{detail['course']?detail['course']['value']:""}}
+	            	{{detail['course']?detail['course']['valueMedium']:""}}
 	              </a></div>
             </div>
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
                 <div><label>Instructor:</label></div>
                 <div class="ml-3">
                	  <a routerLink="."  (click)="onDisplayRefClicked('teacher', detail['teacher'], $event)">
-	            	{{detail['teacher']?detail['teacher']['value']:""}}
+	            	{{detail['teacher']?detail['teacher']['valueMedium']:""}}
 	              </a></div>
             </div>
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
@@ -102,7 +100,7 @@
                 <div><label>Enroll Term:</label></div>
                 <div class="ml-3">
                	  <a routerLink="."  (click)="onDisplayRefClicked('enrollTerm', detail['enrollTerm'], $event)">
-	            	{{detail['enrollTerm']?detail['enrollTerm']['value']:""}}
+	            	{{detail['enrollTerm']?detail['enrollTerm']['valueMedium']:""}}
 	              </a></div>
             </div>
           </div>
@@ -112,9 +110,6 @@
 	  </div>
 	</div>
 </div>
-
-
-
 <!--  model body ends -->
 
       </div>

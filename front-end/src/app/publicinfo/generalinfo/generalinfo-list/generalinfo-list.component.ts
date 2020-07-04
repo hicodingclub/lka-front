@@ -39,7 +39,8 @@ export class GeneralinfoListComponent extends GeneralinfoListCustComponent imple
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                generalinfoService, injector, router, route, location, ViewType.LIST);
+                generalinfoService, injector, router, route, location);
+          this.view = ViewType.LIST;
 
           this.fieldDisplayNames = {
             'signaturePicture': 'Signature Picture',

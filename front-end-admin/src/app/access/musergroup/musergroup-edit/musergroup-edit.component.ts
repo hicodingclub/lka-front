@@ -48,7 +48,8 @@ export class MusergroupEditComponent extends MusergroupEditCustComponent impleme
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                musergroupService, injector, router, route, location, ViewType.EDIT);
+                musergroupService, injector, router, route, location);
+          this.view = ViewType.EDIT;
 
           this.fieldDisplayNames = {
             'group': 'Group',

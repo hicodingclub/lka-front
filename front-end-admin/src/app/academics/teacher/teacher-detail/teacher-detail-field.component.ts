@@ -25,7 +25,8 @@ export class TeacherDetailFieldComponent extends TeacherComponent
         public route: ActivatedRoute,
         public location: Location) {
           super(null,
-                teacherService, injector, router, route, location, ViewType.DETAIL);
+                teacherService, injector, router, route, location);
+          this.view = ViewType.DETAIL;
           
           this.fieldDisplayNames = {
             'firstName': 'First Name',

@@ -36,7 +36,8 @@ export class ClassenrollDetailComponent extends ClassenrollDetailCustComponent i
       public route: ActivatedRoute,
       public location: Location) {
           super(componentFactoryResolver,
-                classenrollService, injector, router, route, location, ViewType.DETAIL);
+                classenrollService, injector, router, route, location);
+          this.view = ViewType.DETAIL;
 
           this.fieldDisplayNames = {
             'student': 'Student',

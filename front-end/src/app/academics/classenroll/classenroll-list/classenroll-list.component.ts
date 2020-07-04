@@ -41,7 +41,8 @@ export class ClassenrollListComponent extends ClassenrollListCustComponent imple
       public route: ActivatedRoute,
       public location: Location) {
           super(componentFactoryResolver,
-                classenrollService, injector, router, route, location, ViewType.LIST);
+                classenrollService, injector, router, route, location);
+          this.view = ViewType.LIST;
 
           this.fieldDisplayNames = {
             'student': 'Student',

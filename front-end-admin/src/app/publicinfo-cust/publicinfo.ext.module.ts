@@ -32,7 +32,7 @@ import { publicinfo_server_root_uri } from './publicinfo.conf';
 })
 export class PublicinfoExtModule { }
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Sun Jun 28 2020 13:27:07 GMT-0700 (Pacific Daylight Time)
+**Date: Fri Jul 03 2020 18:36:53 GMT-0700 (Pacific Daylight Time)
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';

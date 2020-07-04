@@ -1,7 +1,7 @@
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MddsBaseComponent, ViewType } from '@hicoder/angular-core';
-import { OnInit, Injector, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Injector, Input, Output, EventEmitter } from '@angular/core';
 import { StudentclassService } from './studentclass.service';
 
 const itemCamelName = 'student Class';
@@ -22,6 +22,9 @@ import { ClassDetailPopComponent } from '../class/class-detail/class-detail-pop.
 import { ClassListSelectComponent } from '../class/class-list/class-list-select.component';
 
 
+@Component({
+    template: '',
+})
 export class StudentclassComponent extends MddsBaseComponent implements OnInit {
     // *** common input fields
     @Input()
@@ -109,10 +112,10 @@ export class StudentclassComponent extends MddsBaseComponent implements OnInit {
       public injector: Injector,
       public router: Router,
       public route: ActivatedRoute,
-      public location: Location,
-      public view: ViewType ) {
+      public location: Location) {
 
-        super(studentclassService, injector, router, route, location, view, itemCamelName);
+        super(studentclassService, injector, router, route, location);
+        this.setItemNames(itemCamelName);
 
         
         this.briefFieldsInfo = [];

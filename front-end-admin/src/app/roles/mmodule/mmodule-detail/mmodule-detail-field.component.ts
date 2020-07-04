@@ -25,7 +25,8 @@ export class MmoduleDetailFieldComponent extends MmoduleComponent
         public route: ActivatedRoute,
         public location: Location) {
           super(
-                mmoduleService, injector, router, route, location, ViewType.DETAIL);
+                mmoduleService, injector, router, route, location);
+          this.view = ViewType.DETAIL;
           
           this.fieldDisplayNames = {
             'module': 'Module',

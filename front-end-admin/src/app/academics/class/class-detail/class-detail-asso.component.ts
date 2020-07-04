@@ -35,7 +35,8 @@ export class ClassAssoComponent extends ClassComponent implements OnInit {
       public route: ActivatedRoute,
       public location: Location) {
           super(componentFactoryResolver,
-                classService, injector, router, route, location, ViewType.DETAIL);
+                classService, injector, router, route, location);
+          this.view = ViewType.DETAIL;
 
           this.fieldDisplayNames = {
             'title': 'Title',

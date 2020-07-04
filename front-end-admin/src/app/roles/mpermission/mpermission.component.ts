@@ -1,7 +1,7 @@
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MddsBaseComponent, ViewType } from '@hicoder/angular-core';
-import { OnInit, Injector, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Injector, Input, Output, EventEmitter } from '@angular/core';
 import { MpermissionService } from './mpermission.service';
 
 const itemCamelName = 'permission';
@@ -22,6 +22,9 @@ import { MmoduleDetailPopComponent } from '../mmodule/mmodule-detail/mmodule-det
 import { MmoduleListSelectComponent } from '../mmodule/mmodule-list/mmodule-list-select.component';
 
 
+@Component({
+    template: '',
+})
 export class MpermissionComponent extends MddsBaseComponent implements OnInit {
     // *** common input fields
     @Input()
@@ -109,10 +112,10 @@ export class MpermissionComponent extends MddsBaseComponent implements OnInit {
       public injector: Injector,
       public router: Router,
       public route: ActivatedRoute,
-      public location: Location,
-      public view: ViewType ) {
+      public location: Location) {
 
-        super(mpermissionService, injector, router, route, location, view, itemCamelName);
+        super(mpermissionService, injector, router, route, location);
+        this.setItemNames(itemCamelName);
 
         
         this.briefFieldsInfo = [];

@@ -50,7 +50,8 @@ export class MpubaccessEditComponent extends MpubaccessEditCustComponent impleme
       public route: ActivatedRoute,
       public location: Location) {
           super(componentFactoryResolver,
-                mpubaccessService, injector, router, route, location, ViewType.EDIT);
+                mpubaccessService, injector, router, route, location);
+          this.view = ViewType.EDIT;
 
           this.fieldDisplayNames = {
             'group': 'Group',

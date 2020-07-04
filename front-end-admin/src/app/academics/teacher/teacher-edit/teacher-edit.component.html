@@ -67,9 +67,9 @@
                   [ngClass]="{'pointer ref-badge': detail['courses']['_id']}"
                   (focus)="onRefSelect('courses')"
                   required 
-                  [ngModel]="detail['courses']['value']" name="EditCourses"
+                  [ngModel]="detail['courses']['valueMedium']" name="EditCourses"
                   #EditCourses="ngModel"> 
-              <div *ngIf="detail['courses']['value']" 
+              <div *ngIf="detail['courses']['valueMedium']" 
                 class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('courses')">
                 <i class="fas fa-times-circle" title="Clear"></i>
               </div>
@@ -237,9 +237,9 @@
                   [ngClass]="{'pointer ref-badge': detail['courses']['_id']}"
                   (focus)="onRefSelect('courses')"
                   required 
-                  [ngModel]="detail['courses']['value']" name="EditCourses"
+                  [ngModel]="detail['courses']['valueMedium']" name="EditCourses"
                   #EditCourses="ngModel"> 
-              <div *ngIf="detail['courses']['value']" 
+              <div *ngIf="detail['courses']['valueMedium']" 
                 class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('courses')">
                 <i class="fas fa-times-circle" title="Clear"></i>
               </div>

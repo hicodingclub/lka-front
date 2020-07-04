@@ -54,7 +54,8 @@ export class EmailqueueEditComponent extends EmailqueueEditCustComponent impleme
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                emailqueueService, injector, router, route, location, ViewType.EDIT);
+                emailqueueService, injector, router, route, location);
+          this.view = ViewType.EDIT;
 
           this.fieldDisplayNames = {
             'subject': 'Subject',

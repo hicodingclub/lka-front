@@ -20,16 +20,15 @@
 	<div *ngIf="!options['disableListHead']" class="container search">
 		<div class="row" *ngIf="!options['disableListSearch']">
 			<div class="col">
-
 			    <div class="input-group">
 	              <input type="search" class="form-control border border-secondary" id="emailqueueTextSearch" 
 						#emailqueueTextSearch [(ngModel)]="searchText"
-						(keydown.enter)="$event.target.blur();searchList();false"
-					    placeholder="Search for subject"> 
-				  <div *ngIf="searchText" class="input-group-append icon-clear-inside">
-					<span >
-					    <i class="fas fa-times-circle" (click)="onSearchTextClear()" title="Clear"></i>
-				    </span>
+						(search)="$event.target.blur();searchList();"
+						placeholder="Search for subject">
+				  <div *ngIf="searchText" class="input-group-append icon-search-clear">
+						<span >
+							<i class="fas fa-times-circle" (click)="onSearchTextClear()" title="Clear"></i>
+						</span>
 				  </div>
 				  <div class="input-group-append">
 				    <button type="button" class="btn btn-outline-secondary" (click)="searchList()"><i class="fas fa-search"></i></button>
@@ -48,9 +47,9 @@
 			    <div class="shadow" *ngIf="moreSearchOpened">
 					<div class="card">
 						<div class="card-body">
-							<div class="d-flex flex-wrap">
+							<div class="d-flex flex-wrap align-items-center">
 
-						<div class="container two-column-search">
+						<div class="container two-column-search small">
 							<div class="row col-gutter align-items-center">
 								<div class="col-12 col-sm-3">
 									<label for="emailqueueEditProcessed">
@@ -76,7 +75,7 @@
 							</div>
 						</div> 
 
-						<div class="container two-column-search">
+						<div class="container two-column-search small">
 							<div class="row col-gutter align-items-center">
 								<div class="col-12 col-sm-3">
 									<label for="emailqueueEditNumber">
@@ -84,14 +83,15 @@
 									</label>
 								</div>
 								<div class="col-11 col-sm-8">
-									<div class="input-group">
+									<div class="input-group input-group-sm align-items-center">
 										
-									<input type="number" class="form-control" id="emailqueueEditNumber"
-										[(ngModel)]="detail['__mra_number_from']" name="emailqueueEditNumber"
-										#emailqueueEditNumber="ngModel">
+										<input type="number" class="form-control form-control-sm" id="emailqueueEditNumber"
+											[(ngModel)]="detail['__mra_number_from']" name="emailqueueEditNumber"
+											#emailqueueEditNumber="ngModel">
 										<span>&nbsp; ~ &nbsp;</span>
-										<input type="number" class="form-control" id="emailqueueEditNumber"
-											[(ngModel)]="detail['__mra_number_to']" name="emailqueueEditNumber" #emailqueueEditNumber="ngModel">
+										<input type="number" class="form-control form-control-sm" id="emailqueueEditNumber"
+											[(ngModel)]="detail['__mra_number_to']" name="emailqueueEditNumber"
+											#emailqueueEditNumber="ngModel">
 									</div>
 								</div>
 								<div class="col-1">
@@ -101,7 +101,7 @@
 							</div>
 						</div> 
 
-						<div class="container two-column-search">
+						<div class="container two-column-search small">
 							<div class="row col-gutter align-items-center">
 								<div class="col-12 col-sm-3">
 									<label for="emailqueueEditSent">
@@ -109,14 +109,15 @@
 									</label>
 								</div>
 								<div class="col-11 col-sm-8">
-									<div class="input-group">
+									<div class="input-group input-group-sm align-items-center">
 										
-									<input type="number" class="form-control" id="emailqueueEditSent"
-										[(ngModel)]="detail['__mra_sent_from']" name="emailqueueEditSent"
-										#emailqueueEditSent="ngModel">
+										<input type="number" class="form-control form-control-sm" id="emailqueueEditSent"
+											[(ngModel)]="detail['__mra_sent_from']" name="emailqueueEditSent"
+											#emailqueueEditSent="ngModel">
 										<span>&nbsp; ~ &nbsp;</span>
-										<input type="number" class="form-control" id="emailqueueEditSent"
-											[(ngModel)]="detail['__mra_sent_to']" name="emailqueueEditSent" #emailqueueEditSent="ngModel">
+										<input type="number" class="form-control form-control-sm" id="emailqueueEditSent"
+											[(ngModel)]="detail['__mra_sent_to']" name="emailqueueEditSent"
+											#emailqueueEditSent="ngModel">
 									</div>
 								</div>
 								<div class="col-1">
@@ -126,7 +127,7 @@
 							</div>
 						</div> 
 
-						<div class="container one-column-search">
+						<div class="container one-column-search small">
 							<div class="row col-gutter align-items-center">
 								<div class="col-12 col-lg-3">
 									<label for="emailqueueEditCreatedAt">
@@ -135,9 +136,9 @@
 								</div>
 								<div class="col-11 col-lg-8">
 									<div class="row">
-										<div class="input-group col-12 col-md-6 align-items-center">
+										<div class="input-group input-group-sm col-12 col-md-6 align-items-center">
 											<span class="small mx-1" style="width:2rem">From</span>
-											<input class="form-control" id="emailqueueEditCreatedAt" placeholder="{{dateFormat}}"
+											<input class="form-control form-control-sm" id="emailqueueEditCreatedAt" placeholder="{{dateFormat}}"
 												[(ngModel)]="detail['createdAt']['from']" name="emailqueueEditCreatedAt" ngbDatepicker [minDate]="minDate"
 												#emailqueueEditCreatedAt="ngModel">
 											<div class="input-group-append">
@@ -146,9 +147,9 @@
 												</button>
 											</div>
 										</div>
-										<div class="input-group col-12 col-md-6 align-items-center">
+										<div class="input-group input-group-sm col-12 col-md-6 align-items-center">
 											<span class="small mx-1" style="width:2rem">to</span>
-											<input class="form-control" id="emailqueueEditCreatedAt" placeholder="{{dateFormat}}"
+											<input class="form-control form-control-sm" id="emailqueueEditCreatedAt" placeholder="{{dateFormat}}"
 												[(ngModel)]="detail['createdAt']['to']" name="emailqueueEditCreatedAt" ngbDatepicker [minDate]="minDate"
 												#emailqueueEditCreatedAt="ngModel">
 	

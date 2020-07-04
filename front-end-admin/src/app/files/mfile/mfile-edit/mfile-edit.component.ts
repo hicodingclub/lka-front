@@ -50,7 +50,8 @@ export class MfileEditComponent extends MfileEditCustComponent implements OnInit
       public route: ActivatedRoute,
       public location: Location) {
           super(componentFactoryResolver,
-                mfileService, injector, router, route, location, ViewType.EDIT);
+                mfileService, injector, router, route, location);
+          this.view = ViewType.EDIT;
 
           this.fieldDisplayNames = {
             'name': 'Name',

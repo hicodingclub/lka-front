@@ -42,7 +42,8 @@ export class TermsListComponent extends TermsListCustComponent implements OnInit
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                termsService, injector, router, route, location, ViewType.LIST);
+                termsService, injector, router, route, location);
+          this.view = ViewType.LIST;
 
           this.fieldDisplayNames = {
             'name': 'Name',

@@ -25,7 +25,8 @@ export class MpermissionDetailFieldComponent extends MpermissionComponent
         public route: ActivatedRoute,
         public location: Location) {
           super(null,
-                mpermissionService, injector, router, route, location, ViewType.DETAIL);
+                mpermissionService, injector, router, route, location);
+          this.view = ViewType.DETAIL;
           
           this.fieldDisplayNames = {
             'role': 'Role',

@@ -50,7 +50,8 @@ export class TeacherEditComponent extends TeacherEditCustComponent implements On
       public route: ActivatedRoute,
       public location: Location) {
           super(componentFactoryResolver,
-                teacherService, injector, router, route, location, ViewType.EDIT);
+                teacherService, injector, router, route, location);
+          this.view = ViewType.EDIT;
 
           this.fieldDisplayNames = {
             'firstName': 'First Name',

@@ -25,7 +25,8 @@ export class ArticleDetailFieldComponent extends ArticleComponent
         public route: ActivatedRoute,
         public location: Location) {
           super(
-                articleService, injector, router, route, location, ViewType.DETAIL);
+                articleService, injector, router, route, location);
+          this.view = ViewType.DETAIL;
           
           this.fieldDisplayNames = {
             'signaturePicture': 'Signature Picture',

@@ -48,7 +48,8 @@ export class MaccountEditComponent extends MaccountEditCustComponent implements 
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                maccountService, injector, router, route, location, ViewType.EDIT);
+                maccountService, injector, router, route, location);
+          this.view = ViewType.EDIT;
 
           this.fieldDisplayNames = {
             'username': 'Username',

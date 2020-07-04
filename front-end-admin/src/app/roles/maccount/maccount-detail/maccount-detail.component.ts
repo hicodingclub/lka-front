@@ -35,7 +35,8 @@ export class MaccountDetailComponent extends MaccountDetailCustComponent impleme
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                maccountService, injector, router, route, location, ViewType.DETAIL);
+                maccountService, injector, router, route, location);
+          this.view = ViewType.DETAIL;
 
           this.fieldDisplayNames = {
             'username': 'Username',

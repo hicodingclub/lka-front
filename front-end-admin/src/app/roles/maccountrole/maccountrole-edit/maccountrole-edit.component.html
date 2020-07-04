@@ -21,9 +21,9 @@
                   [ngClass]="{'pointer ref-badge': detail['account']['_id']}"
                   (focus)="onRefSelect('account')"
                   required 
-                  [ngModel]="detail['account']['value']" name="EditAccount"
+                  [ngModel]="detail['account']['valueMedium']" name="EditAccount"
                   #EditAccount="ngModel"> 
-              <div *ngIf="detail['account']['value']" 
+              <div *ngIf="detail['account']['valueMedium']" 
                 class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('account')">
                 <i class="fas fa-times-circle" title="Clear"></i>
               </div>
@@ -47,7 +47,7 @@
           >
             <ng-template [ngIf]="detail['role'] && detail['role']['selection']">
                   <div class="badge badge-pill badge-secondary" *ngFor="let element of detail['role']['selection']; let i = index;">
-                    {{element.value}}
+                    {{element.valueMedium}}
                   <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromArrayField('role', i)" title="Remove"></i>
                 </div>
             </ng-template>
@@ -84,9 +84,9 @@
                   [ngClass]="{'pointer ref-badge': detail['account']['_id']}"
                   (focus)="onRefSelect('account')"
                   required 
-                  [ngModel]="detail['account']['value']" name="EditAccount"
+                  [ngModel]="detail['account']['valueMedium']" name="EditAccount"
                   #EditAccount="ngModel"> 
-              <div *ngIf="detail['account']['value']" 
+              <div *ngIf="detail['account']['valueMedium']" 
                 class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('account')">
                 <i class="fas fa-times-circle" title="Clear"></i>
               </div>
@@ -110,7 +110,7 @@
           >
             <ng-template [ngIf]="detail['role'] && detail['role']['selection']">
                   <div class="badge badge-pill badge-secondary" *ngFor="let element of detail['role']['selection']; let i = index;">
-                    {{element.value}}
+                    {{element.valueMedium}}
                   <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromArrayField('role', i)" title="Remove"></i>
                 </div>
             </ng-template>

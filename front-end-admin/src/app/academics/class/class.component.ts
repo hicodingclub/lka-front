@@ -1,7 +1,7 @@
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MddsBaseComponent, ViewType } from '@hicoder/angular-core';
-import { OnInit, Injector, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Injector, Input, Output, EventEmitter } from '@angular/core';
 import { ClassService } from './class.service';
 
 const itemCamelName = 'class';
@@ -26,6 +26,9 @@ import { TermsDetailPopComponent } from '../terms/terms-detail/terms-detail-pop.
 import { TermsListSelectComponent } from '../terms/terms-list/terms-list-select.component';
 
 
+@Component({
+    template: '',
+})
 export class ClassComponent extends MddsBaseComponent implements OnInit {
     // *** common input fields
     @Input()
@@ -119,10 +122,10 @@ export class ClassComponent extends MddsBaseComponent implements OnInit {
       public injector: Injector,
       public router: Router,
       public route: ActivatedRoute,
-      public location: Location,
-      public view: ViewType ) {
+      public location: Location) {
 
-        super(classService, injector, router, route, location, view, itemCamelName);
+        super(classService, injector, router, route, location);
+        this.setItemNames(itemCamelName);
 
         
         this.briefFieldsInfo = [];

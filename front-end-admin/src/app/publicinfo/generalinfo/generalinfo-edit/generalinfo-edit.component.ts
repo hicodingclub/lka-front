@@ -48,7 +48,8 @@ export class GeneralinfoEditComponent extends GeneralinfoEditCustComponent imple
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                generalinfoService, injector, router, route, location, ViewType.EDIT);
+                generalinfoService, injector, router, route, location);
+          this.view = ViewType.EDIT;
 
           this.fieldDisplayNames = {
             'title': 'Title',

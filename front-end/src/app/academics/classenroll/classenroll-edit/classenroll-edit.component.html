@@ -21,7 +21,7 @@
           >
             <ng-template [ngIf]="detail['student'] && detail['student']['selection']">
                   <div class="badge badge-pill badge-secondary" *ngFor="let element of detail['student']['selection']; let i = index;">
-                    {{element.value}}
+                    {{element.valueMedium}}
                   <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromArrayField('student', i)" title="Remove"></i>
                 </div>
             </ng-template>
@@ -59,9 +59,9 @@
                   [ngClass]="{'pointer ref-badge': detail['class']['_id']}"
                   (focus)="onRefSelect('class')"
                   required 
-                  [ngModel]="detail['class']['value']" name="EditClass"
+                  [ngModel]="detail['class']['valueMedium']" name="EditClass"
                   #EditClass="ngModel"> 
-              <div *ngIf="detail['class']['value']" 
+              <div *ngIf="detail['class']['valueMedium']" 
                 class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('class')">
                 <i class="fas fa-times-circle" title="Clear"></i>
               </div>
@@ -166,7 +166,7 @@
           >
             <ng-template [ngIf]="detail['student'] && detail['student']['selection']">
                   <div class="badge badge-pill badge-secondary" *ngFor="let element of detail['student']['selection']; let i = index;">
-                    {{element.value}}
+                    {{element.valueMedium}}
                   <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromArrayField('student', i)" title="Remove"></i>
                 </div>
             </ng-template>
@@ -204,9 +204,9 @@
                   [ngClass]="{'pointer ref-badge': detail['class']['_id']}"
                   (focus)="onRefSelect('class')"
                   required 
-                  [ngModel]="detail['class']['value']" name="EditClass"
+                  [ngModel]="detail['class']['valueMedium']" name="EditClass"
                   #EditClass="ngModel"> 
-              <div *ngIf="detail['class']['value']" 
+              <div *ngIf="detail['class']['valueMedium']" 
                 class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('class')">
                 <i class="fas fa-times-circle" title="Clear"></i>
               </div>

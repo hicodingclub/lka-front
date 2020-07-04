@@ -8,7 +8,7 @@
 		</div>
 		<div *ngIf="detail && showFields.includes('group')">
                	  <a routerLink="."  (click)="onDisplayRefClicked('group', detail['group'], $event)">
-	            	{{detail['group']?detail['group']['value']:""}}
+	            	{{detail['group']?detail['group']['valueMedium']:""}}
 	              </a>
 		</div>
 		<div *ngIf="detail && showFields.includes('labels')">

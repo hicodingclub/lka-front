@@ -54,7 +54,8 @@ export class TermsEditComponent extends TermsEditCustComponent implements OnInit
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                termsService, injector, router, route, location, ViewType.EDIT);
+                termsService, injector, router, route, location);
+          this.view = ViewType.EDIT;
 
           this.fieldDisplayNames = {
             'name': 'Name',

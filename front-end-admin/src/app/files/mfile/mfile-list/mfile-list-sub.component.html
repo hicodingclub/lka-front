@@ -202,7 +202,7 @@
 					>
 	            	
                	  <a routerLink="."  (click)="onDisplayRefClicked('group', detail['group'], $event)">
-	            	{{detail['group']?detail['group']['value']:""}}
+	            	{{detail['group']?detail['group']['valueMedium']:""}}
 	              </a>
 				</td>
 				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"

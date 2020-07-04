@@ -39,7 +39,8 @@ export class MpubmoduleListComponent extends MpubmoduleListCustComponent impleme
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                mpubmoduleService, injector, router, route, location, ViewType.LIST);
+                mpubmoduleService, injector, router, route, location);
+          this.view = ViewType.LIST;
 
           this.fieldDisplayNames = {
             'module': 'Module',

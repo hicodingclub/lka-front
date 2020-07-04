@@ -48,7 +48,8 @@ export class KeynoteEditComponent extends KeynoteEditCustComponent implements On
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                keynoteService, injector, router, route, location, ViewType.EDIT);
+                keynoteService, injector, router, route, location);
+          this.view = ViewType.EDIT;
 
           this.fieldDisplayNames = {
             'title': 'Title',

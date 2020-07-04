@@ -40,7 +40,8 @@ export class StudentclassListComponent extends StudentclassListCustComponent imp
       public route: ActivatedRoute,
       public location: Location) {
           super(componentFactoryResolver,
-                studentclassService, injector, router, route, location, ViewType.LIST);
+                studentclassService, injector, router, route, location);
+          this.view = ViewType.LIST;
 
           this.fieldDisplayNames = {
             'student': 'Student',

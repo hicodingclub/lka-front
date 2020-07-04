@@ -38,7 +38,8 @@ export class EmailqueueDetailComponent extends EmailqueueDetailCustComponent imp
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                emailqueueService, injector, router, route, location, ViewType.DETAIL);
+                emailqueueService, injector, router, route, location);
+          this.view = ViewType.DETAIL;
 
           this.fieldDisplayNames = {
             'subject': 'Subject',

@@ -42,7 +42,8 @@ export class FaqListComponent extends FaqListCustComponent implements OnInit {
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                faqService, injector, router, route, location, ViewType.LIST);
+                faqService, injector, router, route, location);
+          this.view = ViewType.LIST;
 
           this.fieldDisplayNames = {
             'question': 'Question',

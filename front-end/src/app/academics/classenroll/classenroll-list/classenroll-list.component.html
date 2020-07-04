@@ -168,7 +168,7 @@
                         <ng-template ngFor let-element [ngForOf]="detail['student']['selection']" let-idx="index">
                             <div class="badge-click badge badge-pill badge-secondary" 
                                 (click)="onDisplayRefClicked('student', detail['student']['selection'][idx], $event)">
-                                {{element.value}}
+                                {{element.valueMedium}}
                             </div>
                         </ng-template>
                     </div>
@@ -178,7 +178,7 @@
 					>
 	            	
                	  <a routerLink="."  (click)="onDisplayRefClicked('class', detail['class'], $event)">
-	            	{{detail['class']?detail['class']['value']:""}}
+	            	{{detail['class']?detail['class']['valueMedium']:""}}
 	              </a>
 				</td>
 				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
@@ -213,7 +213,7 @@
                         <ng-template ngFor let-element [ngForOf]="detail['student']['selection']" let-idx="index">
                             <div class="badge-click badge badge-pill badge-secondary" 
                                 (click)="onDisplayRefClicked('student', detail['student']['selection'][idx], $event)">
-                                {{element.value}}
+                                {{element.valueMedium}}
                             </div>
                         </ng-template>
                     </div>
@@ -225,7 +225,7 @@
               <div><label>Class:</label></div>
               <div class="ml-3">
                	  <a routerLink="."  (click)="onDisplayRefClicked('class', detail['class'], $event)">
-	            	{{detail['class']?detail['class']['value']:""}}
+	            	{{detail['class']?detail['class']['valueMedium']:""}}
 	              </a>
               </div>
             </div>
@@ -270,7 +270,7 @@
                         <ng-template ngFor let-element [ngForOf]="detail['student']['selection']" let-idx="index">
                             <div class="badge-click badge badge-pill badge-secondary" 
                                 (click)="onDisplayRefClicked('student', detail['student']['selection'][idx], $event)">
-                                {{element.value}}
+                                {{element.valueMedium}}
                             </div>
                         </ng-template>
                     </div>
@@ -283,7 +283,7 @@
             <div class=""><label>Class:</label></div>
             <div class="ml-3">
                	  <a routerLink="."  (click)="onDisplayRefClicked('class', detail['class'], $event)">
-	            	{{detail['class']?detail['class']['value']:""}}
+	            	{{detail['class']?detail['class']['valueMedium']:""}}
 	              </a></div>
           </div>
           <div *ngIf="fieldHasValue(detail['status'])" class="d-flex flex-wrap">

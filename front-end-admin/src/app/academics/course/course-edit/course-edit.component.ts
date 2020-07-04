@@ -54,7 +54,8 @@ export class CourseEditComponent extends CourseEditCustComponent implements OnIn
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                courseService, injector, router, route, location, ViewType.EDIT);
+                courseService, injector, router, route, location);
+          this.view = ViewType.EDIT;
 
           this.fieldDisplayNames = {
             'title': 'Title',

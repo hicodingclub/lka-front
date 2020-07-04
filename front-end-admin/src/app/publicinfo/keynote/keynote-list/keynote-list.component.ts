@@ -39,7 +39,8 @@ export class KeynoteListComponent extends KeynoteListCustComponent implements On
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                keynoteService, injector, router, route, location, ViewType.LIST);
+                keynoteService, injector, router, route, location);
+          this.view = ViewType.LIST;
 
           this.fieldDisplayNames = {
             'signaturePicture': 'Signature Picture',

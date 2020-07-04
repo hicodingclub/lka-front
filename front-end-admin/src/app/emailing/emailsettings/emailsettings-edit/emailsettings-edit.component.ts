@@ -48,7 +48,8 @@ export class EmailsettingsEditComponent extends EmailsettingsEditCustComponent i
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                emailsettingsService, injector, router, route, location, ViewType.EDIT);
+                emailsettingsService, injector, router, route, location);
+          this.view = ViewType.EDIT;
 
           this.fieldDisplayNames = {
             'defaultSender': 'Default Sender Email Address',

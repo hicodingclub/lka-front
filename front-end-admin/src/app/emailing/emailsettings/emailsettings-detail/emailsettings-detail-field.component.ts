@@ -25,7 +25,8 @@ export class EmailsettingsDetailFieldComponent extends EmailsettingsComponent
         public route: ActivatedRoute,
         public location: Location) {
           super(
-                emailsettingsService, injector, router, route, location, ViewType.DETAIL);
+                emailsettingsService, injector, router, route, location);
+          this.view = ViewType.DETAIL;
           
           this.fieldDisplayNames = {
             'settingName': 'Setting Name',

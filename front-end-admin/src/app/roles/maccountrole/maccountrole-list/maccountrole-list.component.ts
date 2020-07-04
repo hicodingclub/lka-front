@@ -40,7 +40,8 @@ export class MaccountroleListComponent extends MaccountroleListCustComponent imp
       public route: ActivatedRoute,
       public location: Location) {
           super(componentFactoryResolver,
-                maccountroleService, injector, router, route, location, ViewType.LIST);
+                maccountroleService, injector, router, route, location);
+          this.view = ViewType.LIST;
 
           this.fieldDisplayNames = {
             'account': 'Account',

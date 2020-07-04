@@ -48,7 +48,8 @@ export class MpubmoduleEditComponent extends MpubmoduleEditCustComponent impleme
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                mpubmoduleService, injector, router, route, location, ViewType.EDIT);
+                mpubmoduleService, injector, router, route, location);
+          this.view = ViewType.EDIT;
 
           this.fieldDisplayNames = {
             'module': 'Module',

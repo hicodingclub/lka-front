@@ -25,7 +25,8 @@ export class EventDetailFieldComponent extends EventComponent
         public route: ActivatedRoute,
         public location: Location) {
           super(
-                eventService, injector, router, route, location, ViewType.DETAIL);
+                eventService, injector, router, route, location);
+          this.view = ViewType.DETAIL;
           
           this.fieldDisplayNames = {
             'signaturePicture': 'Signature Picture',

@@ -25,7 +25,8 @@ export class GeneralinfoDetailFieldComponent extends GeneralinfoComponent
         public route: ActivatedRoute,
         public location: Location) {
           super(
-                generalinfoService, injector, router, route, location, ViewType.DETAIL);
+                generalinfoService, injector, router, route, location);
+          this.view = ViewType.DETAIL;
           
           this.fieldDisplayNames = {
             'signaturePicture': 'Signature Picture',

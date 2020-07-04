@@ -54,7 +54,8 @@ export class EmailtemplateEditComponent extends EmailtemplateEditCustComponent i
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                emailtemplateService, injector, router, route, location, ViewType.EDIT);
+                emailtemplateService, injector, router, route, location);
+          this.view = ViewType.EDIT;
 
           this.fieldDisplayNames = {
             'templateName': 'Template Name',

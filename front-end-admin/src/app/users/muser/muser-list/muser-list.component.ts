@@ -33,7 +33,8 @@ export class MuserListComponent extends MuserComponent implements OnInit {
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                muserService, injector, router, route, location, ViewType.LIST);
+                muserService, injector, router, route, location);
+          this.view = ViewType.LIST;
 
           this.enums['status'] = ['Enabled', 'Disabled', 'Pending', ];
 

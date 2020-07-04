@@ -54,7 +54,8 @@ export class ArticleEditComponent extends ArticleEditCustComponent implements On
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                articleService, injector, router, route, location, ViewType.EDIT);
+                articleService, injector, router, route, location);
+          this.view = ViewType.EDIT;
 
           this.fieldDisplayNames = {
             'category': 'Category',

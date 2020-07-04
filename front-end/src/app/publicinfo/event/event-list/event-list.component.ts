@@ -43,7 +43,8 @@ export class EventListComponent extends EventListCustComponent implements OnInit
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                eventService, injector, router, route, location, ViewType.LIST);
+                eventService, injector, router, route, location);
+          this.view = ViewType.LIST;
 
           this.fieldDisplayNames = {
             'signaturePicture': 'Signature Picture',

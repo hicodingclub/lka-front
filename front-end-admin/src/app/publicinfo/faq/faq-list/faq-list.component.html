@@ -20,16 +20,15 @@
 	<div *ngIf="!options['disableListHead']" class="container search">
 		<div class="row" *ngIf="!options['disableListSearch']">
 			<div class="col">
-
 			    <div class="input-group">
 	              <input type="search" class="form-control border border-secondary" id="faqTextSearch" 
 						#faqTextSearch [(ngModel)]="searchText"
-						(keydown.enter)="$event.target.blur();searchList();false"
-					    placeholder="Search for question, answer"> 
-				  <div *ngIf="searchText" class="input-group-append icon-clear-inside">
-					<span >
-					    <i class="fas fa-times-circle" (click)="onSearchTextClear()" title="Clear"></i>
-				    </span>
+						(search)="$event.target.blur();searchList();"
+						placeholder="Search for question, answer">
+				  <div *ngIf="searchText" class="input-group-append icon-search-clear">
+						<span >
+							<i class="fas fa-times-circle" (click)="onSearchTextClear()" title="Clear"></i>
+						</span>
 				  </div>
 				  <div class="input-group-append">
 				    <button type="button" class="btn btn-outline-secondary" (click)="searchList()"><i class="fas fa-search"></i></button>
@@ -48,9 +47,9 @@
 			    <div class="shadow" *ngIf="moreSearchOpened">
 					<div class="card">
 						<div class="card-body">
-							<div class="d-flex flex-wrap">
+							<div class="d-flex flex-wrap align-items-center">
 
-						<div class="container two-column-search">
+						<div class="container two-column-search small">
 							<div class="row col-gutter align-items-center">
 								<div class="col-12 col-sm-3">
 									<label for="faqEditOrder">
@@ -58,14 +57,15 @@
 									</label>
 								</div>
 								<div class="col-11 col-sm-8">
-									<div class="input-group">
+									<div class="input-group input-group-sm align-items-center">
 										
-									<input type="number" class="form-control" id="faqEditOrder"
-										[(ngModel)]="detail['__mra_order_from']" name="faqEditOrder"
-										#faqEditOrder="ngModel">
+										<input type="number" class="form-control form-control-sm" id="faqEditOrder"
+											[(ngModel)]="detail['__mra_order_from']" name="faqEditOrder"
+											#faqEditOrder="ngModel">
 										<span>&nbsp; ~ &nbsp;</span>
-										<input type="number" class="form-control" id="faqEditOrder"
-											[(ngModel)]="detail['__mra_order_to']" name="faqEditOrder" #faqEditOrder="ngModel">
+										<input type="number" class="form-control form-control-sm" id="faqEditOrder"
+											[(ngModel)]="detail['__mra_order_to']" name="faqEditOrder"
+											#faqEditOrder="ngModel">
 									</div>
 								</div>
 								<div class="col-1">
@@ -75,7 +75,7 @@
 							</div>
 						</div> 
 
-						<div class="container two-column-search">
+						<div class="container two-column-search small">
 							<div class="row col-gutter align-items-center">
 								<div class="col-12 col-sm-3">
 									<label for="faqEditEnable">

@@ -2,12 +2,12 @@
 
 		<div *ngIf="detail && showFields.includes('group')">
                	  <a routerLink="."  (click)="onDisplayRefClicked('group', detail['group'], $event)">
-	            	{{detail['group']?detail['group']['value']:""}}
+	            	{{detail['group']?detail['group']['valueMedium']:""}}
 	              </a>
 		</div>
 		<div *ngIf="detail && showFields.includes('module')">
                	  <a routerLink="."  (click)="onDisplayRefClicked('module', detail['module'], $event)">
-	            	{{detail['module']?detail['module']['value']:""}}
+	            	{{detail['module']?detail['module']['valueMedium']:""}}
 	              </a>
 		</div>
 		<div *ngIf="detail && showFields.includes('modulePermission')">

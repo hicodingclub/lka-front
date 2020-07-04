@@ -1,7 +1,7 @@
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MddsBaseComponent, ViewType } from '@hicoder/angular-core';
-import { OnInit, Injector, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Injector, Input, Output, EventEmitter } from '@angular/core';
 import { MpubaccessService } from './mpubaccess.service';
 
 const itemCamelName = 'access Control';
@@ -22,6 +22,9 @@ import { MpubmoduleDetailPopComponent } from '../mpubmodule/mpubmodule-detail/mp
 import { MpubmoduleListSelectComponent } from '../mpubmodule/mpubmodule-list/mpubmodule-list-select.component';
 
 
+@Component({
+    template: '',
+})
 export class MpubaccessComponent extends MddsBaseComponent implements OnInit {
     // *** common input fields
     @Input()
@@ -109,10 +112,10 @@ export class MpubaccessComponent extends MddsBaseComponent implements OnInit {
       public injector: Injector,
       public router: Router,
       public route: ActivatedRoute,
-      public location: Location,
-      public view: ViewType ) {
+      public location: Location) {
 
-        super(mpubaccessService, injector, router, route, location, view, itemCamelName);
+        super(mpubaccessService, injector, router, route, location);
+        this.setItemNames(itemCamelName);
 
         
         this.briefFieldsInfo = [];

@@ -25,7 +25,8 @@ export class MfileDetailFieldComponent extends MfileComponent
         public route: ActivatedRoute,
         public location: Location) {
           super(null,
-                mfileService, injector, router, route, location, ViewType.DETAIL);
+                mfileService, injector, router, route, location);
+          this.view = ViewType.DETAIL;
           
           this.fieldDisplayNames = {
             'name': 'Name',

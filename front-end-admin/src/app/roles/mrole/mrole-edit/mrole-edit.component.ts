@@ -48,7 +48,8 @@ export class MroleEditComponent extends MroleEditCustComponent implements OnInit
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                mroleService, injector, router, route, location, ViewType.EDIT);
+                mroleService, injector, router, route, location);
+          this.view = ViewType.EDIT;
 
           this.fieldDisplayNames = {
             'role': 'Role',

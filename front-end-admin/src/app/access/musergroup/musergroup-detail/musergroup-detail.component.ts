@@ -35,7 +35,8 @@ export class MusergroupDetailComponent extends MusergroupDetailCustComponent imp
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                musergroupService, injector, router, route, location, ViewType.DETAIL);
+                musergroupService, injector, router, route, location);
+          this.view = ViewType.DETAIL;
 
           this.fieldDisplayNames = {
             'group': 'Group',

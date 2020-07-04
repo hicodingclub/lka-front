@@ -39,7 +39,8 @@ export class MroleListComponent extends MroleListCustComponent implements OnInit
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                mroleService, injector, router, route, location, ViewType.LIST);
+                mroleService, injector, router, route, location);
+          this.view = ViewType.LIST;
 
           this.fieldDisplayNames = {
             'role': 'Role',

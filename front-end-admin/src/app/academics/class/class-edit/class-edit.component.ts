@@ -56,7 +56,8 @@ export class ClassEditComponent extends ClassEditCustComponent implements OnInit
       public route: ActivatedRoute,
       public location: Location) {
           super(componentFactoryResolver,
-                classService, injector, router, route, location, ViewType.EDIT);
+                classService, injector, router, route, location);
+          this.view = ViewType.EDIT;
 
           this.fieldDisplayNames = {
             'title': 'Title',

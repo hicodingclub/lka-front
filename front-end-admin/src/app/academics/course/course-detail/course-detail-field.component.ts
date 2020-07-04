@@ -25,7 +25,8 @@ export class CourseDetailFieldComponent extends CourseComponent
         public route: ActivatedRoute,
         public location: Location) {
           super(
-                courseService, injector, router, route, location, ViewType.DETAIL);
+                courseService, injector, router, route, location);
+          this.view = ViewType.DETAIL;
           
           this.fieldDisplayNames = {
             'title': 'Title',

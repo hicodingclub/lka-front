@@ -25,7 +25,8 @@ export class EmailtemplateDetailFieldComponent extends EmailtemplateComponent
         public route: ActivatedRoute,
         public location: Location) {
           super(
-                emailtemplateService, injector, router, route, location, ViewType.DETAIL);
+                emailtemplateService, injector, router, route, location);
+          this.view = ViewType.DETAIL;
           
           this.fieldDisplayNames = {
             'templateName': 'Template Name',

@@ -43,9 +43,9 @@
               <input class="form-control rounded" id="EditGroup" 
                   [ngClass]="{'pointer ref-badge': detail['group']['_id']}"
                   (focus)="onRefSelect('group')" 
-                  [ngModel]="detail['group']['value']" name="EditGroup"
+                  [ngModel]="detail['group']['valueMedium']" name="EditGroup"
                   #EditGroup="ngModel"> 
-              <div *ngIf="detail['group']['value']" 
+              <div *ngIf="detail['group']['valueMedium']" 
                 class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('group')">
                 <i class="fas fa-times-circle" title="Clear"></i>
               </div>
@@ -154,9 +154,9 @@
               <input class="form-control rounded" id="EditGroup" 
                   [ngClass]="{'pointer ref-badge': detail['group']['_id']}"
                   (focus)="onRefSelect('group')" 
-                  [ngModel]="detail['group']['value']" name="EditGroup"
+                  [ngModel]="detail['group']['valueMedium']" name="EditGroup"
                   #EditGroup="ngModel"> 
-              <div *ngIf="detail['group']['value']" 
+              <div *ngIf="detail['group']['valueMedium']" 
                 class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('group')">
                 <i class="fas fa-times-circle" title="Clear"></i>
               </div>

@@ -40,7 +40,8 @@ export class StudentListComponent extends StudentListCustComponent implements On
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                studentService, injector, router, route, location, ViewType.LIST);
+                studentService, injector, router, route, location);
+          this.view = ViewType.LIST;
 
           this.fieldDisplayNames = {
             'first_name': 'First Name',

@@ -40,7 +40,8 @@ export class PaymentListComponent extends PaymentListCustComponent implements On
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                paymentService, injector, router, route, location, ViewType.LIST);
+                paymentService, injector, router, route, location);
+          this.view = ViewType.LIST;
 
           this.fieldDisplayNames = {
             'product': 'Product',

@@ -42,7 +42,8 @@ export class MuserEditComponent extends MuserComponent implements OnInit {
       public route: ActivatedRoute,
       public location: Location) {
           super( 
-                 muserService, injector, router, route, location, ViewType.EDIT);
+                 muserService, injector, router, route, location);
+          this.view = ViewType.EDIT;
 
           this.enums['status'] = ['Enabled', 'Disabled', 'Pending', ];
 

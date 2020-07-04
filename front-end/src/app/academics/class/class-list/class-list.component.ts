@@ -44,7 +44,8 @@ export class ClassListComponent extends ClassListCustComponent implements OnInit
       public route: ActivatedRoute,
       public location: Location) {
           super(componentFactoryResolver,
-                classService, injector, router, route, location, ViewType.LIST);
+                classService, injector, router, route, location);
+          this.view = ViewType.LIST;
 
           this.fieldDisplayNames = {
             'title': 'Title',

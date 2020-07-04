@@ -22,7 +22,7 @@ import { PublicinfoCoreModule } from '../publicinfo/publicinfo.core.module';
 })
 export class PublicinfoCustModule { }
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Sun Jun 28 2020 13:26:58 GMT-0700 (Pacific Daylight Time)
+**Date: Fri Jul 03 2020 18:29:33 GMT-0700 (Pacific Daylight Time)
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';

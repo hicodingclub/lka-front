@@ -8,12 +8,12 @@
 		</div>
 		<div *ngIf="detail && showFields.includes('course')">
                	  <a routerLink="."  (click)="onDisplayRefClicked('course', detail['course'], $event)">
-	            	{{detail['course']?detail['course']['value']:""}}
+	            	{{detail['course']?detail['course']['valueMedium']:""}}
 	              </a>
 		</div>
 		<div *ngIf="detail && showFields.includes('teacher')">
                	  <a routerLink="."  (click)="onDisplayRefClicked('teacher', detail['teacher'], $event)">
-	            	{{detail['teacher']?detail['teacher']['value']:""}}
+	            	{{detail['teacher']?detail['teacher']['valueMedium']:""}}
 	              </a>
 		</div>
 		<div *ngIf="detail && showFields.includes('price')">
@@ -41,6 +41,6 @@
 		</div>
 		<div *ngIf="detail && showFields.includes('enrollTerm')">
                	  <a routerLink="."  (click)="onDisplayRefClicked('enrollTerm', detail['enrollTerm'], $event)">
-	            	{{detail['enrollTerm']?detail['enrollTerm']['value']:""}}
+	            	{{detail['enrollTerm']?detail['enrollTerm']['valueMedium']:""}}
 	              </a>
 		</div>

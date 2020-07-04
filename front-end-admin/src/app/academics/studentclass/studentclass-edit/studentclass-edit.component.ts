@@ -50,7 +50,8 @@ export class StudentclassEditComponent extends StudentclassEditCustComponent imp
       public route: ActivatedRoute,
       public location: Location) {
           super(componentFactoryResolver,
-                studentclassService, injector, router, route, location, ViewType.EDIT);
+                studentclassService, injector, router, route, location);
+          this.view = ViewType.EDIT;
 
           this.fieldDisplayNames = {
             'student': 'Student',

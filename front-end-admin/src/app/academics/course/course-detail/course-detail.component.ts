@@ -38,7 +38,8 @@ export class CourseDetailComponent extends CourseDetailCustComponent implements 
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                courseService, injector, router, route, location, ViewType.DETAIL);
+                courseService, injector, router, route, location);
+          this.view = ViewType.DETAIL;
 
           this.fieldDisplayNames = {
             'title': 'Title',

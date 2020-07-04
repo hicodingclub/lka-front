@@ -99,7 +99,7 @@
 					>
 	            	
                	  <a routerLink="."  (click)="onDisplayRefClicked('account', detail['account'], $event)">
-	            	{{detail['account']?detail['account']['value']:""}}
+	            	{{detail['account']?detail['account']['valueMedium']:""}}
 	              </a>
 				</td>
 				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
@@ -110,7 +110,7 @@
                         <ng-template ngFor let-element [ngForOf]="detail['role']['selection']" let-idx="index">
                             <div class="badge-click badge badge-pill badge-secondary" 
                                 (click)="onDisplayRefClicked('role', detail['role']['selection'][idx], $event)">
-                                {{element.value}}
+                                {{element.valueMedium}}
                             </div>
                         </ng-template>
                     </div>
@@ -142,7 +142,7 @@
           <div class="mr-1 d-inline-block">
             
                	  <a routerLink="."  (click)="onDisplayRefClicked('account', detail['account'], $event)">
-	            	{{detail['account']?detail['account']['value']:""}}
+	            	{{detail['account']?detail['account']['valueMedium']:""}}
 	              </a>
           </div>
         </h5>
@@ -155,7 +155,7 @@
                         <ng-template ngFor let-element [ngForOf]="detail['role']['selection']" let-idx="index">
                             <div class="badge-click badge badge-pill badge-secondary" 
                                 (click)="onDisplayRefClicked('role', detail['role']['selection'][idx], $event)">
-                                {{element.value}}
+                                {{element.valueMedium}}
                             </div>
                         </ng-template>
                     </div>

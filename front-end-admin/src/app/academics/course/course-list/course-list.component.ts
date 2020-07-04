@@ -42,7 +42,8 @@ export class CourseListComponent extends CourseListCustComponent implements OnIn
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                courseService, injector, router, route, location, ViewType.LIST);
+                courseService, injector, router, route, location);
+          this.view = ViewType.LIST;
 
           this.fieldDisplayNames = {
             'title': 'Title',

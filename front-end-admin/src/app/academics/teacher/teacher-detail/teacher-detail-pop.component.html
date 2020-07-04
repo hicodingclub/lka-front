@@ -10,8 +10,6 @@
       <div class="modal-body">
 
 <!--  model body starts -->
-
-
 <div class="detail" *ngIf="detail">
 	<div class="action-buttons">
 	</div>
@@ -55,7 +53,7 @@
                 <div><label>Program:</label></div>
                 <div class="ml-3">
                	  <a routerLink="."  (click)="onDisplayRefClicked('courses', detail['courses'], $event)">
-	            	{{detail['courses']?detail['courses']['value']:""}}
+	            	{{detail['courses']?detail['courses']['valueMedium']:""}}
 	              </a></div>
             </div>
           </div>
@@ -72,9 +70,6 @@
 	  </div>
 	</div>
 </div>
-
-
-
 <!--  model body ends -->
 
       </div>

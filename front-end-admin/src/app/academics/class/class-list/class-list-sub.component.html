@@ -154,7 +154,7 @@
 					>
 	            	
                	  <a routerLink="."  (click)="onDisplayRefClicked('course', detail['course'], $event)">
-	            	{{detail['course']?detail['course']['value']:""}}
+	            	{{detail['course']?detail['course']['valueMedium']:""}}
 	              </a>
 				</td>
 				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
@@ -162,7 +162,7 @@
 					>
 	            	
                	  <a routerLink="."  (click)="onDisplayRefClicked('teacher', detail['teacher'], $event)">
-	            	{{detail['teacher']?detail['teacher']['value']:""}}
+	            	{{detail['teacher']?detail['teacher']['valueMedium']:""}}
 	              </a>
 				</td>
 				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
@@ -238,7 +238,7 @@
               <div><label>Program:</label></div>
               <div class="ml-3">
                	  <a routerLink="."  (click)="onDisplayRefClicked('course', detail['course'], $event)">
-	            	{{detail['course']?detail['course']['value']:""}}
+	            	{{detail['course']?detail['course']['valueMedium']:""}}
 	              </a>
               </div>
             </div>
@@ -248,7 +248,7 @@
               <div><label>Instructor:</label></div>
               <div class="ml-3">
                	  <a routerLink="."  (click)="onDisplayRefClicked('teacher', detail['teacher'], $event)">
-	            	{{detail['teacher']?detail['teacher']['value']:""}}
+	            	{{detail['teacher']?detail['teacher']['valueMedium']:""}}
 	              </a>
               </div>
             </div>

@@ -20,7 +20,7 @@
             <div class="mr-1 d-inline-block">
               
                	  <a routerLink="."  (click)="onDisplayRefClicked('role', detail['role'], $event)">
-	            	{{detail['role']?detail['role']['value']:""}}
+	            	{{detail['role']?detail['role']['valueMedium']:""}}
 	              </a>
             </div>
           </h5>
@@ -32,7 +32,7 @@
                 <div><label>Module:</label></div>
                 <div class="ml-3">
                	  <a routerLink="."  (click)="onDisplayRefClicked('module', detail['module'], $event)">
-	            	{{detail['module']?detail['module']['value']:""}}
+	            	{{detail['module']?detail['module']['valueMedium']:""}}
 	              </a></div>
             </div>
           </div>

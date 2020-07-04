@@ -50,7 +50,8 @@ export class MpermissionEditComponent extends MpermissionEditCustComponent imple
       public route: ActivatedRoute,
       public location: Location) {
           super(componentFactoryResolver,
-                mpermissionService, injector, router, route, location, ViewType.EDIT);
+                mpermissionService, injector, router, route, location);
+          this.view = ViewType.EDIT;
 
           this.fieldDisplayNames = {
             'role': 'Role',

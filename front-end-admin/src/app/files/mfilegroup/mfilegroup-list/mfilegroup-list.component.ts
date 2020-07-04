@@ -40,7 +40,8 @@ export class MfilegroupListComponent extends MfilegroupListCustComponent impleme
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                mfilegroupService, injector, router, route, location, ViewType.LIST);
+                mfilegroupService, injector, router, route, location);
+          this.view = ViewType.LIST;
 
           this.fieldDisplayNames = {
             'name': 'Name',

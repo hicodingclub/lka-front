@@ -44,9 +44,9 @@
                   [ngClass]="{'pointer ref-badge': detail['course']['_id']}"
                   (focus)="onRefSelect('course')"
                   required 
-                  [ngModel]="detail['course']['value']" name="EditCourse"
+                  [ngModel]="detail['course']['valueMedium']" name="EditCourse"
                   #EditCourse="ngModel"> 
-              <div *ngIf="detail['course']['value']" 
+              <div *ngIf="detail['course']['valueMedium']" 
                 class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('course')">
                 <i class="fas fa-times-circle" title="Clear"></i>
               </div>
@@ -89,9 +89,9 @@
                   [ngClass]="{'pointer ref-badge': detail['teacher']['_id']}"
                   (focus)="onRefSelect('teacher')"
                   required 
-                  [ngModel]="detail['teacher']['value']" name="EditTeacher"
+                  [ngModel]="detail['teacher']['valueMedium']" name="EditTeacher"
                   #EditTeacher="ngModel"> 
-              <div *ngIf="detail['teacher']['value']" 
+              <div *ngIf="detail['teacher']['valueMedium']" 
                 class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('teacher')">
                 <i class="fas fa-times-circle" title="Clear"></i>
               </div>
@@ -381,9 +381,9 @@
                   [ngClass]="{'pointer ref-badge': detail['enrollTerm']['_id']}"
                   (focus)="onRefSelect('enrollTerm')"
                   required 
-                  [ngModel]="detail['enrollTerm']['value']" name="EditEnrollTerm"
+                  [ngModel]="detail['enrollTerm']['valueMedium']" name="EditEnrollTerm"
                   #EditEnrollTerm="ngModel"> 
-              <div *ngIf="detail['enrollTerm']['value']" 
+              <div *ngIf="detail['enrollTerm']['valueMedium']" 
                 class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('enrollTerm')">
                 <i class="fas fa-times-circle" title="Clear"></i>
               </div>
@@ -433,9 +433,9 @@
                   [ngClass]="{'pointer ref-badge': detail['course']['_id']}"
                   (focus)="onRefSelect('course')"
                   required 
-                  [ngModel]="detail['course']['value']" name="EditCourse"
+                  [ngModel]="detail['course']['valueMedium']" name="EditCourse"
                   #EditCourse="ngModel"> 
-              <div *ngIf="detail['course']['value']" 
+              <div *ngIf="detail['course']['valueMedium']" 
                 class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('course')">
                 <i class="fas fa-times-circle" title="Clear"></i>
               </div>
@@ -478,9 +478,9 @@
                   [ngClass]="{'pointer ref-badge': detail['teacher']['_id']}"
                   (focus)="onRefSelect('teacher')"
                   required 
-                  [ngModel]="detail['teacher']['value']" name="EditTeacher"
+                  [ngModel]="detail['teacher']['valueMedium']" name="EditTeacher"
                   #EditTeacher="ngModel"> 
-              <div *ngIf="detail['teacher']['value']" 
+              <div *ngIf="detail['teacher']['valueMedium']" 
                 class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('teacher')">
                 <i class="fas fa-times-circle" title="Clear"></i>
               </div>
@@ -770,9 +770,9 @@
                   [ngClass]="{'pointer ref-badge': detail['enrollTerm']['_id']}"
                   (focus)="onRefSelect('enrollTerm')"
                   required 
-                  [ngModel]="detail['enrollTerm']['value']" name="EditEnrollTerm"
+                  [ngModel]="detail['enrollTerm']['valueMedium']" name="EditEnrollTerm"
                   #EditEnrollTerm="ngModel"> 
-              <div *ngIf="detail['enrollTerm']['value']" 
+              <div *ngIf="detail['enrollTerm']['valueMedium']" 
                 class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('enrollTerm')">
                 <i class="fas fa-times-circle" title="Clear"></i>
               </div>

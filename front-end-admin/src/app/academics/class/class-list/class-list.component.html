@@ -20,16 +20,15 @@
 	<div *ngIf="!options['disableListHead']" class="container search">
 		<div class="row" *ngIf="!options['disableListSearch']">
 			<div class="col">
-
 			    <div class="input-group">
 	              <input type="search" class="form-control border border-secondary" id="classTextSearch" 
 						#classTextSearch [(ngModel)]="searchText"
-						(keydown.enter)="$event.target.blur();searchList();false"
-					    placeholder="Search for title, season, time slot"> 
-				  <div *ngIf="searchText" class="input-group-append icon-clear-inside">
-					<span >
-					    <i class="fas fa-times-circle" (click)="onSearchTextClear()" title="Clear"></i>
-				    </span>
+						(search)="$event.target.blur();searchList();"
+						placeholder="Search for title, season, time slot">
+				  <div *ngIf="searchText" class="input-group-append icon-search-clear">
+						<span >
+							<i class="fas fa-times-circle" (click)="onSearchTextClear()" title="Clear"></i>
+						</span>
 				  </div>
 				  <div class="input-group-append">
 				    <button type="button" class="btn btn-outline-secondary" (click)="searchList()"><i class="fas fa-search"></i></button>
@@ -48,9 +47,9 @@
 			    <div class="shadow" *ngIf="moreSearchOpened">
 					<div class="card">
 						<div class="card-body">
-							<div class="d-flex flex-wrap">
+							<div class="d-flex flex-wrap align-items-center">
 
-						<div class="container two-column-search">
+						<div class="container two-column-search small">
 							<div class="row col-gutter align-items-center">
 								<div class="col-12 col-sm-3">
 									<label for="classEditCourse">
@@ -58,11 +57,11 @@
 									</label>
 								</div>
 								<div class="col-11 col-sm-8">
-									<div class="input-group">
-										<input class="form-control rounded" id="classEditCourse"
+									<div class="input-group input-group-sm">
+										<input class="form-control form-control-sm rounded" id="classEditCourse"
 											[ngClass]="{'pointer ref-badge': detail['course']['_id']}" (focus)="onRefSelect('course')"
 											 
-											[ngModel]="detail['course']['value']" name="classEditCourse" #classEditCourse="ngModel">
+											[ngModel]="detail['course']['valueMedium']" name="classEditCourse" #classEditCourse="ngModel">
 									</div>
 									<!-- (focus)="detail['course']['_id']?onRefShow('course', 'select', detail['course']['_id']):onRefSelect('course')" -->
 								</div>
@@ -73,7 +72,7 @@
 							</div>
 						</div> 
 
-						<div class="container two-column-search">
+						<div class="container two-column-search small">
 							<div class="row col-gutter align-items-center">
 								<div class="col-12 col-sm-3">
 									<label for="classEditTeacher">
@@ -81,11 +80,11 @@
 									</label>
 								</div>
 								<div class="col-11 col-sm-8">
-									<div class="input-group">
-										<input class="form-control rounded" id="classEditTeacher"
+									<div class="input-group input-group-sm">
+										<input class="form-control form-control-sm rounded" id="classEditTeacher"
 											[ngClass]="{'pointer ref-badge': detail['teacher']['_id']}" (focus)="onRefSelect('teacher')"
 											 
-											[ngModel]="detail['teacher']['value']" name="classEditTeacher" #classEditTeacher="ngModel">
+											[ngModel]="detail['teacher']['valueMedium']" name="classEditTeacher" #classEditTeacher="ngModel">
 									</div>
 									<!-- (focus)="detail['teacher']['_id']?onRefShow('teacher', 'select', detail['teacher']['_id']):onRefSelect('teacher')" -->
 								</div>
@@ -96,7 +95,7 @@
 							</div>
 						</div> 
 
-						<div class="container two-column-search">
+						<div class="container two-column-search small">
 							<div class="row col-gutter align-items-center">
 								<div class="col-12 col-sm-3">
 									<label for="classEditHot">
@@ -122,7 +121,7 @@
 							</div>
 						</div> 
 
-						<div class="container one-column-search">
+						<div class="container one-column-search small">
 							<div class="row col-gutter align-items-center">
 								<div class="col-12 col-lg-3">
 									<label for="classEditStartTime">
@@ -131,9 +130,9 @@
 								</div>
 								<div class="col-11 col-lg-8">
 									<div class="row">
-										<div class="input-group col-12 col-md-6 align-items-center">
+										<div class="input-group input-group-sm col-12 col-md-6 align-items-center">
 											<span class="small mx-1" style="width:2rem">From</span>
-											<input class="form-control" id="classEditStartTime" placeholder="{{dateFormat}}"
+											<input class="form-control form-control-sm" id="classEditStartTime" placeholder="{{dateFormat}}"
 												[(ngModel)]="detail['startTime']['from']" name="classEditStartTime" ngbDatepicker [minDate]="minDate"
 												#classEditStartTime="ngModel">
 											<div class="input-group-append">
@@ -142,9 +141,9 @@
 												</button>
 											</div>
 										</div>
-										<div class="input-group col-12 col-md-6 align-items-center">
+										<div class="input-group input-group-sm col-12 col-md-6 align-items-center">
 											<span class="small mx-1" style="width:2rem">to</span>
-											<input class="form-control" id="classEditStartTime" placeholder="{{dateFormat}}"
+											<input class="form-control form-control-sm" id="classEditStartTime" placeholder="{{dateFormat}}"
 												[(ngModel)]="detail['startTime']['to']" name="classEditStartTime" ngbDatepicker [minDate]="minDate"
 												#classEditStartTime="ngModel">
 	
@@ -177,7 +176,7 @@
 							</div>
 						</div> 
 
-						<div class="container one-column-search">
+						<div class="container one-column-search small">
 							<div class="row col-gutter align-items-center">
 								<div class="col-12 col-lg-3">
 									<label for="classEditEndTime">
@@ -186,9 +185,9 @@
 								</div>
 								<div class="col-11 col-lg-8">
 									<div class="row">
-										<div class="input-group col-12 col-md-6 align-items-center">
+										<div class="input-group input-group-sm col-12 col-md-6 align-items-center">
 											<span class="small mx-1" style="width:2rem">From</span>
-											<input class="form-control" id="classEditEndTime" placeholder="{{dateFormat}}"
+											<input class="form-control form-control-sm" id="classEditEndTime" placeholder="{{dateFormat}}"
 												[(ngModel)]="detail['endTime']['from']" name="classEditEndTime" ngbDatepicker [minDate]="minDate"
 												#classEditEndTime="ngModel">
 											<div class="input-group-append">
@@ -197,9 +196,9 @@
 												</button>
 											</div>
 										</div>
-										<div class="input-group col-12 col-md-6 align-items-center">
+										<div class="input-group input-group-sm col-12 col-md-6 align-items-center">
 											<span class="small mx-1" style="width:2rem">to</span>
-											<input class="form-control" id="classEditEndTime" placeholder="{{dateFormat}}"
+											<input class="form-control form-control-sm" id="classEditEndTime" placeholder="{{dateFormat}}"
 												[(ngModel)]="detail['endTime']['to']" name="classEditEndTime" ngbDatepicker [minDate]="minDate"
 												#classEditEndTime="ngModel">
 	
@@ -232,7 +231,7 @@
 							</div>
 						</div> 
 
-						<div class="container two-column-search">
+						<div class="container two-column-search small">
 							<div class="row col-gutter align-items-center">
 								<div class="col-12 col-sm-3">
 									<label for="classEditDayOfWeek">
@@ -293,10 +292,10 @@
 							</div>
 
 							<hr>
-							<div class="one-column-search mt-3">
-								<div class="row">
-								  	<div class="col-3"><label for="Archived">Archived</label></div>
-								  	<div class="col-8">
+														<div class="container one-column-search mt-3 small">
+								<div class="row col-gutter">
+								  	<div class="col-4 col-sm-3"><label for="Archived">Archived</label></div>
+								  	<div class="col-8 col-sm-8">
 										<label class="mr-1">No</label>
 										<label class="switch">
 											<input type="checkbox"
@@ -533,7 +532,7 @@
 					>
 	            	
                	  <a routerLink="."  (click)="onDisplayRefClicked('course', detail['course'], $event)">
-	            	{{detail['course']?detail['course']['value']:""}}
+	            	{{detail['course']?detail['course']['valueMedium']:""}}
 	              </a>
 				</td>
 				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
@@ -541,7 +540,7 @@
 					>
 	            	
                	  <a routerLink="."  (click)="onDisplayRefClicked('teacher', detail['teacher'], $event)">
-	            	{{detail['teacher']?detail['teacher']['value']:""}}
+	            	{{detail['teacher']?detail['teacher']['valueMedium']:""}}
 	              </a>
 				</td>
 				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
@@ -613,7 +612,7 @@
               <div><label>Program:</label></div>
               <div class="ml-3">
                	  <a routerLink="."  (click)="onDisplayRefClicked('course', detail['course'], $event)">
-	            	{{detail['course']?detail['course']['value']:""}}
+	            	{{detail['course']?detail['course']['valueMedium']:""}}
 	              </a>
               </div>
             </div>
@@ -623,7 +622,7 @@
               <div><label>Instructor:</label></div>
               <div class="ml-3">
                	  <a routerLink="."  (click)="onDisplayRefClicked('teacher', detail['teacher'], $event)">
-	            	{{detail['teacher']?detail['teacher']['value']:""}}
+	            	{{detail['teacher']?detail['teacher']['valueMedium']:""}}
 	              </a>
               </div>
             </div>
@@ -714,14 +713,14 @@
             <div class=""><label>Program:</label></div>
             <div class="ml-3">
                	  <a routerLink="."  (click)="onDisplayRefClicked('course', detail['course'], $event)">
-	            	{{detail['course']?detail['course']['value']:""}}
+	            	{{detail['course']?detail['course']['valueMedium']:""}}
 	              </a></div>
           </div>
           <div *ngIf="fieldHasValue(detail['teacher'])" class="d-flex flex-wrap">
             <div class=""><label>Instructor:</label></div>
             <div class="ml-3">
                	  <a routerLink="."  (click)="onDisplayRefClicked('teacher', detail['teacher'], $event)">
-	            	{{detail['teacher']?detail['teacher']['value']:""}}
+	            	{{detail['teacher']?detail['teacher']['valueMedium']:""}}
 	              </a></div>
           </div>
           <div *ngIf="fieldHasValue(detail['hot'])" class="d-flex flex-wrap">

@@ -273,7 +273,8 @@ export class StudentEditComponent extends StudentEditCustComponent implements On
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                studentService, injector, router, route, location, ViewType.EDIT);
+                studentService, injector, router, route, location);
+          this.view = ViewType.EDIT;
 
           this.fieldDisplayNames = {
             'first_name': 'First Name',

@@ -54,7 +54,8 @@ export class EventEditComponent extends EventEditCustComponent implements OnInit
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                eventService, injector, router, route, location, ViewType.EDIT);
+                eventService, injector, router, route, location);
+          this.view = ViewType.EDIT;
 
           this.fieldDisplayNames = {
             'title': 'Title',

@@ -41,7 +41,8 @@ export class ClassenrollListComponent extends ClassenrollListCustComponent imple
       public route: ActivatedRoute,
       public location: Location) {
           super(componentFactoryResolver,
-                classenrollService, injector, router, route, location, ViewType.LIST);
+                classenrollService, injector, router, route, location);
+          this.view = ViewType.LIST;
 
           this.fieldDisplayNames = {
             'student': 'Student',
@@ -69,6 +70,7 @@ export class ClassenrollListComponent extends ClassenrollListCustComponent imple
           this.referenceFieldsReverseMap['student'] = 'student';
 
           this.listViewFilter = 'list';
+          this.setListSort('createdAt', 'Created At', 'desc');
 
           const listCategories = [];
           this.listCategory1 = listCategories[0] || {};

@@ -41,7 +41,8 @@ export class MfileListComponent extends MfileListCustComponent implements OnInit
       public route: ActivatedRoute,
       public location: Location) {
           super(componentFactoryResolver,
-                mfileService, injector, router, route, location, ViewType.LIST);
+                mfileService, injector, router, route, location);
+          this.view = ViewType.LIST;
 
           this.fieldDisplayNames = {
             'name': 'Name',

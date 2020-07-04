@@ -21,9 +21,9 @@
                   [ngClass]="{'pointer ref-badge': detail['student']['_id']}"
                   (focus)="onRefSelect('student')"
                   required 
-                  [ngModel]="detail['student']['value']" name="EditStudent"
+                  [ngModel]="detail['student']['valueMedium']" name="EditStudent"
                   #EditStudent="ngModel"> 
-              <div *ngIf="detail['student']['value']" 
+              <div *ngIf="detail['student']['valueMedium']" 
                 class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('student')">
                 <i class="fas fa-times-circle" title="Clear"></i>
               </div>
@@ -48,9 +48,9 @@
                   [ngClass]="{'pointer ref-badge': detail['class']['_id']}"
                   (focus)="onRefSelect('class')"
                   required 
-                  [ngModel]="detail['class']['value']" name="EditClass"
+                  [ngModel]="detail['class']['valueMedium']" name="EditClass"
                   #EditClass="ngModel"> 
-              <div *ngIf="detail['class']['value']" 
+              <div *ngIf="detail['class']['valueMedium']" 
                 class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('class')">
                 <i class="fas fa-times-circle" title="Clear"></i>
               </div>
@@ -77,9 +77,9 @@
                   [ngClass]="{'pointer ref-badge': detail['student']['_id']}"
                   (focus)="onRefSelect('student')"
                   required 
-                  [ngModel]="detail['student']['value']" name="EditStudent"
+                  [ngModel]="detail['student']['valueMedium']" name="EditStudent"
                   #EditStudent="ngModel"> 
-              <div *ngIf="detail['student']['value']" 
+              <div *ngIf="detail['student']['valueMedium']" 
                 class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('student')">
                 <i class="fas fa-times-circle" title="Clear"></i>
               </div>
@@ -104,9 +104,9 @@
                   [ngClass]="{'pointer ref-badge': detail['class']['_id']}"
                   (focus)="onRefSelect('class')"
                   required 
-                  [ngModel]="detail['class']['value']" name="EditClass"
+                  [ngModel]="detail['class']['valueMedium']" name="EditClass"
                   #EditClass="ngModel"> 
-              <div *ngIf="detail['class']['value']" 
+              <div *ngIf="detail['class']['valueMedium']" 
                 class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('class')">
                 <i class="fas fa-times-circle" title="Clear"></i>
               </div>

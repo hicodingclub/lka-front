@@ -38,7 +38,8 @@ export class TermsDetailComponent extends TermsDetailCustComponent implements On
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                termsService, injector, router, route, location, ViewType.DETAIL);
+                termsService, injector, router, route, location);
+          this.view = ViewType.DETAIL;
 
           this.fieldDisplayNames = {
             'name': 'Name',

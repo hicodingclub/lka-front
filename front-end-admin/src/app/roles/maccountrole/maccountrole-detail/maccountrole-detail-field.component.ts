@@ -25,7 +25,8 @@ export class MaccountroleDetailFieldComponent extends MaccountroleComponent
         public route: ActivatedRoute,
         public location: Location) {
           super(null,
-                maccountroleService, injector, router, route, location, ViewType.DETAIL);
+                maccountroleService, injector, router, route, location);
+          this.view = ViewType.DETAIL;
           
           this.fieldDisplayNames = {
             'account': 'Account',

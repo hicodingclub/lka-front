@@ -12,27 +12,6 @@
 <!--  model body starts -->
 
 	<div class="container search">
-		<div class="row">
-			<div class="col">
-
-			    <div class="input-group">
-	              <input type="search" class="form-control border border-secondary" id="mfilegroupTextSearch" 
-						#mfilegroupTextSearch [(ngModel)]="searchText"
-						(keydown.enter)="$event.target.blur();searchList();false"
-					    placeholder="Search for name"> 
-				  <div *ngIf="searchText" class="input-group-append icon-clear-inside">
-					<span >
-					    <i class="fas fa-times-circle" (click)="onSearchTextClear()" title="Clear"></i>
-				    </span>
-				  </div>
-				  <div class="input-group-append">
-				    <button type="button" class="btn btn-outline-secondary" (click)="searchList()"><i class="fas fa-search"></i></button>
-				  </div>
-				</div>
-			
-
-			</div>
-		</div>
 		<hr/>
 	</div>
 	

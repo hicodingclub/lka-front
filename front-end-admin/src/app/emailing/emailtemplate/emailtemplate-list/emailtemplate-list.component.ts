@@ -42,7 +42,8 @@ export class EmailtemplateListComponent extends EmailtemplateListCustComponent i
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                emailtemplateService, injector, router, route, location, ViewType.LIST);
+                emailtemplateService, injector, router, route, location);
+          this.view = ViewType.LIST;
 
           this.fieldDisplayNames = {
             'templateName': 'Template Name',

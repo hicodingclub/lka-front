@@ -20,16 +20,15 @@
 	<div *ngIf="!options['disableListHead']" class="container search">
 		<div class="row" *ngIf="!options['disableListSearch']">
 			<div class="col">
-
 			    <div class="input-group">
 	              <input type="search" class="form-control border border-secondary" id="mpermissionTextSearch" 
 						#mpermissionTextSearch [(ngModel)]="searchText"
-						(keydown.enter)="$event.target.blur();searchList();false"
-					    placeholder="Search for module permission"> 
-				  <div *ngIf="searchText" class="input-group-append icon-clear-inside">
-					<span >
-					    <i class="fas fa-times-circle" (click)="onSearchTextClear()" title="Clear"></i>
-				    </span>
+						(search)="$event.target.blur();searchList();"
+						placeholder="Search for module permission">
+				  <div *ngIf="searchText" class="input-group-append icon-search-clear">
+						<span >
+							<i class="fas fa-times-circle" (click)="onSearchTextClear()" title="Clear"></i>
+						</span>
 				  </div>
 				  <div class="input-group-append">
 				    <button type="button" class="btn btn-outline-secondary" (click)="searchList()"><i class="fas fa-search"></i></button>
@@ -48,9 +47,9 @@
 			    <div class="shadow" *ngIf="moreSearchOpened">
 					<div class="card">
 						<div class="card-body">
-							<div class="d-flex flex-wrap">
+							<div class="d-flex flex-wrap align-items-center">
 
-						<div class="container two-column-search">
+						<div class="container two-column-search small">
 							<div class="row col-gutter align-items-center">
 								<div class="col-12 col-sm-3">
 									<label for="mpermissionEditRole">
@@ -58,11 +57,11 @@
 									</label>
 								</div>
 								<div class="col-11 col-sm-8">
-									<div class="input-group">
-										<input class="form-control rounded" id="mpermissionEditRole"
+									<div class="input-group input-group-sm">
+										<input class="form-control form-control-sm rounded" id="mpermissionEditRole"
 											[ngClass]="{'pointer ref-badge': detail['role']['_id']}" (focus)="onRefSelect('role')"
 											 
-											[ngModel]="detail['role']['value']" name="mpermissionEditRole" #mpermissionEditRole="ngModel">
+											[ngModel]="detail['role']['valueMedium']" name="mpermissionEditRole" #mpermissionEditRole="ngModel">
 									</div>
 									<!-- (focus)="detail['role']['_id']?onRefShow('role', 'select', detail['role']['_id']):onRefSelect('role')" -->
 								</div>
@@ -73,7 +72,7 @@
 							</div>
 						</div> 
 
-						<div class="container two-column-search">
+						<div class="container two-column-search small">
 							<div class="row col-gutter align-items-center">
 								<div class="col-12 col-sm-3">
 									<label for="mpermissionEditModule">
@@ -81,11 +80,11 @@
 									</label>
 								</div>
 								<div class="col-11 col-sm-8">
-									<div class="input-group">
-										<input class="form-control rounded" id="mpermissionEditModule"
+									<div class="input-group input-group-sm">
+										<input class="form-control form-control-sm rounded" id="mpermissionEditModule"
 											[ngClass]="{'pointer ref-badge': detail['module']['_id']}" (focus)="onRefSelect('module')"
 											 
-											[ngModel]="detail['module']['value']" name="mpermissionEditModule" #mpermissionEditModule="ngModel">
+											[ngModel]="detail['module']['valueMedium']" name="mpermissionEditModule" #mpermissionEditModule="ngModel">
 									</div>
 									<!-- (focus)="detail['module']['_id']?onRefShow('module', 'select', detail['module']['_id']):onRefSelect('module')" -->
 								</div>
@@ -99,10 +98,10 @@
 							</div>
 
 							<hr>
-							<div class="one-column-search mt-3">
-								<div class="row">
-								  	<div class="col-3"><label for="Archived">Archived</label></div>
-								  	<div class="col-8">
+														<div class="container one-column-search mt-3 small">
+								<div class="row col-gutter">
+								  	<div class="col-4 col-sm-3"><label for="Archived">Archived</label></div>
+								  	<div class="col-8 col-sm-8">
 										<label class="mr-1">No</label>
 										<label class="switch">
 											<input type="checkbox"
@@ -286,7 +285,7 @@
 					>
 	            	
                	  <a routerLink="."  (click)="onDisplayRefClicked('role', detail['role'], $event)">
-	            	{{detail['role']?detail['role']['value']:""}}
+	            	{{detail['role']?detail['role']['valueMedium']:""}}
 	              </a>
 				</td>
 				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
@@ -294,7 +293,7 @@
 					>
 	            	
                	  <a routerLink="."  (click)="onDisplayRefClicked('module', detail['module'], $event)">
-	            	{{detail['module']?detail['module']['value']:""}}
+	            	{{detail['module']?detail['module']['valueMedium']:""}}
 	              </a>
 				</td>
 				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
@@ -334,7 +333,7 @@
           <div class="mr-1 d-inline-block">
             
                	  <a routerLink="."  (click)="onDisplayRefClicked('role', detail['role'], $event)">
-	            	{{detail['role']?detail['role']['value']:""}}
+	            	{{detail['role']?detail['role']['valueMedium']:""}}
 	              </a>
           </div>
         </h5>
@@ -344,7 +343,7 @@
               <div><label>Module:</label></div>
               <div class="ml-3">
                	  <a routerLink="."  (click)="onDisplayRefClicked('module', detail['module'], $event)">
-	            	{{detail['module']?detail['module']['value']:""}}
+	            	{{detail['module']?detail['module']['valueMedium']:""}}
 	              </a>
               </div>
             </div>
@@ -392,7 +391,7 @@
             <div class="mr-1 d-inline-block">
               
                	  <a routerLink="."  (click)="onDisplayRefClicked('role', detail['role'], $event)">
-	            	{{detail['role']?detail['role']['value']:""}}
+	            	{{detail['role']?detail['role']['valueMedium']:""}}
 	              </a>
             </div>
           </h5>
@@ -403,7 +402,7 @@
             <div class=""><label>Module:</label></div>
             <div class="ml-3">
                	  <a routerLink="."  (click)="onDisplayRefClicked('module', detail['module'], $event)">
-	            	{{detail['module']?detail['module']['value']:""}}
+	            	{{detail['module']?detail['module']['valueMedium']:""}}
 	              </a></div>
           </div>
           <div *ngIf="fieldHasValue(detail['modulePermission'])" class="d-flex flex-wrap">

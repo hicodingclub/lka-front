@@ -25,7 +25,8 @@ export class MroleDetailFieldComponent extends MroleComponent
         public route: ActivatedRoute,
         public location: Location) {
           super(
-                mroleService, injector, router, route, location, ViewType.DETAIL);
+                mroleService, injector, router, route, location);
+          this.view = ViewType.DETAIL;
           
           this.fieldDisplayNames = {
             'role': 'Role',

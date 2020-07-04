@@ -40,7 +40,8 @@ export class MaccountListComponent extends MaccountListCustComponent implements 
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                maccountService, injector, router, route, location, ViewType.LIST);
+                maccountService, injector, router, route, location);
+          this.view = ViewType.LIST;
 
           this.fieldDisplayNames = {
             'username': 'Username',

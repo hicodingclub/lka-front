@@ -1,7 +1,7 @@
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MddsBaseComponent, ViewType } from '@hicoder/angular-core';
-import { OnInit, Injector, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Injector, Input, Output, EventEmitter } from '@angular/core';
 import { MaccountroleService } from './maccountrole.service';
 
 const itemCamelName = 'account Role';
@@ -22,6 +22,9 @@ import { MroleDetailPopComponent } from '../mrole/mrole-detail/mrole-detail-pop.
 import { MroleListSelectComponent } from '../mrole/mrole-list/mrole-list-select.component';
 
 
+@Component({
+    template: '',
+})
 export class MaccountroleComponent extends MddsBaseComponent implements OnInit {
     // *** common input fields
     @Input()
@@ -109,10 +112,10 @@ export class MaccountroleComponent extends MddsBaseComponent implements OnInit {
       public injector: Injector,
       public router: Router,
       public route: ActivatedRoute,
-      public location: Location,
-      public view: ViewType ) {
+      public location: Location) {
 
-        super(maccountroleService, injector, router, route, location, view, itemCamelName);
+        super(maccountroleService, injector, router, route, location);
+        this.setItemNames(itemCamelName);
 
         
         this.briefFieldsInfo = [];

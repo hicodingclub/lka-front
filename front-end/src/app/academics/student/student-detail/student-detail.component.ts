@@ -35,7 +35,8 @@ export class StudentDetailComponent extends StudentDetailCustComponent implement
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                studentService, injector, router, route, location, ViewType.DETAIL);
+                studentService, injector, router, route, location);
+          this.view = ViewType.DETAIL;
 
           this.fieldDisplayNames = {
             'first_name': 'First Name',

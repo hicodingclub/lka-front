@@ -39,7 +39,8 @@ export class EmailsettingsListComponent extends EmailsettingsListCustComponent i
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                emailsettingsService, injector, router, route, location, ViewType.LIST);
+                emailsettingsService, injector, router, route, location);
+          this.view = ViewType.LIST;
 
           this.fieldDisplayNames = {
             'settingName': 'Setting Name',

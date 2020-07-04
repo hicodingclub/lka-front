@@ -40,7 +40,8 @@ export class MpermissionListComponent extends MpermissionListCustComponent imple
       public route: ActivatedRoute,
       public location: Location) {
           super(componentFactoryResolver,
-                mpermissionService, injector, router, route, location, ViewType.LIST);
+                mpermissionService, injector, router, route, location);
+          this.view = ViewType.LIST;
 
           this.fieldDisplayNames = {
             'role': 'Role',

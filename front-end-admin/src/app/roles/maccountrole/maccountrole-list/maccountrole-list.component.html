@@ -20,7 +20,6 @@
 	<div *ngIf="!options['disableListHead']" class="container search">
 		<div class="row" *ngIf="!options['disableListSearch']">
 			<div class="col">
-
 				<div class="text-center">
                     <span  class="pointer" (click)="toggleMoreSearch()">
                         <span class="refine-search-text">Refine Search &nbsp;</span>
@@ -33,9 +32,9 @@
 			    <div class="shadow" *ngIf="moreSearchOpened">
 					<div class="card">
 						<div class="card-body">
-							<div class="d-flex flex-wrap">
+							<div class="d-flex flex-wrap align-items-center">
 
-						<div class="container two-column-search">
+						<div class="container two-column-search small">
 							<div class="row col-gutter align-items-center">
 								<div class="col-12 col-sm-3">
 									<label for="maccountroleEditAccount">
@@ -43,11 +42,11 @@
 									</label>
 								</div>
 								<div class="col-11 col-sm-8">
-									<div class="input-group">
-										<input class="form-control rounded" id="maccountroleEditAccount"
+									<div class="input-group input-group-sm">
+										<input class="form-control form-control-sm rounded" id="maccountroleEditAccount"
 											[ngClass]="{'pointer ref-badge': detail['account']['_id']}" (focus)="onRefSelect('account')"
 											 
-											[ngModel]="detail['account']['value']" name="maccountroleEditAccount" #maccountroleEditAccount="ngModel">
+											[ngModel]="detail['account']['valueMedium']" name="maccountroleEditAccount" #maccountroleEditAccount="ngModel">
 									</div>
 									<!-- (focus)="detail['account']['_id']?onRefShow('account', 'select', detail['account']['_id']):onRefSelect('account')" -->
 								</div>
@@ -58,7 +57,7 @@
 							</div>
 						</div> 
 
-						<div class="container two-column-search">
+						<div class="container two-column-search small">
 							<div class="row col-gutter align-items-center">
 								<div class="col-12 col-sm-3">
 									<label for="maccountroleEditRole">
@@ -88,10 +87,10 @@
 							</div>
 
 							<hr>
-							<div class="one-column-search mt-3">
-								<div class="row">
-								  	<div class="col-3"><label for="Archived">Archived</label></div>
-								  	<div class="col-8">
+														<div class="container one-column-search mt-3 small">
+								<div class="row col-gutter">
+								  	<div class="col-4 col-sm-3"><label for="Archived">Archived</label></div>
+								  	<div class="col-8 col-sm-8">
 										<label class="mr-1">No</label>
 										<label class="switch">
 											<input type="checkbox"
@@ -260,7 +259,7 @@
 					>
 	            	
                	  <a routerLink="."  (click)="onDisplayRefClicked('account', detail['account'], $event)">
-	            	{{detail['account']?detail['account']['value']:""}}
+	            	{{detail['account']?detail['account']['valueMedium']:""}}
 	              </a>
 				</td>
 				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
@@ -271,7 +270,7 @@
                         <ng-template ngFor let-element [ngForOf]="detail['role']['selection']" let-idx="index">
                             <div class="badge-click badge badge-pill badge-secondary" 
                                 (click)="onDisplayRefClicked('role', detail['role']['selection'][idx], $event)">
-                                {{element.value}}
+                                {{element.valueMedium}}
                             </div>
                         </ng-template>
                     </div>
@@ -308,7 +307,7 @@
           <div class="mr-1 d-inline-block">
             
                	  <a routerLink="."  (click)="onDisplayRefClicked('account', detail['account'], $event)">
-	            	{{detail['account']?detail['account']['value']:""}}
+	            	{{detail['account']?detail['account']['valueMedium']:""}}
 	              </a>
           </div>
         </h5>
@@ -321,7 +320,7 @@
                         <ng-template ngFor let-element [ngForOf]="detail['role']['selection']" let-idx="index">
                             <div class="badge-click badge badge-pill badge-secondary" 
                                 (click)="onDisplayRefClicked('role', detail['role']['selection'][idx], $event)">
-                                {{element.value}}
+                                {{element.valueMedium}}
                             </div>
                         </ng-template>
                     </div>
@@ -365,7 +364,7 @@
             <div class="mr-1 d-inline-block">
               
                	  <a routerLink="."  (click)="onDisplayRefClicked('account', detail['account'], $event)">
-	            	{{detail['account']?detail['account']['value']:""}}
+	            	{{detail['account']?detail['account']['valueMedium']:""}}
 	              </a>
             </div>
           </h5>
@@ -379,7 +378,7 @@
                         <ng-template ngFor let-element [ngForOf]="detail['role']['selection']" let-idx="index">
                             <div class="badge-click badge badge-pill badge-secondary" 
                                 (click)="onDisplayRefClicked('role', detail['role']['selection'][idx], $event)">
-                                {{element.value}}
+                                {{element.valueMedium}}
                             </div>
                         </ng-template>
                     </div></div>

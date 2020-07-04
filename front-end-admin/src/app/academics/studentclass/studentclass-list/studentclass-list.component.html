@@ -20,7 +20,6 @@
 	<div *ngIf="!options['disableListHead']" class="container search">
 		<div class="row" *ngIf="!options['disableListSearch']">
 			<div class="col">
-
 				<div class="text-center">
                     <span  class="pointer" (click)="toggleMoreSearch()">
                         <span class="refine-search-text">Refine Search &nbsp;</span>
@@ -33,9 +32,9 @@
 			    <div class="shadow" *ngIf="moreSearchOpened">
 					<div class="card">
 						<div class="card-body">
-							<div class="d-flex flex-wrap">
+							<div class="d-flex flex-wrap align-items-center">
 
-						<div class="container two-column-search">
+						<div class="container two-column-search small">
 							<div class="row col-gutter align-items-center">
 								<div class="col-12 col-sm-3">
 									<label for="studentclassEditStudent">
@@ -43,11 +42,11 @@
 									</label>
 								</div>
 								<div class="col-11 col-sm-8">
-									<div class="input-group">
-										<input class="form-control rounded" id="studentclassEditStudent"
+									<div class="input-group input-group-sm">
+										<input class="form-control form-control-sm rounded" id="studentclassEditStudent"
 											[ngClass]="{'pointer ref-badge': detail['student']['_id']}" (focus)="onRefSelect('student')"
 											 
-											[ngModel]="detail['student']['value']" name="studentclassEditStudent" #studentclassEditStudent="ngModel">
+											[ngModel]="detail['student']['valueMedium']" name="studentclassEditStudent" #studentclassEditStudent="ngModel">
 									</div>
 									<!-- (focus)="detail['student']['_id']?onRefShow('student', 'select', detail['student']['_id']):onRefSelect('student')" -->
 								</div>
@@ -58,7 +57,7 @@
 							</div>
 						</div> 
 
-						<div class="container two-column-search">
+						<div class="container two-column-search small">
 							<div class="row col-gutter align-items-center">
 								<div class="col-12 col-sm-3">
 									<label for="studentclassEditClass">
@@ -66,11 +65,11 @@
 									</label>
 								</div>
 								<div class="col-11 col-sm-8">
-									<div class="input-group">
-										<input class="form-control rounded" id="studentclassEditClass"
+									<div class="input-group input-group-sm">
+										<input class="form-control form-control-sm rounded" id="studentclassEditClass"
 											[ngClass]="{'pointer ref-badge': detail['class']['_id']}" (focus)="onRefSelect('class')"
 											 
-											[ngModel]="detail['class']['value']" name="studentclassEditClass" #studentclassEditClass="ngModel">
+											[ngModel]="detail['class']['valueMedium']" name="studentclassEditClass" #studentclassEditClass="ngModel">
 									</div>
 									<!-- (focus)="detail['class']['_id']?onRefShow('class', 'select', detail['class']['_id']):onRefSelect('class')" -->
 								</div>
@@ -218,7 +217,7 @@
           <div class="mr-1 d-inline-block">
             
                	  <a routerLink="."  (click)="onDisplayRefClicked('student', detail['student'], $event)">
-	            	{{detail['student']?detail['student']['value']:""}}
+	            	{{detail['student']?detail['student']['valueMedium']:""}}
 	              </a>
           </div>
         </h5>
@@ -228,7 +227,7 @@
               <div><label>Class:</label></div>
               <div class="ml-3">
                	  <a routerLink="."  (click)="onDisplayRefClicked('class', detail['class'], $event)">
-	            	{{detail['class']?detail['class']['value']:""}}
+	            	{{detail['class']?detail['class']['valueMedium']:""}}
 	              </a>
               </div>
             </div>
@@ -267,7 +266,7 @@
             <div class="mr-1 d-inline-block">
               
                	  <a routerLink="."  (click)="onDisplayRefClicked('student', detail['student'], $event)">
-	            	{{detail['student']?detail['student']['value']:""}}
+	            	{{detail['student']?detail['student']['valueMedium']:""}}
 	              </a>
             </div>
           </h5>
@@ -278,7 +277,7 @@
             <div class=""><label>Class:</label></div>
             <div class="ml-3">
                	  <a routerLink="."  (click)="onDisplayRefClicked('class', detail['class'], $event)">
-	            	{{detail['class']?detail['class']['value']:""}}
+	            	{{detail['class']?detail['class']['valueMedium']:""}}
 	              </a></div>
           </div>
       </div>
@@ -333,7 +332,7 @@
 					>
 	            	
                	  <a routerLink="."  (click)="onDisplayRefClicked('student', detail['student'], $event)">
-	            	{{detail['student']?detail['student']['value']:""}}
+	            	{{detail['student']?detail['student']['valueMedium']:""}}
 	              </a>
 				</td>
 				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
@@ -341,7 +340,7 @@
 					>
 	            	
                	  <a routerLink="."  (click)="onDisplayRefClicked('class', detail['class'], $event)">
-	            	{{detail['class']?detail['class']['value']:""}}
+	            	{{detail['class']?detail['class']['valueMedium']:""}}
 	              </a>
 				</td>
 	            <td>

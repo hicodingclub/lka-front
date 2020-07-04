@@ -84,13 +84,13 @@
 	            <td *ngIf=" 'student' !== associationField && referenceFieldsMap['student'] != parentItem " >
 	            	
                	  
-	            	{{detail['student']?detail['student']['value']:""}}
+	            	{{detail['student']?detail['student']['valueMedium']:""}}
 	              
 				</td>
 	            <td *ngIf=" 'class' !== associationField && referenceFieldsMap['class'] != parentItem " >
 	            	
                	  
-	            	{{detail['class']?detail['class']['value']:""}}
+	            	{{detail['class']?detail['class']['valueMedium']:""}}
 	              
 				</td>
 				<td *ngFor = "let af of assoCompFields;" scope="col">

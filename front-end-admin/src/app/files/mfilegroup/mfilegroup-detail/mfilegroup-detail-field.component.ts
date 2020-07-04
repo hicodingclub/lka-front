@@ -25,7 +25,8 @@ export class MfilegroupDetailFieldComponent extends MfilegroupComponent
         public route: ActivatedRoute,
         public location: Location) {
           super(
-                mfilegroupService, injector, router, route, location, ViewType.DETAIL);
+                mfilegroupService, injector, router, route, location);
+          this.view = ViewType.DETAIL;
           
           this.fieldDisplayNames = {
             'name': 'Name',

@@ -50,7 +50,8 @@ export class ClassenrollEditComponent extends ClassenrollEditCustComponent imple
       public route: ActivatedRoute,
       public location: Location) {
           super(componentFactoryResolver,
-                classenrollService, injector, router, route, location, ViewType.EDIT);
+                classenrollService, injector, router, route, location);
+          this.view = ViewType.EDIT;
 
           this.fieldDisplayNames = {
             'student': 'Student',

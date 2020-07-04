@@ -40,7 +40,8 @@ export class MpubaccessListComponent extends MpubaccessListCustComponent impleme
       public route: ActivatedRoute,
       public location: Location) {
           super(componentFactoryResolver,
-                mpubaccessService, injector, router, route, location, ViewType.LIST);
+                mpubaccessService, injector, router, route, location);
+          this.view = ViewType.LIST;
 
           this.fieldDisplayNames = {
             'group': 'Group',

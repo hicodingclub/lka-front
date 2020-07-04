@@ -39,7 +39,8 @@ export class MmoduleListComponent extends MmoduleListCustComponent implements On
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                mmoduleService, injector, router, route, location, ViewType.LIST);
+                mmoduleService, injector, router, route, location);
+          this.view = ViewType.LIST;
 
           this.fieldDisplayNames = {
             'module': 'Module',

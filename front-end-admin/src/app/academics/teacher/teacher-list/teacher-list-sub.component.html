@@ -98,7 +98,7 @@
               <div><label>Program:</label></div>
               <div class="ml-3">
                	  <a routerLink="."  (click)="onDisplayRefClicked('courses', detail['courses'], $event)">
-	            	{{detail['courses']?detail['courses']['value']:""}}
+	            	{{detail['courses']?detail['courses']['valueMedium']:""}}
 	              </a>
               </div>
             </div>
@@ -195,7 +195,7 @@
 					>
 	            	
                	  <a routerLink="."  (click)="onDisplayRefClicked('courses', detail['courses'], $event)">
-	            	{{detail['courses']?detail['courses']['value']:""}}
+	            	{{detail['courses']?detail['courses']['valueMedium']:""}}
 	              </a>
 				</td>
 				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"

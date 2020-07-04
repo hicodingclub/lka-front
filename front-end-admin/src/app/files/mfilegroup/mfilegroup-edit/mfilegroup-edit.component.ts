@@ -48,7 +48,8 @@ export class MfilegroupEditComponent extends MfilegroupEditCustComponent impleme
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                mfilegroupService, injector, router, route, location, ViewType.EDIT);
+                mfilegroupService, injector, router, route, location);
+          this.view = ViewType.EDIT;
 
           this.fieldDisplayNames = {
             'name': 'Name',

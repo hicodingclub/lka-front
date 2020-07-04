@@ -1,7 +1,7 @@
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MddsBaseComponent, ViewType } from '@hicoder/angular-core';
-import { OnInit, Injector, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Injector, Input, Output, EventEmitter } from '@angular/core';
 import { ArticleService } from './article.service';
 
 const itemCamelName = 'article';
@@ -11,6 +11,9 @@ export { ViewType };
 
 
 
+@Component({
+    template: '',
+})
 export class ArticleComponent extends MddsBaseComponent implements OnInit {
     // *** common input fields
     @Input()
@@ -83,10 +86,10 @@ export class ArticleComponent extends MddsBaseComponent implements OnInit {
       public injector: Injector,
       public router: Router,
       public route: ActivatedRoute,
-      public location: Location,
-      public view: ViewType ) {
+      public location: Location) {
 
-        super(articleService, injector, router, route, location, view, itemCamelName);
+        super(articleService, injector, router, route, location);
+        this.setItemNames(itemCamelName);
 
         
         this.briefFieldsInfo = [];

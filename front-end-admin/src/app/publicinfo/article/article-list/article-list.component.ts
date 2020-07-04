@@ -43,7 +43,8 @@ export class ArticleListComponent extends ArticleListCustComponent implements On
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                articleService, injector, router, route, location, ViewType.LIST);
+                articleService, injector, router, route, location);
+          this.view = ViewType.LIST;
 
           this.fieldDisplayNames = {
             'signaturePicture': 'Signature Picture',

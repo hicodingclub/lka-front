@@ -48,7 +48,8 @@ export class PaymentEditComponent extends PaymentEditCustComponent implements On
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                paymentService, injector, router, route, location, ViewType.EDIT);
+                paymentService, injector, router, route, location);
+          this.view = ViewType.EDIT;
 
           this.fieldDisplayNames = {
             'status': 'Status',

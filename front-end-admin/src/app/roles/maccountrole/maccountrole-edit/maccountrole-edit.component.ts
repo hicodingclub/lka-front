@@ -50,7 +50,8 @@ export class MaccountroleEditComponent extends MaccountroleEditCustComponent imp
       public route: ActivatedRoute,
       public location: Location) {
           super(componentFactoryResolver,
-                maccountroleService, injector, router, route, location, ViewType.EDIT);
+                maccountroleService, injector, router, route, location);
+          this.view = ViewType.EDIT;
 
           this.fieldDisplayNames = {
             'account': 'Account',

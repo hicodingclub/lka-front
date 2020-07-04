@@ -36,7 +36,8 @@ export class MuserDetailComponent extends MuserComponent implements OnInit, Afte
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                muserService, injector, router, route, location, ViewType.DETAIL);
+                muserService, injector, router, route, location);
+          this.view = ViewType.DETAIL;
 
           this.enums['status'] = ['Enabled', 'Disabled', 'Pending', ];
 

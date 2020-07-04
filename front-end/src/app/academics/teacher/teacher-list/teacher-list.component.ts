@@ -40,7 +40,8 @@ export class TeacherListComponent extends TeacherListCustComponent implements On
       public route: ActivatedRoute,
       public location: Location) {
           super(componentFactoryResolver,
-                teacherService, injector, router, route, location, ViewType.LIST);
+                teacherService, injector, router, route, location);
+          this.view = ViewType.LIST;
 
           this.fieldDisplayNames = {
             'firstName': 'First Name',
