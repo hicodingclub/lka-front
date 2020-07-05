@@ -32,7 +32,7 @@ import { roles_server_root_uri } from './roles.conf';
 })
 export class RolesExtModule { }
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Fri Jul 03 2020 18:36:52 GMT-0700 (Pacific Daylight Time)
+**Date: Sat Jul 04 2020 23:55:28 GMT-0700 (Pacific Daylight Time)
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';

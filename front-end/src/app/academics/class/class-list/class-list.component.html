@@ -410,11 +410,11 @@
 				</td>
 				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
 					>
-	            	  {{detail['startTime']? (detail['startTime']['originalValue'] | date:'medium') : ''}}
+	            	  {{detail['startTime']? (detail['startTime']['originalValue'] | date:'mediumDate') : ''}}
 				</td>
 				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
 					>
-	            	  {{detail['endTime']? (detail['endTime']['originalValue'] | date:'medium') : ''}}
+	            	  {{detail['endTime']? (detail['endTime']['originalValue'] | date:'mediumDate') : ''}}
 				</td>
 				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
 					>
@@ -460,12 +460,12 @@
         <div>
             <div *ngIf="fieldHasValue(detail['startTime'])" class="mr-3 d-inline-flex flex-wrap">
               <div><label>Start Time:</label></div>
-              <div class="ml-3">  {{detail['startTime']? (detail['startTime']['originalValue'] | date:'medium') : ''}}
+              <div class="ml-3">  {{detail['startTime']? (detail['startTime']['originalValue'] | date:'mediumDate') : ''}}
               </div>
             </div>
             <div *ngIf="fieldHasValue(detail['endTime'])" class="mr-3 d-inline-flex flex-wrap">
               <div><label>End Time:</label></div>
-              <div class="ml-3">  {{detail['endTime']? (detail['endTime']['originalValue'] | date:'medium') : ''}}
+              <div class="ml-3">  {{detail['endTime']? (detail['endTime']['originalValue'] | date:'mediumDate') : ''}}
               </div>
             </div>
             <div *ngIf="fieldHasValue(detail['dayOfWeek'])" class="mr-3 d-inline-flex flex-wrap">
@@ -518,11 +518,11 @@
       <div class="card-body">
           <div *ngIf="fieldHasValue(detail['startTime'])" class="d-flex flex-wrap">
             <div class=""><label>Start Time:</label></div>
-            <div class="ml-3">  {{detail['startTime']? (detail['startTime']['originalValue'] | date:'medium') : ''}}</div>
+            <div class="ml-3">  {{detail['startTime']? (detail['startTime']['originalValue'] | date:'mediumDate') : ''}}</div>
           </div>
           <div *ngIf="fieldHasValue(detail['endTime'])" class="d-flex flex-wrap">
             <div class=""><label>End Time:</label></div>
-            <div class="ml-3">  {{detail['endTime']? (detail['endTime']['originalValue'] | date:'medium') : ''}}</div>
+            <div class="ml-3">  {{detail['endTime']? (detail['endTime']['originalValue'] | date:'mediumDate') : ''}}</div>
           </div>
           <div *ngIf="fieldHasValue(detail['dayOfWeek'])" class="d-flex flex-wrap">
             <div class=""><label>Day of Week:</label></div>

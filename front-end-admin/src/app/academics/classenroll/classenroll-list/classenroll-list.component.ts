@@ -70,7 +70,6 @@ export class ClassenrollListComponent extends ClassenrollListCustComponent imple
           this.referenceFieldsReverseMap['student'] = 'student';
 
           this.listViewFilter = 'list';
-          this.setListSort('createdAt', 'Created At', 'desc');
 
           const listCategories = [];
           this.listCategory1 = listCategories[0] || {};

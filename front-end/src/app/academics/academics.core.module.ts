@@ -15,35 +15,61 @@ import { AcademicsComponent } from './academics.component';
 import { AcademicsRefSelectDirective } from './academics.component';
 
 // Import components for each schema
+import { StudentComponent } from './student/student.component';
 import { StudentListComponent } from './student/student-list/student-list.component';
+import { StudentListCustComponent } from '../academics-cust/base/student/student-list.cust.component';
 import { StudentListWidgetSelComponent } from './student/student-list/student-list-widget-sel.component';
 import { StudentDetailComponent } from './student/student-detail/student-detail.component';
+import { StudentDetailCustComponent } from '../academics-cust/base/student/student-detail.cust.component';
 import { StudentDetailFieldComponent } from './student/student-detail/student-detail-field.component';
 import { StudentEditComponent } from './student/student-edit/student-edit.component';
+import { StudentEditCustComponent } from '../academics-cust/base/student/student-edit.cust.component';
+import { TeacherComponent } from './teacher/teacher.component';
 import { TeacherListComponent } from './teacher/teacher-list/teacher-list.component';
+import { TeacherListCustComponent } from '../academics-cust/base/teacher/teacher-list.cust.component';
 import { TeacherDetailComponent } from './teacher/teacher-detail/teacher-detail.component';
+import { TeacherDetailCustComponent } from '../academics-cust/base/teacher/teacher-detail.cust.component';
 import { TeacherDetailFieldComponent } from './teacher/teacher-detail/teacher-detail-field.component';
+import { CourseComponent } from './course/course.component';
 import { CourseListComponent } from './course/course-list/course-list.component';
+import { CourseListCustComponent } from '../academics-cust/base/course/course-list.cust.component';
 import { CourseDetailComponent } from './course/course-detail/course-detail.component';
+import { CourseDetailCustComponent } from '../academics-cust/base/course/course-detail.cust.component';
 import { CourseDetailFieldComponent } from './course/course-detail/course-detail-field.component';
+import { ClassComponent } from './class/class.component';
 import { ClassListComponent } from './class/class-list/class-list.component';
+import { ClassListCustComponent } from '../academics-cust/base/class/class-list.cust.component';
 import { ClassListWidgetSelComponent } from './class/class-list/class-list-widget-sel.component';
 import { ClassDetailComponent } from './class/class-detail/class-detail.component';
+import { ClassDetailCustComponent } from '../academics-cust/base/class/class-detail.cust.component';
 import { ClassDetailFieldComponent } from './class/class-detail/class-detail-field.component';
+import { StudentclassComponent } from './studentclass/studentclass.component';
 import { StudentclassListComponent } from './studentclass/studentclass-list/studentclass-list.component';
+import { StudentclassListCustComponent } from '../academics-cust/base/studentclass/studentclass-list.cust.component';
 import { StudentclassDetailFieldComponent } from './studentclass/studentclass-detail/studentclass-detail-field.component';
+import { ClassenrollComponent } from './classenroll/classenroll.component';
 import { ClassenrollListComponent } from './classenroll/classenroll-list/classenroll-list.component';
+import { ClassenrollListCustComponent } from '../academics-cust/base/classenroll/classenroll-list.cust.component';
 import { ClassenrollDetailComponent } from './classenroll/classenroll-detail/classenroll-detail.component';
+import { ClassenrollDetailCustComponent } from '../academics-cust/base/classenroll/classenroll-detail.cust.component';
 import { ClassenrollDetailFieldComponent } from './classenroll/classenroll-detail/classenroll-detail-field.component';
 import { ClassenrollEditComponent } from './classenroll/classenroll-edit/classenroll-edit.component';
+import { ClassenrollEditCustComponent } from '../academics-cust/base/classenroll/classenroll-edit.cust.component';
+import { TermsComponent } from './terms/terms.component';
 import { TermsListComponent } from './terms/terms-list/terms-list.component';
+import { TermsListCustComponent } from '../academics-cust/base/terms/terms-list.cust.component';
 import { TermsDetailComponent } from './terms/terms-detail/terms-detail.component';
+import { TermsDetailCustComponent } from '../academics-cust/base/terms/terms-detail.cust.component';
 import { TermsDetailWidgetTermComponent } from './terms/terms-detail/terms-detail-widget-term.component';
 import { TermsDetailFieldComponent } from './terms/terms-detail/terms-detail-field.component';
+import { PaymentComponent } from './payment/payment.component';
 import { PaymentListComponent } from './payment/payment-list/payment-list.component';
+import { PaymentListCustComponent } from '../academics-cust/base/payment/payment-list.cust.component';
 import { PaymentDetailComponent } from './payment/payment-detail/payment-detail.component';
+import { PaymentDetailCustComponent } from '../academics-cust/base/payment/payment-detail.cust.component';
 import { PaymentDetailFieldComponent } from './payment/payment-detail/payment-detail-field.component';
 import { PaymentEditComponent } from './payment/payment-edit/payment-edit.component';
+import { PaymentEditCustComponent } from '../academics-cust/base/payment/payment-edit.cust.component';
 import { CourseListSelectComponent } from './course/course-list/course-list-select.component';
 import { CourseDetailPopComponent } from './course/course-detail/course-detail-pop.component';
 import { CourseDetailSelComponent } from './course/course-detail/course-detail-sel.component';
@@ -86,35 +112,61 @@ import { AcademicsStudentDirectiveGuardianTwoEmail } from './student/student-edi
   declarations: [
     AcademicsComponent,
     AcademicsRefSelectDirective,
+    StudentComponent,
     StudentListComponent,
+    StudentListCustComponent,
     StudentListWidgetSelComponent,
+    StudentDetailCustComponent,
     StudentDetailComponent,
     StudentDetailFieldComponent,
     StudentEditComponent,
+    StudentEditCustComponent,
+    TeacherComponent,
     TeacherListComponent,
+    TeacherListCustComponent,
+    TeacherDetailCustComponent,
     TeacherDetailComponent,
     TeacherDetailFieldComponent,
+    CourseComponent,
     CourseListComponent,
+    CourseListCustComponent,
+    CourseDetailCustComponent,
     CourseDetailComponent,
     CourseDetailFieldComponent,
+    ClassComponent,
     ClassListComponent,
+    ClassListCustComponent,
     ClassListWidgetSelComponent,
+    ClassDetailCustComponent,
     ClassDetailComponent,
     ClassDetailFieldComponent,
+    StudentclassComponent,
     StudentclassListComponent,
+    StudentclassListCustComponent,
     StudentclassDetailFieldComponent,
+    ClassenrollComponent,
     ClassenrollListComponent,
+    ClassenrollListCustComponent,
+    ClassenrollDetailCustComponent,
     ClassenrollDetailComponent,
     ClassenrollDetailFieldComponent,
     ClassenrollEditComponent,
+    ClassenrollEditCustComponent,
+    TermsComponent,
     TermsListComponent,
+    TermsListCustComponent,
+    TermsDetailCustComponent,
     TermsDetailComponent,
     TermsDetailWidgetTermComponent,
     TermsDetailFieldComponent,
+    PaymentComponent,
     PaymentListComponent,
+    PaymentListCustComponent,
+    PaymentDetailCustComponent,
     PaymentDetailComponent,
     PaymentDetailFieldComponent,
     PaymentEditComponent,
+    PaymentEditCustComponent,
     CourseListSelectComponent,
     CourseDetailPopComponent,
     CourseDetailSelComponent,

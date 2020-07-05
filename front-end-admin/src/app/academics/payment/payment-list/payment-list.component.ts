@@ -59,7 +59,6 @@ export class PaymentListComponent extends PaymentListCustComponent implements On
           ];
 
           this.listViewFilter = 'list';
-          this.setListSort('createdAt', 'Created At', 'desc');
 
           const listCategories = [];
           this.listCategory1 = listCategories[0] || {};

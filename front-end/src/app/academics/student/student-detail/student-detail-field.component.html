@@ -6,7 +6,7 @@
 		<div *ngIf="detail && showFields.includes('last_name')">
                     {{detail['last_name']}}
 		</div>
-		<div *ngIf="detail && showFields.includes('date_of_birth')">  {{detail['date_of_birth']? (detail['date_of_birth']['originalValue'] | date:'medium') : ''}}
+		<div *ngIf="detail && showFields.includes('date_of_birth')">  {{detail['date_of_birth']? (detail['date_of_birth']['originalValue'] | date:'mediumDate') : ''}}
 		</div>
 		<div *ngIf="detail && showFields.includes('grade')">
                     {{detail['grade']}}
