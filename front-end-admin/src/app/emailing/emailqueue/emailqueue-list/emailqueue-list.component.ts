@@ -71,6 +71,10 @@ export class EmailqueueListComponent extends EmailqueueListCustComponent impleme
 
           this.clickItemAction = 'detail';
           this.itemMultiSelect = true;
+
+          // initialize detail structure for search
+          let detail = {};
+          this.detail = this.formatDetail(detail);
   }
 
   ngOnInit() {

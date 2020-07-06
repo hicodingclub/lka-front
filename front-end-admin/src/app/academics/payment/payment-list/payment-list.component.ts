@@ -59,6 +59,7 @@ export class PaymentListComponent extends PaymentListCustComponent implements On
           ];
 
           this.listViewFilter = 'list';
+          this.setListSort('createdAt', 'Created At', 'desc');
 
           const listCategories = [];
           this.listCategory1 = listCategories[0] || {};
@@ -66,6 +67,10 @@ export class PaymentListComponent extends PaymentListCustComponent implements On
 
           this.clickItemAction = 'detail';
           this.itemMultiSelect = true;
+
+          // initialize detail structure for search
+          let detail = {};
+          this.detail = this.formatDetail(detail);
   }
 
   ngOnInit() {

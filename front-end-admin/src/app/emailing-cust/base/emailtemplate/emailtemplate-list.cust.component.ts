@@ -9,7 +9,7 @@ export class EmailtemplateListCustComponent extends EmailtemplateComponent {
 }
 
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Sat Jul 04 2020 23:55:27 GMT-0700 (Pacific Daylight Time)
+**Date: Mon Jul 06 2020 00:56:06 GMT-0700 (Pacific Daylight Time)
 
 import { Input, Component } from '@angular/core';
 

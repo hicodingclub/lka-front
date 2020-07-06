@@ -32,7 +32,7 @@ import { emailing_server_root_uri } from './emailing.conf';
 })
 export class EmailingExtModule { }
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Sat Jul 04 2020 23:55:27 GMT-0700 (Pacific Daylight Time)
+**Date: Mon Jul 06 2020 00:56:06 GMT-0700 (Pacific Daylight Time)
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';

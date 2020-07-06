@@ -60,7 +60,7 @@
 									<div class="row">
 										<div class="input-group input-group-sm col-12 col-md-6 align-items-center">
 											<span class="small mx-1" style="width:2rem">From</span>
-											<input class="form-control form-control-sm" id="maccountEditSince" placeholder="{{dateFormat}}"
+											<input class="form-control form-control-sm" id="maccountEditSinceFrom" placeholder="{{dateFormat}}"
 												[(ngModel)]="detail['since']['from']" name="maccountEditSince" ngbDatepicker [minDate]="minDate"
 												#maccountEditSince="ngModel">
 											<div class="input-group-append">
@@ -71,7 +71,7 @@
 										</div>
 										<div class="input-group input-group-sm col-12 col-md-6 align-items-center">
 											<span class="small mx-1" style="width:2rem">to</span>
-											<input class="form-control form-control-sm" id="maccountEditSince" placeholder="{{dateFormat}}"
+											<input class="form-control form-control-sm" id="maccountEditSinceTo" placeholder="{{dateFormat}}"
 												[(ngModel)]="detail['since']['to']" name="maccountEditSince" ngbDatepicker [minDate]="minDate"
 												#maccountEditSince="ngModel">
 	

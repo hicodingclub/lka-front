@@ -61,7 +61,7 @@
 									<div class="row">
 										<div class="input-group input-group-sm col-12 col-md-6 align-items-center">
 											<span class="small mx-1" style="width:2rem">From</span>
-											<input class="form-control form-control-sm" id="eventEditPublishDate" placeholder="{{dateFormat}}"
+											<input class="form-control form-control-sm" id="eventEditPublishDateFrom" placeholder="{{dateFormat}}"
 												[(ngModel)]="detail['publishDate']['from']" name="eventEditPublishDate" ngbDatepicker [minDate]="minDate"
 												#eventEditPublishDate="ngModel">
 											<div class="input-group-append">
@@ -72,7 +72,7 @@
 										</div>
 										<div class="input-group input-group-sm col-12 col-md-6 align-items-center">
 											<span class="small mx-1" style="width:2rem">to</span>
-											<input class="form-control form-control-sm" id="eventEditPublishDate" placeholder="{{dateFormat}}"
+											<input class="form-control form-control-sm" id="eventEditPublishDateTo" placeholder="{{dateFormat}}"
 												[(ngModel)]="detail['publishDate']['to']" name="eventEditPublishDate" ngbDatepicker [minDate]="minDate"
 												#eventEditPublishDate="ngModel">
 	

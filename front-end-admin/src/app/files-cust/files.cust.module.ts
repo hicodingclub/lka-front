@@ -22,7 +22,7 @@ import { FilesCoreModule } from '../files/files.core.module';
 })
 export class FilesCustModule { }
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Sat Jul 04 2020 23:55:27 GMT-0700 (Pacific Daylight Time)
+**Date: Mon Jul 06 2020 00:56:07 GMT-0700 (Pacific Daylight Time)
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';

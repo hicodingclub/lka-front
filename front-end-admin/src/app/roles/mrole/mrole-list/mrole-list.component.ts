@@ -57,6 +57,10 @@ export class MroleListComponent extends MroleListCustComponent implements OnInit
 
           this.clickItemAction = 'detail';
           this.itemMultiSelect = true;
+
+          // initialize detail structure for search
+          let detail = {};
+          this.detail = this.formatDetail(detail);
   }
 
   ngOnInit() {

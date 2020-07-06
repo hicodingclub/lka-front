@@ -97,6 +97,10 @@ export class ClassListComponent extends ClassListCustComponent implements OnInit
 
           
           this.itemMultiSelect = true;
+
+          // initialize detail structure for search
+          let detail = {};
+          this.detail = this.formatDetail(detail);
   }
 
   ngOnInit() {

@@ -8,7 +8,7 @@ import { ClassComponent } from '../../../academics/class/class.component';
 export class ClassDetailCustComponent extends ClassComponent {
 }
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Sat Jul 04 2020 23:50:51 GMT-0700 (Pacific Daylight Time)
+**Date: Mon Jul 06 2020 00:56:22 GMT-0700 (Pacific Daylight Time)
 
 import { Input, Component } from '@angular/core';
 

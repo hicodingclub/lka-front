@@ -68,6 +68,10 @@ export class EventListComponent extends EventListCustComponent implements OnInit
 
           
           this.itemMultiSelect = true;
+
+          // initialize detail structure for search
+          let detail = {};
+          this.detail = this.formatDetail(detail);
   }
 
   ngOnInit() {
