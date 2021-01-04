@@ -68,7 +68,7 @@ export class EnrollComponent implements OnInit {
         multiSelect: false,
 
         options: {
-          disableActionButtions: true,
+          disableActionButtons: true,
           disablePipeline: true,
           disableTitle: true,
         },
@@ -84,7 +84,7 @@ export class EnrollComponent implements OnInit {
         preSelectedId: undefined,
         multiSelect: true,
 
-        options: {disableActionButtions: true},
+        options: {disableActionButtons: true},
         id: undefined,
         searchObj: {},
         submitFieldName: 'student',
@@ -96,7 +96,7 @@ export class EnrollComponent implements OnInit {
         mandatory: true,
         preSelectedId: undefined,
         multiSelect: false,
-        options: {disableActionButtions: true},
+        options: {disableActionButtons: true},
         id: undefined,
         searchObj: {'tag': 'class-enroll'},
         submitFieldName: 'ack',
@@ -147,7 +147,7 @@ export class EnrollComponent implements OnInit {
         mandatory: true,
         preSelectedId: undefined,
         multiSelect: false,
-        options: {disableActionButtions: true},
+        options: {disableActionButtons: true},
         //searchObj: {'_id': classId},
         id,
         searchObj,
