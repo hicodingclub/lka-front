@@ -1,22 +1,20 @@
-
-
-		<div *ngIf="detail && showFields.includes('username')">
-                    {{detail['username']}}
-		</div>
-		<div *ngIf="detail && showFields.includes('email')">
-                    {{detail['email']}}
-		</div>
-		<div *ngIf="detail && showFields.includes('phone')">
-                    {{detail['phone']}}
-		</div>
-		<div *ngIf="detail && showFields.includes('firstname')">
-                    {{detail['firstname']}}
-		</div>
-		<div *ngIf="detail && showFields.includes('lastname')">
-                    {{detail['lastname']}}
-		</div>
-		<div *ngIf="detail && showFields.includes('since')">  {{detail['since']? (detail['since']['originalValue'] | date:'medium') : ''}}
-		</div>
-		<div *ngIf="detail && showFields.includes('status')">
-                    {{detail['status']}}
-		</div>
+<div *ngIf="detail && showFields.includes('username')">
+  {{detail['username']}}
+</div>
+<div *ngIf="detail && showFields.includes('email')">
+  {{detail['email']}}
+</div>
+<div *ngIf="detail && showFields.includes('phone')">
+  {{detail['phone']}}
+</div>
+<div *ngIf="detail && showFields.includes('firstname')">
+  {{detail['firstname']}}
+</div>
+<div *ngIf="detail && showFields.includes('lastname')">
+  {{detail['lastname']}}
+</div>
+<div *ngIf="detail && showFields.includes('since')"> {{detail['since']? (detail['since']['originalValue'] | date:'medium') : ''}}
+</div>
+<div *ngIf="detail && showFields.includes('status')">
+  {{detail['status']}}
+</div>

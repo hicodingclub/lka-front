@@ -8,15 +8,16 @@ import { ArticleComponent } from '../../../publicinfo/article/article.component'
 export class ArticleDetailCustComponent extends ArticleComponent {
 }
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Mon Jul 06 2020 00:56:09 GMT-0700 (Pacific Daylight Time)
+**Date: Tue Jul 07 2020 10:25:08 GMT-0700 (Pacific Daylight Time)
 
-import { Input, Component } from '@angular/core';
-
-import { ArticleComponent } from '../../../publicinfo/article/article.component';
-
+import {
+  Input,
+  Component
+} from '@angular/core';
+import {
+  ArticleComponent
+} from '../../../publicinfo/article/article.component';
 @Component({
-    template: '',
+  template: '',
 })
-export class ArticleDetailCustComponent extends ArticleComponent {
-}
-**** End of recent updates.<<<*/
+export class ArticleDetailCustComponent extends ArticleComponent {}**** End of recent updates.<<<*/

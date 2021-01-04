@@ -1,12 +1,15 @@
-import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
-
-import { EmailingRoutes } from '../emailing-cust/emailing.conf';
-
+import {
+  NgModule
+} from '@angular/core';
+import {
+  RouterModule
+} from '@angular/router';
+import {
+  EmailingRoutes
+} from '../emailing-cust/emailing.conf';
 @NgModule({
   imports: [RouterModule.forChild(EmailingRoutes)],
   exports: [RouterModule],
-  providers: [ ],
-
+  providers: [],
 })
-export class EmailingRoutingModule { }
+export class EmailingRoutingModule {}

@@ -59,7 +59,7 @@ export class StudentComponent extends MddsBaseComponent implements OnInit {
     // @Input() 
     // public id:string;
     @Input()
-    public disableActionButtions:boolean;
+    public disableActionButtons:boolean;
     @Output()
     public eventEmitter: EventEmitter<any> = new EventEmitter();
 

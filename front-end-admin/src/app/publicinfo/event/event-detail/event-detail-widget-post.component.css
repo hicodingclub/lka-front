@@ -1,29 +1,33 @@
 .detail {
-	width: 100%;
-	margin: 0 auto;
+  width: 100%;
+  margin: 0 auto;
 }
 
-.card-title, .card-subtitle {
-	text-align: center;
+.card-title,
+.card-subtitle {
+  text-align: center;
 }
-.card-text{
-	margin-top: 2rem;
+
+.card-text {
+  margin-top: 2rem;
 }
 
 .card label {
   font-weight: bold;
-	font-size: 1rem;
+  font-size: 1rem;
 }
+
 /*
 .card span {
 	margin-left: 1rem;
 }
 */
 .referred-by-links {
-	text-align: left;
+  text-align: left;
 }
+
 .referred-by-links a {
-	margin-left: 1rem;
+  margin-left: 1rem;
 }
 
 .pointer {
@@ -33,6 +37,7 @@
 .badge-click {
   cursor: pointer;
 }
+
 div.badge-click:hover {
   background-color: #495057 !important;
   text-decoration: underline;
@@ -45,5 +50,5 @@ div.badge-click:hover {
 }
 
 .transparent-border {
-  border-color: rgba(0,0,0,0);
+  border-color: rgba(0, 0, 0, 0);
 }

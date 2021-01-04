@@ -1,17 +1,14 @@
-
-
-		<div *ngIf="detail && showFields.includes('account')">
-               	  <a routerLink="."  (click)="onDisplayRefClicked('account', detail['account'], $event)">
-	            	{{detail['account']?detail['account']['valueMedium']:""}}
-	              </a>
-		</div>
-		<div *ngIf="detail && showFields.includes('role')">
-                    <div *ngIf="detail['role'] && detail['role']['selection']">
-                        <ng-template ngFor let-element [ngForOf]="detail['role']['selection']" let-idx="index">
-                            <div class="badge-click badge badge-pill badge-secondary" 
-                                (click)="onDisplayRefClicked('role', detail['role']['selection'][idx], $event)">
-                                {{element.valueMedium}}
-                            </div>
-                        </ng-template>
-                    </div>
-		</div>
+<div *ngIf="detail && showFields.includes('account')">
+  <a routerLink="." (click)="onDisplayRefClicked('account', detail['account'], $event)">
+    {{detail['account']?detail['account']['valueMedium']:""}}
+  </a>
+</div>
+<div *ngIf="detail && showFields.includes('role')">
+  <div *ngIf="detail['role'] && detail['role']['selection']">
+    <ng-template ngFor let-element [ngForOf]="detail['role']['selection']" let-idx="index">
+      <div class="badge-click badge badge-pill badge-secondary" (click)="onDisplayRefClicked('role', detail['role']['selection'][idx], $event)">
+        {{element.valueMedium}}
+      </div>
+    </ng-template>
+  </div>
+</div>

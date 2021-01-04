@@ -1,791 +1,489 @@
 <div class="edit" *ngIf="detail">
-	<div class="card" style="text-align: left;">
-		<div class="card-body">
-			<h4 class="card-title" *ngIf="!embeddedView && !options['title']">{{action}} Student</h4>
-			<h4 class="card-title" *ngIf="options['title']" [ngStyle]="style['card-title']">
-				{{options['title']}}
-			</h4>
-			<p	*ngIf="options['subtitle']" [ngStyle]="style['card-subtitle']">
-				{{options['subtitle']}}
-			</p>
-			<form (ngSubmit)="onSubmit()" #editForm="ngForm">
-				<ng-template [ngIf]="action == 'Edit'">
-					<ng-template [ngIf]="!hiddenFields.includes('first_name')">
-				<fieldset class="form-group">
-					<label for="EditFirst_name">First Name</label>
-						
-          <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditFirst_name" 
-                    required
-                    maxlength="100"
-                    [(ngModel)]="detail['first_name']" name="EditFirst_name"
-                    #EditFirst_name="ngModel">
-            <div *ngIf="detail['first_name']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('first_name')">
+  <div class="card" style="text-align: left;">
+    <div class="card-body">
+      <h4 class="card-title" *ngIf="!embeddedView && !options['title']">{{action}} Student</h4>
+      <h4 class="card-title" *ngIf="options['title']" [ngStyle]="style['card-title']">
+        {{options['title']}}
+      </h4>
+      <p *ngIf="options['subtitle']" [ngStyle]="style['card-subtitle']">
+        {{options['subtitle']}}
+      </p>
+      <form (ngSubmit)="onSubmit()" #editForm="ngForm">
+        <ng-template [ngIf]="action == 'Edit'">
+          <ng-template [ngIf]="!hiddenFields.includes('first_name')">
+            <fieldset class="form-group">
+              <label for="EditFirst_name">First Name</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditFirst_name" required maxlength="100" [(ngModel)]="detail['first_name']" name="EditFirst_name" #EditFirst_name="ngModel">
+                <div *ngIf="detail['first_name']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('first_name')">
                   <i class="fas fa-times-circle" title="Clear"></i>
-            </div>
-          </div>
-          <div [hidden]="EditFirst_name.valid || EditFirst_name.pristine || EditFirst_name.errors.minlength"
-           class="alert alert-danger">
-            <div *ngIf="EditFirst_name.errors && EditFirst_name.errors.required">
-              First_name is required.
-            </div>
-            <div *ngIf="EditFirst_name.errors && EditFirst_name.errors.maxlength">
-                First_name must be at most 100 characters long.
-            </div>
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('last_name')">
-				<fieldset class="form-group">
-					<label for="EditLast_name">Last Name</label>
-						
-          <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditLast_name" 
-                    required
-                    maxlength="100"
-                    [(ngModel)]="detail['last_name']" name="EditLast_name"
-                    #EditLast_name="ngModel">
-            <div *ngIf="detail['last_name']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('last_name')">
-                  <i class="fas fa-times-circle" title="Clear"></i>
-            </div>
-          </div>
-          <div [hidden]="EditLast_name.valid || EditLast_name.pristine || EditLast_name.errors.minlength"
-           class="alert alert-danger">
-            <div *ngIf="EditLast_name.errors && EditLast_name.errors.required">
-              Last_name is required.
-            </div>
-            <div *ngIf="EditLast_name.errors && EditLast_name.errors.maxlength">
-                Last_name must be at most 100 characters long.
-            </div>
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('date_of_birth')">
-				<fieldset class="form-group">
-					<label for="EditDate_of_birth">Date of Birth</label>
-						
-          <span> ({{dateFormat}})</span>
-          <div class="input-group">
-            <input class="form-control" id="EditDate_of_birth" placeholder="{{dateFormat}}" 
-                  [(ngModel)]="detail['date_of_birth']['date']" name="EditDate_of_birth"
-                  ngbDatepicker [minDate]="minDate" #EditDate_of_birthDate="ngbDatepicker" #EditDate_of_birth="ngModel">
-            <div class="input-group-append">
-              <button class="btn btn-outline-secondary" (click)="EditDate_of_birthDate.toggle()" type="button">
-                <i class="fas fa-calendar-alt"></i>
-              </button>
-            </div>
-          </div><!-- input group -->         
-          <div [hidden]="EditDate_of_birth.valid || EditDate_of_birth.pristine || (EditDate_of_birth.errors && EditDate_of_birth.errors.ngbDate)"
-               class="alert alert-danger"> 
-          </div>
-          <div [hidden]="EditDate_of_birth.valid || EditDate_of_birth.untouched || !(EditDate_of_birth.errors && EditDate_of_birth.errors.ngbDate)"
-           class="alert alert-danger">
-            <div *ngIf="EditDate_of_birth.errors && EditDate_of_birth.errors.ngbDate">
-              Date_of_birth must be in {{dateFormat}} format.
+                </div>
               </div>
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('grade')">
-				<fieldset class="form-group">
-					<label for="EditGrade">Grade</label>
-						
-          <input type="number" class="form-control" id="EditGrade"
-                  required 
-                  [(ngModel)]="detail['grade']" name="EditGrade"
-                  #EditGrade="ngModel">
-          <div [hidden]="EditGrade.valid || EditGrade.pristine || EditGrade.errors.libMddsMinNumber"
-           class="alert alert-danger">
-            <div *ngIf="EditGrade.errors && EditGrade.errors.required">
-              Grade is required.
+              <div [hidden]="EditFirst_name.valid || EditFirst_name.pristine || EditFirst_name.errors.minlength" class="alert alert-danger">
+                <div *ngIf="EditFirst_name.errors && EditFirst_name.errors.required"> First_name is required. </div>
+                <div *ngIf="EditFirst_name.errors && EditFirst_name.errors.maxlength"> First_name must be at most 100 characters long. </div>
               </div>
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('email')">
-				<fieldset class="form-group">
-					<label for="EditEmail">Email</label>
-						
-          <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditEmail" 
-                    required
-                    maxlength="100"
-                    academicsStudentDirectiveEmail=""
-                    [(ngModel)]="detail['email']" name="EditEmail"
-                    #EditEmail="ngModel">
-            <div *ngIf="detail['email']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('email')">
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('last_name')">
+            <fieldset class="form-group">
+              <label for="EditLast_name">Last Name</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditLast_name" required maxlength="100" [(ngModel)]="detail['last_name']" name="EditLast_name" #EditLast_name="ngModel">
+                <div *ngIf="detail['last_name']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('last_name')">
                   <i class="fas fa-times-circle" title="Clear"></i>
-            </div>
-          </div>
-          <div [hidden]="EditEmail.valid || EditEmail.pristine || EditEmail.errors.minlength"
-           class="alert alert-danger">
-            <div *ngIf="EditEmail.errors && EditEmail.errors.required">
-              Email is required.
-            </div>
-            <div *ngIf="EditEmail.errors && EditEmail.errors.academicsStudentDirectiveEmail">
-                {{EditEmail.errors.academicsStudentDirectiveEmail}}
+                </div>
               </div>
-            <div *ngIf="EditEmail.errors && EditEmail.errors.maxlength">
-                Email must be at most 100 characters long.
-            </div>
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('phoneNumber')">
-				<fieldset class="form-group">
-					<label for="EditPhoneNumber">Phone Number</label>
-						
-          <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditPhoneNumber" 
-                    required
-                    maxlength="20"
-                    academicsStudentDirectivePhoneNumber=""
-                    [(ngModel)]="detail['phoneNumber']" name="EditPhoneNumber"
-                    #EditPhoneNumber="ngModel">
-            <div *ngIf="detail['phoneNumber']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('phoneNumber')">
-                  <i class="fas fa-times-circle" title="Clear"></i>
-            </div>
-          </div>
-          <div [hidden]="EditPhoneNumber.valid || EditPhoneNumber.pristine || EditPhoneNumber.errors.minlength"
-           class="alert alert-danger">
-            <div *ngIf="EditPhoneNumber.errors && EditPhoneNumber.errors.required">
-              PhoneNumber is required.
-            </div>
-            <div *ngIf="EditPhoneNumber.errors && EditPhoneNumber.errors.academicsStudentDirectivePhoneNumber">
-                {{EditPhoneNumber.errors.academicsStudentDirectivePhoneNumber}}
+              <div [hidden]="EditLast_name.valid || EditLast_name.pristine || EditLast_name.errors.minlength" class="alert alert-danger">
+                <div *ngIf="EditLast_name.errors && EditLast_name.errors.required"> Last_name is required. </div>
+                <div *ngIf="EditLast_name.errors && EditLast_name.errors.maxlength"> Last_name must be at most 100 characters long. </div>
               </div>
-            <div *ngIf="EditPhoneNumber.errors && EditPhoneNumber.errors.maxlength">
-                PhoneNumber must be at most 20 characters long.
-            </div>
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('school')">
-				<fieldset class="form-group">
-					<label for="EditSchool">School</label>
-						
-          <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditSchool" 
-                    required
-                    maxlength="100"
-                    [(ngModel)]="detail['school']" name="EditSchool"
-                    #EditSchool="ngModel">
-            <div *ngIf="detail['school']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('school')">
-                  <i class="fas fa-times-circle" title="Clear"></i>
-            </div>
-          </div>
-          <div [hidden]="EditSchool.valid || EditSchool.pristine || EditSchool.errors.minlength"
-           class="alert alert-danger">
-            <div *ngIf="EditSchool.errors && EditSchool.errors.required">
-              School is required.
-            </div>
-            <div *ngIf="EditSchool.errors && EditSchool.errors.maxlength">
-                School must be at most 100 characters long.
-            </div>
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('GuardianOneName')">
-				<fieldset class="form-group">
-					<label for="EditGuardianOneName">Guardian One Name</label>
-						
-          <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditGuardianOneName" 
-                    maxlength="100"
-                    [(ngModel)]="detail['GuardianOneName']" name="EditGuardianOneName"
-                    #EditGuardianOneName="ngModel">
-            <div *ngIf="detail['GuardianOneName']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('GuardianOneName')">
-                  <i class="fas fa-times-circle" title="Clear"></i>
-            </div>
-          </div>
-          <div [hidden]="EditGuardianOneName.valid || EditGuardianOneName.pristine || EditGuardianOneName.errors.minlength"
-           class="alert alert-danger">
-            <div *ngIf="EditGuardianOneName.errors && EditGuardianOneName.errors.maxlength">
-                GuardianOneName must be at most 100 characters long.
-            </div>
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('GuardianOnePhone')">
-				<fieldset class="form-group">
-					<label for="EditGuardianOnePhone">Guardian One Phone</label>
-						
-          <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditGuardianOnePhone" 
-                    required
-                    maxlength="20"
-                    academicsStudentDirectiveGuardianOnePhone=""
-                    [(ngModel)]="detail['GuardianOnePhone']" name="EditGuardianOnePhone"
-                    #EditGuardianOnePhone="ngModel">
-            <div *ngIf="detail['GuardianOnePhone']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('GuardianOnePhone')">
-                  <i class="fas fa-times-circle" title="Clear"></i>
-            </div>
-          </div>
-          <div [hidden]="EditGuardianOnePhone.valid || EditGuardianOnePhone.pristine || EditGuardianOnePhone.errors.minlength"
-           class="alert alert-danger">
-            <div *ngIf="EditGuardianOnePhone.errors && EditGuardianOnePhone.errors.required">
-              GuardianOnePhone is required.
-            </div>
-            <div *ngIf="EditGuardianOnePhone.errors && EditGuardianOnePhone.errors.academicsStudentDirectiveGuardianOnePhone">
-                {{EditGuardianOnePhone.errors.academicsStudentDirectiveGuardianOnePhone}}
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('date_of_birth')">
+            <fieldset class="form-group">
+              <label for="EditDate_of_birth">Date of Birth</label>
+              <span> ({{dateFormat}})</span>
+              <div class="input-group">
+                <input class="form-control" id="EditDate_of_birth" placeholder="{{dateFormat}}" [(ngModel)]="detail['date_of_birth']['date']" name="EditDate_of_birth" ngbDatepicker [minDate]="minDate" #EditDate_of_birthDate="ngbDatepicker" #EditDate_of_birth="ngModel">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" (click)="EditDate_of_birthDate.toggle()" type="button">
+                    <i class="fas fa-calendar-alt"></i>
+                  </button>
+                </div>
+              </div><!-- input group -->
+              <div [hidden]="EditDate_of_birth.valid || EditDate_of_birth.pristine || (EditDate_of_birth.errors && EditDate_of_birth.errors.ngbDate)" class="alert alert-danger">
               </div>
-            <div *ngIf="EditGuardianOnePhone.errors && EditGuardianOnePhone.errors.maxlength">
-                GuardianOnePhone must be at most 20 characters long.
-            </div>
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('GuardianOneEmail')">
-				<fieldset class="form-group">
-					<label for="EditGuardianOneEmail">Guardian One Email</label>
-						
-          <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditGuardianOneEmail" 
-                    maxlength="100"
-                    academicsStudentDirectiveGuardianOneEmail=""
-                    [(ngModel)]="detail['GuardianOneEmail']" name="EditGuardianOneEmail"
-                    #EditGuardianOneEmail="ngModel">
-            <div *ngIf="detail['GuardianOneEmail']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('GuardianOneEmail')">
-                  <i class="fas fa-times-circle" title="Clear"></i>
-            </div>
-          </div>
-          <div [hidden]="EditGuardianOneEmail.valid || EditGuardianOneEmail.pristine || EditGuardianOneEmail.errors.minlength"
-           class="alert alert-danger">
-            <div *ngIf="EditGuardianOneEmail.errors && EditGuardianOneEmail.errors.academicsStudentDirectiveGuardianOneEmail">
-                {{EditGuardianOneEmail.errors.academicsStudentDirectiveGuardianOneEmail}}
+              <div [hidden]="EditDate_of_birth.valid || EditDate_of_birth.untouched || !(EditDate_of_birth.errors && EditDate_of_birth.errors.ngbDate)" class="alert alert-danger">
+                <div *ngIf="EditDate_of_birth.errors && EditDate_of_birth.errors.ngbDate"> Date_of_birth must be in {{dateFormat}} format. </div>
               </div>
-            <div *ngIf="EditGuardianOneEmail.errors && EditGuardianOneEmail.errors.maxlength">
-                GuardianOneEmail must be at most 100 characters long.
-            </div>
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('GuardianTwoName')">
-				<fieldset class="form-group">
-					<label for="EditGuardianTwoName">Guardian Two Name</label>
-						
-          <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditGuardianTwoName" 
-                    maxlength="100"
-                    [(ngModel)]="detail['GuardianTwoName']" name="EditGuardianTwoName"
-                    #EditGuardianTwoName="ngModel">
-            <div *ngIf="detail['GuardianTwoName']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('GuardianTwoName')">
-                  <i class="fas fa-times-circle" title="Clear"></i>
-            </div>
-          </div>
-          <div [hidden]="EditGuardianTwoName.valid || EditGuardianTwoName.pristine || EditGuardianTwoName.errors.minlength"
-           class="alert alert-danger">
-            <div *ngIf="EditGuardianTwoName.errors && EditGuardianTwoName.errors.maxlength">
-                GuardianTwoName must be at most 100 characters long.
-            </div>
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('GuardianTwoPhone')">
-				<fieldset class="form-group">
-					<label for="EditGuardianTwoPhone">Guardian Two Phone</label>
-						
-          <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditGuardianTwoPhone" 
-                    maxlength="20"
-                    academicsStudentDirectiveGuardianTwoPhone=""
-                    [(ngModel)]="detail['GuardianTwoPhone']" name="EditGuardianTwoPhone"
-                    #EditGuardianTwoPhone="ngModel">
-            <div *ngIf="detail['GuardianTwoPhone']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('GuardianTwoPhone')">
-                  <i class="fas fa-times-circle" title="Clear"></i>
-            </div>
-          </div>
-          <div [hidden]="EditGuardianTwoPhone.valid || EditGuardianTwoPhone.pristine || EditGuardianTwoPhone.errors.minlength"
-           class="alert alert-danger">
-            <div *ngIf="EditGuardianTwoPhone.errors && EditGuardianTwoPhone.errors.academicsStudentDirectiveGuardianTwoPhone">
-                {{EditGuardianTwoPhone.errors.academicsStudentDirectiveGuardianTwoPhone}}
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('grade')">
+            <fieldset class="form-group">
+              <label for="EditGrade">Grade</label>
+              <input type="number" class="form-control" id="EditGrade" required [(ngModel)]="detail['grade']" name="EditGrade" #EditGrade="ngModel">
+              <div [hidden]="EditGrade.valid || EditGrade.pristine || EditGrade.errors.libMddsMinNumber" class="alert alert-danger">
+                <div *ngIf="EditGrade.errors && EditGrade.errors.required"> Grade is required. </div>
               </div>
-            <div *ngIf="EditGuardianTwoPhone.errors && EditGuardianTwoPhone.errors.maxlength">
-                GuardianTwoPhone must be at most 20 characters long.
-            </div>
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('GuardianTwoEmail')">
-				<fieldset class="form-group">
-					<label for="EditGuardianTwoEmail">Guardian Two Email</label>
-						
-          <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditGuardianTwoEmail" 
-                    maxlength="100"
-                    academicsStudentDirectiveGuardianTwoEmail=""
-                    [(ngModel)]="detail['GuardianTwoEmail']" name="EditGuardianTwoEmail"
-                    #EditGuardianTwoEmail="ngModel">
-            <div *ngIf="detail['GuardianTwoEmail']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('GuardianTwoEmail')">
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('email')">
+            <fieldset class="form-group">
+              <label for="EditEmail">Email</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditEmail" required maxlength="100" academicsStudentDirectiveEmail="" [(ngModel)]="detail['email']" name="EditEmail" #EditEmail="ngModel">
+                <div *ngIf="detail['email']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('email')">
                   <i class="fas fa-times-circle" title="Clear"></i>
-            </div>
-          </div>
-          <div [hidden]="EditGuardianTwoEmail.valid || EditGuardianTwoEmail.pristine || EditGuardianTwoEmail.errors.minlength"
-           class="alert alert-danger">
-            <div *ngIf="EditGuardianTwoEmail.errors && EditGuardianTwoEmail.errors.academicsStudentDirectiveGuardianTwoEmail">
-                {{EditGuardianTwoEmail.errors.academicsStudentDirectiveGuardianTwoEmail}}
+                </div>
               </div>
-            <div *ngIf="EditGuardianTwoEmail.errors && EditGuardianTwoEmail.errors.maxlength">
-                GuardianTwoEmail must be at most 100 characters long.
-            </div>
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('notes')">
-				<fieldset class="form-group">
-					<label for="EditNotes">Notes</label>
-						
-          <div class="input-group">
-            <textarea rows="8" class="form-control rounded" id="EditNotes"
-                    [(ngModel)]="detail['notes']" name="EditNotes"
-                    #EditNotes="ngModel">
+              <div [hidden]="EditEmail.valid || EditEmail.pristine || EditEmail.errors.minlength" class="alert alert-danger">
+                <div *ngIf="EditEmail.errors && EditEmail.errors.required"> Email is required. </div>
+                <div *ngIf="EditEmail.errors && EditEmail.errors.academicsStudentDirectiveEmail">
+                  {{EditEmail.errors.academicsStudentDirectiveEmail}}
+                </div>
+                <div *ngIf="EditEmail.errors && EditEmail.errors.maxlength"> Email must be at most 100 characters long. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('phoneNumber')">
+            <fieldset class="form-group">
+              <label for="EditPhoneNumber">Phone Number</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditPhoneNumber" required maxlength="20" academicsStudentDirectivePhoneNumber="" [(ngModel)]="detail['phoneNumber']" name="EditPhoneNumber" #EditPhoneNumber="ngModel">
+                <div *ngIf="detail['phoneNumber']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('phoneNumber')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+              </div>
+              <div [hidden]="EditPhoneNumber.valid || EditPhoneNumber.pristine || EditPhoneNumber.errors.minlength" class="alert alert-danger">
+                <div *ngIf="EditPhoneNumber.errors && EditPhoneNumber.errors.required"> PhoneNumber is required. </div>
+                <div *ngIf="EditPhoneNumber.errors && EditPhoneNumber.errors.academicsStudentDirectivePhoneNumber">
+                  {{EditPhoneNumber.errors.academicsStudentDirectivePhoneNumber}}
+                </div>
+                <div *ngIf="EditPhoneNumber.errors && EditPhoneNumber.errors.maxlength"> PhoneNumber must be at most 20 characters long. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('school')">
+            <fieldset class="form-group">
+              <label for="EditSchool">School</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditSchool" required maxlength="100" [(ngModel)]="detail['school']" name="EditSchool" #EditSchool="ngModel">
+                <div *ngIf="detail['school']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('school')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+              </div>
+              <div [hidden]="EditSchool.valid || EditSchool.pristine || EditSchool.errors.minlength" class="alert alert-danger">
+                <div *ngIf="EditSchool.errors && EditSchool.errors.required"> School is required. </div>
+                <div *ngIf="EditSchool.errors && EditSchool.errors.maxlength"> School must be at most 100 characters long. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('GuardianOneName')">
+            <fieldset class="form-group">
+              <label for="EditGuardianOneName">Guardian One Name</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditGuardianOneName" maxlength="100" [(ngModel)]="detail['GuardianOneName']" name="EditGuardianOneName" #EditGuardianOneName="ngModel">
+                <div *ngIf="detail['GuardianOneName']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('GuardianOneName')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+              </div>
+              <div [hidden]="EditGuardianOneName.valid || EditGuardianOneName.pristine || EditGuardianOneName.errors.minlength" class="alert alert-danger">
+                <div *ngIf="EditGuardianOneName.errors && EditGuardianOneName.errors.maxlength"> GuardianOneName must be at most 100 characters long. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('GuardianOnePhone')">
+            <fieldset class="form-group">
+              <label for="EditGuardianOnePhone">Guardian One Phone</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditGuardianOnePhone" required maxlength="20" academicsStudentDirectiveGuardianOnePhone="" [(ngModel)]="detail['GuardianOnePhone']" name="EditGuardianOnePhone" #EditGuardianOnePhone="ngModel">
+                <div *ngIf="detail['GuardianOnePhone']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('GuardianOnePhone')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+              </div>
+              <div [hidden]="EditGuardianOnePhone.valid || EditGuardianOnePhone.pristine || EditGuardianOnePhone.errors.minlength" class="alert alert-danger">
+                <div *ngIf="EditGuardianOnePhone.errors && EditGuardianOnePhone.errors.required"> GuardianOnePhone is required. </div>
+                <div *ngIf="EditGuardianOnePhone.errors && EditGuardianOnePhone.errors.academicsStudentDirectiveGuardianOnePhone">
+                  {{EditGuardianOnePhone.errors.academicsStudentDirectiveGuardianOnePhone}}
+                </div>
+                <div *ngIf="EditGuardianOnePhone.errors && EditGuardianOnePhone.errors.maxlength"> GuardianOnePhone must be at most 20 characters long. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('GuardianOneEmail')">
+            <fieldset class="form-group">
+              <label for="EditGuardianOneEmail">Guardian One Email</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditGuardianOneEmail" maxlength="100" academicsStudentDirectiveGuardianOneEmail="" [(ngModel)]="detail['GuardianOneEmail']" name="EditGuardianOneEmail" #EditGuardianOneEmail="ngModel">
+                <div *ngIf="detail['GuardianOneEmail']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('GuardianOneEmail')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+              </div>
+              <div [hidden]="EditGuardianOneEmail.valid || EditGuardianOneEmail.pristine || EditGuardianOneEmail.errors.minlength" class="alert alert-danger">
+                <div *ngIf="EditGuardianOneEmail.errors && EditGuardianOneEmail.errors.academicsStudentDirectiveGuardianOneEmail">
+                  {{EditGuardianOneEmail.errors.academicsStudentDirectiveGuardianOneEmail}}
+                </div>
+                <div *ngIf="EditGuardianOneEmail.errors && EditGuardianOneEmail.errors.maxlength"> GuardianOneEmail must be at most 100 characters long. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('GuardianTwoName')">
+            <fieldset class="form-group">
+              <label for="EditGuardianTwoName">Guardian Two Name</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditGuardianTwoName" maxlength="100" [(ngModel)]="detail['GuardianTwoName']" name="EditGuardianTwoName" #EditGuardianTwoName="ngModel">
+                <div *ngIf="detail['GuardianTwoName']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('GuardianTwoName')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+              </div>
+              <div [hidden]="EditGuardianTwoName.valid || EditGuardianTwoName.pristine || EditGuardianTwoName.errors.minlength" class="alert alert-danger">
+                <div *ngIf="EditGuardianTwoName.errors && EditGuardianTwoName.errors.maxlength"> GuardianTwoName must be at most 100 characters long. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('GuardianTwoPhone')">
+            <fieldset class="form-group">
+              <label for="EditGuardianTwoPhone">Guardian Two Phone</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditGuardianTwoPhone" maxlength="20" academicsStudentDirectiveGuardianTwoPhone="" [(ngModel)]="detail['GuardianTwoPhone']" name="EditGuardianTwoPhone" #EditGuardianTwoPhone="ngModel">
+                <div *ngIf="detail['GuardianTwoPhone']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('GuardianTwoPhone')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+              </div>
+              <div [hidden]="EditGuardianTwoPhone.valid || EditGuardianTwoPhone.pristine || EditGuardianTwoPhone.errors.minlength" class="alert alert-danger">
+                <div *ngIf="EditGuardianTwoPhone.errors && EditGuardianTwoPhone.errors.academicsStudentDirectiveGuardianTwoPhone">
+                  {{EditGuardianTwoPhone.errors.academicsStudentDirectiveGuardianTwoPhone}}
+                </div>
+                <div *ngIf="EditGuardianTwoPhone.errors && EditGuardianTwoPhone.errors.maxlength"> GuardianTwoPhone must be at most 20 characters long. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('GuardianTwoEmail')">
+            <fieldset class="form-group">
+              <label for="EditGuardianTwoEmail">Guardian Two Email</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditGuardianTwoEmail" maxlength="100" academicsStudentDirectiveGuardianTwoEmail="" [(ngModel)]="detail['GuardianTwoEmail']" name="EditGuardianTwoEmail" #EditGuardianTwoEmail="ngModel">
+                <div *ngIf="detail['GuardianTwoEmail']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('GuardianTwoEmail')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+              </div>
+              <div [hidden]="EditGuardianTwoEmail.valid || EditGuardianTwoEmail.pristine || EditGuardianTwoEmail.errors.minlength" class="alert alert-danger">
+                <div *ngIf="EditGuardianTwoEmail.errors && EditGuardianTwoEmail.errors.academicsStudentDirectiveGuardianTwoEmail">
+                  {{EditGuardianTwoEmail.errors.academicsStudentDirectiveGuardianTwoEmail}}
+                </div>
+                <div *ngIf="EditGuardianTwoEmail.errors && EditGuardianTwoEmail.errors.maxlength"> GuardianTwoEmail must be at most 100 characters long. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('notes')">
+            <fieldset class="form-group">
+              <label for="EditNotes">Notes</label>
+              <div class="input-group">
+                <textarea rows="8" class="form-control rounded" id="EditNotes" [(ngModel)]="detail['notes']" name="EditNotes" #EditNotes="ngModel">
             </textarea>
-            <div *ngIf="detail['notes']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('notes')">
+                <div *ngIf="detail['notes']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('notes')">
                   <i class="fas fa-times-circle" title="Clear"></i>
-            </div>
-          </div>
-          <div [hidden]="EditNotes.valid || EditNotes.pristine || EditNotes.errors.minlength"
-           class="alert alert-danger">
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('muser_id')">
-				<fieldset class="form-group">
-					<label for="EditMuser_id">Muser Id</label>
-						
-          <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditMuser_id" 
-                    [(ngModel)]="detail['muser_id']" name="EditMuser_id"
-                    #EditMuser_id="ngModel">
-            <div *ngIf="detail['muser_id']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('muser_id')">
-                  <i class="fas fa-times-circle" title="Clear"></i>
-            </div>
-          </div>
-          <div [hidden]="EditMuser_id.valid || EditMuser_id.pristine || EditMuser_id.errors.minlength"
-           class="alert alert-danger">
-          </div>
-
-				</fieldset>
-					</ng-template>
-				</ng-template>
-				<ng-template [ngIf]="action == 'Create' || action == 'Add' ">
-					<ng-template [ngIf]="!hiddenFields.includes('first_name')">
-				<fieldset class="form-group">
-					<label for="EditFirst_name">First Name</label>
-						
-          <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditFirst_name" 
-                    required
-                    maxlength="100"
-                    [(ngModel)]="detail['first_name']" name="EditFirst_name"
-                    #EditFirst_name="ngModel">
-            <div *ngIf="detail['first_name']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('first_name')">
-                  <i class="fas fa-times-circle" title="Clear"></i>
-            </div>
-          </div>
-          <div [hidden]="EditFirst_name.valid || EditFirst_name.pristine || EditFirst_name.errors.minlength"
-           class="alert alert-danger">
-            <div *ngIf="EditFirst_name.errors && EditFirst_name.errors.required">
-              First_name is required.
-            </div>
-            <div *ngIf="EditFirst_name.errors && EditFirst_name.errors.maxlength">
-                First_name must be at most 100 characters long.
-            </div>
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('last_name')">
-				<fieldset class="form-group">
-					<label for="EditLast_name">Last Name</label>
-						
-          <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditLast_name" 
-                    required
-                    maxlength="100"
-                    [(ngModel)]="detail['last_name']" name="EditLast_name"
-                    #EditLast_name="ngModel">
-            <div *ngIf="detail['last_name']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('last_name')">
-                  <i class="fas fa-times-circle" title="Clear"></i>
-            </div>
-          </div>
-          <div [hidden]="EditLast_name.valid || EditLast_name.pristine || EditLast_name.errors.minlength"
-           class="alert alert-danger">
-            <div *ngIf="EditLast_name.errors && EditLast_name.errors.required">
-              Last_name is required.
-            </div>
-            <div *ngIf="EditLast_name.errors && EditLast_name.errors.maxlength">
-                Last_name must be at most 100 characters long.
-            </div>
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('date_of_birth')">
-				<fieldset class="form-group">
-					<label for="EditDate_of_birth">Date of Birth</label>
-						
-          <span> ({{dateFormat}})</span>
-          <div class="input-group">
-            <input class="form-control" id="EditDate_of_birth" placeholder="{{dateFormat}}" 
-                  [(ngModel)]="detail['date_of_birth']['date']" name="EditDate_of_birth"
-                  ngbDatepicker [minDate]="minDate" #EditDate_of_birthDate="ngbDatepicker" #EditDate_of_birth="ngModel">
-            <div class="input-group-append">
-              <button class="btn btn-outline-secondary" (click)="EditDate_of_birthDate.toggle()" type="button">
-                <i class="fas fa-calendar-alt"></i>
-              </button>
-            </div>
-          </div><!-- input group -->         
-          <div [hidden]="EditDate_of_birth.valid || EditDate_of_birth.pristine || (EditDate_of_birth.errors && EditDate_of_birth.errors.ngbDate)"
-               class="alert alert-danger"> 
-          </div>
-          <div [hidden]="EditDate_of_birth.valid || EditDate_of_birth.untouched || !(EditDate_of_birth.errors && EditDate_of_birth.errors.ngbDate)"
-           class="alert alert-danger">
-            <div *ngIf="EditDate_of_birth.errors && EditDate_of_birth.errors.ngbDate">
-              Date_of_birth must be in {{dateFormat}} format.
+                </div>
               </div>
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('grade')">
-				<fieldset class="form-group">
-					<label for="EditGrade">Grade</label>
-						
-          <input type="number" class="form-control" id="EditGrade"
-                  required 
-                  [(ngModel)]="detail['grade']" name="EditGrade"
-                  #EditGrade="ngModel">
-          <div [hidden]="EditGrade.valid || EditGrade.pristine || EditGrade.errors.libMddsMinNumber"
-           class="alert alert-danger">
-            <div *ngIf="EditGrade.errors && EditGrade.errors.required">
-              Grade is required.
+              <div [hidden]="EditNotes.valid || EditNotes.pristine || EditNotes.errors.minlength" class="alert alert-danger">
               </div>
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('email')">
-				<fieldset class="form-group">
-					<label for="EditEmail">Email</label>
-						
-          <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditEmail" 
-                    required
-                    maxlength="100"
-                    academicsStudentDirectiveEmail=""
-                    [(ngModel)]="detail['email']" name="EditEmail"
-                    #EditEmail="ngModel">
-            <div *ngIf="detail['email']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('email')">
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('muser_id')">
+            <fieldset class="form-group">
+              <label for="EditMuser_id">Muser Id</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditMuser_id" [(ngModel)]="detail['muser_id']" name="EditMuser_id" #EditMuser_id="ngModel">
+                <div *ngIf="detail['muser_id']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('muser_id')">
                   <i class="fas fa-times-circle" title="Clear"></i>
-            </div>
-          </div>
-          <div [hidden]="EditEmail.valid || EditEmail.pristine || EditEmail.errors.minlength"
-           class="alert alert-danger">
-            <div *ngIf="EditEmail.errors && EditEmail.errors.required">
-              Email is required.
-            </div>
-            <div *ngIf="EditEmail.errors && EditEmail.errors.academicsStudentDirectiveEmail">
-                {{EditEmail.errors.academicsStudentDirectiveEmail}}
+                </div>
               </div>
-            <div *ngIf="EditEmail.errors && EditEmail.errors.maxlength">
-                Email must be at most 100 characters long.
-            </div>
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('phoneNumber')">
-				<fieldset class="form-group">
-					<label for="EditPhoneNumber">Phone Number</label>
-						
-          <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditPhoneNumber" 
-                    required
-                    maxlength="20"
-                    academicsStudentDirectivePhoneNumber=""
-                    [(ngModel)]="detail['phoneNumber']" name="EditPhoneNumber"
-                    #EditPhoneNumber="ngModel">
-            <div *ngIf="detail['phoneNumber']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('phoneNumber')">
-                  <i class="fas fa-times-circle" title="Clear"></i>
-            </div>
-          </div>
-          <div [hidden]="EditPhoneNumber.valid || EditPhoneNumber.pristine || EditPhoneNumber.errors.minlength"
-           class="alert alert-danger">
-            <div *ngIf="EditPhoneNumber.errors && EditPhoneNumber.errors.required">
-              PhoneNumber is required.
-            </div>
-            <div *ngIf="EditPhoneNumber.errors && EditPhoneNumber.errors.academicsStudentDirectivePhoneNumber">
-                {{EditPhoneNumber.errors.academicsStudentDirectivePhoneNumber}}
+              <div [hidden]="EditMuser_id.valid || EditMuser_id.pristine || EditMuser_id.errors.minlength" class="alert alert-danger">
               </div>
-            <div *ngIf="EditPhoneNumber.errors && EditPhoneNumber.errors.maxlength">
-                PhoneNumber must be at most 20 characters long.
-            </div>
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('school')">
-				<fieldset class="form-group">
-					<label for="EditSchool">School</label>
-						
-          <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditSchool" 
-                    required
-                    maxlength="100"
-                    [(ngModel)]="detail['school']" name="EditSchool"
-                    #EditSchool="ngModel">
-            <div *ngIf="detail['school']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('school')">
+            </fieldset>
+          </ng-template>
+        </ng-template>
+        <ng-template [ngIf]="action == 'Create' || action == 'Add' ">
+          <ng-template [ngIf]="!hiddenFields.includes('first_name')">
+            <fieldset class="form-group">
+              <label for="EditFirst_name">First Name</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditFirst_name" required maxlength="100" [(ngModel)]="detail['first_name']" name="EditFirst_name" #EditFirst_name="ngModel">
+                <div *ngIf="detail['first_name']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('first_name')">
                   <i class="fas fa-times-circle" title="Clear"></i>
-            </div>
-          </div>
-          <div [hidden]="EditSchool.valid || EditSchool.pristine || EditSchool.errors.minlength"
-           class="alert alert-danger">
-            <div *ngIf="EditSchool.errors && EditSchool.errors.required">
-              School is required.
-            </div>
-            <div *ngIf="EditSchool.errors && EditSchool.errors.maxlength">
-                School must be at most 100 characters long.
-            </div>
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('GuardianOneName')">
-				<fieldset class="form-group">
-					<label for="EditGuardianOneName">Guardian One Name</label>
-						
-          <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditGuardianOneName" 
-                    maxlength="100"
-                    [(ngModel)]="detail['GuardianOneName']" name="EditGuardianOneName"
-                    #EditGuardianOneName="ngModel">
-            <div *ngIf="detail['GuardianOneName']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('GuardianOneName')">
-                  <i class="fas fa-times-circle" title="Clear"></i>
-            </div>
-          </div>
-          <div [hidden]="EditGuardianOneName.valid || EditGuardianOneName.pristine || EditGuardianOneName.errors.minlength"
-           class="alert alert-danger">
-            <div *ngIf="EditGuardianOneName.errors && EditGuardianOneName.errors.maxlength">
-                GuardianOneName must be at most 100 characters long.
-            </div>
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('GuardianOnePhone')">
-				<fieldset class="form-group">
-					<label for="EditGuardianOnePhone">Guardian One Phone</label>
-						
-          <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditGuardianOnePhone" 
-                    required
-                    maxlength="20"
-                    academicsStudentDirectiveGuardianOnePhone=""
-                    [(ngModel)]="detail['GuardianOnePhone']" name="EditGuardianOnePhone"
-                    #EditGuardianOnePhone="ngModel">
-            <div *ngIf="detail['GuardianOnePhone']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('GuardianOnePhone')">
-                  <i class="fas fa-times-circle" title="Clear"></i>
-            </div>
-          </div>
-          <div [hidden]="EditGuardianOnePhone.valid || EditGuardianOnePhone.pristine || EditGuardianOnePhone.errors.minlength"
-           class="alert alert-danger">
-            <div *ngIf="EditGuardianOnePhone.errors && EditGuardianOnePhone.errors.required">
-              GuardianOnePhone is required.
-            </div>
-            <div *ngIf="EditGuardianOnePhone.errors && EditGuardianOnePhone.errors.academicsStudentDirectiveGuardianOnePhone">
-                {{EditGuardianOnePhone.errors.academicsStudentDirectiveGuardianOnePhone}}
+                </div>
               </div>
-            <div *ngIf="EditGuardianOnePhone.errors && EditGuardianOnePhone.errors.maxlength">
-                GuardianOnePhone must be at most 20 characters long.
-            </div>
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('GuardianOneEmail')">
-				<fieldset class="form-group">
-					<label for="EditGuardianOneEmail">Guardian One Email</label>
-						
-          <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditGuardianOneEmail" 
-                    maxlength="100"
-                    academicsStudentDirectiveGuardianOneEmail=""
-                    [(ngModel)]="detail['GuardianOneEmail']" name="EditGuardianOneEmail"
-                    #EditGuardianOneEmail="ngModel">
-            <div *ngIf="detail['GuardianOneEmail']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('GuardianOneEmail')">
-                  <i class="fas fa-times-circle" title="Clear"></i>
-            </div>
-          </div>
-          <div [hidden]="EditGuardianOneEmail.valid || EditGuardianOneEmail.pristine || EditGuardianOneEmail.errors.minlength"
-           class="alert alert-danger">
-            <div *ngIf="EditGuardianOneEmail.errors && EditGuardianOneEmail.errors.academicsStudentDirectiveGuardianOneEmail">
-                {{EditGuardianOneEmail.errors.academicsStudentDirectiveGuardianOneEmail}}
+              <div [hidden]="EditFirst_name.valid || EditFirst_name.pristine || EditFirst_name.errors.minlength" class="alert alert-danger">
+                <div *ngIf="EditFirst_name.errors && EditFirst_name.errors.required"> First_name is required. </div>
+                <div *ngIf="EditFirst_name.errors && EditFirst_name.errors.maxlength"> First_name must be at most 100 characters long. </div>
               </div>
-            <div *ngIf="EditGuardianOneEmail.errors && EditGuardianOneEmail.errors.maxlength">
-                GuardianOneEmail must be at most 100 characters long.
-            </div>
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('GuardianTwoName')">
-				<fieldset class="form-group">
-					<label for="EditGuardianTwoName">Guardian Two Name</label>
-						
-          <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditGuardianTwoName" 
-                    maxlength="100"
-                    [(ngModel)]="detail['GuardianTwoName']" name="EditGuardianTwoName"
-                    #EditGuardianTwoName="ngModel">
-            <div *ngIf="detail['GuardianTwoName']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('GuardianTwoName')">
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('last_name')">
+            <fieldset class="form-group">
+              <label for="EditLast_name">Last Name</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditLast_name" required maxlength="100" [(ngModel)]="detail['last_name']" name="EditLast_name" #EditLast_name="ngModel">
+                <div *ngIf="detail['last_name']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('last_name')">
                   <i class="fas fa-times-circle" title="Clear"></i>
-            </div>
-          </div>
-          <div [hidden]="EditGuardianTwoName.valid || EditGuardianTwoName.pristine || EditGuardianTwoName.errors.minlength"
-           class="alert alert-danger">
-            <div *ngIf="EditGuardianTwoName.errors && EditGuardianTwoName.errors.maxlength">
-                GuardianTwoName must be at most 100 characters long.
-            </div>
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('GuardianTwoPhone')">
-				<fieldset class="form-group">
-					<label for="EditGuardianTwoPhone">Guardian Two Phone</label>
-						
-          <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditGuardianTwoPhone" 
-                    maxlength="20"
-                    academicsStudentDirectiveGuardianTwoPhone=""
-                    [(ngModel)]="detail['GuardianTwoPhone']" name="EditGuardianTwoPhone"
-                    #EditGuardianTwoPhone="ngModel">
-            <div *ngIf="detail['GuardianTwoPhone']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('GuardianTwoPhone')">
-                  <i class="fas fa-times-circle" title="Clear"></i>
-            </div>
-          </div>
-          <div [hidden]="EditGuardianTwoPhone.valid || EditGuardianTwoPhone.pristine || EditGuardianTwoPhone.errors.minlength"
-           class="alert alert-danger">
-            <div *ngIf="EditGuardianTwoPhone.errors && EditGuardianTwoPhone.errors.academicsStudentDirectiveGuardianTwoPhone">
-                {{EditGuardianTwoPhone.errors.academicsStudentDirectiveGuardianTwoPhone}}
+                </div>
               </div>
-            <div *ngIf="EditGuardianTwoPhone.errors && EditGuardianTwoPhone.errors.maxlength">
-                GuardianTwoPhone must be at most 20 characters long.
-            </div>
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('GuardianTwoEmail')">
-				<fieldset class="form-group">
-					<label for="EditGuardianTwoEmail">Guardian Two Email</label>
-						
-          <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditGuardianTwoEmail" 
-                    maxlength="100"
-                    academicsStudentDirectiveGuardianTwoEmail=""
-                    [(ngModel)]="detail['GuardianTwoEmail']" name="EditGuardianTwoEmail"
-                    #EditGuardianTwoEmail="ngModel">
-            <div *ngIf="detail['GuardianTwoEmail']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('GuardianTwoEmail')">
-                  <i class="fas fa-times-circle" title="Clear"></i>
-            </div>
-          </div>
-          <div [hidden]="EditGuardianTwoEmail.valid || EditGuardianTwoEmail.pristine || EditGuardianTwoEmail.errors.minlength"
-           class="alert alert-danger">
-            <div *ngIf="EditGuardianTwoEmail.errors && EditGuardianTwoEmail.errors.academicsStudentDirectiveGuardianTwoEmail">
-                {{EditGuardianTwoEmail.errors.academicsStudentDirectiveGuardianTwoEmail}}
+              <div [hidden]="EditLast_name.valid || EditLast_name.pristine || EditLast_name.errors.minlength" class="alert alert-danger">
+                <div *ngIf="EditLast_name.errors && EditLast_name.errors.required"> Last_name is required. </div>
+                <div *ngIf="EditLast_name.errors && EditLast_name.errors.maxlength"> Last_name must be at most 100 characters long. </div>
               </div>
-            <div *ngIf="EditGuardianTwoEmail.errors && EditGuardianTwoEmail.errors.maxlength">
-                GuardianTwoEmail must be at most 100 characters long.
-            </div>
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('notes')">
-				<fieldset class="form-group">
-					<label for="EditNotes">Notes</label>
-						
-          <div class="input-group">
-            <textarea rows="8" class="form-control rounded" id="EditNotes"
-                    [(ngModel)]="detail['notes']" name="EditNotes"
-                    #EditNotes="ngModel">
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('date_of_birth')">
+            <fieldset class="form-group">
+              <label for="EditDate_of_birth">Date of Birth</label>
+              <span> ({{dateFormat}})</span>
+              <div class="input-group">
+                <input class="form-control" id="EditDate_of_birth" placeholder="{{dateFormat}}" [(ngModel)]="detail['date_of_birth']['date']" name="EditDate_of_birth" ngbDatepicker [minDate]="minDate" #EditDate_of_birthDate="ngbDatepicker" #EditDate_of_birth="ngModel">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" (click)="EditDate_of_birthDate.toggle()" type="button">
+                    <i class="fas fa-calendar-alt"></i>
+                  </button>
+                </div>
+              </div><!-- input group -->
+              <div [hidden]="EditDate_of_birth.valid || EditDate_of_birth.pristine || (EditDate_of_birth.errors && EditDate_of_birth.errors.ngbDate)" class="alert alert-danger">
+              </div>
+              <div [hidden]="EditDate_of_birth.valid || EditDate_of_birth.untouched || !(EditDate_of_birth.errors && EditDate_of_birth.errors.ngbDate)" class="alert alert-danger">
+                <div *ngIf="EditDate_of_birth.errors && EditDate_of_birth.errors.ngbDate"> Date_of_birth must be in {{dateFormat}} format. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('grade')">
+            <fieldset class="form-group">
+              <label for="EditGrade">Grade</label>
+              <input type="number" class="form-control" id="EditGrade" required [(ngModel)]="detail['grade']" name="EditGrade" #EditGrade="ngModel">
+              <div [hidden]="EditGrade.valid || EditGrade.pristine || EditGrade.errors.libMddsMinNumber" class="alert alert-danger">
+                <div *ngIf="EditGrade.errors && EditGrade.errors.required"> Grade is required. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('email')">
+            <fieldset class="form-group">
+              <label for="EditEmail">Email</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditEmail" required maxlength="100" academicsStudentDirectiveEmail="" [(ngModel)]="detail['email']" name="EditEmail" #EditEmail="ngModel">
+                <div *ngIf="detail['email']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('email')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+              </div>
+              <div [hidden]="EditEmail.valid || EditEmail.pristine || EditEmail.errors.minlength" class="alert alert-danger">
+                <div *ngIf="EditEmail.errors && EditEmail.errors.required"> Email is required. </div>
+                <div *ngIf="EditEmail.errors && EditEmail.errors.academicsStudentDirectiveEmail">
+                  {{EditEmail.errors.academicsStudentDirectiveEmail}}
+                </div>
+                <div *ngIf="EditEmail.errors && EditEmail.errors.maxlength"> Email must be at most 100 characters long. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('phoneNumber')">
+            <fieldset class="form-group">
+              <label for="EditPhoneNumber">Phone Number</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditPhoneNumber" required maxlength="20" academicsStudentDirectivePhoneNumber="" [(ngModel)]="detail['phoneNumber']" name="EditPhoneNumber" #EditPhoneNumber="ngModel">
+                <div *ngIf="detail['phoneNumber']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('phoneNumber')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+              </div>
+              <div [hidden]="EditPhoneNumber.valid || EditPhoneNumber.pristine || EditPhoneNumber.errors.minlength" class="alert alert-danger">
+                <div *ngIf="EditPhoneNumber.errors && EditPhoneNumber.errors.required"> PhoneNumber is required. </div>
+                <div *ngIf="EditPhoneNumber.errors && EditPhoneNumber.errors.academicsStudentDirectivePhoneNumber">
+                  {{EditPhoneNumber.errors.academicsStudentDirectivePhoneNumber}}
+                </div>
+                <div *ngIf="EditPhoneNumber.errors && EditPhoneNumber.errors.maxlength"> PhoneNumber must be at most 20 characters long. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('school')">
+            <fieldset class="form-group">
+              <label for="EditSchool">School</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditSchool" required maxlength="100" [(ngModel)]="detail['school']" name="EditSchool" #EditSchool="ngModel">
+                <div *ngIf="detail['school']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('school')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+              </div>
+              <div [hidden]="EditSchool.valid || EditSchool.pristine || EditSchool.errors.minlength" class="alert alert-danger">
+                <div *ngIf="EditSchool.errors && EditSchool.errors.required"> School is required. </div>
+                <div *ngIf="EditSchool.errors && EditSchool.errors.maxlength"> School must be at most 100 characters long. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('GuardianOneName')">
+            <fieldset class="form-group">
+              <label for="EditGuardianOneName">Guardian One Name</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditGuardianOneName" maxlength="100" [(ngModel)]="detail['GuardianOneName']" name="EditGuardianOneName" #EditGuardianOneName="ngModel">
+                <div *ngIf="detail['GuardianOneName']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('GuardianOneName')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+              </div>
+              <div [hidden]="EditGuardianOneName.valid || EditGuardianOneName.pristine || EditGuardianOneName.errors.minlength" class="alert alert-danger">
+                <div *ngIf="EditGuardianOneName.errors && EditGuardianOneName.errors.maxlength"> GuardianOneName must be at most 100 characters long. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('GuardianOnePhone')">
+            <fieldset class="form-group">
+              <label for="EditGuardianOnePhone">Guardian One Phone</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditGuardianOnePhone" required maxlength="20" academicsStudentDirectiveGuardianOnePhone="" [(ngModel)]="detail['GuardianOnePhone']" name="EditGuardianOnePhone" #EditGuardianOnePhone="ngModel">
+                <div *ngIf="detail['GuardianOnePhone']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('GuardianOnePhone')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+              </div>
+              <div [hidden]="EditGuardianOnePhone.valid || EditGuardianOnePhone.pristine || EditGuardianOnePhone.errors.minlength" class="alert alert-danger">
+                <div *ngIf="EditGuardianOnePhone.errors && EditGuardianOnePhone.errors.required"> GuardianOnePhone is required. </div>
+                <div *ngIf="EditGuardianOnePhone.errors && EditGuardianOnePhone.errors.academicsStudentDirectiveGuardianOnePhone">
+                  {{EditGuardianOnePhone.errors.academicsStudentDirectiveGuardianOnePhone}}
+                </div>
+                <div *ngIf="EditGuardianOnePhone.errors && EditGuardianOnePhone.errors.maxlength"> GuardianOnePhone must be at most 20 characters long. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('GuardianOneEmail')">
+            <fieldset class="form-group">
+              <label for="EditGuardianOneEmail">Guardian One Email</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditGuardianOneEmail" maxlength="100" academicsStudentDirectiveGuardianOneEmail="" [(ngModel)]="detail['GuardianOneEmail']" name="EditGuardianOneEmail" #EditGuardianOneEmail="ngModel">
+                <div *ngIf="detail['GuardianOneEmail']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('GuardianOneEmail')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+              </div>
+              <div [hidden]="EditGuardianOneEmail.valid || EditGuardianOneEmail.pristine || EditGuardianOneEmail.errors.minlength" class="alert alert-danger">
+                <div *ngIf="EditGuardianOneEmail.errors && EditGuardianOneEmail.errors.academicsStudentDirectiveGuardianOneEmail">
+                  {{EditGuardianOneEmail.errors.academicsStudentDirectiveGuardianOneEmail}}
+                </div>
+                <div *ngIf="EditGuardianOneEmail.errors && EditGuardianOneEmail.errors.maxlength"> GuardianOneEmail must be at most 100 characters long. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('GuardianTwoName')">
+            <fieldset class="form-group">
+              <label for="EditGuardianTwoName">Guardian Two Name</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditGuardianTwoName" maxlength="100" [(ngModel)]="detail['GuardianTwoName']" name="EditGuardianTwoName" #EditGuardianTwoName="ngModel">
+                <div *ngIf="detail['GuardianTwoName']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('GuardianTwoName')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+              </div>
+              <div [hidden]="EditGuardianTwoName.valid || EditGuardianTwoName.pristine || EditGuardianTwoName.errors.minlength" class="alert alert-danger">
+                <div *ngIf="EditGuardianTwoName.errors && EditGuardianTwoName.errors.maxlength"> GuardianTwoName must be at most 100 characters long. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('GuardianTwoPhone')">
+            <fieldset class="form-group">
+              <label for="EditGuardianTwoPhone">Guardian Two Phone</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditGuardianTwoPhone" maxlength="20" academicsStudentDirectiveGuardianTwoPhone="" [(ngModel)]="detail['GuardianTwoPhone']" name="EditGuardianTwoPhone" #EditGuardianTwoPhone="ngModel">
+                <div *ngIf="detail['GuardianTwoPhone']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('GuardianTwoPhone')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+              </div>
+              <div [hidden]="EditGuardianTwoPhone.valid || EditGuardianTwoPhone.pristine || EditGuardianTwoPhone.errors.minlength" class="alert alert-danger">
+                <div *ngIf="EditGuardianTwoPhone.errors && EditGuardianTwoPhone.errors.academicsStudentDirectiveGuardianTwoPhone">
+                  {{EditGuardianTwoPhone.errors.academicsStudentDirectiveGuardianTwoPhone}}
+                </div>
+                <div *ngIf="EditGuardianTwoPhone.errors && EditGuardianTwoPhone.errors.maxlength"> GuardianTwoPhone must be at most 20 characters long. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('GuardianTwoEmail')">
+            <fieldset class="form-group">
+              <label for="EditGuardianTwoEmail">Guardian Two Email</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditGuardianTwoEmail" maxlength="100" academicsStudentDirectiveGuardianTwoEmail="" [(ngModel)]="detail['GuardianTwoEmail']" name="EditGuardianTwoEmail" #EditGuardianTwoEmail="ngModel">
+                <div *ngIf="detail['GuardianTwoEmail']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('GuardianTwoEmail')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+              </div>
+              <div [hidden]="EditGuardianTwoEmail.valid || EditGuardianTwoEmail.pristine || EditGuardianTwoEmail.errors.minlength" class="alert alert-danger">
+                <div *ngIf="EditGuardianTwoEmail.errors && EditGuardianTwoEmail.errors.academicsStudentDirectiveGuardianTwoEmail">
+                  {{EditGuardianTwoEmail.errors.academicsStudentDirectiveGuardianTwoEmail}}
+                </div>
+                <div *ngIf="EditGuardianTwoEmail.errors && EditGuardianTwoEmail.errors.maxlength"> GuardianTwoEmail must be at most 100 characters long. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('notes')">
+            <fieldset class="form-group">
+              <label for="EditNotes">Notes</label>
+              <div class="input-group">
+                <textarea rows="8" class="form-control rounded" id="EditNotes" [(ngModel)]="detail['notes']" name="EditNotes" #EditNotes="ngModel">
             </textarea>
-            <div *ngIf="detail['notes']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('notes')">
+                <div *ngIf="detail['notes']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('notes')">
                   <i class="fas fa-times-circle" title="Clear"></i>
-            </div>
-          </div>
-          <div [hidden]="EditNotes.valid || EditNotes.pristine || EditNotes.errors.minlength"
-           class="alert alert-danger">
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('muser_id')">
-				<fieldset class="form-group">
-					<label for="EditMuser_id">Muser Id</label>
-						
-          <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditMuser_id" 
-                    [(ngModel)]="detail['muser_id']" name="EditMuser_id"
-                    #EditMuser_id="ngModel">
-            <div *ngIf="detail['muser_id']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('muser_id')">
+                </div>
+              </div>
+              <div [hidden]="EditNotes.valid || EditNotes.pristine || EditNotes.errors.minlength" class="alert alert-danger">
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('muser_id')">
+            <fieldset class="form-group">
+              <label for="EditMuser_id">Muser Id</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditMuser_id" [(ngModel)]="detail['muser_id']" name="EditMuser_id" #EditMuser_id="ngModel">
+                <div *ngIf="detail['muser_id']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('muser_id')">
                   <i class="fas fa-times-circle" title="Clear"></i>
-            </div>
-          </div>
-          <div [hidden]="EditMuser_id.valid || EditMuser_id.pristine || EditMuser_id.errors.minlength"
-           class="alert alert-danger">
-          </div>
-
-				</fieldset>
-					</ng-template>
-				</ng-template>
-				<div class="action-buttons-center">
-					<button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
-					<button class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>
-				</div>
-			</form>
-		</div>
-	</div>
+                </div>
+              </div>
+              <div [hidden]="EditMuser_id.valid || EditMuser_id.pristine || EditMuser_id.errors.minlength" class="alert alert-danger">
+              </div>
+            </fieldset>
+          </ng-template>
+        </ng-template>
+        <div class="action-buttons-center">
+          <button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
+          <button class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>

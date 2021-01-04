@@ -9,16 +9,16 @@ export class EmailqueueListCustComponent extends EmailqueueComponent {
 }
 
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Mon Jul 06 2020 00:56:07 GMT-0700 (Pacific Daylight Time)
+**Date: Tue Jul 07 2020 10:25:05 GMT-0700 (Pacific Daylight Time)
 
-import { Input, Component } from '@angular/core';
-
-import { EmailqueueComponent } from '../../../emailing/emailqueue/emailqueue.component';
-
+import {
+  Input,
+  Component
+} from '@angular/core';
+import {
+  EmailqueueComponent
+} from '../../../emailing/emailqueue/emailqueue.component';
 @Component({
-    template: '',
+  template: '',
 })
-export class EmailqueueListCustComponent extends EmailqueueComponent {
-}
-
-**** End of recent updates.<<<*/
+export class EmailqueueListCustComponent extends EmailqueueComponent {}**** End of recent updates.<<<*/

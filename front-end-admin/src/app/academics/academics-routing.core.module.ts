@@ -1,13 +1,18 @@
-import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
-
-import { AcademicsComponent } from './academics.component';
-import { AcademicsCoreRoutes } from '../academics-cust/academics.conf';
-
+import {
+  NgModule
+} from '@angular/core';
+import {
+  RouterModule
+} from '@angular/router';
+import {
+  AcademicsComponent
+} from './academics.component';
+import {
+  AcademicsCoreRoutes
+} from '../academics-cust/academics.conf';
 @NgModule({
   imports: [RouterModule.forChild(AcademicsCoreRoutes)],
   exports: [RouterModule],
-  providers: [ ],
-
+  providers: [],
 })
-export class AcademicsRoutingCoreModule { }
+export class AcademicsRoutingCoreModule {}

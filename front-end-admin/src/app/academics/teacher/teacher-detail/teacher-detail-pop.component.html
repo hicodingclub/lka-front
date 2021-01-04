@@ -8,73 +8,67 @@
         </button>
       </div>
       <div class="modal-body">
-
-<!--  model body starts -->
-<div class="detail" *ngIf="detail">
-	<div class="action-buttons">
-	</div>
-	
-	<div class="card text-left">
-	  <div class="card-body">
-		<div class="card-text">
-
-      <div class="card-header grid-head">
-        <div class="grid-head-picture">
+        <!--  model body starts -->
+        <div class="detail" *ngIf="detail">
+          <div class="action-buttons">
+          </div>
+          <div class="card text-left">
+            <div class="card-body">
+              <div class="card-text">
+                <div class="card-header grid-head">
+                  <div class="grid-head-picture">
                     <lib-mdds-file-display [downloadUrl]="detail['photo']" [isLarge]="false" [aspectRatio]=""></lib-mdds-file-display>
+                  </div>
+                  <div class="ml-1">
+                    <h5>
+                      <div class="mr-1 d-inline-block">
+                        {{detail['firstName']}}
+                      </div>
+                      <div class="mr-1 d-inline-block">
+                        {{detail['lastName']}}
+                      </div>
+                    </h5>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div>
+                    <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
+                      <div><label>Email:</label></div>
+                      <div class="ml-3">
+                        {{detail['email']}}</div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
+                      <div><label>Phone Number:</label></div>
+                      <div class="ml-3">
+                        {{detail['phoneNumber']}}</div>
+                    </div>
+                    <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
+                      <div><label>Program:</label></div>
+                      <div class="ml-3">
+                        <a routerLink="." (click)="onDisplayRefClicked('courses', detail['courses'], $event)">
+                          {{detail['courses']?detail['courses']['valueMedium']:""}}
+                        </a></div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
+                      <div><label>Introduction:</label></div>
+                      <div class="ml-3">
+                        <div [innerHTML]="detail['introduction']"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="ml-1">
-          <h5>
-            <div class="mr-1 d-inline-block">
-              
-                    {{detail['firstName']}}
-            </div>
-            <div class="mr-1 d-inline-block">
-              
-                    {{detail['lastName']}}
-            </div>
-          </h5>
-        </div>
-      </div>
-      <div class="card-body">
-          <div>
-            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
-                <div><label>Email:</label></div>
-                <div class="ml-3">
-                    {{detail['email']}}</div>
-            </div>
-          </div>
-          <div>
-            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
-                <div><label>Phone Number:</label></div>
-                <div class="ml-3">
-                    {{detail['phoneNumber']}}</div>
-            </div>
-            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
-                <div><label>Program:</label></div>
-                <div class="ml-3">
-               	  <a routerLink="."  (click)="onDisplayRefClicked('courses', detail['courses'], $event)">
-	            	{{detail['courses']?detail['courses']['valueMedium']:""}}
-	              </a></div>
-            </div>
-          </div>
-          <div>
-            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
-                <div><label>Introduction:</label></div>
-                <div class="ml-3">
-                    <div [innerHTML]="detail['introduction']"></div></div>
-            </div>
-          </div>
-      </div>
-
-		</div>
-	  </div>
-	</div>
-</div>
-<!--  model body ends -->
-
+        <!--  model body ends -->
       </div>
       <div class="modal-footer">
       </div>
     </div>
   </div>
-</div> 
+</div>

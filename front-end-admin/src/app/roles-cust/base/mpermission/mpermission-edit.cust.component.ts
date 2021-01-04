@@ -8,15 +8,16 @@ import { MpermissionComponent } from '../../../roles/mpermission/mpermission.com
 export class MpermissionEditCustComponent extends MpermissionComponent {        
 }
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Mon Jul 06 2020 00:56:08 GMT-0700 (Pacific Daylight Time)
+**Date: Tue Jul 07 2020 10:25:07 GMT-0700 (Pacific Daylight Time)
 
-import { Input, Component } from '@angular/core';
-
-import { MpermissionComponent } from '../../../roles/mpermission/mpermission.component';
-
+import {
+  Input,
+  Component
+} from '@angular/core';
+import {
+  MpermissionComponent
+} from '../../../roles/mpermission/mpermission.component';
 @Component({
-    template: '',
+  template: '',
 })
-export class MpermissionEditCustComponent extends MpermissionComponent {        
-}
-**** End of recent updates.<<<*/
+export class MpermissionEditCustComponent extends MpermissionComponent {}**** End of recent updates.<<<*/

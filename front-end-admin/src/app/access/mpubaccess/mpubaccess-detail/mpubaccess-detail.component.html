@@ -1,68 +1,66 @@
-
 <div class="detail" *ngIf="detail">
-	<div *ngIf="!options['disableActionButtions']"><div *ngIf="!disableActionButtions && !options['disableActionButtions']" class="action-buttons">
-    <a *ngIf="!options['disableActionList']" routerLink="../../list" class="action-go-list"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
-    <a *ngIf="!options['disableActionEdit']" [routerLink]="['../../edit', detail['_id'] ]" [skipLocationChange]="false" class="btn btn-outline-primary">Edit</a>
-    <a *ngIf="!options['disableActionNew']" [routerLink]="['../../new']" [queryParams]="{cid: detail['_id']}" [skipLocationChange]="false" class="btn btn-outline-primary">New</a>
-    <a *ngIf="!options['disableActionDelete']" routerLink="." class="btn btn-outline-primary" (click)="onDelete(detail['_id'], null)">Delete</a>
-    <a *ngIf="!options['disableActionArchive']" routerLink="." class="btn btn-outline-primary" (click)="onArchive(detail['_id'], null, detail['archived'])">
+  <div *ngIf="!options['disableActionButtons']">
+    <div *ngIf="!disableActionButtons && !options['disableActionButtons']" class="action-buttons">
+      <a *ngIf="!options['disableActionList']" routerLink="../../list" class="action-go-list"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
+      <a *ngIf="!options['disableActionEdit']" [routerLink]="['../../edit', detail['_id'] ]" [skipLocationChange]="false" class="btn btn-outline-primary">Edit</a>
+      <a *ngIf="!options['disableActionNew']" [routerLink]="['../../new']" [queryParams]="{cid: detail['_id']}" [skipLocationChange]="false" class="btn btn-outline-primary">New</a>
+      <a *ngIf="!options['disableActionDelete']" routerLink="." class="btn btn-outline-primary" (click)="onDelete(detail['_id'], null)">Delete</a>
+      <a *ngIf="!options['disableActionArchive']" routerLink="." class="btn btn-outline-primary" (click)="onArchive(detail['_id'], null, detail['archived'])">
         <ng-template [ngIf]="!detail['archived']">Archive</ng-template>
         <ng-template [ngIf]="detail['archived']">Unarchive</ng-template>
-    </a>
-</div>
-</div>
-	<div class="card text-left transparent-border ">
-		<div class="grid-fields">
-
+      </a>
+    </div>
+  </div>
+  <div class="card text-left transparent-border ">
+    <div class="grid-fields">
       <div class="card-header grid-head">
         <div class="ml-1">
           <h5>
             <div class="mr-1 d-inline-block">
-              
-               	  <a routerLink="."  (click)="onDisplayRefClicked('group', detail['group'], $event)">
-	            	{{detail['group']?detail['group']['valueMedium']:""}}
-	              </a>
+              <a routerLink="." (click)="onDisplayRefClicked('group', detail['group'], $event)">
+                {{detail['group']?detail['group']['valueMedium']:""}}
+              </a>
             </div>
           </h5>
         </div>
       </div>
       <div class="card-body">
-          <div>
-            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
-                <div><label>Module:</label></div>
-                <div class="ml-3">
-               	  <a routerLink="."  (click)="onDisplayRefClicked('module', detail['module'], $event)">
-	            	{{detail['module']?detail['module']['valueMedium']:""}}
-	              </a></div>
+        <div>
+          <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
+            <div><label>Module:</label></div>
+            <div class="ml-3">
+              <a routerLink="." (click)="onDisplayRefClicked('module', detail['module'], $event)">
+                {{detail['module']?detail['module']['valueMedium']:""}}
+              </a></div>
+          </div>
+        </div>
+        <div>
+          <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
+            <div><label>Module Permission:</label></div>
+            <div class="ml-3">
+              {{detail['modulePermission']}}</div>
+          </div>
+        </div>
+        <div>
+          <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
+            <div><label>Resource Permission:</label></div>
+            <div class="ml-3">
+              <div *ngIf="detail['resourcePermission'] && detail['resourcePermission']['selection']">
+                <ng-template ngFor let-element [ngForOf]="objectKeys(detail['resourcePermission']['selection'])" let-idx="index">
+                  <div class="d-flex">
+                    <div class="mr-2">{{element}}:</div>
+                    <div>{{detail['resourcePermission']['selection'][element]}}</div>
+                  </div>
+                </ng-template>
+              </div>
             </div>
           </div>
-          <div>
-            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
-                <div><label>Module Permission:</label></div>
-                <div class="ml-3">
-                    {{detail['modulePermission']}}</div>
-            </div>
-          </div>
-          <div>
-            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
-                <div><label>Resource Permission:</label></div>
-                <div class="ml-3">
-                    <div *ngIf="detail['resourcePermission'] && detail['resourcePermission']['selection']">
-                        <ng-template ngFor let-element [ngForOf]="objectKeys(detail['resourcePermission']['selection'])" let-idx="index">
-                            <div class="d-flex">
-                                <div class="mr-2">{{element}}:</div>
-                                <div>{{detail['resourcePermission']['selection'][element]}}</div>
-                            </div>
-                        </ng-template>
-                    </div></div>
-            </div>
-          </div>
+        </div>
       </div>
-
-		</div>
-	</div>
-	<div *ngIf="!options['disablePipeline']">
-</div>
-	<div *ngIf="!options['disableRefLink']">
-</div>
+    </div>
+  </div>
+  <div *ngIf="!options['disablePipeline']">
+  </div>
+  <div *ngIf="!options['disableRefLink']">
+  </div>
 </div>

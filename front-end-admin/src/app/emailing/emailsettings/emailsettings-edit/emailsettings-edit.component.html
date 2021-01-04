@@ -1,93 +1,66 @@
 <div class="edit" *ngIf="detail">
-	<div class="card" style="text-align: left;">
-		<div class="card-body">
-			<h4 class="card-title" *ngIf="!embeddedView && !options['title']">{{action}} Email Settings</h4>
-			<h4 class="card-title" *ngIf="options['title']" [ngStyle]="style['card-title']">
-				{{options['title']}}
-			</h4>
-			<p	*ngIf="options['subtitle']" [ngStyle]="style['card-subtitle']">
-				{{options['subtitle']}}
-			</p>
-			<form (ngSubmit)="onSubmit()" #editForm="ngForm">
-				<ng-template [ngIf]="action == 'Edit'">
-					<ng-template [ngIf]="!hiddenFields.includes('defaultSender')">
-				<fieldset class="form-group">
-					<label for="EditDefaultSender">Default Sender Email Address</label><span><i data-toggle="tooltip" title="Default sender email address. Must be validated by email service for it to take effect." class="far fa-question-circle"></i></span>
-						
-          <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditDefaultSender" 
-                    required
-                    [(ngModel)]="detail['defaultSender']" name="EditDefaultSender"
-                    #EditDefaultSender="ngModel">
-            <div *ngIf="detail['defaultSender']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('defaultSender')">
+  <div class="card" style="text-align: left;">
+    <div class="card-body">
+      <h4 class="card-title" *ngIf="!embeddedView && !options['title']">{{action}} Email Settings</h4>
+      <h4 class="card-title" *ngIf="options['title']" [ngStyle]="style['card-title']">
+        {{options['title']}}
+      </h4>
+      <p *ngIf="options['subtitle']" [ngStyle]="style['card-subtitle']">
+        {{options['subtitle']}}
+      </p>
+      <form (ngSubmit)="onSubmit()" #editForm="ngForm">
+        <ng-template [ngIf]="action == 'Edit'">
+          <ng-template [ngIf]="!hiddenFields.includes('defaultSender')">
+            <fieldset class="form-group">
+              <label for="EditDefaultSender">Default Sender Email Address</label><span><i data-toggle="tooltip" title="Default sender email address. Must be validated by email service for it to take effect." class="far fa-question-circle"></i></span>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditDefaultSender" required [(ngModel)]="detail['defaultSender']" name="EditDefaultSender" #EditDefaultSender="ngModel">
+                <div *ngIf="detail['defaultSender']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('defaultSender')">
                   <i class="fas fa-times-circle" title="Clear"></i>
-            </div>
-          </div>
-          <div [hidden]="EditDefaultSender.valid || EditDefaultSender.pristine || EditDefaultSender.errors.minlength"
-           class="alert alert-danger">
-            <div *ngIf="EditDefaultSender.errors && EditDefaultSender.errors.required">
-              DefaultSender is required.
-            </div>
-          </div>
-
-				</fieldset>
-					</ng-template>
-				</ng-template>
-				<ng-template [ngIf]="action == 'Create' || action == 'Add' ">
-					<ng-template [ngIf]="!hiddenFields.includes('settingName')">
-				<fieldset class="form-group">
-					<label for="EditSettingName">Setting Name</label>
-						
-          <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditSettingName" 
-                    required
-                    [(ngModel)]="detail['settingName']" name="EditSettingName"
-                    #EditSettingName="ngModel">
-            <div *ngIf="detail['settingName']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('settingName')">
+                </div>
+              </div>
+              <div [hidden]="EditDefaultSender.valid || EditDefaultSender.pristine || EditDefaultSender.errors.minlength" class="alert alert-danger">
+                <div *ngIf="EditDefaultSender.errors && EditDefaultSender.errors.required"> DefaultSender is required. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+        </ng-template>
+        <ng-template [ngIf]="action == 'Create' || action == 'Add' ">
+          <ng-template [ngIf]="!hiddenFields.includes('settingName')">
+            <fieldset class="form-group">
+              <label for="EditSettingName">Setting Name</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditSettingName" required [(ngModel)]="detail['settingName']" name="EditSettingName" #EditSettingName="ngModel">
+                <div *ngIf="detail['settingName']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('settingName')">
                   <i class="fas fa-times-circle" title="Clear"></i>
-            </div>
-          </div>
-          <div [hidden]="EditSettingName.valid || EditSettingName.pristine || EditSettingName.errors.minlength"
-           class="alert alert-danger">
-            <div *ngIf="EditSettingName.errors && EditSettingName.errors.required">
-              SettingName is required.
-            </div>
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('defaultSender')">
-				<fieldset class="form-group">
-					<label for="EditDefaultSender">Default Sender Email Address</label>
-					<span><i data-toggle="tooltip" title="Default sender email address. Must be validated by email service for it to take effect." class="far fa-question-circle"></i></span>
-						
-          <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditDefaultSender" 
-                    required
-                    [(ngModel)]="detail['defaultSender']" name="EditDefaultSender"
-                    #EditDefaultSender="ngModel">
-            <div *ngIf="detail['defaultSender']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('defaultSender')">
+                </div>
+              </div>
+              <div [hidden]="EditSettingName.valid || EditSettingName.pristine || EditSettingName.errors.minlength" class="alert alert-danger">
+                <div *ngIf="EditSettingName.errors && EditSettingName.errors.required"> SettingName is required. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('defaultSender')">
+            <fieldset class="form-group">
+              <label for="EditDefaultSender">Default Sender Email Address</label>
+              <span><i data-toggle="tooltip" title="Default sender email address. Must be validated by email service for it to take effect." class="far fa-question-circle"></i></span>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditDefaultSender" required [(ngModel)]="detail['defaultSender']" name="EditDefaultSender" #EditDefaultSender="ngModel">
+                <div *ngIf="detail['defaultSender']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('defaultSender')">
                   <i class="fas fa-times-circle" title="Clear"></i>
-            </div>
-          </div>
-          <div [hidden]="EditDefaultSender.valid || EditDefaultSender.pristine || EditDefaultSender.errors.minlength"
-           class="alert alert-danger">
-            <div *ngIf="EditDefaultSender.errors && EditDefaultSender.errors.required">
-              DefaultSender is required.
-            </div>
-          </div>
-
-				</fieldset>
-					</ng-template>
-				</ng-template>
-				<div class="action-buttons-center">
-					<button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
-					<button class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>
-				</div>
-			</form>
-		</div>
-	</div>
+                </div>
+              </div>
+              <div [hidden]="EditDefaultSender.valid || EditDefaultSender.pristine || EditDefaultSender.errors.minlength" class="alert alert-danger">
+                <div *ngIf="EditDefaultSender.errors && EditDefaultSender.errors.required"> DefaultSender is required. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+        </ng-template>
+        <div class="action-buttons-center">
+          <button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
+          <button class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>

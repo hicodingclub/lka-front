@@ -1,46 +1,44 @@
-
-
-		<div *ngIf="detail && showFields.includes('title')">
-                    {{detail['title']}}
-		</div>
-		<div *ngIf="detail && showFields.includes('description')">
-                    <div libMddsRichtextShow="classDetailDescription" [content]="detail['description']"></div>
-		</div>
-		<div *ngIf="detail && showFields.includes('course')">
-               	  <a routerLink="."  (click)="onDisplayRefClicked('course', detail['course'], $event)">
-	            	{{detail['course']?detail['course']['valueMedium']:""}}
-	              </a>
-		</div>
-		<div *ngIf="detail && showFields.includes('teacher')">
-               	  <a routerLink="."  (click)="onDisplayRefClicked('teacher', detail['teacher'], $event)">
-	            	{{detail['teacher']?detail['teacher']['valueMedium']:""}}
-	              </a>
-		</div>
-		<div *ngIf="detail && showFields.includes('price')">
-                    {{detail['price']}}
-		</div>
-		<div *ngIf="detail && showFields.includes('season')">
-                    {{detail['season']}}
-		</div>
-		<div *ngIf="detail && showFields.includes('startTime')">  {{detail['startTime']? (detail['startTime']['originalValue'] | date:'mediumDate') : ''}}
-		</div>
-		<div *ngIf="detail && showFields.includes('endTime')">  {{detail['endTime']? (detail['endTime']['originalValue'] | date:'mediumDate') : ''}}
-		</div>
-		<div *ngIf="detail && showFields.includes('duration')">
-                    {{detail['duration']}}
-		</div>
-		<div *ngIf="detail && showFields.includes('dayOfWeek')">
-                    <div class="badge badge-pill badge-secondary" *ngFor="let element of enums['dayOfWeek']">
-                         <div *ngIf="detail['dayOfWeek'] && detail['dayOfWeek']['selection'][element]">{{element}}</div>
-                    </div>
-		</div>
-		<div *ngIf="detail && showFields.includes('timeSlot')">
-                    {{detail['timeSlot']}}
-		</div>
-		<div *ngIf="detail && showFields.includes('hot')">{{detail['hot']}} 
-		</div>
-		<div *ngIf="detail && showFields.includes('enrollTerm')">
-               	  <a routerLink="."  (click)="onDisplayRefClicked('enrollTerm', detail['enrollTerm'], $event)">
-	            	{{detail['enrollTerm']?detail['enrollTerm']['valueMedium']:""}}
-	              </a>
-		</div>
+<div *ngIf="detail && showFields.includes('title')">
+  {{detail['title']}}
+</div>
+<div *ngIf="detail && showFields.includes('description')">
+  <div libMddsRichtextShow="classDetailDescription" [content]="detail['description']"></div>
+</div>
+<div *ngIf="detail && showFields.includes('course')">
+  <a routerLink="." (click)="onDisplayRefClicked('course', detail['course'], $event)">
+    {{detail['course']?detail['course']['valueMedium']:""}}
+  </a>
+</div>
+<div *ngIf="detail && showFields.includes('teacher')">
+  <a routerLink="." (click)="onDisplayRefClicked('teacher', detail['teacher'], $event)">
+    {{detail['teacher']?detail['teacher']['valueMedium']:""}}
+  </a>
+</div>
+<div *ngIf="detail && showFields.includes('price')">
+  {{detail['price']}}
+</div>
+<div *ngIf="detail && showFields.includes('season')">
+  {{detail['season']}}
+</div>
+<div *ngIf="detail && showFields.includes('startTime')"> {{detail['startTime']? (detail['startTime']['originalValue'] | date:'mediumDate') : ''}}
+</div>
+<div *ngIf="detail && showFields.includes('endTime')"> {{detail['endTime']? (detail['endTime']['originalValue'] | date:'mediumDate') : ''}}
+</div>
+<div *ngIf="detail && showFields.includes('duration')">
+  {{detail['duration']}}
+</div>
+<div *ngIf="detail && showFields.includes('dayOfWeek')">
+  <div class="badge badge-pill badge-secondary" *ngFor="let element of enums['dayOfWeek']">
+    <div *ngIf="detail['dayOfWeek'] && detail['dayOfWeek']['selection'][element]">{{element}}</div>
+  </div>
+</div>
+<div *ngIf="detail && showFields.includes('timeSlot')">
+  {{detail['timeSlot']}}
+</div>
+<div *ngIf="detail && showFields.includes('hot')">{{detail['hot']}}
+</div>
+<div *ngIf="detail && showFields.includes('enrollTerm')">
+  <a routerLink="." (click)="onDisplayRefClicked('enrollTerm', detail['enrollTerm'], $event)">
+    {{detail['enrollTerm']?detail['enrollTerm']['valueMedium']:""}}
+  </a>
+</div>

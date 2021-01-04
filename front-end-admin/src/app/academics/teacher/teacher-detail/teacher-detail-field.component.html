@@ -1,25 +1,23 @@
-
-
-		<div *ngIf="detail && showFields.includes('firstName')">
-                    {{detail['firstName']}}
-		</div>
-		<div *ngIf="detail && showFields.includes('lastName')">
-                    {{detail['lastName']}}
-		</div>
-		<div *ngIf="detail && showFields.includes('email')">
-                    {{detail['email']}}
-		</div>
-		<div *ngIf="detail && showFields.includes('phoneNumber')">
-                    {{detail['phoneNumber']}}
-		</div>
-		<div *ngIf="detail && showFields.includes('courses')">
-               	  <a routerLink="."  (click)="onDisplayRefClicked('courses', detail['courses'], $event)">
-	            	{{detail['courses']?detail['courses']['valueMedium']:""}}
-	              </a>
-		</div>
-		<div *ngIf="detail && showFields.includes('introduction')">
-                    <div [innerHTML]="detail['introduction']"></div>
-		</div>
-		<div *ngIf="detail && showFields.includes('photo')">
-                    <lib-mdds-file-display [downloadUrl]="detail['photo']" [isLarge]="false" [aspectRatio]=""></lib-mdds-file-display>
-		</div>
+<div *ngIf="detail && showFields.includes('firstName')">
+  {{detail['firstName']}}
+</div>
+<div *ngIf="detail && showFields.includes('lastName')">
+  {{detail['lastName']}}
+</div>
+<div *ngIf="detail && showFields.includes('email')">
+  {{detail['email']}}
+</div>
+<div *ngIf="detail && showFields.includes('phoneNumber')">
+  {{detail['phoneNumber']}}
+</div>
+<div *ngIf="detail && showFields.includes('courses')">
+  <a routerLink="." (click)="onDisplayRefClicked('courses', detail['courses'], $event)">
+    {{detail['courses']?detail['courses']['valueMedium']:""}}
+  </a>
+</div>
+<div *ngIf="detail && showFields.includes('introduction')">
+  <div [innerHTML]="detail['introduction']"></div>
+</div>
+<div *ngIf="detail && showFields.includes('photo')">
+  <lib-mdds-file-display [downloadUrl]="detail['photo']" [isLarge]="false" [aspectRatio]=""></lib-mdds-file-display>
+</div>

@@ -1,7 +1,5 @@
-
-
-		<div *ngIf="detail && showFields.includes('name')">
-                    {{detail['name']}}
-		</div>
-		<div *ngIf="detail && showFields.includes('createdAt')">  {{detail['createdAt']? (detail['createdAt']['originalValue'] | date:'medium') : ''}}
-		</div>
+<div *ngIf="detail && showFields.includes('name')">
+  {{detail['name']}}
+</div>
+<div *ngIf="detail && showFields.includes('createdAt')"> {{detail['createdAt']? (detail['createdAt']['originalValue'] | date:'medium') : ''}}
+</div>

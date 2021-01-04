@@ -1,11 +1,9 @@
-
-
-		<div *ngIf="detail && showFields.includes('signaturePicture')">
-                    <lib-mdds-file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false" [aspectRatio]="1.3333333333333333"></lib-mdds-file-display>
-		</div>
-		<div *ngIf="detail && showFields.includes('title')">
-                    {{detail['title']}}
-		</div>
-		<div *ngIf="detail && showFields.includes('description')">
-                    <div [innerHTML]="detail['description']"></div>
-		</div>
+<div *ngIf="detail && showFields.includes('signaturePicture')">
+  <lib-mdds-file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false" [aspectRatio]="1.3333333333333333"></lib-mdds-file-display>
+</div>
+<div *ngIf="detail && showFields.includes('title')">
+  {{detail['title']}}
+</div>
+<div *ngIf="detail && showFields.includes('description')">
+  <div [innerHTML]="detail['description']"></div>
+</div>

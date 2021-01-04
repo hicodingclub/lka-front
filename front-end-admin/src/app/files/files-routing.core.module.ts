@@ -1,13 +1,18 @@
-import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
-
-import { FilesComponent } from './files.component';
-import { FilesCoreRoutes } from '../files-cust/files.conf';
-
+import {
+  NgModule
+} from '@angular/core';
+import {
+  RouterModule
+} from '@angular/router';
+import {
+  FilesComponent
+} from './files.component';
+import {
+  FilesCoreRoutes
+} from '../files-cust/files.conf';
 @NgModule({
   imports: [RouterModule.forChild(FilesCoreRoutes)],
   exports: [RouterModule],
-  providers: [ ],
-
+  providers: [],
 })
-export class FilesRoutingCoreModule { }
+export class FilesRoutingCoreModule {}

@@ -1,12 +1,15 @@
-import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
-
-import { AccessRoutes } from '../access-cust/access.conf';
-
+import {
+  NgModule
+} from '@angular/core';
+import {
+  RouterModule
+} from '@angular/router';
+import {
+  AccessRoutes
+} from '../access-cust/access.conf';
 @NgModule({
   imports: [RouterModule.forChild(AccessRoutes)],
   exports: [RouterModule],
-  providers: [ ],
-
+  providers: [],
 })
-export class AccessRoutingModule { }
+export class AccessRoutingModule {}

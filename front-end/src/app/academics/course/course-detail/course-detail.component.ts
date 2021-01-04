@@ -23,7 +23,7 @@ export class CourseDetailComponent extends CourseDetailCustComponent implements 
   // @Input()
   // public searchObj:any;
   // @Input()
-  // public disableActionButtions:boolean;
+  // public disableActionButtons:boolean;
   // @Output()
   // public eventEmitter: EventEmitter<any> = new EventEmitter();
 

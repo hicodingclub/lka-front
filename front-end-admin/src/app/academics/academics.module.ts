@@ -1,23 +1,27 @@
-import { NgModule } from '@angular/core';
-import { AcademicsRoutingModule } from './academics-routing.module';
-import { AcademicsCoreModule } from './academics.core.module';
-import { AcademicsCustModule } from '../academics-cust/academics.cust.module'
-
+import {
+  NgModule
+} from '@angular/core';
+import {
+  AcademicsRoutingModule
+} from './academics-routing.module';
+import {
+  AcademicsCoreModule
+} from './academics.core.module';
+import {
+  AcademicsCustModule
+} from '../academics-cust/academics.cust.module'
 @NgModule({
   imports: [
     AcademicsRoutingModule,
     AcademicsCoreModule,
     AcademicsCustModule,
   ],
-  declarations: [
-  ],
+  declarations: [],
   exports: [
     AcademicsCoreModule,
     AcademicsCustModule,
   ],
-  providers: [
-  ],
-  entryComponents: [
-  ]
+  providers: [],
+  entryComponents: []
 })
-export class AcademicsModule { }
+export class AcademicsModule {}

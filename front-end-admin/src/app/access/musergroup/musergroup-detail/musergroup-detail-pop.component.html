@@ -8,45 +8,39 @@
         </button>
       </div>
       <div class="modal-body">
-
-<!--  model body starts -->
-<div class="detail" *ngIf="detail">
-	<div class="action-buttons">
-	</div>
-	
-	<div class="card text-left">
-	  <div class="card-body">
-		<div class="card-text">
-
-      <div class="card-header grid-head">
-        <div class="ml-1">
-          <h5>
-            <div class="mr-1 d-inline-block">
-              
-                    {{detail['group']}}
-            </div>
-          </h5>
-        </div>
-      </div>
-      <div class="card-body">
-          <div>
-            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
-                <div><label>Description:</label></div>
-                <div class="ml-3">
-                    {{detail['description']}}</div>
+        <!--  model body starts -->
+        <div class="detail" *ngIf="detail">
+          <div class="action-buttons">
+          </div>
+          <div class="card text-left">
+            <div class="card-body">
+              <div class="card-text">
+                <div class="card-header grid-head">
+                  <div class="ml-1">
+                    <h5>
+                      <div class="mr-1 d-inline-block">
+                        {{detail['group']}}
+                      </div>
+                    </h5>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div>
+                    <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
+                      <div><label>Description:</label></div>
+                      <div class="ml-3">
+                        {{detail['description']}}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-      </div>
-
-		</div>
-	  </div>
-	</div>
-</div>
-<!--  model body ends -->
-
+        </div>
+        <!--  model body ends -->
       </div>
       <div class="modal-footer">
       </div>
     </div>
   </div>
-</div> 
+</div>

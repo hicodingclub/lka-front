@@ -9,16 +9,16 @@ export class KeynoteListCustComponent extends KeynoteComponent {
 }
 
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Mon Jul 06 2020 00:56:09 GMT-0700 (Pacific Daylight Time)
+**Date: Tue Jul 07 2020 10:25:08 GMT-0700 (Pacific Daylight Time)
 
-import { Input, Component } from '@angular/core';
-
-import { KeynoteComponent } from '../../../publicinfo/keynote/keynote.component';
-
+import {
+  Input,
+  Component
+} from '@angular/core';
+import {
+  KeynoteComponent
+} from '../../../publicinfo/keynote/keynote.component';
 @Component({
-    template: '',
+  template: '',
 })
-export class KeynoteListCustComponent extends KeynoteComponent {
-}
-
-**** End of recent updates.<<<*/
+export class KeynoteListCustComponent extends KeynoteComponent {}**** End of recent updates.<<<*/

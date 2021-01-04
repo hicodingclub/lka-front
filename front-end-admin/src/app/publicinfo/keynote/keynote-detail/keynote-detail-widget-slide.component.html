@@ -1,29 +1,21 @@
-		
-<div class="detail" *ngIf="detail">
-<div *ngIf="!disableActionButtions && !options['disableActionButtions']" class="action-buttons">
-    <a *ngIf="!options['disableActionList']" routerLink="../../list" class="action-go-list"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
-    <a *ngIf="!options['disableActionEdit']" [routerLink]="['../../edit', detail['_id'] ]" [skipLocationChange]="false" class="btn btn-outline-primary">Edit</a>
-    <a *ngIf="!options['disableActionNew']" [routerLink]="['../../new']" [queryParams]="{cid: detail['_id']}" [skipLocationChange]="false" class="btn btn-outline-primary">New</a>
-    <a *ngIf="!options['disableActionDelete']" routerLink="." class="btn btn-outline-primary" (click)="onDelete(detail['_id'], null)">Delete</a>
-</div>
-
-	<div id="slides" class="carousel slide">
-		<!-- The slideshow -->
-		<div class="carousel-inner">
-			<div class="carousel-item  active">
-				<img src="{{detail['signaturePicture']}}" alt="" class="slide-image">
-
-				<div class="carousel-caption d-md-block">
-					<p class="carousel-caption-h3 mb-5">{{detail['title']}}</p>
-
-					<p class="carousel-caption-h5">{{detail['subtitle']}}</p>
-					<p class="carousel-caption-p">{{detail['description']}}</p>
-				</div>
-			</div>
+		<div class="detail" *ngIf="detail">
+		  <div *ngIf="!disableActionButtons && !options['disableActionButtons']" class="action-buttons">
+		    <a *ngIf="!options['disableActionList']" routerLink="../../list" class="action-go-list"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
+		    <a *ngIf="!options['disableActionEdit']" [routerLink]="['../../edit', detail['_id'] ]" [skipLocationChange]="false" class="btn btn-outline-primary">Edit</a>
+		    <a *ngIf="!options['disableActionNew']" [routerLink]="['../../new']" [queryParams]="{cid: detail['_id']}" [skipLocationChange]="false" class="btn btn-outline-primary">New</a>
+		    <a *ngIf="!options['disableActionDelete']" routerLink="." class="btn btn-outline-primary" (click)="onDelete(detail['_id'], null)">Delete</a>
+		  </div>
+		  <div id="slides" class="carousel slide">
+		    <!-- The slideshow -->
+		    <div class="carousel-inner">
+		      <div class="carousel-item  active">
+		        <img src="{{detail['signaturePicture']}}" alt="" class="slide-image">
+		        <div class="carousel-caption d-md-block">
+		          <p class="carousel-caption-h3 mb-5">{{detail['title']}}</p>
+		          <p class="carousel-caption-h5">{{detail['subtitle']}}</p>
+		          <p class="carousel-caption-p">{{detail['description']}}</p>
+		        </div>
+		      </div>
+		    </div>
+		  </div>
 		</div>
-	</div>
-
-
-
-
-</div>

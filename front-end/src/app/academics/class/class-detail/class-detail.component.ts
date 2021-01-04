@@ -24,7 +24,7 @@ export class ClassDetailComponent extends ClassDetailCustComponent implements On
   // @Input()
   // public searchObj:any;
   // @Input()
-  // public disableActionButtions:boolean;
+  // public disableActionButtons:boolean;
   // @Output()
   // public eventEmitter: EventEmitter<any> = new EventEmitter();
 

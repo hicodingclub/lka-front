@@ -1,81 +1,78 @@
-
 <div class="detail" *ngIf="detail">
-	<div *ngIf="!options['disableActionButtions']"><div *ngIf="!disableActionButtions && !options['disableActionButtions']" class="action-buttons">
-    <a *ngIf="!options['disableActionList']" routerLink="../../list" class="action-go-list"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
-    <a *ngIf="!options['disableActionEdit']" [routerLink]="['../../edit', detail['_id'] ]" [skipLocationChange]="false" class="btn btn-outline-primary">Edit</a>
-    <a *ngIf="!options['disableActionNew']" [routerLink]="['../../new']" [queryParams]="{cid: detail['_id']}" [skipLocationChange]="false" class="btn btn-outline-primary">New</a>
-    <a *ngIf="!options['disableActionDelete']" routerLink="." class="btn btn-outline-primary" (click)="onDelete(detail['_id'], null)">Delete</a>
-</div>
-</div>
-	<div class="card text-left transparent-border ">
-		<div class="grid-fields">
-
+  <div *ngIf="!options['disableActionButtons']">
+    <div *ngIf="!disableActionButtons && !options['disableActionButtons']" class="action-buttons">
+      <a *ngIf="!options['disableActionList']" routerLink="../../list" class="action-go-list"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
+      <a *ngIf="!options['disableActionEdit']" [routerLink]="['../../edit', detail['_id'] ]" [skipLocationChange]="false" class="btn btn-outline-primary">Edit</a>
+      <a *ngIf="!options['disableActionNew']" [routerLink]="['../../new']" [queryParams]="{cid: detail['_id']}" [skipLocationChange]="false" class="btn btn-outline-primary">New</a>
+      <a *ngIf="!options['disableActionDelete']" routerLink="." class="btn btn-outline-primary" (click)="onDelete(detail['_id'], null)">Delete</a>
+    </div>
+  </div>
+  <div class="card text-left transparent-border ">
+    <div class="grid-fields">
       <div class="card-header grid-head">
         <div class="ml-1">
           <h5>
             <div class="mr-1 d-inline-block">
-              
-                    <div *ngIf="detail['student'] && detail['student']['selection']">
-                        <ng-template ngFor let-element [ngForOf]="detail['student']['selection']" let-idx="index">
-                            <div class="badge-click badge badge-pill badge-secondary" 
-                                (click)="onDisplayRefClicked('student', detail['student']['selection'][idx], $event)">
-                                {{element.valueMedium}}
-                            </div>
-                        </ng-template>
-                    </div>
+              <div *ngIf="detail['student'] && detail['student']['selection']">
+                <ng-template ngFor let-element [ngForOf]="detail['student']['selection']" let-idx="index">
+                  <div class="badge-click badge badge-pill badge-secondary" (click)="onDisplayRefClicked('student', detail['student']['selection'][idx], $event)">
+                    {{element.valueMedium}}
+                  </div>
+                </ng-template>
+              </div>
             </div>
           </h5>
         </div>
       </div>
       <div class="card-body">
-          <div>
-            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
-                <div><label>Class:</label></div>
-                <div class="ml-3">
-               	  <a routerLink="."  (click)="onDisplayRefClicked('class', detail['class'], $event)">
-	            	{{detail['class']?detail['class']['valueMedium']:""}}
-	              </a></div>
+        <div>
+          <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
+            <div><label>Class:</label></div>
+            <div class="ml-3">
+              <a routerLink="." (click)="onDisplayRefClicked('class', detail['class'], $event)">
+                {{detail['class']?detail['class']['valueMedium']:""}}
+              </a></div>
+          </div>
+        </div>
+        <div>
+          <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
+            <div><label>Status:</label></div>
+            <div class="ml-3">
+              {{detail['status']}}</div>
+          </div>
+        </div>
+        <div>
+          <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
+            <div><label>Notes:</label></div>
+            <div class="ml-3">
+              <div [innerHTML]="detail['notes']"></div>
             </div>
           </div>
-          <div>
-            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
-                <div><label>Status:</label></div>
-                <div class="ml-3">
-                    {{detail['status']}}</div>
-            </div>
+        </div>
+        <div>
+          <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
+            <div><label>Created At:</label></div>
+            <div class="ml-3"> {{detail['createdAt']? (detail['createdAt']['originalValue'] | date:'medium') : ''}}</div>
           </div>
-          <div>
-            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
-                <div><label>Notes:</label></div>
-                <div class="ml-3">
-                    <div [innerHTML]="detail['notes']"></div></div>
-            </div>
+        </div>
+        <div>
+          <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
+            <div><label>Updated At:</label></div>
+            <div class="ml-3"> {{detail['updatedAt']? (detail['updatedAt']['originalValue'] | date:'medium') : ''}}</div>
           </div>
-          <div>
-            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
-                <div><label>Created At:</label></div>
-                <div class="ml-3">  {{detail['createdAt']? (detail['createdAt']['originalValue'] | date:'medium') : ''}}</div>
-            </div>
+        </div>
+        <div>
+          <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
+            <div><label>Muser Id:</label></div>
+            <div class="ml-3">
+              {{detail['muser_id']}}</div>
           </div>
-          <div>
-            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
-                <div><label>Updated At:</label></div>
-                <div class="ml-3">  {{detail['updatedAt']? (detail['updatedAt']['originalValue'] | date:'medium') : ''}}</div>
-            </div>
-          </div>
-          <div>
-            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
-                <div><label>Muser Id:</label></div>
-                <div class="ml-3">
-                    {{detail['muser_id']}}</div>
-            </div>
-          </div>
+        </div>
       </div>
-
-		</div>
-	</div>
-	<div *ngIf="!options['disablePipeline']">
-</div>
-	<div *ngIf="!options['disableRefLink']">
-</div>
+    </div>
+  </div>
+  <div *ngIf="!options['disablePipeline']">
+  </div>
+  <div *ngIf="!options['disableRefLink']">
+  </div>
 </div>

@@ -1,21 +1,14 @@
 <div class="container">
-		<div class="card component-main-card">
-		  <div class="card-header">
-			  <nav class="nav nav-pills">
-
-			    <a class="nav-item nav-link" routerLink="./emailtemplate" 
-			    	routerLinkActive="active">Email Template</a>
-
-			    <a class="nav-item nav-link" routerLink="./emailsettings" 
-			    	routerLinkActive="active">Email Settings</a>
-
-			    <a class="nav-item nav-link" routerLink="./emailqueue" 
-			    	routerLinkActive="active">Email Queue</a>
-
-			  </nav>
-		  </div>
-		  <div class="card-body">
-			<router-outlet></router-outlet>
-		  </div>
-		</div>
+  <div class="card component-main-card">
+    <div class="card-header">
+      <nav class="nav nav-pills">
+        <a class="nav-item nav-link" routerLink="./emailtemplate" routerLinkActive="active">Email Template</a>
+        <a class="nav-item nav-link" routerLink="./emailsettings" routerLinkActive="active">Email Settings</a>
+        <a class="nav-item nav-link" routerLink="./emailqueue" routerLinkActive="active">Email Queue</a>
+      </nav>
+    </div>
+    <div class="card-body">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>

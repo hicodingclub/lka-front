@@ -9,16 +9,16 @@ export class MaccountroleListCustComponent extends MaccountroleComponent {
 }
 
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Mon Jul 06 2020 00:56:08 GMT-0700 (Pacific Daylight Time)
+**Date: Tue Jul 07 2020 10:25:07 GMT-0700 (Pacific Daylight Time)
 
-import { Input, Component } from '@angular/core';
-
-import { MaccountroleComponent } from '../../../roles/maccountrole/maccountrole.component';
-
+import {
+  Input,
+  Component
+} from '@angular/core';
+import {
+  MaccountroleComponent
+} from '../../../roles/maccountrole/maccountrole.component';
 @Component({
-    template: '',
+  template: '',
 })
-export class MaccountroleListCustComponent extends MaccountroleComponent {
-}
-
-**** End of recent updates.<<<*/
+export class MaccountroleListCustComponent extends MaccountroleComponent {}**** End of recent updates.<<<*/

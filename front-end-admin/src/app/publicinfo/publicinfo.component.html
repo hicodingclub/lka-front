@@ -1,27 +1,16 @@
 <div class="container">
-		<div class="card component-main-card">
-		  <div class="card-header">
-			  <nav class="nav nav-pills">
-
-			    <a class="nav-item nav-link" routerLink="./event" 
-			    	routerLinkActive="active">Event and News</a>
-
-			    <a class="nav-item nav-link" routerLink="./article" 
-			    	routerLinkActive="active">Resource</a>
-
-			    <a class="nav-item nav-link" routerLink="./faq" 
-			    	routerLinkActive="active">FAQ</a>
-
-			    <a class="nav-item nav-link" routerLink="./generalinfo" 
-			    	routerLinkActive="active">General Information</a>
-
-			    <a class="nav-item nav-link" routerLink="./keynote" 
-			    	routerLinkActive="active">Key Notes</a>
-
-			  </nav>
-		  </div>
-		  <div class="card-body">
-			<router-outlet></router-outlet>
-		  </div>
-		</div>
+  <div class="card component-main-card">
+    <div class="card-header">
+      <nav class="nav nav-pills">
+        <a class="nav-item nav-link" routerLink="./event" routerLinkActive="active">Event and News</a>
+        <a class="nav-item nav-link" routerLink="./article" routerLinkActive="active">Resource</a>
+        <a class="nav-item nav-link" routerLink="./faq" routerLinkActive="active">FAQ</a>
+        <a class="nav-item nav-link" routerLink="./generalinfo" routerLinkActive="active">General Information</a>
+        <a class="nav-item nav-link" routerLink="./keynote" routerLinkActive="active">Key Notes</a>
+      </nav>
+    </div>
+    <div class="card-body">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>

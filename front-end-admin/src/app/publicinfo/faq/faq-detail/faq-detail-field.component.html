@@ -1,13 +1,11 @@
-
-
-		<div *ngIf="detail && showFields.includes('question')">
-                    {{detail['question']}}
-		</div>
-		<div *ngIf="detail && showFields.includes('answer')">
-                    <div libMddsRichtextShow="faqDetailAnswer" [content]="detail['answer']"></div>
-		</div>
-		<div *ngIf="detail && showFields.includes('order')">
-                    {{detail['order']}}
-		</div>
-		<div *ngIf="detail && showFields.includes('enable')">{{detail['enable']}} 
-		</div>
+<div *ngIf="detail && showFields.includes('question')">
+  {{detail['question']}}
+</div>
+<div *ngIf="detail && showFields.includes('answer')">
+  <div libMddsRichtextShow="faqDetailAnswer" [content]="detail['answer']"></div>
+</div>
+<div *ngIf="detail && showFields.includes('order')">
+  {{detail['order']}}
+</div>
+<div *ngIf="detail && showFields.includes('enable')">{{detail['enable']}}
+</div>

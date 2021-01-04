@@ -12,20 +12,29 @@
   align-items: center;
   margin: 0.5rem 0;
 }
+
 .action-buttons .btn {
   margin: 0.25rem;
 }
+
 .action-go-list {
   margin-left: 2rem;
   margin-right: auto;
 }
 
+.card {
+  word-break: break-word;
+}
+
 .card-title {
   text-align: center;
 }
-.card label, .field-label {
+
+.card label,
+.field-label {
   font-weight: bold;
 }
+
 /*
 .card span {
 	margin-left: 1rem;
@@ -34,6 +43,7 @@
 .referred-by-links {
   text-align: left;
 }
+
 .referred-by-links a {
   margin-left: 1rem;
 }
@@ -73,6 +83,7 @@
 .badge-click {
   cursor: pointer;
 }
+
 div.badge-click:hover {
   background-color: #495057 !important;
   text-decoration: underline;
@@ -81,6 +92,7 @@ div.badge-click:hover {
 .grid-fields {
   height: 100%;
 }
+
 .grid-head {
   display: flex;
   align-items: center;
@@ -93,7 +105,6 @@ div.badge-click:hover {
   flex-shrink: 0;
   flex-basis: 6rem;
   height: 6rem;
-
   margin-right: 0.5rem;
   overflow: hidden;
 }

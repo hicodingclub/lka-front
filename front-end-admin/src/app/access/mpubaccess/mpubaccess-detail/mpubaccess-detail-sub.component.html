@@ -1,27 +1,25 @@
-
 <div *ngIf="detail">
-	<div class="card text-left">
-	  <div class="card-body">
-		<div class="card-text">
-
-      <div class="card-body">
+  <div class="card text-left">
+    <div class="card-body">
+      <div class="card-text">
+        <div class="card-body">
           <div>
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
-                <div><label>Resource Permission:</label></div>
-                <div class="ml-3">
-                    <div *ngIf="detail['resourcePermission'] && detail['resourcePermission']['selection']">
-                        <ng-template ngFor let-element [ngForOf]="objectKeys(detail['resourcePermission']['selection'])" let-idx="index">
-                            <div class="d-flex">
-                                <div class="mr-2">{{element}}:</div>
-                                <div>{{detail['resourcePermission']['selection'][element]}}</div>
-                            </div>
-                        </ng-template>
-                    </div></div>
+              <div><label>Resource Permission:</label></div>
+              <div class="ml-3">
+                <div *ngIf="detail['resourcePermission'] && detail['resourcePermission']['selection']">
+                  <ng-template ngFor let-element [ngForOf]="objectKeys(detail['resourcePermission']['selection'])" let-idx="index">
+                    <div class="d-flex">
+                      <div class="mr-2">{{element}}:</div>
+                      <div>{{detail['resourcePermission']['selection'][element]}}</div>
+                    </div>
+                  </ng-template>
+                </div>
+              </div>
             </div>
           </div>
+        </div>
       </div>
-
-		</div>
-	  </div>
-	</div>
+    </div>
+  </div>
 </div>

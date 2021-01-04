@@ -8,15 +8,16 @@ import { MpubmoduleComponent } from '../../../access/mpubmodule/mpubmodule.compo
 export class MpubmoduleEditCustComponent extends MpubmoduleComponent {        
 }
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Mon Jul 06 2020 00:56:08 GMT-0700 (Pacific Daylight Time)
+**Date: Tue Jul 07 2020 10:25:06 GMT-0700 (Pacific Daylight Time)
 
-import { Input, Component } from '@angular/core';
-
-import { MpubmoduleComponent } from '../../../access/mpubmodule/mpubmodule.component';
-
+import {
+  Input,
+  Component
+} from '@angular/core';
+import {
+  MpubmoduleComponent
+} from '../../../access/mpubmodule/mpubmodule.component';
 @Component({
-    template: '',
+  template: '',
 })
-export class MpubmoduleEditCustComponent extends MpubmoduleComponent {        
-}
-**** End of recent updates.<<<*/
+export class MpubmoduleEditCustComponent extends MpubmoduleComponent {}**** End of recent updates.<<<*/

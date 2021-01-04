@@ -1,23 +1,27 @@
-import { NgModule } from '@angular/core';
-import { AccessRoutingModule } from './access-routing.module';
-import { AccessCoreModule } from './access.core.module';
-import { AccessCustModule } from '../access-cust/access.cust.module'
-
+import {
+  NgModule
+} from '@angular/core';
+import {
+  AccessRoutingModule
+} from './access-routing.module';
+import {
+  AccessCoreModule
+} from './access.core.module';
+import {
+  AccessCustModule
+} from '../access-cust/access.cust.module'
 @NgModule({
   imports: [
     AccessRoutingModule,
     AccessCoreModule,
     AccessCustModule,
   ],
-  declarations: [
-  ],
+  declarations: [],
   exports: [
     AccessCoreModule,
     AccessCustModule,
   ],
-  providers: [
-  ],
-  entryComponents: [
-  ]
+  providers: [],
+  entryComponents: []
 })
-export class AccessModule { }
+export class AccessModule {}

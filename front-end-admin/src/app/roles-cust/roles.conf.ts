@@ -63,67 +63,78 @@ export const RolesRoutes: Routes = [
 
 export const roles_server_root_uri: string = '/api/roles';
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Mon Jul 06 2020 00:56:08 GMT-0700 (Pacific Daylight Time)
+**Date: Tue Jul 07 2020 10:25:06 GMT-0700 (Pacific Daylight Time)
 
-import { Routes } from '@angular/router';
-
-import { RolesComponent } from '../roles/roles.component';
-
+import {
+  Routes
+} from '@angular/router';
+import {
+  RolesComponent
+} from '../roles/roles.component';
 //Import routing paths
-import { 
+import {
   mroleRoutingCorePath,
   mmoduleRoutingCorePath,
   mpermissionRoutingCorePath,
   maccountRoutingCorePath,
   maccountroleRoutingCorePath,
 } from '../roles/roles-routing.core.path';
-
-export const RolesCoreRoutes: Routes = [
-  { 
-    // Lazy Load: and add to app routing:
-    //     { path: 'roles', loadChildren: () => import('./roles/roles.module').then(m => m.RolesModule) },
+export const RolesCoreRoutes: Routes = [{
+  // Lazy Load: and add to app routing:
+  //     { path: 'roles', loadChildren: () => import('./roles/roles.module').then(m => m.RolesModule) },
+  path: '',
+  // non lazy load config. Include module in app module.
+  // path: 'roles',
+  component: RolesComponent,
+  children: [{
     path: '',
-    // non lazy load config. Include module in app module.
-    // path: 'roles',
-
-    component: RolesComponent,
-    children: [
-      {path: '',  redirectTo: 'mrole', pathMatch: 'full'},
-
-      { path: 'mrole',
-        children: mroleRoutingCorePath,
-        data: {mraLevel: 1, item: 'mrole'}
-      },
-      { path: 'mmodule',
-        children: mmoduleRoutingCorePath,
-        data: {mraLevel: 1, item: 'mmodule'}
-      },
-      { path: 'mpermission',
-        children: mpermissionRoutingCorePath,
-        data: {mraLevel: 1, item: 'mpermission'}
-      },
-      { path: 'maccount',
-        children: maccountRoutingCorePath,
-        data: {mraLevel: 1, item: 'maccount'}
-      },
-      { path: 'maccountrole',
-        children: maccountroleRoutingCorePath,
-        data: {mraLevel: 1, item: 'maccountrole'}
-      },
-    ]
-  },
-];
-
-import { RolesRoutingCustPath } from './roles-routing.cust.path';
-
-export const RolesRoutes: Routes = [
-  {
-    // Lazy Load: and add to app routing:
-    //     { path: 'roles', loadChildren: () => import('./roles/roles.module').then(m => m.RolesModule) },
-    path: 'cust',
-    // non lazy load config. Include module in app module.
-    // path: 'roles/cust',
-
-    children: RolesRoutingCustPath,
-  },
-];**** End of recent updates.<<<*/
+    redirectTo: 'mrole',
+    pathMatch: 'full'
+  }, {
+    path: 'mrole',
+    children: mroleRoutingCorePath,
+    data: {
+      mraLevel: 1,
+      item: 'mrole'
+    }
+  }, {
+    path: 'mmodule',
+    children: mmoduleRoutingCorePath,
+    data: {
+      mraLevel: 1,
+      item: 'mmodule'
+    }
+  }, {
+    path: 'mpermission',
+    children: mpermissionRoutingCorePath,
+    data: {
+      mraLevel: 1,
+      item: 'mpermission'
+    }
+  }, {
+    path: 'maccount',
+    children: maccountRoutingCorePath,
+    data: {
+      mraLevel: 1,
+      item: 'maccount'
+    }
+  }, {
+    path: 'maccountrole',
+    children: maccountroleRoutingCorePath,
+    data: {
+      mraLevel: 1,
+      item: 'maccountrole'
+    }
+  }, ]
+}, ];
+import {
+  RolesRoutingCustPath
+} from './roles-routing.cust.path';
+export const RolesRoutes: Routes = [{
+  // Lazy Load: and add to app routing:
+  //     { path: 'roles', loadChildren: () => import('./roles/roles.module').then(m => m.RolesModule) },
+  path: 'cust',
+  // non lazy load config. Include module in app module.
+  // path: 'roles/cust',
+  children: RolesRoutingCustPath,
+}, ];**** End of recent updates.<<<*/

@@ -8,15 +8,16 @@ import { FaqComponent } from '../../../publicinfo/faq/faq.component';
 export class FaqEditCustComponent extends FaqComponent {        
 }
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Mon Jul 06 2020 00:56:09 GMT-0700 (Pacific Daylight Time)
+**Date: Tue Jul 07 2020 10:25:08 GMT-0700 (Pacific Daylight Time)
 
-import { Input, Component } from '@angular/core';
-
-import { FaqComponent } from '../../../publicinfo/faq/faq.component';
-
+import {
+  Input,
+  Component
+} from '@angular/core';
+import {
+  FaqComponent
+} from '../../../publicinfo/faq/faq.component';
 @Component({
-    template: '',
+  template: '',
 })
-export class FaqEditCustComponent extends FaqComponent {        
-}
-**** End of recent updates.<<<*/
+export class FaqEditCustComponent extends FaqComponent {}**** End of recent updates.<<<*/

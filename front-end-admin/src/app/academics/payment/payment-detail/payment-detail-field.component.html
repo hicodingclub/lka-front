@@ -1,25 +1,23 @@
-
-
-		<div *ngIf="detail && showFields.includes('product')">
-                    {{detail['product']}}
-		</div>
-		<div *ngIf="detail && showFields.includes('productID')">
-                    {{detail['productID']}}
-		</div>
-		<div *ngIf="detail && showFields.includes('orderDescription')">
-                    {{detail['orderDescription']}}
-		</div>
-		<div *ngIf="detail && showFields.includes('price')">
-                    {{detail['price']}}
-		</div>
-		<div *ngIf="detail && showFields.includes('createdAt')">  {{detail['createdAt']? (detail['createdAt']['originalValue'] | date:'medium') : ''}}
-		</div>
-		<div *ngIf="detail && showFields.includes('transLogP')">
-                    {{detail['transLogP']}}
-		</div>
-		<div *ngIf="detail && showFields.includes('transLogA')">
-                    {{detail['transLogA']}}
-		</div>
-		<div *ngIf="detail && showFields.includes('status')">
-                    {{detail['status']}}
-		</div>
+<div *ngIf="detail && showFields.includes('product')">
+  {{detail['product']}}
+</div>
+<div *ngIf="detail && showFields.includes('productID')">
+  {{detail['productID']}}
+</div>
+<div *ngIf="detail && showFields.includes('orderDescription')">
+  {{detail['orderDescription']}}
+</div>
+<div *ngIf="detail && showFields.includes('price')">
+  {{detail['price']}}
+</div>
+<div *ngIf="detail && showFields.includes('createdAt')"> {{detail['createdAt']? (detail['createdAt']['originalValue'] | date:'medium') : ''}}
+</div>
+<div *ngIf="detail && showFields.includes('transLogP')">
+  {{detail['transLogP']}}
+</div>
+<div *ngIf="detail && showFields.includes('transLogA')">
+  {{detail['transLogA']}}
+</div>
+<div *ngIf="detail && showFields.includes('status')">
+  {{detail['status']}}
+</div>

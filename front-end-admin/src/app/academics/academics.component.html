@@ -1,33 +1,18 @@
 <div class="container">
-		<div class="card component-main-card">
-		  <div class="card-header">
-			  <nav class="nav nav-pills">
-
-			    <a class="nav-item nav-link" routerLink="./classenroll" 
-			    	routerLinkActive="active">Class Enrollments</a>
-
-			    <a class="nav-item nav-link" routerLink="./class" 
-			    	routerLinkActive="active">Class</a>
-
-			    <a class="nav-item nav-link" routerLink="./course" 
-			    	routerLinkActive="active">Programs</a>
-
-			    <a class="nav-item nav-link" routerLink="./student" 
-			    	routerLinkActive="active">Student</a>
-
-			    <a class="nav-item nav-link" routerLink="./teacher" 
-			    	routerLinkActive="active">Instructors</a>
-
-			    <a class="nav-item nav-link" routerLink="./terms" 
-			    	routerLinkActive="active">Terms</a>
-
-			    <a class="nav-item nav-link" routerLink="./payment" 
-			    	routerLinkActive="active">Payment</a>
-
-			  </nav>
-		  </div>
-		  <div class="card-body">
-			<router-outlet></router-outlet>
-		  </div>
-		</div>
+  <div class="card component-main-card">
+    <div class="card-header">
+      <nav class="nav nav-pills">
+        <a class="nav-item nav-link" routerLink="./classenroll" routerLinkActive="active">Class Enrollments</a>
+        <a class="nav-item nav-link" routerLink="./class" routerLinkActive="active">Class</a>
+        <a class="nav-item nav-link" routerLink="./course" routerLinkActive="active">Programs</a>
+        <a class="nav-item nav-link" routerLink="./student" routerLinkActive="active">Student</a>
+        <a class="nav-item nav-link" routerLink="./teacher" routerLinkActive="active">Instructors</a>
+        <a class="nav-item nav-link" routerLink="./terms" routerLinkActive="active">Terms</a>
+        <a class="nav-item nav-link" routerLink="./payment" routerLinkActive="active">Payment</a>
+      </nav>
+    </div>
+    <div class="card-body">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>

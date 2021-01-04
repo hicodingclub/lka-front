@@ -1,25 +1,23 @@
-
-
-		<div *ngIf="detail && showFields.includes('role')">
-               	  <a routerLink="."  (click)="onDisplayRefClicked('role', detail['role'], $event)">
-	            	{{detail['role']?detail['role']['valueMedium']:""}}
-	              </a>
-		</div>
-		<div *ngIf="detail && showFields.includes('module')">
-               	  <a routerLink="."  (click)="onDisplayRefClicked('module', detail['module'], $event)">
-	            	{{detail['module']?detail['module']['valueMedium']:""}}
-	              </a>
-		</div>
-		<div *ngIf="detail && showFields.includes('modulePermission')">
-                    {{detail['modulePermission']}}
-		</div>
-		<div *ngIf="detail && showFields.includes('resourcePermission')">
-                    <div *ngIf="detail['resourcePermission'] && detail['resourcePermission']['selection']">
-                        <ng-template ngFor let-element [ngForOf]="objectKeys(detail['resourcePermission']['selection'])" let-idx="index">
-                            <div class="d-flex">
-                                <div class="mr-2">{{element}}:</div>
-                                <div>{{detail['resourcePermission']['selection'][element]}}</div>
-                            </div>
-                        </ng-template>
-                    </div>
-		</div>
+<div *ngIf="detail && showFields.includes('role')">
+  <a routerLink="." (click)="onDisplayRefClicked('role', detail['role'], $event)">
+    {{detail['role']?detail['role']['valueMedium']:""}}
+  </a>
+</div>
+<div *ngIf="detail && showFields.includes('module')">
+  <a routerLink="." (click)="onDisplayRefClicked('module', detail['module'], $event)">
+    {{detail['module']?detail['module']['valueMedium']:""}}
+  </a>
+</div>
+<div *ngIf="detail && showFields.includes('modulePermission')">
+  {{detail['modulePermission']}}
+</div>
+<div *ngIf="detail && showFields.includes('resourcePermission')">
+  <div *ngIf="detail['resourcePermission'] && detail['resourcePermission']['selection']">
+    <ng-template ngFor let-element [ngForOf]="objectKeys(detail['resourcePermission']['selection'])" let-idx="index">
+      <div class="d-flex">
+        <div class="mr-2">{{element}}:</div>
+        <div>{{detail['resourcePermission']['selection'][element]}}</div>
+      </div>
+    </ng-template>
+  </div>
+</div>

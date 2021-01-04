@@ -1,123 +1,81 @@
 <div class="edit" *ngIf="detail">
-	<div class="card" style="text-align: left;">
-		<div class="card-body">
-			<h4 class="card-title" *ngIf="!embeddedView && !options['title']">{{action}} Role</h4>
-			<h4 class="card-title" *ngIf="options['title']" [ngStyle]="style['card-title']">
-				{{options['title']}}
-			</h4>
-			<p	*ngIf="options['subtitle']" [ngStyle]="style['card-subtitle']">
-				{{options['subtitle']}}
-			</p>
-			<form (ngSubmit)="onSubmit()" #editForm="ngForm">
-				<ng-template [ngIf]="action == 'Edit'">
-					<ng-template [ngIf]="!hiddenFields.includes('role')">
-				<fieldset class="form-group">
-					<label for="EditRole">Role</label>
-						
-          <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditRole" 
-                    required
-                    maxlength="50"
-                    [(ngModel)]="detail['role']" name="EditRole"
-                    #EditRole="ngModel">
-            <div *ngIf="detail['role']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('role')">
+  <div class="card" style="text-align: left;">
+    <div class="card-body">
+      <h4 class="card-title" *ngIf="!embeddedView && !options['title']">{{action}} Role</h4>
+      <h4 class="card-title" *ngIf="options['title']" [ngStyle]="style['card-title']">
+        {{options['title']}}
+      </h4>
+      <p *ngIf="options['subtitle']" [ngStyle]="style['card-subtitle']">
+        {{options['subtitle']}}
+      </p>
+      <form (ngSubmit)="onSubmit()" #editForm="ngForm">
+        <ng-template [ngIf]="action == 'Edit'">
+          <ng-template [ngIf]="!hiddenFields.includes('role')">
+            <fieldset class="form-group">
+              <label for="EditRole">Role</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditRole" required maxlength="50" [(ngModel)]="detail['role']" name="EditRole" #EditRole="ngModel">
+                <div *ngIf="detail['role']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('role')">
                   <i class="fas fa-times-circle" title="Clear"></i>
-            </div>
-          </div>
-          <div [hidden]="EditRole.valid || EditRole.pristine || EditRole.errors.minlength"
-           class="alert alert-danger">
-            <div *ngIf="EditRole.errors && EditRole.errors.required">
-              Role is required.
-            </div>
-            <div *ngIf="EditRole.errors && EditRole.errors.maxlength">
-                Role must be at most 50 characters long.
-            </div>
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('description')">
-				<fieldset class="form-group">
-					<label for="EditDescription">Description</label>
-						
-          <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditDescription" 
-                    maxlength="200"
-                    [(ngModel)]="detail['description']" name="EditDescription"
-                    #EditDescription="ngModel">
-            <div *ngIf="detail['description']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('description')">
+                </div>
+              </div>
+              <div [hidden]="EditRole.valid || EditRole.pristine || EditRole.errors.minlength" class="alert alert-danger">
+                <div *ngIf="EditRole.errors && EditRole.errors.required"> Role is required. </div>
+                <div *ngIf="EditRole.errors && EditRole.errors.maxlength"> Role must be at most 50 characters long. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('description')">
+            <fieldset class="form-group">
+              <label for="EditDescription">Description</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditDescription" maxlength="200" [(ngModel)]="detail['description']" name="EditDescription" #EditDescription="ngModel">
+                <div *ngIf="detail['description']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('description')">
                   <i class="fas fa-times-circle" title="Clear"></i>
-            </div>
-          </div>
-          <div [hidden]="EditDescription.valid || EditDescription.pristine || EditDescription.errors.minlength"
-           class="alert alert-danger">
-            <div *ngIf="EditDescription.errors && EditDescription.errors.maxlength">
-                Description must be at most 200 characters long.
-            </div>
-          </div>
-
-				</fieldset>
-					</ng-template>
-				</ng-template>
-				<ng-template [ngIf]="action == 'Create' || action == 'Add' ">
-					<ng-template [ngIf]="!hiddenFields.includes('role')">
-				<fieldset class="form-group">
-					<label for="EditRole">Role</label>
-						
-          <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditRole" 
-                    required
-                    maxlength="50"
-                    [(ngModel)]="detail['role']" name="EditRole"
-                    #EditRole="ngModel">
-            <div *ngIf="detail['role']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('role')">
+                </div>
+              </div>
+              <div [hidden]="EditDescription.valid || EditDescription.pristine || EditDescription.errors.minlength" class="alert alert-danger">
+                <div *ngIf="EditDescription.errors && EditDescription.errors.maxlength"> Description must be at most 200 characters long. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+        </ng-template>
+        <ng-template [ngIf]="action == 'Create' || action == 'Add' ">
+          <ng-template [ngIf]="!hiddenFields.includes('role')">
+            <fieldset class="form-group">
+              <label for="EditRole">Role</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditRole" required maxlength="50" [(ngModel)]="detail['role']" name="EditRole" #EditRole="ngModel">
+                <div *ngIf="detail['role']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('role')">
                   <i class="fas fa-times-circle" title="Clear"></i>
-            </div>
-          </div>
-          <div [hidden]="EditRole.valid || EditRole.pristine || EditRole.errors.minlength"
-           class="alert alert-danger">
-            <div *ngIf="EditRole.errors && EditRole.errors.required">
-              Role is required.
-            </div>
-            <div *ngIf="EditRole.errors && EditRole.errors.maxlength">
-                Role must be at most 50 characters long.
-            </div>
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('description')">
-				<fieldset class="form-group">
-					<label for="EditDescription">Description</label>
-						
-          <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditDescription" 
-                    maxlength="200"
-                    [(ngModel)]="detail['description']" name="EditDescription"
-                    #EditDescription="ngModel">
-            <div *ngIf="detail['description']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('description')">
+                </div>
+              </div>
+              <div [hidden]="EditRole.valid || EditRole.pristine || EditRole.errors.minlength" class="alert alert-danger">
+                <div *ngIf="EditRole.errors && EditRole.errors.required"> Role is required. </div>
+                <div *ngIf="EditRole.errors && EditRole.errors.maxlength"> Role must be at most 50 characters long. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('description')">
+            <fieldset class="form-group">
+              <label for="EditDescription">Description</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditDescription" maxlength="200" [(ngModel)]="detail['description']" name="EditDescription" #EditDescription="ngModel">
+                <div *ngIf="detail['description']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('description')">
                   <i class="fas fa-times-circle" title="Clear"></i>
-            </div>
-          </div>
-          <div [hidden]="EditDescription.valid || EditDescription.pristine || EditDescription.errors.minlength"
-           class="alert alert-danger">
-            <div *ngIf="EditDescription.errors && EditDescription.errors.maxlength">
-                Description must be at most 200 characters long.
-            </div>
-          </div>
-
-				</fieldset>
-					</ng-template>
-				</ng-template>
-				<div class="action-buttons-center">
-					<button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
-					<button class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>
-				</div>
-			</form>
-		</div>
-	</div>
+                </div>
+              </div>
+              <div [hidden]="EditDescription.valid || EditDescription.pristine || EditDescription.errors.minlength" class="alert alert-danger">
+                <div *ngIf="EditDescription.errors && EditDescription.errors.maxlength"> Description must be at most 200 characters long. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+        </ng-template>
+        <div class="action-buttons-center">
+          <button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
+          <button class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>

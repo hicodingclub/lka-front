@@ -20,7 +20,7 @@ export class MuserDetailComponent extends MuserComponent implements OnInit, Afte
   @Input()
   public searchObj:any;
   @Input()
-  public disableActionButtions:boolean;
+  public disableActionButtons:boolean;
   @Input()
   public style: any; // {}
   @Input()

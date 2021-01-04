@@ -1,113 +1,77 @@
 <div class="edit" *ngIf="detail">
-	<div class="card" style="text-align: left;">
-		<div class="card-body">
-			<h4 class="card-title" *ngIf="!embeddedView && !options['title']">{{action}} Programs</h4>
-			<h4 class="card-title" *ngIf="options['title']" [ngStyle]="style['card-title']">
-				{{options['title']}}
-			</h4>
-			<p	*ngIf="options['subtitle']" [ngStyle]="style['card-subtitle']">
-				{{options['subtitle']}}
-			</p>
-			<form (ngSubmit)="onSubmit()" #editForm="ngForm">
-				<ng-template [ngIf]="action == 'Edit'">
-					<ng-template [ngIf]="!hiddenFields.includes('title')">
-				<fieldset class="form-group">
-					<label for="EditTitle">Title</label>
-						
-          <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditTitle" 
-                    required
-                    maxlength="100"
-                    [(ngModel)]="detail['title']" name="EditTitle"
-                    #EditTitle="ngModel">
-            <div *ngIf="detail['title']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('title')">
+  <div class="card" style="text-align: left;">
+    <div class="card-body">
+      <h4 class="card-title" *ngIf="!embeddedView && !options['title']">{{action}} Programs</h4>
+      <h4 class="card-title" *ngIf="options['title']" [ngStyle]="style['card-title']">
+        {{options['title']}}
+      </h4>
+      <p *ngIf="options['subtitle']" [ngStyle]="style['card-subtitle']">
+        {{options['subtitle']}}
+      </p>
+      <form (ngSubmit)="onSubmit()" #editForm="ngForm">
+        <ng-template [ngIf]="action == 'Edit'">
+          <ng-template [ngIf]="!hiddenFields.includes('title')">
+            <fieldset class="form-group">
+              <label for="EditTitle">Title</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditTitle" required maxlength="100" [(ngModel)]="detail['title']" name="EditTitle" #EditTitle="ngModel">
+                <div *ngIf="detail['title']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('title')">
                   <i class="fas fa-times-circle" title="Clear"></i>
-            </div>
-          </div>
-          <div [hidden]="EditTitle.valid || EditTitle.pristine || EditTitle.errors.minlength"
-           class="alert alert-danger">
-            <div *ngIf="EditTitle.errors && EditTitle.errors.required">
-              Title is required.
-            </div>
-            <div *ngIf="EditTitle.errors && EditTitle.errors.maxlength">
-                Title must be at most 100 characters long.
-            </div>
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('description')">
-				<fieldset class="form-group">
-					<label for="EditDescription">Description</label>
-						
-          <div libMddsRichtext="EditDescription" [content]="detail['description']"></div>
-          <div class="action-buttons" style="margin-top: 10px;">
-            <button type="button" class="btn btn-outline-success" (click)="onEdtiorPreview('EditDescription')">Preview</button>
-          </div>
-        
-          <div [hidden]="EditDescription.valid"
-           class="alert alert-danger">
-            <div *ngIf="EditDescription.errors && EditDescription.errors.required">
-              Description is required.
-            </div>        
-          </div>
-
-				</fieldset>
-					</ng-template>
-				</ng-template>
-				<ng-template [ngIf]="action == 'Create' || action == 'Add' ">
-					<ng-template [ngIf]="!hiddenFields.includes('title')">
-				<fieldset class="form-group">
-					<label for="EditTitle">Title</label>
-						
-          <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditTitle" 
-                    required
-                    maxlength="100"
-                    [(ngModel)]="detail['title']" name="EditTitle"
-                    #EditTitle="ngModel">
-            <div *ngIf="detail['title']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('title')">
+                </div>
+              </div>
+              <div [hidden]="EditTitle.valid || EditTitle.pristine || EditTitle.errors.minlength" class="alert alert-danger">
+                <div *ngIf="EditTitle.errors && EditTitle.errors.required"> Title is required. </div>
+                <div *ngIf="EditTitle.errors && EditTitle.errors.maxlength"> Title must be at most 100 characters long. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('description')">
+            <fieldset class="form-group">
+              <label for="EditDescription">Description</label>
+              <div libMddsRichtext="EditDescription" [content]="detail['description']"></div>
+              <div class="action-buttons" style="margin-top: 10px;">
+                <button type="button" class="btn btn-outline-success" (click)="onEdtiorPreview('EditDescription')">Preview</button>
+              </div>
+              <div [hidden]="EditDescription.valid" class="alert alert-danger">
+                <div *ngIf="EditDescription.errors && EditDescription.errors.required"> Description is required. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+        </ng-template>
+        <ng-template [ngIf]="action == 'Create' || action == 'Add' ">
+          <ng-template [ngIf]="!hiddenFields.includes('title')">
+            <fieldset class="form-group">
+              <label for="EditTitle">Title</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditTitle" required maxlength="100" [(ngModel)]="detail['title']" name="EditTitle" #EditTitle="ngModel">
+                <div *ngIf="detail['title']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('title')">
                   <i class="fas fa-times-circle" title="Clear"></i>
-            </div>
-          </div>
-          <div [hidden]="EditTitle.valid || EditTitle.pristine || EditTitle.errors.minlength"
-           class="alert alert-danger">
-            <div *ngIf="EditTitle.errors && EditTitle.errors.required">
-              Title is required.
-            </div>
-            <div *ngIf="EditTitle.errors && EditTitle.errors.maxlength">
-                Title must be at most 100 characters long.
-            </div>
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('description')">
-				<fieldset class="form-group">
-					<label for="EditDescription">Description</label>
-						
-          <div libMddsRichtext="EditDescription" [content]="detail['description']"></div>
-          <div class="action-buttons" style="margin-top: 10px;">
-            <button type="button" class="btn btn-outline-success" (click)="onEdtiorPreview('EditDescription')">Preview</button>
-          </div>
-        
-          <div [hidden]="EditDescription.valid"
-           class="alert alert-danger">
-            <div *ngIf="EditDescription.errors && EditDescription.errors.required">
-              Description is required.
-            </div>        
-          </div>
-
-				</fieldset>
-					</ng-template>
-				</ng-template>
-				<div class="action-buttons-center">
-					<button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
-					<button class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>
-				</div>
-			</form>
-		</div>
-	</div>
+                </div>
+              </div>
+              <div [hidden]="EditTitle.valid || EditTitle.pristine || EditTitle.errors.minlength" class="alert alert-danger">
+                <div *ngIf="EditTitle.errors && EditTitle.errors.required"> Title is required. </div>
+                <div *ngIf="EditTitle.errors && EditTitle.errors.maxlength"> Title must be at most 100 characters long. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('description')">
+            <fieldset class="form-group">
+              <label for="EditDescription">Description</label>
+              <div libMddsRichtext="EditDescription" [content]="detail['description']"></div>
+              <div class="action-buttons" style="margin-top: 10px;">
+                <button type="button" class="btn btn-outline-success" (click)="onEdtiorPreview('EditDescription')">Preview</button>
+              </div>
+              <div [hidden]="EditDescription.valid" class="alert alert-danger">
+                <div *ngIf="EditDescription.errors && EditDescription.errors.required"> Description is required. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+        </ng-template>
+        <div class="action-buttons-center">
+          <button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
+          <button class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>

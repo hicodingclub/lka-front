@@ -1,32 +1,30 @@
-
-
-		<div *ngIf="detail && showFields.includes('name')">
-                    {{detail['name']}}
-		</div>
-		<div *ngIf="detail && showFields.includes('type')">
-                    {{detail['type']}}
-		</div>
-		<div *ngIf="detail && showFields.includes('group')">
-               	  <a routerLink="."  (click)="onDisplayRefClicked('group', detail['group'], $event)">
-	            	{{detail['group']?detail['group']['valueMedium']:""}}
-	              </a>
-		</div>
-		<div *ngIf="detail && showFields.includes('labels')">
-                    <div *ngIf="detail['labels'] && detail['labels']['selection']">
-                        <ng-template ngFor let-element [ngForOf]="detail['labels']['selection']" let-idx="index">
-                            <div class="badge badge-pill badge-secondary">
-                                {{element}}
-                            </div>
-                        </ng-template>
-                    </div>
-		</div>
-		<div *ngIf="detail && showFields.includes('size')">
-                    {{detail['size']}}
-		</div>
-		<div *ngIf="detail && showFields.includes('link')">
-                    <lib-mdds-file-display [downloadUrl]="detail['link']" [isLarge]="false" [aspectRatio]=""></lib-mdds-file-display>
-		</div>
-		<div *ngIf="detail && showFields.includes('createdAt')">  {{detail['createdAt']? (detail['createdAt']['originalValue'] | date:'medium') : ''}}
-		</div>
-		<div *ngIf="detail && showFields.includes('hasThumbnail')">{{detail['hasThumbnail']}} 
-		</div>
+<div *ngIf="detail && showFields.includes('name')">
+  {{detail['name']}}
+</div>
+<div *ngIf="detail && showFields.includes('type')">
+  {{detail['type']}}
+</div>
+<div *ngIf="detail && showFields.includes('group')">
+  <a routerLink="." (click)="onDisplayRefClicked('group', detail['group'], $event)">
+    {{detail['group']?detail['group']['valueMedium']:""}}
+  </a>
+</div>
+<div *ngIf="detail && showFields.includes('labels')">
+  <div *ngIf="detail['labels'] && detail['labels']['selection']">
+    <ng-template ngFor let-element [ngForOf]="detail['labels']['selection']" let-idx="index">
+      <div class="badge badge-pill badge-secondary">
+        {{element}}
+      </div>
+    </ng-template>
+  </div>
+</div>
+<div *ngIf="detail && showFields.includes('size')">
+  {{detail['size']}}
+</div>
+<div *ngIf="detail && showFields.includes('link')">
+  <lib-mdds-file-display [downloadUrl]="detail['link']" [isLarge]="false" [aspectRatio]=""></lib-mdds-file-display>
+</div>
+<div *ngIf="detail && showFields.includes('createdAt')"> {{detail['createdAt']? (detail['createdAt']['originalValue'] | date:'medium') : ''}}
+</div>
+<div *ngIf="detail && showFields.includes('hasThumbnail')">{{detail['hasThumbnail']}}
+</div>

@@ -1,13 +1,18 @@
-import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
-
-import { RolesComponent } from './roles.component';
-import { RolesCoreRoutes } from '../roles-cust/roles.conf';
-
+import {
+  NgModule
+} from '@angular/core';
+import {
+  RouterModule
+} from '@angular/router';
+import {
+  RolesComponent
+} from './roles.component';
+import {
+  RolesCoreRoutes
+} from '../roles-cust/roles.conf';
 @NgModule({
   imports: [RouterModule.forChild(RolesCoreRoutes)],
   exports: [RouterModule],
-  providers: [ ],
-
+  providers: [],
 })
-export class RolesRoutingCoreModule { }
+export class RolesRoutingCoreModule {}
