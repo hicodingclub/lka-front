@@ -56,14 +56,15 @@
         <div class="pl-5">
             <h5>Option 1. Pay with Zelle(<i style="color: darkgreen">Zero transaction fee</i>)</h5>
             <div class="my-3 d-flex flex-column align-items-center">
-                <div>Zelle® is a fast, safe, easy and contact-free way to send and receive money. Look for Zelle in your bank accounts. Use Zelle to pay <b style="color: red">${{totalPrice.toFixed(2)}}</b> to the following account:</div>
-                <div>info.lkastaff@gmail.com</div>
+                <div>Please redirect to your own bank now to start Zelle® pay/transfer <b style="color: red">${{totalPrice.toFixed(2)}}</b> to the following account:</div>
+                <div class="pt-3">info.lkastaff@gmail.com</div>
             </div>
 
+            <!--
             <div class="text-center mb-3 mt-3">
                 <a class="btn btn-outline-primary" routerLink="/academics/classenroll/list">Done with Zelle Pay</a>
             </div>
-
+            -->
 
             <h5>Option 2. By check or other payment channels.</h5>
             <div class="my-3 d-flex flex-column align-items-center">
@@ -74,27 +75,36 @@
                     <div>Cupertino, CA 95014</div>
                 </div>
             </div>
-
+            <!--
             <div class="text-center mb-3 mt-3">
                 <a class="btn btn-outline-primary" routerLink="/academics/classenroll/list">I'll mail/drop off or pay with other channels.</a>
             </div>
-
+            -->
             <h5>Option 3. PayPal QR Code Pay: (<i style="color: red">1.9% transaction fee</i>)</h5>
             <div class="my-3 d-flex flex-column align-items-center">
                 <p class="pl-5"><i>Scan the following QR Code with PayPal app to pay <b style="color: red">${{paypalQRPrice.toFixed(2)}}</b></i></p>
                 <img style="width: 300px;" src="assets/images/LKA-Paypal-QRCode.png">
             </div>
+
+            <!--
             <div class="text-center mb-3 mt-3">
                 <a class="btn btn-outline-primary" routerLink="/academics/classenroll/list">Done with PayPal QR Code Pay</a>
             </div>
+            -->
             <!--p class="pl-5 small"><i><b>Note:</b>Starting Octobor 1, 2020, 1.9% additional transaction fee will incure and you payment total would be <b>${{paypalQRPrice.toFixed(2)}}</b></i></p -->
 
             <!--
             <h5>Option 4. Paypal Pay: (<i style="color: red">2.9% transaction fee</i>)</h5>
             <p class="pl-5"><i><b>Note:</b> 2.9% additional online transaction fee will incure. Your payment total would be: <b style="color: red;">${{onlinePrice.toFixed(2)}}</b></i></p>
             -->
+
+            <hr>
+            <div class="text-center my-5">
+                <a routerLink="/academics/classenroll/list">See your class enrollment after you complete the payment</a>
+            </div>
         </div>
     </div>
+
     <!-- Set up a container element for the button 
     <div class="mx-auto w-50" id="paypal-button-container"></div> -->
 
